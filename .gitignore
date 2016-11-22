@@ -59,6 +59,8 @@ settings.xml
 .iml
 
 .metadata/
+.myeclipse/
+.myumldata
 META-INF/
 # =========================
 # Operating System Files
@@ -106,3 +108,4 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+*.myumldata

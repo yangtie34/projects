@@ -1,0 +1,104 @@
+@charset "utf-8";
+/* CSS Document */
+.lgn-header {
+	padding:30px 0;
+	color:#41a158;
+	font-size:16px;
+}
+.lgn-br-rt {
+	/* border-right:1px solid #dfdfdf; */
+	display:inline-block;
+	padding-right:15px;
+	margin-right:15px;
+}
+.lgn-lh-40 {
+	line-height:40px;
+	font-size:13px;
+}
+.lgn-alink {
+	color:#999;
+}
+.lgn-footer {
+	padding:20px 0;
+	font-size:12px;
+	color:#999
+}
+.lgn-bg {
+	background: #e5e5e5;
+	text-align:center;
+	padding:60px 0;
+}
+.lgn-content {
+	background:url(../images/login-angle.png) center center no-repeat;
+	width:878px;
+	height:506px;
+	position:relative;
+	display:inline-block;
+}
+.lgn-ap {
+	position:absolute;
+	display:table;
+	border-radius:50%;
+}
+.lgn-ap .lgn-whlink ,.lgn-whlinks{
+	text-align: center;
+	border-radius:50%;
+	width:97px;
+	height:97px;
+	color:#fff;
+	font-size:18px;
+	padding-left:10px;
+	padding-right:10px;
+	line-height:24px;
+	display:table-cell;
+	vertical-align:middle;
+	outline:none;
+}
+.lgn-ap .lgn-whlink:hover {
+	background:#4c5664;
+	cursor:pointer;
+	text-decoration:none;
+}
+.lgn-whlink:focus {
+	text-decoration:none;
+}
+.lgn-ap-01 {
+	top:0px;
+	left:380px;
+	background-color:#ec7f76;
+}
+.lgn-ap-02 {
+	top:55px;
+	left:130px;
+	background-color:#ea7c9e;
+}
+.lgn-ap-03 {
+	top:170px;
+	left:0;
+	background-color:#af8ec3;
+}
+.lgn-ap-04 {
+	bottom:85px;
+	left:165px;
+	background-color:#73be72;
+}
+.lgn-ap-05 {
+	bottom:0px;
+	left:385px;
+	background-color:#95be5b;
+}
+.lgn-ap-06 {
+	bottom:45px;
+	right:180px;
+	background-color:#c5ab43;
+}
+.lgn-ap-07 {
+	bottom:185px;
+	right:0;
+	background-color:#eb9d38;
+}
+.lgn-ap-08 {
+	top:50px;
+	right:210px;
+	background-color:#f08c49;
+}

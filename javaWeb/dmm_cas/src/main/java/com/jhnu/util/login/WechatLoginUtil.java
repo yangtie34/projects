@@ -1,0 +1,67 @@
+package com.jhnu.util.login;
+
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import com.jhnu.cas.entity.LoginResultBean;
+import com.jhnu.cas.entity.User;
+import com.jhnu.util.catche.MacForPassCache;
+import com.jhnu.util.common.IpMacUtil;
+import com.jhnu.util.common.PasswordHelperUtil;
+
+public class WechatLoginUtil {
+	
+	public static LoginResultBean checkLogin(String username,String password,JdbcTemplate jdbcTemplate,HttpServletRequest resquest){
+		
+		LoginResultBean lrb = CommonLoginUtil.checkUserName(username,jdbcTemplate);
+		if(!lrb.getIsTrue()){
+			return lrb;
+		}
+		
+		User user=(User)lrb.getObject();
+		lrb=checkPassword(user,password);
+		if(!lrb.getIsTrue()){
+			return lrb;
+		}
+		
+    	lrb=CommonLoginUtil.checkIsTrue(user);
+    	if(!lrb.getIsTrue()){
+    		return lrb;
+		}
+		
+		return lrb;
+	}
+	
+	private static LoginResultBean checkPassword(User user,String password){
+		String errormsg="";
+		String username=user.getUsername();
+		LoginResultBean jrb=new LoginResultBean();
+		String ip=IpMacUtil.getIp();
+		if(MacForPassCache.isFreeze(ip, username)){
+			Map<String,Long> usermap=MacForPassCache.getFreezeInfo(ip, username);
+			errormsg="暂处于冻结状态！请于"+usermap.get("secs")+"分钟后再次登陆！如忘记密码，请联系管理员";
+			jrb.setTrue(false);
+		}else if(!user.getPassword().equals(getSaltPassword(username+user.getSalt(), password))){
+			MacForPassCache.setFreeze(ip, username);
+			Map<String,Long> usermap=MacForPassCache.getFreezeInfo(ip, username);
+			errormsg="密码错误！错误次数"+usermap.get("cs")+",请核对后修改！";
+			jrb.setTrue(false);
+		}else{
+			MacForPassCache.moveFreeze(ip, username);
+		}
+		jrb.setErrorMas(errormsg);
+		return jrb;
+	}
+	
+	private static String getSaltPassword(String UserNameSalt,String password) {
+		if (password.endsWith("_external") && password.length() > 9) {
+			return password.replace("_external", "");
+		}else{
+			return PasswordHelperUtil.simpleEncryptPassword(UserNameSalt,password);
+		}
+	}
+
+}

@@ -1,0 +1,130 @@
+@charset "utf-8";
+/* CSS Document */
+ .login-header a, .login-footer a {
+	text-decoration:none;
+	color:#848585;
+	font-size:12px;
+}
+.login-header a:hover, .login-footer a:hover {
+	color:#666;
+}
+.login-header {
+	width:900px;
+	margin:0 auto;
+	height:50px;
+	position:relative;
+	margin-top:50px;
+	margin-bottom:10px;
+}
+.login-header-infor {
+	color:#41a158;
+	font-weight:bold;
+	background:url(../../images/login/shuju.png) left center no-repeat;
+	 height: 40px;
+    margin-left: 10px;
+    overflow: hidden;
+    text-indent: -1999px;
+    width: 151px;
+	display:inline-block
+}
+a.login-header-infor {
+	font-size:16px;
+	color:#41a158;
+}
+a.login-header-infor:hover {
+	color:#41a158;
+}
+.login-bgcolor {
+	/* background:#dcf0ec; */
+	height:390px;
+	 background: url(images/login/bg.jpg) center center no-repeat;
+}
+.sd-content {
+    position: relative;
+    background: url(images/login/banner.jpg) center center no-repeat;
+  	height:600px;
+	width:900px;
+	margin:0 auto;
+}
+.login-bg {
+	/* background:#dcf0ec; */
+	height:300px;
+	width:900px;
+	margin:0 auto;
+	position:relative;
+}
+.login-windows {
+	position:absolute;
+	top:30%;
+	right:0;
+	width:298px;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	background-color:rgba(255, 255, 255, 0.8);
+	padding:40px;
+	border-radius:5px;
+    /*box-shadow:*/
+}
+.login-windows input {
+	width:240px;
+	height:40px;
+	line-height:40px;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	padding-left: 32px;
+	padding-top: 2px;
+	border:1px solid #c5c6c6;
+	border-radius:5px;
+	margin-bottom:20px;
+	font-family:'microsoft yahei';
+}
+.login-windows input.login-zhanghao {
+	background:url(../../images/login/zhanghao.png) 10px center no-repeat #fff;
+}
+.login-windows input.login-mima {
+	background:url(../../images/login/mima.png) 10px center no-repeat #fff;
+}
+.login-button {
+	background-color: #17a07b;
+	display: inline-block;
+	font-size: 18px;
+	font-weight: 700;
+	height: 42px;
+	line-height: 40px;
+	outline: 0 none;
+	padding: 0;
+	text-align: center;
+	vertical-align: baseline;
+	width: 244px;
+	border-radius:5px;
+	color:#fff;
+	text-decoration:none;
+	font-weight:normal; 
+}
+.login-button:hover{background-color: #1dbb90;}
+.login-footer {
+	width:900px;
+	margin:0 auto;
+	height:60px;
+	font-size:12px;
+	color:#848585;
+	line-height:60px;
+	vertical-align:middle
+}
+.login-footer a {
+	display:inline-block;
+	margin-top:20px;
+}
+.login-footer nav {
+	float:right
+}
+.login-header h3 {
+	display:inline-block;
+	margin:0;
+	padding:0
+}
+.login-header nav {
+	top:20px;
+	right:0px;
+	position:absolute;
+}

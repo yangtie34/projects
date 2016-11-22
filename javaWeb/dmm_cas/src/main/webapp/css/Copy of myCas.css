@@ -1,0 +1,80 @@
+.viewport {
+	position: relative;
+	overflow: hidden;
+	height: 145px
+}
+
+.viewport ul {
+	*zoom: 1
+}
+
+.viewport ul:after {
+	content: '\0020';
+	display: block;
+	height: 0;
+	font-size: 0;
+	clear: both;
+	overflow: hidden;
+	visibility: hidden
+}
+
+.viewport ul .category {
+	position: relative;
+	float: left;
+	overflow: hidden;
+	margin-right: 20px;
+	border: 1px solid #e2e2e2
+}
+
+.viewport ul .category a {
+	display: block;
+	padding: 20px;
+	width: 238px;
+	height: 103px
+}
+
+.viewport ul .category a:hover {
+	text-decoration: none
+}
+
+.viewport ul .category a img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	width: 278px;
+	height: 143px
+}
+
+.viewport ul .category a .category_tit {
+	position: relative;
+	margin-top: -4px;
+	line-height: 30px;
+	font-size: 22px;
+	color: #222
+}
+
+.viewport ul .category a .category_des {
+	position: relative;
+	overflow: hidden;
+	margin-top: 10px;
+	height: 36px;
+	font-size: 12px;
+	color: #888
+}
+
+.viewport ul .category a .category_lnk {
+	dirsplay: block;
+	position: absolute;
+	left: 20px;
+	bottom: 20px;
+	font-size: 14px;
+	color: #666;
+	text-decoration: none;
+	border-bottom: 1px solid #bdbdbd
+}
+
+.viewport ul .category a .category_lnk:hover {
+	color: #338de6;
+	border-color: #338de6
+}

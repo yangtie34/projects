@@ -1,0 +1,232 @@
+@charset "utf-8";
+/* CSS Document */ 
+body {
+	margin:0;
+	font-family:'microsoft yahei';
+}
+a:focus {
+	outline:none
+}
+.login-header a, .login-footer a {
+	text-decoration:none;
+	color:#848585;
+	font-size:14px;
+}
+.login-header a:hover, .login-footer a:hover {
+	color:#666;
+}
+.login-header {
+	margin:10px auto 20px;
+	height:50px;
+	position:relative;
+}
+.login-mar-t50 {
+	margin-top:50px;
+}
+.login-header-infor {
+	color:#41a158;
+	font-weight:bold;
+	line-height: 51px;
+	margin-left: 15px;
+	overflow: hidden;
+	display:inline-block;
+	vertical-align:middle;
+}
+a.login-header-infor {
+	font-size:24px;
+	color:#6c83ae;
+}
+a.login-header-infor:hover {
+	color:#6c83ae;
+}
+.login-bgcolor {
+	background:url(../img/bg-line.jpg) repeat;
+	height:600px;
+}
+.login-bg {
+	height:600px;
+	width:900px;
+	margin:0 auto;
+	position:relative;
+}
+.login-windows {
+	position:absolute;
+	top:30%;
+	right:0;
+	width:298px;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	background-color:rgba(255, 255, 255, 0.95);
+	padding:28px;
+	border-radius:10px;
+	box-shadow:-2px 2px 5px #677ba4;
+}
+.login-windows input {
+	width:240px;
+	height:40px;
+	line-height:40px;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	padding-left: 52px;
+	padding-top: 2px;
+	border:1px solid #caccfc;
+	border-radius:5px;
+	margin-bottom:20px;
+	font-family:'microsoft yahei';
+	position:relative;
+}
+.login-windows input:-moz-placeholder, .login-windows input::-moz-placeholder, .login-windows input::-webkit-input-placeholder, .login-windows input:-ms-input-placeholder {
+color:#bdcff1;
+}
+.login-windows input:focus {
+	box-shadow:0px 0px 3px 1px #b7bafc;
+	border:1px solid #b7bafc
+}
+.login-windows input.login-zhanghao {
+	background:url(../img/zhanghao.png) 10px center no-repeat #fff;
+}
+.login-windows input.login-mima {
+	background:url(../img/mima.png) 10px center no-repeat #fff;
+}
+.login-button {
+	background-color: #738dc6;
+	display: inline-block;
+	font-size: 18px;
+	font-weight: 700;
+	height: 42px;
+	line-height: 40px;
+	outline: 0 none;
+	padding: 0;
+	text-align: center;
+	vertical-align: baseline;
+	width: 244px;
+	border-radius:5px;
+	color:#fff;
+	text-decoration:none;
+	font-weight:normal;
+}
+.login-button:hover {
+	background-color: #587ac4;
+}
+.login-footer {
+	padding: 30px 0;
+	font-size: 12px;
+	color: #999;
+	text-align:center;
+}
+.login-header h3 {
+	display:inline-block;
+	margin:0;
+	padding:0;
+	border-right:1px solid #959595;
+	padding-right:20px;
+	vertical-align:middle;
+}
+.login-header h3 img {
+	vertical-align:inherit;
+}
+.login-header nav {
+	top:20px;
+	right:0px;
+	position:absolute;
+}
+/*系统选择*/
+.mu-img-bg {
+	padding-top:120px;
+	color:#585858;
+	font-size:18px;
+	text-align:center;
+}
+.mu-img-personal {
+	background:url(../img/img01.png) center top no-repeat;
+}
+.mu-img-hr {
+	background:url(../img/img02.png) center top no-repeat;
+}
+.mu-img-xg {
+	background:url(../img/img03.png) center top no-repeat;
+}
+.mu-img-yx {
+	background:url(../img/img04.png) center top no-repeat;
+}
+.mu-img-hq {
+	background:url(../img/img05.png) center top no-repeat;
+}
+.mu-img-kdperson {
+	background:url(../img/img06.png) center top no-repeat;
+}
+.mu-img-ht {
+	background:url(../img/img07.png) center top no-repeat;
+}
+.mu-img-jw {
+	background:url(../img/img08.png) center top no-repeat;
+}
+.mu-img-teaching {
+	background:url(../img/img09.png) center top no-repeat;
+}
+.mu-img-research {
+	background:url(../img/img09.png) center top no-repeat;
+}
+.mu-img-position{
+	background:url(../img/img09.png) center top no-repeat;
+}
+.mu-list {
+	margin:80px 0
+}
+.mu-list .row {
+	border-top:1px solid #f0f0f0;
+}
+.mu-list .row:first-child {
+	border:none
+}
+.mu-list .col-xs-3 {
+	padding: 45px 0;
+	position:relative;
+}
+.mu-list .col-xs-3 {
+	border-left:1px solid #f0f0f0;
+}
+.mu-list .col-xs-3:last-child {
+	border-right:1px solid #f0f0f0;
+}
+.mu-list .col-xs-3:before {
+	content:"";
+	z-index:2;
+	display:block;
+	position:absolute;
+	bottom:-22px;
+	right:-22px;
+	border-radius:50%;
+	width:44px;
+	height:44px;
+	background:#fff;
+}
+.mu-list .row:first-child .col-xs-3:after {
+	content:"";
+	z-index:2;
+	display:block;
+	position:absolute;
+	bottom:-22px;
+	left:-22px;
+	border-radius:50%;
+	width:44px;
+	height:44px;
+	background:#fff;
+}
+.mu-list .col-xs-3:first-child:after {
+	content:"";
+	z-index:2;
+	display:block;
+	position:absolute;
+	bottom:-22px;
+	left:-22px;
+	border-radius:50%;
+	width:44px;
+	height:44px;
+	background:#fff;
+}
+.mu-list .row:last-child .col-xs-3:before, .mu-list .row:last-child .col-xs-3:first-child:after {
+	width:0;
+	height:0;
+}
+/*系统选择*/

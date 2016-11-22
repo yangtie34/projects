@@ -1,0 +1,35 @@
+/*
+*该样式表为‘评教研发组’绑定静态页面时，根据需要自定义样式表
+*/
+@charset "utf-8";
+/*按钮不可用*/
+.button-disabled {
+	color: #ddd;
+	cursor: not-allowed !important;
+}
+/*模拟复选框选中样式*/
+.yf-checkbox-selected{
+	background:url(../image/xuanze.png) center center no-repeat !important;
+}
+/*模拟复选框未选中样式*/
+.yf-checkbox-no-selected{
+	background:url(../image/weixuanze.png) center center no-repeat !important;
+}
+/*分页控件样式*/
+.yf-page{
+	margin:0px !important;
+}
+/*下拉框样式*/
+.yf-select{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+/*pingjiao-xs-user-down/up的占位样式*/
+.yf-pingjiao-xs-user-no {
+	float:right;
+	display:inline-block;
+	width:16px;
+	height:50px;
+	margin-left:150px;
+}

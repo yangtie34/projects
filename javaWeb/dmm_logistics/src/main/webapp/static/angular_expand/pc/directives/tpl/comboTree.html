@@ -1,0 +1,17 @@
+<div class="clearfix" style="color: #6b6b6b;" >
+       	<div class="forterm" ng-repeat="st in selectTree track by $index" style="padding-right:5px;">
+			<ul class="tree-list1">
+			    <li cg-tree="node in children of st" class="sdfsf">
+			      <a href="javascript:void(0);"  title="{{node.mc}}" ng-class="{'tree-list-leaf-icon': !node.children,'tree-list-folder-icon':node.children.length >0}" 
+			     	 ng-click="cgComboTreeNodeClick(node)">
+			      	<span title="{{node.mc}}">{{node.mc}}</span>
+			      </a>
+			      <ul class="tree-list2" ng-show="node.children.length &gt; 0">
+			      	<li cg-treecurse></li> 
+			      </ul>
+			    </li>
+				<span ng-show="selectTree.length != ($index+1)">&gt;</span>
+		    </ul>
+		</div>
+</div>
+

@@ -1,0 +1,31 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0" ng-init="weeks=['一','二','三','四','五','六','日'];">
+ <thead>
+ <tr>
+    <th scope="col" width="5%">&nbsp;</th>
+    <th scope="col" width="13%" ng-repeat="item in weeks" ng-class="$index>4?'text-green':''">周{{item}}</th>
+  </tr>
+</thead>
+  <tbody>
+<tr ng-repeat="items in data">
+    <th scope="row">{{items.title}}</th>
+    <td ng-repeat="item in items.list">
+    <table width="100%" class="jiaozhi-kecheng-table" border="0" cellspacing="0" cellpadding="0">
+  <tr ng-repeat="ite in item track by $index" ng-show="ite!=null"rowspan="{{ite.leng}}">
+    <td ng-show="ite!=''" >
+   <div class="jiaozhi-kecheng-box">
+   <div class="jiaozhi-kecheng-two-cell">
+   <p>{{ite[kbkeys[0]]}}</p>
+	<p>{{kbsjmap[ite[kbkeys[3]]]}}:00~{{kbsjmap[ite[kbkeys[3]]]+1}}:50</p>
+<p>{{ite[kbkeys[1]]}}</p> 
+<p>
+<a class="jiaozhi-alink-under" title="软件2班，软件3班，软件4班，软件5班，软件6班" href="#">{{ite[kbkeys[1]]}}</a>
+</p>
+</div></div>
+</td>
+<td ng-show="ite==''">&nbsp;</td>
+</tr>
+</table>
+</td>
+  </tr>
+</tbody>
+</table>

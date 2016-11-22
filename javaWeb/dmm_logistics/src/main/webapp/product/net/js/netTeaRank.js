@@ -1,4 +1,4 @@
-app.controller("netStuRankController", [ "$scope","dialog",'mask','$timeout','http','timeAlert','exportPage',function(scope,dialog,mask,timeout,http,timeAlert,exportPage) {
+app.controller("netTeaRankController", [ "$scope","dialog",'mask','$timeout','http','timeAlert','exportPage',function(scope,dialog,mask,timeout,http,timeAlert,exportPage) {
 	var vm = scope.vm = {};
 	  vm.items = [];
 	  scope.page = {
@@ -10,7 +10,7 @@ app.controller("netStuRankController", [ "$scope","dialog",'mask','$timeout','ht
 	 	};
 
 	  var htt=[];
-	  var httservice="netStuWarnService?"; //学生上网预警
+	  var httservice="netTeaRankService?"; //学生上网预警
 	  var methods=[	
 	        	'getNetWarnStus',					//0获取预警人员
 	        	'getNetStuType',		//1预警人员分类型展示
@@ -25,62 +25,13 @@ var getServiceData=function(){
 	 }
 };
 getServiceData();
+scope.type='flow';
+scope.flowOrtimeClick=function(flowtime){
+	scope.type=flowtime;
+}
 	scope.titlesCode="STU_ID,STU_NAME,SEX_NAME,DEPT_NAME,MAJOR_NAME,CLASS_NAME,EDU_NAME,NATION_NAME,ALL_TIME,ALL_FLOW,ALL_MONEY".split(',');
 	scope.titles="学号,学生,性别,学院,专业,班级,学历,民族,时长(分),流量(MB),金额(元)".split(',');
-//下钻
-scope.getxqlb=function(i){
-	var params=[];
-	var title='';
-	var titles='';var titlesCode='';
-	if(i==2){
-		params=[scope.page.currentPage || 1,
-		         scope.page.numPerPage || 10,0,
-		         startTime,endTime,deptTeach,scope.netType,scope.value,scope.codeType,scope.codeValue];
-		title='按类型获取预警人员信息';
-		titles=scope.titles;
-		titlesCode=scope.titlesCode;
-	}
-	var query=function(pg){
-		htt[i].params=params;
-	 if(pg.exportExcel){
-		 var invoke=angular.copy(htt[i]);
-		 invoke.params[0]=1;
-		 invoke.params[1]=pg.totalRows;
-		 return{
-			 invoke:invoke,
-			 title:title,
-			 titles:titles,
-			 titleCodes:titlesCode
-		 }
-	 }
-	  http.callService(htt[i]).success(function(d){
-		  d.title=title+'详情列表';
-		  d.titles=titles;
-		  d.titlesCode=titlesCode;
-		  d.func=query;
-		  scope.pagexq=angular.copy(d);
-	  });
-	};
-	scope.pagexq={func:query};
-}	  
-
-scope.exportExcel=function(){
-	 mask.showLoading();
-var invoke=angular.copy(htt[0]);
-invoke.params[0]=1;
-invoke.params[2]=scope.page.totalRows;
-var ex={
-	 invoke:invoke,
-	 title:'预警人员信息',
-	 titles:scope.titles,
-	 titleCodes:scope.titlesCode
-}
-mask.hideLoading(); 
-exportPage.callService(ex).success(function(ret){
-	
-})
-
-}
+	  
 var getDeptData=function(method){
 http.callService({
 	  service:'deptTreeService?get'+method,

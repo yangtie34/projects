@@ -8,30 +8,47 @@
 <head>
 <jsp:include page="../../static/base.jsp"></jsp:include>
 <meta charset="UTF-8">
-<title>教师账号预警</title>
-<link rel='stylesheet'
-	href='${ctx}/static/framework/bootstrap-table-demo/bootstrap-table/bootstrap-table.css' />
-<script
-	src='${ctx}/static/framework/bootstrap-table-demo/bootstrap-table/bootstrap-table.js'></script>
-<script
-	src='${ctx}/static/framework/bootstrap-table-demo/bootstrap-table/bootstrap-table-export.js'></script>
-<script
-	src='${ctx}/static/framework/bootstrap-table-demo/extends/tableExport/jquery.base64.js'></script>
-<script
-	src='${ctx}/static/framework/bootstrap-table-demo/extends/tableExport/tableExport.js'></script>
+<title>教师上网排名</title>
 </head>
-<body ng-controller="netStuRankController">
+<body ng-controller="netTeaRankController">
 	<div id="wrapper">
 		<%-- <jsp:include page="../../product/left.jsp"></jsp:include> --%>
 		<script type="text/javascript"
-			src="${ctx }/product/net/js/netTeaWarn.js"></script>
+			src="${ctx }/product/net/js/netTeaRank.js"></script>
 
 		<div class="content">
 			<div class="xscz-head content_head">
-				<h3 class="xscz-fff">教师账号预警</h3>
-				<p class="xscz-default">对学校教师上网账号异常情况进行预警。(注:异常系数越大代表账号的的异常情况越大;工作时间为周一到周五8:00-20:00;公共ip指教师和学生都有登陆的ip,非公共ip只有教师登陆。)</p>
+				<h3 class="xscz-fff">教师上网排名</h3>
+				<p class="xscz-default">对学校教师上网记录进行统计排名</p>
 			</div>
 			<div class="content_main">
+			            	<div class="jieyuepm_section">
+                    	<div class="richangpm">
+                        	<div class="fr">
+                                <img src="${images}/books_images/border_blue_top.png" class="img-top" ng-show="!ndrypm">
+                                <img src="${images}/border_15.png" class="img-top" ng-show="ndrypm">
+                                <div ng-class="ndrypm?'xuanzhong_no':'xuanzhong'" ng-click="ndrypm=false;flowOrtimeClick('flow');">
+                                	<a href=""><div id="liub"><h4>按流量</h4></div></a>
+                                </div>
+                                <img src="${images}/books_images/border_blue_bottom.png" class="img-top" ng-show="!ndrypm">
+                                <img src="${images}/border_18.png" class="img-top" ng-show="ndrypm">
+                                <p class="triangle_down" ng-show="!ndrypm"></p>
+                            </div>      
+                        </div>
+                        <div class="niandupm">
+                        	<div class="fl">
+                                 <img src="${images}/books_images/border_blue_top.png" class="img-top" ng-show="ndrypm">
+                                <img src="${images}/border_15.png" class="img-top" ng-show="!ndrypm">
+                                <div ng-class="!ndrypm?'xuanzhong_no':'xuanzhong'" ng-click="ndrypm=true;flowOrtimeClick('time');">
+                                	<a href=""><div id="liub"><h4>按时长</h4></div></a>
+                                </div>
+                                   <img src="${images}/books_images/border_blue_bottom.png" class="img-top" ng-show="ndrypm">
+                                <img src="${images}/border_18.png" class="img-top" ng-show="!ndrypm">
+                                 <p class="triangle_down" ng-show="ndrypm"></p>
+                            </div>
+                        </div>
+                    </div>
+                    
 					<div class="booksjy_top_imges">
 
 						<div class="clearfix"></div>
@@ -48,7 +65,7 @@
 						    padding-bottom: 0px;
 						        border-bottom: 1px solid #7a8aa3;
 						">
-									<h4 >教师账号预警名单&nbsp;<a style="font-size: 12px; margin-left: 10px; position: absolute; margin-top: 10px;" href="" ng-click="qsDiv=true" class="xscz-default">查看分析模型</a></h4>
+									<h4 >教师上网{{type}}排名</h4>
 								</div>
 								
 				<div cg-report-table resource="tableData"
@@ -58,25 +75,6 @@
 			<div class="clearfix"></div>
 		</div>
 </body>
- <div cs-window show="qsDiv" autoCenter="true" offset="offset" title="'决策树模型'" >
- <div style="    height: 500px;
-    width: 930px;
-    overflow-x: auto;
-    overflow-y: auto;">
-<div style="margin-left: 10px;">
-<span class="xscz-default">参数说明：</span><br>
-<span class="xscz-default">WP：工作时间公共ip登陆次数;<br>OWP：非工作时间公共ip登陆次数;<br>WNP：工作时间内非公共ip登陆次数;<br>OWNP：非工作时间非公共ip登陆次数;</span><br>
-<span class="xscz-default">1：异常;<br>2：正常;<br>3：登陆次数较少。</span><br><br>
 
-<span class="xscz-default">验证规则：</span><br>
-<span class="xscz-default">WNP<21.5 & WP>=33.5 ==>账号异常</span><br>
-<span class="xscz-default">WNP>=21.5 & WP>=42==>账号异常</span><br>
-<span class="xscz-default">WNP< 21.5 & WP< 33.5 & OWP>=17.5==>账号异常</span><br><br>
-<span class="xscz-default">决策树模型：</span><br>
-</div>
-<span></span>
-	<img alt="决策树模型" src="${ctx }/product/net/netTeaWarnFxModle.png">
-	</div>
- </div>
  <div cg-combo-xz data="pageXq" type=''></div>
 </html>

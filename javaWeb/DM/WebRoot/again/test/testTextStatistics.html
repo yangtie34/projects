@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css">
+    <link rel="stylesheet" type="text/css" href="../../jsp/portal/css/myCenter.css">
+    <link rel="stylesheet" type="text/css" href="../../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../../base/output/css/output.css">
+    <script src="data/data.js"></script>
+    <script src="../../base1/util/LAB.min.js"></script>
+    <script src="../../extjs/ext-all.js"></script>
+    <script src="../ns-debug.js"></script>
+    <!--<script src="../../again/component/appExpand/DateSection.js"></script>-->
+    <script type="text/javascript">
+ 	Ext.onReady(function(){
+ 		var arraydata = [];
+ 		var obj = {
+					height:"90",
+					width:"100%",
+					htmlstring :"上述变更数据，已同步数据节点 {0} 处，被动同步数据节点数 {1} 处，未完成同步数据节点数 {2} 处。", 
+		            items : [
+		            	{ text : '286', params : { name : 'zhangsan', age : 12 } }, 
+		            	{ text :'224', params : { name : 'lisi', age : 12 } },
+		            	{ text :'156', params : { name : 'lisi', age : 12 } }
+		            ] 
+ 		}
+ 		var obj2 = [{
+	 		index : 0,
+	 		text :"289"
+		},{
+			index : 1,
+			text : "aa"
+		}]
+ 		var text = new NS.appExpand.TextStatistics(obj);
+ 		text.addListener('linkclick',function(params,text){
+ 			alert(params+text);
+ 		});
+ 		/* var panel = new Ext.panel.Panel({
+ 			title:'测试面板',
+ 			items:[text.component],
+ 			renderTo:Ext.get('nsTree')
+ 		}); */
+ 		text.render("nsTree");
+ 		text.refreshByIndex(obj2);
+         var dateSection = new NS.appExpand.DateSection({});
+//         dateSection.render("dateSection");
+
+         dateSection.addListener('validatepass',function(){
+             alert(dateSection.getRawValue().fromDate+'至'+dateSection.getRawValue().toDate);
+         },this);
+
+         var combobox1 = new NS.form.field.ComboBox({
+             fieldLabel:'起始周',
+             width:120,
+             labelWidth:40,
+             data:[{id:1,mc:'1'},{id:2,mc:'2'}]
+         });
+         var combobox2 = new NS.form.field.ComboBox({
+             fieldLabel:'结束周',
+             width:120,
+             labelWidth:40,
+             data:[{id:1,mc:'1'},{id:2,mc:'2'}]
+         });
+
+         var compoSection = new NS.appExpand.CompoSection({
+             fromCompo:combobox1,
+             toCompo:combobox2
+         });
+
+//         compoSection.render('compo3');
+         compoSection.addListener('validatepass',function(){
+             alert(compoSection.getRawValue().from+'至'+compoSection.getRawValue().to);
+         },this);
+
+         var radioGroup = new NS.appExpand.RadioGroup({
+             items:[{
+                 radioGroupName:'aa',
+                 radioKey:'compo1',
+                 width:300,
+                 compo:compoSection,
+                 checked:true// 默认选中
+             },{
+                 radioGroupName:'aa',
+                 radioKey:'compo2',
+                 width:300,
+                 compo:dateSection
+             }]
+         });
+
+         radioGroup.render('compo4');
+ 	});
+	     
+    </script>
+</head>
+<body>
+	<div class="portal-news" style="width: 400;float:left">
+		<a href="#" style="font-size: large;">功能</a>
+		<ul>
+			<li>统计文本组件。</li>
+		</ul>
+		<a href="#" style="font-size: large;">接口</a>
+		<ul>
+			<li>1.refresh() return void重新刷新统计文本组件。</li>
+			<li>2.render(id) return void将组件渲染到响应的dom节点上</li>
+			<li>3.refreshByIndex(id) void刷新相应下标下的连接的显示数据。</li>
+			
+		</ul>
+		<a href="#" style="font-size: large;">事件</a>
+		<ul>
+			<li>1.linkclick 连接点击事件</li>
+		</ul>
+	</div>
+	<div id="nsTree" style="float: left"></div><br>
+    <div id="dateSection" style="float: left"></div>
+    <div id="compo1" style="float: right"></div>
+    <div id="compo2" style="float: right"></div>
+    <div id="compo3" style="float: right"></div>
+    <div id="compo4" style="float: left"></div>
+</body>
+</html>

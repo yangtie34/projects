@@ -1,0 +1,57 @@
+<div style="font-size: 20px;font-weight: bold;font-family: '黑体';text-align: center;">{xn}学年</div>
+<div>
+	<table class="jxpg-common-table">
+		<tr>
+			<td rowspan="3" class="title" style="width: 60px;">序号</td>
+			<td rowspan="3" class="title" style="width: 150px;">专业</td>
+			<td colspan="6" class="title">毕业综合训练</td>
+		</tr>
+		<tr>
+			<td rowspan="2" class="title">课题数</td>
+			<td rowspan="2" class="title">在实验、实习、工程实践和社会调查等社会实践中完成数 </td>
+			<td rowspan="2" class="title">比例（%）</td>
+			<td colspan="2" class="title">指导教师数</td>
+			<td rowspan="2" class="title" style="width: 80px;">每名教师平均指导毕业生数</td>
+		</tr>
+		<tr>
+			<td class="title">专任教师</td>
+			<td class="title">外聘教师</td>
+		</tr>
+		<tpl for="items">
+			<tr>
+				<td>{[xindex]}</td>
+				<td>{ZYMC}</td>
+				<td>
+					<span class="realvalue">{KTS_T}</span>
+					<span class="value" code="KTS_F" rowid="{ID}" type="itemvalue">{KTS_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{WCS_T}</span>
+					<span class="value" code="WCS_F" rowid="{ID}" type="itemvalue">{WCS_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{BL_T}</span>
+					<span class="value_unedit" code="BL_F" rowid="{ID}" >{BL_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{ZRJS_T}</span>
+					<span class="value" code="ZRJS_F" rowid="{ID}" type="itemvalue">{ZRJS_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{WPJS_T}</span>
+					<span class="value" code="WPJS_F" rowid="{ID}" type="itemvalue">{WPJS_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{ZDBYSS_T}</span>
+					<span class="value" code="ZDBYSS_F" rowid="{ID}" type="itemvalue">{ZDBYSS_F}</span>
+					<div></div>
+				</td>
+			</tr>
+		</tpl>
+	</table>
+</div>

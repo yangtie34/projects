@@ -1,0 +1,168 @@
+<div style="font-size: 20px;font-weight: bold;font-family: '黑体';text-align: center;">{xn}学年</div>
+<div>
+    <table class="jxpg-common-table">
+        <tr>
+            <td class="title" rowspan="3" width="80"></td>
+            <td class="title" rowspan="3" width="80">总计</td>
+            <td class="title" colspan="3" rowspan="2">职称</td>
+            <td class="title" colspan="3" rowspan="2">学位</td>
+            <td class="title" colspan="4" rowspan="2">年龄</td>
+            <td class="title" colspan="3">学缘</td>
+        </tr>
+        <tr>
+            <td class="title" rowspan="2">本校</td>
+            <td class="title" colspan="2">外校</td>
+        </tr>
+        <tr>
+            <td class="title">正高级</td>
+            <td class="title">副高级</td>
+            <td class="title">其他</td>
+            <td class="title">博士</td>
+            <td class="title">硕士</td>
+            <td class="title">其他</td>
+            <td class="title">35岁以下</td>
+            <td class="title">36|45</td>
+            <td class="title">46|55</td>
+            <td class="title">56岁以上</td>
+            <td class="title">境内</td>
+            <td class="title">境外</td>
+        </tr>
+        <tpl for="items">
+         <tpl if="DM=='SL'">
+        <tr>
+            <td>数量</td>
+            <td>
+                <span class="realvalue">{ZJ_T}</span>
+                <span class="value_unedit">{ZJ_F}</span>
+            </td>
+            <td>
+                <span class="realvalue">{ZCZGJ_T}</span>
+                <span code="ZCZGJ_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{ZCZGJ_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span class="realvalue">{ZCFGJ_T}</span>
+                <span code="ZCFGJ_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{ZCFGJ_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span class="realvalue">{ZCQT_T}</span>
+                <span code="ZCQT_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{ZCQT_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span class="realvalue">{XWBS_T}</span>
+                <span code="XWBS_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{XWBS_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span class="realvalue">{XWSS_T}</span>
+                <span code="XWSS_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{XWSS_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span class="realvalue">{XWQT_T}</span>
+                <span code="XWQT_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{XWQT_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span class="realvalue">{N35_T}</span>
+                <span code="N35_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{N35_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span class="realvalue">{N36_45_F}</span>
+                <span code="N36_45_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{N36_45_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span class="realvalue">{N46_55_F}</span>
+                <span code="N46_55_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{N46_55_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span class="realvalue">{N56_T}</span>
+                <span code="N56_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{N56_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span class="realvalue">{BX_T}</span>
+                <span code="BX_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{BX_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span class="realvalue">{JN_T}</span>
+                <span code="JN_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{JN_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span class="realvalue">{JW_T}</span>
+                <span code="JW_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{JW_F}</span>
+                <div></div>
+            </td>
+        </tr>
+         </tpl>
+         <tpl if="DM=='BL'">
+        <tr>
+            <td>比例（%）</td>
+            <td>
+                <span class="realvalue">{ZJ_T}</span>
+                <span class="value_unedit">{ZJ_F}</span>
+            </td>
+            <td>
+                <span class="realvalue">{ZCZGJ_T}</span>
+                <span class="value_unedit">{ZCZGJ_F}</span>
+            </td>
+            <td>
+                <span class="realvalue">{ZCFGJ_T}</span>
+                <span class="value_unedit">{ZCFGJ_F}</span>
+            </td>
+            <td>
+                <span class="realvalue">{ZCQT_T}</span>
+                <span class="value_unedit">{ZCQT_F}</span>
+            </td>
+            <td>
+                <span class="realvalue">{XWBS_T}</span>
+                <span class="value_unedit">{XWBS_F}</span>
+            </td>
+            <td>
+                <span class="realvalue">{XWSS_T}</span>
+                <span class="value_unedit">{XWSS_F}</span>
+            </td>
+            <td>
+                <span class="realvalue">{XWQT_T}</span>
+                <span class="value_unedit">{XWQT_F}</span>
+            </td>
+            <td>
+                <span class="realvalue">{N35_T}</span>
+                <span class="value_unedit">{N35_F}</span>
+            </td>
+            <td>
+                <span class="realvalue">{N36_45_F}</span>
+                <span class="value_unedit">{N36_45_F}</span>
+            </td>
+            <td>
+                <span class="realvalue">{N46_55_F}</span>
+                <span class="value_unedit">{N46_55_F}</span>
+            </td>
+            <td>
+                <span class="realvalue">{N56_T}</span>
+                <span class="value_unedit">{N56_F}</span>
+            </td>
+            <td>
+                <span class="realvalue">{BX_T}</span>
+                <span class="value_unedit">{BX_F}</span>
+            </td>
+            <td>
+                <span class="realvalue">{JN_T}</span>
+                <span class="value_unedit">{JN_F}</span>
+            </td>
+            <td>
+                <span class="realvalue">{JW_T}</span>
+                <span class="value_unedit">{JW_F}</span>
+            </td>
+        </tr>
+        </tpl>
+        </tpl>
+    </table>
+</div>

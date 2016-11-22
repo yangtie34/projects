@@ -1,0 +1,57 @@
+<div style="font-size: 20px;font-weight: bold;font-family: '黑体';text-align: center;">{xn}学年</div>
+<div>
+	<table class="jxpg-common-table">
+		<tr>
+		    <td class="title" width="60">序号</td>
+		    <td class="title" width="150">单位</td>
+		    <td class="title">本科专业数</td>
+		    <td class="title">博士后流动站数</td>
+		    <td class="title">博士学位授权一级学科点</td>
+		    <td class="title">博士学位授权二级学科点（不含一级学科点）</td>
+		    <td class="title">硕士学位授权一级学科点</td>
+		    <td class="title">硕士学位授权二级学科点（不含一级学科点）</td>
+		    <td class="title">重点学科数</td>
+		</tr>
+		<tpl for="items">
+			<tr>
+				<td >{#}</td>
+				<td>{MC}</td>
+				<td>
+					<span class="realvalue">{BKZYS_T}</span>
+					<span code="BKZYS_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{BKZYS_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{BSHLDZS_T}</span>
+					<span code="BSHLDZS_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{BSHLDZS_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{BSXWSKYJXKD_T}</span>
+					<span code="BSXWSKYJXKD_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{BSXWSKYJXKD_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{BSXWSKEJXKD_T}</span>
+					<span code="BSXWSKEJXKD_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{BSXWSKEJXKD_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{SSXWSKYJXKD_T}</span>
+					<span code="SSXWSKYJXKD_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{SSXWSKYJXKD_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{SSXWSKEJXKD_T}</span>
+					<span code="SSXWSKEJXKD_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{SSXWSKEJXKD_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{ZDXKS_T}</span>
+					<span code="ZDXKS_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{ZDXKS_F}</span>
+					<div></div>
+				</td>
+			</tr>
+		</tpl>
+	</table>
+</div>

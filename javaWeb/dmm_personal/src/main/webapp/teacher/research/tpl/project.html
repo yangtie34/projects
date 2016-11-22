@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<div class="container-fluid jzhi-menu jzhi-menu-keyan">
+  <div class="row text-center">
+  	<div class="col-xs-3 jzhi-menu-hover" id="sy">
+      <h5>所有项目 </h5>
+      <h4><a href="" ng-click="getAll();" style="color:#fff;text-decoration: none">{{projectCounts}}</a></h4>
+    </div>
+    <div class="col-xs-3 " id="gj">
+      <h5>国家级项目 </h5>
+      <h4><a href="" ng-click="getNational();" style="color:#fff;text-decoration: none">{{nationalProject}}</a></h4>
+    </div>
+    <div class="col-xs-3" id="zd">
+      <h5>主导项目</h5>
+      <h4><a href="" ng-click="getLeader();" style="color:#fff;text-decoration: none">{{leaderProject}}</a></h4>
+    </div>
+    <div class="col-xs-3" id="zy">
+      <h5>在研项目 </h5>
+      <h4><a href="" ng-click="getInquest();" style="color:#fff;text-decoration: none">{{inquestsProject}}</a></h4>
+    </div> 
+  </div>
+</div> 
+<div class="jzhi-line-title-bg jzhi-line-title text-center">项目列表</div>
+<div class="jzhi-no-table" ng-show = "projects == ''">
+  <div class="jzhi-no-cell">
+    <div class="jzhi-no-list jzhi-no-zhuanli">暂无项目</div>
+  </div>
+</div>
+<div class="container-fluid">
+ <ul class="jzhi-cglist">
+   <li ng-repeat="project in projects"><dl class="jzhi-list-dl"><span>{{$index+1}}</span><dt>项目名称</dt><dd>{{project.NAME_}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>主持人</dt><dd>{{project.COMPERE}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>开始时间</dt><dd>{{project.START_TIME}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>结束时间</dt><dd>{{project.END_TIME}} </dd></dl>
+   <dl class="jzhi-list-dl"> <dt>承担单位</dt><dd>{{project.DEPT_NAME}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>下达部门</dt><dd>{{project.ISSUED_DEPT}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>项目类别</dt><dd>{{project.CATEGORY}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>项目级别</dt><dd>{{project.LEVEL_NAME}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>经费数额(万元)</dt><dd>{{project.FUND}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>立项年度</dt><dd>{{project.SETUP_YEAR}}</dd></dl></li>
+ </ul>
+</div>
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+

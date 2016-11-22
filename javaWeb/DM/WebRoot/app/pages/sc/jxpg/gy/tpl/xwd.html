@@ -1,0 +1,63 @@
+<div style="font-size: 20px;font-weight: bold;font-family: '黑体';text-align: center;">{xn}学年</div>
+<div>
+    <table class="jxpg-common-table">
+        <tr>
+            <td class="title"  rowspan="2">&nbsp;</td>
+            <td class="title"  rowspan="2">1.博士后流动站</td>
+            <td class="title" rowspan="2">2.博士学位授权一级学科点</td>
+            <td class="title"  rowspan="2">3.博士学位授权二级学科点（不含一级覆盖点）</td>
+            <td class="title"  rowspan="2">4.硕士学位授权一级学科点</td>
+            <td class="title"  rowspan="2">5.硕士学位授权二级学科点（不含一级覆盖点）</td>
+            <td colspan="2" class="title">6.本科专业</td>
+            <td class="title" rowspan="2">7.重点学科数</td>
+        </tr>
+        <tr>
+            <td class="title" >总数</td>
+            <td class="title">其中：新专业</td>
+        </tr>
+        <tpl for="items">
+        <tr>
+            <td>合计</td>
+            <td><span class="realvalue">{A_T}</span>
+                <span code="A_F" rowid="{ID}" class="value" type="itemvalue">{A_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span class="realvalue">{B_T}</span>
+                <span code="B_F" rowid="{ID}" class="value" type="itemvalue">{B_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span class="realvalue">{C_T}</span>
+                <span code="C_F" rowid="{ID}" class="value" type="itemvalue">{C_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span class="realvalue">{D_T}</span>
+                <span code="D_F" rowid="{ID}" class="value" type="itemvalue">{D_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span class="realvalue">{E_T}</span>
+                <span code="E_F" rowid="{ID}" class="value" type="itemvalue">{E_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span class="realvalue">{F1_T}</span>
+                <span code="F1_F" rowid="{ID}" class="value" type="itemvalue">{F1_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span class="realvalue">{F2_T}</span>
+                <span code="F2_F" rowid="{ID}" class="value" type="itemvalue">{F2_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span class="realvalue">{G_T}</span>
+                <span code="G_F" rowid="{ID}" class="value" type="itemvalue">{G_F}</span>
+                <div></div>
+            </td>
+        </tr>
+        </tpl>
+    </table>
+</div>

@@ -1,0 +1,94 @@
+<div style="font-size: 20px;font-weight: bold;font-family: '黑体';text-align: center;">{xn}学年</div>
+<table class="jxpg-common-table">
+  <tr>
+    <td class="title" width="500" colspan="2">项目</td>
+    <td class="title">数量</td>
+  </tr>
+  <tr>
+    <td rowspan="3">教学成果奖（项）</td>
+    <td>总数</td>
+    <td>
+      <tpl for="items">
+	      <tpl if="DM=='A'">
+	    	<span class="realvalue">{SL_T}</span>
+			<span code="SL_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{SL_F}</span>
+			<div></div>
+		  </tpl>
+	  </tpl>
+	</td>
+  </tr>
+  <tr>
+    <td>其中：国家级</td>
+    <td>
+      <tpl for="items">
+	      <tpl if="DM=='A1'">
+	    	<span class="realvalue">{SL_T}</span>
+			<span code="SL_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{SL_F}</span>
+			<div></div>
+		  </tpl>
+	  </tpl>
+	</td>
+  </tr>
+  <tr>
+    <td>省部级</td>
+    <td>
+      <tpl for="items">
+	      <tpl if="DM=='A2'">
+	    	<span class="realvalue">{SL_T}</span>
+			<span code="SL_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{SL_F}</span>
+			<div></div>
+		  </tpl>
+	  </tpl>
+	</td>
+  </tr>
+  <tr>
+    <td rowspan="4">教育学研究与改革项目项目</td>
+    <td>当年立项总数</td>
+    <td>
+      <tpl for="items">
+	      <tpl if="DM=='B'">
+	    	<span class="realvalue">{SL_T}</span>
+			<span code="SL_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{SL_F}</span>
+			<div></div>
+		  </tpl>
+	  </tpl>
+	</td>
+  </tr>
+  <tr>
+    <td>其中：国家级</td>
+    <td>
+      <tpl for="items">
+	      <tpl if="DM=='B1'">
+	    	<span class="realvalue">{SL_T}</span>
+			<span code="SL_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{SL_F}</span>
+			<div></div>
+		  </tpl>
+	  </tpl>
+	</td>
+  </tr>
+  <tr>
+    <td>省部级</td>
+    <td>
+      <tpl for="items">
+	      <tpl if="DM=='B2'">
+	    	<span class="realvalue">{SL_T}</span>
+			<span code="SL_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{SL_F}</span>
+			<div></div>
+		  </tpl>
+	  </tpl>
+	</td>
+  </tr>
+  <tr>
+    <td>项目经费（万元）</td>
+    <td>
+      <tpl for="items">
+	      <tpl if="DM=='C'">
+	    	<span class="realvalue">{SL_T}</span>
+			<span code="SL_F" rowid="{ID}" class="value" type="itemvalue" isnum="float">{SL_F}</span>
+			<div></div>
+		  </tpl>
+	  </tpl>
+	</td>
+  </tr>
+  
+</table>

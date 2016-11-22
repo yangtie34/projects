@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<div class="rxs-comn-list  rxs-comn-patop">
+  <div class="rxs-pad-lr">
+  <div class="media">
+    <div class="media-left media-middle"><a class="rxs-fujian" href="#/add"><img src="../../images/plus.png" width="18"></a> </div>
+    <div class="media-body media-middle">
+      <input class="form-control rxs-search" ng-model="searchText" placeholder="输入关键字查询">
+    </div> 
+  </div>
+</div> 
+  <ul class="rxs-comn-ul rxs-padding-5 rxs-hover-ul">
+    <li ng-repeat="it in friendList | filter:searchText">
+      <div class="media">
+        <div class="media-left media-middle text-center"><a ng-href="../../personal/{{it.username}}/main" style="text-decoration: none;">
+        <img class="img-circle" ng-src="{{it.wechat_head_img}}" width="57">
+        <i class="fa fa-user"  ng-if="it.wechat_head_img == '' " style="height: 60px;width: 60px;font-size: 40px;color: #ddd;"></i></a></div>
+        <div class="media-body media-middle"><a ng-href="../../personal/{{it.username}}/main" style="text-decoration: none;">
+          <h4>{{it.real_name}} <i ng-show="it.sex == '男'" class="rxs-sex rxs-boy-icon"></i><i ng-show="it.sex == '女'" class="rxs-sex rxs-girl-icon"></i></h4>
+          <span class="rxs-text-grey">{{it.major_name}}</span></a></div>
+        <div class="media-right media-middle "> <a href="" ng-click="deleteFriendShip(it)" class="rxs-delete-icon" style="display: block">-</a></div>
+      </div>
+    </li>
+    </ul>
+</div>
+
+<div ng-show="!onLoading && friendList.length == 0">
+	<span class="rxs-cor-ff9">好友列表为空</span>
+</div>

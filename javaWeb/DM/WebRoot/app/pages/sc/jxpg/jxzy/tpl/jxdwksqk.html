@@ -1,0 +1,33 @@
+<div style="font-size: 20px;font-weight: bold;font-family: '黑体';text-align: center;">{xn}学年</div>
+<div>
+    <table  class="jxpg-common-table">
+        <tr>
+            <td class="title">序号</td>
+            <td class="title">单位</td>
+            <td class="title" >开设双语课程教师数</td>
+            <td class="title">专业课平均学生数</td>
+            <td class="title">教授、副人均课学时数</td>
+        </tr>
+        <tpl for="items">
+            <tr>
+                <td >{#}</td>
+                <td >{DW}</td>
+                <td>
+                    <span class="realvalue">{KSSYKCJSS_T}</span>
+                    <span class="value" code="KSSYKCJSS_F" isnum="int" rowid="{ID}" type="itemvalue">{KSSYKCJSS_F}</span>
+                    <div></div>
+                </td>
+                <td>
+                    <span class="realvalue">{ZYKPJXSS_T}</span>
+                    <span class="value" code="ZYKPJXSS_F" rowid="{ID}" isnum="float" type="itemvalue">{ZYKPJXSS_F}</span>
+                    <div></div>
+                </td>
+                <td>
+                    <span class="realvalue">{JSRJSKS_T}</span>
+                    <span class="value" code="JSRJSKS_F" rowid="{ID}" isnum="float" type="itemvalue">{JSRJSKS_F}</span>
+                    <div></div>
+                </td>
+            </tr>
+        </tpl>
+    </table>
+</div>

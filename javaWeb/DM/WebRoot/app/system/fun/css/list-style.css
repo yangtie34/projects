@@ -1,0 +1,114 @@
+@charset "utf-8";
+/* CSS Document */
+/*通用样式*/
+ 
+.index_page_floatRight {
+	float:right;
+}
+.index_page_floatLeft {
+	float:left;
+}
+hr.index_page_hrdefault {
+	height:2px;
+	border:none;
+	border-bottom:2px solid #fec9a6;
+}
+input.index_page_inputdefault, select.index_page_selectdefault, label.index_page_labeldefault, button.index_page_buttondefault {
+	vertical-align:middle;
+	font-family:'microsoft yahei';
+	color:#666;
+}
+ul {
+	list-style:none;
+}
+.index_page_list_container .index_page_list_mainleft p, .index_page_list_container .index_page_list_mainleft li {
+	line-height:28px;
+}
+.index_page_OverflowHidden{ overflow:hidden;}
+.index_page_Boxshadow{ box-shadow:1px 1px 2px #ccc;}
+.index_page_positionfixed{position:absolute; left:0; bottom:10px;}
+/*主体*/
+.index_page_list_container {
+	margin-bottom:2em;
+	overflow:hidden;
+	color:#333;
+	font:normal 100% 'microsoft yahei';
+	background:#ffffff;
+}
+/*左部分样式*/
+.index_page_list_mainleft {
+	width:70%;
+}
+.index_page_list_body {
+	padding:50px 55px 0px;
+	margin-right:10px;
+}
+.index_page_list_body h2 {
+	padding:10px 0;
+}
+.index_page_list_title {
+	font: normal 34px 'microsoft yahei';
+	color:#ff6600;
+}
+.index_page_list_information {
+	color:#494949;
+	font:normal 14px 'microsoft yahei';
+	margin-top:26px;
+}
+.index_page_list_author {
+	color:#3399ff;
+	font-size:20px;
+	padding-left:20px;
+}
+.index_page_list_content {
+	padding-top:10px;
+}
+/*右部分样式*/
+
+.index_page_list_mainright {
+	width:30%;
+}
+.index_page_list_news {
+	padding:10px 3px 6px 0;
+	background:#f6f8fc;
+}
+.index_page_list_news h3 {
+	color:#949494;
+	font:normal 16px 'microsoft yahei'
+}
+.index_page_list_news h3 a {
+	color:#949494;
+	text-decoration:none;
+	font:normal 16px 'microsoft yahei'
+}
+.index_page_list_news h3 a:hover {
+	color:#4da6ff;
+	font:normal 16px 'microsoft yahei'
+}
+.index_page_list_news h3.list_colorimp {
+	color:#494949
+}
+.index_page_list_mar-btm {
+	margin-bottom:10px;
+}
+.index_page_list_mar-right {
+	margin-right:10px;
+}
+.index_page_list_news ul li {
+	float:left;
+	padding-left:12px;
+}
+.index_page_list_important {
+	background:#ebffff;
+}
+.index_page_list_align {
+	padding-top:5px;
+}
+.index_page_list_align p {
+	padding:3px 0;
+	font:normal 12px 'microsoft yahei';
+	color:#949494;
+}
+.index_page_antclick {
+    background-color: #77ddff;
+}

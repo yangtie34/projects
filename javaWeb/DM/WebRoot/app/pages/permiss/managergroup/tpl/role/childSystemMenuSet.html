@@ -1,0 +1,123 @@
+<table width="100%" border="0" style="table-layout:auto" cellpadding="5" class="wbh-common-table_green">
+    {%
+         this.system_mc = values.mc;
+    %}
+    <!-- 判断子系统中是否有模块，如果没有显示无子菜单-->
+    <tpl if="modals.length==0">
+        <tr  class="wbh-common-greenbg">
+             <td>无子模块</td>
+        </tr>
+    <!-- 循环迭代模块 -->
+    <tpl else>
+        <tpl for="modals">
+            {%this.modalId = values.id;%}
+
+                <tpl if="xindex == 1">
+                    <!-- 第一次遍历撰写子系统名称 以及第一个模块的名称-->
+                    <tr  class="wbh-common-greenbg">
+                        <td width="3%" rowspan="20" >
+                            <span class="wbh-common-orange">{[this.system_mc]}</span>
+                        </td>
+                        <td width="7%"   >
+                            {%console.log(values.checked);console.log(values)%}
+                            <tpl if="checked == true">
+                                <input name="" type="checkbox" checked="true" itemid="{[values.id]}" ctype = "checkAll" class="wbh-common-inputdefault" />
+                            <tpl else>
+                                <input name="" type="checkbox"  itemid="{[values.id]}" ctype = "checkAll" class="wbh-common-inputdefault" />
+                            </tpl>
+                            <label class="wbh-common-labeldefault" ></label>
+                        </td>
+                        <td width="90%"  colspan="2">{text}</td>
+                    </tr>
+                    <!-- 遍历模块下子菜单 -->
+                    <tpl for="menus">
+                        {%this.menuId = values.id;%}
+                        <tr>
+                            <td width="7%">
+
+                                <tpl if="checked == true">
+                                    <input  type="checkbox" checked="true"  itemid="{[values.id]}"  ctype="rowCheckAll" class="wbh-common-inputdefault" />
+                                <tpl else>
+                                    <input  type="checkbox"  itemid="{[values.id]}"  ctype="rowCheckAll" class="wbh-common-inputdefault" />
+                                </tpl>
+
+                            </td>
+                            <td  width="20%"  style="text-align:left">
+                                <span class="wbh-common-table-td-nowrap wbh-common-margin-rightl">
+                                    <label class="wbh-common-labeldefault">{text}</label>
+                                </span>
+                            </td>
+                            <td width="70%"  style="text-align:left">
+                                <span class="wbh-common-table-td-nowrap wbh-common-margin-rightl">
+                                    <tpl for="children">
+
+                                        <tpl if="checked == true">
+                                             <input   type="checkbox" checked="true" style="margin-left: 2px;" itemid="{[values.id]}"   class="wbh-common-inputdefault" />
+                                        <tpl else>
+                                            <input   type="checkbox"  style="margin-left: 2px;"  itemid="{[values.id]}"  class="wbh-common-inputdefault" />
+                                        </tpl>
+
+                                        <label class="wbh-common-labeldefault">{text}-</label>
+                                        <a href="javascript:void(0);" ctype="content" itemid = "{[values.id]}">内容设置</a>
+                                    </tpl>
+                                 </span>
+                            </td>
+                        </tr>
+                    </tpl>
+
+                <tpl else>
+                    <!-- 第二次以及以后对菜单和功能的遍历-->
+                    <tr  class="wbh-common-greenbg">
+                        <td width="7%"   >
+                            <tpl if="checked == true">
+                                <input name="" type="checkbox" checked="true" itemid="{[values.id]}" ctype = "checkAll" class="wbh-common-inputdefault" />
+                            <tpl else>
+                                    <input name="" type="checkbox"  itemid="{[values.id]}" ctype = "checkAll" class="wbh-common-inputdefault" />
+                            </tpl>
+                            <label class="wbh-common-labeldefault"></label></td>
+                        <td width="90%"  colspan="2">{text}</td>
+                    </tr>
+                    <!-- 遍历模块下子菜单 -->
+                    <tpl for="menus">
+                        {%this.menuId = values.id;%}
+                        <tr>
+                            <td width="7%">
+
+                                <tpl if="checked == true">
+                                      <input   type="checkbox" checked="true" itemid="{[values.id]}"  ctype="rowCheckAll" class="wbh-common-inputdefault" />
+                                <tpl else>
+                                      <input   type="checkbox"  itemid="{[values.id]}" ctype="rowCheckAll" class="wbh-common-inputdefault" />
+                                </tpl>
+
+                            </td>
+                            <td  width="20%"  style="text-align:left">
+                                <span class="wbh-common-table-td-nowrap wbh-common-margin-rightl">
+                                    <label class="wbh-common-labeldefault" >{text}</label>
+                                </span>
+                            </td>
+                            <td width="70%"  style="text-align:left">
+                                <span class="wbh-common-table-td-nowrap wbh-common-margin-rightl">
+                                    <tpl for="children">
+
+                                        <tpl if="checked == true">
+                                            <input   type="checkbox" checked="true" style="margin-left: 2px;" itemid="{[values.id]}" class="wbh-common-inputdefault" />
+                                        <tpl else>
+                                            <input   type="checkbox"   style="margin-left: 2px;" itemid="{[values.id]}" class="wbh-common-inputdefault" />
+                                        </tpl>
+
+                                        <label class="wbh-common-labeldefault">{text}</label>
+                                    </tpl>
+                                 </span>
+                            </td>
+                        </tr>
+                    </tpl>
+
+                </tpl>
+
+        </tpl>
+    </tpl>
+
+    <tr>
+        <td colspan="3"  >&nbsp;</td>
+    </tr>
+</table>

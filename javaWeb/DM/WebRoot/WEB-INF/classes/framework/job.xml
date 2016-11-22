@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tasks>
+	<!-- <task>
+          <service>ysPksService</service>
+          <description>男女低消费预警临时表</description>
+          <name>男女低消费预警临时表</name>
+          <method>saveXfxx</method>
+          <startDelay>1000</startDelay>
+	      <cronExpression>00 02 12 ? * *</cronExpression>
+     </task>
+	3日疑似不在校学生
+     <task>
+          <service>bzxrstjDao</service>
+          <description>三天不在校学生统计</description>
+          <name>bzxxstj</name>
+          <method>bzxxsThreeDay</method>
+          <startDelay>1000</startDelay>
+	      <cronExpression>20 47 04 ? * *</cronExpression>
+     </task> 
+     
+     <task>
+          <service>bzxmailService</service>
+          <description>邮件发送-三天不在校学生统计</description>
+          <name>bzxmail</name>
+          <method>sendMail</method>
+          <startDelay>1000</startDelay>
+	      <cronExpression>20 50 07 ? * TUE,FRI</cronExpression>
+     </task> 
+     
+     <task>
+          <service>exportBzxService</service>
+          <description>三天不在校学生统计导出</description>
+          <name>bzxxstjExport</name>
+          <method>export4Yx</method>
+          <startDelay>1000</startDelay>
+	      <cronExpression>40 34 06 ? * TUE,FRI</cronExpression>
+     </task> 
+     
+     晚寝晚归学生名单
+     <task>
+          <service>bzxrstjDao</service>
+          <description>晚寝晚归学生-计入临时表</description>
+          <name>wqwgxs</name>
+          <method>saveYesterDayWG</method>
+          <startDelay>1000</startDelay>
+	      <cronExpression>20 02 01 ? * *</cronExpression>
+     </task> 
+     
+     <task>
+          <service>exportBzxService</service>
+          <description>晚寝晚归学生名单导出</description>
+          <name>wqwgExport</name>
+          <method>saveExport4Wg</method>
+          <startDelay>1000</startDelay>
+	      <cronExpression>40 34 01 ? * *</cronExpression>
+     </task> 
+     
+     <task>
+          <service>bzxmailService</service>
+          <description>邮件发送-晚寝晚归学生名单</description>
+          <name>wqwgmail</name>
+          <method>sendMail4WG</method>
+          <startDelay>1000</startDelay>
+	      <cronExpression>00 50 09 ? * *</cronExpression>
+     </task> 
+     
+     23点30分计算今日未住宿学生名单
+     <task>
+          <service>bzxrstjDao</service>
+          <description>今日未住宿学生-计入临时表</description>
+          <name>wzsxs</name>
+          <method>saveDayWZS</method>
+          <startDelay>1000</startDelay>
+	      <cronExpression>00 30 23 ? * *</cronExpression>
+     </task> 
+     昨日未住宿学生名单
+     <task>
+          <service>bzxrstjDao</service>
+          <description>昨日未住宿学生-计入临时表</description>
+          <name>wzsxs</name>
+          <method>saveYesterDayWZS</method>
+          <startDelay>1000</startDelay>
+	      <cronExpression>20 15 01 ? * *</cronExpression>
+     </task> 
+     
+     <task>
+          <service>exportBzxService</service>
+          <description>昨日未住宿学生名单导出</description>
+          <name>wzsExport</name>
+          <method>saveExport4Wzs</method>
+          <startDelay>1000</startDelay>
+	      <cronExpression>40 35 01 ? * *</cronExpression>
+     </task> 
+     
+     <task>
+          <service>bzxmailService</service>
+          <description>邮件发送-昨日未住宿学生名单</description>
+          <name>wzsmail</name>
+          <method>sendMail4WZS</method>
+          <startDelay>1000</startDelay>
+	      <cronExpression>30 05 11 ? * *</cronExpression>
+     </task>
+     
+     学生消费情况统计-学生消费天数及日均额
+     <task>
+          <service>studentXfmxService</service>
+          <description>学生消费情况统计-学生消费天数及日均额</description>
+          <name>queryXsxfqk</name>
+          <method>queryXsxfqk</method>
+          <startDelay>1000</startDelay>
+	      <cronExpression>00 39 19 ? * *</cronExpression>
+     </task> -->
+</tasks>

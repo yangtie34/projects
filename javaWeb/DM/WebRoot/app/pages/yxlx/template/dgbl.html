@@ -1,0 +1,326 @@
+<div class="out-container">
+  <table class="out-border" width=" 100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td  valign="top" class="padd-right" width="160"><table width=" 100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+          <tpl for="xsData">
+            <td height="140"  >
+            <tpl if="sfzh != null">
+            <img src="images/student/twoCode/{sfzh}.png" width="140" height="140" />
+            </tpl>
+            </td>
+         </tpl>
+          </tr>
+          <tr>
+            <td>
+            <tpl for="hjblData">
+            <table width=" 100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td height="40" colspan="2" class="bor-btm"><span class="left-icon">办理环节：</span></td>
+                </tr>
+                <tr>
+                
+                  <td class="cor-blu rgt-c" height="40">{dqhjmc}
+                  	<tpl if="dqhjmc == '注册分班' && hjztdm==0">
+                   		<input class="information" name="yxlx_xgxx" id="yxlx_xgxx" type="button" value="修改信息" />
+		             </tpl>
+                   </td>
+                  <td ><tpl if="hjztdm == 1"><span style="color:#009900; font-weight:bold">(已完成)</span></tpl></td>
+                </tr>
+                <tr>
+                  <td height="40" colspan="2" class="bor-btm"><span class="left-icon">办理人：</span></td>
+                </tr>
+                <tr>
+                  <td height="40" colspan="2"   class="cor-blu rgt-c">{blr}</td>
+                </tr>
+              </table>
+             
+            </td>
+          </tr>
+          <tr>
+            <td><table width=" 100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                <tr>
+                  <td height="40"></td>
+                </tr>
+                <td height="60" align="center">
+               <tpl if="wbqzhj != null ">
+	              	  环节无法办理,请先完成<span class="cor-zsf ">{wbqzhj}</span>
+                 </tpl>
+                   <tpl if="wbqzhj == null">
+		              	<tpl if="hjztdm == 0">
+		                	<input class="btn-print" name="yxlx_qrbl" id="yxlx_qrbl" type="button" value="确认办理" />
+		                </tpl>
+		                <tpl if="hjztdm == 1 && isshowcxbl == 1">
+		                	<input class="btn-print" name="yxlx_cxbl" id="yxlx_cxbl" type="button" value="撤销办理" />
+		                </tpl>
+                 </tpl>
+                  </td>
+                </tr>
+                <tr>
+               <td height="60"  align="center">
+             <input class="btn-print" name="yxlx_dy" type="button" value="补打迎新单" />
+               </td>
+                </tr>
+                <tr>
+                  <td height="40"></td>
+                </tr>
+              </table>
+               </tpl>
+              </td>
+          </tr>
+        </table></td>
+      <td  valign="top"class="border-left padd-left padd-right" width="350">
+	  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td >
+            <tpl for="xsData">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width="85"><img style="border:1px dotted #ff0000" src="images/nopic.png" width="80" height="100" /></td>
+                  <td  style="padding-left:20px;"><table width="100%" height="105" border="0" cellspacing="0" cellpadding="0">
+                      <tr >
+                        <td><span class="cor-zsf">
+                        <tpl if="xm != null">{xm}</tpl></span> <!--17岁-->
+                        <tpl if="xbmc != null">{xbmc}</tpl>
+                        <tpl if="mzmc != null">{mzmc}</tpl>
+                        <tpl if="lqlbmc != null">{lqlbmc}</tpl></td>
+                      </tr>
+                      <tr>
+                        <td>家庭地址：<tpl if="jtdz != null">{jtdz}</tpl></td>
+                      </tr>
+                      <tr>
+                        <td>家长联系电话： <tpl if="lxdh != null">{lxdh}</tpl> 
+                          <label>
+                         <!--<input type="submit" class="cor-org" name="button" value="发短信" />-->
+                        </label>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>身份证号：<tpl if="sfzh != null">{sfzh}</tpl></td>
+                      </tr>
+                    </table></td>
+                </tr>
+                <tr>
+                  <td colspan="2"  height="30"> 
+                  <input type="submit" class="cor-org" name="button" id="button" value="获取照片" /></td>
+                </tr>
+              </table></td>
+          </tr>
+          <tr>
+            <td height="35"  class="bor-btmblu"><span class="left-iconblu">录取信息</span></td>
+          </tr>
+          <tr>
+            <td><table class="dgbl-td-margin" width=" " height="90" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td height="30">学制：<tpl if="xzmc != null">{xzmc}</tpl></td>
+                  <td>生源地：<tpl if="syd != null">{syd}</tpl></td>
+                </tr>
+                <tr>
+                  <td height="30">院系：<tpl if="yxmc != null">{yxmc}</tpl></td>
+                  <td>专业：<tpl if="zymc != null">{zymc}</tpl></td>
+                </tr>
+                <tr>
+                  <td height="30">班级：<tpl if="bjmc != null">{bjmc}</tpl>
+                    <!-- <input name="" class="cor-org" value="调整" type="button" /> --></td>
+                  <td>&nbsp;</td>
+                </tr>
+              </table>
+              </tpl>
+              </td>
+          </tr>
+          <tr>
+            <td height="35" class="bor-btmblu">
+            <table width="100%">
+				<tr><td><span class="left-iconblu">办理情况</span></td> 
+				<td align="right"><span class="blue">- 蓝色</span><span class="org">为已办理</span></td>
+				</tr>
+			</table></td>
+          </tr>
+          <tr>
+            <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                <td>
+                 <tpl for="blqkData">
+                	<div class="out-cen">
+                      <table border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                        <tpl if="dm == 0 && sfdqhj==0">
+                          	<td class="outbg-tdbai">{mc}</td>
+                          </tpl>
+                         
+                          <tpl if="dm == 0 && sfdqhj == 1">
+		         	  			<td class="outbg-tdorg">{mc}</td>
+		         	 	  </tpl>
+		         	 
+		         	 	 <tpl if="dm == 1">
+		          			<td class="outbg-td">{mc}</td>
+	              		</tpl>  
+                       
+                        </tr>
+                        <tr>
+                          <td> {blsj}</td>
+                        </tr>
+                      </table>
+                    </div>
+                </tpl> 
+                </td>           
+                </tr>
+              </table></td>
+          </tr>
+        </table></td>
+       <td  valign="top" width="160" class="border-left padd-left"> 
+			
+			<table width=" 100%" border="0" cellspacing="0" cellpadding="0">
+			<tpl for="gnData">
+			 <tpl if="gndm ==  5">
+			<tr><td>
+			<fieldset style="padding: 5px;border: 1px solid #999">
+				<legend>费用审查</legend>
+					<table width=" 100%" border="0" cellspacing="0" cellpadding="0">
+						<tr>
+						<td  height="40"  class="cor-zsf ">
+						户口性质：<select id="yxlx_sfmjxf">
+                      		<option selected="selected"></option>
+                      		<tpl for="hkxzdata">
+                        		<option value="{0}">{1}</option>
+                      		</tpl>
+                    	</select>
+						</tr>
+					</table>
+					</fieldset>
+			</td></tr>
+			</tpl>
+			</tpl>
+			  	<tr>
+			    <td>
+			       <fieldset style="padding: 5px;border: 1px solid #999">
+						<legend>财务信息</legend>
+						<tpl for="gnData">
+						 	<tpl if="gndm ==  1">
+								<table width=" 100%" border="0" cellspacing="0" cellpadding="0">
+									  <!-- <tr>
+									    <td height="40" class="cor-zsf">应缴费用</td>
+									  </tr> 
+									  <tr>
+									    <td  height="40"  class="cor-blu rgt-r" >{zysje}元</td>
+									  </tr>
+									  -->
+									  <tr>
+									    <td  height="40"  class="cor-zsf ">总已缴费用</td>
+									  </tr>
+									  <tr>
+									   <td class="cor-blu rgt-r"> 
+										<input  class="wid-price cor-blu" value="{zssje}" id="yxlx_inputssje" name="yxlx_inputssje" type="text" />元</td>
+									  </tr>
+									   <tr>
+									    <td  height="40"  class="cor-zsf ">总欠缴费用</td>
+									  </tr>
+									  <tr>
+									    <td class="cor-blu rgt-r"> 
+									    <input  class="wid-price cor-blu" value="{zhjje}" id="yxlx_inputhjje" name="yxlx_inputhjje" type="text" />元</td>
+									  </tr>
+									</table>
+							</tpl>
+							<tpl if="gndm ==  2">
+								<table width=" 100%" border="0" cellspacing="0" cellpadding="0">
+									  <!-- 
+									  <tr>
+									    <td height="40" class="cor-zsf">应缴费用</td>
+									  </tr>
+									  <tr>
+									    <td  height="40"  class="cor-blu rgt-r" >{zysje}元</td>
+									  </tr>
+									   -->
+									  <tr>
+									    <td  height="40"  class="cor-zsf ">总已缴费用</td>
+									  </tr>
+									  <tr>
+									   <td class="cor-blu rgt-r"> 
+										{zssje}元</td>
+									  </tr>
+									   <tr>
+									    <td  height="40"  class="cor-zsf ">总欠缴费用</td>
+									  </tr>
+									  <tr>
+									    <td class="cor-blu rgt-r"> 
+									   {zhjje}元</td>
+									  </tr>
+								</table>
+							</tpl>
+						</tpl>
+						<tpl for="hjblData">
+						   <tpl if="wbqzhj == null && dqhjmc=='财务缴费' ">
+						 	<input type="button" name="yx_jfmx" id="yx_jfmx" value="收费明细" />
+						  	<input type="button" name="yx_tfmx" id="yx_tfmx" value="退费明细" />
+						 </tpl>
+						 </tpl>
+					</fieldset>
+				</td>
+			</tr>
+			    <tr>
+			    	<td>
+			    	<fieldset style="padding: 5px;border: 1px solid #999; margin-top:10px">
+						<legend>住宿信息</legend>
+								<tpl for="gnData">
+						 			<tpl if="gndm == 3">
+								<table width=" 100%" border="0" cellspacing="0" cellpadding="0">
+								  <tr>
+								    <td height="30" class="cor-zsf">楼宇</td>
+								  </tr>
+								   <tr>
+								    <td height="30" class="cor-blu rgt-r"><tpl if="ly != null ">{ly}</tpl></td>
+								  </tr>
+								  <tr>
+								    <td  height="30" class="cor-zsf">房间</td>
+								  </tr>
+								   <tr>
+								    <td height="30" class="cor-blu rgt-r"><tpl if="fj != null ">{fj}</tpl></td>
+								  </tr>
+								  <tr>
+								    <td  height="30" class="cor-zsf">床位</td>
+								  </tr>
+								   <tr>
+								    <td height="30" class="cor-blu rgt-r"><tpl if="cw != null ">{cw}</tpl></td>
+								  </tr>
+									 <tr>
+									 <tpl if="wbqzhj == null">
+										<td height="30">
+										<input name="yxlx_fbss" id="yxlx_fbss" type="button" value="重新分配宿舍" />
+										<input name="yxlx_zkss" id="yxlx_zkss" type="button" value="置空宿舍" />
+										</td>
+										</tpl>
+									</tr>
+								 </table> 
+								 </tpl>
+								 <tpl if="gndm ==  4">
+								 <table width=" 100%" border="0" cellspacing="0" cellpadding="0">
+								  <tr>
+								    <td height="30" class="cor-zsf">楼宇</td>
+								  </tr>
+								   <tr>
+								    <td height="30" class="cor-blu rgt-r"><tpl if="ly != null ">{ly}</tpl></td>
+								  </tr>
+								  <tr>
+								    <td  height="30" class="cor-zsf">房间</td>
+								  </tr>
+								   <tr>
+								    <td height="30" class="cor-blu rgt-r"><tpl if="fj != null ">{fj}</tpl></td>
+								  </tr>
+								  <tr>
+								    <td  height="30" class="cor-zsf">床位</td>
+								  </tr>
+								   <tr>
+								    <td height="30" class="cor-blu rgt-r"><tpl if="cw != null ">{cw}</tpl></td>
+								  </tr>
+								</table> 
+								</tpl>
+								</tpl>
+							  </fieldset>
+			    	</td>
+				</tr>
+			 </table>
+		</td>
+		  </tr>
+		</table>
+</div>

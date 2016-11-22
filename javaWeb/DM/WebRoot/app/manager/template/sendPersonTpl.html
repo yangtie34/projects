@@ -1,0 +1,11 @@
+<div>
+    {%this.length = values.length;}
+    <tpl for='.'>
+        <span>{id}{mc}</span>
+        <a href="javascript:void(0);"style="cursor: text;"></a>
+        <tpl if="xindex == this.length">
+            <input value="" type='text' id='test'/>
+        </tpl>
+
+    </tpl>
+</div>

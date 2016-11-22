@@ -1,0 +1,130 @@
+/* 学籍打印表CSS */
+/*搜索模块select，input，button宽度定义*/
+ 
+.zxj-yuxuan_search select.zxj-yuxuan_select {
+	min-width:134px;
+}
+.zxj-yuxuan_marginLeft {
+	margin-left:15px;
+}
+.zxj-yuxuan_marginLeftMin {
+	margin-left:10px;
+}
+.zxj-yuxuan_marginLeftLong {
+	margin-left:45px;
+}
+/*历史记录样式*/
+/* 统计 */
+.zxj-yuxuan_stats {
+	margin-top:0.6em;
+	font-size:14px;
+	color:#0066FF;
+	font-weight:bold;
+	padding:5px;
+	font-family: 'Microsoft YaHei'
+}
+.zxj-yuxuan_pmargin {
+	margin-top:0.6em;
+}
+.zxj-yuxuan_textbold {
+	font-weight:bold;
+}
+/* 链接样式*/
+a.zxj-yuxuan_linkchange {
+	color:#3366FF;
+	text-decoration:none;
+}
+a.zxj-yuxuan_linkchange:hover {
+	color:#3399FF;
+	text-decoration:underline;
+}
+button.font-size {
+	font-size:12px;
+}
+/*切换样式*/
+/*历史记录样式*/
+.zxj-yuxuan_history {
+	position:relative;
+	display:inline-block;
+}
+.zxj-yuxuan_history a {
+	color:#3366FF;
+	font-size:13px;
+	font-weight:normal;
+	text-decoration:none;
+}
+.zxj-yuxuan_history a:hover {
+	color:#3399FF;
+	font-size:13px;
+	font-weight:normal;
+}
+.zxj-yuxuan_history-beside {
+	display: none;
+	position: absolute;
+	width: 200px;
+	padding-top: 10px;
+	left:-5px;
+	margin-top: -10px;
+}
+.zxj-yuxuan_history-hover {
+	padding:10px;
+	border:1px solid #999;
+	background:#fff;
+}
+.zxj-yuxuan_history-title {
+	color:#438237;
+	font-size:12px;
+	font-weight:bold;
+	margin:5px 0 0 0;
+	border-bottom:1px solid #ccc;
+	padding-bottom:5px;
+}
+.zxj-yuxuan_history-title a {
+	color:#438237;
+	text-decoration:none;
+}
+.zxj-yuxuan_history-title a:hover {
+	color:#438237;
+	text-decoration:underline;
+}
+.zxj-yuxuan_history-new {
+	border-bottom:1px solid #ccc;
+}
+.zxj-yuxuan_history-new a {
+	color:#438237;
+	text-decoration:none;
+}
+.zxj-yuxuan_history-new a:hover {
+	color:#438237;
+	text-decoration:underline;
+}
+.zxj-yuxuan_zxj-yuxuan_history-content {
+	color:#666;
+	font-size:12px;
+}
+.zxj-yuxuan_history-content h4 {
+	font-size:12px;
+	color:#666;
+	margin:10px 0 5px 0;
+}
+.zxj-yuxuan_history-content ul {
+	list-style:none;
+}
+.zxj-yuxuan_history-content ul li {
+	padding:3px 0;
+}
+.zxj-yuxuan_history-content ul li a {
+	color:#666;
+	text-decoration:none;
+}
+.zxj-yuxuan_history-content ul li a:hover {
+	color:#FF6600;
+	text-decoration:underline;
+}
+.zxj-yuxuan_current-nobtm {
+	border-bottom:none;
+}
+.zxj-yuxuan_new-jiaoxuerili {
+	padding:2px 10px;
+	margin:0 0 5px 0;
+}

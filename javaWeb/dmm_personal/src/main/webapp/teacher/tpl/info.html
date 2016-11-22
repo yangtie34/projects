@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<div class="container-fluid jzhi-banner">
+  <div class="jzhi-dance-reset"> <a href="#" class="img-circle phone-common-img-border">
+  <img ng-src="{{person.headimg}}" width="80" height="80" class="img-circle"></a>
+    <h4>{{person.name}}<small ng-class="{'phone-common-girl-icon':person.gender=='女','phone-common-boy-icon':person.gender=='男'}"></small></h4>
+    <p>工号：{{person.tea_no}} <span class="phone-common-edit-icon hidden" > </span></p> 
+  </div>
+</div>
+<div class="phone-common-list">
+  <h3 class="phone-common-title"> 
+	  	<span class="jzhi-sj-icon pull-left"></span>
+	  	<a href="#/history" style="display: block">入校{{person.rxsj}}年 <span class="phone-common-arrow-right pull-right"></span></a> 
+  </h3>
+</div>
+<div class="phone-common-list  phone-common-martb">
+<ul class="phone-common-group">
+    <li class="phone-common-group-item"><span class="jzhi-item-h">部&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;门：</span> {{person.dept}} </li>
+    <li class="phone-common-group-item"><span class="jzhi-item-h">出生日期：</span> {{person.birthday}} </li>
+    <li class="phone-common-group-item"><span class="jzhi-item-h">身份证号： </span>{{person.idno}}</li>
+	<li class="phone-common-group-item"><span class="jzhi-item-h">民&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;族： </span>{{person.nation}}</li>
+	<li class="phone-common-group-item"><span class="jzhi-item-h">户籍地址：</span>{{person.place_domicile}}</li>
+	<li class="phone-common-group-item"><span class="jzhi-item-h">政治面貌：</span>{{person.politics}}</li> 
+	<li class="phone-common-group-item hidden"><span class="jzhi-item-h">婚&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;否：</span>{{person.married==0?'未婚':(person.married==1?'已婚':'未知')}}</li>
+	<li class="phone-common-group-item"><span class="jzhi-item-h">入党时间：</span>{{person.join_party_date}}</li>
+	<li class="phone-common-group-item"><span class="jzhi-item-h">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;位：</span>{{person.degree}}</li>
+	<li class="phone-common-group-item"><span class="jzhi-item-h">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;历：</span>{{person.edu}}</li>
+	<li class="phone-common-group-item"><span class="jzhi-item-h">入校时间：</span>{{person.in_date}}</li>
+	<li class="phone-common-group-item"><span class="jzhi-item-h">从教时间：</span>{{person.teaching_date}}</li>
+	<li class="phone-common-group-item"><span class="jzhi-item-h">教职工类别：</span>{{person.jzglb}}</li>
+	<li class="phone-common-group-item"><span class="jzhi-item-h">教职工来源：</span>{{person.jzgly}}</li>
+	<li class="phone-common-group-item"><span class="jzhi-item-h">工人技术等级 ：</span>{{person.grjsdj}}</li>
+	<li class="phone-common-group-item"><span class="jzhi-item-h">专业技术职务：</span>{{person.zyjszw}}</li>
+	<li class="phone-common-group-item"><span class="jzhi-item-h">是否双师教师：</span>{{person.sfssjs}}</li>
+	<li class="phone-common-group-item"><span class="jzhi-item-h">编制类别：</span>{{person.bzlb}}</li>
+	<li class="phone-common-group-item"><span class="jzhi-item-h">教职工状态：</span>{{person.jzgzt}}</li>
+</ul></div>
+<button class="btn btn-danger btn-block" ng-click="logout()">退出</button>

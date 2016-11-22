@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<div class="container-fluid  jzhi-menu-gradient"> 
+  <div class="media text-center">
+    <div class="media-left media-middle">
+      <a href="" ng-click="lastWeek();"><span class="phone-common-border-bold-arrow-left pull-left"></span></a>
+    </div>
+    <div class="media-body media-middle text-center"><div class="row jzhi-date-text"><div class="col-xs-4">
+       {{year}}年<br>
+       第{{sz}}周 
+    </div>
+    <div class="col-xs-4 jzhi-select-text">
+       {{year}}年 <br>
+       第{{zc}}周  
+    </div>
+    <div class="col-xs-4">
+       {{year}}年 <br>
+       第{{xz}}周  
+    </div></div></div>
+    <div class="media-right media-middle">
+      <a href="" ng-click="nextWeek();"><span class="phone-common-border-bold-arrow-right pull-right"></span></a>
+    </div>
+  </div>
+</div> 
+<span ng-hide="true">{{zyrq}}</span>
+<div class=" "><table class="table jzhi-table-kebiao"> 
+      <thead>
+        <tr>
+          <th width="2%" colspan="2">{{month}}月 </th> 
+          <th width="17%"> {{zy}}<br>周一</th>
+          <th width="17%"> {{ze}}<br>周二</th>
+          <th width="16%"> {{zs}}<br>周三</th>
+          <th width="16%"> {{zsi}}<br>周四</th>
+          <th width="16%"> {{zw}}<br>周五</th>
+          <th width="16%"> {{zl}}<br>周六</th> 
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th width="1%" rowspan="4">上午</th> 
+          <th  width="1%">第一节</th> 
+          <td rowspan="2" class="jzhi-kecheng-block" ng-repeat = "cou1 in cous1"> {{cou1.course_name}} {{cou1.time_}} {{cou1.classroom}} </td> 
+        </tr> 
+        <tr> 
+          <th>第二节</th>  
+        </tr>
+        <tr> 
+          <th>第三节</th> 
+          <td rowspan="2" class="jzhi-kecheng-block" ng-repeat = "cou2 in cous2"> {{cou2.course_name}} {{cou2.time_}} {{cou2.classroom}} </td> 
+        </tr>
+        <tr>  
+          <th>第四节</th> 
+        </tr>
+        <tr>
+          <th rowspan="4">下午</th> 
+          <th>第一节</th> 
+          <td rowspan="2" class="jzhi-kecheng-block" ng-repeat = "cou3 in cous3"> {{cou3.course_name}} {{cou3.time_}} {{cou3.classroom}} </td> 
+        </tr> 
+        <tr> 
+          <th>第二节</th> 
+        </tr>
+        <tr> 
+          <th>第三节</th> 
+          <td rowspan="2" class="jzhi-kecheng-block" ng-repeat = "cou4 in cous4"> {{cou4.course_name}} {{cou4.time_}} {{cou4.classroom}} </td> 
+        </tr>
+        <tr>  
+          <th>第四节</th> 
+        </tr> 
+        <tr>
+          <th rowspan="2">晚上</th> 
+          <th>第一节</th> 
+          <td rowspan="2" class="jzhi-kecheng-block" ng-repeat = "cou5 in cous5"> {{cou5.course_name}} {{cou5.time_}} {{cou5.classroom}} </td> 
+        </tr> 
+        <tr> 
+          <th>第二节</th> 
+        </tr>
+      </tbody>
+    </table> 
+</div>
+

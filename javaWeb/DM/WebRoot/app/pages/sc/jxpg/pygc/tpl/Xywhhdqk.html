@@ -1,0 +1,70 @@
+<div style="font-size: 20px;font-weight: bold;font-family: '黑体';text-align: center;">{xn}学年</div>
+<div>
+	<table class="jxpg-common-table">
+		<tr>
+			<td class="title" colspan="2">项目</td>
+			<td class="title">数量（个）</td>
+		</tr>
+		<tpl for="items">
+		     {%console.log(values)%}
+			<tr>
+				<td rowspan="3">文化、学术讲座 </td>
+				<td>总数</td>
+				<td>
+					<span class="realvalue">{[Number(values.JZ_XJ_T) + Number(values.JZ_YJ_T)]}</span>
+					<span class="value_unedit">{[Number(values.JZ_XJ_F) + Number(values.JZ_YJ_F)]}</span>
+				</td>
+			</tr>
+			<tr>
+				<td>其中：校级</td>
+				<td>
+					<span class="realvalue">{JZ_XJ_T}</span>
+					<span class="value" code="JZ_XJ_F"  isnum = "int"  rowid="{ID}" type="itemvalue">{JZ_XJ_F}</span>
+					<div></div>
+				</td>
+			</tr>
+			<tr>
+				<td>院（系）级</td>
+				<td>
+					<span class="realvalue">{JZ_YJ_T}</span>
+					<span class="value" code="JZ_YJ_F"  isnum = "int"  rowid="{ID}" type="itemvalue">{JZ_YJ_F}</span>
+					<div></div>
+				</td>
+			</tr>
+			 
+			<tr>
+				<td rowspan="4">本科生课外科技、文化活动项目</td>
+				<td>总数</td>
+				<td>
+					<span class="realvalue">{[Number(values.XM_GJ_T) + Number(values.XM_SJ_T)+ Number(values.XM_XX_T)]}</span>
+					<span class="value_unedit">{[Number(values.XM_GJ_F) + Number(values.XM_SJ_F)+ Number(values.XM_XX_F)]}</span>
+				</td>
+			</tr>
+			<tr>
+				<td> 其中：国家大学生创新性试验计划项目</td>
+				<td>
+					<span class="realvalue">{XM_GJ_T}</span>
+					<span class="value" code="XM_GJ_F"  isnum = "int"  rowid="{ID}" type="itemvalue">{XM_GJ_F}</span>
+					<div></div>
+				</td>
+			</tr>
+			<tr>
+				<td>省级项目</td>
+				<td>
+					<span class="realvalue">{XM_SJ_T}</span>
+					<span class="value" code="XM_SJ_F"  isnum = "int"  rowid="{ID}" type="itemvalue">{XM_SJ_F}</span>
+					<div></div>
+				</td>
+			</tr>
+			<tr>
+				<td>学校项目</td>
+				<td>
+					<span class="realvalue">{XM_XX_T}</span>
+					<span class="value" code="XM_XX_F"  isnum = "int"  rowid="{ID}" type="itemvalue">{XM_XX_F}</span>
+					<div></div>
+				</td>
+			</tr>
+		</tpl>
+	</table>
+
+</div>

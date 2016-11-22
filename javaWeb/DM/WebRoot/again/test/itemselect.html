@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<style>
+  .transformgrid-base tr{border:1px solid #000;} 
+  .transformgrid-base td{padding:5px;border:1px solid #000;}
+</style>
+<link rel="stylesheet" type="text/css"
+	href="../../extjs/resources/css/ext-all.css">
+    <link rel="stylesheet" type="text/css" href="../resources/css/all.css"/>
+<script src="data/data.js"></script>
+<script src="../../base1/util/LAB.min.js"></script>
+<script src="../../extjs/ext-all-debug.js"></script>
+<script src="../component/form/field/expand/OverFieldContainer.js"></script>
+ <script src="../../extjs/ux/form/MultiSelect.js"></script>
+    <script src="../../extjs/ux/form/ItemSelector.js"></script>
+    <script type="text/javascript">
+        Ext.Loader.setConfig({'enabled' : true,
+            paths : {'Ext' : '../../extjs/'}});
+    </script>
+<script src="../ns-debug.js"></script>
+    <script src="../component/form/field/ItemSelector.js"></script>
+<script src="../../extjs/ext-lang-zh_CN.js"></script>
+<script type="text/javascript">
+	Ext.onReady(function() {
+        Ext.override(Ext.ux.form.ItemSelector,{
+            constructor : function(){
+              this.callParent(arguments);
+            },
+            initComponent : function(){
+               this.callParent(arguments);
+            },
+            createList: function(title){
+                var me = this;
+
+                return Ext.create('Ext.ux.form.MultiSelect', {
+                    submitValue: false,
+                    flex: 1,
+                    dragGroup: me.ddGroup,
+                    title : title,
+                    dropGroup: me.ddGroup,
+                    store: {
+                        model: me.store.model,
+                        data: []
+                    },
+                    displayField: me.displayField,
+                    disabled: me.disabled,
+                    listeners: {
+                        boundList: {
+                            scope: me,
+                            itemdblclick: me.onItemDblClick,
+                            drop: me.syncValue
+                        }
+                    }
+                });
+            },
+
+            setupItems: function() {
+                var me = this;
+
+                me.fromField = me.createList(me.fromTitle);
+                me.toField = me.createList(me.toTitle);
+
+                // add everything to the from field at the start
+                me.fromField.store.add(me.store.getRange());
+
+                return {
+                    layout: {
+                        type: 'hbox',
+                        align: 'stretch'
+                    },
+                    items: [
+                        me.fromField,
+                        {
+                            xtype: 'container',
+                            margins: '0 4',
+                            width: 22,
+                            layout: {
+                                type: 'vbox',
+                                pack: 'center'
+                            },
+                            items: me.createButtons()
+                        },
+                        me.toField
+                    ]
+                };
+            }
+        });
+		 var field = new NS.form.field.ItemSelector({
+             height : 300,
+             fromTitle : '初始值',
+             toTitle : '现在值',
+             width : 300,
+             data : [
+                    {id : 3,mc : '张三'},
+                    {id : 4,mc : '李四'},
+                    {id : 6,mc : '王武'},
+                    {id : 7,mc : '王sd'}
+             ],
+             value: ['3', '4']
+         });
+//        alert(field.getRawValue());
+//        var field = new NS.form.field.YearMonth({
+//            value : new Date()
+//        });
+		field.removeOptionsByIds(['6','7']);
+//        field.addOptionsWithIds([7]);
+//        field.setValue(['2','3']);
+        field.setValue();
+        field.loadData([{id : 111,mc : '11111'},{id : 222,mc : '11112'},{id : 333,mc : '11113'}]);
+        //field.setValue(['111','222']);
+//        field.setValue("111");
+		 var panel = new NS.container.Panel({
+			width : 600,
+             height : 400,
+			autoHeight:true,
+			//tbar:tbar,
+			padding:'0 0 0 20',
+			items : [field],
+			title : "You Can!",//down
+			renderTo : Ext.getBody()
+		 });
+
+	});
+</script>
+</head>
+<body>
+
+</body>
+</html>

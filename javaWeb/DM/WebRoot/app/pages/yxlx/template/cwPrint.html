@@ -1,0 +1,104 @@
+<object id="LODOP" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" width=0 height=0> 
+	<embed id="LODOP_EM" type="application/x-print-lodop" width=0 height=0 pluginspage="install_lodop.exe"></embed>
+</object> 
+<div id="yxcwdy_conent">
+<tpl for=".">
+<table width="350" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><table style="font-size:12px; color:#0099CC; width:320px; margin:0 auto;" width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td colspan="3" align="center"><h1 style="font-size:20px; border-bottom:3px solid #0099CC; padding-bottom:5px; width:300px; margin-top:10px; margin-bottom:10px; text-align:center;">河南化工技师学院收费明细</h1></td>
+  </tr>
+  <tr>
+    <td align="left" style="line-height:22px;">姓名：<tpl if="xm != null">{xm}</tpl></td>
+    <td align="left" style="line-height:22px;">班级：<tpl if="bjmc != null">{bjmc}</tpl></td>
+    <td align="right" style="line-height:22px;"><span style="word-spacing:15px;">{sj}</span></td>
+  </tr>
+  <tr>
+    <td colspan="3">
+	<table style=" border-collapse:collapse;font-size:12px; color:#0099CC; border:3px solid #0099CC; text-align:center;" width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <th  width="40%" style="border:1px solid #0099CC; border-bottom:2px solid #0099CC; padding:4px; font-weight:normal; text-align:center; white-space:nowrap;">收费项目</th>
+    <th width="30%" style="border:1px solid #0099CC; border-bottom:2px solid #0099CC; padding:4px; font-weight:normal; text-align:center; white-space:nowrap;">缴费金额</th>
+    <th width="30%" style="border:1px solid #0099CC; border-bottom:2px solid #0099CC; padding:4px; font-weight:normal; text-align:center; white-space:nowrap;">欠费金额</th>
+  </tr>
+  
+  <tpl if="hjzt==0">
+	  <tpl for="sfmx">
+		  <tr>
+		    <td style="border:1px solid #0099CC; padding:3px 4px; text-align:left; ">{sfxm}</td>
+		    <td style="border:1px solid #0099CC; padding:3px 4px;">
+				 <input style="width:80px;border:none;text-align:right;  font-family:Arial, Helvetica, sans-serif; 
+				 font-size:12px;"  value="{ysje}" id="yxlx_ssje{sfxmId}" name="yxlx_ssje{sfxmId}"  
+				 type="text" />    
+		    </td>
+		    <td style="border:1px solid #0099CC; padding:3px 4px;">
+			    <input style="width:80px;border:none; text-align:right;  font-family:Arial, Helvetica, sans-serif; 
+			    font-size:12px;" value="{hjje}" id="yxlx_hjje{sfxmId}" name="yxlx_hjje{sfxmId}"  
+			    type="text" />     
+		    </td>
+		  </tr>
+	  </tpl>
+   </tpl>
+   
+     <tpl if="hjzt==1">
+	  <tpl for="sfmx">
+		  <tr>
+		    <td style="border:1px solid #0099CC; padding:3px 4px; text-align:left; ">{sfxm}</td>
+		    <td style="border:1px solid #0099CC; padding:3px 4px;">
+				 <input style="width:80px;border:none;text-align:right;  font-family:Arial, Helvetica, sans-serif; 
+				 font-size:12px;"  value="{ssje}" id="yxlx_ssje{sfxmId}" name="yxlx_ssje{sfxmId}"  
+				 type="text" />    
+		    </td>
+		    <td style="border:1px solid #0099CC; padding:3px 4px;">
+			    <input style="width:80px;border:none; text-align:right;  font-family:Arial, Helvetica, sans-serif; 
+			    font-size:12px;" value="{hjje}" id="yxlx_hjje{sfxmId}" name="yxlx_hjje{sfxmId}"  
+			    type="text" />     
+		    </td>
+		  </tr>
+	  </tpl>
+   </tpl>
+   
+   
+    <tr>
+    <td  style="border:1px solid #0099CC; padding:3px 4px; text-align:center; ">&nbsp;</td>
+    <td style="border:1px solid #0099CC; padding:3px 4px; text-align:center; ">&nbsp;</td>
+    <td style="border:1px solid #0099CC; padding:3px 4px; text-align:center; ">&nbsp;</td>
+  </tr>
+    <tr>
+    <td  style="border:1px solid #0099CC; padding:3px 4px; text-align:center; ">&nbsp;</td>
+    <td style="border:1px solid #0099CC; padding:3px 4px; text-align:center; ">&nbsp;</td>
+    <td style="border:1px solid #0099CC; padding:3px 4px; text-align:center; ">&nbsp;</td>
+  </tr>
+  <tr>
+    <td style="border:1px solid #0099CC; padding:3px 4px; text-align:left; ">合计：</td>
+    <td style="border:1px solid #0099CC; padding:3px 4px; text-align:right; ">
+     <span id="yxlx_zssjeHj"><tpl if="zssje !=0 ">
+    	{zssje}
+    </tpl>
+     <tpl if="zssje ==0 ">
+    	{zysje}
+    </tpl></span>
+    </td>
+    <td id="yxlx_zhjje" style="border:1px solid #0099CC; padding:3px 4px; text-align:right; ">{zhjje}</td>
+  </tr>
+  <tr>
+    <td style="border:1px solid #0099CC; padding:3px 4px; text-align:center; ">备注：</td>
+    <td colspan="3"  height="30" style="border:1px solid #0099CC; padding:3px 4px; text-align:center; "><div align="left">
+      <textarea style="border:none; width:200px " id="yxlx_sfbz" rows="2"><tpl if="sfbz != null">{sfbz}</tpl></textarea>
+    </div></td>
+    </tr>
+</table></td>
+  </tr>
+  <tr>
+    <td colspan="3" style="line-height:22px; padding-top:5px;">批注：凭此联换取正式票据&nbsp;&nbsp;开票人：{username} </td>
+  </tr>
+  <tr>
+    <td colspan="3" style="line-height:22px;  padding-bottom:20px;">白联财务留存：红联学生留存；黄联班主任留存。</td>
+  </tr>
+</table></td>
+  </tr>
+</table>
+</tpl>
+ </div>
+

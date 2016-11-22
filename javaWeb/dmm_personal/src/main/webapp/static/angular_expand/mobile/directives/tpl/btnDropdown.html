@@ -1,0 +1,13 @@
+<div class="btn-group">
+  <button type="button" class="btn {{btnClass}}" style="min-width: 80px;{{btnStyle}}"  ng-click="toggleDetail()">
+  	 {{result ? result[displayField] : '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'}}
+  	</button>
+  <button type="button" class="btn {{btnClass}} dropdown-toggle" ng-click="toggleDetail()">
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" style="display: block" ng-show="showDetail">
+	 <li ng-repeat="it in source">
+	 	<a href="#" ng-click="selectChange(it)">{{it[displayField]}}</a>
+	 </li>
+  </ul>
+</div>

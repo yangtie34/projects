@@ -1,0 +1,63 @@
+
+
+<table width="100%" border="0" class="zxj-pcsz_table_gl">
+  <tr>
+	<td width="50%" valign="top" class="zxj-pcsz_table-right"><!-- 主体 start -->
+      <div class="zxj-pcsz_box">
+        <h2>
+        	<span class="zxj-pcsz_title ">填写批次信息:</span>
+        </h2>
+        <table width="100%" border="0" class="zxj-pcsz_table_gl">
+          <tr>
+            <td width="25%">批次名称[<span class="xg-common_red">*</span>]:</td>
+            <td width="75%"><input class="inputdefault zxj-pcsz_formwidth" type="text" id="{mc}" /></td>
+          </tr>
+          <tr style="display:none">
+            <td>批次id:</td>
+            <td><input class="inputdefault zxj-pcsz_formwidth" type="text" id="{id}" /></td>
+          </tr>
+          <tr>
+            <td>评定学年[<span class="xg-common_red">*</span>]:</td>
+            <td>
+	            <select class="selectdefault zxj-pcsz_formwidth" id="{xnId}">
+	              <option value="">请选择</option>
+	              <tpl for="xn"><option value="{id}">{mc}</option></tpl>
+	            </select>
+            </td>
+          </tr>
+          <tr>
+            <td>评定学期[<span class="xg-common_red">*</span>]:</td>
+            <td>
+	            <select class="selectdefault zxj-pcsz_formwidth" id="{xqId}">
+	              <option value="">请选择</option>
+	              <tpl for="xq"><option value="{id}">{mc}</option></tpl>
+	            </select>
+            </td>
+          </tr>
+          <tr>
+            <td>申请时间[<span class="xg-common_red">*</span>]:</td>
+            <td>
+		    	<div class="floatLeft zxj-pcsz_margin-top-div" id="{startDateDiv}"></div> 
+		    	<div class="floatLeft"> 至 </div> 
+		    	<div class="floatLeft zxj-pcsz_margin-top-div" id="{endDateDiv}"></div>
+    		</td>
+          </tr>
+          <tr>
+            <td>是否启用[<span class="xg-common_red">*</span>]:</td>
+            <td>
+	            <select class="selectdefault zxj-pcsz_formwidth" id="{sfqy}">
+	              <option value="">请选择</option>
+	              <option value="0">否</option>
+	              <option value="1">是</option>
+	            </select>
+            </td>
+          </tr>
+        </table>
+        <div class="zxj-pcsz_margin-tops">
+        	<button class=" wbh-common-buttondefault zxj-pcsz_buttonwid"  id="{saveBtn}">保存</button>
+        	<button class=" wbh-common-buttondefault zxj-pcsz_buttonwid"  id="{closeBtn}">关闭</button>
+        </div>
+      </div>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+   <bean id="baseDao" class="com.jhkj.mosdc.framework.dao.impl.BaseDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="baseBatchDao" class="com.jhkj.mosdc.framework.dao.impl.BaseBatchDaoImpl">
+		<property name="baseDao" ref="baseDao" />
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+    <bean id="desktopDao" class="com.jhkj.mosdc.framework.dao.impl.DeskTopDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+	<bean id="desktopservice" class="com.jhkj.mosdc.framework.service.impl.DeskTopServiceImpl">
+		<property name="dao">
+			<ref local="desktopDao" />
+		</property>
+	</bean>
+	<bean id="atsService" class="com.jhkj.mosdc.framework.service.impl.AnnouncementServiceImpl">
+		<property name="baseDao" ref="baseDao"/>
+	</bean>
+	<!-- 公告管理以及查询模块Bean配置    BEGIN -->
+	<bean id="annmentService" class="com.jhkj.mosdc.framework.message.service.impl.AnnouncementServiceImpl">
+		<property name="dao" ref="annmentDao"/>
+	</bean>
+	<bean id="annmentDao" class="com.jhkj.mosdc.framework.message.dao.impl.AnnouncementDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+	<!-- 公告管理以及查询模块Bean配置    END -->
+	<!-- 站内信模块Bean配置    BEGIN -->
+	<bean id="stationService" class="com.jhkj.mosdc.framework.message.service.impl.StationLettersServiceImpl">
+		<property name="dao" ref="stationDao"/>
+	</bean>
+	<bean id="stationDao" class="com.jhkj.mosdc.framework.message.dao.impl.StationLettersDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+	<!-- 站内信模块Bean配置    END -->
+	<!-- 建议模块 -->
+	<bean id="suggestDao" class="com.jhkj.mosdc.framework.message.dao.impl.SuggestDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="suggestService" class="com.jhkj.mosdc.framework.message.service.impl.SuggestServiceImpl">
+		<property name="suggestDao" ref="suggestDao" />
+		<property name="baseDao">
+			<ref local="baseDao" />
+		</property>
+	</bean>
+</beans>

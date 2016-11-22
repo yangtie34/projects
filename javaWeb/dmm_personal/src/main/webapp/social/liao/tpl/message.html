@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<div class="rxs-comn-list rxs-comn-patop"> 
+  <ul class="rxs-talk rxs-mar-tb-10">
+    <li  class="rxs-li-tit"  >
+      <h4><img src="../images/friend.png" width="24"> <span>好友申请</span></h4>
+    </li>
+    <li ng-repeat="it in unreadmessages.friendMessage">
+      <div class="media">
+        <div class="media-left media-middle text-center">
+        <img class="img-circle" ng-src="{{it.wechat_head_img}}" width="57">
+        <i class="fa fa-user"  ng-if="it.wechat_head_img == '' " style="height: 60px;width: 60px;font-size: 40px;color: #ddd;"></i></div>
+        <div class="media-body media-middle rxs-re-lab"><div ng-if="it.is_mine==0">
+          <h4 class="rxs-ft-16">{{it.real_name}}</h4></div>
+          <span ng-if="it.handle">
+			<span ng-if="it.pass" style="color:#16bf7e">
+				你们已经是好友关系
+			</span>
+			<span ng-if="!it.pass" style="color:#fc58a1">
+				已拒绝
+			</span>
+		</span>
+		<div ng-if="it.is_mine==1">
+			<span class="rxs-cor-ff9">{{it.target_real_name}} {{it.state == 1 ? '通过' : '拒绝' }}你的好友申请</span>
+		</div> </div>
+        <div class="media-right media-middle rxs-nowrap" ng-if="!it.handle"><button ng-click="passApply(it)" class="rxs-btn rxs-btn-green" type="button">通过</button>
+        <button class="rxs-btn rxs-btn-mei" type="button" ng-click="ignoreApply(it)">忽略</button></div>
+		
+      </div> 
+    </li> 
+    </ul>
+    <ul class="rxs-talk">
+    <li  class="rxs-li-tit" >
+      <h4><img src="../images/resay.png" width="24"> <span>发帖评论</span></h4>
+    </li>
+    <li ng-repeat="it in unreadmessages.topicMessage">
+      <div class="media">
+        <div class="media-left media-middle"><img class="img-circle" width="60" ng-src="{{it.wechat_head_img}}">
+        <i class="fa fa-user"  ng-if="it.wechat_head_img == '' " style="height: 60px;width: 60px;font-size: 40px;color: #ddd;"></i>
+        </div>
+        <div class="media-body media-middle  rxs-re-lab">
+          <h4 class="rxs-ft-16">{{it.real_name}}<i ng-show="it.sex == '女'" class="rxs-sex rxs-girl-icon"></i> <i ng-show="it.sex == '男'" class="rxs-sex rxs-boy-icon"></i></h4>
+          <p class="rxs-cor-9b">{{it.create_time}}</p>
+        </div>
+      </div>
+      <div class="rxs-fbq rxs-ft-15">{{it.content}}</div>
+      <div class="rxs-tlq rxs-tlq-bg"><a ng-href="bar/index.jsp#/topic/{{it.topic_id}}" style="text-decoration: none;color:#333">
+        <p><span class="rxs-cor-ff9">{{it.topic_real_name}}：</span><span ng-bind-html="it.topic_content |trusthtml"></span></p> </a>    
+      </div>
+    </li>
+  </ul>
+</div>

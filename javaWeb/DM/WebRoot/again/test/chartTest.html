@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <script type="text/javascript" src="FusionCharts/FusionCharts.debug.js"></script>
+    <script type="text/javascript" src="js/ns-debug.js"></script>
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="component/SimpleComponent.js"></script>
+    <script type="text/javascript" src="component/AbstractChart.js"></script>
+    <script type="text/javascript" src="component/chart/Column.js"></script>
+    <script type="text/javascript" src="component/chart/Pie.js"></script>
+    <script type="text/javascript" src="component/chart/Line.js"></script>
+    <script type="text/javascript" src="component/chart/Doughnut.js"></script>
+    <script type="text/javascript" src="component/chart/Area.js"></script>
+    <script type="text/javascript" src="component/chart/Bar.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var data = {
+                name: 'Don Griffin',
+                title: 'Senior Technomage',
+                company: 'Sencha Inc.',
+                drinks: ['Coffee', 'Water', 'More Coffee'],
+                kids: [
+                    { name: 'Aubrey',  age: 17 },
+                    { name: 'Joshua',  age: 13 },
+                    { name: 'Cale',    age: 10 },
+                    { name: 'Nikol',   age: 5 },
+                    { name: 'Solomon', age: 0 }
+                ]
+            };
+            var tpl = new NS.Template(
+                    '<p>Name: {name}</p>',
+                    '<p>Title: {title}</p>',
+                    '<p>Company: {company}</p>',
+                    '<p>Kids: ',
+                    '<tpl for="kids">',     // interrogate the kids property within the data
+                    '<p>{name}</p>',
+                    '</tpl></p>'
+            );
+//            var com  = new NS.SimpleComponent({
+//                style : {
+////                    backgroundColor : 'red'
+//                },
+//                tpl : tpl,
+//                data : data,
+//                renderTo : '123'
+//            });
+            var msData = {
+                        labels : ['一月','二月'],
+                        dataSet : [
+                            {
+                                name : '2006',
+                                data : [13,14]
+                            },{
+                                name : '2007',
+                                data : [15,17]
+                            }
+                        ]
+                    };
+            var ssData = [
+                {label : '一月',value : 12},
+                {label : '二月',value : 13},
+                {label : '三月',value : 12},
+                {label : '四月',value : 13},
+                {label : '五月',value : 12},
+                {label : '六月',value : 13}
+            ];
+            var cC = {
+                "caption":"图表标题",
+                "subcaption":"图表副标题",
+                "xaxisname":"X轴名称",
+                "yaxisname":"Y轴名称",
+                "numberprefix":"$"//y轴单位
+            };
+            var com = new NS.chart.Column({
+                chartType : 'Column2D',
+                chartConfig : cC,
+                renderTo : '1',
+                data : ssData
+            });
+            var com = new NS.chart.Bar({
+                chartType : 'Bar2D',
+                chartConfig : cC,
+                renderTo : '2',
+                data : ssData
+            });
+            var com = new NS.chart.Pie({
+                chartType : 'Pie2D',
+                chartConfig : cC,
+                renderTo : '3',
+                data : ssData
+            });
+            var com = new NS.chart.Doughnut({
+                chartType : 'Doughnut2D',
+                chartConfig : cC,
+                renderTo : '4',
+                data : ssData
+            });
+            var com = new NS.chart.Line({
+                chartType : 'Line',
+                chartConfig : cC,
+                renderTo : '5',
+                data : ssData
+            });
+            var com = new NS.chart.Area({
+                chartType : 'Area2D',
+                chartConfig : cC,
+                renderTo : '6',
+                data : ssData
+            });
+        });
+    </script>
+</head>
+<body>
+   <div id='1' style="width: 400px;height: 400px;float: left;">
+   </div>
+   <div id='2' style="width: 400px;height: 400px;float: left;">
+   </div>
+   <div id='3' style="width: 400px;height: 400px;float: left;">
+   </div>
+   <div id='4' style="width: 400px;height: 400px;float: left;">
+   </div>
+   <div id='5' style="width: 400px;height: 400px;float: left;">
+   </div>
+   <div id='6' style="width: 400px;height: 400px;float: left;">
+   </div>
+</body>
+</html>

@@ -1,0 +1,277 @@
+@charset "utf-8";
+/* CSS Document */
+/* 通用模块 CSS */
+ div, span, h1, h2, h3, h4, h5, h6, p, ul, ol, dl, li, dt, dd, table, option, input, label, a, strong, em, br {
+	margin:0;
+	padding:0;
+}
+/*
+select::-ms-expand {
+    display: none;
+} */
+.wbh-common-floatRight {
+	float:right;
+}
+.wbh-common-floatLeft {
+	float:left;
+}
+.wbh-common-clear {
+	clear:both;
+}
+/*标签定义*/
+hr.wbh-common-hrdefault {
+	height:1px;
+	border:none;
+	border-bottom:1px dashed #999;
+}
+input.wbh-common-inputdefault, select.wbh-common-selectdefault {
+	vertical-align:middle;
+	font-family:'Microsoft YaHei'
+}
+label.wbh-common-labeldefault {
+	vertical-align:middle;
+	margin-top:0;
+	font-family:'Microsoft YaHei'
+}
+button.wbh-common-buttondefault {
+	font-family:'Microsoft YaHei';
+	vertical-align:middle;
+}
+/*标签定义 end*/
+/*颜色定义*/
+.wbh-common-orange {
+	color:#FF6600;
+}
+.wbh-common-blue {
+	color:#0066FF
+}
+.wbh-common-grey {
+	color:#333333;
+}
+.wbh-common-green {
+	color:#009900;
+}
+/*颜色定义end*/
+/*边距定义*/
+.wbh-common-margin-lefts {
+	margin-left:5px;
+}
+.wbh-common-margin-leftm {
+	margin-left:10px
+}
+.wbh-common-margin-leftl {
+	margin-left:15px;
+}
+.wbh-common-margin-leftxl {
+	margin-left:20px
+}
+.wbh-common-margin-leftxxl {
+	margin-left:25px
+}
+.wbh-common-margin-rights {
+	margin-right:5px;
+}
+.wbh-common-margin-rightm {
+	margin-right:10px
+}
+.wbh-common-margin-rightl {
+	margin-right:15px;
+}
+.wbh-common-margin-rightxl {
+	margin-right:20px
+}
+.wbh-common-margin-rightxxl {
+	margin-right:25px
+}
+.wbh-common-margin-tops {
+	margin-top:5px
+}
+.wbh-common-margin-topm {
+	margin-top:10px
+}
+.wbh-common-margin-bottoms {
+	margin-bottom:5px
+}
+.wbh-common-margin-bottomm {
+	margin-bottom:10px
+}
+/*边距定义end*/
+/*表单样式定义*/
+.wbh-common-select-width {
+	min-width:134px;
+}
+/*表单样式定义end*/
+
+/*链接样式*/
+a.wbh-common-alink {
+	color:#3366ff;
+	text-decoration:none;
+}
+a.wbh-common-alink:hover {
+	color:#3399ff;
+	text-decoration:underline;
+}
+/* 通用模块 CSS  end */
+
+
+/*主容器样式*/
+.wbh-common-container {
+	margin-bottom:2em;
+	color:#333;
+	font:normal 12px 宋体;
+	padding:25px;
+	overflow: hidden;
+}
+/*顶部样式*/
+.wbh-common-top {
+	padding-bottom:0.8em;
+}
+.wbh-common-model {
+	padding-right:0.6em;
+	color:#FF6600;
+	font:bold 16px 'Microsoft YaHei';
+	background:url(../image/border-rightbold.jpg) right center no-repeat;
+}
+.wbh-common-user {
+	margin:auto 1.3em auto 0.5em;
+	color:#3366FF;
+	font:bold 14px 'Microsoft YaHei';
+}
+.wbh-common-dept {
+	color:#333;
+	font:bold 12px 'Microsoft YaHei';
+}
+.wbh-common-term {
+	color:#FF6600;
+	line-height:1.8em;
+	font:bold 14px 'Microsoft YaHei';
+}
+/*顶部样式end*/
+/*历史记录样式*/
+.wbh-common-history {
+	position:relative;
+	display:inline-block;
+}
+.wbh-common-history a {
+	color:#3366FF;
+	font-size:13px;
+	font-weight:normal;
+	text-decoration:none;
+}
+.wbh-common-history a:hover {
+	color:#3399FF;
+	text-decoration:none;
+}
+/*历史记录end*/
+
+/*左右分部样式*/
+.wbh-common-main {
+	margin:0.6em 0;
+}
+.wbh-common-mainLeft {
+	width:75%;
+}
+.wbh-common-graceRight {
+	margin-right:2em;
+}
+.wbh-common-mainRight {
+	width:25%;
+}
+/*左右分部样式end*/
+
+/*项目标题样式*/
+.wbh-common-box {
+	margin:0.6em 0;
+}
+.wbh-common-box h2 {
+	border-bottom:2px solid #3399FF;
+	font-weight:normal;
+	font-size:12px;
+	line-height:1.6;
+	margin-bottom:0.6em;
+}
+.wbh-common-title {
+	margin-right:2em;
+	padding-left:0.5em;
+	color:#3366FF;
+	font-weight:bold;
+	font-size:14px;
+	font-family: 'Microsoft YaHei';
+	background:url(../image/border-leftnormal.jpg) left center no-repeat;
+}
+/*项目标题样式end*/
+/* 搜索模块 */
+.wbh-common-search {
+	border:1px solid #797979;
+	padding:0.6em 0 0.6em 0.6em;
+}
+/*搜索模块end*/
+/*工具模块*/
+.wbh-common-tool {
+	margin-top:0.6em
+}
+/*工具模块end*/
+/*统计模块*/
+.wbh-common-stats {
+	margin-top:0.6em;
+	font-size:14px;
+	color:#0066FF;
+	font-weight:bold;
+	padding:0.6em;
+	font-family: 'Microsoft YaHei';
+	border:1px solid #797979;
+}
+/*统计模块end*/
+/*表格样式*/
+.wbh-common-body {
+	margin:0.6em 0 1em 0;
+	background:#FFFFFF;
+	color:#333333;
+	overflow: hidden;
+}
+table.wbh-common-mainList {
+	border-collapse:collapse;
+	table-layout:fixed;
+}
+.wbh-common-body td.wbh-common-td-border, .wbh-common-body th.wbh-common-td-border {
+	border:1px solid #797979;
+	height:29px;
+	text-align:center;
+}
+.wbh-common-body th.wbh-common-th-bg {
+	background:#3399FF;
+	color:#FFFFFF;
+}
+/*表格样式end*/
+/*说明div样式*/
+.wbh-common-shuoming {
+	position: relative;
+	border-radius: 8px;
+	border: 1px solid #CCC;
+	background: #F6F6F6;
+	height: 35px;
+	line-height: 36px;
+	margin-top: 20px;
+	padding-left: 10px;
+	color: #666;
+}
+.wbh-common-imgcss {
+	position: absolute;
+	left: 15px;
+	top: -17px;
+	background:url(../image/bgsj.png) 0 0 no-repeat;
+	width:29px;
+	height:21px;
+}
+.wbh-common-text-cor {
+	color: #39F;
+	font-weight: bold;
+}
+
+/*主容器样式end*/
+
+
+/*按钮样式*/
+.wbh-common-button-style{ 
+	padding: 5px 0;
+    width: 75px;}

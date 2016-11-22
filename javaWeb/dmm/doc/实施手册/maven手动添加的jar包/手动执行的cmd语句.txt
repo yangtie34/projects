@@ -1,0 +1,6 @@
+
+mvn install:install-file -DgroupId=com.oracle -DartifactId=ojdbc14 -Dversion=10.2.0.1.0 -Dpackaging=jar -Dfile=d:\ojdbc14.jar 
+
+mvn install:install-file -DgroupId=com.wiscom -DartifactId=idstar -Dversion=1.0 -Dpackaging=jar -Dfile=d:\idstar.jar 
+
+mvn install:install-file -DgroupId=com.wiscom -DartifactId=Ice -Dversion=1.0 -Dpackaging=jar -Dfile=d:\Ice.jar

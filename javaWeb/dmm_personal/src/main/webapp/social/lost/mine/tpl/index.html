@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>我的发文</title>
+</head>
+<body class="rxs-bg">
+<div class="rxs-add-dt"  style="bottom:70px;"><a href="#/newPost" class="rxs-add-link"><img src="../../images/add-lb.png" width="20"></a></div>
+<div class="rxs-comn-list rxs-comn-pad-top">
+  <ul class="rxs-talk rxs-mar-tb-10">
+    <li class=" rxs-mar-tb-10" ng-repeat="it in myTopicList">
+      <div class="media">
+        <div class="media-left media-middle"><img class="img-circle" width="60" src="../../images/user-img.png"></div>
+        <div class="media-body media-middle  rxs-re-lab">
+          <h4 class="rxs-ft-16">{{it.name_}} </h4>
+          <p class="rxs-cor-9b">{{it.creat_time}}</p>
+        </div>
+      </div>
+      <div class="rxs-fbq rxs-ft-15">{{it.message}}</div>
+      <div class="text-center">
+          <img ng-src="{{it.image_url}}" alt="" width="80%" />
+      </div>
+      <div class="rxs-mar-tb-10 rxs-cor-9b"> 电话：<span class="rxs-cor-ff9">{{it.tel_}}</span> </div>
+      <div class="rxs-tlq rxs-edit-tb clearfix">
+        <div class="row">
+          <div class="col-xs-6">
+          	<div ng-if="it.is_solve==0">
+              <input class="rxs-cbox" id="cbox-1" type="checkbox"/>
+              <label for="cbox-1" ng-if="it.lostfound_type_code == 0" ng-click="changeSolveState(it)">已找到失物</label>
+              <label for="cbox-2" ng-if="it.lostfound_type_code == 1" ng-click="changeSolveState(it)">已找到失主</label>
+          	</div>
+          </div>
+          <div class="col-xs-6"><a href="" class="rxs-rgt-delete"  ng-click="deleteTopic(it)"></a></div>
+        </div>
+      </div>
+      <!--标注标签1-->
+      <div class="rxs-lb-j" ng-if="it.lostfound_type_code == 1" ng-click="changeSolveState(it)"><img src="../../images/jian-icon.png" width="40"></div>
+      <div class="rxs-lb-j" ng-if="it.lostfound_type_code == 0" ng-click="changeSolveState(it)"><img src="../../images/shi-icon.png" width="40"></div>
+      <!--标注标签1-->
+      <!--标注标签2-->
+      <div class="rxs-lb-end"><img src="../../images/ending.png" width="80" ng-show="it.is_solve==1 "></div>
+      <!--标注标签2-->
+    </li>
+  </ul>
+</div>
+</body>
+</html>

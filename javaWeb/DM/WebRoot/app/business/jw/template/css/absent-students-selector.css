@@ -1,0 +1,8 @@
+.students-absence-grid{height:216px; margin:5px;}
+.students-absence-grid table{width:100%; table-layout:fixed; text-align:center;}
+.students-absence-grid-header{height:30px; line-height:30px;}
+.students-absence-grid-body{height: 186px; margin-top:-1px; overflow-y:auto; overflow-x:hidden;}
+.students-absence-grid th,.students-absence-grid td{width:71px; border:1px solid #99BCE8;}
+.students-absence-grid th.first,.students-absence-grid td.first{width:47px;}
+.students-absence-grid th{background:#D5E1EA; color:#416DA3;}
+.students-absence-grid td{line-height:2;}

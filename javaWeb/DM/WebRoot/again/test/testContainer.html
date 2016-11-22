@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css">
+    <script src="data/data.js"></script>
+    <script src="../../base1/util/LAB.min.js"></script>
+    <script src="../../extjs/ext-all.js"></script>
+    <script src="../ns-debug.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function(){
+            var tbar2 = new NS.toolbar.Toolbar({
+                items : [{xtype : 'button',text : 'button2'}]
+            });
+            var c = new NS.container.Panel({
+                width: '100%',
+                height: '20%',
+                tbar : tbar2,
+                layout : 'fit',
+                region : 'center',
+                items : new NS.Img({
+                    name : 'photo',
+                    style: {
+                        color: 'yellow',
+                        backgroundColor:'yellow'
+                    }
+                })
+            });
+            var tbar = new NS.toolbar.Toolbar({
+                items : [{xtype : 'button',text : 'button1'}]
+            });
+            var tbar1 = new NS.toolbar.Toolbar({
+                items : [{xtype : 'button',text : 'button2'}]
+            });
+            var component = new NS.container.Container({
+                width: 500,
+                height: 500,
+                layout : 'fit',
+                renderTo : Ext.getBody(),
+                items : [{
+                    xtype : 'panel',
+                    tbar : tbar,
+                    layout : 'border',
+                    items : [
+                        {
+                            xtype : 'panel',
+                            region : 'west',
+                            tbar : tbar1,
+                            html : '张三'
+                        },
+                        new NS.Component({
+                            width: '100%',
+                            height: '40%',
+                            region : 'east',
+                            region : 'south',
+                            padding: 20,
+                            style: {
+                                color: 'green',
+                                backgroundColor:'green'
+                            }
+                        }),c
+                    ]
+                }
+                    ],
+                renderTo: Ext.getBody()
+            });
+            component.bindItemsEvent({
+                photo : {event:'click',fn:function(){
+                    alert(455);
+                }}
+            })
+            var b = component.getComponent(0);
+        });
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

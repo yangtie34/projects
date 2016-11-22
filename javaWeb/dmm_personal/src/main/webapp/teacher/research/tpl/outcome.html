@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<div class="container-fluid jzhi-menu jzhi-menu-keyan ">
+  <div class="row text-center">
+    <div class="col-xs-6 jzhi-menu-hover" id="jd">
+      <h5>鉴定成果 </h5>
+      <h4><a href="" ng-click="getAppraisalOutcome();" style="color:#fff;text-decoration: none">{{appraisaloutcome}}</a></h4>
+    </div>
+    <div class="col-xs-6" id="hj">
+      <h5>获奖成果</h5>
+      <h4><a href="" ng-click="getAwardOutcome();" style="color:#fff;text-decoration: none">{{awardoutcome}}</a></h4>
+    </div>
+  </div>
+</div> 
+<div class="jzhi-line-title-bg jzhi-line-title text-center">成果列表</div>
+<div class="jzhi-no-table" ng-show="outcomes == ''">
+  <div class="jzhi-no-cell">
+    <div class="jzhi-no-list jzhi-no-zhuanli">暂无成果</div>
+  </div>
+</div>
+<div class="container-fluid">
+ <ul class="jzhi-cglist" id="awardtable">
+   <li ng-repeat="outcome in outcomes"><dl class="jzhi-list-dl"><span>{{$index+1}}</span><dt>成果名称</dt><dd>{{outcome.NAME_}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>获奖人</dt><dd>{{outcome.PRIZEWINNER}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>获奖名称</dt><dd>{{patent.PATENT_DEPT}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>获奖级别</dt><dd>{{outcome.LEVEL_NAME}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>获奖类别</dt><dd>{{outcome.CATEGORY_NAME}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>获奖等级</dt><dd>{{outcome.RANK_NAME}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>获奖单位</dt><dd>{{outcome.AWARD_DEPT}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>获奖时间</dt><dd>{{outcome.AWARD_TIME}}</dd></dl></li>
+ </ul>
+  <ul class="jzhi-cglist" id="appralsaltable">
+   <li ng-repeat="outcome in outcomes"><dl class="jzhi-list-dl"><span>{{$index+1}}</span><dt>成果名称</dt><dd>{{outcome.NAME_}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>完成人</dt><dd>{{outcome.AUTHORS}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>鉴定单位</dt><dd>{{outcome.APPRAISAL_DEPT}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>鉴定形式</dt><dd>{{outcome.IDENTIFYMODE_NAME}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>鉴定水平</dt><dd>{{outcome.IDENTIFYLEVEL_NAME}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>鉴定时间</dt><dd>{{outcome.TIME_}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>成果登记号</dt><dd>{{outcome.IDENTIFY_REGIST_NO}}</dd></dl></li>
+ </ul>
+</div>
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+

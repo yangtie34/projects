@@ -1,0 +1,23 @@
+<div style="font-size: 20px;font-weight: bold;font-family: '黑体';text-align: center;">{xn}学年</div>
+<div>
+	<table class="jxpg-common-table">
+		<tr>
+			<td class="title">姓名</td>
+			<td class="title">地址</td>
+			<td class="title">电话</td>
+			<td class="title">年龄</td>
+		</tr>
+		<tpl for="items">
+			<tr>
+				<td>{NAME}</td>
+				<td>{ADDRESS}</td>
+				<td>{PHONE}</td>
+				<td>
+					<span class="realvalue">{AGE}</span>
+					<span class="value" code="AGE_IN" rowid="{ID}" type="itemvalue">{AGE_IN}</span>
+					<div></div>
+				</td>
+			</tr>
+		</tpl>
+	</table>
+</div>

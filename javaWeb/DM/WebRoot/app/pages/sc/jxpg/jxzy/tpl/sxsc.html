@@ -1,0 +1,102 @@
+<div style="font-size: 20px;font-weight: bold;font-family: '黑体';text-align: center;">{xn}学年</div>
+<div>
+    <table  class="jxpg-common-table">
+        <tr>
+            <td class="title" colspan="2" rowspan="2">项目</td>
+            <td class="title"  rowspan="2">学校情况</td>
+            <td class="title" >办学条件指 标</td>
+            <td class="title"  rowspan="2">常模值</td>
+        </tr>
+        <tr>
+            <td class="title">合格标准</td>
+        </tr>
+        <tpl for="items">
+        <tpl if="XM=='1'">
+        <tr>
+            <td width="57" rowspan="5">本科实验、实习、实训场所</td>
+            <td >面积（平方米）</td>
+            <td>
+                <span class="realvalue">{XXQK_T}</span>
+                <span class="value" code="XXQK_F" rowid="{ID}" isnum="float" type="itemvalue">{XXQK_F}</span>
+                <div></div>
+            </td>
+            <td><span>{HGBZ_T}</span></td>
+            <td><span>{CMZ_T}</span></td>
+        </tr>
+        </tpl>
+       <tpl if="XM=='2'">
+        <tr>
+            <td>学年度承担的实验教学人时数（人时）</td>
+            <td>
+                <span class="realvalue">{XXQK_T}</span>
+                <span class="value" code="XXQK_F" rowid="{ID}" isnum="float" type="itemvalue">{XXQK_F}</span>
+                <div></div>
+            </td>
+            <td><span>{HGBZ_T}</span></td>
+            <td><span>{CMZ_T}</span></td>
+        </tr>
+       </tpl>
+           <tpl if="XM=='3'">
+        <tr>
+            <td>学年度承担的实验教学人次数（人次）</td>
+            <td>
+                <span class="realvalue">{XXQK_T}</span>
+                <span class="value" code="XXQK_F" rowid="{ID}" isnum="float" type="itemvalue">{XXQK_F}</span>
+                <div></div>
+            </td>
+            <td><span>{HGBZ_T}</span></td>
+            <td><span>{CMZ_T}</span></td>
+        </tr>
+        </tpl>
+        <tpl if="XM=='4'">
+        <tr>
+            <td>本科生实验、实习、实训项目数（个）</td>
+            <td>
+                <span class="realvalue">{XXQK_T}</span>
+                <span class="value" code="XXQK_F" rowid="{ID}" isnum="int" type="itemvalue">{XXQK_F}</span>
+                <div></div>
+            </td>
+            <td><span>{HGBZ_T}</span></td>
+            <td><span>{CMZ_T}</span></td>
+        </tr>
+        </tpl>
+        <tpl if="XM=='5'">
+        <tr>
+            <td>每次可容纳的学生数（人）</td>
+            <td>
+                <span class="realvalue">{XXQK_T}</span>
+                <span class="value" code="XXQK_F" rowid="{ID}" isnum="int" type="itemvalue">{XXQK_F}</span>
+                <div></div>
+            </td>
+            <td><span>{HGBZ_T}</span></td>
+            <td><span>{CMZ_T}</span></td>
+        </tr>
+        </tpl>
+        <tpl if="XM=='6'">
+        <tr>
+            <td rowspan="2">校外实习、训基地</td>
+            <td>个数</td>
+            <td>
+                <span class="realvalue">{XXQK_T}</span>
+                <span class="value" code="XXQK_F" rowid="{ID}" isnum="int" type="itemvalue">{XXQK_F}</span>
+                <div></div>
+            </td>
+            <td><span>{HGBZ_T}</span></td>
+            <td><span>{CMZ_T}</span></td>
+        </tr>
+        </tpl>
+        <tpl if="XM=='7'">
+        <tr>
+            <td>平均每次可接纳学生数（个）</td>
+            <td>
+                <span class="realvalue">{XXQK_T}</span>
+                <span class="value" code="XXQK_F" rowid="{ID}" isnum="float" type="itemvalue">{XXQK_F}</span>
+                <div></div>
+            </td>
+            <td><span>{HGBZ_T}</span></td>
+            <td><span>{CMZ_T}</span></td>
+        </tr>
+        </tpl>
+        </tpl>
+    </table>
+</div>

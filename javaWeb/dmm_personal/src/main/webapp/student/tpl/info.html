@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<div class="rxs-menu-top  text-center"> <img class="img-circle" width="85" ng-show="person.headimg != ''" ng-src="{{person.headimg}}">
+  <h4>{{person.name}} <i ng-show="person.gender=='男'" class="rxs-sex rxs-boy-icon"></i><i ng-show="person.gender=='女'" class="rxs-sex rxs-girl-icon"></i></h4>
+   &nbsp;&nbsp;&nbsp;&nbsp;{{person.sno}} 
+</div>
+<div class="rxs-comn-list">
+  <ul class="rxs-comn-ul">
+    <li><span class="rxs-text-ccc">院系</span>{{person.yx}}</li>
+    <li><span class="rxs-text-ccc">专业</span>{{person.zy}}</li> 
+    <li><span class="rxs-text-ccc">班级</span>{{person.bj}}</li>
+    <li><span class="rxs-text-ccc">性别</span>{{person.gender}}</li>
+    <li><span class="rxs-text-ccc">婚否</span>{{person.married==0?'未婚':(person.married==1?'已婚':'未知')}} </li>
+    <li><span class="rxs-text-ccc">民族</span>{{person.nation}}</li>
+    <li><span class="rxs-text-ccc">政治面貌</span>{{person.zzmm}}</li>
+    <li><span class="rxs-text-ccc">身份证号</span>{{person.idno}}</li>
+    <li><span class="rxs-text-ccc">出生日期</span>{{person.birthday}}</li>
+    <li><span class="rxs-text-ccc">联系电话</span>
+    	<span ng-hide="showUpdateTelForm">
+			{{person.tel}} 
+			<button class="btn btn-success btn-xs" ng-click="showUpdateTelForm = !showUpdateTelForm">修改</button>
+		</span>
+		<span ng-show="showUpdateTelForm" class="form-inline">
+			<input type="text" class="input-sm" ng-model="updateTel"> 
+			<button class="btn btn-primary btn-xs" ng-click="updateStudentTel()">确定</button>
+		</span>
+    </li> 
+  </ul>
+  <ul class="rxs-comn-ul">
+    <li><span class="rxs-text-ccc">学制</span>{{person.xz}}</li> 
+    <li><span class="rxs-text-ccc">入学年级</span>{{person.rxnj}}</li>
+    <li><span class="rxs-text-ccc">入学日期</span>{{person.enroll_date}}</li>
+    <li><span class="rxs-text-ccc">就读学历</span>{{person.xl}}</li> 
+    <li><span class="rxs-text-ccc">就读学位：</span>{{person.xw}}</li>
+    <li><span class="rxs-text-ccc">毕业学校：</span>{{person.schooltag}}</li>
+    <li><span class="rxs-text-ccc">考生号：</span>{{person.ksh}}</li> 
+    <li><span class="rxs-text-ccc">培养方式：</span>{{person.pyfs}}</li>
+    <li><span class="rxs-text-ccc">培养层次：</span>{{person.pycc}}</li>
+    <li><span class="rxs-text-ccc">招生类别：</span>{{person.zslb}}</li> 
+    <li><span class="rxs-text-ccc">学习方式：</span>{{person.xxfs}}</li>
+    <li><span class="rxs-text-ccc">生源类别：</span>{{person.sylb}}</li>
+    <li><span class="rxs-text-ccc">学生类别：</span>{{person.xslb}}</li> 
+  </ul>
+</div>
+<button class="btn btn-danger btn-block" ng-click="logout()">退出</button>

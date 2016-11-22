@@ -1,0 +1,38 @@
+
+<div class="container-fluid jzhi-menu jzhi-menu-xinzi ">
+  <div class="row">
+    <a id="mya1" ng-href="#/lastsalary/{{lastSalary.YEAR_}}/{{lastSalary.MONTH_}}" style="text-decoration: none;color:#fff;"><div class="col-xs-6">
+      <h5>上月薪资<span class="jzhi-xinzi-right-icon pull-right"></span></h5>
+      <h3><span ng-show="lastSalary.LASTSALARY == ''">未维护</span>{{lastSalary.LASTSALARY}}</h3>
+    </div></a>
+    <a id="mya2" ng-href="#/historysalary" style="text-decoration: none;color:#fff;"><div class="col-xs-6">
+      <h5>累计薪资<span class="jzhi-xinzi-right-icon pull-right"></span></h5>
+      <h3><span ng-show="totalSalary == ''">未维护</span>{{totalSalary}}</h3>
+    </div></a>
+  </div>
+</div>
+<div class="container-fluid jzhi-banner-menu">
+  <div class="row">
+    <div class="col-xs-6" ng-repeat="xz in xzzc">
+      <div class="media">
+        <div class="media-left media-middle"><span class="jzhi-xinzi01-icon"></span></div>
+        <div class="media-body media-middle">
+          <h6 class="jzhi-h6-bottom">累计{{xz.SALARY_TYPE}}</h6>
+          <p class="jzhi-text-info">{{xz.SALARY}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid phone-common-martb  jzhi-tjt-bg"  echart config="mycharts"></div>
+<div class="phone-common-list  phone-common-martb container-fluid">
+  <div class="media">
+    <div class="media-left media-middle"><span class="jzhi-xinzi05-icon pull-left"></span></div>
+    <div class="media-body media-middle">按照您目前的薪资水平，您到退休还可领到工资 <i class="jzhi-text-info">{{futureSalary}}</i> 元 </div>
+  </div>
+</div>
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+
+

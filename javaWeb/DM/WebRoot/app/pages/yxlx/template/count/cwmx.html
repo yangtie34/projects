@@ -1,0 +1,85 @@
+<object id="LODOP" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" width=0 height=0> 
+	<embed id="LODOP_EM" type="application/x-print-lodop" width=0 height=0 pluginspage="install_lodop.exe"></embed>
+</object> 
+<table  style="font-size:12px;line-height:36px;margin:0 auto;" width="99%" border="0" cellspacing="0" cellpadding="0">
+   <tr>
+    <td align="right"> 
+  <input style="padding:2px 10px;" name="yxtj_export" type="button" value="导出" /> 
+	<input style="padding:2px 10px;" name="yxtj_print" type="button" value="打印" /></td>
+  </tr>
+</table>
+<div id='yxtj_conent'  style="width:99%;font-size:12px;border:1px solid #797979;padding:20px;">
+  <table style="font-size:12px;text-align:center;margin:15px 0;"  width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td> 
+    <tpl for=".">
+    <h1>{pc}{sfrq}缴费情况明细</h1>
+    </tpl>
+    </td>
+  </tr>
+  <tr>
+    <td align="left">&nbsp;</td>
+  </tr>
+</table>
+ <table style="font-size:12px;text-align:center;border-collapse:collapse;margin:10px 0;" width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr style="background:#f2f2f2;">
+    <td style="border:1px solid #797979;padding:5px 2px;">序号</td>
+   <!--  <td style="border:1px solid #797979;padding:5px 2px;">日期</td> -->
+    <td style="border:1px solid #797979;padding:5px 2px;">姓名</td>
+	<td style="border:1px solid #797979;padding:5px 2px;">班级</td>
+    <td style="border:1px solid #797979;padding:5px 2px;">学费（元）</td>
+    <td style="border:1px solid #797979;padding:5px 2px;">技能培训费（元）</td>
+    <td style="border:1px solid #797979;padding:5px 2px;">住宿费（元）</td>
+    <td style="border:1px solid #797979;padding:5px 2px;">生活用品费（元）</td>
+    <td style="border:1px solid #797979;padding:5px 2px;">服装费(代收)（元）</td>
+    <td style="border:1px solid #797979;padding:5px 2px;">书本费(代收)（元）</td>
+    <td style="border:1px solid #797979;padding:5px 2px;">保险费(代收)（元）</td>
+  </tr>
+  <tpl for="data">
+  <tr>
+    <td style="border:1px solid #797979;padding:5px 2px;">{#}</td>
+    <!-- <td style="border:1px solid #797979;padding:5px 2px;">{RQ}</td> -->
+    <td style="border:1px solid #797979;padding:5px 2px;">{XM}</td>
+    <td style="border:1px solid #797979;padding:5px 2px;">{BJ}</td>
+    <td style="border:1px solid #797979;padding:5px 2px;">{XF}</td>
+	<td style="border:1px solid #797979;padding:5px 2px;">{JNPXF}</td>
+   	<td style="border:1px solid #797979;padding:5px 2px;">{ZSF}</td>
+  	<td style="border:1px solid #797979;padding:5px 2px;">{SHYPF}</td>
+  	<td style="border:1px solid #797979;padding:5px 2px;">{FZF}</td>
+   	<td style="border:1px solid #797979;padding:5px 2px;">{SBF}</td>
+   	<td style="border:1px solid #797979;padding:5px 2px;">{BXF}</td>
+  </tr>
+  </tpl>
+ <tpl for="zdata">
+  <tr>
+    <td style="border:1px solid #797979;padding:5px 2px;"></td>
+    <td style="border:1px solid #797979;padding:5px 2px;">合计</td>
+    <td style="border:1px solid #797979;padding:5px 2px;"></td>
+    <td style="border:1px solid #797979;padding:5px 2px;">{zxf}</td>
+    <td style="border:1px solid #797979;padding:5px 2px;">{zjnpxf}</td>
+    <td style="border:1px solid #797979;padding:5px 2px;">{zzsf}</td>
+    <td style="border:1px solid #797979;padding:5px 2px;">{zshypf}</td>
+    <td style="border:1px solid #797979;padding:5px 2px;">{zfzf}</td>
+  	<td style="border:1px solid #797979;padding:5px 2px;">{zsbf}</td>
+    <td style="border:1px solid #797979;padding:5px 2px;">{zbxf}</td>
+    
+  </tr>
+  </tpl>
+</table>
+  <table class="yx_cwtj-admin" width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+   <tpl for=".">
+    <td>日期：{sj} </td><td align="right">制表人：{username} </td>
+    </tpl>
+  </tr>
+   
+   
+</table>
+</div>
+  <table  style="font-size:12px;line-height:36px;margin:0 auto;" width="99%" border="0" cellspacing="0" cellpadding="0">
+   <tr>
+    <td align="right"> 
+    <input style="padding:2px 10px;" name="yxtj_export" type="button" value="导出" />
+	<input style="padding:2px 10px;" name="yxtj_print" type="button" value="打印" /></td>
+  </tr>
+</table>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<div class="rxs-comn-patop">
+  <div class="rxs-comn-title rxs-comn-noicon text-center"> {{params.datetime}}消费明细 </div>
+  <div class="rxs-bg-ff">
+    <ul class="rxs-comn-ul rxs-hover-ul rxs-pad-none">
+      <li ng-repeat="it in detaillist">
+        <table class="rxs-comn-table rxs-in-table rxs-in-first-none" width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+            <tr>
+              <td class="rxs-af-cor">{{it.rq}}</td>
+              <td class="" width="40%"><span ng-show="{{it.dept == null || it.dept == ''}}">未维护</span>{{it.dept}}</td>
+              <td class="rxs-af-cor">{{it.sj}}</td>
+              <td class="rxs-org-cor">{{it.xfje}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="hidden">
+	<div pagination total-items="page.sumcount" ng-model="page.curpage" items-per-page="page.pagesize" max-size="5" class="pagination-sm pull-right" boundary-links="true"></div>
+	<div class="clear-all"></div>
+</div>
+
+<button class="btn btn-primary btn-block" ng-click="loadMore()" ng-hide="page.loading || page.pagesize*page.curpage >= page.sumcount"> 点击加载更多 </button>
+<button class="btn btn-danger btn-block" ng-show="page.loading">加载中</button>
+<div ng-show="page.pagesize*page.curpage >= page.sumcount">
+	<div class="text-center jzhi-text-ccc">
+	 	没有更多数据
+	</div>
+</div>

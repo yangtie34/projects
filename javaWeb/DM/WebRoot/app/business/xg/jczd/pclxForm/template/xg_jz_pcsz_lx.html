@@ -1,0 +1,60 @@
+
+
+<table width="100%" border="0" class="jz-pcsz-pclxform_table_gl">
+  <tr>
+	<td width="50%" valign="top" class="jz-pcsz-pclxform_table-left"><!-- 主体 start -->
+      <div class="jz-pcsz-pclxform_box" style="position:relative;">
+         <div id={cancleDiv} class="jz-pcsz-pclxform_orange jz-pcsz-pclxform_cancleDiv" style="display:none;">
+         	当前类型直接通过，无需设置名额！
+         </div>
+         <table width="100%" border="0" class="jz-pcsz-pclxform_table_gl" >
+           <tr><td width="35%" ><input type="text" hidden="hidden" id="" /></td><td width="65%"></td></tr>
+           <tr>
+             <td class="jz-pcsz-pclxform_td-right">{lxLabel}[<span class="xg-common_red">*</span>]:</td>
+             <td>
+	            <select class="selectdefault jz-pcsz-pclxform_formwidth" id="{lxId}">
+	              <option value="">请选择</option>
+	              <tpl for="lxOptions"><option value="{id}" sfzjtg="{sfzjtg}">{mc}</option></tpl>
+	            </select>
+           	 </td>
+           </tr>
+           <tr>
+             <td class="jz-pcsz-pclxform_td-right">学生可申请[<span class="xg-common_red">*</span>]:</td>
+             <td>
+	            <select class="selectdefault  jz-pcsz-pclxform_formwidth" id="{xssfksqId}">
+	              <option value="">请选择</option>
+	              <option value="0">否</option>
+	              <option value="1">是</option>
+	            </select>
+            </td>
+           </tr>
+           <tr>
+             <td class="jz-pcsz-pclxform_td-right">
+             	<input class="inputdefault" type="radio" name="{meblName}" value="me" checked="checked"/>
+             	按总名额(人)[<span class="xg-common_red">*</span>]:
+             </td>
+             <td><input class="inputdefault jz-pcsz-pclxform_formwidth" type="text" placeholder="输入总名额..." id="{meId}" /></td>
+           </tr>
+           <tr>
+             <td class="jz-pcsz-pclxform_td-right">
+             	<input class="inputdefault" type="radio" name="{meblName}" value="bl"/>
+             	名额比例(%)[<span class="xg-common_red">*</span>]:
+             </td>
+             <td><input class="inputdefault jz-pcsz-pclxform_formwidth" type="text" placeholder="输入比例..."   id="{blId}" disabled="disabled"/></td>
+           </tr>
+           <tr>
+             <td height="12"></td>
+             <td> </td> 
+           </tr>
+         </table>
+         <div>
+             <p class="jz-pcsz-pclxform_margin-tops">
+             <button class="wbh-common-buttondefault jz-pcsz-pclxform_buttonwid" style="width:100px; display:none" id="{cancleBtn}">取消本次修改</button>
+             <button class="wbh-common-buttondefault jz-pcsz-pclxform_buttonwid" id="{saveBtn}">保存类型</button>
+             <button class="wbh-common-buttondefault jz-pcsz-pclxform_buttonwid jz-pcsz-pclxform_upload" id="{closeBtn}">关闭</button>
+             </p>
+          </div>
+       </div>
+    </td>
+  </tr>
+</table>

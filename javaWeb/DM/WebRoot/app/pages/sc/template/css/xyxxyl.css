@@ -1,0 +1,80 @@
+/* 校园信息一览 */
+@CHARSET "UTF-8";
+
+.sc_xyxxyl_nav{
+	border-left:2px dashed #AAA;
+	position: fixed;
+	left: 75%;
+	top: 250px;
+	margin-left: 20px;
+	padding-left: 5px;
+}
+
+.sc_xyxxyl_nav > ul > li{
+	line-height: 30px;
+	padding-left: 20px;
+}
+
+.sc_xyxxyl_nav_click{
+	background: url("chooseon.png") no-repeat left center;
+}
+
+.sc_xyxxyl_nav_num{
+	width: 18px;
+	height: 18px;
+	line-height: 18px;
+	font-size: 14px;
+	margin: 1px 0 0 0;
+	background: #519cea;
+	color: #fff;
+	text-align: center;
+	border-radius: 50%;
+	display: inline-block;
+}
+
+.sc_xyxxyl_nav_txt{
+	text-decoration: none;
+	font-size: 14px;
+	color: #000;
+	padding-left: 5px;
+	font-weight: bold;
+	
+}
+
+.sc_xyxxyl_content{
+	width: 70%;
+}
+
+.anchor{
+	border-bottom: 2px solid #DDD;
+	margin-top: 20px;
+}
+
+.sc_xyxxyl_content_text{
+	font-family:'Microsoft YaHei';
+	line-height:1.5;
+	font-size: 14px;
+}
+
+.sc_xyxxyl_tit_num{
+	width: 25px;
+	height: 24px;
+	line-height: 24px;
+	font-size: 16px;
+	margin: 1px 0 0 0;
+	background: #519cea;
+	color: #fff;
+	text-align: center;
+	border-radius: 0 2px 2px 0;
+	display: inline-block;
+}
+
+.sc_xyxxyl_tit_txt{
+	line-height: 24px;
+	padding: 0 8px 0 5px;
+	font-size: 16px;
+	font-weight: bold;
+}
+p{
+	margin: 7px 0px 7px 0px;
+}

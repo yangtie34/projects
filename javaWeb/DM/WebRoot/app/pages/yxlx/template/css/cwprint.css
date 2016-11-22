@@ -1,0 +1,63 @@
+@charset "utf-8";
+/* CSS Document */
+
+table.fee-font-all {
+	font-size: 12px;
+	color: #0099CC;
+	width: 359px;
+	margin: 0 auto;
+}
+
+.fee-font-all h1 {
+	font-size: 20px;
+	border-bottom: 3px solid #0099CC;
+	padding-bottom: 5px;
+	width: 300px;
+	margin-top: 50px;
+	margin-bottom: 15px;
+	text-align: center;
+}
+
+table.fee-border-table {
+	border-collapse: collapse;
+	font-size: 12px;
+	color: #0099CC;
+	border: 3px solid #0099CC;
+	text-align: center;
+}
+
+table.fee-border-table tr th {
+	border: 1px solid #0099CC;
+	border-bottom: 2px solid #0099CC;
+	padding: 4px;
+	font-weight: normal;
+	text-align: center;
+	white-space: nowrap;
+}
+
+table.fee-border-table tr td {
+	border: 1px solid #0099CC;
+	padding: 4px;
+	text-align: center;
+}
+
+.date-css {
+	line-height: 22px;
+}
+
+span.word {
+	word-spacing: 15px;
+}
+
+span.qianzi {
+	width: 40px;
+	display: inline-block;
+}
+
+.zhushi-top {
+	padding-top: 5px;
+}
+
+.zhushi-bottom {
+	padding-bottom: 20px;
+}

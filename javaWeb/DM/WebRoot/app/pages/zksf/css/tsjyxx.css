@@ -1,0 +1,19 @@
+@CHARSET "UTF-8";
+.tsjyxx-foot-table{
+	width: 100%;
+	text-align: center;
+	color: #FFF;
+	font-size: 20px;
+	line-height: 2;
+}
+.tsjyxx-foot-container{
+	display:inline-block;
+	height: 300px;
+	width:45%;
+	min-width:400px;
+	background-color: #3DAAFF;
+	padding: 15px;
+	margin: 10px;
+	font-family:'微软雅黑';
+	text-align: center;
+}

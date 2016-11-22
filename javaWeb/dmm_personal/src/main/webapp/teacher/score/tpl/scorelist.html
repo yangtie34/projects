@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<div  class="container-fluid  phone-common-menu-bg">
+  <input class="form-control phone-common-search-input" placeholder="请输入学号或者姓名进行查询" ng-model="sparam" ng-change="searchStu(sparam)">
+</div>
+<div class="phone-common-list">
+  <ul class="phone-common-group">
+    <li class="phone-common-group-item phone-common-group-item02" ng-repeat="stu in stus">
+      <div class="media">
+      	<a ng-href="#/scoredetail/{{stu.STU_ID}}/{{xn}}/{{xq}}" class="media-left media-middle" style="text-decoration: none;color:#333">
+	        <div ng-hide="stu.WECHAT_HEAD_IMG == null"> <img ng-src="{{stu.WECHAT_HEAD_IMG}}" class="img-circle "/> </div>
+	        <div class="media-body media-middle">
+	          <h4> {{stu.STU_NAME}} <small ng-class="{'phone-common-boy-head':stu.SEX=='男','phone-common-girl-head':stu.SEX=='女'}"> </small></h4>
+	          <p class="jzhi-text-ccc"> {{stu.STU_ID}} </p>
+       		 </div>
+        </a>
+        <div class="media-right media-middle" > 
+	        <span class=" jzhi-text-info phone-common-mar-right">总分： {{stu.TOTAL_SCORE}}</span>
+	        <a ng-href="tel:{{stu.TEL}}" ng-hide="xs.tel == '' || xs.tel == null">{{stu.TEL}}<i class="phone-common-telephone-icon"></i></a> 
+        </div>
+      </div>
+      
+    </li>
+  </ul>
+</div>
+<div class="phone-common-list">
+  <ul class="phone-common-group">
+    <li class="phone-common-group-item phone-common-group-item02" ng-repeat="stuCourse in stuCourses">
+      <div class="media">
+      	<div class="media-left media-middle">
+	        <div ng-hide="stuCourse.wechat_head_img == ''" class="img-circle phone-common-img-width" > <img ng-src="{{stuCourse.wechat_head_img}}" class="img-circle "/> </div>
+        </div>
+         <div class="media-body media-middle">
+	          <h4> {{stuCourse.stu_name}} <small ng-class="{'phone-common-boy-head':stuCourse.sex=='男','phone-common-girl-head':stuCourse.sex=='女'}"> </small></h4>
+	          <p class="jzhi-text-ccc"> {{stuCourse.stu_id}} </p>
+       		 </div>
+        <div class="media-right media-middle" > 
+	        <span class=" jzhi-text-info phone-common-mar-right">{{stuCourse.course_name}}： {{stuCourse.course_score}}</span>
+	        <a ng-href="tel:{{stuCourse.tel}}" ng-hide="stuCourse.tel == '' || stuCourse.tel == null">{{stuCourse.tel}}<i class="phone-common-telephone-icon"></i></a> 
+        </div>
+      </div>
+      
+    </li>
+  </ul>
+</div>
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->

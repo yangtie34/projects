@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css">
+    <script src="data/data.js"></script>
+    <script src="../../base1/util/LAB.min.js"></script>
+    <script src="../../extjs/ext-all.js"></script>
+    <script src="../ns-debug.js"></script>
+    <script src="../component/Template.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function(){
+            var component = new NS.Component({
+                width: 300,
+                height: 200,
+                padding: 20,
+                data : {name : '张三'},
+                tpl : new NS.Template('<div>{name}</div>'),
+                //tpl : new Ext.Template('<div>{name}</div>'),
+                renderTo: Ext.getBody()
+            });
+        });
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

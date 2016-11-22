@@ -1,0 +1,33 @@
+<div style="font-size: 20px;font-weight: bold;font-family: '黑体';text-align: center;">{xn}学年</div>
+<div>
+    <table class="jxpg-common-table">
+        <tr>
+            <td class="title">序号</td>
+            <td class="title">单位</td>
+            <td class="title">学生管理人员数</td>
+            <td class="title">本科在校生数</td>
+            <td class="title">本科在校生人数与学生管理员比例</td>
+        </tr>
+        <tpl for="items">
+            <tr>
+                <td>{#}</td>
+                <td>{DWMC}</td>
+                <td>
+                    <span class="realvalue">{XSGLRS_T}</span>
+                    <span class="value" code="XSGLRS_F" rowid="{ID}" type="itemvalue" isnum="int">{XSGLRS_F}</span>
+                    <div></div>
+                </td>
+                <td>
+                    <span class="realvalue">{BKSZXRS_T}</span>
+                    <span class="value" code="BKSZXRS_F" rowid="{ID}" type="itemvalue" isnum="int">{BKSZXRS_F}</span>
+                    <div></div>
+                </td>
+                <td>
+                    <span class="realvalue">{RYBL_T}</span>
+                    <span class="value_unedit" code="RYBL_F" rowid="{ID}">{RYBL_F}</span>
+                    <div></div>
+                </td>
+            </tr>
+        </tpl>
+    </table>
+</div>

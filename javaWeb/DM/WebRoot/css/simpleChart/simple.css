@@ -1,0 +1,49 @@
+.font1 {
+    margin-left:0px;
+    margin-top: 0px;
+    color: #000000;
+    line-height: 30px;
+    font-family: monospace;
+    font-size: 12px;
+}
+
+.font2 {
+    font-family: monospace; font-family:方正粗宋简体,Arial;
+    font-size: 23px;
+    color: #cb0000;line-height:30px; padding:0px 3px 0px 3px; text-decoration:underline;cursor:pointer;
+}
+
+.mar2 {
+    margin-top: 10px;
+    line-height:40px;
+}
+
+.font3 {
+    font-family: monospace;
+    font-size:14px; font-weight:bold; padding:0px 5px 0px 5px;
+    color: #FF9900; 
+}
+
+.mainer {margin:0px -281px 0px 0px; padding:0px;float: left; height:90px;   width:100%; background: #F7F7F7;   }
+
+.mainleft { margin:0px 281px 0px 0px; padding:0px;}
+.sideBar {float: right;width: 250px;color: #FFF;padding: 10px 10px 10px 10px; margin:0px 0px 0px 0px; background:url(../images/my-alipay-bg.png) left center  no-repeat ; }
+
+
+.leftBar {float: left;width:300px; padding: 10px 10px 10px 10px;margin:0px 10px 0px 0px;  background:url(../images/my-alipay-bg.png) right center no-repeat ;}
+.inmain { margin:0px 0px 0px 331px;  padding:0px;height:90px; }
+
+.kpLeftBar {float: left;width:290px; padding: 10px 5px 10px 5px;margin:0px 5px 0px 0px;  background:url(../images/my-alipay-bg.png) right center no-repeat ;}
+
+.huang-line a:link{ color:#ff6600; text-decoration:underline;}
+.huang-line a:active { color:#ff6600; text-decoration:underline;}
+.huang-line a:visited { color:#ff6600; text-decoration:underline;}
+.huang-line a:hover{ color:#ff6600; text-decoration:underline;}
+/*.mainer {width: 100%;margin-right: -281px; min-height:97px;float: left; background: #F7F7F7;}
+.mainleft {margin-right: 281px;}
+.sideBar {float: right;width: 250px;color: #FFF;padding:10px; margin:0px 0px 5px 10px; background:url(../images/my-alipay-bg.png) left center  no-repeat ; }
+
+
+.leftBar {float: left;width:300px; padding: 10px 10px 10px 15px;margin:0px 10px 5px 0px;  background:url(../images/my-alipay-bg.png) right center no-repeat ;}
+
+.inmain {margin-left: 336px;}*/

@@ -1,0 +1,54 @@
+<a href="#/bookborrow/total" style="text-decoration: none;color:#333" id="bookA">
+<div class="phone-common-list-line phone-common-martb">
+  <h3 class="phone-common-title"> <span class="jzhi-rchang-book-icon pull-left"></span>图书借阅<span class="phone-common-arrow-right pull-right"></span></h3>
+  <div class="container-fluid jzhi-menu jzhi-menu-book-bg">
+    <div class="row text-center">
+      <div class="col-xs-6">
+        <h5><span class="jzhi-book-01-icon"></span>正在阅读</h5>
+        <h4 class="jzhi-size-26">{{book.inBorrow}}</h4>
+      </div>
+      <div class="col-xs-6">
+        <h5><span class="jzhi-book-02-icon"></span>累计阅读</h5>
+        <h4 class="jzhi-size-26">{{book.totalBorrow}}</h4>
+      </div>
+    </div>
+  </div>
+</div>
+</a> 
+<a ng-href="#/totalConsume" style="text-decoration: none;color:#333" id="cardA">
+<div class="phone-common-list-line phone-common-martb">
+  <h3 class="phone-common-title"> <span class="jzhi-rchang-card-icon pull-left"></span>一卡通消费<span class="phone-common-arrow-right pull-right"></span></h3>
+  <div class="container-fluid jzhi-menu jzhi-menu-card-bg">
+    <div class="row text-center">
+      <div class="col-xs-6">
+        <h5><span class="jzhi-card-01-icon"></span>本月消费 </h5>
+        <h4 class="jzhi-size-26">{{card.monthConsume}}</h4>
+      </div>
+      <div class="col-xs-6">
+        <h5><span class="jzhi-card-02-icon"></span>累计消费</h5>
+        <h4 class="jzhi-size-26">{{totalConsume}}</h4>
+      </div>
+    </div>
+  </div>
+</div>
+</a> 
+<a ng-href="#/carStop" style="text-decoration: none;color:#333"  id="carA"><div class="phone-common-list-line">
+  <h3 class="phone-common-title"> <span class="jzhi-rchang-car-icon pull-left"></span>车辆停放<span class="phone-common-arrow-right pull-right"></span> </h3>
+  <div class="container-fluid jzhi-menu jzhi-menu-car-bg ">
+    <div class="row text-center">
+      <div class="col-xs-6">
+        <h5><span class="jzhi-car-01-icon"></span>停放次数 </h5>
+        <h4 class="jzhi-size-26">{{stopCounts}}</h4>
+      </div>
+      <div class="col-xs-6">
+        <h5><span class="jzhi-car-02-icon"></span>日均在校</h5>
+        <h4 class="jzhi-size-26"><span ng-show="stopTimeAvg == ''">0</span>{{stopTimeAvg}}h</h4>
+      </div>
+    </div>
+  </div>
+</div>
+</a>
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+

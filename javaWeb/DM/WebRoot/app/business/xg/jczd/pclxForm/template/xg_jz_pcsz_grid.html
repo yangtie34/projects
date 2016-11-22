@@ -1,0 +1,29 @@
+
+
+<table width="100%" border="0" class="jz-pcsz-pclxform_table_gl  jz-pcsz-pclxform_margin-tops">
+  <tr>
+	<td width="50%" valign="top" class="jz-pcsz-pclxform_table-right"><!-- 主体 start -->
+      <div class="jz-pcsz-pclxform_box">
+        <table width="100%" border="0" class="jz-pcsz-pclxform_table_lishi">
+          <tr>
+            <td width="40%" class="jz-pcsz-pclxform_greenbg">类型</td>
+            <td width="20%" class="jz-pcsz-pclxform_greenbg">名额(人)</td>
+            <td width="20%" class="jz-pcsz-pclxform_greenbg">比例(%)</td>
+            <td width="20%" class="jz-pcsz-pclxform_greenbg">操作</td>
+          </tr>
+          <tpl for=".">
+          <tr>
+            <td id="{lxmcF}{pclxId}">{lxmc}</td>
+            <td id="{meF}{pclxId}">{me}</td>
+            <td id="{blF}{pclxId}">{bl}</td>
+            <td>
+            	<a href="javascript:void(0);" id="{updateF}{pclxId}">修改</a> |
+            	<a href="javascript:void(0);" id="{deleteF}{pclxId}">删除</a>
+            </td>
+          </tr>
+          </tpl>
+        </table>
+      </div>
+    </td>
+  </tr>
+</table>

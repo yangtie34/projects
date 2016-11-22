@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="ehcache.xsd"
+    updateCheck="true" monitoring="autodetect"
+    dynamicConfig="true">
+    
+    <diskStore path="java.io.tmpdir"/>
+    
+    <defaultCache
+      maxElementsInMemory="10000"
+      eternal="false"
+      timeToIdleSeconds="120"
+      timeToLiveSeconds="120"
+      overflowToDisk="true"
+      diskSpoolBufferSizeMB="30"
+      maxElementsOnDisk="10000000"
+      diskPersistent="false"
+      diskExpiryThreadIntervalSeconds="120"
+      memoryStoreEvictionPolicy="LRU"/>
+    
+    <!-- 排课缓存 -->
+    <cache name="jwgl_kcb_pk"
+         maxElementsInMemory="100"
+         maxElementsOnDisk="0"
+         overflowToDisk="true"
+         eternal="false"
+         timeToIdleSeconds="1080000"
+         timeToLiveSeconds="1080000"
+         memoryStoreEvictionPolicy="LFU">    
+    </cache>
+    
+    <!-- 教职工缓存，按拼音全屏，首字母，汉字存 -->
+    <cache name="jzgSearchCache"
+         maxElementsInMemory="20000"
+         maxElementsOnDisk="0"
+         overflowToDisk="true"
+         eternal="false"
+         timeToIdleSeconds="1080000"
+         timeToLiveSeconds="1080000"
+         memoryStoreEvictionPolicy="LFU">    
+    </cache>
+    
+    <!-- 实体属性缓存配置 -->
+    <cache name="system_ts_stsx"
+         maxElementsInMemory="200"
+         maxElementsOnDisk="0"
+         overflowToDisk="true"
+         eternal="false"
+         timeToIdleSeconds="1800"
+         timeToLiveSeconds="0"
+         memoryStoreEvictionPolicy="LFU">    
+    </cache>
+    
+    <cache name="system_bmb"
+         maxElementsInMemory="500"
+         maxElementsOnDisk="0"
+         overflowToDisk="true"
+         eternal="false"
+         timeToIdleSeconds="1800"
+         timeToLiveSeconds="0"
+         memoryStoreEvictionPolicy="LFU">    
+    </cache>
+    
+</ehcache>

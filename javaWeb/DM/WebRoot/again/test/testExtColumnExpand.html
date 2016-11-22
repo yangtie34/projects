@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css">
+    <script src="../../extjs/ext-all.js"></script>
+    <script src="../component/grid/expand/ButtonColumn.js"></script>
+    <script src="../component/grid/expand/LinkColumn.js"></script>
+    <script src="../component/grid/expand/ProgressColumn.js"></script>
+    <script type="text/javascript">
+        var sex = "男";
+        Ext.onReady(function(){
+            var store = Ext.create('Ext.data.Store', {
+                storeId:'simpsonsStore',
+                fields:['name', 'email', 'phone','pvalue'],
+                data:{'items':[
+                    { 'name': 'Lisa',  "email":"lisa@simpsons.com",  "phone":"555-111-1224",pvalue :56.7  },
+                    { 'name': 'Bart',  "email":"bart@simpsons.com",  "phone":"555-222-1234" ,pvalue :54},
+                    { 'name': 'Homer', "email":"home@simpsons.com",  "phone":"555-222-1244" ,pvalue :46 },
+                    { 'name': 'Marge', "email":"marge@simpsons.com", "phone":"555-222-1254" ,pvalue :58 }
+                ]},
+                proxy: {
+                    type: 'memory',
+                    reader: {
+                        type: 'json',
+                        root: 'items'
+                    }
+                }
+            });
+
+            var grid = Ext.create('Ext.grid.Panel', {
+                title: 'Simpsons',
+                store: Ext.data.StoreManager.lookup('simpsonsStore'),
+                columns: [
+                    { header: 'Name',  dataIndex: 'name',baseCls : '' },
+                    { header: 'Email', dataIndex: 'email', flex: 1,baseCls : '' },
+                    { header: 'Phone', dataIndex: 'phone',width:200,baseCls : '',xtype : 'buttoncolumn',buttons : [
+                        {
+                            buttonText : '第一个按钮',
+                            style : {
+                                color : 'red',
+                                font : '18px'
+                            }
+                        },
+                        {
+                            buttonText : '第二个按钮'
+                        }
+                    ]},
+                    { header: 'link', dataIndex: 'link',xtype : 'linkcolumn',width:200,renderer : function(){
+                        return "<a href='javascript:void(0);'>级练</a>"
+                    }},{
+                        header : '进度条',
+                        dataIndex:'pvalue',
+                        xtype : 'progresscolumn',
+                        width : 150,
+                        color : '#6495ED'
+                    }
+                ],
+                height: 200,
+                width: 700,
+                renderTo: Ext.getBody()
+            });
+            var columns = grid.columns;
+            var name = "张三";
+            var column = columns[2];
+            column.addListener('buttonclick',function(text){
+                alert(text);
+            });
+            var column1 = columns[3];
+            column1.addListener('linkclick',function(name){
+                alert(this.sex+"--"+name);
+            });
+
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

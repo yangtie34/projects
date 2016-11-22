@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<div class="rxs-add-dt"><a href="#edit/mytopic" class="rxs-add-link" ><img src="../../images/add-lb.png" width="20"></a></div>  
+<div class="rxs-comn-list rxs-comn-patop"> 
+  <ul class="rxs-talk"> 
+    <li ng-repeat="it in vm.list">
+      <div class="media">
+        <div class="media-left media-middle center-center"><a ng-href="../../personal/{{it.username}}/main">
+         <img class="img-circle" width="60" ng-src="{{it.wechat_head_img}}"/>
+         <i class="fa fa-user"  ng-if="it.wechat_head_img == '' " style="height: 60px;width: 60px;font-size: 40px;color: #ddd;"></i></a></div>
+        <div class="media-body media-middle  rxs-re-lab">
+          <h4 class="rxs-ft-16">{{it.real_name}}<i ng-show="it.sex == '男'" class="rxs-sex rxs-boy-icon"></i><i ng-show="it.sex == '女'" class="rxs-sex rxs-girl-icon"></i></h4>
+          <p class="rxs-cor-9b">{{it.create_time}}</p>
+        </div>
+        <div class="media-right media-middle"><a href="" class="rxs-rgt-delete" ng-click="deleteTopic(it)"></a></div>
+      </div>
+       <a ng-href="#/topic/{{it.id}}" style="text-decoration: none;">
+			<pre class="rxs-fbq rxs-ft-15" ng-bind-html="it.content | trusthtml" style="white-space: pre-wrap;word-wrap: break-word;"></pre>
+			<div class="clearfix">
+				<img  ng-repeat="it in it.images" class="col-xs-3" style="height: 80px;padding: 2px;" ng-src="{{it.img_url}}">
+			</div>
+		</a>
+      <div class="rxs-tlq">
+        <div ng-repeat="ct in it.comments.result">
+        	<a href="../personal/{{ct.username}}/main" class="rxs-cor-ff9" style="text-decoration: none;"><span class="rxs-cor-ff9">{{ct.real_name}} ： </span></a>
+        	<span ng-click="openCommentForm(it,ct)" class="">{{ct.content}}</span><i class="rxs-cor-9b">    {{ct.create_time}}</i>
+        	<div ng-repeat="r in ct.replyList">
+				<a href="../personal/{{r.username}}/main" class="rxs-cor-ff9" style="text-decoration: none;"><span class="rxs-cor-ff9">{{r.real_name}}</span></a> 回复
+				<a href="../personal/{{r.to_username}}/main" style="text-decoration: none;"><span class="rxs-cor-ff9">{{r.to_real_name}}</span></a> : 
+				<span ng-click="openCommentForm(it,ct,r)">{{r.content}}</span><i class="rxs-cor-9b">    {{r.create_time}}</i>
+			</div>
+        </div>
+        <p class="text-center" ng-show="it.comments.sumcount > 5"><a href="" style="text-decoration: none;"><span class="rxs-cor-ff9" >显示更多{{it.comments.sumcount - 5}}条评论</span></a></p>
+      </div>
+    </li> 
+  </ul> 
+</div>
+<div ng-show="vm.curpage*vm.pagesize &gt;= vm.sumcount && !onloading" class="text-center text-primary" >
+    没有更多内容了
+</div>
+	<div ng-show="onloading" class="text-center text-warning">
+		<i class="fa fa-spinner fa-spin"></i>加载中
+	</div>
+	
+	 <div  class="hide" pagination total-items="vm.sumcount" ng-model="vm.curpage"
+					max-size="0" items-per-page="vm.pagesize"  boundary-links="true"></div>
+
+
+<div ng-show="vm.list.length == 0 && !onloading" class="text-center">
+	<span class="rxs-cor-ff9">你还没有发表任何内容</span><br/><br/>
+</div>

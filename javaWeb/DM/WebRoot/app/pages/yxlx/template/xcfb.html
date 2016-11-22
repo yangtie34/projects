@@ -1,0 +1,55 @@
+
+<div class="fenban-container">
+  <table  width=" 100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td valign="top" class="fen-padd-left fen-padd-right" > 
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td ><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width="100"><h2 class="fen-org">分配班级</h2> </td>
+                   
+                  <td><h3 class="fen-blue"><tpl for=".">{xm}</tpl></h3></td>
+                    <td align="right" > <!-- <h3><span class="fen-org">学号：</span><span class="fen-blue">201302050016</span> </h3> --></td> 
+                </tr>
+             
+            </table></td>
+          </tr>
+          <tr><td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top"> 
+      <div class="fenban-sec-widb"><tpl for=".">{yx}</tpl></div> 
+      <div class="fenban-sec-widb"><tpl for=".">{zy}</tpl></div> 
+      <select  name="yx_xzbj" size="7"  class="fenban-sec-widc" id="yx_xzbj">
+     <tpl for="queryBjxx.data">
+      <option value="{id}">{mc} {sjrs}/{rs}</option>
+      </tpl>
+      </select>
+      </td>
+    <td valign="bottom"><table  width=" 100%" border="0" cellspacing="0" cellpadding="0"> 
+                <tr>
+                  <td height="35"></td>
+                </tr>
+                <tr>
+              
+                <td height="60"  align="right"  ><input class="fen-btn-print" id ="yx_fbqd" name="yx_fbqd" type="button" value="确定分配" />
+                  </td>
+                </tr>
+                <tr>
+                  <td height="60"  align="right"   ><input class="fen-btn-print" id="yx_fbqd" name="yx_fbqx" type="button" value="取消" /></td>
+                </tr>
+               
+              </table></td>
+  </tr>
+</table>
+</td></tr>
+<!-- <tr><td><a href="#">新建班级</a></td></tr> -->
+           
+       
+        
+        </table></td>
+       
+    </tr>
+  </table>
+</div>
+

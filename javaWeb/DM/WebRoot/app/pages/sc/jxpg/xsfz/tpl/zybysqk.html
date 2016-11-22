@@ -1,0 +1,57 @@
+<div style="font-size: 20px;font-weight: bold;font-family: '黑体';text-align: center;">{xn}学年</div>
+<div>
+    <table class="jxpg-common-table">
+        <tr>
+            <td class="title">序号</td>
+            <td class="title">专业名称</td>
+            <td class="title">应届毕业生数</td>
+            <td class="title">应届生中未按时毕业数</td>
+            <td class="title">毕业率(%)</td>
+            <td class="title">学位授予数</td>
+            <td class="title">学位授予率(%)</td>
+            <td class="title">应届毕业生就业人数</td>
+            <td class="title">初次就业率(%)</td>
+        </tr>
+        <tpl for="items">
+            <tr>
+                <td>{#}</td>
+                <td>{ZYMC}</td>
+                <td>
+                    <span class="realvalue">{YJBYS_T}</span>
+                    <span class="value" code="YJBYS_F" rowid="{ID}" type="itemvalue" isnum="int">{YJBYS_F}</span>
+                    <div></div>
+                </td>
+                <td>
+                    <span class="realvalue">{YJWASBY_T}</span>
+                    <span class="value" code="YJWASBY_F" rowid="{ID}" type="itemvalue" isnum="int">{YJWASBY_F}</span>
+                    <div></div>
+                </td>
+                <td>
+                    <span class="realvalue">{BYL_T}</span>
+                    <span class="value_unedit" code="BYL_F" rowid="{ID}">{BYL_F}</span>
+                    <div></div>
+                </td>
+                <td>
+                    <span class="realvalue">{XWSYS_T}</span>
+                    <span class="value" code="XWSYS_F" rowid="{ID}" type="itemvalue" isnum="int">{XWSYS_F}</span>
+                    <div></div>
+                </td>
+                <td>
+                    <span class="realvalue">{XWSYL_T}</span>
+                    <span class="value_unedit" code="XWSYL_F" rowid="{ID}">{XWSYL_F}</span>
+                    <div></div>
+                </td>
+                <td>
+                    <span class="realvalue">{YJSJYL_T}</span>
+                    <span class="value" code="YJSJYL_F" rowid="{ID}" type="itemvalue" isnum="int">{YJSJYL_F}</span>
+                    <div></div>
+                </td>
+                <td>
+                    <span class="realvalue">{CCJYL_T}</span>
+                    <span class="value_unedit" code="CCJYL_F" rowid="{ID}">{CCJYL_F}</span>
+                    <div></div>
+                </td>
+            </tr>
+        </tpl>
+    </table>
+</div>

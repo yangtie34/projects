@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<a href="" style="text-decoration: none;" ng-click="selectXnxq();"><div class="phone-common-list-line ">
+  <h3 class="phone-common-title jzhi-text-ccc" > {{schoolYearTerm}}
+  <span class="phone-common-date-org-icon pull-right"></span> </h3>  
+</div></a>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document" style="width: 80%;">
+		<div class="modal-content">
+			<div class="modal-body">
+				<div ng-repeat="x in xnxq">
+					<label> <input name="xnx" type="radio"
+						value="{{x.xn}},{{x.xq}}" data-dismiss="modal"
+						ng-click="submitXnxq(x);" />{{x.xn}}学年第{{x.xq}}学期
+					</label>
+				</div>
+			</div>
+			    
+		</div>
+	</div>
+</div>
+<div class="jzhi-no-table" ng-show="classes.length ==0 && courses.length ==0">
+	  <div class="jzhi-no-cell">
+	    <div class="jzhi-no-list jzhi-no-zhuanli"> 无成绩信息 </div>
+	  </div>
+</div>
+<div class="phone-common-list-line  phone-common-martb" ng-repeat="class in classes">
+<a href="#/scorelist/{{class.CLASS_ID}}/''/{{xn}}/{{xq}}/xzb" style="text-decoration: none;color:#333">
+  <h3 class="phone-common-title">  {{class.CLASSNAME}}<span class="phone-common-arrow-right pull-right"></span> </h3>
+  <div class="container-fluid jzhi-menu jzhi-menu-chengji-bg ">
+    <div class="row text-center">
+      <div class="col-xs-3">
+        <h5 class="jzhi-text-blue"> 总分最高</h5>
+        <h4 class="jzhi-size-26">{{class.MAXSCORE}}</h4>
+        <h5>（{{class.MAXSCORESTU}}）</h5>
+      </div>
+      <div class="col-xs-3">
+        <h5 class="jzhi-text-blue"> 总分最低</h5>
+        <h4 class="jzhi-size-26">{{class.MINSCORE}}</h4>
+        <h5>（{{class.MINSCORESTU}}）</h5>
+      </div>
+      <div class="col-xs-3">
+        <h5 class="jzhi-text-blue"> 挂科人数</h5>
+        <h4 class="jzhi-size-26">{{class.FLUNKNUMS}}</h4>
+        <h5>（{{class.FLUNK_OF_STUNUMS}}）</h5>
+      </div>
+      <div class="col-xs-3">
+        <h5 class="jzhi-text-blue"> 挂科最多</h5>
+        <h4 class="jzhi-size-text-22">{{class.FLUNK_COURSE}}</h4>
+      </div>
+    </div>
+  </div>
+  </a>
+</div>
+<div class="phone-common-list-line  phone-common-martb" ng-repeat="course in courses">
+<a href="#/scorelist/{{course.class_id}}/{{course.course_id}}/{{xn}}/{{xq}}/jxb" style="text-decoration: none;color:#333">
+  <h3 class="phone-common-title">  {{course.classname}}  <span style="color:#FF6600">{{course.course_name}}</span><span class="phone-common-arrow-right pull-right"></span> </h3>
+  <div class="container-fluid jzhi-menu jzhi-menu-chengji-bg ">
+    <div class="row text-center">
+      <div class="col-xs-4">
+        <h5 class="jzhi-text-blue"> 最高分</h5>
+        <h4 class="jzhi-size-26">{{course.maxscore}}</h4>
+        <h5>（{{course.maxscorestu}}）</h5>
+      </div>
+      <div class="col-xs-4">
+        <h5 class="jzhi-text-blue"> 最低分</h5>
+        <h4 class="jzhi-size-26">{{course.minscore}}</h4>
+        <h5>（{{course.minscorestu}}）</h5>
+      </div>
+      <div class="col-xs-4">
+        <h5 class="jzhi-text-blue"> 挂科人数</h5>
+        <h4 class="jzhi-size-26">{{course.flunknums}}</h4>
+        <h5>（{{course.flunk_of_stunums}}）</h5>
+      </div>
+    </div>
+  </div>
+  </a>
+</div>
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<div class="phone-common-list">
+	<a href="#/classschedule" style="text-decoration:none;">
+	  <h3 class="phone-common-title"> <span class="jzhi-kcb-icon pull-left"></span>我的课程表 <span class="phone-common-arrow-right pull-right"></span></h3>
+	</a>
+</div>
+<div class="text-center jzhi-text-ccc">
+  <h5>今日课程</h5>
+</div>
+<div class="jzhi-no-table phone-common-list" id="noneOutcome"  ng-show="todayClasses.length == 0" >
+  <div class="jzhi-no-cell">
+    <div class="jzhi-no-list jzhi-no-zhuanli"><h6>您今天没有课程</h6></div>
+  </div>
+</div>
+<div class="phone-common-list" ng-show="todayClasses.length > 0">
+  <ul class="phone-common-group">
+    <li ng-repeat='todayClass in todayClasses' class="phone-common-group-item phone-common-group-item02">
+      <div class="media">
+        <div class="media-left media-middle jzhi-left-width"> <a href="#/teachingclass/{{todayClass.ID}}/{{todayClass.COURSE_ID}}" style="text-decoration: none;color:#333"><h5>{{todayClass.COURSE_NAME}}</h5></a> </div>
+        <div class="media-body media-middle text-right jzhi-text-info">
+        	<a href="#/teachingclass/{{todayClass.ID}}/{{todayClass.COURSE_ID}}" style="text-decoration: none;">{{todayClass.TIME_}}<br>
+         	{{todayClass.CLASSROOM_NAME}}</a>
+         </div>
+        <div class="media-right media-middle"><a href="#/teachingclass/{{todayClass.ID}}/{{todayClass.COURSE_ID}}"><span class="phone-common-arrow-right pull-right"></span></a></div>
+      </div>
+    </li>
+  </ul>
+</div>
+<div class="jzhi-title text-center jzhi-text-ccc">
+  <h5>学期授课进度 </h5>
+</div>
+<div class="jzhi-no-table phone-common-list" id="noneOutcome"  ng-show="classes.length == 0" >
+  <div class="jzhi-no-cell">
+    <div class="jzhi-no-list jzhi-no-zhuanli">
+    	<h6>没有教学活动</h6>
+    </div>
+  </div>
+</div>
+<div class="jzhi-gradient-bg"  ng-repeat = 'class in classes' on-finish-render-filters>
+<table class="table jzhi-table-bordered" width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody>
+	<tr>
+	    <th colspan="2"><h5 class="text-center">{{class.COURSE_NAME}}</h5></th>
+	  </tr>
+  <tr>
+    <th>开课时间</th>
+    <td >{{class.START_TIME}} 至 {{class.END_TIME}}</td>
+  </tr>
+  <tr>
+    <th>上课类型</th>
+    <td>{{class.COURSE_TYPE_NAME}}</td>
+  </tr>
+  <tr>
+    <th valign="middle">上课班级</th>
+    <td><span class="jzhi-inline-block">{{class.TEACHINGCLASS}}</span></td>
+  </tr>
+</tbody>
+</table> 
+<div class="media jzhi-center-pad">
+  <div class="media-left media-middle"><h2>{{class.CLASSCOUNTS}}</h2> 课时总数</div>
+  <div class="media-body media-middle text-center" id="{{$index}}" style="height:100px;width: 100px;">
+  	<!-- 进度统计chart图 -->
+  </div>
+  <div class="media-right media-middle"><h2>{{class.ALREADY_CLASS}}</h2>已上课时</div>
+</div></div>

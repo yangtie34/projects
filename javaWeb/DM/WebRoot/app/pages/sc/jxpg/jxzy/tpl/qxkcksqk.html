@@ -1,0 +1,43 @@
+<div style="font-size: 20px;font-weight: bold;font-family: '黑体';text-align: center;">{xn}学年</div>
+<div>
+    <table  class="jxpg-common-table">
+        <tr>
+            <td class="title">课程类别</td>
+            <td class="title">课程门数</td>
+            <td class="title" >课程门次数</td>
+            <td class="title">双语课程门数</td>
+            <td class="title">平均学时数</td>
+            <td class="title">平均班规模（人）</td>
+        </tr>
+        <tpl for="items">
+            <tr>
+                <td >{KCLB}</td>
+                <td >
+                    <span class="realvalue">{KCMS_T}</span>
+                    <span class="value" code="KCMS_F" isnum="int" rowid="{ID}" type="itemvalue">{KCMS_F}</span>
+                    <div></div>
+                </td>
+                <td>
+                    <span class="realvalue">{KCMCS_T}</span>
+                    <span class="value" code="KCMCS_F" rowid="{ID}" isnum="int" type="itemvalue">{KCMCS_F}</span>
+                    <div></div>
+                </td>
+                <td>
+                    <span class="realvalue">{SYKCMS_T}</span>
+                    <span class="value" code="SYKCMS_F" rowid="{ID}" isnum="float" type="itemvalue">{SYKCMS_F}</span>
+                    <div></div>
+                </td>
+                <td>
+                    <span class="realvalue">{PJXSS_T}</span>
+                    <span class="value" code="PJXSS_F" rowid="{ID}" isnum="float" type="itemvalue">{PJXSS_F}</span>
+                    <div></div>
+                </td>
+                <td>
+                    <span class="realvalue">{PJBGM_T}</span>
+                    <span class="value" code="PJBGM_F" rowid="{ID}" isnum="float" type="itemvalue">{PJBGM_F}</span>
+                    <div></div>
+                </td>
+            </tr>
+        </tpl>
+    </table>
+</div>

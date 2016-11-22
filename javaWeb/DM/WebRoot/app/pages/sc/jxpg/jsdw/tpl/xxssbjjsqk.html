@@ -1,0 +1,203 @@
+<div style="font-size: 20px;font-weight: bold;font-family: '黑体';text-align: center;">{xn}学年</div>
+<div>
+	<table class="jxpg-common-table">
+		  <tr>
+		    <td colspan="2" class="title" width="550">项目</td>
+		    <td class="title">数量</td>
+		    <td class="title">百分比（ %）</td>
+		  </tr>
+		  <tr>
+		    <td rowspan="6">专任教师</td>
+		    <td>总计</td>
+		    <td>
+		      <tpl for="items">
+			      <tpl if="DM=='A'">
+			    	<span class="realvalue">{SL_T}</span>
+					<span code="SL_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{SL_F}</span>
+					<div></div>
+				  </tpl>
+			  </tpl>
+		    </td>
+		    <td>/</td>
+		  </tr>
+		  <tr>
+		    <td>其中：具有硕士学位</td>
+		    <td>
+		      <tpl for="items">
+			      <tpl if="DM=='A1'">
+			    	<span class="realvalue">{SL_T}</span>
+					<span code="SL_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{SL_F}</span>
+					<div></div>
+				  </tpl>
+			  </tpl>
+		    </td>
+		    <td>
+		      <tpl for="items">
+			      <tpl if="DM=='A1'">
+			    	<span class="realvalue">{BL_T}</span>
+					<span code="BL_F" rowid="{ID}" class="value_unedit">{BL_F}</span>
+					<div></div>
+				  </tpl>
+			  </tpl>
+		    </td>
+		  </tr>
+		  <tr>
+		    <td>具有博士学位</td>
+		    <td>
+		      <tpl for="items">
+			      <tpl if="DM=='A2'">
+			    	<span class="realvalue">{SL_T}</span>
+					<span code="SL_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{SL_F}</span>
+					<div></div>
+				  </tpl>
+			  </tpl>
+		    </td>
+		    <td>
+		      <tpl for="items">
+			      <tpl if="DM=='A2'">
+			    	<span class="realvalue">{BL_T}</span>
+					<span code="BL_F" rowid="{ID}" class="value_unedit">{BL_F}</span>
+					<div></div>
+				  </tpl>
+			  </tpl>
+		    </td>
+		  </tr>
+		  <tr>
+		    <td>双师型</td>
+		    <td>
+		      <tpl for="items">
+			      <tpl if="DM=='A3'">
+			    	<span class="realvalue">{SL_T}</span>
+					<span code="SL_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{SL_F}</span>
+					<div></div>
+				  </tpl>
+			  </tpl>
+		    </td>
+		    <td>
+		      <tpl for="items">
+			      <tpl if="DM=='A3'">
+			    	<span class="realvalue">{BL_T}</span>
+					<span code="BL_F" rowid="{ID}" class="value_unedit">{BL_F}</span>
+					<div></div>
+				  </tpl>
+			  </tpl>
+		    </td>
+		  </tr>
+		  <tr>
+		    <td>具有工程背景</td>
+		    <td>
+		      <tpl for="items">
+			      <tpl if="DM=='A4'">
+			    	<span class="realvalue">{SL_T}</span>
+					<span code="SL_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{SL_F}</span>
+					<div></div>
+				  </tpl>
+			  </tpl>
+		    </td>
+		    <td>
+		      <tpl for="items">
+			      <tpl if="DM=='A4'">
+			    	<span class="realvalue">{BL_T}</span>
+					<span code="BL_F" rowid="{ID}" class="value_unedit">{BL_F}</span>
+					<div></div>
+				  </tpl>
+			  </tpl>
+		    </td>
+		  </tr>
+		  <tr>
+		    <td>具有行业背景</td>
+		    <td>
+		      <tpl for="items">
+			      <tpl if="DM=='A5'">
+			    	<span class="realvalue">{SL_T}</span>
+					<span code="SL_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{SL_F}</span>
+					<div></div>
+				  </tpl>
+			  </tpl>
+		    </td>
+		    <td>
+		      <tpl for="items">
+			      <tpl if="DM=='A5'">
+			    	<span class="realvalue">{BL_T}</span>
+					<span code="BL_F" rowid="{ID}" class="value_unedit">{BL_F}</span>
+					<div></div>
+				  </tpl>
+			  </tpl>
+		    </td>
+		  </tr>
+		  <tr>
+		    <td rowspan="2">外聘教师</td>
+		    <td>总计</td>
+		    <td>
+		      <tpl for="items">
+			      <tpl if="DM=='B'">
+			    	<span class="realvalue">{SL_T}</span>
+					<span code="SL_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{SL_F}</span>
+					<div></div>
+				  </tpl>
+			  </tpl>
+		    </td>
+		    <td>/</td>
+		  </tr>
+		  <tr>
+		    <td>其中：境外教师</td>
+		    <td>
+		      <tpl for="items">
+			      <tpl if="DM=='B1'">
+			    	<span class="realvalue">{SL_T}</span>
+					<span code="SL_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{SL_F}</span>
+					<div></div>
+				  </tpl>
+			  </tpl>
+		    </td>
+		    <td>
+		      <tpl for="items">
+			      <tpl if="DM=='B1'">
+			    	<span class="realvalue">{BL_T}</span>
+					<span code="BL_F" rowid="{ID}" class="value_unedit">{BL_F}</span>
+					<div></div>
+				  </tpl>
+			  </tpl>
+		    </td>
+		  </tr>
+		  <tr>
+		    <td colspan="2">折合在校生数</td>
+		    <td>
+		      <tpl for="items">
+			      <tpl if="DM=='C'">
+			    	<span class="realvalue">{SL_T}</span>
+					<span code="SL_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{SL_F}</span>
+					<div></div>
+				  </tpl>
+			  </tpl>
+		    </td>
+		    <td>-</td>
+		  </tr>
+		  <tr>
+		    <td colspan="2">生师比</td>
+		    <td>
+		      <tpl for="items">
+			      <tpl if="DM=='D'">
+			    	<span class="realvalue">{SL_T}</span>
+					<span code="SL_F" rowid="{ID}" class="value" type="itemvalue">{SL_F}</span>
+					<div></div>
+				  </tpl>
+			  </tpl>
+		    </td>
+		    <td>-</td>
+		  </tr>
+		  <tr>
+		    <td colspan="2">本科课程授教师数</td>
+		    <td>
+		      <tpl for="items">
+			      <tpl if="DM=='E'">
+			    	<span class="realvalue">{SL_T}</span>
+					<span code="SL_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{SL_F}</span>
+					<div></div>
+				  </tpl>
+			  </tpl>
+		    </td>
+		    <td>-</td>
+		  </tr>
+	</table>
+</div>

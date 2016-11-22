@@ -1,0 +1,73 @@
+<div style="font-size: 20px;font-weight: bold;font-family: '黑体';text-align: center;">{xn}学年</div>
+<div>
+	<table class="jxpg-common-table">
+		<tr>
+			<td class="title" rowspan="2" style="width: 60px;">序号</td>
+			<td class="title" rowspan="2">单位</td>
+			<td class="title" colspan="4">教育教学研究与改革项目</td>
+			<td class="title" colspan="3">教学成果奖</td>
+		</tr>
+		<tr>
+			<td class="title">项目总数</td>
+			<td class="title">其中：</td>
+			<td class="title"></td>
+			<td class="title">经费（万元）</td>
+			<td class="title">当年成果奖总数</td>
+			<td class="title">其中：</td>
+			<td class="title"></td>
+		</tr>
+		<tr>
+			<td class="title"></td>
+			<td class="title"></td>
+			<td class="title"></td>
+			<td class="title">国家级</td>
+			<td class="title">省部级</td>
+			<td class="title"></td>
+			<td class="title"></td>
+			<td class="title">国家级</td>
+			<td class="title">省部级</td>
+		</tr>
+		<tpl for="items">
+			<tr>
+				<td>{[xindex]}</td>
+				<td>{DW}</td>
+				<td>
+					<span class="realvalue">{XMZS_T}</span>
+					<span class="value" code="XMZS_F" isnum = "int"  rowid="{ID}" type="itemvalue">{XMZS_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{XM_GJJ_T}</span>
+					<span class="value" code="XM_GJJ_F" isnum = "int"  rowid="{ID}" type="itemvalue">{XM_GJJ_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{XM_SBJ_T}</span>
+					<span class="value" code="XM_SBJ_F" isnum = "int"  rowid="{ID}" type="itemvalue">{XM_SBJ_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{JF_T}</span>
+					<span class="value" code="JF_F" rowid="{ID}" isnum = "float"  type="itemvalue">{JF_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{DNCGJZS_T}</span>
+					<span class="value" code="DNCGJZS_F" rowid="{ID}" isnum = "int"  type="itemvalue">{DNCGJZS_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{CG_GJJ_T}</span>
+					<span class="value" code="CG_GJJ_F" rowid="{ID}" isnum = "int"  type="itemvalue">{CG_GJJ_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{CG_SBJ_T}</span>
+					<span class="value" code="CG_SBJ_F" rowid="{ID}"  isnum = "int" type="itemvalue">{CG_SBJ_F}</span>
+					<div></div>
+				</td>
+			</tr>
+		</tpl>
+	</table>
+
+</div>

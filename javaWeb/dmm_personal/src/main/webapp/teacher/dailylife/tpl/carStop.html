@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<div class="container-fluid  jzhi-menu-gradient"> 
+  <div class="media text-center">
+    <div class="media-left media-middle">
+      <a href="" ng-click="clickLeft()"><span class="phone-common-border-bold-arrow-left pull-left"></span></a>
+    </div>
+    <div class="media-body media-middle text-center"><div class="row jzhi-date-text"><div class="col-xs-4">
+       {{lasty}}年<br>
+       {{lastm}}月 
+    </div>
+    <div class="col-xs-4 jzhi-select-text">
+       {{curry}}年 <br>
+       {{currm}}月 
+    </div>
+    <div class="col-xs-4">
+       {{nexty}}年 <br>
+       {{nextm}}月
+    </div></div></div>
+    <div class="media-right media-middle">
+      <a href="" ng-click="clickRight()"><span class="phone-common-border-bold-arrow-right pull-right"></span></a>
+    </div>
+  </div>
+</div> 
+<div class="jzhi-no-table" ng-show="cars == ''">
+	  <div class="jzhi-no-cell">
+	    <div class="jzhi-no-list jzhi-no-book">暂无数据</div>
+	  </div>
+	</div>
+<div class="phone-common-list" ng-hide = "cars == ''">
+  <ul class="phone-common-group">
+    <li class="phone-common-group-item phone-common-group-item02" ng-repeat="car in cars">
+      <div class="media">
+        <div class="media-body media-middle"> <h5>{{car.time_}} <span class="phone-common-margin-left"></span></h5></div>
+        <div class="media-right media-middle text-right"> <span class="phone-common-danger-inline" ng-show="car.flag == '离校'">{{car.flag}}</span>
+        <span class="phone-common-green-inline" ng-show = "car.flag == '进校'">{{car.flag}}</span></div> 
+      </div>
+    </li>
+    
+  </ul>
+</div>  
+

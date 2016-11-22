@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css">
+    <script src="data/data.js"></script>
+    <script src="../../base1/util/LAB.min.js"></script>
+    <script src="../../extjs/ext-all.js"></script>
+    <script src="../ns-debug.js"></script>
+    <script src="../component/toolbar/EntityToolBar.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function(){
+            var util = NS.toolbar.EntityToolbar;
+            var tbar = util.create({
+                data : NS.E2S(headerData),
+                items : [
+                    {name : 'id',width : 200},{name :'xm',width : 200}
+                ]
+            })
+            var component = new NS.container.Panel({
+                width: 500,
+                height: 500,
+                layout : 'border',
+                renderTo : Ext.getBody(),
+                tbar : tbar,
+                items : [new NS.Component({
+                    width: '100%',
+                    height: '40%',
+                    region : 'north',
+                    padding: 20,
+                    style: {
+                        color: 'blue',
+                        backgroundColor:'blue'
+                    }
+                })
+                    ],
+                renderTo: Ext.getBody()
+            });
+            var b = component.getComponent(0);
+            var button = tbar.findComponentByName('query');
+//            tbar.bindItemEvent('query','click',function(){
+//                console.log(tbar.getValues());
+//                console.log(tbar.getValuesByName('name','sex'));
+//            });
+            tbar.bindItemsEvent({
+                'query' : {
+                    event : 'click',
+                    fn : function(){
+                        console.log(tbar.getValues());
+                        console.log(tbar.getValuesByName('name','sex'));
+                    }
+                }
+            });
+//            button.addListener('click',function(){
+//
+//            });
+        });
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

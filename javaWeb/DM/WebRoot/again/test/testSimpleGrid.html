@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css">
+    <script src="data/data.js"></script>
+    <script src="../../base1/util/LAB.min.js"></script>
+    <script src="../../extjs/ext-all-debug.js"></script>
+    <script src="../ns-debug.js"></script>
+    <script src="../component/grid/SimpleGrid.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function(){
+            var model = new NS.mvc.Model({
+               serviceConfig : {
+
+               }
+            });
+            var data = NS.util.DataConverter.entitysToStandards(headerData);
+            var grid = new NS.grid.Grid({
+                plugins : [//new NS.grid.plugin.CellEditor(),
+                            new NS.grid.plugin.HeaderQuery()
+                ],
+                extraBaseCls: "",
+                extraBodyCls: "",
+                columnLines : true,
+                columnData : data,
+                serviceKey : 'baseQuery',
+                dataLoader : model,
+                modelConfig : {
+                    //fields : ['xh','xm'],
+                    data : showData
+                },
+                multiSelect : true,
+                lineNumber : true,
+                columnConfig : [{
+                    name : 'xh',
+                    hoverCls : 'sds'
+                },
+                    { text: '查看列',
+                      name :'see',
+                      index  : 1,
+                      baseCls : '',
+                      xtype : 'buttoncolumn',
+                      buttons : [
+                        {
+                            buttonText : '查看',
+                            style : {
+                                color : 'red',
+                                font : '18px'
+                            }
+                        },
+                        {
+                            buttonText : '审核'
+                        }
+                ]},
+                    {
+                        text: '查看列',
+                        name :'link',
+                        index  : 1,
+                        xtype : 'linkcolumn',
+                        renderer : function(value){
+                            return  '<a href="javascript:void(0);" >链接</a>';
+                        }
+                    }
+                ]
+            });
+            var obj = {name : '张三'};
+            grid.addRow(obj);
+            grid.deleteRow(0);
+            var g =grid.component;
+            var cs = g.query("component[name='see']");
+//            grid.on('viewready',function(){
+//                grid.setColumnStyle('yyxId','color','red');
+//            });
+            grid.on('rowdbclick',function(){
+                alert('rowdbclick');
+            });
+//            var column = grid.getColumn('link');
+//            column.on('linkclick',function(value){
+//                alert(value);
+//            });
+//
+            var single = new NS.grid.query.SingleFieldQuery({
+                data : data,
+                grid : grid
+            });
+            var senior = new NS.grid.query.SeniorQuery({
+                data : data
+            });
+            var toolbar = new NS.toolbar.Toolbar({
+                items : [new NS.button.Button({
+                    text : '新增',
+                    name : 'add'
+                }),{
+                    xtype : 'button',
+                    text : '修改',
+                    name : 'update'
+                },{
+                    xtype : 'button',
+                    name : 'delete',
+                    text : '删除'
+                },single,senior]
+            });
+            Ext.create('Ext.panel.Panel',{
+                renderTo : Ext.getBody(),
+                title : '标题',
+                layout : 'fit',
+                items : [
+//                    new Ext.container.Container({
+//                    height : 60,
+//                    items : [
+//                        {xtype : 'button',text : '中间爱你的'}
+//                    ]
+//                }),
+                    grid.getLibComponent()],
+                tbar : toolbar.getLibComponent(),
+                width : 1000,
+                autoShow : true,
+                height : 500
+            });
+            var button = toolbar.queryComponentByName('add');
+            var updateButton = toolbar.queryComponentByName('update');
+            updateButton.on('click',function(){
+                var row =grid.getSelectRows()[0];
+                var form =  NS.form.EntityForm;
+                var form = form.create({
+                    data : data,
+                    autoScroll : true,
+                    values : row,
+                    columns : 1,
+                    margin : '5px'
+                    //autoShow : true,
+                    //modal:true,// 魔态，值为true是弹出窗口的。
+//                    items : ['id','xh','xm','yyxId','yzy','ybjId','ynj',
+//                                'xyxId','xzy','bjId','xnj','ydlb','ydyy','xxz'],
+//                    items : [
+//                        {
+//                            xtype : 'fieldset',
+//                            columns : 2,
+//                            title : '分组1',
+//                            height : 250,
+//                            items : [{name : 'id',hidden : true},{name :'xh',hidden:true},'xm','yyxId']
+//                        },
+//                        {xtype : 'fieldset',
+//                            title : '分组2',
+//                            columns : 1,
+//                            items : [
+//                                'xyxId','xzy','bjId','xnj','ydlb','ydyy','xxz'
+//                            ]},
+//                        {xtype : 'fieldset',
+//                            title : '分组2',
+//                            columns : 3,
+//                            colspan : 2,
+//                            items : [
+//                                'yzy','ybjId','ynj'
+//                            ]}
+//                    ]
+                });
+                var window = Ext.create('Ext.window.Window',{
+                    width : 900,
+                    height : 600,
+                    layout : 'fit',
+                    items : form.getLibComponent(),
+                    autoShow: true
+                });
+            });
+
+//            button.addListener('click',function(){
+//                var form = new NS.form.EntityForm({
+//
+//                });
+//                var form = form.create({
+//                    data : data,
+//                    autoScroll : true,
+//                    columns : 2,
+//                    margin : '5px',
+//                    autoShow : true,
+//                    modal:true,// 魔态，值为true是弹出窗口的。
+////                    items : ['id','xh','xm','yyxId','yzy','ybjId','ynj',
+////                                'xyxId','xzy','bjId','xnj','ydlb','ydyy','xxz'],
+//                    items : [
+//                        {
+//                            xtype : 'fieldset',
+//                            columns : 2,
+//                            title : '分组1',
+//                            height : 250,
+//                         items : [{name : 'id',hidden : true},'xh','xm','yyxId']
+//                        },
+//                        {xtype : 'fieldset',
+//                         title : '分组2',
+//                         columns : 1,
+//                         items : [
+//                            'xyxId','xzy','bjId','xnj','ydlb','ydyy','xxz'
+//                        ]},
+//                        {xtype : 'fieldset',
+//                            title : '分组2',
+//                            columns : 3,
+//                            colspan : 2,
+//                            items : [
+//                                'yzy','ybjId','ynj'
+//                         ]}
+//                    ]
+//                });
+//                var field = form.getField('xm');
+//                field.setValue("张三");
+//
+//                var window = Ext.create('Ext.window.Window',{
+//                    width : 900,
+//                    height : 600,
+//                    layout : 'fit',
+//                    items : form.getLibComponent(),
+//                    autoShow: true
+//                });
+//            });
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

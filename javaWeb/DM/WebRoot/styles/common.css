@@ -1,0 +1,60 @@
+.zsxy_container {
+    overflow:hidden;
+    color:#333;
+    font:normal 100% 宋体;
+    margin:25px;
+    box-sizing:content-box;
+
+}
+
+.zsxy_container *{
+    box-sizing:content-box;
+    -webkit-box-sizing:content-box;
+    -ms-box-sizing:content-box;
+    -moz-box-sizing:content-box;
+}
+
+.zsxy_orange {
+    color:#FF6600;
+}
+
+/* 页面顶部 */
+.zsxy_top {
+
+}
+.zsxy_top .zsxy_model {
+    padding-right:0.6em;
+    color:#FF6600;
+    font:bold 1.4em 'Microsoft YaHei';
+    background:url(bg/border-rightbold.jpg) right center no-repeat;
+}
+.zsxy_top .zsxy_user {
+    margin:auto 1.3em auto 0.5em;
+    color:#3366FF;
+    font:bold 1.2em 'Microsoft YaHei';
+}
+.zsxy_top .zsxy_dept {
+    color:#333;
+    font:bold 1em 'Microsoft YaHei';
+}
+.zsxy_top .zsxy_term {
+    color:#FF6600;
+    font-size:1em;
+    line-height:1.8;
+    font:bold 1.2em 'Microsoft YaHei';
+}
+
+.zsxy_marginLeft {
+    margin-left:15px;
+}
+
+.zsxy_panelInner{
+
+}
+
+.zsxy_panelInner *{
+    box-sizing:content-box;
+    -webkit-box-sizing:content-box;
+    -ms-box-sizing:content-box;
+    -moz-box-sizing:content-box;
+}

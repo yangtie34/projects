@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<div class="rxs-menu-top rxs-bg-f9 rxs-pad-top-lr">
+  <div class="media">
+    <div class="media-left media-middle">
+      <div class="rxs-xiaofei-circle-text rxs-xf-kayue rxs-org-cor">卡余额 </div>
+    </div>
+    <div class="media-body media-middle ">
+      <h4 class="text-center"><span class="rxs-ft-40">{{yktye}}</span>&nbsp;&nbsp;&nbsp; 元</h4>
+    </div>
+  </div>
+</div>
+<div class="rxs-bg-f9">
+  <ul class="rxs-tab-list clearfix">
+    <li class="rxs-tab-active"> <a class="rxs-tab-01" href="#/total">总消费</a></li>
+    <li> <a class="rxs-tab-02" href="#/month">月消费</a></li>
+  </ul>
+</div>
+<div class="rxs-comn-title rxs-comn-noicon text-center"> 昨日消费明细 </div>
+<div class="rxs-bg-ff">
+  <ul class="rxs-comn-ul rxs-hover-ul rxs-pad-none">
+    <li ng-repeat="it in xflist">
+      <div class="media">
+        <div class="media-left media-middle">
+          <div class="rxs-icon-green rxs-icon-canting"><span ng-show="{{it.dept == null || it.dept == ''}}">未维护</span>{{it.dept}}</div>
+        </div>
+        <div class="media-body media-middle text-center rxs-text-green rxs-ft-20">{{it.xfsj}} </div>
+        <div class="media-right media-middle rxs-org-cor rxs-ft-20">{{it.xfje}}</div>
+      </div>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           http://www.springframework.org/schema/tx 
+           http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+	<context:annotation-config />
+	
+	<!-- 权限 -->
+	<import resource="com/jhkj/mosdc/permiss/permiss.xml"/>
+	<!-- 统计输出 -->
+	<import resource="com/jhkj/mosdc/output/output.xml"/>
+	<!-- 自定义输出 -->
+	<import resource="com/jhkj/mosdc/sc/sc.xml"/>	
+	<!-- 教学评估-->
+	<import resource="com/jhkj/mosdc/jxpg/jxpg.xml"/>		
+	
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<value>classpath:dataSource.properties</value>
+		</property>
+	</bean>
+	
+	<bean id="dataSource" 
+		class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="${dataSource.driver}" />
+		<property name="url" value="${dataSource.url}" />
+		<property name="username" value="${dataSource.username}" />
+		<property name="password" value="${dataSource.password}" />
+		<property name="initialSize" value="5"/>   
+    	<property name="maxIdle" value="30"/>   
+    	<property name="maxActive" value="50"/>   
+    	<property name="maxWait" value="6000"/>   
+    	<property name="testOnBorrow" value="true"/>   
+    	<property name="testOnReturn" value="true"/>   
+    	<property name="testWhileIdle" value="true"/>
+    	<property name="logAbandoned" value="${dataSource.logAbandoned}"/>
+    	<property name="removeAbandoned" value="${dataSource.removeAbandoned}"/>
+    	<property name="removeAbandonedTimeout" value="${dataSource.removeAbandonedTimeout}"/>   
+    	<property name="validationQuery" value="SELECT COUNT(*) FROM DUAL"/>   
+    	<property name="minEvictableIdleTimeMillis" value="60000"/>   
+    	<property name="timeBetweenEvictionRunsMillis" value="60000"/>   
+	</bean>
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		 <property name="packagesToScan">
+		 	<list>
+		 		<value>com.jhkj.mosdc.po</value>
+		 		<value>com.jhkj.mosdc.*.po</value>
+		 		<value>com.jhkj.mosdc.*.dto</value>
+                <value>com.jhkj.mosdc.*.*.po</value>
+                <value>com.jhkj.mosdc.*.*.*.po</value>
+                <value>com.jhkj.mosdc.jwgl.kwgl.po</value>
+		 	</list>
+		 </property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${dataSource.dialect}</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"/>
+	</bean>
+	<!-- 配置事务管理器 -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean> 
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	<!-- 配置事务的传播特性 -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="save*" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="delete*" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="update*" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="insert*" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="add*" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="remove*" propagation="REQUIRED" rollback-for="Exception"/>
+			<tx:method name="*" read-only="true" />
+		</tx:attributes>
+	</tx:advice>
+	<!-- 哪些类的哪些方法参与事务 -->
+	<aop:config>
+		<aop:pointcut id="allOtherProcessMethod" expression="execution(* com.jhkj.mosdc..*.process.impl.*ProcessImpl.*(..))" />
+		<aop:pointcut id="allOtherMethod" expression="execution(* com.jhkj.mosdc..*.service.impl.*ServiceImpl.*(..))" />
+		<aop:pointcut id="allManagerMethod" expression="execution(* com.jhkj.mosdc.*.service.impl.*ServiceImpl.*(..))" />
+		<aop:pointcut id="allJobMethod" expression="execution(* com.jhkj.mosdc.sc.job.impl.*ServiceImpl.*(..))" />
+		<aop:pointcut id="allProcessMethod" expression="execution(* com.jhkj.mosdc.*.process.impl.*ProcessImpl.*(..))" />
+		<aop:pointcut id="allProcesssMethod" expression="execution(* com.jhkj.mosdc.*.*.process.impl.*ProcessImpl.*(..))" />
+		<aop:pointcut id="allPKServiceMethod" expression="execution(* com.jhkj.mosdc.*.process.pk.impl.*ServiceImpl.*(..))" />
+        <aop:pointcut id="allServiceMethod" expression="execution(* com.jhkj.mosdc.*.*.service.impl.*ServiceImpl.*(..))" />
+        <aop:pointcut id="allInnerMethod" expression="execution(* com.jhkj.mosdc..inner.impl.*Impl.*(..))" />
+		<aop:advisor pointcut-ref="allOtherProcessMethod" advice-ref="txAdvice"/>
+		<aop:advisor pointcut-ref="allOtherMethod" advice-ref="txAdvice"/>
+		<aop:advisor pointcut-ref="allManagerMethod" advice-ref="txAdvice"/>
+		<aop:advisor pointcut-ref="allJobMethod" advice-ref="txAdvice"/>
+		<aop:advisor pointcut-ref="allProcessMethod" advice-ref="txAdvice"/>
+		<aop:advisor pointcut-ref="allPKServiceMethod" advice-ref="txAdvice"/>
+        <aop:advisor pointcut-ref="allServiceMethod" advice-ref="txAdvice"/>
+	</aop:config>
+	
+	<bean id="componentStaticRetriever" class="com.jhkj.mosdc.framework.bean.ApplicationComponentStaticRetriever"/>
+	
+	<bean id="baseDao" class="com.jhkj.mosdc.framework.dao.impl.BaseDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate" ref="jdbcTemplate"/>
+	</bean>
+	<bean id="baseService" class="com.jhkj.mosdc.framework.service.impl.BaseServiceImpl">
+		<property name="baseDao">
+			<ref local="baseDao" />
+		</property>
+		
+	</bean>
+	
+	<bean id="entityService" class="com.jhkj.mosdc.framework.service.impl.EntityServiceImpl">
+		<property name="packagesToScan">
+		 	<list>
+		 		<value>com.jhkj.mosdc.*.po</value>
+		 		<value>com.jhkj.mosdc.*.dto</value>
+                <value>com.jhkj.mosdc.*.*.po</value>
+                <value>com.jhkj.mosdc.*.*.*.po</value>                
+		 	</list>
+		 </property>
+	</bean>
+	<context:component-scan base-package="com.jhkj.mosdc" />
+</beans>

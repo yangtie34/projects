@@ -1,0 +1,89 @@
+/*****权限基础样式****/
+.permiss-common-container {
+    margin-bottom:2em;
+    color:#333;
+    font:normal 12px SimSun;
+    padding:25px;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+/********页面标题样式*******/
+.permiss-common-model {
+    padding-right:0.6em;
+    color:#FF6600;
+    font:bold 16px 'Microsoft YaHei';
+    background:url(../image/border-rightbold.jpg) right center no-repeat;
+}
+.permiss-common-user {
+    margin:auto 1.3em auto 0.5em;
+    color:#3366FF;
+    font:bold 14px 'Microsoft YaHei';
+}
+.permiss-common-dept {
+    color:#333;
+    font:bold 12px 'Microsoft YaHei';
+}
+.permiss-common-top {
+    padding-bottom:0.8em;
+}
+/********分栏标题样式***********/
+.permiss-common-title {
+    margin-right:2em;
+    padding-left:0.5em;
+    color:#3366FF;
+    font-weight:bold;
+    font-size:14px;
+    font-family: 'Microsoft YaHei';
+    background:url(../image/border-leftnormal.jpg) left center no-repeat;
+}
+.permiss-common-box {
+    margin:0.6em 0;
+}
+.permiss-common-box h2 {
+    border-bottom:2px solid #3399FF;
+    font-weight:normal;
+    font-size:12px;
+    line-height:1.6;
+    margin-bottom:0.6em;
+}
+/*************toolbar工具栏*********************/
+.permiss-common-stats {
+    margin-top:0.6em;
+    font-size:14px;
+    color:#0066FF;
+    font-weight:bold;
+    padding:0.6em;
+    font-family: 'Microsoft YaHei';
+    border:1px solid #797979;
+}
+input.permiss-common-inputdefault, select.permiss-common-selectdefault {
+    vertical-align:middle;
+    font-family:'Microsoft YaHei'
+}
+label.permiss-common-labeldefault {
+    vertical-align:middle;
+    margin-top:0;
+    margin-left: 5px;
+    font-family:'Microsoft YaHei'
+}
+button.permiss-common-buttondefault {
+    font-family:'Microsoft YaHei';
+    vertical-align:middle;
+    margin-left: 4px;
+}
+.permiss-common-orange {
+    color:#FF6600;
+}
+.permiss-common-blue {
+    color:#0066FF
+}
+.permiss-outname-delete-bg {
+    background:url(../image/delete.png) no-repeat right center;
+    padding-right:15px;
+}
+.permiss_table_menu_select{
+    background-color: #E0EEE0;
+}
+.permiss_table_menu_mouseover{
+    background-color: #E8E8E8;
+}

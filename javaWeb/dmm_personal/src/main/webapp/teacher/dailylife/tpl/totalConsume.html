@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<div class="container-fluid  jzhi-menu-gradient"> 
+  <div class="media text-center">
+    <div class="media-left media-middle">
+      <a href="" ng-click="clickLeft()"><span class="phone-common-border-bold-arrow-left pull-left"></span></a>
+    </div>
+    <div class="media-body media-middle"><div class="row jzhi-date-text"><div class="col-xs-4">
+       {{lastYear}}年
+    </div>
+    <div class="col-xs-4 jzhi-select-text">
+       {{currYear}}年
+    </div>
+    <div class="col-xs-4">
+       {{nextYear}}年 
+    </div></div></div>
+    <div class="media-right media-middle">
+      <a href="" ng-click="clickRight()"><span class="phone-common-border-bold-arrow-right pull-right"></span></a>
+    </div>
+  </div>
+</div>
+<div class="jzhi-no-table" ng-show = "consumes == ''">
+  <div class="jzhi-no-cell">
+    <div class="jzhi-no-list jzhi-no-book">暂无消费记录</div>
+  </div>
+</div>  
+<div class=" "><table class="table table-hover jzhi-table" ng-hide="consumes == ''">  
+      <tbody>
+        <tr ng-repeat="consume in consumes">
+          <td width="60%"><a href="#/monthConsume/{{consume.year_}}/{{consume.month_}}">{{consume.year_}}年{{consume.month_}}月</a></td> 
+          <td width="40%"><a href="#/monthConsume/{{consume.year_}}/{{consume.month_}}"><span class="phone-common-danger-inline">￥{{consume.pay_month_total}}</span><span class="phone-common-arrow-right  pull-right"></span></a></td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+

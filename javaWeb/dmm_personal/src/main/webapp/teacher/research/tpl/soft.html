@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<div class="jzhi-line-title-bg jzhi-line-title text-center">计算机著作权列表</div>
+<div class="jzhi-no-table" ng-show = "softs == ''">
+  <div class="jzhi-no-cell">
+    <div class="jzhi-no-list jzhi-no-zhuanli">暂无计算机著作权</div>
+  </div>
+</div>
+<div class="container-fluid">
+ <ul class="jzhi-cglist">
+   <li ng-repeat="soft in softs"><dl class="jzhi-list-dl"><span>{{$index+1}}</span><dt>计算著作名称</dt><dd>{{soft.SOFT_NAME}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>完成人</dt><dd>{{soft.COMPLETE_MAN}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>学科门类</dt><dd>{{soft.SUBJECT}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>版权类型</dt><dd>{{soft.COPYRIGHT}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>权利取得方式</dt><dd>{{soft.GET}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>登记号</dt><dd>{{soft.REGIST_NO}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>证书号</dt><dd>{{soft.CERTIFICATE_NO}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>开发完成日期</dt><dd>{{soft.COMPLETE_TIME}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>首次发表时间</dt><dd>{{soft.DISPATCH_TIME}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>软件著作登记日期</dt><dd>{{soft.REGIST_TIME}}</dd></dl></li>
+ </ul>
+</div>
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+

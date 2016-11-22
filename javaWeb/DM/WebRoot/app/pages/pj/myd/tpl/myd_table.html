@@ -1,0 +1,37 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr class="title-style title-bg">
+				<td>
+					序号
+				</td>
+				<td>
+					测评项目
+				</td>
+				<td>
+					测评内容
+				</td>
+				<td>
+					满意度
+				</td>
+			</tr>
+			<tpl for=".">
+				  <tr name="mydRow">
+					<td class="title-style">
+						{[xindex]}
+					</td>
+					<td>
+						{cpxm}
+					</td>
+					<td align="left">
+						{cpnr}
+					</td>
+					 <td class="abcd"  name ="myd_table_td"  id="{[this.getValueByMyd(values.myd)]}" > 
+						<input type="radio" id={id} value="my" cpxm="{cpxm}"  name="myd_index_result_name_{[xindex]}"/>
+						满意
+						<input type="radio" id={id} value="jbmy" cpxm="{cpxm}"  name="myd_index_result_name_{[xindex]}"/>
+						基本满意
+						<input type="radio"  id={id} value="bmy" cpxm="{cpxm}"  name="myd_index_result_name_{[xindex]}"/>
+						不满意
+					</td>
+				</tr>
+			</tpl>
+		</table>

@@ -1,0 +1,39 @@
+<h2><span class="wbh-common-title ">角色列表</span> </h2>
+<table width="100%" border="0" class="wbh-common-table_green">
+
+    <tr>
+        <td width="30%" class="wbh-common-greenbg">
+            {%
+               var roles = values;
+               this.allcheck = true;
+               for(var i=0;i<roles.length;i++){
+                  if(!roles[i].checked){
+                      this.allcheck = false;
+                      break;
+                  }
+               }
+            %}
+            <tpl if="this.allcheck == true">
+                <input class="wbh-common-inputdefault" ctype="checkAll" type="checkbox" checked="true" value=""/>
+            <tpl else>
+                <input class="wbh-common-inputdefault" ctype="checkAll" type="checkbox" value=""/>
+            </tpl>
+
+        </td>
+        <td width="30%" class="wbh-common-greenbg">角色名称</td>
+        <td width="40%" class="wbh-common-greenbg">角色描述</td>
+    </tr>
+    <tpl for=".">
+        <tr>
+            <td class="wbh-common-greenbg">
+                <tpl if="checked">
+                    <input class="wbh-common-inputdefault"  type="checkbox" itemId="{id}" checked="{checked}"/>
+                    <tpl else>
+                        <input class="wbh-common-inputdefault"  type="checkbox" itemId="{id}">
+                    </tpl>
+            </td>
+            <td>{jsmc}</td>
+            <td>{jsms}</td>
+        </tr>
+    </tpl>
+</table>

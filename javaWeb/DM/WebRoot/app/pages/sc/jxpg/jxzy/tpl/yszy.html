@@ -1,0 +1,74 @@
+<div style="font-size: 20px;font-weight: bold;font-family: '黑体';text-align: center;">{xn}学年</div>
+<div>
+    <table  class="jxpg-common-table">
+        <tr>
+            <td class="title" rowspan="2">序号</td>
+            <td class="title" rowspan="2">专业名称</td>
+            <td class="title" rowspan="2">专业类型</td>
+            <td class="title" rowspan="2">批准时间（年）</td>
+            <td class="title" colspan="3">授课教师</td>
+            <td class="title" rowspan="2">本科学生生数</td>
+            <td class="title" rowspan="2">学生与本学院授课教师之比</td>
+            <td class="title" rowspan="2">学年内学生流动净值</td>
+            <td class="title" rowspan="2">应界毕业生数</td>
+            <td class="title" rowspan="2">当年初次就业率（%）</td>
+        </tr>
+        <tr>
+            <td class="title">本学院授课教师数</td>
+            <td class="title">外学院授课教师数</td>
+            <td class="title">具有高级职称的授课教师数</td>
+        </tr>
+        <tpl for="items">
+            <tr>
+                <td>{#}</td>
+                <td>{ZYMC}</td>
+                <td>{ZYLX}</td>
+                <td>
+                    <span class="realvalue">{PZSJ_T}</span>
+                    <span class="value" code="PZSJ_F" rowid="{ID}" isnum="int" type="itemvalue">{PZSJ_F}</span>
+                    <div></div>
+                </td>
+                <td>
+                    <span class="realvalue">{BXYSKJSS_T}</span>
+                    <span class="value" code="BXYSKJSS_F" rowid="{ID}" isnum="int" type="itemvalue">{BXYSKJSS_F}</span>
+                    <div></div>
+                </td>
+                <td>
+                    <span class="realvalue">{WXYSKJSS_T}</span>
+                    <span class="value" code="WXYSKJSS_F" rowid="{ID}" isnum="int" type="itemvalue">{WXYSKJSS_F}</span>
+                    <div></div>
+                </td>
+                <td>
+                    <span class="realvalue">{GJZCSKJSS_T}</span>
+                    <span class="value" code="GJZCSKJSS_F" rowid="{ID}" isnum="int" type="itemvalue">{GJZCSKJSS_F}</span>
+                    <div></div>
+                </td>
+                <td>
+                    <span class="realvalue">{BKXSS_T}</span>
+                    <span class="value" code="BKXSS_F" rowid="{ID}" isnum="int" type="itemvalue">{BKXSS_F}</span>
+                    <div></div>
+                </td>
+                <td>
+                    <span class="realvalue">{XSJSZB_T}</span>
+                    <span class="value" code="XSJSZB_F" rowid="{ID}" isnum="float" type="itemvalue">{XSJSZB_F}</span>
+                    <div></div>
+                </td>
+                <td>
+                    <span class="realvalue">{XSLDJZ_T}</span>
+                    <span class="value" code="XSLDJZ_F" rowid="{ID}" isnum="float"  type="itemvalue">{XSLDJZ_F}</span>
+                    <div></div>
+                </td>
+                <td>
+                    <span class="realvalue">{YJBYSS_T}</span>
+                    <span class="value" code="YJBYSS_F" rowid="{ID}" isnum="int" type="itemvalue">{YJBYSS_F}</span>
+                    <div></div>
+                </td>
+                <td>
+                    <span class="realvalue">{DNJYL_T}</span>
+                    <span class="value" code="DNJYL_F" rowid="{ID}" isnum="float" type="itemvalue">{DNJYL_F}</span>
+                    <div></div>
+                </td>
+            </tr>
+        </tpl>
+    </table>
+</div>

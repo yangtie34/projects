@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css">
+    <script src="data/data.js"></script>
+    <script src="../../base1/util/LAB.min.js"></script>
+    <script src="../../extjs/ext-all.js"></script>
+    <script src="../ns-debug.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function(){
+            NS.define('A',{
+                constructor : function(){
+                    this.addEvents('getname');
+                },
+                name : '张三',
+                getName : function(){
+                    this.fireEvent('getname',this.name);
+                }
+            });
+            var a = new A();
+            a.on('getname',function(name){
+                alert(name);
+            });
+            //a.removeListener('getname');
+            a.getName();
+        });
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

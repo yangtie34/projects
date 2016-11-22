@@ -1,0 +1,82 @@
+@charset "utf-8";
+/* CSS Document */
+/*重新定义*/
+.zxj-yuxuan_box{ margin:10;}
+.zxj-yuxuan_top .zxj-yuxuan_model_xinxi {
+	padding-right:0.6em;
+	color:#FF6600;
+	font:bold 16px 'Microsoft YaHei';
+	background:url(../image/border-rightbold.jpg) right center no-repeat;
+}
+.zxj-xiangqing_infocont {
+	width:480px;
+	padding:25px;
+	border:1px solid #797979;
+	font-family:'microsoft yahei';
+	font-size:13px;
+}
+/*表格样式*/
+table.zxj-yuxuan_table_gl {
+	border-collapse:collapse;
+	table-layout:fixed;
+	line-height:22px;
+}
+table.zxj-yuxuan_table_lishi {
+	border-collapse:collapse;
+	table-layout:fixed;
+	line-height:22px;
+	border:1px solid#797979;
+}
+table.zxj-yuxuan_table_lishi td {
+	border:1px solid#797979;
+	text-align:center;
+}
+.zxj-yuxuan_td-right {
+	text-align:left
+}
+.zxj-yuxuan_td-left {
+	text-align:left
+}
+.zxj-yuxuan_table-left {
+	padding-left:13px;
+	border-left:2px solid #ccc;
+}
+.zxj-yuxuan_table-right {
+	padding-right:13px;
+}
+/*颜色定义*/
+.zxj-yuxuan_greenbg {
+	background:#d4ff94;
+}
+.zxj-yuxuan_red {
+	color:#ff0000;
+}
+/*按钮样式*/
+.zxj-yuxuan_pcenter {
+	text-align:center;
+	margin-top:5px;
+}
+.zxj-yuxuan_buttonwid {
+	width:60px;
+	padding:5px 0;
+}
+.zxj-yuxuan_buttonmaf {
+	margin-left:15px;
+}
+/*文本域定义*/
+.zxj-yuxuan_textarea {
+	width:207px;
+	height:72px;
+}
+/*边距样式*/
+.zxj-yuxuan_bjleft {
+	margin-left:5px;
+}
+.zxj-yuxuan_upload {
+	margin-left:25px;
+}
+/*链接样式*/
+a.zxj-yuxuan_a-link {
+	color:#000;
+	text-decoration:none;
+}

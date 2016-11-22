@@ -1,0 +1,280 @@
+@charset "utf-8";
+/* CSS Document */ 
+.tongji-margin-lr {
+	margin:1em 4em;
+}
+.title-infomation {
+	font-size:14px;
+	margin-left:30px;
+}
+.title-information-red {
+	color:#ff0000;
+	font-style:normal;
+	margin:0px 5px;
+}
+/*学籍基本概况*/
+.gaikuang-content {
+	padding:35px;
+	color:#5e5e5f;
+	font-size:14px;
+}
+.gaikuang-div {
+	float:left;
+	margin:0px 40px;
+}
+.gaikuang-div-center {
+	text-align:center;
+	margin-top:15px;
+}
+.gaikuang-div p {
+	margin:15px 0;
+}
+.gaikuang-div-center p {
+	margin:8px 0
+}
+.face-bg-default {
+	background:#fffcde;
+	border:3px solid #8abad5;
+	width:88px;
+	height:88px;
+	border-radius:10px;
+	overflow:hidden;
+}
+.zll-user-name {
+	font-size:18px;
+	color:#ff6600;
+}
+.zll-user-ccc {
+	color:#999;
+}
+.zll-user-impt {
+	color:#ff6600;
+}
+/*学籍异动*/
+.tongji-table td.tongji-tr-exicon {
+	background:url(../../images/manager/circle.png) left center no-repeat
+}
+.table-small-block {
+	float:left
+}
+.table-block-info {
+	background:#e8ebee;
+	float:left;
+	font-size:12px;
+	padding:20px 40px;
+}
+.table-block-info p {
+	margin:6px 0;
+}
+.tongji-table-arrow tr:hover {
+	background:url(../../images/manager/to-arrow-right.png) right center no-repeat
+}
+.tongji-table-arrow tr.tongji-tr-arrow {
+	background:url(../../images/manager/to-arrow-right.png) right center no-repeat
+}
+.phone-message {
+	display:inline-block;
+	width:66px;
+	height:23px;
+	background:#b0a2e2;
+	border-radius:20px;
+	text-align:center;
+	line-height:23px;
+	color:#fff;
+	font-size:12px;
+}
+.before-title-info {
+	color: #5e5e5f;
+	font-size: 16px;
+	padding:0 2em 1em 3em;
+}
+.before-yellow-text {
+	color: #eabf17;
+	font-style:normal;
+	font-size:16px;
+	margin:0px 20px;
+}
+.before-number-ipt {
+	color:#74ccfc;
+	font-size:24px;
+	font-style:normal;
+	margin:0px 25px;
+}
+.title-bottom-line {
+	font-size:18px;
+	color:#3399ff;
+	border-bottom:1px solid #eaeaea;
+	margin:1em 3.5em;
+	padding-bottom:10px;
+}
+.title-bottom-line span {
+	margin:0px 5px;
+}
+.title-information-blue {
+	color:#5e92df;
+	font-style:normal;
+	margin:0px 5px;
+}
+.table-td-nowrap {
+	width:550px;
+}
+.alink-default {
+	color:#4ca1fb;
+	font-size:14px;
+}
+/*理赔*/
+.ex-table-green {
+	border-collapse:collapse;
+	border:1px solid #84ccc9;
+	font-size:14px;
+	margin:1em 4em;
+}
+.ex-table-green th {
+	background:#84ccc9;
+	padding:10px 15px;
+	color:#fff;
+	font-weight:normal
+}
+.ex-table-green td {
+	background:#fff;
+	padding:10px 15px;
+	text-align:center;
+}
+.ex-table-green td.ex-left-border, .ex-table-green th.ex-left-border {
+	border-left:1px solid #eaeaea
+}
+/*宿舍*/
+.sushe-box {
+	margin:-1em 2em 0em;
+	overflow:hidden
+}
+.sushe-chuangwei {
+	width:380px;
+	float:left;
+	color:#5e5e5f;
+	font-size:14px;
+	margin:20px 35px;
+}
+.chuangwei-h3 {
+	background:url(../../images/manager/circle.png) left top 7px no-repeat;
+	padding-left:20px;
+	font-weight:normal;
+	font-size:15px;
+	padding-bottom:10px;
+	border-bottom:1px solid #eaeaea;
+}
+.sushe-chuangwei-ul {
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+.sushe-chuangwei-ul li {
+	border-bottom:1px solid #eaeaea;
+}
+.sushe-chuangwei-ul li p.sushe-kong {
+	height:143px;
+	text-align:center;
+	line-height:143px;
+	background:#c9e5f4;
+}
+.sushe-chuangwei-ul li p {
+	margin:5px 0px;
+	padding:10px 40px;
+	background:#c9e5f4;
+}
+.sushe-chuangwei-ul li p span {
+	margin:0px 20px 0px 0px;
+}
+.sushe-stu-phone {
+	color:#085098
+}
+.sushe-message {
+	background:#2d76be;
+}
+/*宿舍调整*/
+.list-pleft-circle {
+	background:url(../../images/manager/circle.png) left center no-repeat;
+	padding:10px 20px;
+	margin:0px 4em;
+}
+.span-checkbox {
+	font-size:14px;
+	color:#5e5e5f
+}
+.span-checkbox input {
+	margin-left:60px;
+	vertical-align:middle;
+}
+.span-checkbox label {
+	margin:0px 5px;
+	vertical-align:middle;
+}
+/*课表*/
+.kebiao-table td {
+	background:#c9e5f4;
+	border:1px solid #fff;
+	padding:6px;
+}
+.kebiao-table td.white-bg {
+	background:#fff;
+}
+.kebiao-table td.yellow-bg {
+	background:#fdd98b;
+}
+.kebiao-table td.orange-bg {
+	background:#fd8813;
+}
+.kebiao-table td.blue-bg {
+	background:#4d94ff
+}
+.kebiao-table td.sea-blue-bg {
+	background:#91c0f9
+}
+.tongji-table th.black-text {
+	font-size:14px;
+	color:#5e5e5f;
+	font-weight:normal;
+}
+.p-title-ping {
+	margin: 1em 5em;
+	font-size:14px;
+}
+.p-title-ping span {
+	margin:0px 25px;
+}
+.p-title-text {
+	font-style:normal;
+	color: #3399ff;
+	font-size: 18px;
+}
+/*技能证书*/
+.zhengshu-menu {
+	margin:1em 4em;
+	/*border-top:1px solid #eaeaea;
+	border-bottom:1px solid #eaeaea;*/
+	overflow:hidden;
+	padding:2em 0;
+}
+.zhengshu-list {
+	text-align:center;
+	float:left;
+	width:110px;
+	font-size:14px;
+	color:#5e5e5f;
+	margin-right:30px;
+}
+.zhengshu-list dd {
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+}
+.zhengshu-wu {
+	color:#ccc;
+}
+.tongji-table th.table-thead, .tongji-table td.table-thead {
+	color:#34495e;
+	font-size:20px;
+	font-weight:normal;
+}
+.open img, .zhaosheng-title img{ margin-bottom:-5px;}
+ 

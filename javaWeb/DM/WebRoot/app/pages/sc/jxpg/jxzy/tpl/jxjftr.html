@@ -1,0 +1,168 @@
+<div style="font-size: 20px;font-weight: bold;font-family: '黑体';text-align: center;">{xn}学年</div>
+<div>
+
+    <table class="jxpg-common-table">
+        <tr>
+            <td class="title" colspan="3">项目</td>
+            <td class="title">金额</td>
+        </tr>
+        <tpl for="items">
+        <tpl if="XM == 'A'">
+            <tr>
+                <td colspan="3">{MC}</td>
+                <td>
+                    <span class="realvalue">{JE_T}</span>
+                    <span class="value" code="JE_F" rowid="{ID}" isnum="float" type="itemvalue">{JE_F}</span>
+                    <div></div>
+                </td>
+            </tr>
+        </tpl>
+        <tpl if="XM == 'B'">
+            <tr>
+                <td colspan="3">{MC}</td>
+                <td>
+                    <span class="realvalue">{JE_T}</span>
+                    <span class="value" code="JE_F" rowid="{ID}" isnum="float" type="itemvalue">{JE_F}</span>
+                    <div></div>
+                </td>
+            </tr>
+        </tpl>
+        <tpl if="XM == 'C'">
+            <tr>
+                <td colspan="3">{MC}</td>
+                <td>
+                    <span class="realvalue">{JE_T}</span>
+                    <span class="value" code="JE_F" rowid="{ID}" isnum="float" type="itemvalue">{JE_F}</span>
+                    <div></div>
+                </td>
+            </tr>
+        </tpl>
+        <tpl if="XM == 'D'">
+        <tr>
+            <td  rowspan="5">教育事业收入</td>
+            <td colspan="2">{MC}</td>
+            <td>
+                <span class="realvalue">{JE_T}</span>
+                <span class="value" code="JE_F" rowid="{ID}" isnum="float" type="itemvalue">{JE_F}</span>
+                <div></div>
+            </td>
+        </tr>
+        </tpl>
+        <tpl if="XM == 'E'">
+        <tr>
+            <td  rowspan="2">本科生生均拨款总额</td>
+            <td >{MC}</td>
+            <td>
+                <span class="realvalue">{JE_T}</span>
+                <span class="value" code="JE_F" rowid="{ID}" isnum="float" type="itemvalue">{JE_F}</span>
+                <div></div>
+            </td>
+        </tr>
+        </tpl>
+        <tpl if="XM == 'F'">
+        <tr>
+            <td> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {MC}</td>
+            <td>
+                    <span class="realvalue">{JE_T}</span>
+                    <span class="value" code="JE_F" rowid="{ID}" isnum="float" type="itemvalue">{JE_F}</span>
+                    <div></div>
+            </td>
+        </tr>
+        </tpl>
+        <tpl if="XM == 'G'">
+        <tr>
+            <td colspan="2">{MC}</td>
+            <td>
+                    <span class="realvalue">{JE_T}</span>
+                    <span class="value" code="JE_F" rowid="{ID}" isnum="float" type="itemvalue">{JE_F}</span>
+                    <div></div>
+                </tpl>
+
+            </td>
+        </tr>
+        <tpl if="XM == 'H'">
+        <tr>
+            <td colspan="2">{MC}</td>
+            <td>
+                <span class="realvalue">{JE_T}</span>
+                <span class="value" code="JE_F" rowid="{ID}" isnum="float" type="itemvalue">{JE_F}</span>
+                <div></div>
+            </td>
+        </tr>
+        </tpl>
+        <tpl if="XM == 'I'">
+        <tr>
+            <td>&nbsp;</td>
+            <td colspan="2">{MC}</td>
+            <td>
+                <span class="realvalue">{JE_T}</span>
+                <span class="value" code="JE_F" rowid="{ID}" isnum="float" type="itemvalue">{JE_F}</span>
+                <div></div>
+            </td>
+        </tr>
+        </tpl>
+        <tpl if="XM == 'J'">
+        <tr>
+            <td rowspan="2">教学日常运行支出</td>
+            <td colspan="2">{MC}</td>
+            <td>
+                <span class="realvalue">{JE_T}</span>
+                <span class="value" code="JE_F" rowid="{ID}" isnum="float" type="itemvalue">{JE_F}</span>
+                <div></div>
+            </td>
+        </tr>
+        </tpl>
+        <tpl if="XM == 'K'">
+        <tr>
+            <td colspan="2">{MC}</td>
+            <td>
+                <span class="realvalue">{JE_T}</span>
+                <span class="value" code="JE_F" rowid="{ID}" isnum="float" type="itemvalue">{JE_F}</span>
+                <div></div>
+            </td>
+        </tr>
+        </tpl>
+        <tpl if="XM == 'L'">
+        <tr>
+            <td colspan="3">{MC}</td>
+            <td>
+                <span class="realvalue">{JE_T}</span>
+                <span class="value" code="JE_F" rowid="{ID}" isnum="float" type="itemvalue">{JE_F}</span>
+                <div></div>
+            </td>
+        </tr>
+        </tpl>
+        <tpl if="XM == 'N'">
+        <tr>
+            <td colspan="3">{MC}</td>
+            <td>
+                    <span class="realvalue">{JE_T}</span>
+                    <span class="value" code="JE_F" rowid="{ID}" isnum="float" type="itemvalue">{JE_F}</span>
+                    <div></div>
+            </td>
+        </tr>
+        </tpl>
+            <tpl if="XM == 'O'">
+                <tr>
+                    <td colspan="3">{MC}</td>
+                    <td>
+                        <span class="realvalue">{JE_T}</span>
+                        <span class="value" code="JE_F" rowid="{ID}" isnum="float" type="itemvalue">{JE_F}</span>
+                        <div></div>
+                    </td>
+                </tr>
+            </tpl>
+            <tpl if="XM == 'M'">
+                <tr>
+                    <td colspan="3">{MC}</td>
+                    <td>
+                        <span class="realvalue">{JE_T}</span>
+                        <span class="value" code="JE_F" rowid="{ID}" isnum="float" type="itemvalue">{JE_F}</span>
+                        <div></div>
+                    </td>
+                </tr>
+            </tpl>
+        </tpl>
+    </table>
+
+</div>

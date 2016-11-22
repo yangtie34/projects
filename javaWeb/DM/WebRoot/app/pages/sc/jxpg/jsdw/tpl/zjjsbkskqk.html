@@ -1,0 +1,85 @@
+<div style="font-size: 20px;font-weight: bold;font-family: '黑体';text-align: center;">{xn}学年</div>
+<div>
+	<table class="jxpg-common-table">
+		<tr>
+		    <td class="title" rowspan="2" width="60">序号</td>
+		    <td class="title" rowspan="2" width="130">专业（大类）</td>
+		    <td class="title" rowspan="2">授课教师数</td>
+		    <td class="title" colspan="2">高级职称</td>
+		    <td class="title" colspan="2">教授</td>
+		    <td class="title" colspan="2">其中为低年级授课教授</td>
+		    <td class="title" colspan="2">具有硕士、博 士学位</td>
+		  </tr>
+		  <tr>
+		    <td class="title">数量</td>
+		    <td class="title">比例（%）</td>
+		    <td class="title">数量</td>
+		    <td class="title">比例（%）</td>
+		    <td class="title">数量</td>
+		    <td class="title">比例（%）</td>
+		    <td class="title">数量</td>
+		    <td class="title">比例（%）</td>
+		  </tr>
+		<tpl for="items">
+			<tr>
+				<td>{#}</td>
+				<td>{MC}</td>
+				<td>
+					<span class="realvalue">{SKJSS_T}</span>
+					<span code="SKJSS_F" rowid="{ID}"
+					<tpl if="DM=='ZJ'">class="value_unedit"<tpl else>class="value" type="itemvalue" isnum="int"</tpl>
+					>{SKJSS_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{GJZCSL_T}</span>
+					<span code="GJZCSL_F" rowid="{ID}" 
+					<tpl if="DM=='ZJ'">class="value_unedit"<tpl else>class="value" type="itemvalue" isnum="int"</tpl>
+					>{GJZCSL_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{GJZCBL_T}</span>
+					<span code="GJZCBL_F" rowid="{ID}" class="value_unedit">{GJZCBL_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{JSSL_T}</span>
+					<span code="JSSL_F" rowid="{ID}" 
+					<tpl if="DM=='ZJ'">class="value_unedit"<tpl else>class="value" type="itemvalue" isnum="int"</tpl>
+					>{JSSL_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{JSBL_T}</span>
+					<span code="JSBL_F" rowid="{ID}" class="value_unedit">{JSBL_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{DNJSKJSSL_T}</span>
+					<span code="DNJSKJSSL_F" rowid="{ID}" 
+					<tpl if="DM=='ZJ'">class="value_unedit"<tpl else>class="value" type="itemvalue" isnum="int"</tpl>
+					>{DNJSKJSSL_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{DNJSKJSBL_T}</span>
+					<span code="DNJSKJSBL_F" rowid="{ID}" class="value_unedit">{DNJSKJSBL_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{SSBSXWSL_T}</span>
+					<span code="SSBSXWSL_F" rowid="{ID}" 
+					<tpl if="DM=='ZJ'">class="value_unedit"<tpl else>class="value" type="itemvalue" isnum="int"</tpl>
+					>{SSBSXWSL_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{SSBSXWBL_T}</span>
+					<span code="SSBSXWBL_F" rowid="{ID}" class="value_unedit">{SSBSXWBL_F}</span>
+					<div></div>
+				</td>
+			</tr>
+		</tpl>
+	</table>
+</div>

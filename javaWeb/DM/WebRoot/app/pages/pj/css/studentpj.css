@@ -1,0 +1,163 @@
+@charset "utf-8";
+/* CSS Document */
+h1, h2, h3, h4, h5, ul, li, input, textarea {
+	margin:0;
+	padding:0;
+}
+.pj-content {
+	margin:20px;
+}
+.pj-left {
+	font-size:13px;
+	margin-bottom:20px;
+	width:100%;
+	float:left;
+}
+.pj-left h2, h3, h4 {
+	float:left;
+}
+h2 {
+	font-size:20px;
+}
+h3 {
+	font-size:16px;
+}
+h4 {
+	font-size:13px;
+}
+.pj-right {
+	float:right;
+}
+.clear {
+	clear:both;
+}
+.daiping {
+	font-size:13px;
+	border-bottom:2px solid #3399ff;
+	float:left;
+	width:100%;
+	padding-bottom:3px;
+}
+.org {
+	color:#ff6600;
+}
+.blue {
+	color:#3366ff;
+}
+.white {
+	color:#fff;
+}
+.sizea {
+	font-size:13px;
+}
+.sizeb {
+	font-size:16px;
+}
+.sizec {
+	font-size:20px;
+}
+.bold {
+	font-weight:bold;
+}
+.rgt-border {
+	border-right:5px solid #ff6600;
+	padding-right:5px;
+}
+.lft-border {
+	border-left:4px solid #3399ff;
+	padding-left:7px;
+}
+.pad-topa {
+	padding-top:3px;
+}
+.pad-topb {
+	padding-top:6px;
+}
+.pad-lft {
+	padding-left:10px;
+}
+.pj-ul {
+	width:100%;
+	font-size:13px;
+	padding:15px 0;
+	border:1px solid #797979;
+	float:left;
+	margin-top:15px;
+	margin-bottom:15px;
+}
+.pj-ul ul {
+	list-style:none;
+	border-right:2px solid #ccc;
+	float:left;
+	padding:0 20px;
+}
+.pj-ul ul li {
+	padding:6px 0;
+}
+.pj-ul ul.current {
+	border:0;
+}
+.marg-topa {
+	margin-top:3px;
+}
+.input-btn {
+	width:95px;
+	height:24px;
+	margin-left:10px;
+}
+.title-style {
+	color:#666;
+	font-size:14px;
+	font-weight:bold;
+	white-space:nowrap;
+}
+.title-bg {
+	background:#f4f5f7;
+}
+.pj-table {
+	font-size:13px;
+	width:100%;
+	float:left;
+	margin-top:20px;
+}
+.pj-table table {
+	border-collapse:collapse;
+	text-align:center;
+}
+.pj-table table tr td {
+	border:1px solid #ccc;
+	padding:10px 15px;
+}
+.pj-trbg {
+	background:#3399ff;
+	font-weight:bold;
+	color:#fff;
+}
+.abcd input {
+	padding:0 2px;
+	margin:0
+}
+.pj-area {
+	float:left;
+	width:100%;
+}
+.area-style {
+	width:100%;
+	height:160px;
+	font-size:13px;
+}
+.pj-dui {
+	margin:20px 0;
+	width:100%;
+	float:left;
+}
+.pj-jieguo {
+	margin:20px 0;
+	width:100%;
+	text-align:center
+}
+.pj-submit {
+	width:135px;
+	height:45px;
+}
+.pingfen{border:0; width:100%}

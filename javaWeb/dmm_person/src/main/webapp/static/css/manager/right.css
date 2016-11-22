@@ -1,0 +1,601 @@
+﻿@charset "utf-8";
+/* CSS Document */ 
+* {
+	box-sizing: border-box;
+}
+*:after, *:before {
+	box-sizing: border-box;
+}
+.clearfix:after {
+	clear: both;
+	content: " ";
+	display: block;
+	font-size: 0;
+	height: 0;
+	line-height: 0;
+	visibility: hidden;
+}
+i, em {
+	font-style:normal;
+}
+img {
+	border:none;
+}
+a {
+	color:#393939;
+	text-decoration:none;
+}
+a:hover {
+	text-decoration:none;
+}
+a.sj-alink {
+	color:#07a79e;
+	text-decoration:none;
+}
+a.sj-alink:hover {
+    color:#ea9b23;
+	text-decoration:none;
+}
+ol, ul, li {
+	list-style:none;
+}
+.shuju-con-right a {
+	text-decoration:none;
+	outline:none;
+}
+/*右侧内容*/
+.shuju-con-right {
+	height: 100%;
+	padding-left:290px;
+	margin-bottom:150px;
+	font-size:12px;
+	line-height:22px;
+	color:#393939;
+}
+/*右侧头部*/
+.right_title {
+	padding:25px 30px;
+	width: 100%;
+	overflow:hidden;
+}
+.con_right a {
+	text-decoration:none;
+	outline:none;
+}
+/*右侧内容*/
+.con_right {
+	height: 100%;
+	padding-left:290px;
+	margin-bottom:150px;
+	font-size:12px;
+	line-height:22px;
+	color:#393939;
+}
+/*右侧头部*/
+.shuju-right-title {
+	padding:25px 30px;
+	width: 100%;
+	overflow:hidden;
+}
+.shuju-title-left {
+	float:left;
+	width:60%;
+}
+.shuju-title-left h3, .shuju-title-left p {
+	font-family:"微软雅黑";
+	font-weight:normal;
+	padding:0;
+	margin:0;
+}
+.shuju-title-left h3 {
+	font-size:18px;
+	line-height:40px;
+	color:#393939
+}
+.shuju-title-left p {
+	line-height:22px;
+	color:#393939
+}
+.shuju-title-right {
+	float:right;
+}
+/*右侧工具栏*/
+.shuju-title-search {
+	width:210px;
+	text-align:center;
+	margin:0;
+	padding:10px 0px;
+	border:1px solid #e7e7e7;
+}
+.shuju-title-search li {
+	display:inline-block;
+	width:65px;
+	text-align:center;
+	padding:25px 5px 0;
+	white-space:nowrap;
+	cursor:pointer;
+}
+.shuju-title-search li.shuju-chaxun {
+	background:url(../images/chaxun.png) center top no-repeat
+}
+.shuju-title-search li.shuju-search {
+	background:url(../images/search.png) center top no-repeat
+}
+.shuju-title-search li.shuju-daochu {
+	background:url(../images/daochu.png) center top no-repeat
+}
+.shuju-title-search li.shuju-chaxun:hover {
+	background:url(../images/chaxun-hover.png) center top no-repeat
+}
+.shuju-title-search li.shuju-search:hover {
+	background:url(../images/search-hover.png) center top no-repeat
+}
+.shuju-title-search li.shuju-daochu:hover {
+	background:url(../images/daochu-hover.png) center top no-repeat
+}
+.shuju-title-search li+li {
+	display:inline-block;
+	border-left:1px solid #c6c6c6;
+}
+/*搜索栏*/
+.shuju-right-search {
+	display:inline-block;
+	float:right;
+	position:relative;
+	line-height:56px;
+}
+.shuju-search-input {
+	width:260px;
+	padding:5px 15px;
+	color:#fff;
+	border:1px solid #7d7d83;
+	background:#484d58;
+	font-size:12px;
+}
+.shuju-search-icon {
+	background:url(../images/search-xs.png) center center no-repeat;
+	height:15px;
+	display:inline-block;
+	position:absolute;
+	top:20px;
+	right:0px;
+	border-left:1px solid #7d7d83;
+	padding:0px 15px;
+}
+/*学院分类*/
+
+.shuju-people {
+	padding:0;
+	margin:0;
+}
+.shuju-title-box {
+	background-color:#32323a;
+	overflow:hidden;
+	padding:0px 30px;
+}
+.shuju-title {
+	color:#fff;
+	padding:0;
+	margin:0;
+	float:left;
+	font-size:18px;
+	line-height:55px;
+	font-weight:normal;
+}
+.shuju-xueyuan-select-box {
+	padding:15px 30px;
+}
+.shuju-span-list {
+	border:1px solid #78b3cd;
+	display:inline-block;
+	padding:7px 10px;
+	border-radius:5px;
+	min-width:95px;
+	color:#393939;
+	margin:8px 10px 8px 0px;
+	text-align:center;
+	cursor:pointer;
+}
+.shuju-span-list:hover {
+	background:#108ea7;
+	color:#fff;
+	border:1px solid #108ea7;
+}
+.shuju-span-list-active {
+	border:1px solid #108ea7;
+	color:#fff;
+	background:#108ea7;
+}
+/*分布图*/
+.shuju-content-list {
+}
+.shuju-fenbutu-box {
+	margin:25px 0;
+	padding:0px 20px;
+}
+.shuju-title-fanwei {
+	list-style:none;
+	display:inline-block;
+}
+.shuju-title-fanwei li {
+	display:inline-block;
+	padding:2px 8px;
+	min-width:65px;
+	border:1px dashed #f2f2f2;
+	margin:0px 15px 0 0;
+	color:#9aa9ad;
+	text-align:center;
+	line-height:22px;
+	cursor:pointer;
+	font-size:16px;
+}
+.shuju-title-fanwei li.shuju-fanwei-selected {
+	color:#108ea7;
+}
+.shuju-select-option {
+	min-width:150px;
+	margin:0px 10px;
+}
+.shuju-padding-dance {
+	padding:0px 20px;
+}
+.shuju-left-img {
+	float:left;
+	width:50%;
+	text-align:center;
+}
+/*表格*/
+.shuju-fenbu-table {
+}
+.shuju-table-title {
+	color:#393939;
+	font-weight:normal;
+	text-align:left;
+	margin:10px;
+}
+.shuju-table-bg {
+	background:#fbfbfb;
+	padding:10px 25px 25px 25px;
+	border-radius:10px;
+	border:1px dashed #c9c9c9
+}
+.shuju-table-border {
+	border-collapse:collapse;
+	color:#393939;
+	border-radius:15px;
+}
+.shuju-table-border td {
+	border-bottom:1px dashed #dddddd;
+	padding:10px 5px;
+	text-align:center;
+}
+.shuju-table-border th {
+	font-weight:normal;
+	padding:10px 2px;
+	text-align:left;
+}
+.shuju-table-border th.shuju-top-line {
+	color:#108ea7;
+	text-align:center
+}
+/*page*/
+.shuju-pages {
+	display:inline-block;
+	float:right;
+}
+.shuju-pages a {
+	display:inline-block;
+}
+.shuju-page-left {
+	border-top:5px solid transparent;
+	border-bottom:5px solid transparent;
+	border-right:8px solid #898989;
+}
+.shuju-page-right {
+	border-top:5px solid transparent;
+	border-bottom:5px solid transparent;
+	border-left:8px solid #898989;
+}
+.shuju-page-left:hover {
+	border-right:8px solid #108ea7;
+}
+.shuju-page-right:hover {
+	border-left:8px solid #108ea7
+}
+/*tab*/
+.shuju-tab-content {
+	margin:15px 30px;
+}
+.shuju-tab-title a {
+	color:#32323a;
+	padding:10px 25px;
+	display:inline-block;
+	font-size:16px;
+}
+.shuju-tab-title a.shuju-tab-selected {
+	background:#fff;
+	color:#434545;
+}
+.shuju-tab-box {
+	border:10px solid #fff;
+}
+.shuju-tab-set {
+	float:right;
+	background:url(../images/set.png) center center no-repeat;
+	width:16px;
+	height:44px;
+}
+.shuju-tab-set:hover {
+	background:url(../images/set-hover.png) center center no-repeat;
+}
+/*#########################在校生统计分析####################################*/
+
+.shuju-content-information {
+	border:5px solid #dedede;
+	border-radius:10px;
+	background:#f8f8f8;
+	padding:10px;
+	margin: 0 30px 25px;
+}
+.shuju-information-table {
+	display:table;
+	width:100%;
+}
+.shuju-content-information article {
+	border-radius:5px;
+	padding:8px;
+	vertical-align:middle;
+	display:table-cell;
+}
+.shuju-information-35 {
+	width:35%;
+}
+.shuju-information-25 {
+	width:25%;
+}
+.shuju-information-40 {
+	width:40;
+}
+.shuju-information-left {
+	text-align:center;
+	border:1px dotted #dcdcdc;
+	height:200px;
+	border-radius:5px;
+	font-size:20px;
+	padding:20px;
+}
+.shuju-information-left p {
+	line-height:50px;
+}
+.shuju-text-org-15 {
+	color:#ff834e;
+	font-size:15px;
+}
+.shuju-text-green-30 {
+	color:#00bbb4;
+	font-size:30px;
+}
+a.shuju-underline {
+	border-bottom:1px dashed #ff834e;
+	color:#ff834e
+}
+.shuju-information-center {
+	border:1px dotted #dcdcdc;
+	height:95px;
+	border-radius:5px;
+	font-size:16px;
+	padding:24px 15px;
+}
+.shuju-information-center+.shuju-information-center {
+	margin-top:10px;
+}
+.shuju-center-dl {
+	text-align:center
+}
+.shuju-center-dl dt {
+	float:left;
+}
+.shuju-center-dl dd {
+	line-height:26px;
+}
+.shuju-center-dd {
+	text-align:right
+}
+.shuju-information-right {
+	border:1px dotted #dcdcdc;
+	height:60px;
+	border-radius:5px;
+	font-size:20px;
+	padding: 20px 15px;
+	text-align:center
+}
+.shuju-information-right+.shuju-information-right {
+	margin-top:10px;
+}
+.shuju-text-blue-22 {
+	font-size:22px;
+	color:#8f8cce
+}
+.shuju-text-org-22 {
+	font-size:22px;
+	color:#ff834e
+}
+.shuju-text-green-26 {
+	color:#00bbb4;
+	font-size:26px;
+}
+.shuju-text-12 {
+	font-size:12px;
+	margin-right:8px;
+}
+.shuju-text-red {
+	color:#ed4444
+}
+.shuju-center-img-boy {
+	border-radius:50%;
+	width:45px;
+	height:45px;
+	display:inline-block;
+	overflow:hidden;
+	background:#8f8cce;
+	background:url(../images/boy.png) center center no-repeat
+}
+.shuju-center-img-girl {
+	border-radius:50%;
+	width:45px;
+	height:45px;
+	display:inline-block;
+	overflow:hidden;
+	background:#8f8cce;
+	background:url(../images/girl.png) center center no-repeat
+}
+.shuju-float-right-10 {
+	float:right;
+	margin-right:5%;
+}
+.shuju-float-left-10 {
+	float:left;
+	margin-left:5%;
+}
+/*统计图*/
+.shuju-border-dance {
+	border:1px dashed #898989;
+	border-radius:10px;
+	margin:10px;
+	padding: 15px;
+	overflow:hidden;
+}
+.shuju-tongji-title {
+	font-size:16px;
+	height:22px;
+	text-align:left;
+	padding-left:20px;
+}
+.shuju-tongji-icon {
+	background:#ea68a2;
+	width:9px;
+	height:11px;
+	display:inline-block;
+	margin:0px 10px;
+}
+/*学霸*/
+.shuju-input-dance {
+	margin-left:25px;
+}
+.shuju-input-dance+.shuju-input-dance {
+	margin-left:15px;
+}
+.shuju-box-dance {
+	padding:15px 30px;
+}
+.shuju-about-icon {
+	background:url(../images/about.png) left center no-repeat;
+	padding-left:25px;
+}
+.shuju-other {
+	color:#108ea7;
+	display:inline-block;
+	border:1px dashed #bfbfbf;
+	padding:2px 10px;
+	margin-right:15px;
+	cursor:pointer;
+}
+.shuju-other:hover {
+	border-color:#108ea7;
+}
+.shuju-left-img-33 {
+	width:33%;
+	display:inline-block;
+}
+.shuju-dashed-border {
+	border:1px dashed #898989;
+	border-radius:10px;
+	overflow: hidden;
+	padding: 15px;
+}
+/*checkbox*/
+.shuju-checked-box {
+	position:relative;
+	display:inline;
+	vertical-align:middle;
+	margin-right:5px;
+}
+.shuju-checked-box input[type="checkbox"] {
+	visibility:hidden;
+}
+.shuju-checked-box label {
+	top:0px;
+	left:0;
+	position:absolute;
+	display:inline-block;
+	width:14px;
+	height:14px;
+	background:url(../images/checkbox.png) center center no-repeat;
+	cursor:pointer
+}
+.shuju-checked-box input[type="checkbox"]:checked+label {
+	background:url(../images/checkbox-select.png) center center no-repeat;
+}
+.shuju-xueba-box {
+	margin: 0 30px 25px;
+}
+.shuju-xueba-title {
+	float:left;
+	font-size:18px;
+}
+.shuju-xueba-dashed-border {
+	border: 1px dashed #898989;
+	border-radius: 10px;
+	overflow: hidden;
+	padding: 5px 10px;
+}
+.shuju-xueba-bg-list {
+	width:210px;
+	height:110px;
+	background:#fcfcfc;
+	border-radius:5px;
+	padding:10px 15px;
+	position:relative;
+	display:inline-block;
+	margin:5px;
+	border:1px dashed #e9e9e9;
+}
+.shuju-xueba-list-dl {
+}
+.shuju-xueba-list-dl dt {
+	background:url(../images/boy.png) center center no-repeat;
+	border-radius:50%;
+	width:40px;
+	height:40px;
+	border:1px solid #fcfcfc;
+	margin-bottom:5px;
+}
+.shuju-xueba-list-dl dd {
+	display:block;
+	opacity:0.6;
+}
+.shuju-xueba-list-dl dd.shuju-xueba-list-dd {
+	padding-right:20px;
+	float:left;
+	font-size:16px;
+	opacity:1
+}
+.shuju-xueba-list-dl dd.shuju-xueba-list-dd-boy {
+	background:url(../images/boy-icon.png) right center no-repeat;
+}
+.shuju-xueba-list-dl dd.shuju-xueba-list-dd-girl {
+	background:url(../images/girl-icon.png) right center no-repeat;
+}
+.shuju-xueba-nianji {
+	position:absolute;
+	right:10px;
+	top:5px;
+	opacity:0.6
+}
+.shuju-xueba-xuefen {
+	position:absolute;
+	right:40px;
+	top:40px;
+	font-size:28px;
+	color:#ed4444
+}

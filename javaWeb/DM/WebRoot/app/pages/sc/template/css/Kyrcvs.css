@@ -1,0 +1,232 @@
+#vs_date{
+	width:350px;
+	float:left;
+}
+.vs-alink {
+	color:#3399cc;
+	text-decoration:none;
+}
+.vs-alink:hover {
+	color:#FF0000;
+	text-decoration:none;
+}
+.vs-input-width {
+	width:40px;
+	text-align:center
+}
+.clear {
+	clear:both
+}
+.vs-right {
+	text-align:right;
+	margin:10px 0;
+	font-weight:normal;
+}
+.vs-center {
+	text-align:center;
+	margin:15px 0 0;
+}
+.vs-infor, .vs-content {
+	font-size:12px;
+	color:#333;
+	font-family:"microsoft yahei"
+}
+.vs-content {
+	border: 1px dotted #ff6600;
+	margin-top: -1px;
+	padding:20px
+}
+.vs-strong {
+	margin:0px 40px;
+	display:inline-block
+}
+.vs-box {
+	border:1px dashed #ccc;
+	padding: 20px 20px 0;
+	position:relative;
+	margin:20px 0;
+}
+.vs-title {
+	font-size:18px;
+	font-weight:bold;
+	color:#ff6600;
+	margin:0px 30px 0px 0px;
+	padding: 0;
+}
+.vs-list {
+	border-top:1px dashed #ccc;
+	margin-top: 20px;
+	padding:20px;
+}
+.vs-ul-text {
+	list-style:none;
+	margin:0;
+	padding:0;
+	display:inline-block;
+	vertical-align:top;
+	margin-top:2em;
+	text-align:center
+}
+.vs-ul-text li {
+	margin:0;
+	padding:5px 0;
+}
+.vs-img {
+	display:inline-block;
+	text-align:center;
+	vertical-align:top;
+}
+.vs-width-40 {
+	width:35%;
+}
+.vs-width-60 {
+	width:55%;
+}
+.vs-width-30 {
+	width:25%;
+}
+.vs-width-70 {
+	width:65%;
+}
+.vs-width-50 {
+	width:48%;
+}
+.vs-width-100 {
+	width:99%;
+}
+.vs-arrow {
+	position:absolute;
+	right:20px;
+	top:20px;
+	overflow:hidden;
+	text-indent:-1999px;
+	width:24px;
+	height:24px;
+	background:url(../images/Kyrcvs/down.png) center center no-repeat;
+}
+.vs-hidden {
+	background:url(../images/Kyrcvs/up.png) center center no-repeat
+}
+.vs-h5 {
+	font-size:16px;
+	font-weight:normal;
+	margin:10px 0
+}
+.vs-alink-18 {
+	font-size:18px;
+	font-weight:bold
+}
+/*tab*/
+.vs-tab {
+	margin:0;
+	font-size:16px;
+	color:#ff6600;
+	float:right;
+	padding:0;
+}
+.vs-default {
+	display:inline-block;
+	width:140px;
+	text-overflow:ellipsis;
+	overflow:hidden;
+	white-space:nowrap;
+	height:34px;
+	line-height:34px;
+	text-align:center;
+	background:#f5f5f5;
+	border:1px solid #ff6600;
+	padding: 0 10px;
+}
+.vs-default:hover {
+	background:#ff9000;
+	color:#fff;
+	cursor:pointer;
+}
+.vs-selected {
+	background:#ff6600;
+	color:#fff;
+}
+.vs-selected:hover {
+	background:#ff6600;
+	color:#fff;
+	cursor:pointer;
+}
+/*table*/
+.vs-table {
+	border-collapse:collapse;
+}
+.vs-table td {
+	padding:15px 10px;
+	border:1px solid #3399cc;
+	background:#fdfdfd
+}
+/*第二层*/
+.vs-in-title {
+	color:#3399cc;
+	font-size:16px;
+	font-weight:normal;
+	position:relative;
+	border:1px solid #ccc;
+	padding:5px;
+}
+.vs-in-arrow {
+	background:url(../images/Kyrcvs/jia.png) center center no-repeat;
+	position:absolute;
+	right:15px;
+	top:8px;
+	overflow:hidden;
+	text-indent:-1999px;
+	width:16px;
+	height:16px;
+}
+.vs-in-hidden {
+	background:url(../images/Kyrcvs/jian.png) center center no-repeat;
+}
+.vs-in-box {
+	margin:10px;
+}
+/*blue-in-tab*/
+.vs-blue-tab {
+	margin:0;
+	font-size:14px;
+	color:#3399cc;
+	padding:0;
+	position:absolute;
+}
+.vs-blue-default {
+	display:block;
+	width:60px;
+	text-overflow:ellipsis;
+	overflow:hidden;
+	white-space:nowrap;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	background:#f5f5f5;
+	border:1px solid #3399cc;
+	padding: 0 5px;
+	margin:0 0 10px;
+}
+.vs-blue-default:hover {
+	background:#7eb1cb;
+	color:#fff;
+	cursor:pointer;
+}
+.vs-blue-selected {
+	background:#3399cc;
+	color:#fff;
+}
+.vs-blue-selected:hover {
+	background:#3399cc;
+	color:#fff;
+	cursor:pointer;
+}
+.vs-blue-box {
+	border: 1px solid #3399cc;
+	margin-left: 71px;
+	width: 92%; 
+}
+.vs-blue-center {
+	width:92%;
+	margin:10px 0px 10px 71px;
+}

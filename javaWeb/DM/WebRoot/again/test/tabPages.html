@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<title>Insert title here</title>
+</head>
+
+<link rel="stylesheet" type="text/css"
+	href="../../extjs/resources/css/ext-all.css">
+<script src="../../extjs/ext-all-debug.js"></script>
+<script src="../../base1/util/LAB.min.js"></script>
+<script src="../ns-debug.js"></script>
+
+<script src="../../extjs/ext-lang-zh_CN.js"></script>
+<script type="text/javascript">
+	Ext.onReady(function() {
+		var p1= Ext.create('Ext.panel.Panel',{
+			height:300,
+			width:400,
+			html:'1'
+		});
+		var p2= Ext.create('Ext.panel.Panel',{
+			height:300,
+			width:400,
+			html:'2'
+		});
+		
+		var p3= Ext.create('Ext.panel.Panel',{
+			height:300,
+			width:400,
+			html:'3'
+		});
+		
+		var p4= Ext.create('Ext.panel.Panel',{
+			height:300,
+			width:400,
+			html:'4'
+		});
+		var text = Ext.create('Ext.form.field.Text',{
+	          filedLabel:'输入N，S，O均可',
+	          emptyText:'输入后回车',
+	          renderTo:Ext.getBody()
+		 });
+		
+		var textInit = function(cfg1,cfg2){
+			console.log(cfg1+'__'+cfg2);
+			return p1;
+		};
+		var sp = Ext.create('Ext.ux.TabPages',{
+			renderTo:Ext.getBody(),
+			//defaultShowName:'2',
+			items:[{
+				title:'P1的标题',
+				name:'1',
+				init:textInit//暂无法传参
+			},{
+				title:'p2的标题',
+				name:'2',
+				init:function(){
+					console.log(this.name);
+					return p2;
+				}
+			},{
+				title:'p3的标题',
+				name:'3',
+				init:function(){
+					console.log(this.name);
+					return p3;
+				}
+			}]
+		});
+		sp.add({
+			title:'测试4',
+			name:'4',
+			init:function(){
+				console.log(this.name);
+				return p4;
+			}
+		});
+		//sp.setActiveTab(p4);
+		/*sp.addListener('tabchange',function(tabPanel,newCard,oldCard,eOpts){
+				if(newCard._init){
+					
+				}else{
+					newCard.add(newCard.init());
+					newCard._init = true;
+				}
+		});*/
+        /* var sp = Ext.create('Ext.ux.TabPages',{
+        	 renderTo:Ext.getBody(),
+        	 height:500,
+        	 pages:[{
+        		 
+        		 name:'2',
+        		 init:function(){
+        			 return p2;
+        		 }
+        	 },{
+        		 name:'4',
+        		 init:function(){
+        			 return p4;
+        		 }
+        	 },{
+            	 name:'1',
+            	 init:function(){
+            		 return p1;
+            	 }
+             },{
+            	 name:'3',
+            	 init:function(){
+            		 return p3;
+            	 }
+             }]
+         });*/
+         
+         text.addListener('specialkey',function(filed,e){
+        	 if (e.getKey() == e.ENTER) {
+                 var value = filed.getValue();
+                 sp.showComponent(value);
+             }
+         }); 
+	});
+</script>
+<body>
+
+</body>
+</html>

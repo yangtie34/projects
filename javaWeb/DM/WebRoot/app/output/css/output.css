@@ -1,0 +1,168 @@
+/*==================chart报表组件样式:作废暂不用(原因：protal.css覆盖了此样式,导致该样式不生效)===============*/
+.chart { 
+	margin-left : 23px;
+	background-color:white;
+}
+/*=========================联动组件样式==================================*/
+
+
+.opLinkageRoot a {
+	color: #f77408;
+	font-size: 12px;opTextRoot
+	text-decoration: underline;
+}
+
+.opLinkageRoot a:hover {
+	color: #CC3300;
+	font-size: 12px;
+	text-decoration: underline;
+}
+/*=========================文本组件样式==================================*/
+
+.gn-space{
+    margin-left:30px;
+    font-family:"宋体";
+	font-size: 12px;
+}
+
+.gn-space a{
+    margin:0px 10px;
+	color: #f77408;
+	text-decoration: underline;
+}
+.gn-space a:hover{ 
+	color: #CC3300;
+	text-decoration: underline;
+}
+/*=========================文本组件--详细信息==================================*/
+.opTextRoot {
+    font-family:"宋体";
+	font-size: 12px;
+	padding-left:22px;
+	margin-bottom:0px;
+	line-height:22px;
+	text-indent:24px;	
+}
+.opTextRoot_xxxx{
+    background:url(../images/ck.gif) 20px 0px no-repeat;
+	padding-left:40px;
+    margin-top : 3px;
+}
+.opTextRoot_xxxx span {
+    color: #f77408;
+    /**text-decoration: underline;**/
+}
+.opTextRoot_xxxx span:hover {
+	color: #CC3300;
+	/**text-decoration: underline;**/
+}
+.opTextRoot_bzxx {
+    vertical-align:text-bottom;
+	margin-left:30px;
+}
+
+.opTextRoot a {
+	color: #f77408;
+	margin:0px 5px;
+	text-decoration: underline;
+}
+.opTextRoot span{
+	color: #f77408;
+	margin:0px 5px;
+}
+
+.opTextRoot a:hover {
+	color: #CC3300;
+	text-decoration: underline;
+}
+/*======================统计Table组件样式========================*/
+.statistics_table {
+	margin: 0 auto;
+	max-width: 1440px;
+	text-align: center;
+	padding-left:25px;
+}
+
+.statistics_table table {
+	border-collapse: collapse;
+	font-size: 12px;
+	font-family: "宋体"
+}
+
+.statistics_table table tr th {
+	background-color: #d0e4f9;
+	font-weight: normal;
+	border: #d6d6d6 solid 1px;
+	padding: 10px;
+	text-align: center
+}
+
+.statistics_table table tr td {
+	text-align: center;
+	background-color: #fff;
+	border: #d6d6d6 solid 1px;
+	padding: 10px;
+	text-align: center;
+}
+
+.statistics_table table tr td a {
+	color: #f77408;
+	text-decoration: none;
+}
+
+.statistics_table table tr td a:hover {
+	color: #CC3300;
+	text-decoration: underline;
+}
+/*================功能区标题样式===========================*/
+.fun_area_title { 
+	font-family:'宋体';
+	color:#346bc1;
+	font-size:14px;
+	background:url(../images/tit_bt.gif) 0px -3px no-repeat;
+	padding-left:22px;
+}
+/*===========功能区收缩按钮样式==========================*/
+/*===========功能区按钮收缩样式=====*/
+.fun_area_button_shrink { 
+	background:url(../images/fun_area_button_shrink.jpg) 0 0 no-repeat; 
+	border:none; 
+	padding:0; 
+	margin-right:15px; 
+	cursor:pointer; 
+	width:22px; 
+	height:22px;
+}
+/*===========功能区按钮展开样式=====*/
+.fun_area_button_expand{ 
+	background:url(../images/fun_area_button_expand.jpg) 0 0 no-repeat; 
+	border:none; 
+	padding:0; 
+	margin-right:15px; 
+	cursor:pointer; 
+	width:22px; 
+	height:22px;
+}
+
+/*================功能区样式===========================*/
+.fun_area {
+	padding-left:15px;
+	padding-top:0px;
+	margin-top:19px;
+	padding-bottom:20px;
+	border-bottom:1px #bfd8df solid;
+}
+.fun_area_bottom {
+	border-bottom:none;
+}
+/*================整体经典模版边框===========================*/
+.classTemplate {
+	margin: 15px; 
+	border: 1px #bfd8df solid;
+	padding-bottom: 80px;
+}
+.quatersTemplate {
+	margin: 15px; 
+	border: 1px #bfd8df solid;
+	padding-bottom: 80px;
+}

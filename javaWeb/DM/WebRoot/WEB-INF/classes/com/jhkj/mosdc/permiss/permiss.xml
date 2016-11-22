@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+   <!-- 菜单管理 -->
+   <bean id="menuManager" class="com.jhkj.mosdc.permiss.service.impl.MenuServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao" />
+		</property>
+		<property name="baseService">
+			<ref bean="baseService" />
+		</property>
+	</bean>
+	<!-- 角色管理 -->
+	<bean id="roleManager" class="com.jhkj.mosdc.permiss.service.impl.RoleServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao" />
+		</property>
+		<property name="baseService">
+			<ref bean="baseService" />
+		</property>
+	</bean>
+	<!-- 用户管理 -->
+	<bean id="userManager" class="com.jhkj.mosdc.permiss.service.impl.UserServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao" />
+		</property>
+		<property name="baseService">
+			<ref bean="baseService" />
+		</property>
+	</bean>
+	<!-- 用户组管理 -->
+	<bean id="usergroupManager" class="com.jhkj.mosdc.permiss.service.impl.UsergroupServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao" />
+		</property>
+		<property name="baseService">
+			<ref bean="baseService" />
+		</property>
+	</bean>
+	<!-- 辅助管理 -->
+	<bean id="helpManager" class="com.jhkj.mosdc.permiss.service.impl.HelpServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao" />
+		</property>
+		<property name="baseService">
+			<ref bean="baseService" />
+		</property>
+	</bean>
+	<!-- 用户权限域对象 -->
+	<bean id="baseDomain" class="com.jhkj.mosdc.permiss.domain.Base">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 教学组织结构数据权限树 -->
+	<bean id="jxzzjgDataTreePermission" class="com.jhkj.mosdc.permiss.domain.JxzzjgDataTreePermission" scope="prototype">
+		<property name="base">
+			<ref bean="baseDomain" />
+		</property>
+	</bean>
+	<!-- 用户权限域对象 -->
+	<bean id="userPermissionDomain" class="com.jhkj.mosdc.permiss.domain.UserPermission" scope="prototype">
+		<property name="base">
+			<ref bean="baseDomain" />
+		</property>
+		<property name="jdtp">
+			<ref bean="jxzzjgDataTreePermission" />
+		</property>
+	</bean>
+	<bean id="userDomain" class="com.jhkj.mosdc.permiss.domain.User" scope="prototype">
+		<property name="userpermission">
+			<ref bean="userPermissionDomain" />
+		</property>
+		<property name="classTeacherDataPermiss">
+			<ref bean="classTeacherDataPermissDomain" />
+		</property>
+		<property name="base">
+			<ref bean="baseDomain" />
+		</property>
+	</bean>
+	<!-- 班主任权限域对象 -->
+	<bean id="classTeacherDataPermissDomain" class="com.jhkj.mosdc.permiss.domain.ClassTeacherDataPermiss" scope="prototype">
+		<property name="base">
+			<ref bean="baseDomain" />
+		</property>
+	</bean>
+	<!-- 权限查询 -->
+	<bean id="permiss" class="com.jhkj.mosdc.permiss.service.impl.PermissServiceImpl" >
+	</bean>
+	<!-- 代理权限管理 -->
+	<bean id="proxyPermiss" class="com.jhkj.mosdc.permiss.service.impl.ProxyPermissServiceImpl" >
+		<property name="baseDao">
+			<ref bean="baseDao" />
+		</property>
+		<property name="baseService">
+			<ref bean="baseService" />
+		</property>
+	</bean>
+</beans>

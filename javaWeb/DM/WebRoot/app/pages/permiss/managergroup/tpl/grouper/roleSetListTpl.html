@@ -1,0 +1,28 @@
+<h2><span class="wbh-common-title ">角色列表</span> </h2>
+<table width="100%" border="0" class="wbh-common-table_green">
+    <tr>
+        <td width="30%" class="wbh-common-greenbg">
+            <tpl if="checkAll == true">
+               <input class="wbh-common-inputdefault" name="checkAll" checked="true" type="checkbox" value=""/>
+            <tpl else>
+                <input class="wbh-common-inputdefault" name="checkAll" type="checkbox" value=""/>
+            </tpl>
+
+        </td>
+        <td width="30%" class="wbh-common-greenbg">角色名称</td>
+        <td width="40%" class="wbh-common-greenbg">角色描述</td>
+    </tr>
+    <tpl for="roles">
+        <tr>
+            <td class="wbh-common-greenbg">
+                <tpl if="checked">
+                    <input class="wbh-common-inputdefault" itemId="item" type="checkbox" value="{id}" checked="{checked}"/>
+                    <tpl else>
+                        <input class="wbh-common-inputdefault" itemId="item" type="checkbox" value="{id}">
+                    </tpl>
+            </td>
+            <td>{jsmc}</td>
+            <td>{jsms}</td>
+        </tr>
+    </tpl>
+</table>

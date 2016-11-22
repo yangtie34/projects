@@ -1,0 +1,15 @@
+<div class="rxs-menu-top  rxs-top-pure-bg text-center"> <img class="img-circle" width="85" ng-src = "{{stu.wechat_head_img}}" ng-show="stu.wechat_head_img!=''">
+  <h4 class="rxs-mar-t">{{stu.stu_name}}<i ng-show="stu.sex == '女'" class="rxs-sex rxs-girl-icon"></i><i ng-show="stu.sex == '男'" class="rxs-sex rxs-boy-icon"></i></h4>
+</div>
+<div class="rxs-comn-list">
+  <ul class="rxs-comn-ul">
+    <li><span class="rxs-text-ccc">院系</span>{{stu.dept_name}}</li>
+    <li><span class="rxs-text-ccc">专业班级</span>{{stu.major}}</li>
+    <li><span class="rxs-text-ccc">入学年级</span>{{stu.enroll_grade}}级</li> 
+  </ul>
+  <ul class="rxs-comn-ul">
+    <li><span class="rxs-text-ccc">户籍地址</span>{{stu.place_domicile}}</li>
+    <li><span class="rxs-text-ccc">母校</span>{{stu.schooltag}}</li>
+    <li><span class="rxs-text-ccc">联系电话</span>{{stu.tel}}<i class="rxs-org-phone"></i></li> 
+  </ul>
+</div>

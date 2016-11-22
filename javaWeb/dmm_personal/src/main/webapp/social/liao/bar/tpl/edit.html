@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<div class="rxs-comn-list rxs-comn-patop rxs-bg-fff">
+  <div class="rxs-pad-lr">
+    <textarea id="topic_content" name="content" draggable="false" class="form-control rxs-mar-tb-10" rows="7" placeholder="说点什么吧..."></textarea>
+    <span class="emotion">表情</span>
+    <div class="row rxs-imgload">
+	    <div class="col-xs-3" ng-repeat="it in uploadImageList"><img ng-src="{{it}}" ></div>
+	    <div class="col-xs-3"><a class="rxs-link-add" href="" ng-click="selectImage()">+</a></div>
+    </div>
+    <h3 class="text-center">
+      <button type="button" ng-click="commit()" class="btn btn-warning rxs-btn-org rxs-ft-16" style="width:100%;">发表</button>
+    </h3>
+  </div>
+</div>
+<form id="uploadImageForm" action="../../../common/upload/image"
+	style="display:none; " method="post" enctype="multipart/form-data">
+	<input type="file" id="hideImageSelectButton"  name="contentImgSelect" accept="image/gif, image/jpeg,image/png" onchange="$('#uploadImageForm').submit();">
+</form>

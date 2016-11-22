@@ -1,0 +1,121 @@
+<div style="font-size: 20px;font-weight: bold;font-family: '黑体';text-align: center;">{xn}学年</div>
+<div>
+    <table class="jxpg-common-table">
+        <tr>
+            <td class="title" colspan="2" width="600">项目</td>
+            <td class="title" >数量</td>
+        </tr>
+        <tpl for="items">
+        <tpl if="MC=='1'">
+            <tr>
+                <td rowspan="3">教师主持学成果奖（项）</td>
+                <td>总数</td>
+                <td>
+                    <span class="realvalue">{SL_T}</span>
+                    <span class="value_unedit">{SL_F}</span>
+                </td>
+            </tr>
+         </tpl>
+        <tpl if="MC=='2'">
+        <tr>
+            <td>其中：国家级</td>
+            <td>
+                <span class="realvalue">{SL_T}</span>
+                <span code="SL_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{SL_F}</span>
+                <div></div>
+            </td>
+        </tr>
+        </tpl>
+        <tpl if="MC=='3'">
+        <tr>
+            <td>省部级</td>
+            <td>
+                <span class="realvalue">{SL_T}</span>
+                <span code="SL_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{SL_F}</span>
+                <div></div>
+            </td>
+        </tr>
+        </tpl>
+        <tpl if="MC=='4'">
+         <tr>
+            <td rowspan="7">教师主持教育教学研究与改革项目</td>
+            <td>项目总数</td>
+            <td>
+                <span class="realvalue">{SL_T}</span>
+                <span  class="value_unedit">{SL_F}</span>
+                <div></div>
+            </td>
+        </tr>
+         </tpl>
+        <tpl if="MC=='5'">
+        <tr>
+            <td>其中：国家级</td>
+            <td>
+                <span class="realvalue">{SL_T}</span>
+                <span code="SL_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{SL_F}</span>
+                <div></div>
+            </td>
+        </tr>
+        </tpl>
+        <tpl if="MC=='6'">
+        <tr>
+            <td>省部级</td>
+            <td>
+                <span class="realvalue">{SL_T}</span>
+                <span code="SL_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{SL_F}</span>
+                <div></div>
+            </td>
+        </tr>
+        </tpl>
+        <tpl if="MC=='7'">
+        <tr>
+            <td>校级</td>
+            <td>
+                <span class="realvalue">{SL_T}</span>
+                <span code="SL_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{SL_F}</span>
+                <div></div>
+            </td>
+        </tr>
+         </tpl>
+        <tpl if="MC=='8'">
+        <tr>
+            <td>当年经费（万元）</td>
+            <td>
+                <span class="realvalue">{SL_T}</span>
+                <span class="value_unedit">{SL_F}</span>
+                <div></div>
+            </td>
+        </tr>
+         </tpl>
+        <tpl if="MC=='9'">
+        <tr>
+            <td>其中：国家级（万元）</td>
+            <td>
+                <span class="realvalue">{SL_T}</span>
+                <span code="SL_F" rowid="{ID}" class="value" type="itemvalue" isnum="float">{SL_F}</span>
+                <div></div>
+            </td>
+        </tr>
+        </tpl>
+        <tpl if="MC=='10'">
+        <tr>
+            <td>省部级（万元）</td>
+            <td>
+                <span class="realvalue">{SL_T}</span>
+                <span code="SL_F" rowid="{ID}" class="value" type="itemvalue" isnum="float">{SL_F}</span>
+                <div></div></td>
+        </tr>
+       </tpl>
+       <tpl if="MC=='11'">
+            <tr>
+                <td>校级（万元）</td>
+                <td>
+                    <span class="realvalue">{SL_T}</span>
+                    <span code="SL_F" rowid="{ID}" class="value" type="itemvalue" isnum="float">{SL_F}</span>
+                    <div></div>
+                </td>
+            </tr>
+        </tpl>
+        </tpl>
+    </table>
+</div>

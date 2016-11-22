@@ -1,0 +1,26 @@
+ol, ul {
+	list-style: none;
+	padding :0px;
+	margin: 0px;
+}
+.qqFace{
+	position:absolute;
+	display:none;
+	z-index:1000;
+	background-color: #eee;
+	border: 1px solid #ccc;
+	max-width: 500px;
+	max-height: 175px;
+    overflow-y: auto;
+}
+
+.qqFace ul:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.qqFace ul li{
+	float:left;
+	padding: 5px 10px 10px 10px;
+}

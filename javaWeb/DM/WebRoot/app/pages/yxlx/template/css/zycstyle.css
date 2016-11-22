@@ -1,0 +1,133 @@
+@charset "utf-8";
+/* CSS Document */
+
+.zyc-container { 
+	margin:0 15px;
+	font-size:13px;
+	font-family: "宋体", Arial, Helvetica, sans-serif;
+}
+.zyc-container table {
+	text-align:center;
+}
+.cor-org {
+	color:#ff6600;
+}
+.cor-lan {
+	color:#3366ff;
+}
+.cor-red {
+	color:#ff0000;
+}
+.cor-blue {
+	color:#0000ff;
+}
+.fot-bod {
+	font-size:16px;
+	font-weight:bold;
+}
+table.bor-bk { 
+	height:51px;
+	border:1px solid #797979;
+	background:#eeeeee;
+}
+table.bor-bk2 {
+	text-align:center;
+	padding:8px 40px; 
+	height:80px;
+	border:1px solid #797979;
+	background:#eeeeee;
+}
+.input-wid {
+	width:200px;
+}
+.btn-wid {
+	width:78px;
+}
+.bg-td {
+	background:url(../images/bg-td.png) center center no-repeat;
+	height:80px;
+	line-height:80px;
+	width:105px;
+	text-align:center;
+}
+.bg-tdbai {
+	background:url(../images/bg-tdbai.png) center center no-repeat;
+	height:80px;
+	line-height:80px;
+	width:105px;
+	text-align:center;
+}
+.bg-tdorg {
+	background:url(../images/bg-tdorg.png) center center no-repeat;
+	height:80px;
+	line-height:80px;
+	width:105px;
+	text-align:center;
+}
+table.zyc-tab {
+	border-collapse:collapse;
+	margin-top:10px;
+}
+table.zyc-tab tr td {
+	border:1px solid #797979;
+}
+.zyc-tab a {
+	color:#0000ff;
+	text-decoration:none;
+}
+.zyc-tab a:hover {
+	color:#0000ff;
+	text-decoration:none;
+}
+.first-tr {
+	background:#3399ff;
+}
+.foot-org {
+	color:#ff6600;
+	font-size:20px;
+	font-weight:bold;
+}
+.foot-blu {
+	color:#3366ff;
+	font-size:20px;
+	font-weight:bold;
+}
+.page-rg {
+	float:right;
+}
+.page-rg span.wid-page {
+	width:15px;
+	display:inline-block
+}
+.page-rg span.fpage {
+	width:30px;
+	display:inline-block
+}
+.page-rg span.spage {
+	width:45px;
+	display:inline-block
+}
+.page-rg a {
+	color:#333333;
+	text-decoration:none;
+}
+.page-rg a:hover {
+	color:#000000;
+	text-decoration:underline;
+}
+.xsgrid{width:100%;margin:5px 0;}
+
+/*新增样式*/
+.liucheng-width {
+	width:100%;
+	height:130px;
+	clear:both; 
+	overflow-x:auto;
+	overflow-y:hidden;
+}
+.liucheng { 
+	width:105px; 
+}
+.pici-wid{width:125px; font-size:12px}
+.current-admin{margin-left:15px;}
+.information{padding:1px 2px; font-size:12px; font-weight:normal}

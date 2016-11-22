@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans.xsd
+  http://www.springframework.org/schema/context
+  http://www.springframework.org/schema/context/spring-context.xsd
+  http://www.springframework.org/schema/aop
+  http://www.springframework.org/schema/aop/spring-aop.xsd
+  http://www.springframework.org/schema/tx
+  http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<context:property-placeholder location="classpath:db.properties" />
+
+	<bean id="dataSource" 
+		class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="${dataSource.driver.base}" />
+		<property name="url" value="${dataSource.url.base}" />
+		<property name="username" value="${dataSource.username.base}" />
+		<property name="password" value="${dataSource.password.base}" />
+		<property name="initialSize" value="5"/>   
+    	<property name="maxIdle" value="30"/>   
+    	<property name="maxActive" value="50"/>   
+    	<property name="maxWait" value="6000"/>   
+    	<property name="testOnBorrow" value="true"/>   
+    	<property name="testOnReturn" value="true"/>   
+    	<property name="testWhileIdle" value="true"/>
+    	<property name="logAbandoned" value="${dataSource.logAbandoned}"/>
+    	<property name="removeAbandoned" value="${dataSource.removeAbandoned}"/>
+    	<property name="removeAbandonedTimeout" value="${dataSource.removeAbandonedTimeout}"/>   
+    	<property name="validationQuery" value="SELECT COUNT(*) FROM DUAL"/>   
+    	<property name="minEvictableIdleTimeMillis" value="60000"/>   
+    	<property name="timeBetweenEvictionRunsMillis" value="60000"/>   
+	</bean>  
+	
+	
+	<!-- 引入hibernate配置文件 -->
+	<context:property-placeholder location="classpath:/db.properties"  /> 
+	<!-- 配置会话工厂 -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.OracleDialect
+				</prop>
+				<!-- <prop key="hibernate.hbm2ddl.auto">update</prop> -->
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
+		<!-- 扫描实体类，即数据库映射对象 -->
+		<property name="packagesToScan">
+			<list>
+				<value>com.jhnu</value>
+			</list>
+		</property>
+	</bean> 
+
+	<!-- 配置事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<!-- Spring jdbcTemplate -->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<!-- 配置sequence -->
+	<bean id="IDGenerator" class="com.jhnu.framework.base.dao.impl.OracleSequenceIDGenerator">
+		<property name="sequenceName" value="${dataSource.sequence}"/>  
+		<property name="sessionFactory" ref="sessionFactory" /> 
+	</bean>
+	
+</beans>

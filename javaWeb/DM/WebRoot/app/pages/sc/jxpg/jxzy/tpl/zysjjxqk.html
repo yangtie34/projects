@@ -1,0 +1,54 @@
+<div style="font-size: 20px;font-weight: bold;font-family: '黑体';text-align: center;">{xn}学年</div>
+<div>
+    <table  class="jxpg-common-table">
+        <tr>
+            <td rowspan="2" class="title">序号</td>
+            <td rowspan="2" class="title">专业</td>
+            <td colspan="2" class="title" >实践教学</td>
+            <td colspan="4" class="title">实验教学</td>
+        </tr>
+        <tr>
+            <td class="title">学分</td>
+            <td class="title">占总学分（%）</td>
+            <td class="title">学分</td>
+            <td class="title">占总学分（%）</td>
+            <td class="title">实验开出率（%）</td>
+            <td class="title">综合性、设计性实验门数</td>
+        </tr>
+        <tpl for="items">
+            <tr>
+                <td >{ID}</td>
+                <td >{ZYMC}</td>
+                <td>
+                    <span class="realvalue">{SJ_XF_T}</span>
+                    <span class="value" code="SJ_XF_F" rowid="{ID}" isnum="float" type="itemvalue">{SJ_XF_F}</span>
+                    <div></div>
+                </td>
+                <td>
+                    <span class="realvalue">{SJ_ZZXF_T}</span>
+                    <span class="value" code="SJ_ZZXF_F" rowid="{ID}" isnum="float" type="itemvalue">{SJ_ZZXF_F}</span>
+                    <div></div>
+                </td>
+                <td>
+                    <span class="realvalue">{SY_XF_T}</span>
+                    <span class="value" code="SY_XF_F" rowid="{ID}" isnum="float" type="itemvalue">{SY_XF_F}</span>
+                    <div></div>
+                </td><td>
+                <span class="realvalue">{SY_ZZXF_T}</span>
+                <span class="value" code="SY_ZZXF_F" rowid="{ID}" isnum="float" type="itemvalue">{SY_ZZXF_F}</span>
+                <div></div>
+            </td>
+                <td>
+                    <span class="realvalue">{SY_KCL_T}</span>
+                    <span class="value" code="SY_KCL_F" rowid="{ID}" isnum="float" type="itemvalue">{SY_KCL_F}</span>
+                    <div></div>
+                </td>
+                <td>
+                    <span class="realvalue">{SY_SY_MS_T}</span>
+                    <span class="value" code="SY_SY_MS_F" rowid="{ID}" isnum="float" type="itemvalue">{SY_SY_MS_F}</span>
+                    <div></div>
+                </td>
+            </tr>
+        </tpl>
+    </table>
+</div>

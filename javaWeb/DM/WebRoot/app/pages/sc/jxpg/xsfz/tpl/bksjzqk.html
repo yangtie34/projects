@@ -1,0 +1,94 @@
+<div style="font-size: 20px;font-weight: bold;font-family: '黑体';text-align: center;">{xn}学年</div>
+<div>
+    <table class="jxpg-common-table">
+        <tr>
+            <td class="title"></td>
+            <td class="title">政府奖、助学金</td>
+            <td class="title">社会奖、助学金</td>
+            <td class="title">学校奖学金</td>
+            <td class="title">国家助学贷款</td>
+            <td class="title">勤工助学金</td>
+            <td class="title">减免学费</td>
+            <td class="title">临时困难补助</td>
+        </tr>
+        <tpl for="items">
+            <tr>
+                <td>{MC}</td>
+                <tpl if="BS == 'SL'">
+                    <td>
+                        <span class="realvalue">{ZFJZ_T}</span>
+                        <span class="value" code="ZFJZ_F" rowid="{ID}" type="itemvalue" isnum="float">{ZFJZ_F}</span>
+                        <div></div>
+                    </td>
+                    <td>
+                        <span class="realvalue">{SHJZ_T}</span>
+                        <span class="value" code="SHJZ_F" rowid="{ID}" type="itemvalue" isnum="float">{SHJZ_F}</span>
+                        <div></div>
+                    </td>
+                    <td>
+                        <span class="realvalue">{XXJZ_T}</span>
+                        <span class="value" code="XXJZ_F" rowid="{ID}" type="itemvalue" isnum="float">{XXJZ_F}</span>
+                        <div></div>
+                    </td>
+                    <td>
+                        <span class="realvalue">{GJZXDK_T}</span>
+                        <span class="value" code="GJZXDK_F" rowid="{ID}" type="itemvalue" isnum="float">{GJZXDK_F}</span>
+                        <div></div>
+                    </td>
+                    <td>
+                        <span class="realvalue">{QGZXJ_T}</span>
+                        <span class="value" code="QGZXJ_F" rowid="{ID}" type="itemvalue" isnum="float">{QGZXJ_F}</span>
+                        <div></div>
+                    </td>
+                    <td>
+                        <span class="realvalue">{JMXF_T}</span>
+                        <span class="value" code="JMXF_F" rowid="{ID}" type="itemvalue"  isnum="float">{JMXF_F}</span>
+                        <div></div>
+                    </td>
+                    <td>
+                        <span class="realvalue">{LSKNBZ_T}</span>
+                        <span class="value" code="LSKNBZ_F" rowid="{ID}" type="itemvalue" isnum="float">{LSKNBZ_F}</span>
+                        <div></div>
+                    </td>
+                </tpl>
+                <tpl if="BS == 'BL'">
+                    <td>
+                        <span class="realvalue">{ZFJZ_T}</span>
+                        <span class="value" code="ZFJZ_F" rowid="{ID}" type="itemvalue"  isnum="int">{ZFJZ_F}</span>
+                        <div></div>
+                    </td>
+                    <td>
+                        <span class="realvalue">{SHJZ_T}</span>
+                        <span class="value" code="SHJZ_F" rowid="{ID}" type="itemvalue" isnum="int">{SHJZ_F}</span>
+                        <div></div>
+                    </td>
+                    <td>
+                        <span class="realvalue">{XXJZ_T}</span>
+                        <span class="value" code="XXJZ_F" rowid="{ID}" type="itemvalue" isnum="int">{XXJZ_F}</span>
+                        <div></div>
+                    </td>
+                    <td>
+                        <span class="realvalue">{GJZXDK_T}</span>
+                        <span class="value" code="GJZXDK_F" rowid="{ID}" type="itemvalue" isnum="int">{GJZXDK_F}</span>
+                        <div></div>
+                    </td>
+                    <td>
+                        <span class="realvalue">{QGZXJ_T}</span>
+                        <span class="value" code="QGZXJ_F" rowid="{ID}" type="itemvalue" isnum="int">{QGZXJ_F}</span>
+                        <div></div>
+                    </td>
+                    <td>
+                        <span class="realvalue">{JMXF_T}</span>
+                        <span class="value" code="JMXF_F" rowid="{ID}" type="itemvalue" isnum="int">{JMXF_F}</span>
+                        <div></div>
+                    </td>
+                    <td>
+                        <span class="realvalue">{LSKNBZ_T}</span>
+                        <span class="value" code="LSKNBZ_F" rowid="{ID}" type="itemvalue" isnum="int">{LSKNBZ_F}</span>
+                        <div></div>
+                    </td>
+                </tpl>
+            </tr>
+        </tpl>
+    </table>
+</div>

@@ -1,0 +1,4 @@
+该文件夹是针对陕师大的微信认证配置用的，仅需在陕西师范大学实施的现场人员修改对应的配置，完成集成微信单点认证。
+路径格式如下：
+http://localhost:9099/personal/ssd/wechat/redirect?uid={username}&timestamp={timestamp}&signature={signature}
+其中uid这个变量名是可变的，配置在ssd/config.properties 中

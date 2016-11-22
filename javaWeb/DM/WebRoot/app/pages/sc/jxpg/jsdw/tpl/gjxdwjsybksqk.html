@@ -1,0 +1,83 @@
+<div style="font-size: 20px;font-weight: bold;font-family: '黑体';text-align: center;">{xn}学年</div>
+<div>
+	<table class="jxpg-common-table">
+		<tr>
+		    <td class="title" rowspan="3" width="60">序号</td>
+		    <td class="title" rowspan="3" width="130">单位</td>
+		    <td class="title" colspan="7">专任教师</td>
+		    <td class="title" rowspan="3">外聘教师数</td>
+		    <td class="title" rowspan="3">本科生数</td>
+		    <td class="title" rowspan="3">本科生与专任教师之比</td>
+		  </tr>
+		  <tr>
+		    <td class="title"rowspan="2">总数</td>
+		    <td class="title"colspan="2">具有高级职称教师</td>
+		    <td class="title"colspan="2">35岁以下青年教师</td>
+		    <td class="title"colspan="2">近五年新增教师</td>
+		  </tr>
+		  <tr>
+		    <td class="title">数量</td>
+		    <td class="title">比例（%）</td>
+		    <td class="title">数量</td>
+		    <td class="title">比例（%）</td>
+		    <td class="title">数量</td>
+		    <td class="title">比例（%）</td>
+		  </tr>
+		<tpl for="items">
+			<tr>
+				<td>{#}</td>
+				<td>{MC}</td>
+				<td>
+					<span class="realvalue">{ZS_T}</span>
+					<span code="ZS_F" rowid="{ID}" class="value" isnum="int" type="itemvalue">{ZS_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{GJSL_T}</span>
+					<span code="GJSL_F" rowid="{ID}" class="value" isnum="int" type="itemvalue">{GJSL_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{GJBL_T}</span>
+					<span code="GJBL_F" rowid="{ID}" class="value_unedit">{GJBL_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{N35SL_T}</span>
+					<span code="N35SL_F" rowid="{ID}" class="value" isnum="int" type="itemvalue">{N35SL_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{N35BL_T}</span>
+					<span code="N35BL_F" rowid="{ID}" class="value_unedit">{N35BL_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{N5NXZSL_T}</span>
+					<span code="N5NXZSL_F" rowid="{ID}" class="value" isnum="int" type="itemvalue">{N5NXZSL_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{N5NXZBL_T}</span>
+					<span code="N5NXZBL_F" rowid="{ID}" class="value_unedit">{N5NXZBL_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{WPJSS_T}</span>
+					<span code="WPJSS_F" rowid="{ID}" class="value" isnum="int" type="itemvalue">{WPJSS_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{BKSS_T}</span>
+					<span code="BKSS_F" rowid="{ID}" class="value" isnum="int" type="itemvalue">{BKSS_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{BKSYZRJSZB_T}</span>
+					<span code="BKSYZRJSZB_F" rowid="{ID}" class="value_unedit" isnum="int">{BKSYZRJSZB_F}</span>
+					<div></div>
+				</td>
+			</tr>
+		</tpl>
+	</table>
+</div>

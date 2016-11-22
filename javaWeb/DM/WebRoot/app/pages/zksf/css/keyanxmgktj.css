@@ -1,0 +1,26 @@
+@CHARSET "UTF-8";
+.abs-block {
+margin:20px;
+}
+.abs-default {
+	position:relative;
+	border:1px solid #3399cc;
+	padding:5px 15px;
+	text-decoration:none;
+	color:#3399cc;
+	margin:10px 20px;
+	border-radius:5px;
+}
+.abs-delete {
+	position:absolute;
+	background:url(x_alt.png) center center no-repeat;
+	width:16px;
+	height:16px;
+	display:inline-block;
+	top:-5px;
+	right:-5px;
+}
+.abs-delete:hover { 
+	background:url(x_alt-hover.png) center center no-repeat; 
+}
+.abs-div-box{ border:1px dashed #3399cc; margin:20px 0; padding:20px;} 

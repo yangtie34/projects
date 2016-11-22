@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css">
+    <link rel="stylesheet" type="text/css" href="../../jsp/portal/css/myCenter.css">
+    <link rel="stylesheet" type="text/css" href="../../css/main.css">
+    <script src="data/data.js"></script>
+    <script src="../../base1/util/LAB.min.js"></script>
+    <script src="../../extjs/ext-all.js"></script>
+    <script src="../ns-debug.js"></script>
+    <script type="text/javascript">
+ 	Ext.onReady(function(){
+ 		var arraydata = [];
+ 		var obj = {
+ 					treeData:window.treeData,
+ 					border : false,
+ 					title : null,
+ 					rootVisible : true,
+ 					width:400,
+                    iconClsCfg : {
+                        'yx':"page-add",
+                        'zy':"page-update",
+                        'bj':"page-search",
+                        'xjd':"page-xtsz",
+                        'km':"page-book"
+                    },
+ 					height:500,
+ 					border : true,
+ 					margin : '0 0 0 0',
+					checkable : true,
+ 					multiple:	true,
+ 					multyFields:[{"columnName":"节点","dataIndex":"text"},
+ 					             {"columnName":"描述","dataIndex":"cclx"}],
+					filter:true,
+                   /* iconClsCfg : {
+                        'YX':"page-add",
+                        'ZY':"page-update",
+                        'BJ':"page-search",
+                        'XJD':"page-xtsz",
+                        'KM':"page-book"
+                    },*/
+                    serviceKey : '',
+                    treeEditor:true,
+ 					renderTo : Ext.get("nsTree")
+ 				
+ 		}
+ 		var tree = new NS.container.Tree(obj);
+ 		tree.addListener('itemclick',function(com,data,item){
+ 			// 实现自己的逻辑
+ 			var myData= data;
+ 		});
+ 		var buttonF = function(arrays){
+ 			var texts = [];
+	    	
+	    	for(var i=0;i<arrays.length;i++){
+				var obj = arrays[i];
+				texts.push(obj.text);
+	    	}
+	    	alert(texts);
+ 		}
+         Ext.create('Ext.Button', {
+             text: '全选',
+             renderTo: Ext.get("nsTree"),
+             handler: function() {
+                tree.checkAllNode(true);
+             }
+         });
+         Ext.create('Ext.Button', {
+             text: '取消全选',
+             renderTo: Ext.get("nsTree"),
+             handler: function() {
+                 tree.unCheckAllNode(false);
+             }
+         });
+ 		Ext.create('Ext.Button', {
+             text: '显示选中的叶子节点',
+             renderTo: Ext.get("nsTree"),
+             handler: function() {
+                 var arrays = tree.getCheckedLeaf();
+                 buttonF(arrays);
+             }
+         });
+ 		Ext.create('Ext.Button', {
+ 		    text: '显示选中的节点',
+ 		    renderTo: Ext.get("nsTree"),
+ 		    handler: function() {
+ 		    	var arrays = tree.getChecked();
+ 		    	buttonF(arrays);
+ 		    }
+ 		});
+ 		Ext.create('Ext.Button', {
+ 		    text: '显示新增的节点',
+ 		    renderTo: Ext.get("nsTree"),
+ 		    handler: function() {
+ 		    }
+ 		});
+ 		Ext.create('Ext.Button', {
+ 		    text: '显示修改的节点',
+ 		    renderTo: Ext.get("nsTree"),
+ 		    handler: function() {
+ 		    }
+ 		});
+ 		Ext.create('Ext.Button', {
+ 		    text: '显示删除的节点',
+ 		    renderTo: Ext.get("nsTree"),
+ 		    handler: function() {
+ 		    	alert(tree.getNodeDataById(1001000000372711).text);
+ 		    }
+ 		});
+         Ext.create('Ext.Button', {
+             text: '显示修改名称的节点',
+             renderTo: Ext.get("nsTree"),
+             handler: function() {
+                 var value =  tree.getModifyValue();
+                 alert(value);
+             }
+         });
+ 	});
+	     
+    </script>
+</head>
+<body>
+	<div class="portal-news" style="width: 400;float:left">
+		<a href="#" style="font-size: large;">功能</a>
+		<ul>
+			<li>node:扩展支持具有树形关系的数组数据。即：从树结构表中查出的数据可以直接传给此树而无需转成树结构的对象。</li>
+			<li>1.普通树。</li>
+			<li>2.支持多选树。</li>
+			<li>3.支持多列grid树。</li>
+            <li>4.支持指定cc类型上的节点图标样式。</li>
+			<li>(未完)4.支持树节点过滤FilterTree</li>
+			<li>(未完)5.支持右键操作（新增、修改、删除、展开、收缩）</li>
+		</ul>
+		<a href="#" style="font-size: large;">接口</a>
+		<ul>
+			<li>1.getChecked() return Array接口可以获取数中被选择的节点对象。</li>
+			<li>2.getCheckedLeaf() return Array接口可以获取数中被选择的节点对象。</li>
+			<li>3.refresh()接口可以获取数中被选择的节点对象。</li>
+			<li>4.getTbar()返回树面板的工具栏对象。NS.toolbar.Toolbar</li>
+			<li>5.getNodeDataById(id) return Object返回数据对象。</li>
+			<br>
+			<li>(未完)5.getAddNodeData() return Array获取新增的节点的节点数据。</li>
+			<li>(未完)6.getUpdateNodeData() return Array获取修改过的节点的节点数据。</li>
+			<li>(未完)7.getDeleteNodeData() return Array获取删除的节点的节点数据。</li>
+			<li>(未完)8.getCheckedNow() return Object获取当前被选中的节点。</li>
+		</ul>
+		<a href="#" style="font-size: large;">事件</a>
+		<ul>
+			<li>1.itemclick点击节点事件</li>
+			<li>2.itemcontextmenu右击节点事件</li>
+		</ul>
+	</div>
+	<div id="nsTree" style="float: left"></div>
+</body>
+</html>

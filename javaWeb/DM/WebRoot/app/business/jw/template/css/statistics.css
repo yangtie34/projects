@@ -1,0 +1,3 @@
+.page-container .box .tips{position:relative; margin-top:30px; border:1px solid #CCC; padding:1em; background:#F6F6F6; color:#666; font-family: SimSun;}
+.page-container .box .tips h4{float:left; color:#39F; font-size:13px; font-weight:bold;}
+.page-container .box .tips ins{position:absolute; left:15px; top:-17px; width:29px; height:21px; background:url(../images/bgsj.png) no-repeat center; }

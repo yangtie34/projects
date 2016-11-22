@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css">
+    <link rel="stylesheet" type="text/css" href="../../jsp/portal/css/myCenter.css">
+    <link rel="stylesheet" type="text/css" href="../../css/main.css">
+    <script src="data/data.js"></script>
+    <script src="../../base1/util/LAB.min.js"></script>
+    <script src="../../extjs/ext-all-debug.js"></script>
+    <script src="../component/container/expand/TreeEditor.js"></script>
+    <script src="../ns-debug.js"></script>
+    <script type="text/javascript">
+ 	Ext.onReady(function(){
+         var store = Ext.create('Ext.data.TreeStore', {
+             root: {
+                 expanded: true,
+                 children: [
+                     { text: "detention", leaf: true },
+                     { text: "homework", expanded: true, children: [
+                         { text: "book report", leaf: true },
+                         { text: "alegrbra", leaf: true}
+                     ] },
+                     { text: "buy lottery tickets", leaf: true }
+                 ]
+             }
+         });
+         var onTreeNodeDblClick =  function(n) {
+             treeEditor.editNode = n;
+             treeEditor.startEdit(n.ui.textNode);
+         };
+         var tree = Ext.create('Ext.tree.Panel', {
+             title: 'Simple Tree',
+             width: 200,
+             height: 150,
+             store: store,
+             rootVisible: false,
+             renderTo : Ext.getBody(),
+             listeners: {
+                 itemdblclick: function(view,record,item,index) {
+                     var editorItem = item.innerHTML;
+                     var editor = new Ext.tree.TreeEditor({
+                         updateEl: true, // update the innerHTML of the bound element when editing completes
+                         field: {
+                             xtype: 'textfield'
+                         }
+                     });
+                     var div  = this.editorDiv= Ext.fly(item).down('div');
+                     editor.startEdit(div,record.getData().text);
+                 },
+//                 beforecomplete : function(editor,value,startvalue){
+//                    this.editorTextNode.nodeValue = value;
+//                    editor.setValue(this.editorDiv.getHTML());
+//                 }
+             }
+         });
+
+
+     });
+
+    </script>
+</head>
+<body>
+	<div class="portal-news" style="width: 400;float:left">
+		<a href="#" style="font-size: large;">功能</a>
+		<ul>
+			<li>node:扩展支持具有树形关系的数组数据。即：从树结构表中查出的数据可以直接传给此树而无需转成树结构的对象。</li>
+			<li>1.普通树。</li>
+			<li>2.支持多选树。</li>
+			<li>3.支持多列grid树。</li>
+            <li>4.支持指定cc类型上的节点图标样式。</li>
+			<li>(未完)4.支持树节点过滤FilterTree</li>
+			<li>(未完)5.支持右键操作（新增、修改、删除、展开、收缩）</li>
+		</ul>
+		<a href="#" style="font-size: large;">接口</a>
+		<ul>
+			<li>1.getChecked() return Array接口可以获取数中被选择的节点对象。</li>
+			<li>2.getCheckedLeaf() return Array接口可以获取数中被选择的节点对象。</li>
+			<li>3.refresh()接口可以获取数中被选择的节点对象。</li>
+			<li>4.getTbar()返回树面板的工具栏对象。NS.toolbar.Toolbar</li>
+			<li>5.getNodeDataById(id) return Object返回数据对象。</li>
+			<br>
+			<li>(未完)5.getAddNodeData() return Array获取新增的节点的节点数据。</li>
+			<li>(未完)6.getUpdateNodeData() return Array获取修改过的节点的节点数据。</li>
+			<li>(未完)7.getDeleteNodeData() return Array获取删除的节点的节点数据。</li>
+			<li>(未完)8.getCheckedNow() return Object获取当前被选中的节点。</li>
+		</ul>
+		<a href="#" style="font-size: large;">事件</a>
+		<ul>
+			<li>1.itemclick点击节点事件</li>
+			<li>2.itemcontextmenu右击节点事件</li>
+		</ul>
+	</div>
+	<div id="nsTree" style="float: left"></div>
+</body>
+</html>

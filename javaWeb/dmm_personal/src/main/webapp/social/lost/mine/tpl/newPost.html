@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>发布信息</title>
+</head>
+<body class="rxs-bg">
+<div class="rxs-comn-list rxs-comn-patop rxs-bg-fff">
+  <div class="rxs-pad-lr">
+    <textarea name="name" class="form-control rxs-mar-tb-10" rows="7" ng-model="newTopic.message">描述一下丢失/捡到的物品吧...</textarea>
+    <div class="media">
+      <div class="media-left media-middle rxs-nowrap rxs-cor-9b">联系电话:</div>
+      <div class="media-body media-middle">
+        <input type="text" class="form-control" ng-model="newTopic.tel">
+      </div>
+    </div>
+    <div class="rxs-mar-tb-10">
+       <div class="media">
+         <div class="media-left rxs-nowrap">
+	       <span>
+	         <input class="rxs-rdbox" id="rdbox-1" name="rdbox" type="radio"  value="0"  ng-model="newTopic.lostfoundTypeCode"/>
+	           <label for="rdbox-1">丢失</label>
+	       </span>
+	       <span class="rxs-mar-lf">
+	         <input class="rxs-rdbox" name="rdbox" id="rdbox-2" type="radio"  value="1"  ng-model="newTopic.lostfoundTypeCode">
+	           <label for="rdbox-2">捡到</label> 
+	       </span>
+       </div>
+	   <div  class="col-xs-4" ng-hide="newTopic.imageUrl =='' ">
+		  <img ng-src="{{newTopic.imageUrl}}" style="width: 100%;height: 100%;"/>
+	   </div>
+	   <div class="col-xs-4 text-center" ng-show="newTopic.imageUrl == ''" >
+         <div class="media-body text-right"><a href="" ng-click="selectImage()"><img src="../../images/loimg.png" width="24" ></a></div>
+       </div>
+       <div ng-model-html="showHtml"></div>
+	   <form id="uploadImageForm" action="../../../common/upload/image"
+		   style="display:none; " method="post" enctype="multipart/form-data">
+		   <input type="file" id="hideImageSelectButton"  name="contentImgSelect" 
+		                   accept="image/gif, image/jpeg,image/png" onchange="$('#uploadImageForm').submit();">
+	   </form>
+       </div>
+    <h3 class="text-center">
+      <button type="button" class="btn btn-warning rxs-btn-org rxs-ft-16" style="width:100%;" ng-click="submit()">发布</button>
+    </h3>
+  </div>
+</div>
+</div>
+</body>
+</html>

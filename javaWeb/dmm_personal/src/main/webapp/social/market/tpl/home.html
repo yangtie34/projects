@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<div class="rxs-menu-top rxs-bg-ff7 rxs-pad-top">
+<a href="#/mycommoditys" style="text-decoration: none;color:#fff">
+<div class="media">
+    <div class="media-left media-middle text-center"> 
+    <img class="img-circle" width="70" ng-src="{{cm.wechat_head_img}}">
+    <i class="fa fa-user"  ng-if="cm.wechat_head_img == '' " style="height: 60px;width: 60px;font-size: 40px;color: #FFF;"></i></div>
+    <div class="media-body media-middle rxs-pad-lft">
+      <h4 class="rxs-ft-20">{{cm.stu_name}} </h4>
+      <p>发布：<span class="rxs-cor-fa">{{cm.put_nums}}</span> <span class="rxs-mar-lf">已售：<span class="rxs-cor-fa">{{cm.sold_nums}}</span></span></p>
+    </div>
+    <div class="media-right media-middle"><span class="rxs-rgt-arw"></span></div>
+  </div></a>
+</div>
+<div class="rxs-bg-fff rxs-ft-15">
+  <div class="row rxs-list-link02 text-center">
+    <div class="col-xs-2" ng-repeat = "t in types">
+    	<a href="" ng-click="selectType(t.code_);" class="rxs-lt-01" ng-show="t.code_ == '01'">{{t.name_}}</a>
+    	<a href="" ng-click="selectType(t.code_);" class="rxs-lt-02" ng-show="t.code_ == '02'">{{t.name_}}</a>
+    	<a href="" ng-click="selectType(t.code_);" class="rxs-lt-03" ng-show="t.code_ == '03'">{{t.name_}}</a>
+    	<a href="" ng-click="selectType(t.code_);" class="rxs-lt-04" ng-show="t.code_ == '04'">{{t.name_}}</a>
+    	<a href="" ng-click="selectType(t.code_);" class="rxs-lt-05" ng-show="t.code_ == '05'">{{t.name_}}</a>
+    </div>
+  </div>
+</div>
+<div class="rxs-comn-list">
+  <div class="rxs-mar-tb-10">
+    <input class="form-control rxs-search" placeholder="输入关键字查询" ng-model="queryString" ng-change="searchCommodity();">
+  </div>
+  <div class=" rxs-pad-lr rxs-bg-fff rxs-mar-tb-10">
+    <div class="rxs-radio-tab">
+      <a href="" ng-click="queryAll()" style="text-decoration: none"><input class="rxs-ctab rxs-ctab-check" type="radio" name="ctab" id="ctab-1" >
+      <label for="ctab-1"> 全部 </label></a>
+      <a href="" ng-click="queryNotSold()" style="text-decoration: none"><input class="rxs-ctab" type="radio" name="ctab" id="ctab-2">
+      <label for="ctab-2"> 未售 </label></a>
+    </div>
+  </div>
+  <ul class="rxs-comn-ul  rxs-hover-ul">
+    <li  ng-repeat = "c in commoditys">
+      <a href="#/details/{{c.id}}" style="text-decoration: none"><div class="media">
+        <div class="media-left media-middle">
+        	<img ng-show="c.is_sold == 1" class="rxs-logo-lb" src="../images/logo-lb.png">
+        	<img ng-src="{{c.image_url}}" width="80">
+        </div>
+        <div class="media-body media-middle rxs-hpage">
+          <h4 class="rxs-ft-16">{{c.name_}}</h4>
+          <p class="rxs-cor-9b">使用时长：<span class="rxs-cor-ff9">{{c.use_time}} </span></p>
+          <p class="rxs-cor-9b">{{c.stu_name}}:{{c.tel}}</p>
+          <p class="rxs-cor-9b">发布时间：{{c.create_time}}</p>
+        </div>
+        <div class="media-right  rxs-cor-ff9 rxs-nowrap">￥ <span class=" rxs-ft-16">{{c.price}}</span></div>
+      </div></a>
+    </li>
+  </ul>
+  <div ng-show="loading" class="text-center text-warning">
+	<i class="fa fa-spinner fa-spin"></i>加载中
+</div>
+</div>

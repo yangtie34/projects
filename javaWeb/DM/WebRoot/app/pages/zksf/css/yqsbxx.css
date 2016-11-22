@@ -1,0 +1,68 @@
+@CHARSET "UTF-8";
+/* 总体概况 */
+.school-device-ow{
+	font-size:18px;
+}
+.school-device-ow-num{
+	color:red;
+	font-weight: bold;
+}
+/* 按钮组 */
+.school-device-t-btn-ct{
+	border-radius:5px;
+	background-color: #fffeee;
+	text-align: center;
+}
+.school-device-t-btn{
+	width: 80px;
+	padding: 3px 5px;
+	margin: 5px;
+	border: 1px solid #888;
+	border-radius:3px;
+	background-color: #fAfAfA;
+	cursor: pointer;
+}
+.school-device-t-btn:ACTIVE{
+	background-color: #e9f4ec;
+}
+.school-device-t-btn-foc{
+	background-color: #a9ffa9;
+}
+/* 分类概述 */
+.school-device-t-ow{
+	border-radius:5px;
+	background-color: #f2f2f2;
+	margin-top: 10px;	
+	text-align: center;
+}
+.school-device-t-cl{
+	display:inline-block;
+	width: 80px;
+	margin: 5px;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.sd-color-1{
+	color:#fe9900;
+	background-color: #fe9900;
+}
+.sd-color-2{
+	color:#67cd00;
+	background-color: #67cd00;
+}
+.sd-color-3{
+	color:#0099ff;
+	background-color: #0099ff;
+}
+.school-device-t-cl-h{
+	color: #000;
+	height: 50px;
+	line-height: 50px;
+} 
+.school-device-t-cl-m{
+	background-color: #FFF;
+}
+.school-device-t-cl-b{
+	background-color: #FFF;
+}

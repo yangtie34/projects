@@ -1,0 +1,30 @@
+<table width="100%" border="0" class="wbh-common-table_green" style="table-layout: auto;">
+    <!--<tr>-->
+        <!--<td width="10%" class="wbh-common-greenbg">选择</td>-->
+        <!--<td width="90%" class="wbh-common-greenbg">数据范围(全校)</td>-->
+    <!--</tr>-->
+    <!--<tr >-->
+        <!--<td class="wbh-common-greenbg">-->
+            <!--<input class="wbh-common-inputdefault" dtype="checkQx" type="checkbox"/>-->
+        <!--</td>-->
+        <!--<td >全校</td>-->
+    <!--</tr>-->
+    <tr>
+        <td width="10%" class="wbh-common-greenbg">选择</td>
+        <td width="90%" class="wbh-common-greenbg">数据范围(院系)</td>
+    </tr>
+    <tpl for=".">
+        <tpl if="children.length !=0">
+            <tr itemId="{id}">
+                <td class="wbh-common-greenbg" width="5%">
+                    <tpl if="checked==true">
+                        <input class="wbh-common-inputdefault" type="checkbox" checked="true"/>
+                    <tpl else>
+                        <input class="wbh-common-inputdefault" type="checkbox" />
+                    </tpl>
+                </td>
+                <td width="95%">{text}</td>
+            </tr>
+        </tpl>
+    </tpl>
+</table>

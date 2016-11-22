@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	<!-- 教学评估 - 二维表模板 -->
+	<bean id="jxpgService" class="com.jhkj.mosdc.jxpg.service.impl.JxpgServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean>
+	
+	<!-- 1 定位目标 -->
+	<bean id="jxpgJxzyService" class="com.jhkj.mosdc.jxpg.service.impl.JxpgJxzyServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean>
+	
+	<!-- 2 教师队伍 -->
+	<bean id="jxpgJsdwService" class="com.jhkj.mosdc.jxpg.service.impl.JxpgJsdwServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean>
+	
+	<!-- 3教学资源 -->
+	<bean id="jxpgDwmbService" class="com.jhkj.mosdc.jxpg.service.impl.JxpgDwmbServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean>
+
+	<!-- 4.培养过程-毕业综合训练情况 -->
+	<bean id="byzhxlqkService" class="com.jhkj.mosdc.jxpg.service.impl.ByzhxlqkServiceImpl">
+		<property name="jxpgService">
+			<ref bean="jxpgService"/>
+		</property>
+	</bean>
+	<!-- 5.学生发展 -->
+	<bean id="jxpgXsfzService" class="com.jhkj.mosdc.jxpg.service.impl.JxpgXsfzServiceImpl">
+		<property name="baseDao" ref="baseDao" />
+	</bean>
+	<!-- 6.教学评估 质量保障-->
+	<bean id="jxpgZlbzService" class="com.jhkj.mosdc.jxpg.service.impl.JxpgZlbzServiceImpl">
+		<property name="baseDao" ref="baseDao" />
+	</bean>
+
+</beans>

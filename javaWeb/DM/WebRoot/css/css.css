@@ -1,0 +1,13 @@
+@charset "gb2312";
+body,html,form{height:100%;}
+body { margin:0px; height:100%;padding:0px; background:#EFEFEF;}
+table,tr,td{margin:0; padding:0;}
+.box{ width:100%; height:100%; background:#FFFFFF;margin:0px; padding:0px; float:left;overflow:hidden }
+.top{ width:100%; min-width:1024px; height:97px; background: url(images/top_03.jpg) 0 0 repeat-x ;margin:0px; padding:0px 0px  0px 0px; float:left; }
+.logo{ width:666px; float:left; height:97px;  background: url(images/top_01.jpg) left top no-repeat;margin:0px; padding:0px 0px  0px 0px;overflow:hidden }
+.right{ width:332px; float:right; height:97px; background: url(images/top_05.jpg)  right 0 no-repeat;margin:0px; padding:0px 0px 0px 0px;overflow:hidden }
+.right-top{ float:right; display:block; list-style-type:none;  font-size:12px; margin-top:15px; margin-right:10px; }
+.right-top img{margin-left:8px; margin-right:5px;}
+.right-top a{ color:#929292; text-decoration:none; line-height:19px; height:19px; font-size:12px; vertical-align:middle; }
+.right-down{ float:right; list-style-type:none; width:420px; padding-right:45px; padding-top:5px;  line-height:30px; height:30px; font-size:12px; text-align:right;color:#929292;   }
+#localtime{ color:#000000}

@@ -1,0 +1,84 @@
+<table width="100%" border="0" style="table-layout:auto" cellpadding="5" class="wbh-common-table_green">
+    {%
+         this.modallength = values.modals.length;
+         this.system_mc = values.mc;
+         this.rowspan = values.rowspan;
+         this.showModalNum = 0;
+         this.needShowZeroModal = function(){
+             return Boolean(this.modallength == 0 || this.showModalNum == 0);
+         }
+    %}
+    <!-- 第一次遍历撰写子系统名称 以及第一个模块的名称-->
+    <tr  class="" style="font-weight: bolder;font-size: 18px;color: red;">
+        <td width="90%"  colspan="3">{[this.system_mc]}</td>
+    </tr>
+    <tpl if="modals.length!=0">
+    <!-- 循环迭代模块 -->
+        <tpl for="modals">
+            <tpl if="menus.length !=0">
+            {%
+                this.modalId = values.id;
+                this.showModalNum++;
+            %}
+                    <!-- 第二次以及以后对菜单和功能的遍历-->
+                    <tr  class="wbh-common-greenbg">
+                        <td width="5%"   >
+                            <tpl if="checked == true">
+                                <input name="" type="checkbox" checked="true" itemid="{[values.id]}" ctype = "checkAll" class="wbh-common-inputdefault" />
+                            <tpl else>
+                                    <input name="" type="checkbox"  itemid="{[values.id]}" ctype = "checkAll" class="wbh-common-inputdefault" />
+                            </tpl>
+                            <label class="wbh-common-labeldefault"></label></td>
+                        <td width="90%"  colspan="2">{text}</td>
+                    </tr>
+                    <!-- 遍历模块下子菜单 -->
+                    <tpl for="menus">
+                        {%this.menuId = values.id;%}
+                        <tr>
+                            <td width="5%">
+
+                                <tpl if="checked == true">
+                                      <input   type="checkbox" checked="true" itemid="{[values.id]}"  ctype="rowCheckAll" class="wbh-common-inputdefault" />
+                                <tpl else>
+                                      <input   type="checkbox"  itemid="{[values.id]}" ctype="rowCheckAll" class="wbh-common-inputdefault" />
+                                </tpl>
+
+                            </td>
+                            <td  width="25%"  style="text-align:center;">
+                                <span class="wbh-common-table-td-nowrap wbh-common-margin-rightl">
+                                    <label class="wbh-common-labeldefault" >{text}</label>
+                                </span>
+                            </td>
+                            <td width="70%"  style="text-align:left">
+
+                                    <tpl for="children">
+                                        <span class="wbh-common-table-td-nowrap wbh-common-margin-rightl" style="margin-left: 5px;width:140px;display:inline-block;">
+                                            <tpl if="checked == true">
+                                                <input   type="checkbox" checked="true" style="margin-left: 2px;" itemid="{[values.id]}" class="wbh-common-inputdefault" />
+                                            <tpl else>
+                                                <input   type="checkbox"   style="margin-left: 2px;" itemid="{[values.id]}" class="wbh-common-inputdefault" />
+                                            </tpl>
+
+                                            <label class="wbh-common-labeldefault">{text}</label>
+                                            {%values.cs = values.children.length>0;%}
+                                             <tpl if="cs == true">
+                                                 <a href="javascript:void(0);" ctype="content" itemid="{id}">内容设置     </a>
+                                             </tpl>
+
+                                        </span>
+                                    </tpl>
+
+                            </td>
+                        </tr>
+                    </tpl>
+
+                </tpl>
+        </tpl>
+    </tpl>
+
+        <tpl if="this.needShowZeroModal()">
+            <tr  class="wbh-common-greenbg">
+                <td>无子模块</td>
+            </tr>
+        </tpl>
+</table>

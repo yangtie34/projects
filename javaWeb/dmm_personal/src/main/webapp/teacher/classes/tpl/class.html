@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<div class="container-fluid jzhi-menu jzhi-menu-green-gradient-bg text-center">
+  <p >{{currentClassInfo.bjmc}}总人数</p>
+  <h1 class="phone-common-mar-top">{{currentClassInfo.total}}</h1>
+  <div class="row text-center">
+    <div class="col-xs-3 ">
+      <h6>{{currentClassInfo.yxmc}} </h6>
+      <h4>{{currentClassInfo.rxnj}}级</h4>
+    </div>
+    <div class="col-xs-3">
+      <h6>专业名称 </h6>
+      <h6 class="jzhi-space-normal">{{currentClassInfo.zymc}}</h6>
+    </div>
+    <div class="col-xs-3">
+      <h6>男生人数 </h6>
+      <h4>{{currentClassInfo.male}}</h4>
+    </div>
+     <div class="col-xs-3">
+      <h6>女生人数 </h6>
+      <h4>{{currentClassInfo.female}}</h4>
+    </div>
+  </div>
+</div> 
+<div class="phone-common-list">
+  <ul class="phone-common-group">
+    <li  ng-repeat="xs in xslist" class="phone-common-group-item phone-common-group-item02">
+      <div class="media">
+        <div class="media-left media-middle"> 
+        <span class="img-circle phone-common-img-width" >
+         <img ng-src="{{xs.headimg}}" class="img-circle "> </span> 
+        </div>
+        <div class="media-body media-middle">
+          <h4> {{xs.name}} <small ng-class="{'phone-common-boy-head':xs.gender=='男','phone-common-girl-head':xs.gender=='女'}"> </small>
+          	 <span class="phone-common-danger-inline hidden">班长</span></h4>
+          <p class="jzhi-text-ccc"> <i class="phone-common-margin-left">{{xs.sno}}</i></p>
+        </div>
+        <div class="media-right media-middle"  ng-hide="xs.tel == '' || xs.tel == null"> 
+        	<a ng-href="tel:{{xs.tel}}" class="text-primary" style="text-decoration: none;vertical-align: bottom;">
+				{{xs.tel}}
+				<span class="phone-common-telephone-icon" style="vertical-align: inherit;"></span>
+         	</a> 
+         </div>
+      </div>
+    </li>
+  </ul>
+</div>

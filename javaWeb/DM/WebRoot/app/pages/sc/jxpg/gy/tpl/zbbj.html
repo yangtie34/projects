@@ -1,0 +1,50 @@
+<div style="font-size: 20px;font-weight: bold;font-family: '黑体';text-align: center;">{xn}学年</div>
+<div>
+    <table class="jxpg-common-table">
+        <tr>
+            <td class="title" rowspan="2">指标项注 1</td>
+            <td class="title" rowspan="2">学校当年质量报告数据 注 2</td>
+            <td class="title" rowspan="2">学校填报数据库数注 2</td>
+            <td class="title" colspan="2">常模数据（数据库/质量报告）</td>
+            <td class="title" rowspan="2">上一轮评估数据</td>
+        </tr>
+        <tr>
+            <td class="title">211工程高校</td>
+            <td class="title">985工程高校</td>
+        </tr>
+        <tpl for="items">
+        <tr>
+            <td>
+                <span>{A_T}</span>
+
+            </td>
+            <td>
+                <span class="realvalue">{B_T}</span>
+                <span code="B_F" rowid="{ID}" class="value" type="itemvalue">{B_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span class="realvalue">{C_T}</span>
+                <span code="C_F" rowid="{ID}" class="value" type="itemvalue">{C_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span class="realvalue">{D1_T}</span>
+                <span code="D1_F" rowid="{ID}" class="value" type="itemvalue">{D1_F}</span>
+                <div></div>
+            </td>
+
+            <td>
+                <span class="realvalue">{D2_T}</span>
+                <span code="D2_F" rowid="{ID}" class="value" type="itemvalue">{D2_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span class="realvalue">{E_T}</span>
+                <span code="E_F" rowid="{ID}" class="value" type="itemvalue">{E_F}</span>
+                <div></div>
+            </td>
+        </tr>
+        </tpl>
+    </table>
+</div>

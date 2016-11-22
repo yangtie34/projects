@@ -1,0 +1,26 @@
+<div class=" rxs-top-pure-bg ">
+  <ul class="rxs-td-ul  clearfix">
+    <li id="tx" class="rxs-td-active"> <a href=""  ng-click="goX();"  class="rxs-txiang-icon">同乡</a></li>
+    <li id ="tmx"><a href="" ng-click="goMx();" class="rxs-tmuxiao-icon"> 同母校</a></li>
+    <li id="tzy"> <a href="" ng-click="goZy();" class="rxs-tzye-icon">同专业</a></li>
+    <li id="tyx"> <a href="" ng-click="goYx();" class="rxs-tyxi-icon">同院系</a></li>
+  </ul>
+</div>
+<div class="rxs-tools">
+  <input class="form-control rxs-search" placeholder="搜索校友老乡" ng-model="sparam" ng-change="searchPaisan(sparam)">
+</div>
+<div class="rxs-comn-list">
+  <ul class="rxs-comn-ul rxs-hover-ul">
+    <li class="rxs-td-active" ng-repeat="stu in stus">
+      <div class="media"><a href="#/stu/{{stu.stu_id}}">
+        <div class="media-left media-middle"  ng-show="stu.wechat_head_img != ''"><img class="img-circle" ng-src="{{stu.wechat_head_img}}"  width="57"></div>
+        <div class="media-body media-middle">
+          <h4>{{stu.stu_name}} <img ng-src="../images/girl.png" class="rxs-img-top" ng-show="stu.sex == '女'" width="16">
+          <img ng-src="../images/boy.png" class="rxs-img-top" ng-show="stu.sex == '男'" width="16"></h4>
+          <span class="rxs-text-grey">{{stu.enroll_grade}}级</span></div>
+        <div class="media-right media-middle rxs-text-16">{{stu.tel}}</div></a>
+      </div>
+    </li>
+  </ul>
+</div>
+<center  ng-hide="currpage == totalpage || stus.length == 0"><img src="../../static/images/onloading.gif"/></center>

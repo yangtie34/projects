@@ -1,0 +1,89 @@
+/****整体样式*****/
+.menuheader_top-picstyle {
+	margin: 0;
+	padding: 0;
+}
+
+.menuheader_leftpic {
+	vertical-align: bottom;
+}
+
+.menuheader_title {
+	color: #126bc6;
+	font-size: 14px;
+	line-height: 23px;
+	height : 23px;
+	font-weight : bold;
+	/*filter: Shadow(Color='#444444', Direction='120', Strength='3');
+	text-shadow: black 0px 0px 8px;*/
+}
+
+.menuheader_text {
+	color: #6b6b6b;
+	font-size: 14px;
+	line-height: 23px;
+	height : 23px;
+	max-width: 60%;
+}
+
+.menuheader_rightpic {
+	vertical-align: middle;
+	margin-top : 3px;
+}
+/*****功能菜单北部图标样式******/
+/*****OA图标样式******/
+.oa_menu_header {
+	background: url(images/menuheader/OA.png) no-repeat 0px 0px !important;
+}
+/*****公共信息图标样式******/
+.ggxx_menu_header {
+	background: url(images/menuheader/menuheader_ggxx.png) no-repeat 0px 0px !important;
+}
+/*****教务图标样式******/
+.jw_menu_header {
+	background: url(images/menuheader/menuheader_jw.png) no-repeat 0px 0px !important;
+}
+/*****科研图标样式******/
+.ky_menu_header {
+	background: url(images/menuheader/menuheader_ky.png) no-repeat 0px 0px !important;
+}
+/*****权限图标样式******/
+.qx_menu_header {
+	background: url(images/menuheader/menuheader_qx.png) no-repeat 0px 0px !important;
+}
+/*****人事图标样式******/
+.rs_menu_header {
+	background: url(images/menuheader/menuheader_rs.png) no-repeat 0px 0px !important;
+}
+/*****收费管理图标样式******/
+.sfgl_menu_header {
+	background: url(images/menuheader/menuheader_sfgl.png) no-repeat 0px 0px !important;
+}
+/*****统计输出图标样式******/
+.tjsc_menu_header {
+	background: url(images/menuheader/menuheader_tjsc.png) no-repeat 0px 0px !important;
+}
+/*****学工图标样式******/
+.xg_menu_header {
+	background: url(images/menuheader/menuheader_xg.png) no-repeat 0px 0px !important;
+}
+/*****学生选课图标样式******/
+.xsxk_menu_header {
+	background: url(images/menuheader/menuheader_xsxk.png) no-repeat 0px 0px !important;
+}
+/*****学校资源管理图标样式******/
+.xxzygl_menu_header {
+	background: url(images/menuheader/menuheader_xxzygl.png) no-repeat 0px 0px !important;
+}
+/*****迎新图标样式******/
+.yx_menu_header {
+	background: url(images/menuheader/menuheader_yx.png) no-repeat 0px 0px !important;
+}
+/*****招生图标样式******/
+.zs_menu_header {
+	background: url(images/menuheader/menuheader_zs.png) no-repeat 0px 0px !important;
+}
+/*****资产管理图标样式******/
+.zcgl_menu_header {
+	background: url(images/menuheader/menuheader_zcgl.png) no-repeat 0px 0px !important;
+}

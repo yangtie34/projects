@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web>
+	<!-- 查询表-->
+	
+	
+	<request>
+		<name>base_queryXnxqId</name>
+		<service>baseService</service>
+		<method>queryXnxqId</method>
+	</request>
+	
+	<request>
+		<name>base_queryForAddByEntityName</name>
+		<service>baseService</service>
+		<method>queryForAddByEntityName</method>
+	</request>
+	
+	<!-- 查询表内容-->
+	<request>
+		<name>base_queryTableContent</name>
+		<service>baseService</service>
+		<method>queryTableContent</method>
+	</request>
+
+	<import resource="service/output_service.xml" />
+</web>

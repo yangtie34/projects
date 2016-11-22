@@ -1,0 +1,56 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr class="title-style title-bg">
+				<td>
+					序号
+				</td>
+				<td>
+					指标类型
+				</td>
+				<td>
+					指标名称
+				</td>
+				<td>
+					指标内容
+				</td>
+				<td>
+					分值
+				</td>
+				<td>
+					得分
+				</td>
+			</tr>
+			<tpl for=".">
+			  <tr>
+				<td class="title-style">
+					{[xindex]}
+				</td>
+				<td>
+					{zblx}
+				</td>
+				<td>
+					{zbmc}
+				</td>
+				<td align="left">
+					{zbnr}
+				</td>
+				<td>
+					{fz}
+				</td>
+				 <td class="abcd">value='{df}'
+					<input type="radio" name="RadioGroup1" value="单选"
+						id="RadioGroup1_0" />
+					A
+					<input type="radio" name="RadioGroup1" value="单选"
+						id="RadioGroup1_1" />
+					B
+					<input type="radio" name="RadioGroup1" value="单选"
+						id="RadioGroup1_2" />
+					C
+					<input type="radio" name="RadioGroup1" value="单选"
+						id="RadioGroup1_3" />
+					D
+				</td>
+			</tr>
+			</tpl>
+			
+		</table>

@@ -1,0 +1,15 @@
+.ns-btn-add {
+    background-image: url(../images/btn/add.gif) !important;
+}
+.ns-btn-update {
+    background-image: url(../images/btn/update.gif) !important;
+}
+.ns-btn-delete {
+    background-image: url(../images/btn/delete.gif) !important;
+}
+.ns-btn-search {
+    background-image: url(../images/btn/search.png) !important;
+}
+.ns-btn-advanced-search {
+    background-image: url(../images/btn/advanced_search.png) !important;
+}

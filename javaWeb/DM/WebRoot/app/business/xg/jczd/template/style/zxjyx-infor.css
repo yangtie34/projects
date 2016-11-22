@@ -1,0 +1,105 @@
+@charset "utf-8";
+/* CSS Document */
+/*重新定义*/
+.zxj-yuxuan_box {
+	margin:0.6em 0 0 0;
+}
+.zxj-yuxuan_top .zxj-yuxuan_model_xinxi {
+	padding-right:0.6em;
+	color:#FF6600;
+	font:bold 16px 'Microsoft YaHei';
+	background:url(../image/border-rightbold.jpg) right center no-repeat;
+}
+.zxj-yuxuan_top .zxj-yuxuan_user_xinxi {
+	margin:auto 1.3em auto 0.5em;
+	color:#3366FF;
+	font:bold 14px 'Microsoft YaHei';
+}
+.zxj-yuxuan_infocont {
+	width:680px;
+	padding:25px;
+	border:1px solid #797979;
+	font-family:'microsoft yahei';
+	font-size:13px;
+}
+.zxj-yuxuan_infopiliang{ width:300px; padding:25px;
+	border:1px solid #797979;
+	font-family:'microsoft yahei';
+	font-size:13px;}
+/*名称样式*/
+.zxj-yuxuan_name {
+	font-size:16px;
+	font-weight:bold;
+	color:#ff6600;
+}
+/*表格样式*/
+table.zxj-yuxuan_table_gl {
+	border-collapse:collapse;
+	table-layout:fixed;
+	line-height:22px;
+}
+table.zxj-yuxuan_table_lishi {
+	border-collapse:collapse;
+	table-layout:fixed;
+	line-height:22px;
+	border:1px solid#797979;
+}
+table.zxj-yuxuan_table_lishi td {
+	border:1px solid#797979;
+	text-align:center;
+}
+.zxj-yuxuan_td-right {
+	text-align:right
+}
+.zxj-yuxuan_td-left {
+	text-align:left
+}
+.zxj-yuxuan_table-left {
+	padding-left:13px;
+	border-left:2px solid #ccc;
+}
+.zxj-yuxuan_table-right {
+	padding-right:13px;
+}
+/*颜色定义*/
+.zxj-yuxuan_greenbg {
+ background:#d4ff94;
+}
+.zxj-yuxuan_red {
+	color:#ff0000;
+}
+/*按钮样式*/
+.zxj-yuxuan_pcenter {
+	text-align:left;
+	margin-top:5px;
+}
+.zxj-yuxuan_buttonwid {
+	width:75px;
+	padding:5px 0;
+}
+.zxj-yuxuan_buttonmaf {
+	margin-left:15px;
+}
+/*文本域定义*/
+.zxj-yuxuan_textarea {
+	width:180px;
+	height:72px;
+}
+/*文本定义*/
+.zxj-yuxuan_select {
+	width:214px; 
+}
+
+.zxj-yuxuan_textarea-exp{height:60px;}
+/*边距样式*/
+.zxj-yuxuan_bjleft {
+	margin-left:5px;
+}
+.zxj-yuxuan_upload {
+	margin-left:25px;
+}
+/*链接样式*/
+a.zxj-yuxuan_a-link {
+	color:#000;
+	text-decoration:none;
+}

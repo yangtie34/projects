@@ -1,0 +1,63 @@
+@charset "utf-8";
+circle.parent {
+}
+
+circle.parent:hover {
+    stroke: #ff7f0e;
+    stroke-width: .5px;
+}
+
+.schoolbasic-windows-container {
+    /*width:500px;*/
+    overflow:hidden;
+    /*-moz-box-shadow:-1px 2px 5px #333;*/
+    /*-webkit-box-shadow:-1px 2px 5px #333;*/
+    /*box-shadow:-1px 2px 5px #333;*/
+    *border:1px solid #ccc;
+    border:1px solid #ccc; !important
+font-family:"microsoft yahei"
+}
+.schoolbasic-windows-content {
+    padding:15px;
+}
+.schoolbasic-windows-top {
+    height:47px;
+    line-height:47px;
+    overflow:hidden;
+    padding:0px 15px;
+    background:#06acf9;
+    border-bottom:1px solid #0c89c3;
+}
+.schoolbasic-windows-title {
+    float:left;
+    text-shadow:-1px 1px 1px #666;
+    color:#fff;
+    font-weight:bold;
+    font-size:16px;
+}
+.schoolbasic-windows-icons {
+    float:right;
+    padding-top:13px;
+}
+.schoolbasic-windows-icons a {
+    display: block;
+    height: 21px;
+    width: 22px;
+    /*margin-left:10px;*/
+    float:left;
+}
+a.schoolbasic-windows-down {
+    background: url(../images/01.png) 0 0 no-repeat;
+}
+a.schoolbasic-windows-left {
+    background: url(../images/02.png) 0 0 no-repeat;
+}
+a.schoolbasic-windows-right {
+    background: url(../images/03.png) 0 0 no-repeat;
+}
+a.schoolbasic-windows-change {
+    background: url(../images/04.png) 0 0 no-repeat;
+}
+a.schoolbasic-windows-close {
+    background: url(../images/05.png) 0 0 no-repeat;
+}

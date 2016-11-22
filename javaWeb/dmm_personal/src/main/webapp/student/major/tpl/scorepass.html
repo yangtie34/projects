@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<div class="rxs-comn-list rxs-comn-pad-top">
+  <table class="rxs-comn-table rxs-td-pad-5 rxs-td-ft-15" width="100%" border="0" cellpadding="0" cellspacing="0">
+    <thead>
+      <tr>
+        <th>课程</th>
+        <th>学分</th>
+        <th>通过率</th> 
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat = "course in courseScore" >
+        <td><h4 class="rxs-text-15">{{course.course_name}}</h4><small class="rxs-af-cor"><span ng-show="course.course_type == ''">未维护</span>{{course.course_type}}</small></td>
+        <td><span class="rxs-af-cor">{{course.credit}}</span></td>
+        <td><span class="rxs-org-cor">{{course.pass}}</span></td> 
+      </tr> 
+    </tbody>
+  </table>
+</div>

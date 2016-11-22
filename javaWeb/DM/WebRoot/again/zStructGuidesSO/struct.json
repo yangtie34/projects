@@ -1,0 +1,168 @@
+[
+      {
+          "name": "NS",
+          "groups": [
+              {
+                  "name": "event",
+                  "classes": [
+                      "NS.Event"
+                  ]
+              },
+              {
+                  "name": "dom",
+                  "classes": [
+                      "NS.dom.Element"
+                  ]
+              },
+              {
+                  "name": "Core",
+                  "classes": [
+                      "NS",
+                      "NS.Base",
+                      "NS.ClassLoader",
+                      "NS.ClassManager",
+					  "NS.Connection"
+                  ]
+              },
+			  {
+                  "name": "Native",
+                  "classes": [
+                      "NS.Array",
+                      "NS.Date",
+                      "NS.Error",
+                      "NS.Function",
+                      "NS.JSON",
+                      "NS.Number",
+                      "NS.Object",
+                      "NS.String"
+                  ]
+              },
+				{
+                  "name": "mvc",
+                  "classes": [
+                      "NS.mvc.Controller",
+					  "NS.mvc.Model",
+					  "NS.mvc.View"
+                  ]
+              },{
+                  "name" : "component",
+                  "classes" : [
+                      "NS.Component",
+                      "NS.Template"
+                  ]
+              },
+		      {
+				  "name": "container",
+                  "classes": [
+                      "NS.container.Container",
+					  "NS.container.Panel",
+					  "NS.container.TabPanel",
+                      "NS.container.SwitchContainer",
+                      "NS.container.TabSwitchContainer",
+                      "NS.container.Tree"
+                  ] 
+		      },
+			  {
+				  "name": "button",
+                  "classes": [
+                      "NS.button.Button"
+                  ] 
+		      },
+              {
+                  "name": "mask",
+                  "classes": [
+                      "NS.mask.LoadMask"
+                  ]
+              },
+
+              {
+                  "name": "form",
+                  "classes": [
+                      "NS.form.BasicForm",
+                      "NS.form.EntityForm",
+                      "NS.form.FieldSet"
+                  ]
+              },{
+                  "name" : "grid",
+                  "classes" :[
+                      "NS.grid.ColumnManager",
+                      "NS.grid.Grid",
+                      "NS.grid.SimpleGrid",
+                      "NS.grid.query.SingleFieldQuery",
+                      "NS.grid.query.SeniorQuery",
+                      "NS.grid.plugin.CellEditor",
+                      "NS.grid.plugin.HeaderQuery",
+                      "NS.grid.query.Condition"
+                  ]
+              },{
+            	  "name":"field",
+            	  "classes":[
+            	      "NS.form.field.BaseField",
+            	      "NS.form.field.Checkbox",
+            	      "NS.form.field.ComboBox",
+            	      "NS.form.field.Date",
+            	      "NS.form.field.Display",
+            	      "NS.form.field.File",
+            	      "NS.form.field.Number",
+            	      "NS.form.field.Radio",
+            	      "NS.form.field.TextArea",
+                      "NS.form.field.ComboBoxTree",
+                      "NS.form.field.ItemSelector",
+                      "NS.form.field.Time",
+                      "NS.form.field.YearMonth"
+            	   ]
+              },
+              {
+                  "name" : "util",
+                  "classes" : [
+                      "NS.util.ComponentInstance",
+                      "NS.util.DataConverter",
+                      "NS.util.FieldCreator",
+                      "NS.util.FileLoader"
+                  ]
+              },
+              {
+                  "name" : "menu",
+                  "classes" : [
+                      "NS.menu.Menu"
+                  ]
+              },
+              {
+                  "name" : "window",
+                  "classes" : [
+                      "NS.window.Window"
+                  ]
+              },
+              {
+                  "name" : "toolbar",
+                  "classes" : [
+                      "NS.toolbar.Toolbar",
+                      "NS.toolbar.MultiLineTbar"
+                  ]
+              },
+              {
+                  "name" : "others",
+                  "classes" : [
+                      "NS.window.MessageBox",
+                      "NS.Msg",
+                      "NS.Plugin",
+                      "NS.Img",
+                      "NS.menu.Menu"
+                  ]
+              }
+          ]
+      },
+    {
+        "name": "Ext",
+        "groups":[
+            {
+                "name" : "column",
+                "classes" : [
+                    "Ext.grid.column.ButtonColumn",
+                    "Ext.grid.column.LinkColumn",
+                    "Ext.grid.column.ProgressColumn"
+                ]
+            }
+        ]
+    }
+  ]

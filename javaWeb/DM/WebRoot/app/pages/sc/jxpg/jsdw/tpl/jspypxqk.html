@@ -1,0 +1,72 @@
+<div style="font-size: 20px;font-weight: bold;font-family: '黑体';text-align: center;">{xn}学年</div>
+<div>
+    <table class="jxpg-common-table">
+        <tr>
+            <td class="title" colspan="2" width="550">项目</td>
+            <td class="title">数量</td>
+        </tr>
+        <tpl for="items">
+            <tpl if="MC=='1'">
+                <tr>
+                    <td  rowspan="6">当年参加培养培训教师数</td>
+                    <td>总计</td>
+                    <td>
+                        <span class="realvalue">{SL_T}</span>
+                        <span code="SL_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{SL_F}</span>
+                        <div></div>
+                    </td>
+                </tr>
+            </tpl>
+            <tpl if="MC=='2'">
+            <tr>
+                <td>其中：攻读博士学位</td>
+                <td>
+                    <span class="realvalue">{SL_T}</span>
+                    <span code="SL_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{SL_F}</span>
+                    <div></div>
+                </td>
+            </tr>
+            </tpl>
+            <tpl if="MC=='3'">
+                <tr>
+                    <td>攻读博士学位占当年培养培训教师的比例（%）</td>
+                    <td>
+                        <span class="realvalue">{SL_T}</span>
+                        <span class="value_unedit">{SL_F}</span>
+                        <div></div>
+                    </td>
+                </tr>
+            </tpl>
+            <tpl if="MC=='4'">
+            <tr>
+                <td>境内进修人次数（人次）</td>
+                <td>
+                    <span class="realvalue">{SL_T}</span>
+                    <span code="SL_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{SL_F}</span>
+                    <div></div>
+                </td>
+            </tr>
+            </tpl>
+            <tpl if="MC=='5'">
+                <tr>
+                    <td>境外进修人次数（人次）</td>
+                    <td>
+                        <span class="realvalue">{SL_T}</span>
+                        <span code="SL_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{SL_F}</span>
+                        <div></div>
+                    </td>
+                </tr>
+             </tpl>
+            <tpl if="MC=='6'">
+            <tr>
+                <td>参与教改立项课题（校级以上） 人次数（人次）</td>
+                <td>
+                    <span class="realvalue">{SL_T}</span>
+                    <span code="SL_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{SL_F}</span>
+                    <div></div>
+                </td>
+            </tr>
+            </tpl>
+        </tpl>
+    </table>
+</div>

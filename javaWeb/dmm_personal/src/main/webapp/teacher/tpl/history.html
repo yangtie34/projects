@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<div class="container-fluid jzhi-menu jzhi-menu-time-bg text-center">
+  <div class="row media container-fluid text-center">
+    <div class="media-left media-middle"> <span class="jzhi-time-icon"></span> </div>
+    <div class="media-body  media-middle">
+      <p class="jzhi-text-p"> 自 {{historyInfo.indate}}年入校以来，您共在校 {{historyInfo.years}}年。 </p>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="jzhi-time-line">
+    <ul>
+       <li ng-repeat="it in historyList">
+        <div class="jzhi-time-year" ng-class="{'jzhi-time-year-green':$index%4==0,
+        									   'jzhi-time-year-red': $index%4==1,
+        									   'jzhi-time-year-org':$index%4==2,
+        									   'jzhi-time-year-blue':$index%4==3}">{{it.year}}</div>
+        <div ng-class="{'jzhi-time-line-bg-right':$index%2==0,'jzhi-time-line-bg-left':$index%2==1}" style="right:{{$index==0?4:0}}px">
+          <div ng-class="{'jzhi-time-green-dotted-right':$index%2==0 && $index%4==0 && $index>0,
+          				  'jzhi-time-green-dotted-left':$index%2==1 && $index%4==0,
+					      'jzhi-time-red-dotted-right':$index%2==0 && $index%4==1,'jzhi-time-red-dotted-left':$index%2==1 && $index%4==1,
+					      'jzhi-time-org-dotted-right':$index%2==0 && $index%4==2,'jzhi-time-org-dotted-left':$index%2==1 && $index%4==2,
+					      'jzhi-time-blue-dotted-right':$index%2==0 && $index%4==3,'jzhi-time-blue-dotted-left':$index%2==1 && $index%4==3,
+					      'jzhi-time-last-green-dotted-right':$index==0}" ></div> 
+        </div>
+        <div ng-class="{'jzhi-time-text-right':$index%2==0,'jzhi-time-text-left':$index%2==1,
+        				'jzhi-time-text-green':$index%4==0,
+        				'jzhi-time-text-red':$index%4==1,
+        				'jzhi-time-text-org':$index%4==2,
+        				'jzhi-time-text-blue':$index%4==3}">
+          <h5>{{it.datetime}}</h5>
+          <p>{{it.contents}}</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

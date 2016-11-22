@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+
+<link rel="stylesheet" type="text/css"
+	href="../../extjs/resources/css/ext-all.css">
+<script src="../../extjs/ext-all-debug.js"></script>
+<script src="../../base1/util/LAB.min.js"></script>
+<script src="../ns-debug.js"></script>
+<script type="text/javascript" src="../component/form/field/expand/ComboBoxTree.js"></script>
+<script type="text/javascript" src="../component/form/field/ComboBoxTree.js"></script>
+<script src="../../extjs/ext-lang-zh_CN.js"></script>
+<script type="text/javascript">
+	Ext.onReady(function() {
+
+	var picker = new NS.form.field.ComboBoxTree({
+		   rootName:'测试名称',
+		   rootVisible:true,
+		   expanded:true,
+		   isParentSelect:false,
+	       isLeafSelect:true,//添加新的配置属性
+		   treeData:[
+						{ id:'1', text: "detention", leaf: true },
+						{ id:'2',text: "homework", expanded: true, children: [
+							{ id:'3',text: "book report", leaf: true },
+							{ id:'4',text: "alegrbra", leaf: true}
+						] },
+						{ id:'5',text: "buy lottery tickets", leaf: true },
+						{ id:'6', text: "detention", leaf: true },
+						{ id:'7',text: "homework", expanded: true, children: [
+							{ id:'8',text: "book report", leaf: true },
+							{ id:'9',text: "alegrbra", leaf: true}
+						] },
+						{ id:'10',text: "buy lottery tickets", leaf: true },
+						{ id:'11', text: "detention", leaf: true },
+						{ id:'12',text: "homework", expanded: true, children: [
+							{ id:'13',text: "book report", leaf: true },
+							{ id:'14',text: "alegrbra", leaf: true}
+						] },
+						{ id:'15',text: "buy lottery tickets", leaf: true },
+						{ id:'16', text: "detention", leaf: true },
+						{ id:'26',text: "homework", expanded: true, children: [
+							{ id:'36',text: "book report", leaf: true },
+							{ id:'46',text: "alegrbra", leaf: true}
+						] },
+						{ id:'56',text: "buy lottery tickets", leaf: true },
+						{ id:'66', text: "detention", leaf: true },
+						{ id:'76',text: "homework", expanded: true, children: [
+							{ id:'86',text: "book report", leaf: true },
+							{ id:'96',text: "alegrbra", leaf: true}
+						] },
+						{ id:'106',text: "buy lottery tickets", leaf: true },
+						{ id:'116', text: "detention", leaf: true },
+						{ id:'126',text: "homework", expanded: true, children: [
+							{ id:'136',text: "book report", leaf: true },
+							{ id:'146',text: "alegrbra", leaf: true}
+						] },
+						{ id:'156',text: "buy lottery tickets", leaf: true }
+					],
+           renderTo:Ext.getBody()
+		});
+        picker.on('change',function(v){
+            console.log(picker.getValue()+"----"+picker.getRawValue());
+        });
+	});
+</script>
+<body>
+
+</body>
+</html>

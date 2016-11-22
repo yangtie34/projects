@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css">
+    <script src="data/data.js"></script>
+    <script src="../../base1/util/LAB.min.js"></script>
+    <script src="../../extjs/ext-all.js"></script>
+    <script src="../ns-debug.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function(){
+            var c = new NS.container.Container({
+                width: '100%',
+                title : '第一个页面',
+                height: '20%',
+                layout : 'fit',
+                region : 'center',
+                items : new NS.Component({
+                    style: {
+                        color: 'yellow',
+                        backgroundColor:'yellow'
+                    }
+                })
+            });
+            var component = new NS.container.Container({
+                width: 500,
+                height: 500,
+                title : '第2个页面',
+                layout : 'border',
+                items : [new NS.Component({
+                    width: '100%',
+                    height: '40%',
+                    region : 'north',
+                    padding: 20,
+                    style: {
+                        color: 'blue',
+                        backgroundColor:'blue'
+                    }
+                }),
+                        new NS.Component({
+                            width: '100%',
+                            height: '40%',
+                            region : 'south',
+                            padding: 20,
+                            style: {
+                                color: 'green',
+                                backgroundColor:'green'
+                            }
+                        })
+                    ]
+
+            });
+            var tbar = new NS.toolbar.Toolbar({
+                items : [{
+                    xtype : 'button',
+                    name : 'add',
+                    text : '新增'
+                },{
+                    xtype : 'button',
+                    text : '修改',
+                    name : 'update'
+                },{
+                    xtype : 'button',
+                    name : 'delete',
+                    text : '删除'
+                }]});
+            var panel = new NS.container.Panel({
+                width : 600,
+                height : 600,
+                items : component,
+                title : '1212',
+                tbar : tbar,
+//                renderTo: Ext.getBody()
+            });
+            var tab = new NS.container.TabPanel({
+                width : 600,
+                height : 600,
+                title : '1212',
+                renderTo: Ext.getBody(),
+                items : [c,panel]
+            });
+            tab.setActiveTab(panel);
+            var c = tab;
+        });
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

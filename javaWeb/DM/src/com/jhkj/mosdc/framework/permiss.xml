@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+	<!--用户dao及service层配置-->
+	<bean id="baseDao" class="com.jhkj.mosdc.framework.dao.impl.BaseDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	<bean id="userDao" class="com.jhkj.mosdc.permission.dao.impl.UserDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate"/>
+		</property>
+	</bean>
+	
+		<!-- <bean id="jsDao" class="com.jhkj.mosdc.permission.dao.impl.JsDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate"/>
+		</property>
+	</bean> -->
+	
+	<bean id="userInfoService" class="com.jhkj.mosdc.permission.service.impl.UserInfoServiceImpl">
+		<property name="userDao">
+			<ref local="userDao"/>
+		</property>
+		<property name="baseDao">
+			<ref local="baseDao"/>
+		</property>
+		<property name="roleDao">
+			<ref local="roleDao"/>
+		</property>		
+	</bean>
+	<!--菜单dao及service层配置-->
+	<bean id="menuDao" class="com.jhkj.mosdc.permission.dao.impl.MenuDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate"/>
+		</property>
+	</bean>
+	 
+	<bean id="menuService" class="com.jhkj.mosdc.permission.service.impl.MenuServiceImpl">
+		<property name="menuDao">
+			<ref local="menuDao"/>
+		</property>
+	</bean>
+	<!--角色dao及service层配置-->
+	<bean id="roleDao" class="com.jhkj.mosdc.permission.dao.impl.RoleDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate"/>
+		</property>
+	</bean>
+	 
+	<bean id="roleService" class="com.jhkj.mosdc.permission.service.impl.RoleServiceImpl">
+		<property name="roleDao">
+			<ref local="roleDao"/>
+		</property>
+		<property name="menuDao">
+			<ref local="menuDao"/>
+		</property>
+		<property name="baseDao">
+			<ref local="baseDao"/>
+		</property>
+	</bean>
+	
+	<!-- 用户菜单功能树权限 -->
+	<bean id="permissService" class="com.jhkj.mosdc.permission.service.impl.PermissServiceImpl">
+		<property name="menuService">
+			<ref local="menuService"/>
+		</property>
+		<property name="baseDao">
+			<ref local="baseDao"/>
+		</property>
+		<property name="userDao">
+			<ref local="userDao"/>
+		</property>
+		<property name="menuDao">
+			<ref local="menuDao"/>
+		</property>
+	</bean>
+	<bean id="permissProcess" class="com.jhkj.mosdc.permission.process.impl.PermissProcessImpl">
+		<property name="permissService">
+			<ref local="permissService"/>
+		</property>		
+	</bean>
+	
+	
+	<!-- 教学组织结构的配置______韩庆 -->
+	<bean id="jxzzjgDao" class="com.jhkj.mosdc.permission.dao.impl.JxzzjgDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+	</bean>
+	 
+	<bean id="jxzzjgService" class="com.jhkj.mosdc.permission.service.impl.JxzzjgServiceImpl">
+		<property name="jxzzjgDao">
+			<ref local="jxzzjgDao"/>
+		</property>
+		<property name="baseDao">
+			<ref local="baseDao"/>
+		</property>
+	</bean>
+	 
+	<bean id="validateImageService" class="com.jhkj.mosdc.framework.service.impl.ValidateImageServiceImp">
+	</bean>
+	<!-- 组权限下方service -->
+	<bean id="groupPermissServiceImpl" class="com.jhkj.mosdc.permission.service.impl.GroupPermissServiceImpl">
+		<property name="baseDao" ref="baseDao"/>
+		<property name="baseService" ref="baseService"/>
+	</bean>
+</beans>

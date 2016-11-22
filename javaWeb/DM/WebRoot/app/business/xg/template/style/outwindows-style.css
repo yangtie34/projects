@@ -1,0 +1,156 @@
+@charset "utf-8";
+/* CSS Document */ 
+/*重新定义*/
+.windows-outname-box {
+	margin:0.6em 0 0 0;
+}
+ .windows-outname-infocont {
+	width:730px;
+	padding:25px;
+	border:1px solid #797979;
+	font-family:'microsoft yahei';
+	font-size:12px;
+}
+ .windows-outname-infocont2 {
+	width:390px;
+	padding:25px;
+	border:1px solid #797979;
+	font-family:'microsoft yahei';
+	font-size:12px;
+}
+.windows-outname-infopiliang {
+	width:300px;
+	padding:25px;
+	border:1px solid #797979;
+	font-family:'microsoft yahei';
+	font-size:13px;
+}
+/*名称样式*/
+.windows-outname-name {
+	font-size:16px;
+	font-weight:bold;
+	color:#ff6600;
+}
+/*表格样式*/
+table.windows-outname-table_gl {
+	border-collapse:collapse;
+	line-height:22px;
+}
+table.windows-outname-table_lishi {
+	border-collapse:collapse;
+	table-layout:fixed;
+	line-height:22px;
+	border:1px solid#797979;
+}
+table.windows-outname-table_lishi td {
+	border:1px solid#797979;
+	text-align:center;
+}
+.windows-outname-td-right {
+	text-align:left
+}
+.windows-outname-td-left {
+	text-align:left
+}
+.windows-outname-table-left {
+	padding-left:13px;
+	border-left:2px solid #ccc;
+}
+.windows-outname-table-right {
+	padding-right:13px;
+}
+/*颜色定义*/
+.windows-outname-greenbg {
+	background:#d4ff94;
+}
+.windows-outname-red {
+	color:#ff0000;
+}
+.windows-outname-green {
+    color:#228B22;
+}
+/*按钮样式*/
+.windows-outname-pcenter {
+	text-align:center;
+	margin-top:5px;
+}
+.windows-outname-buttonwid {
+	width:75px;
+	padding:5px 0;
+}
+.windows-outname-buttonmaf {
+	margin-left:15px;
+}
+/*文本域定义*/
+.windows-outname-textarea {
+	width:207px;
+	height:72px;
+}
+/*文本域定义*/
+.windows-outname-textarea2 {
+	width:207px;
+	height:50px;
+}
+/*文本定义*/
+.windows-outname-select {
+	width:214px;
+}
+.windows-outname-textarea-exp {
+	height:120px;
+}
+/*边距样式*/
+.windows-outname-bjleft {
+	margin-left:5px;
+}
+.windows-outname-upload {
+	margin-left:25px;
+}
+/*链接样式*/
+a.windows-outname-a-link {
+	color:#000;
+	text-decoration:none;
+}
+.windows-outname-legend{border:1px solid #797979}
+/*新增文本定义*/
+.windows-outname-textareawidth {
+    width:99%;
+}
+
+/*2014-5-29新增通用样式*/
+.windows-outname-widthbaifen {
+	width:100%;
+}
+.windows-outname-widthtextarea {
+	width:99%
+}
+.windows-outname-buttonwidbig {
+	width:100px;
+	padding:10px;
+	margin:10px;
+}
+.windows-ooutname-infoborder {
+	border:1px solid #797979;
+	padding:5px 10px;
+	margin-top:10px;
+}
+.windows-outname-downwidth {
+	width:400px;
+	padding:25px;
+	border:1px solid #797979;
+	font-family:'microsoft yahei';
+	font-size:13px;
+}
+/*2014-7-1新增通用样式*/
+.windows-outname-widthhalf {
+	width:80%;
+}
+.windows-outname-margin-tb{margin:5px 0; width:250px; float:left;}
+
+.windows-outname-infocont_xczl {
+    width:750px;
+    padding:25px;
+    border:1px solid #797979;
+    font-family:'microsoft yahei';
+    font-size:12px;
+}
+

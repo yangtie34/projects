@@ -1,0 +1,17 @@
+<div class="rxs-comn-list">
+  <table class="rxs-comn-table rxs-td-pad-10 rxs-td-ft-15" width="100%" border="0" cellpadding="0" cellspacing="0"> 
+    <tbody>
+      <tr ng-repeat="book in borrowbooks">
+        <td><h4 class="rxs-text-16">{{book.book_name}}</h4><small class="rxs-af-cor" ><span class="rxs-text-org">借：</span>{{book.borrow_time}}</small></td> 
+        <td> <div ng-class="{'rxs-ts-span rxs-bg-red':book.flag == '超期','rxs-ts-span rxs-bg-green':book.flag == '在阅','rxs-ts-span rxs-bg-grey':book.flag == '已还'}">{{book.flag}}</div> <br>
+        <small class="rxs-af-cor"><span class="rxs-text-red">{{book.time_type}}：</span>{{book.time_}}</small></td> 
+      </tr> 
+    </tbody>
+  </table>
+</div>
+<center ng-hide = "currpage == totalpage || borrowbooks.length == 0"><img src="../../static/images/onloading.gif"/></center>
+
+	
+	
+
+                    

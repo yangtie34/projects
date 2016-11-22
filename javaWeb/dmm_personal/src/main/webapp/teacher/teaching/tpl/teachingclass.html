@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<div class="container-fluid jzhi-menu jzhi-menu-jiaoxue">
+  <div class="row">
+    <div class="col-xs-4">
+      <div class="jzhi-icon-circle-border"> <span class="jzhi-class-icon"></span> </div>
+      <h5><span ng-show = "classroom == ''">未维护</span>{{classroom}}</h5>
+    </div>
+    <div class="col-xs-4">
+      <div class="jzhi-icon-circle-border"> <span class="jzhi-class-time-icon"></span> </div>
+      <h5><span ng-show="time_ == ''">未维护</span>{{time_}}</h5>
+    </div>
+    <div class="col-xs-4">
+      <div class="jzhi-icon-circle-border"> <span class="jzhi-class-book-icon"></span> </div>
+      <h5><span ng-show = "course_name == ''">未维护</span>{{course_name}}</h5>
+    </div>
+  </div>
+</div>
+
+<div class="text-center jzhi-text-ccc">
+  <h5>上课班级</h5>
+</div>
+<div class="phone-common-list">
+  <ul class="phone-common-group">
+    <li ng-repeat = "course in courses" class="phone-common-group-item phone-common-group-item02">
+      <div class="media">
+        <div class="media-left media-middle jzhi-left-width"> <h5>{{course.CLASS_NAME}}</h5></div>
+        <div class="media-body media-middle text-right jzhi-text-danger"> 共计{{course.STUS}}人</div>
+      </div>
+    </li>
+  </ul>
+</div> 

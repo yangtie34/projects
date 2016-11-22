@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="../../base1/util/LAB.min.js"></script>
+    <script src="../../extjs/ext-all.js"></script>
+    <script src="../ns-debug.js"></script>
+    <script type="text/javascript">
+        NS.define('App.com.A',{
+
+            constructor : function(){
+               //alert("A");
+            },
+            getAge : function(){
+                alert("A+A");
+            }
+        });
+        NS.define('App.com.B',{
+            mixins : ['App.com.A'],
+            constructor : function(){
+            },
+            getName : function(){
+                alert("A+B");
+                this.callParent(arguments);
+            }
+        });
+        var b = new App.com.B();
+        b.getAge();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

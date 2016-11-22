@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<div class="container-fluid jzhi-menu">
+  <p class="jzhi-menu-p-border">本学期您共管理{{totalInfo.nums}}个班级，总计学生数为：</p>
+  <h1 class="text-center"><a href="#students" style="color:#fff;text-decoration:none;">
+		 {{totalInfo.total}} 
+	</a></h1>
+  <div class="text-center jzhi-menu-block">
+    <h5 ><span class="phone-common-girl-icon-bg"></span>女生 <br>
+      <i>{{totalInfo.female}}</i> </h5>
+    <h5 > 男生<span class="phone-common-boy-icon-bg"></span><br>
+      <i>{{totalInfo.male}}</i> </h5>
+    <span class="jzhi-absolute-position"><a class="phone-common-mediaright-icon" href="#students"> </a> </span> 
+  </div>
+  </div>
+<div class="text-center jzhi-text-ccc">
+  <h5>管理班级</h5>
+</div>
+<div class="phone-common-list">
+	<div class="jzhi-no-table phone-common-list" ng-show="bjlist.length ==0">
+		  <div class="jzhi-no-cell">
+		    <div class="jzhi-no-list jzhi-no-zhuanli"><h6>无班级信息</h6></div>　
+		  </div>
+	</div>
+  <ul class="phone-common-group">
+    <li class="phone-common-group-item phone-common-group-item02" ng-repeat="bj in bjlist" >
+     <a  ng-href="#/class/{{bj.no_}}" style="text-decoration: none;">
+	      <div class="media">
+	        <div class="media-left media-middle jzhi-left-width">
+	          <h6>{{bj.bjmc}}</h6>
+	          <p class="jzhi-text-ccc">{{bj.zymc}}</p>
+	        </div>
+	        <div class="media-body media-middle text-right jzhi-text-danger">
+	          <div class="jzhi-right-inline-block text-center">
+	            <p><span class="phone-common-boy-head"></span><i class="jzhi-text-info">{{bj.male}}</i> <span class="phone-common-girl-head"></span><i class="jzhi-text-red">{{bj.female}}</i> </p>
+	            共计{{bj.total}}人</div>
+	        </div>
+	        <div class="media-right media-middle"><span class="phone-common-arrow-right pull-right"></span></div>
+	      </div>
+      </a>
+    </li>
+  </ul>
+</div>

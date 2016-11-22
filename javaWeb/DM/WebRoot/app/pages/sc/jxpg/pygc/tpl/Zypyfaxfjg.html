@@ -1,0 +1,67 @@
+<div style="font-size: 20px;font-weight: bold;font-family: '黑体';text-align: center;">{xn}学年</div>
+<div>
+	<table class="jxpg-common-table">
+		<tr>
+			<td class="title">学科门类</td>
+			<td class="title">艺术学</td>
+			<td class="title">法学</td>
+			<td class="title">工学</td>
+			<td class="title">管理学</td>
+			<td class="title">经济学</td>
+			<td class="title">历史学</td>
+			<td class="title">教育学</td>
+			<td class="title">文学</td>
+			<td class="title">理学</td>
+		</tr>
+		<tpl for="items">
+			<tr>
+				<td>{XKML}</td>
+				<td>
+					<span class="realvalue">{YSX_T}</span>
+					<span class="value" code="YSX_F" rowid="{ID}" isnum = "float" type="itemvalue">{YSX_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{FX_T}</span>
+					<span class="value" code="FX_F" rowid="{ID}"  isnum = "float" type="itemvalue">{FX_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{GX_T}</span>
+					<span class="value" code="GX_F" rowid="{ID}"  isnum = "float" type="itemvalue">{GX_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{GLX_T}</span>
+					<span class="value" code="GLX_F" rowid="{ID}"  isnum = "float" type="itemvalue">{GLX_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{JJX_T}</span>
+					<span class="value" code="JJX_F" rowid="{ID}"  isnum = "float" type="itemvalue">{JJX_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{LSX_T}</span>
+					<span class="value" code="LSX_F" rowid="{ID}"  isnum = "float" type="itemvalue">{LSX_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{JYX_T}</span>
+					<span class="value" code="JYX_F" rowid="{ID}" isnum = "float"  type="itemvalue">{JYX_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{WX_T}</span>
+					<span class="value" code="WX_F" rowid="{ID}" isnum = "float"  type="itemvalue">{WX_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{LX_T}</span>
+					<span class="value" code="LX_F" rowid="{ID}" isnum = "float"  type="itemvalue">{LX_F}</span>
+					<div></div>
+				</td>
+			</tr>
+		</tpl>
+	</table>
+</div>

@@ -1,0 +1,91 @@
+@charset "utf-8";
+/* CSS Document */
+.zhaosheng-tab {
+	margin:0;
+}
+.zhaosheng-tab-ul {
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+.zhaosheng-tab-ul li {
+	margin-left:20px;
+	background:#feeea5;
+	border-radius:10px;
+	border:3px solid #f1cf94;
+	color:#474849;
+	font-size:25px;
+	text-align:center;
+	width:166px;
+	height:36px;
+	line-height:28px;
+	display:inline-block;
+}
+.zhaosheng-tab-ul li.zhaosheng-li-selected, .zhaosheng-tab-ul li:hover {
+	background:#efc96e;
+	cursor:pointer
+}
+.zhaosheng-title-bg {
+	background:#34495e;
+}
+.zhaosheng-title {
+	line-height:55px;
+	color:#c2c9cf
+}
+.tongji-content {
+	background:#fff;
+	padding:2em 0;
+	margin-top:10px;
+	overflow:hidden
+}
+.fenxi-content-list {
+	float:left;
+	margin:1em 1.5em;
+}
+/*招生表格统计*/
+.tongji-table {
+	padding:1em 4em;
+	text-align:center;
+	font-size:14px;
+	line-height:22px;
+	color:#5e5e5f;
+}
+.tongji-table td {
+	border-bottom:1px solid #eaeaea;
+	padding:10px;
+}
+.tongji-table th.tongji-th-liubai {
+	height:7px;
+	padding:0;
+	background:#fff;
+	border-bottom:1px solid #eaeaea;
+}
+.tongji-table th {
+	font-size:18px;
+	color:#3399ff;
+	font-weight:normal;
+	background:#c9e5f4;
+	margin-bottom:10px;
+	padding:10px;
+}
+.tongji-table tr.tongji-tr-exicon {
+	background:url(../../images/manager/circle.png) left center no-repeat
+}
+.zhaosheng-title-ul {
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+.zhaosheng-title-ul li {
+	padding:6px 20px 10px;
+	margin:17px 20px 0;
+	float:left;
+	line-height:22px;
+}
+.zhaosheng-title-ul li:hover {
+	cursor:pointer;
+}
+.zhaosheng-title-ul li.zhaosheng-title-selected, .zhaosheng-title-ul li:hover {
+	background:#fff;
+	color:#858585
+}

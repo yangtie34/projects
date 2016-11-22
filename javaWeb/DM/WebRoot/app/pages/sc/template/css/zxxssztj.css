@@ -1,0 +1,17 @@
+@CHARSET "UTF-8";
+
+.sc_zxxssztj_table{
+	width: 100%;
+	border: 1px solid #888;
+}
+.sc_zxxssztj_table thead > tr > th{
+	background-color: #E0DEDE;
+	border: 1px solid #AAA;
+	height: 30px;
+}
+
+.sc_zxxssztj_table tbody > tr > td{
+	background-color: #FFF;
+	border: 1px solid #AAA;
+	height: 30px;
+}

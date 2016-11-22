@@ -1,0 +1,92 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*弹出窗部分样式*/
+
+.out-container {
+	width:700px;
+	margin:0 auto;
+	font-size:13px;
+	font-family:Arial, Helvetica, sans-serif, "宋体";
+	border:1px solid #999999;
+	padding:10px
+}
+
+.border-left{border-left:2px solid #CCCCCC;}
+.padd-right{padding-right:15px;}
+.padd-left{padding-left:15px;}
+.left-icon {
+	border-left:3px solid #ff651f;
+	font-size:16px;
+	font-weight:bold;
+	color:#ff651f;
+	padding-left:10px;
+}
+.bor-btm {
+	border-bottom:2px solid #ff651f;
+}
+.cor-blu {
+	color:#3399FF;
+	font-size:20px;
+	font-weight:bold;
+	 
+}
+.rgt-r{text-align:right;}
+.rgt-c{text-align:center;}
+.btn-print {
+	width:95px;
+	height:45px;
+	text-align:center;
+	line-height:40px;
+}
+.cor-zsf {
+	color:#ff651f;
+	font-size:16px;
+	font-weight:bold;
+}
+
+.left-iconblu {
+	border-left:3px solid #3399FF;
+	font-size:16px;
+	font-weight:bold;
+	color:#3366FF;
+	padding-left:10px;
+}
+.bor-btmblu {
+	border-bottom:2px solid #3399FF;
+}
+
+.out-cen{text-align:center; float:left;}
+.outbg-td {
+	background:url(../images/bg-td.png) center center no-repeat;
+	height:80px;
+	line-height:80px;
+	width:80px;
+	text-align:center;
+}
+.outbg-tdorg {
+	background:url(../images/bg-tdorg.png) center center no-repeat;
+	height:80px;
+	line-height:80px;
+	width:80px;
+	text-align:center;
+}
+.outbg-tdbai {
+	background:url(../images/bg-tdbai.png) center center no-repeat;
+	height:80px;
+	line-height:80px;
+	width:80px;
+	text-align:center;
+}
+
+.blue{color:#4e93de;}
+
+.org{color:#ff651f;}
+.wid-price{width:70px; height:20px; text-align:right;}
+.sec-wid{width:115px; }
+
+/*新增2013.6.28*/
+table.dgbl-td-margin tr td{padding-right:15px;}
+/*新增2013.6.28*/
+ 
+

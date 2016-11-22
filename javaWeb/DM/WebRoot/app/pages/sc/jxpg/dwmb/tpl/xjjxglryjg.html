@@ -1,0 +1,127 @@
+<div style="font-size: 20px;font-weight: bold;font-family: '黑体';text-align: center;">{xn}学年</div>
+<div>
+	<table class="jxpg-common-table">
+		<tr>
+	    <td rowspan="2" class="title" width="60">&nbsp;</td>
+	    <td rowspan="2" class="title" width="80">总计</td>
+	    <td colspan="5" class="title">职称</td>
+	    <td colspan="4" class="title">最高学历</td>
+	    <td colspan="4" class="title">年龄</td>
+	  </tr>
+	  <tr>
+	    <td class="title">正高级</td>
+	    <td class="title">副高级</td>
+	    <td class="title">中级</td>
+	    <td class="title">初级</td>
+	    <td class="title">无职称</td>
+	    <td class="title">博士</td>
+	    <td class="title">硕士</td>
+	    <td class="title">学士</td>
+	    <td class="title">无学位</td>
+	    <td class="title">35岁以下</td>
+	    <td class="title">36-45</td>
+	    <td class="title">46-35</td>
+	    <td class="title">56岁以上</td>
+	  </tr>
+	  <tpl for="items">
+			<tr>
+				<td>{MC}</td>
+				<td>
+					<span class="realvalue">{ZJ_T}</span>
+					<span code="ZJ_F" rowid="{ID}" class="value_unedit">{ZJ_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{ZGJ_T}</span>
+					<span code="ZGJ_F" rowid="{ID}"
+					<tpl if="DM=='SL'" >class="value" type="itemvalue" isnum="int" <tpl elseif="DM=='BL'">class="value_unedit"</tpl>
+					>{ZGJ_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{FGJ_T}</span>
+					<span code="FGJ_F" rowid="{ID}"
+					<tpl if="DM=='SL'" >class="value" type="itemvalue" isnum="int" <tpl elseif="DM=='BL'">class="value_unedit"</tpl>
+					>{FGJ_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{ZJZC_T}</span>
+					<span code="ZJZC_F" rowid="{ID}"
+					<tpl if="DM=='SL'" >class="value" type="itemvalue" isnum="int" <tpl elseif="DM=='BL'">class="value_unedit"</tpl>
+					>{ZJZC_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{CJZC_T}</span>
+					<span code="CJZC_F" rowid="{ID}"
+					<tpl if="DM=='SL'" >class="value" type="itemvalue" isnum="int" <tpl elseif="DM=='BL'">class="value_unedit"</tpl>
+					>{CJZC_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{WZC_T}</span>
+					<span code="WZC_F" rowid="{ID}"
+					<tpl if="DM=='SL'" >class="value" type="itemvalue" isnum="int" <tpl elseif="DM=='BL'">class="value_unedit"</tpl>
+					>{WZC_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{BS_T}</span>
+					<span code="BS_F" rowid="{ID}"
+					<tpl if="DM=='SL'" >class="value" type="itemvalue" isnum="int" <tpl elseif="DM=='BL'">class="value_unedit"</tpl>
+					>{BS_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{SS_T}</span>
+					<span code="SS_F" rowid="{ID}"
+					<tpl if="DM=='SL'" >class="value" type="itemvalue" isnum="int" <tpl elseif="DM=='BL'">class="value_unedit"</tpl>
+					>{SS_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{XS_T}</span>
+					<span code="XS_F" rowid="{ID}"
+					<tpl if="DM=='SL'" >class="value" type="itemvalue" isnum="int" <tpl elseif="DM=='BL'">class="value_unedit"</tpl>
+					>{XS_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{WXW_T}</span>
+					<span code="WXW_F" rowid="{ID}"
+					<tpl if="DM=='SL'" >class="value" type="itemvalue" isnum="int" <tpl elseif="DM=='BL'">class="value_unedit"</tpl>
+					>{WXW_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{N35_T}</span>
+					<span code="N35_F" rowid="{ID}"
+					<tpl if="DM=='SL'" >class="value" type="itemvalue" isnum="int" <tpl elseif="DM=='BL'">class="value_unedit"</tpl>
+					>{N35_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{N36_45_T}</span>
+					<span code="N36_45_F" rowid="{ID}"
+					<tpl if="DM=='SL'" >class="value" type="itemvalue" isnum="int" <tpl elseif="DM=='BL'">class="value_unedit"</tpl>
+					>{N36_45_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{N46_55_T}</span>
+					<span code="N46_55_F" rowid="{ID}"
+					<tpl if="DM=='SL'" >class="value" type="itemvalue" isnum="int" <tpl elseif="DM=='BL'">class="value_unedit"</tpl>
+					>{N46_55_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{N56_T}</span>
+					<span code="N56_F" rowid="{ID}" <tpl if="DM=='SL'"> class="value" type="itemvalue" isnum="int" <tpl elseif="DM=='BL'"> class="value_unedit" </tpl> >{N56_F}</span>
+					<div></div>
+				</td>
+			</tr>
+	  </tpl>
+	  
+	</table>
+</div>

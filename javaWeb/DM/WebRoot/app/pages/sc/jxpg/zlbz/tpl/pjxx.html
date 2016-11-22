@@ -1,0 +1,43 @@
+<div style="font-size: 20px;font-weight: bold;font-family: '黑体';text-align: center;">{xn}学年</div>
+<div>
+	<table class="jxpg-common-table">
+		<tr>
+			<td class="title">项目</td>
+			<td class="title">覆盖比例(%)</td>
+			<td class="title">优(90分及以上)</td>
+            <td class="title">良好(89-75分)</td>
+            <td class="title">中(74-60分)</td>
+            <td class="title">差(60分以下)</td>
+		</tr>
+        <tpl for="items">
+            <tr>
+                <td>{XM}</td>
+                <td>
+                    <span class="realvalue">{FGBL_T}</span>
+                    <span class="value" code="FGBL_F" rowid="{ID}" type="itemvalue" isnum="float">{FGBL_F}</span>
+                    <div></div>
+                </td>
+                <td>
+                    <span class="realvalue">{YOU_T}</span>
+                    <span class="value" code="YOU_F" rowid="{ID}" type="itemvalue" isnum="int">{YOU_F}</span>
+                    <div></div>
+                </td>
+                <td>
+                    <span class="realvalue">{LH_T}</span>
+                    <span class="value" code="LH_F" rowid="{ID}" type="itemvalue" isnum="int">{LH_F}</span>
+                    <div></div>
+                </td>
+                <td>
+                    <span class="realvalue">{ZD_T}</span>
+                    <span class="value" code="ZD_F" rowid="{ID}" type="itemvalue" isnum="int">{ZD_F}</span>
+                    <div></div>
+                </td>
+                <td>
+                    <span class="realvalue">{CHA_T}</span>
+                    <span class="value" code="CHA_F" rowid="{ID}" type="itemvalue" isnum="int">{CHA_F}</span>
+                    <div></div>
+                </td>
+            </tr>
+        </tpl>
+	</table>
+</div>

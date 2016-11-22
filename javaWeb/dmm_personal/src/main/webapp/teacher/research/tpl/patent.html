@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<div class="container-fluid jzhi-menu jzhi-menu-keyan ">
+  <div class="row text-center">
+    <div class="col-xs-6 jzhi-menu-hover" id="sl">
+      <h5>受理专利 </h5>
+      <h4><a href="" ng-click="getAcceptPatent();" style="color:#fff;text-decoration: none">{{acceptPatent}}</a></h4>
+    </div>
+    <div class="col-xs-6" id="sq">
+      <h5>授权专利</h5>
+      <h4><a href="" ng-click="getAccreditPatent();" style="color:#fff;text-decoration: none">{{accreditPatent}}</a></h4>
+    </div>
+  </div>
+</div> 
+<div class="jzhi-line-title-bg jzhi-line-title text-center">专利列表</div>
+<div class="jzhi-no-table" ng-show="patents == ''">
+  <div class="jzhi-no-cell">
+    <div class="jzhi-no-list jzhi-no-zhuanli">暂无专利</div>
+  </div>
+</div>
+<div class="container-fluid">
+ <ul class="jzhi-cglist">
+   <li ng-repeat="patent in patents"><dl class="jzhi-list-dl"><span>{{$index+1}}</span><dt>专利名称</dt><dd>{{patent.NAME_}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>发明人</dt><dd>{{patent.INVENTORS}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>专利权单位</dt><dd>{{patent.PATENT_DEPT}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>专利类型</dt><dd>{{patent.PATENT_TYPE_NAME}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>专利实施状态</dt><dd>{{patent.PATENT_STATE_NAME}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>受理日</dt><dd>{{patent.ACCEPT_TIME}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>授权日</dt><dd>{{patent.ACCREDIT_TIME}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>专利号</dt><dd>{{patent.PATENT_NO}}</dd></dl></li>
+ </ul>
+</div>
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+

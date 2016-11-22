@@ -1,0 +1,59 @@
+.body_tip{ background:url(bg_noise.jpg) repeat;}
+a {
+    color:#015997;
+    text-decoration: none
+}
+a:hover {
+    color:#ff8e14;
+    text-decoration: underline
+}
+#main {
+    position: relative;
+    width: 600px;
+    margin: 0 auto;
+    padding-top: 8%;
+}
+#main #header h1 {
+    position: relative;
+    display: block;
+    font-size:30px;
+    font-family:"微软雅黑";
+    font-weight:normal;
+    color: #0061a5;
+    text-shadow: 2px 2px #f7f7f7;
+    text-align: center;
+    background:url(logo-error.png) center 0 no-repeat;
+    width:640px;
+    height:57px;
+}
+#main #content {
+    position: relative;
+    width: 600px;
+    padding:10px 20px;
+    background: white;
+    -moz-box-shadow: 0 0 0 3px #ededed inset, 0 0 0 1px #a2a2a2, 0 0 20px rgba(0, 0, 0, .15);
+    -webkit-box-shadow: 0 0 0 3px #ededed inset, 0 0 0 1px #a2a2a2, 0 0 20px rgba(0, 0, 0, .15);
+    box-shadow: 0 0 0 3px #ededed inset, 0 0 0 1px #a2a2a2, 0 0 20px rgba(0, 0, 0, .15);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    z-index: 5;
+}
+#main #content h2 {
+    background-position: bottom;
+    padding: 12px 0 22px 20px;
+    font-size:25px;
+    font-weight:normal;
+    font-family:"微软雅黑";
+    line-height:1.5;
+    color: #0061a5;
+    text-shadow: 2px 2px #f7f7f7;
+    text-align: left;
+}
+#main #content p {
+    position: relative;
+    padding: 20px;
+    font-size: 20px;
+    line-height: 1.3em;
+    color: #b5b5b5;
+}

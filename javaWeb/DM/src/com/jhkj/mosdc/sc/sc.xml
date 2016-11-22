@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+   <!-- 课程库情况统计 -->
+	<bean id="scKcktjService" class="com.jhkj.mosdc.sc.service.impl.KcktjServiceImpl">
+		<property name="baseService">
+			<ref bean="baseService"/>
+		</property>
+	</bean> 
+	<!-- 科研——yangtz -->
+	<bean id="Kycg_yangtzService" class="com.jhkj.mosdc.sc.service.impl.Kycg_yangtzServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean>
+	<bean id="initPathService" class="com.jhkj.mosdc.sc.job.impl.InitPathServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean>
+	<bean id="kyTopService" class="com.jhkj.mosdc.sc.service.impl.KyTopServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean>
+	<!-- 高质量论文排名  -->
+	<bean id="researchPaperRankService" class="com.jhkj.mosdc.sc.service.impl.ResearchPaperRankServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean>
+	
+	<!-- 科研成果 -->
+	<bean id="scientificAchievementService" class="com.jhkj.mosdc.sc.service.impl.ScientificAchievementServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean>
+	
+	<!-- 学生成绩统计JOB -->
+	<bean id="xsCjService" class="com.jhkj.mosdc.sc.job.impl.XsCjServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean>
+	
+	<!-- 学生成绩统计 -->
+	<bean id="studentMarkService" class="com.jhkj.mosdc.sc.service.impl.StudentMarkServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean>
+	
+	<!-- 首页展示数据 -->
+	<bean id="indexShowDataService" class="com.jhkj.mosdc.sc.service.impl.IndexShowDataServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean>
+	
+	<!-- 首页工作JOB -->
+	<bean id="indexShowService" class="com.jhkj.mosdc.sc.job.impl.IndexShowServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean>
+	
+	<!-- 一卡通吃饭统计 -->
+	<bean id="yktCfTjService" class="com.jhkj.mosdc.sc.service.impl.YktCfTjServiceImpl">
+		<property name="baseService">
+			<ref bean="baseService"/>
+		</property>
+	</bean> 
+	<!-- 图书借阅情况统计 -->
+	<bean id="tsJYService" class="com.jhkj.mosdc.sc.service.impl.TsJYServiceImpl">
+		<property name="baseService">
+			<ref bean="baseService"/>
+		</property>
+	</bean> 
+	<bean id="leaveSchoolService" class="com.jhkj.mosdc.sc.service.impl.LeaveSchoolServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean> 
+	<!-- 学生来源地统计(大学，中职去掉4DX) -->
+	<bean id="studentFromService" class="com.jhkj.mosdc.sc.service.impl.StudentFromServiceImpl4DX">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean> 
+	<!-- 一卡通消费概况统计 -->
+	<bean id="yktSituationService" class="com.jhkj.mosdc.sc.service.impl.YktSituationServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean> 
+	
+	<!-- 学生消费情况统计 -->
+	<bean id="xsxfqktjService" class="com.jhkj.mosdc.sc.service.impl.XsxfqktjServiceImpl">
+		<property name="baseService">
+			<ref bean="baseService"/>
+		</property>
+	</bean> 
+	<!-- 基本校情统计 -->
+	<bean id="schoolBasicSituationService" class="com.jhkj.mosdc.sc.service.impl.SchoolBasicSituationServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean> 
+	
+	<!-- 在籍学生素质统计 -->
+	<bean id="zjxssztjService" class="com.jhkj.mosdc.sc.service.impl.ZjxssztjServiceImpl">
+		<property name="baseService">
+			<ref bean="baseService"/>
+		</property>
+	</bean>
+	
+	<!-- 仪器设备信息 -->
+	<bean id="yqsbxxService" class="com.jhkj.mosdc.sc.service.impl.YqsbxxServiceImpl">
+		<property name="baseService">
+			<ref bean="baseService"/>
+		</property>
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean>
+	
+	<!-- 专业课程建设 -->
+	<bean id="zykcjsService" class="com.jhkj.mosdc.sc.service.impl.ZykcjsServiceImpl">
+		<property name="baseService">
+			<ref bean="baseService"/>
+		</property>
+	</bean>
+	
+	<!-- 图书信息统计分析 -->
+	<bean id="tsxxtjService" class="com.jhkj.mosdc.sc.service.impl.TsxxtjServiceImpl">
+		<property name="baseService">
+			<ref bean="baseService"/>
+		</property>
+	</bean>
+	
+	<!-- 本专科生资助情况 -->
+	<bean id="bzksZzqjService" class="com.jhkj.mosdc.sc.service.impl.BzksZzqkServiceImpl">
+		<property name="baseService">
+			<ref bean="baseService"/>
+		</property>
+	</bean>
+	
+	<!-- 本专科生招生信息 -->
+	<bean id="bzkszsxxService" class="com.jhkj.mosdc.sc.service.impl.BzkszsxxServiceImpl">
+		<property name="baseService">
+			<ref bean="baseService"/>
+		</property>
+	</bean>
+	
+	<!-- 本专科生毕业情况 -->
+	<bean id="bzksbyqkService" class="com.jhkj.mosdc.sc.service.impl.BzksbyqkServiceImpl">
+		<property name="baseService">
+			<ref bean="baseService"/>
+		</property>
+	</bean>
+	
+	<!-- 宿舍楼住宿情况 -->
+	<bean id="sslzsqkService" class="com.jhkj.mosdc.sc.service.impl.SslzsqkServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean>
+	
+	<!-- 晚归未住宿学生TOP10 -->
+	<bean id="wgwzstopService" class="com.jhkj.mosdc.sc.service.impl.WgwzstopServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean>
+	<bean id="demoService" class="com.jhkj.mosdc.sc.job.impl.DemoAnalysisServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean>
+	<bean id="scService" class="com.jhkj.mosdc.sc.service.impl.ScServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean>
+	
+	<bean id="bzksService" class="com.jhkj.mosdc.sc.service.impl.BzksServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean>
+	<bean id="scTeacherService" class="com.jhkj.mosdc.sc.service.impl.TeacherServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean>
+	<bean id="sstjService" class="com.jhkj.mosdc.sc.service.impl.SstjServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean>
+	
+	<bean id="teacherBhtjService" class="com.jhkj.mosdc.sc.service.impl.TeacherBhtjServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean>
+	
+	<bean id="studentBhtjService" class="com.jhkj.mosdc.sc.service.impl.StudentRsbhServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean>
+	
+	<bean id="kyService" class="com.jhkj.mosdc.sc.service.impl.KyServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean>
+	
+	<bean id="kyXmService" class="com.jhkj.mosdc.sc.service.impl.KyXmServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean>
+	<bean id="kycgService" class="com.jhkj.mosdc.sc.service.impl.KyCgServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean>
+	
+	<bean id="kyryService" class="com.jhkj.mosdc.sc.service.impl.KyRyServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean>
+	<bean id="bzxmailService" class="com.jhkj.mosdc.sc.job.impl.BzxMailSenderServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean>
+	<bean id="bzxService" class="com.jhkj.mosdc.sc.service.impl.BzxServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+		<property name="mailSender">
+			<ref bean="bzxmailService"/>
+		</property>
+	</bean>
+	<bean id="exportBzxService" class="com.jhkj.mosdc.sc.job.impl.ExportBzxXsServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean>
+	
+	<!-- 三天不在校人员统计 -->
+	<bean id="bzxrstjDao" class="com.jhkj.mosdc.sc.job.impl.BzxrstjDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	
+	<bean id="sslService" class="com.jhkj.mosdc.sc.service.impl.SslServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean>
+	<bean id="bzksWgService" class="com.jhkj.mosdc.sc.service.impl.BzksWgServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+		<property name="mailSender">
+			<ref bean="bzxmailService"/>
+		</property>
+	</bean>
+	<bean id="bzksWzsService" class="com.jhkj.mosdc.sc.service.impl.BzksWzsServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+		<property name="mailSender">
+			<ref bean="bzxmailService"/>
+		</property>
+	</bean>
+	<bean id="updateSydsxDao" class="com.jhkj.mosdc.sc.job.dao.impl.UpdateSydsxDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory"/>
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="updateSydsxService" class="com.jhkj.mosdc.sc.job.impl.UpdateSydsxServiceImpl">
+		<property name="dao">
+			<ref bean="updateSydsxDao"/>
+		</property>
+	</bean>
+	<bean id="yktxfqkService" class="com.jhkj.mosdc.sc.service.impl.YktXfqkServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean>
+	<bean id="ysPksService" class="com.jhkj.mosdc.sc.service.impl.YsPksServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean>
+	<!-- 院系负责人service -->
+	<bean id="yxfzrService" class="com.jhkj.mosdc.sc.service.impl.BzksYxfzrServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean>	
+	
+	<!-- 学生消费数据处理JOB service -->
+	<bean id="studentXfmxService" class="com.jhkj.mosdc.sc.job.impl.StudentXfmxServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean>
+	<!-- 科研论文 -->
+	<bean id="ranksNums" class="com.jhkj.mosdc.sc.service.impl.ThesisNumsRanksServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+		<property name="baseService">
+			<ref bean="baseService"/>
+		</property>
+	</bean>
+	<!-- 教师学缘分析service -->
+	<bean id="teacherXueyuanService" class="com.jhkj.mosdc.sc.service.impl.TeacherXueyuanServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean>
+	<!-- 教学任务分析service -->
+	<bean id="teacherJxrwService" class="com.jhkj.mosdc.sc.service.impl.TeacherJxrwServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean>
+	<!-- 教学评估 - 学校基本情况 -->
+	<bean id="jxpgXxjbxxService" class="com.jhkj.mosdc.sc.service.impl.JxpgXxjbxxServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean>
+	<!-- 一卡通 分类型分时段统计-->
+	<bean id="fsdFlxService" class="com.jhkj.mosdc.sc.service.impl.YktFsdFlxServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean>
+	<!-- OA统计 -->
+	<bean id="oaService" class="com.jhkj.mosdc.sc.service.impl.OaServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean>
+	
+	<!-- add:baihy:高产作者Service -->
+	<bean id="productiveAuthorService" class="com.jhkj.mosdc.sc.service.impl.ProductiveAuthorServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao" />
+		</property>
+	</bean>
+	
+<!-- 	<bean id="studentSexZc" class="com.jhkj.mosdc.sc.service.impl.StudentSexServiceImpl">
+		<property name="baseDao">
+			<ref bean="baseDao"/>
+		</property>
+	</bean> -->
+</beans>

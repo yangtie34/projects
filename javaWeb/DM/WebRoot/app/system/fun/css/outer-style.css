@@ -1,0 +1,81 @@
+@charset "utf-8";
+/* CSS Document */
+.outer_tip_container {
+    width:260px;
+    box-shadow:1px 1px 5px #999;
+}
+.outer_tip_box {
+}
+.outer_tip_title {
+    background:#06acf9;
+    font-size:16px;
+    font-weight:bold;
+    font-family:'Microsoft YaHei';
+    color:#fff;
+    line-height:50px;
+    padding:0 15px;
+}
+.outer_tip_message {
+    width:37px;
+    padding:10px 0px 10px 50px;
+    background:url(image/message.png) left center no-repeat;
+}
+.outer_tip_news {
+    font-size:12px;
+    font-weight:bold;
+    color:#1dbd02;
+    text-align:center;
+    line-height:20px;
+    padding:15px 20px 5px 20px;
+}
+.outer_tip_news a {
+    color:#1dbd02;
+    text-decoration:none;
+}
+.outer_tip_news a:hover {
+    color:#ff6600;
+    text-decoration:underline;
+}
+.outer_tip_close {
+    float:right;
+    /*background:url(image/error.png) 0 0 no-repeat;*/
+    margin-top:13px;
+    width:24px;
+    height:24px;
+    cursor:pointer;
+}
+.outer_tip_content {
+    font:normal 12px Arial, Helvetica, sans-serif;
+    padding:5px 20px 5px 20px;
+    color:#333;
+    background:#fff;
+}
+.outer_tip_content a {
+    color:#333;
+    text-decoration:none;
+}
+.outer_tip_content a:hover {
+    color:#ff6600;
+    text-decoration:none;
+}
+.outer_tip_hr {
+    height:0px;
+    border:none;
+    border-bottom:1px solid #d0e6e0;
+    margin:10px 20px;
+}
+.outer_tip_more {
+    font-size:12px;
+    font-weight:bold;
+    color:#1dbd02;
+    text-align:right;
+    padding:0px 20px 10px 0px;
+}
+.outer_tip_more a {
+    color:#1dbd02;
+    text-decoration:none;
+}
+.outer_tip_more a:hover {
+    color:#ff6600;
+    text-decoration:underline;
+}

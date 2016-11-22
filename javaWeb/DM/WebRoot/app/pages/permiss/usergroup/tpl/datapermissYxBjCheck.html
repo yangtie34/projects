@@ -1,0 +1,76 @@
+<table width="100%" border="0" cellpadding="5" class="wbh-common-table_green">
+    {%this.yxmc = values.yxmc;%}
+    <tpl if="node.children.length==0">
+        <tr  class="wbh-common-greenbg">
+            <td>{[this.yxmc]}-无专业</td>
+        </tr>
+    <tpl else>
+        <tpl for="node.children">
+            <tpl if="xindex == 1">
+                <tr class="wbh-common-greenbg">
+                    <td width="3%" rowspan="20">
+                        <span class="windows-outname-table-td-mode">
+                            <span class="wbh-common-orange">{[this.yxmc]}</span> |专业班级列表展示</span>
+                    </td>
+                    <td width="7%">
+                        <tpl if="checked == true">
+                            <input  type="checkbox" dtype="checkAll" checked="true" itemid="{id}" class="wbh-common-inputdefault"/>
+                        <tpl else>
+                                <input  type="checkbox" dtype="checkAll" itemid="{id}" class="wbh-common-inputdefault"/>
+                        </tpl>
+
+                        <label class="wbh-common-labeldefault">全选</label>
+                    </td>
+                    <td width="85%">{text}</td>
+                </tr>
+                <tr>
+                    <td width="97%" colspan="2" style="text-align:left">
+                        <tpl for="children">
+                            <tpl if="checked == true">
+                                <span class="wbh-common-table-td-nowrap wbh-common-margin-rightl" style="margin-left: 5px;width:140px;display:inline-block;">
+                                        <input name="" type="checkbox" itemid="{id}"  checked="true" class="wbh-common-inputdefault"/>
+                                        <label class="wbh-common-labeldefault">{text}</label>
+                                    </span>
+                            <tpl else>
+                                <span class="wbh-common-table-td-nowrap wbh-common-margin-rightl" style="margin-left: 5px;width:140px;display:inline-block;">
+                                        <input name="" type="checkbox" itemid="{id}"  class="wbh-common-inputdefault"/>
+                                        <label class="wbh-common-labeldefault">{text}</label>
+                                    </span>
+                            </tpl>
+
+                        </tpl>
+                    </td>
+                </tr>
+            <tpl else>
+                <tr class="wbh-common-greenbg">
+                    <td width="9%">
+                        <tpl if="checked == true">
+                            <input  type="checkbox" dtype="checkAll" checked="true" itemid="{id}" class="wbh-common-inputdefault"/>
+                        <tpl else>
+                            <input  type="checkbox" dtype="checkAll" itemid="{id}" class="wbh-common-inputdefault"/>
+                        </tpl>
+
+                        <label class="wbh-common-labeldefault">全选</label></td>
+                    <td width="99%">{text}</td>
+                </tr>
+                <tr>
+                    <td width="97%" colspan="2" style="text-align:left">
+                        <tpl for="children">
+                            <tpl if="checked == true">
+                                <span class="wbh-common-table-td-nowrap wbh-common-margin-rightl" style="margin-left: 5px;width:140px;display:inline-block;">
+                                        <input name="" type="checkbox" itemid="{id}"  checked="true" class="wbh-common-inputdefault"/>
+                                        <label class="wbh-common-labeldefault">{text}</label>
+                                    </span>
+                                <tpl else>
+                                <span class="wbh-common-table-td-nowrap wbh-common-margin-rightl" style="margin-left: 5px;width:140px;display:inline-block;">
+                                        <input name="" type="checkbox" itemid="{id}"  class="wbh-common-inputdefault"/>
+                                        <label class="wbh-common-labeldefault">{text}</label>
+                                    </span>
+                                </tpl>
+                        </tpl>
+                    </td>
+                </tr>
+            </tpl>
+        </tpl>
+    </tpl>
+</table>

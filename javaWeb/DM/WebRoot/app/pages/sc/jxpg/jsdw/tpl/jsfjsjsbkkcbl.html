@@ -1,0 +1,108 @@
+<div style="font-size: 20px;font-weight: bold;font-family: '黑体';text-align: center;">{xn}学年</div>
+<div>
+	<table class="jxpg-common-table">
+		<tr>
+		    <td class="title" colspan="2" width="550">项目</td>
+		    <td class="title">数量</td>
+		    <td class="title">百分比</td>
+		  </tr>
+		  <tr>
+		    <td width="89" rowspan="5">本校课程总门次数</td>
+		    <td width="89">总计</td>
+		    <td>
+		    	<tpl for="items">
+		    		<tpl if="DM=='ZJ'">
+		    			<span class="realvalue">{SL_T}</span>
+						<span code="SL_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{SL_F}</span>
+						<div></div>
+		    		</tpl>
+		    	</tpl>
+		    </td>
+		    <td>/</td>
+		  </tr>
+		  <tr>
+		    <td>其中：教授课门次数（门次）</td>
+		    <td>
+		    	<tpl for="items">
+		    		<tpl if="DM=='A'">
+		    			<span class="realvalue">{SL_T}</span>
+						<span code="SL_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{SL_F}</span>
+						<div></div>
+		    		</tpl>
+		    	</tpl>
+		    </td>
+		    <td>
+		    	<tpl for="items">
+		    		<tpl if="DM=='A'">
+		    			<span class="realvalue">{BL_T}</span>
+						<span code="BL_F" rowid="{ID}" class="value_unedit">{BL_F}</span>
+						<div></div>
+		    		</tpl>
+		    	</tpl>
+		    </td>
+		  </tr>
+		  <tr>
+		    <td>副教授课门次数（门次）</td>
+		    <td>
+		    	<tpl for="items">
+		    		<tpl if="DM=='B'">
+		    			<span class="realvalue">{SL_T}</span>
+						<span code="SL_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{SL_F}</span>
+						<div></div>
+		    		</tpl>
+		    	</tpl>
+		    </td>
+		    <td>
+		    	<tpl for="items">
+		    		<tpl if="DM=='B'">
+		    			<span class="realvalue">{BL_T}</span>
+						<span code="BL_F" rowid="{ID}" class="value_unedit">{BL_F}</span>
+						<div></div>
+		    		</tpl>
+		    	</tpl>
+		    </td>
+		  </tr>
+		  <tr>
+		    <td>教授所专业课程门次数（门次）</td>
+		    <td>
+		    	<tpl for="items">
+		    		<tpl if="DM=='C'">
+		    			<span class="realvalue">{SL_T}</span>
+						<span code="SL_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{SL_F}</span>
+						<div></div>
+		    		</tpl>
+		    	</tpl>
+		    </td>
+		    <td>
+		    	<tpl for="items">
+		    		<tpl if="DM=='C'">
+		    			<span class="realvalue">{BL_T}</span>
+						<span code="BL_F" rowid="{ID}" class="value_unedit">{BL_F}</span>
+						<div></div>
+		    		</tpl>
+		    	</tpl>
+		    </td>
+		  </tr>
+		  <tr>
+		    <td>教授所公共必修课门次数（门次）</td>
+		    <td>
+		    	<tpl for="items">
+		    		<tpl if="DM=='D'">
+		    			<span class="realvalue">{SL_T}</span>
+						<span code="SL_F" rowid="{ID}" class="value" type="itemvalue" isnum="int">{SL_F}</span>
+						<div></div>
+		    		</tpl>
+		    	</tpl>
+		    </td>
+		    <td>
+		    	<tpl for="items">
+		    		<tpl if="DM=='D'">
+		    			<span class="realvalue">{BL_T}</span>
+						<span code="BL_F" rowid="{ID}" class="value_unedit">{BL_F}</span>
+						<div></div>
+		    		</tpl>
+		    	</tpl>
+		    </td>
+		  </tr>
+	</table>
+</div>

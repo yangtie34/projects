@@ -1,0 +1,31 @@
+
+<tpl if="length==0">
+	<div style="margin-left:20px;">没有设置学生范围！</div>
+<tpl else>
+	<tpl for="xsfw">
+	<table width="100%" border="0" class="windows-out-pcinfo-table_gl" style="border:1px solid #797979" >
+	  <tr>
+	    <td width="20%" class="windows-out-pcinfo-td-right">入学年级：</td>
+	    <td width="15%">{rxnjValue}</td>
+	    <td width="25%" class="windows-out-pcinfo-td-right">学院&专业&班级：</td>
+	    <td width="30%">{yxZyBjValue}</td>
+	  </tr>
+	 <tr>
+	    <td class="windows-out-pcinfo-td-right">学生状态：</td>
+	    <td>{xsztValue}</td>
+	    <td class="windows-out-pcinfo-td-right">学籍状态：</td>
+	    <td>{xjztValue}</td>
+	  </tr>
+	 <tr>
+	    <td class="windows-out-pcinfo-td-right">学习方式：</td>
+	    <td>{xxfsValue}</td>
+	    <td class="windows-out-pcinfo-td-right">招生季度：</td>
+	    <td>{zsjdValue}</td>
+	  </tr>
+	</table> 
+	</tpl>
+</tpl>
+
+<p class="windows-out-pcinfo-pcenter">
+  <button class="wbh-common-buttondefault windows-outname-buttonwid wbh-common-margin-topm" type="button" id="{closeBtn}">取消</button> 
+</p>

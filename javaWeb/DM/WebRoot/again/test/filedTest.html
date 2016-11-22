@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<style>
+  .transformgrid-base tr{border:1px solid #000;} 
+  .transformgrid-base td{padding:5px;border:1px solid #000;}
+</style>
+<link rel="stylesheet" type="text/css"
+	href="../../extjs/resources/css/ext-all.css">
+<script src="data/data.js"></script>
+<script src="../../base1/util/LAB.min.js"></script>
+<script src="../../extjs/ext-all-debug.js"></script>
+<script src="../ns-debug.js"></script>
+<script type="text/javascript" src="../component/form/field/expand/ComboBoxTree.js"></script>
+<script type="text/javascript" src="../component/form/field/ComboBoxTree.js"></script>
+<script type="text/javascript" src="../component/appExpand/ForumSearch.js"></script>
+<script type='text/javascript' src="../component/appExpand/ForumSearch.js"></script>
+<script type='text/javascript' src="../component/container/QuickTip.js"></script>
+<script src="../../extjs/ext-lang-zh_CN.js"></script>
+<script type="text/javascript">
+	Ext.onReady(function() {
+
+		/*var test22 = Ext.create('Ext.form.field.ForumSearch',{
+			fieldLabel:'test22'
+		});*/
+		var textField = new NS.form.field.Text({
+			fieldLabel:'文本框',
+			allowBlank:false,
+            editable : false,
+			enterFn:function(text,data,rawData){
+				alert(data);
+			},
+			emptyText:'ok i see '
+		});
+		var numField = new NS.form.field.Number({
+			fieldLabel : '数字框',
+			allowBlank : false,
+			enterFn:function(text,data,rawData){
+				alert(data);
+			},
+			maxValue : 2,
+			minValue : 1,
+			step : 0.1,
+			emptyText : 'OK'
+		});
+		numField.on({
+			blur : function() {
+				console.log('numberFiled:' + numField.getValue());
+			}
+		});
+
+		var checkbox = new NS.form.field.Checkbox({
+			fieldLabel : '复选框测试',
+			boxLabel : 'ccccc',
+			checked : true,
+			inputValue : '1'
+		});
+		checkbox.on({
+			change : function() {
+				console.log("checkbox ： " + checkbox.getRawValue());
+			}
+		});
+
+		var combo = new NS.form.field.ComboBox({
+			fieldLabel : '下拉框测试',
+			multiSelect: true,
+            editable : true,
+			fields : [ 'a', 'b' ],
+			data : [ {
+				"a" : "AL",
+				"b" : "Alabama"
+			}, {
+				"a" : "AK",
+				"b" : "Alaska"
+			}, {
+				"a" : "AZ",
+				"b" : "Arizona"
+			} ],
+			displayField : 'b',
+			valueField : 'a',
+			queryMode : 'local'
+		});
+		combo.loadData([{
+			"a" : "11AK",
+			"b" : "11Alaska"
+		}, {
+			"a" : "11AZ",
+			"b" : "11Arizona"
+		} ]);
+		combo.addListener({
+			change : function() {
+				console.log("combo : " + combo.getValue() + "  "
+						+ combo.getRawValue());
+			}
+		});
+
+		var date = new NS.form.field.Date({
+			fieldLabel : '日期框测试',
+			allowBlank : false,
+			format : 'Y-m-d',
+			maxValue : new Date(),
+			value : '2010-01-01'
+		});
+		date.addListener({
+			change : function() {
+				console.log("combo : " + date.getValue() + "  "
+						+ date.getRawValue());
+			}
+		});
+
+		var display = new NS.form.field.Display({
+			fieldLabel : '显示组件',
+			value : '组件值'
+		});
+
+		var file = new NS.form.field.File({
+			//fieldLabel : '上传组件',
+			buttonText:'导入',
+			hideLabel:true,
+			buttonOnly:true,
+			callBack:function(btn){
+				alert('自定义回调:'+btn);
+			}
+		});
+		
+		var file2 = new NS.form.field.File({
+			fieldLabel : '上传组件',
+			buttonText:'上传'
+		});
+
+		/*file.addListener({
+			change : function() {
+				console.log("combo : " + file.getValue() + "  "
+						+ file.getRawValue());
+				//确定传吗？
+			}
+		});*/
+
+		//var down = new NS.button.Download({});
+		
+		var radio = new NS.form.field.Radio({
+			fieldLabel : '单选框测试',
+			boxLabel : 'ccccc',
+			//checked:true,
+			inputValue : '1'
+		});
+
+		radio.on({
+			change : function() {
+				console.log("radio ：" + radio.getRawValue());
+			}
+		});
+
+		var textArea = new NS.form.field.TextArea({
+			grow : true,
+			value : 'message',
+			fieldLabel : '文本域',
+			anchor : '100%'
+		});
+
+		textArea.on({
+			change : function() {
+				console.log("textArea ：" + textArea.getRawValue());
+			}
+		});
+
+		var _treeData = [ {
+			text : "detention",
+			id : '2',
+			leaf : true
+		}, {
+			text : "homework",
+			id : '23',
+			expanded : true,
+			children : [ {
+				text : "book report",
+				id : '21',
+				leaf : true
+			}, {
+				text : "alegrbra",
+				id : '20',
+				leaf : true
+			} ]
+		}, {
+			text : "buy lottery tickets",
+			id : '201',
+			leaf : true
+		}, {
+			text : "homework22",
+			id : '288',
+			expanded : true,
+			children : [ {
+				text : "book report2",
+				id : '211',
+				leaf : true
+			}, {
+				text : "alegrbra2",
+				id : '2566',
+				leaf : true
+			} ]
+		}, {
+			text : "detention33",
+			id : '20909',
+			leaf : true
+		}, {
+			text : "homework33",
+			id : '21234',
+			expanded : true,
+			children : [ {
+				text : "book report33",
+				id : '2123',
+				leaf : true
+			}, {
+				text : "alegrbra33",
+				id : '20987',
+				leaf : true
+			} ]
+		}, {
+			text : "buy lottery tickets33",
+			id : '21468',
+			leaf : true
+		}, {
+			text : "homework2233",
+			id : '209876',
+			expanded : true,
+			children : [ {
+				text : "book report233",
+				id : '208643',
+				leaf : true
+			}, {
+				text : "alegrbra233",
+				id : '21356',
+				leaf : true
+			} ]
+		} ];
+		
+		var comboTree = new NS.form.field.ComboBoxTree({
+			fieldLabel : '测试样例1',
+			emptyText : '选择叶子节点...',
+			expanded : true,
+			editable : true,
+			isLeafSelect:false,
+			rootVisible : true,
+			width : 400,
+			rootName : '根节点名称',
+			treeData : NS.clone(_treeData)
+		});
+
+		var comboTree2 = new NS.form.field.ComboBoxTree({
+			fieldLabel : '测试样例',
+			emptyText : '选择叶子节点...',
+			expanded : true,
+			editable : true,
+			rootVisible : true,
+			width : 400,
+			rootName : '根节点名称',
+			treeData : NS.clone(_treeData)
+		});
+		comboTree.setValue('2');
+		comboTree.addListener({
+			itemclick : function(view, record) {
+
+			}
+		});
+		//有问题啊
+		var menu = new NS.menu.Menu({
+			width : 100,
+			height : 100,
+			margin : '0 0 10 0',
+			floating : false,
+			items : [ {
+				text : 'regular item 1'
+			}, {
+				text : 'regular item 2'
+			}, {
+				text : 'regular item 3'
+			} ]
+		});
+
+		
+		//win.show();
+		/*
+		 var btn1 = new NS.Button({
+		 text : 'Show Window',
+		 handler : function() {
+		 win.show();
+		 }
+		 });
+		 var btn2 = new NS.Button({
+		 text : 'Close Window',
+		 handler : function() {
+		 win.close();
+		 }
+		 })
+		 */
+		/*
+		
+		 Ext.create('Ext.panel.Panel', {
+		 title : '标题',
+		 padding : '10 0 0 400',
+		 bodyPadding : 10,
+		 items : [ btn1.getLibComponent(), btn2.getLibComponent(),
+		 menu.getLibComponent(), comboTree.getLibComponent(),
+		 textArea.getLibComponent(), radio.getLibComponent(),
+		 file.getLibComponent(), display.getLibComponent(),
+		 date.getLibComponent(), combo.getLibComponent(),
+		 numField.getLibComponent(), checkbox.getLibComponent() ],
+		 width : 1000,
+		 height : 600,
+		 autoScroll : true,
+		 renderTo : Ext.getBody()
+		 });
+		 */
+		
+		
+		/*var forumSearch = new NS.form.field.ForumSearch({
+			fieldLabel:'学号',
+			url:'baseAction!queryByComponents.action?components={"queryTableContent": {"request": "xsjbxx_queryForJcgl","params": {"singleReturnNoComponent": 1}}}',
+			fields: ['id', 'xm','xh','bjmc'],
+			pageSize:20,
+			width:300,
+			labelWidth:40,
+			name:'xsxm',
+			queryParam:'xh',
+			minChars:1,
+			displayField:'xh',
+			valueField:'id',
+			getInnerTpl :function() {
+				return '<a class="search-item">学号：<b>{xh}</b>,班级：{bjmc}</a>';
+			},
+			emptyText:'请输入学号查找...'
+		});
+		 forumSearch.getLibComponent().addListener({
+			 blur:function(){
+				 alert(forumSearch.getValue());//得到id
+				 alert(forumSearch.getRawValue());//rawValue
+			 }
+		 })*/
+		 var forumSearchs = new NS.form.field.ForumSearch({
+				fieldLabel:'姓名',
+
+				service:{
+					serviceName:'xsjbxx_queryForJcgl',
+					params:{
+						mcaaw:'aaa'
+					}
+				},
+				
+				//url:'baseAction!queryByComponents.action?components={"queryTableContent": {"request": "xsjbxx_queryForJcgl","params": {"singleReturnNoComponent": 1}}}',
+				pageSize:20,
+				//name:'id',
+				minChars:1,
+				fields:["id","xm","xh"],
+				displayField:'xm',
+				getInnerTpl :function() {
+					return '<a class="search-item">名称：<b>{xm}{id}{xh}</b></a>';
+				},
+				emptyText:'请输入姓名查找...'
+			}); 
+		 forumSearchs.addListener('beforeload',function(params){
+			 console.log(params);
+			 params['mcaaw'] = 'sss';
+			 return false;
+		 });
+		var grid =  new NS.grid.TransformGrid({
+		    format:{
+		    	xm:function(value){
+		    		return value+"同学";
+		    	}
+		    },
+		    fields:[{name:'xm',nameCh:'姓名'},{name:'xgr',nameCh:'修改人'},{name:'rxny',nameCh:'入学年月'},{name:'lxdh',nameCh:'联系电话'},{name:'cjsj',nameCh:'创建时间'},{name:'xgsj',nameCh:'修改时间'},{name:'rsnum',nameCh:'Num'}],
+		    data:[{xm:"臧觅",xgr:"admin",rxny:"2012-09",lxdh:"18646103021",cjsj:"2013-1-9 19:04:43",xgsj:"2013-01-11 04:33:41",rsnum:6},{xm:"连大",xgr:"admin",rxny:"2012-09",lxdh:"18988553529",cjsj:"2013-1-9 19:04:43",xgsj:"2013-01-11 04:33:41",rsnum:6},{xm:"邰真冷",xgr:"admin",rxny:"2012-09",lxdh:"13719935510",cjsj:"2013-1-9 19:04:43",xgsj:"2013-01-11 04:33:41",rsnum:13},{xm:"林科松",xgr:"admin",rxny:"2012-09",lxdh:"13178721709",cjsj:"2013-1-9 19:04:43",xgsj:"2013-01-11 04:33:41",rsnum:16},{xm:"凌国雪",xgr:"admin",rxny:"2012-09",lxdh:"13297242814",cjsj:"2013-1-9 19:04:43",xgsj:"2013-01-11 04:33:41",rsnum:21}],
+		    padding: 20
+		});
+		 
+		
+	
+		/*var tbar = new NS.toolbar.MultiLineToolbar({
+			height : 80,
+			 items:[{text:'test  2'},
+			        {text:'test  3'},{text:'test  4'},
+			        {text:'test  5'},{text:'test  6'},
+			        {text:'test  7'},{text:'test  8'},
+			        {text:'test  9'},{text:'test  10'},
+			        {text:'test  11'},{text:'test  12'},
+			        {text:'test  13'},forumSearch]
+		});
+	 */
+		
+		
+		/*var sc = new Ext.form.field.InsertFile({
+			
+		});*/
+		
+		 var panel = new NS.container.Panel({
+			width : 600,
+			autoHeight:true,
+			//tbar:tbar,
+			padding:'0 0 0 20',
+			//items:[test22],
+			items : [numField,grid,file,forumSearchs, menu, comboTree,comboTree2, textArea, radio, file2, display, date,combo,checkbox,textField],
+			title : "You Can!",//down
+			renderTo : Ext.getBody()
+		 });
+
+		
+		var ff__  = Ext.create('Ext.form.field.ForumSearch',{
+			fieldLable:'查询',
+			service:{
+				serviceName:'xsjbxx_queryForJcgl',
+				params:{
+					xnId:"111111"
+				}
+			},
+			fields:["id","xm"],
+			displayField:'xm',
+			getInnerTpl :function() {
+				return '<a class="search-item">名称：<b>{xm}</b></a>';
+			},
+			emptyText:'查询...'
+		});
+		ff__.setValue("-=-=");
+		var p__ = Ext.create('Ext.panel.Panel',{
+			title:'标题',
+			renderTo:Ext.getBody(),
+			items:[ff__]
+		});
+		 var tip = new NS.tip.QuickTip({
+	            width: 200,
+	            autoShow:true,
+	            html:'办理成功！',
+	            //autoHide: false,
+	            //hideDelay:20,
+	            shadow: false,
+	            bodyBorder: false,
+	            frameHeader: false,
+	            dismissDelay:3000,
+	            hideCollapseTool: true,
+	            overlapHeader: true,
+	            bodyBorder: false
+	        });
+	});
+</script>
+</head>
+<body>
+
+</body>
+</html>

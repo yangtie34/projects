@@ -1,0 +1,69 @@
+@CHARSET "UTF-8";
+.list-line {
+	border-bottom: 1px solid #3399cc;
+	height: 35px;
+	position: relative;
+}
+.list-tab {
+	margin:0;
+	font-size:14px;
+	color:#3399cc;
+	padding:0px 0px 0px 20px;
+	position:absolute;
+	top:1px;
+	left:0;
+}
+.list-default {
+	display:inline-block;
+	height:34px;
+	line-height:34px;
+	padding:0 10px;
+	text-decoration:none;
+	color:#3399cc; 
+	border-bottom:none;
+	margin-left:10px;
+} 
+.list-default:hover {
+	color:#3399cc;
+	border:1px solid #3399cc;
+	border-bottom:1px solid #fff;
+}
+
+.list-selected {
+	display:inline-block;
+	height:34px;
+	line-height:34px;
+	padding:0 10px;
+	text-decoration:none; 
+	margin-left:10px;
+	color:#3399cc;
+	border:1px solid #3399cc;
+	border-bottom:1px solid #fff;
+}
+.list-selected:hover {
+	color:#3399cc;
+}
+
+/***
+table格式
+***/
+.lunwen-table {
+	border-collapse:collapse;
+}
+.lunwen-table td, .lunwen-table th {
+	border:1px solid #3399cc;
+	text-align:center;
+	padding:5px 15px;
+	font-size:13px;
+}
+.lunwen-table th {
+	background:#3399cc;
+	color:#fff;
+	font-weight:normal;
+}
+.lunwen-table-nodate{    background: #fcfcfc;
+    color: #999;
+    font-size: 22px;
+    height: 280px;
+    line-height:280px;
+    text-align: center;}

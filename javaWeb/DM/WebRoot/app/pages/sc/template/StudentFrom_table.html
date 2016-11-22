@@ -1,0 +1,21 @@
+<table class="another-add-baifen" width="100%" border="0">
+    <tr>
+        <th width="12%">来校人数</th>
+        <th width="12%">未维护来源地</th>
+        <th width="12%">农村户口人数</th>
+        <th width="12%">县镇户口人数</th>
+        <th width="12%">城市户口人数</th>
+        <th width="10%">男生</th>
+        <th width="10%">女生</th>
+    </tr>
+    <tr>
+        <tpl for='topData.zbCounts'>
+            <td style="font-size: 14px;"><b>{ZS}</b></td>
+        </tpl>
+    </tr>
+    <tr>
+        <tpl for='topData.zbCounts'>
+            <td>占比：{ZB}%</td>
+        </tpl>
+    </tr>
+</table>

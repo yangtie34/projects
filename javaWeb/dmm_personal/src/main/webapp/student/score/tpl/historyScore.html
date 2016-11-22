@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<div class="rxs-comn-list rxs-comn-pad-top">
+  <div class="rxs-title-line" ng-repeat="score in scores">
+  <a href="" style="text-decoration: none;color:#333;" ng-click = "showScore(score.school_year,score.term_code);" >
+  <div class="rxs-comn-title rxs-comn-noicon"> {{score.schoolYear}}{{score.termCode}} <i id="{{score.school_year}}{{score.term_code}}" class="rxs-down-arw pull-right"></i></div></a>
+  <table id="{{score.school_year}}-{{score.term_code}}" class="rxs-comn-table rxs-td-ft-15" width="100%" border="0" cellpadding="0" cellspacing="0"> 
+    <tbody>
+      <tr ng-repeat="sc in score.list">
+        <td><h4 class="rxs-text-15">{{sc.course_name}}</h4></td>
+        <td><span class="rxs-af-cor">{{sc.credit}}学分</span></td>
+        <td><span class="rxs-num-green" ng-show="sc.score >= 60 || sc.score == '及格' || sc.score == '中等' || sc.score == '良好' || sc.score =='优秀'">{{sc.score}}</span>
+        <span class="rxs-num-red" ng-show="sc.score < 60 || sc.score == '不及格'">{{sc.score}}</span></td> 
+      </tr> 
+    </tbody>
+  </table></div>
+</div>
+
+                    

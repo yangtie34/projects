@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<div class="container-fluid  jzhi-menu-gradient"> 
+  <div class="media text-center">
+    <div class="media-left media-middle">
+      <a href="" ng-click="clickLeft();"><span class="phone-common-border-bold-arrow-left pull-left"></span></a>
+    </div>
+    <div class="media-body media-middle"><div class="row jzhi-date-text"><div class="col-xs-4">
+       {{lastYear}}年
+    </div>
+    <div class="col-xs-4 jzhi-select-text">
+       {{currYear}}年
+    </div>
+    <div class="col-xs-4">
+       {{nextYear}}年 
+    </div></div></div>
+    <div class="media-right media-middle">
+       <a href="" ng-click="clickRight();"><span class="phone-common-border-bold-arrow-right pull-right"></span></a>
+    </div>
+  </div>
+</div> 
+<div class="jzhi-no-table" ng-show="historysalary == ''">
+  <div class="jzhi-no-cell">
+    <div class="jzhi-no-list jzhi-no-zhuanli">暂无薪资数据</div>
+  </div>
+</div>
+<div class=" "><table class="table table-hover jzhi-table" ng-hide="historysalary == ''"> 
+      <thead>
+        <tr>
+          <th>工作时间</th>
+          <th>工资发放时间</th>
+          <th>工资金额</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="salary in historysalary">
+          <td><a ng-href="#/lastsalary/{{salary.year_}}/{{salary.month_}}" style="text-decoration: none;color:#333">{{salary.year_}}年{{salary.month_}}月</a></td>
+          <td><a ng-href="#/lastsalary/{{salary.year_}}/{{salary.month_}}" style="text-decoration: none;color:#979797">{{salary.time_}}</a></td>
+          <td><a ng-href="#/lastsalary/{{salary.year_}}/{{salary.month_}}" style="text-decoration: none;color:#f66e39">{{salary.money}}<span class="phone-common-arrow-right  pull-right"></span></a></td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+

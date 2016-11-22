@@ -1,0 +1,110 @@
+<div class="zyc-container">
+ <tpl for="dqhjData">
+  <table width=" 100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="40" width="220" align="left" class="cor-org fot-bod">您的办理环节：
+		<tpl if="hjsl ==1">
+			<tpl for="hj">
+				<span class="cor-lan">{hjmc}</span>
+			</tpl>
+		</tpl>
+		<tpl if="hjsl !=1">
+		  <select class="cor-lan" id="yx_hj">
+			<tpl for="hj">
+				<option value="{hjId}">{hjmc}</option>
+			</tpl>
+			</select>
+		</tpl>
+    </td>
+    <td align="left" class="cor-org current-admin fot-bod"><span class="current-admin ">当前办理人：</span>
+    	<span class="cor-lan">{blr}</span>
+    </td>
+  </tr>
+</table>
+</tpl>
+
+
+<table class="bor-bk" width="100% " border="0" cellspacing="0" cellpadding="0">
+  <tr>
+   <td align="right" width="205" >批次：
+      <select  name="select" id="yx_pc">
+	  <tpl for="yxPcData">
+	  <option value="{ID}">{MC}</option>
+	  </tpl>
+      </select>
+  </td>
+    <td align="right" width="170">
+      学号或姓名或身份证号：</td>
+    <td height="45" width="215"> <input class="input-wid" id="yxlx_querystr" name="yxlx_querystr" type="text" /></td>
+    <td width="115"><input class="btn-wid" name="yxlx_query" type="button" value="查询" /></td>
+    <td width="78">    
+     <tpl for="dqhjData">
+         <tpl for="hj">
+		     <tpl if="hjmc == '注册分班'">
+		   		<input class="btn-wid" name="yx_add" type="button" value="现场招录" />
+		    </tpl>
+	    </tpl>
+	    </tpl>
+     
+    </td>
+    <td><!--  <input name="" type="checkbox" value="" />启用扫描器--></td>
+    <td><!-- <input class="btn-wid" name="yxlx_load" type="button" value="刷新" />--> </td>
+  </tr>
+</table>
+
+
+
+ <div class="liucheng-width">
+
+<table  width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+  <tpl for="hjtjData">
+   <td>
+   
+<div class="liucheng"><table width=" 100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <tpl if="sfdqhj == 1">
+    		<td class="bg-td">{hjmc}</td>
+    	</tpl>
+    	<tpl if="sfdqhj == 0">
+    		<td class="bg-tdbai">{hjmc}</td>
+    	</tpl>
+    	<tpl if="sfdqhj == 2">
+    		<td class="bg-tdorg">{hjmc}</td>
+    	</tpl>
+  </tr>
+   <tr>
+    <td height="13"><span class="cor-blue">已办</span>：{ybnum}人</td>
+  </tr>
+   <tr>
+    <td height="20"><span class="cor-red">未办</span>：{wbnum}人</td>
+  </tr>
+</table></div>
+   </td>   
+   </tpl>
+ </tr>
+</table>
+
+</div>
+
+
+
+<div id="yxlx_xsgird" class="xsgrid">
+</div>
+<tpl for="bltjData">
+<table class="bor-bk2" width=" 100%" height="80" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="foot-org">您今天已办理   {ybrs}人</td>
+    <td class="foot-org">高峰时段  {gfsd} </td>
+    <td class="foot-blu">最高流量  {zgll}人/小时</td>
+  </tr>
+  <tr>
+    <td class="foot-blu">预计还需办理  {xbrs}人</td>
+    <td class="foot-org">空闲时段  {kxsd}</td>
+    <td class="foot-blu">平均流量  {pjll}人/小时</td>
+  </tr>
+</table>
+</tpl>
+<div id="yx_print" style="display:none"></div>
+ </div>
+ 

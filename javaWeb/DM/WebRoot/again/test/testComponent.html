@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css">
+    <script src="data/data.js"></script>
+    <script src="../../base1/util/LAB.min.js"></script>
+    <script src="../../extjs/ext-all.js"></script>
+    <script src="../ns-debug.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function(){
+            var component = new NS.Component({
+                html: 'Hello world!',
+                width: 300,
+                height: 200,
+                padding: 20,
+                style: {
+                    color: '#FFFFFF',
+                    backgroundColor:'#000000'
+                },
+                renderTo: Ext.getBody()
+            });
+        });
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

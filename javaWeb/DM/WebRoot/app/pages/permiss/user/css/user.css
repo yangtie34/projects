@@ -1,0 +1,24 @@
+/***************用户管理模块特殊css*********************/
+@charset "utf-8";
+/* CSS Document */
+.permiss-user-xinzeng-table-width {
+    width:550px;
+    font: normal 12px microsoft yahei;
+}
+.permiss-user-xiugai-table-width {
+    width:340px;
+    font: normal 12px microsoft yahei;
+}
+.permiss-user-sheding-table-width{ width:450px;
+    font: normal 12px microsoft yahei;}
+.permiss-user-outname-table-left {
+    padding-left: 13px;
+    border-left: 2px solid #CCC;
+}
+.permiss-user-outname-table-right {
+    padding-right: 13px;
+}
+.permiss-common-windows {
+    padding:25px;
+}
+

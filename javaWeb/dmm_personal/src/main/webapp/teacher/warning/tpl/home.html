@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<div class="phone-common-list-line">
+  <h3 class="phone-common-title">
+  	<span class="jzhi-yjing-xiaofei-icon pull-left"></span>
+  	消费异常
+  	<div class="btn-group pull-right" style="margin: 10px 0px">
+	  <button type="button" class="btn btn-sm btn-default" ng-class="{disabled : consumeDate == 1}"
+	  		style="outline: none;" ng-click="consumeDate=1">近一月</button>
+	  <button type="button" class="btn btn-sm btn-default" ng-class="{disabled : consumeDate == 3}"
+	  		style="outline: none;" ng-click="consumeDate=3">近三月</button>
+	</div>
+  </h3>
+  <div class="container-fluid jzhi-menu jzhi-menu-car-bg ">
+    <div class="row text-center">
+      <div class="col-xs-6">
+        <h5><span class="jzhi-yj-xiaofei01-icon"></span>高消费人数</h5>
+        <h4 class="jzhi-size-26">
+        	<span ng-show="consumeNums.high <= 0">
+				 未统计
+			</span>
+			<a ng-href="#/consume/{{consumeDate}}/high" style="color:#fff;text-decoration:none;" ng-hide="consumeNums.high <= 0">
+				 {{consumeNums.high}}
+			</a>
+		</h4>
+      </div>
+      <div class="col-xs-6">
+        <h5><span class="jzhi-yj-xiaofei02-icon"></span>低消费人数</h5>
+        <h4 class="jzhi-size-26">
+			<span ng-show="consumeNums.low <= 0">
+				 未统计
+			</span>
+			<a ng-href="#/consume/{{consumeDate}}/low" style="color:#fff;text-decoration:none;" ng-hide="consumeNums.low <= 0">
+				 {{consumeNums.low}} 
+			</a>
+		</h4>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="phone-common-list-line phone-common-martb">
+  <h3 class="phone-common-title"> <span class="jzhi-yjing-zhusu-icon pull-left"></span>住宿异常<span class="phone-common-arrow-right pull-right hidden"></span> </h3>
+  <div class="container-fluid jzhi-menu jzhi-menu-card-bg">
+    <div class="row text-center">
+      <div class="col-xs-6">
+        <h5><span class="jzhi-yj-zhusu01-icon"></span>晚归人数 </h5>
+        <h4 class="jzhi-size-26">
+        	<span ng-show="stayNum.late <= 0">
+				 未统计
+			</span>
+			<a ng-href="#/stay/late" style="color:#fff;text-decoration:none;" ng-hide="stayNum.late <= 0">
+				{{stayNum.late}}
+			</a>
+		</h4>
+      </div>
+      <div class="col-xs-6">
+        <h5><span class="jzhi-yj-zhusu02-icon"></span>离校人数</h5>
+        <h4 class="jzhi-size-26">
+        	<span ng-show="stayNum.out <= 0">
+				 未统计
+			</span>
+			<a ng-href="#/stay/out" style="color:#fff;text-decoration:none;" ng-hide="stayNum.out <= 0">
+				{{stayNum.out}}
+			</a>
+        </h4>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="phone-common-list-line phone-common-martb">
+  <h3 class="phone-common-title"> 
+  	<span class="jzhi-yjing-xuexi-icon pull-left"></span>
+  	学业异常
+  	<div class="btn-group pull-right" style="margin: 10px 0px;">
+	  <button class="btn btn-default btn-sm dropdown-toggle " type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	   {{xnxqSelect.xn}}学年第{{xnxqSelect.xq}}学期  <span class="caret"></span>
+	  </button>
+	  <ul class="dropdown-menu">
+	  	 <li ng-repeat="it in xnxqList"><a ng-click="changeXnxqSelect(it)">{{it.xn}}学年第{{it.xq}}学期</a></li>
+	  </ul>
+	</div>
+  </h3>
+	  <div class="jzhi-no-table phone-common-list" style="margin: 0px;"  ng-show="xyycList.length ==0">
+		  <div class="jzhi-no-cell">
+		    <div class="jzhi-no-list jzhi-no-zhuanli"><h6>无挂科学生</h6></div>
+		  </div>
+	</div>
+	<div ng-repeat="it in xyycList">
+	    <h3 class="phone-common-title" style="border-top: 1px solid #ddd;">{{it.bj}} 
+	   	 	<a ng-href="#/study/{{xnxqSelect.xn}}/{{xnxqSelect.xq}}/{{it.bjid}}/{{it.bj}}/{{it.gkrs}}">
+	    		<span class="phone-common-arrow-right pull-right"> </span>
+	    	</a>
+	    </h3>
+	    
+	    <div class="container-fluid jzhi-menu jzhi-menu-book-bg">
+		    <div class="row text-center">
+		      <div class="col-xs-12">
+		        <h5><span class="jzhi-yj-xuexi01-icon"></span>挂科总人次</h5>
+		        <h4 class="jzhi-size-26">
+					<a ng-href="#/study/{{xnxqSelect.xn}}/{{xnxqSelect.xq}}/{{it.bjid}}/{{it.bj}}/{{it.gkrs}}" style="color:#FFF;text-decoration:none;">
+					{{it.gkrs}}
+					</a> 
+				</h4>
+	     	 </div>
+		      <div class="col-xs-6 hidden">
+		        <h5><span class="jzhi-yj-xuexi02-icon"></span>学分不够人数</h5>
+		        <h4 class="jzhi-size-26">{{it.xfbgrs}}</h4>
+		      </div>
+	    </div>
+   </div>
+  </div>
+</div>
+  
+  
+</div>

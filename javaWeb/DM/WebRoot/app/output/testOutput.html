@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="../../base1/util/LAB.min.js"></script>
+    <script src="../../extjs/ext-all-debug.js"></script>
+    <script src="../../again/ns-debug.js"></script>
+    <script src="output-debug.js"></script>
+    <script type="text/javascript">
+        NS.define('App.com.A',{
+            constructor : function(){
+               alert("A");
+            },
+            getName : function(){
+                alert("A+A");
+            }
+        });
+        NS.define('App.com.B',{
+            extend : 'App.com.A',
+//            constructor : function(){
+//                this.callParent(arguments);
+//                //alert("B");
+//            },
+            getName : function(){
+                alert("A+B");
+                this.callParent(arguments);
+            }
+        });
+        NS.define('App.C',{
+            constructor : function(){
+                // alert("A");
+            },
+            getName : function(){
+                alert("A+C");
+            }
+        });
+        var b = new App.com.B();
+        //b.getName();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

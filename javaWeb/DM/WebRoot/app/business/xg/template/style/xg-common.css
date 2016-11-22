@@ -1,0 +1,249 @@
+/* 通用模块 CSS */
+ div, span, h1, h2, h3, h4, h5, h6, p, ul, ol, dl, li, dt, dd, table, option, input, label, a, strong, em, br {
+	margin:0;
+	padding:0;
+}
+.floatRight {
+	float:right;
+}
+.floatLeft {
+	float:left;
+}
+.clear {
+	clear:both;
+}
+/* 页面容器 */
+.xg-common_container {
+	margin-bottom:2em;
+	overflow:hidden;
+	color:#333;
+	font:normal 12px 宋体;
+	padding:25px;
+	overflow: hidden;
+}
+hr.xg-common_hrdefault {
+	height:1px;
+	border:none;
+	border-bottom:1px dashed #999;
+}
+input.inputdefault, select.selectdefault {
+	border:1px solid #cccccc;
+	vertical-align:middle;
+}
+input.inputdefault {
+	height:1.5em;
+	font-family:"微软雅黑"
+}
+label.labeldefault {
+	vertical-align:middle;
+	margin-top:0;
+}
+button.buttondefault {
+	font-family:"微软雅黑";
+	padding:0 4px;
+	vertical-align:middle;
+}
+select.selectdefault {
+	font-family:"微软雅黑";
+	vertical-align:middle;
+}
+.xg-common_orange {
+	color:#FF6600;
+}
+.xg-common_blue {
+	color:#0066FF
+}
+.xg-common_grey {
+	color:#333333;
+}
+.xg-common_green {
+	color:#009900;
+}
+.xg-common_orange-import {
+	color:#FF3300;
+}
+.xg-common_grey-qian {
+	color:#999999
+}
+.xg-common_blue-qian {
+	color:#3399FF;
+}
+.xg-common_margin-leftfif {
+	margin-left:25px;
+}
+.xg-common_margin-leftsmall {
+	margin-left:5px
+}
+.xg-common_margin-leftinput {
+	margin-left:6px
+}
+/* 盒子 */
+.xg-common_box h2 {
+	border-bottom:2px solid #3399FF;
+	font-weight:normal;
+	font-size:12px;
+	line-height:1.6;
+	margin-bottom:0.6em;
+}
+/*.xg-common_box h2 span {
+	margin-right:1em;
+}*/
+.xg-common_box h2 .xg-common_title {
+	margin-right:2em;
+	padding-left:0.5em;
+	color:#3366FF;
+	font-weight:bold;
+	font-size:14px;
+	font-family:'微软雅黑';
+	background:url(../image/border-leftnormal.jpg) left center no-repeat;
+}
+.xg-common_box .xg-common_body {
+	margin:0.6em 0 1em 0;
+	border:1px solid #797979;
+	padding:0.6em;
+	background:#FFFFFF;
+	color:#333333;
+	overflow: hidden;
+}
+.xg-common_box td, .xg-common_box th {
+	border:1px solid #797979;
+	height:29px;
+	text-align:center;
+}
+.xg-common_box thead th {
+	background:#3399FF;
+	color:#FFFFFF;
+}
+.xg-common_gracetborder {
+	border:1px solid #797979;
+}
+.xg-common_box .xg-common_body p, .xg-common_box .xg-common_body li {
+	padding:0.3em 0;
+	width:100%;
+}
+/* 页面顶部 */
+.xg-common_top {
+	padding-bottom:0.8em;
+}
+.xg-common_top .xg-common_model {
+	padding-right:0.6em;
+	color:#FF6600;
+	font:bold 16px 'Microsoft YaHei';
+	background:url(../image/border-rightbold.jpg) right center no-repeat;
+}
+.xg-common_top .xg-common_user {
+	margin:auto 1.3em auto 0.5em;
+	color:#3366FF;
+	font:bold 14px 'Microsoft YaHei';
+}
+.xg-common_top .xg-common_dept {
+	color:#333;
+	font:bold 12px 'Microsoft YaHei';
+}
+.xg-common_top .xg-common_term {
+	color:#FF6600;
+	line-height:1.8em;
+	font:bold 14px 'Microsoft YaHei';
+}
+/* 搜索模块  
+	border:1px solid #999999
+	border:1px solid #797979;*/
+.xg-common_search {
+	border:1px solid #999999;
+	padding:5px 0;
+	margin: 5px 0;
+}
+/* 小工具栏 */
+.xg-common_tools {
+	padding: 5px;
+	margin : 5px 0;
+}
+
+.xg-common_search label {
+	margin-left:0.6em;
+	font-family:'Microsoft YaHei'
+}
+.xg-common_search select {
+	border:1px solid #CCC;
+}
+/* 主体 */
+.xg-common_grid {
+    border: 1px solid #999999;
+}
+.xg-common_main {
+	margin:0.6em 0;
+}
+.xg-common_main .xg-common_mainLeft {
+	width:75%;
+}
+.xg-common_mainList {
+	width:100%
+}
+.xg-common_main .xg-common_mainRight {
+	width:25%;
+}
+.xg-common_main .xg-common_mainLeft .xg-common_box {
+	margin-right:2em;
+}
+.xg-common_main .xg-common_mainLeft .xg-common_box .xg-common_body {
+	border:none;
+	padding:0;
+	background:#FFF;
+}
+table.xg-common_mainList {
+	border-collapse:collapse;
+}
+.shuoming {
+	position: relative;
+	border-radius: 8px;
+	border: 1px solid #CCC;
+	background: #F6F6F6;
+	height: 35px;
+	line-height: 36px;
+	margin-top: 20px;
+	padding-left: 10px;
+	color: #666;
+}
+.imgcss {
+	position: absolute;
+	left: 15px;
+	top: -17px;
+}
+.text-cor {
+	color: #39F;
+	font-weight: bold;
+}
+.xg-common_red {
+	color:red;
+}
+.xg-common_orange {
+	color:#FF6600;
+}
+.xg-common-tbar-text {
+	color:#FF6600;
+	margin:5px 0 0 6px;
+}
+.xg-common-win {
+	padding:25px;
+	font-family:'microsoft yahei';
+	font-size:13px;
+}
+a.xg-common-download{
+	background:url(../image/download.jpg) left center no-repeat;
+	padding-left:18px;
+	padding:5px 18px;
+	color:#3366FF;
+	text-decoration:underline;
+}
+a.xg-common-download:hover {
+    color: #FF6600;
+    cursor:pointer;
+}
+.xg-common-message-overflow {
+	width:260px;
+	height:120px;
+	overflow-y:auto;
+}
+.xg-common-hide {
+	display: none;
+}

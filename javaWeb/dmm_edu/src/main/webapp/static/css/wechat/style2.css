@@ -1,0 +1,730 @@
+/* CSS Document */
+@charset "utf-8";
+@media screen and (max-device-width: 400px) {
+	.column {
+		float: none;
+		width: auto;
+	}
+	#sidebar {
+		display: none;
+	}
+}
+/*title样式*/
+img{
+    display:block;}
+a{
+    text-decoration:none;}
+
+body {
+    margin:0;
+    padding:0;
+    background:#f9f9f9;
+    font-family:'microsoft yahei', Arial, Helvetica, sans-serif;
+}
+
+.index_title{
+    background:#48a1dd;
+    padding:10px 0;
+    color:#fff;
+    font-size:1.2em;
+    text-align:center;
+    font-family:"微软雅黑";
+    font-weight:normal;}
+
+.more1{
+    float:right;
+    margin:0.25em;}
+.in_content{
+    overflow:hidden;
+    /*height:955px;*/
+    margin:0 auto;}
+
+/*尾部*/
+.login-hr-line {
+    height:31px;
+	background:url(../../images/wechat/hr-line.png) center center repeat-x;
+}
+.login-hr-icon {
+	background:url(../../images/wechat/hr-icon.jpg) center center no-repeat;
+    margin:0 auto;
+    width:56px;
+    height:31px;
+    display:block;
+}
+
+/*头像*/
+
+.picture{
+    margin:0 auto;
+    border:9px solid #f8b551;
+    border-radius:20px;
+}
+.word,.kid_m1,.kid_m2{
+    border-bottom:1px dashed #7b7b7b;
+    padding-top:12px;
+    padding-bottom: 24px;}
+.word p{
+    padding:0;
+    margin:0;
+    text-align:center;
+    font-size:18px;
+    line-height:32px;}
+.department,.student_id{
+    color:#48a1dd;}
+
+.kid_m1,.kid_m2{
+    color:#7a7a7a;
+    font-size:1.125em;
+    font-family:"微软雅黑";
+    line-height:1.8em;
+    padding: 10px 70px 10px 70px;}
+.kid_message p{
+    padding:0;
+    margin:0;
+    text-align:left;}
+.score_box{
+
+    background-color:#ffffff;
+    border-radius:10px;
+    padding:24px 48px;
+    margin:20px 18px;
+    overflow: hidden;}
+
+.score_title{
+    color:#f08e02;
+    font-size:1.25em;
+    line-height:1.5em;
+    font-family:"微软雅黑";
+    font-weight:normal;}
+.score_w{
+    color:#7b7b7b;
+    font-size:1.125em;
+    line-height:1.8em;
+    font-family:"微软雅黑";
+    font-weight:normal;}
+
+/*考勤分析*/
+.kaoqin_box{
+	overflow:hidden;
+	padding: 0px 1em;
+	} 
+.kao_title{
+	color:#494949;
+	font-size:1.5em;
+	font-family:"微软雅黑";
+	font-weight:normal;
+	text-align:center;}
+.kao_11{
+	height: 109px;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 109px;
+    background-image: url(../../images/wechat/yuan_03.png);}
+.kaoqin{
+	overflow:hidden;
+	}
+.times{
+	color: #ffffff;
+    font-size: 2.0em;
+    line-height: 3.4em;
+	padding: 0;
+    margin: 0;}
+.kao_1{
+	float: left;
+    margin: 0px 0.5em;}
+.all{
+	color:#fe0000;
+	font-size:1.125em;
+	float:right;}
+.jishu{
+	text-align:center;
+	font-size:1.25em;
+	font-family:"微软雅黑";
+	font-weight:normal;}
+/*点击查看*/
+
+.s_button{
+    color:#ffffff;
+    font-size:14px;
+    height:34px;
+    width:129px;
+    border-radius:8px;
+    border:none;
+    background-color:#48a1dd;
+}
+.lines{
+	background-image:url(../../images/wechat/ind_10.png);
+    background-repeat:repeat-x;
+    background-position:center;
+    height:28px;}
+.lines img{
+    margin:0 auto;}
+
+
+/*预警信息样式*/
+
+.yujing_title{
+	background-color:#5e5e5e;
+	color:#ffae01;
+	overflow:hidden;}
+.yujing_t1{
+	font-size:1.2em;
+	font-family:"微软雅黑";
+	font-weight:normal;
+	padding:0;
+	margin:0;
+	text-align:center;
+	line-height:2.35em;
+	float:left;
+	width:33%;
+	color:#ffae01;}
+.yujing_t1_zhong{
+	font-size:1.2em;
+	font-family:"微软雅黑";
+	font-weight:normal;
+	padding:0;
+	margin:0;
+	text-align:center;
+	line-height:2.35em;
+	float:left;
+	width:33%;
+	color:#ffffff;
+	background-color:#a0a0a0;}
+.yujing_t1_zhong .zhong{
+	color:#ffffff;}
+.yujing_t1:hover{
+	color:#ffffff;
+	background-color:#a0a0a0;}
+
+.yj_content{
+	overflow:hidden;
+	padding-top: 20px;}
+
+.date_yj{
+	margin:6px;
+	overflow:hidden;}
+.month_yj{
+	float:left;}
+.week_yj{
+	float:right;}
+.yj_content_1{
+	overflow:hidden;
+	background-color:#dcdcdc;
+	margin:6px;}
+/*左边图案及文字*/
+.yj_c_left {
+  float: left;
+  background-color: #C00;
+  width: 1em;
+  height: 1em;
+  border-radius: 100px;
+  position: relative;
+ 
+  top: 1.2em;
+}
+/*行为预警*/
+
+.yj_l_02{
+	background-image:url(../../images/wechat/yj_03.png);
+	width:126px;
+	height:112px;}
+.yj_l_03{
+	background-image:url(../../images/wechat/yj_05.png);
+	width:126px;
+	height:112px;}
+.yj_l_04{
+	background-image:url(../../images/wechat/yj_06.png);
+	width:126px;
+	height:112px;}
+.yj_l_05{
+	background-image:url(../../images/wechat/yj_07.png);
+	width:126px;
+	height:112px;}
+
+/*学业类预警*/
+.yj_l_01{
+	background-image:url(../../images/wechat/yj_01.png);
+	width:126px;
+	height:112px;}
+.yj_l_08{
+	background-image:url(../../images/wechat/yj_02.png);
+	width:126px;
+	height:112px;}
+/*消费类预警不要的图片*/
+/*.yj_l_09{
+	background-image:url(../images/yj_01.png);
+	width:126px;
+	height:112px;}
+.date{
+	color:#343638;
+	font-size:1.05em;
+	font-family:"微软雅黑";
+	font-weight:normal;
+	text-align:center;
+	line-height:2em;
+	padding-top: 22px;}
+.week{
+	color:#fdfdfd;
+	font-size:0.875em;
+	font-family:"微软雅黑";
+	font-weight:normal;
+	text-align:center;
+	line-height:2em;}*/
+/*右边图案及文字*/
+.yj_c_right {
+    float: right;
+    width:98%;
+}
+.yj_r_01{
+	padding:0 0 0 1.2em;
+	/*padding:20px 22px 0px 22px;*/}
+.yj_r_01 span{
+	color:#d48705;}
+
+
+/*消费分析样式*/
+.money_box{
+    background-color:#ffffff;
+    overflow:hidden;
+    padding-top:3px;}
+.money_left{
+    background-color:#d3e5f1;
+    width:49.8%;
+    float:left;
+    padding:55px 0px 32px 0px;}
+.money_box img{
+    margin:0 auto;}
+.money_rmb{
+    text-align:center;
+    color:#494949;
+    font-size:1.125em;
+    font-family:"微软雅黑";
+    font-weight:normal;}
+.money_data{
+    text-align:center;
+    color:#48a1dd;
+    font-size:3em;
+    font-family:Arial;
+    font-weight:normal;
+    padding:0;
+    margin:0;}
+.money_right{
+    background-color:#d3e5f1;
+    width:49.8%;
+    float:right;
+    padding:55px 0px 32px 0px;}
+.money_bottom{
+    background-color:#d3e5f1;
+    width:100%;
+    padding:55px 0px 32px 0px;
+    float:left;
+    margin:5px 0px;}
+.money_day{
+    text-align:center;
+    color:#6f6f6f;
+    font-size:1.125em;
+    font-family:"微软雅黑";
+    font-weight:normal;}
+.money_dd{
+    text-align:center;
+    color:#fa9a02;
+    font-size:3em;
+    font-family:Arial;
+    font-weight:normal;
+    padding:0;
+    margin:0;}
+/*消费分析-图标样式*/
+.tubiao_box{
+    overflow:hidden;
+    background-color:#ffffff;}
+.tubiao_01{
+    float:left;
+    width:25%;
+    padding:14px 0px;}
+.tubiao_011{
+    border-right:1px solid #f3f4fa;
+    text-align:center;
+    padding:20px 0px 30px 0px;}
+.tubiao_011 img{
+    margin:0 auto;}
+.tb_name{
+    color:#48a1dd;
+    font-size:1.2em;
+    font-family:"微软雅黑";
+    font-weight:normal;}
+.tb_money{
+    color:#e48d03;
+    font-family:Arial;
+    font-weight:normal;
+    font-size:2em;}
+/*注意文字样式*/
+.note{
+    background-color:#ffffff;
+    margin-top:10px;}
+.note_word{
+    width:80%;
+    margin:0 auto;
+    line-height:2.35em;
+    font-family:"微软雅黑";
+    font-weight:normal;
+    color:#676767;
+    font-size:1.125em;
+    padding:32px 0px 55px 0px;}
+
+/*成绩分析样式*/
+.score_bbox{
+	overflow:hidden;
+	padding: 0px 1em;
+	border-bottom:1px dashed #d3d3d3;}
+.score_c1{
+	overflow:hidden;
+	padding-top:20px;
+	padding-bottom:40px;}
+.number{
+	color:#ffffff;
+	font-size:2.0em;
+	line-height: 3.4em;}
+.score_1{
+	float:left;
+	margin: 0px 0.5em;}
+.all{
+	color:#fe0000;
+	font-size:1.125em;
+	float:right;}
+.jishu{
+	text-align:center;
+	font-size:1.0em;
+	font-family:"微软雅黑";
+	font-weight:normal;}
+.all_number{
+	padding:0; 
+	margin:0;
+	text-align:center;
+	font-family:Arial;
+	font-weight:normal;
+	font-size:1.2em;
+	color:#48a1dd;}
+.score_n{
+	color:#7b7b7b;
+	font-size:1.125em;
+	line-height:1.6em;
+	font-family:"微软雅黑";
+	font-weight:normal;}
+
+.red{
+	color:#fd0c44;
+	font-size:1.8em;}
+.score_nbox{
+	background-color:#ffffff;
+	border-radius:10px;
+	padding:24px 48px 50px 48px;
+	margin:20px 18px;}
+/*成绩分析之成绩背景*/
+.score_11{
+	height: 109px;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 109px;
+    background-image: url(../../images/wechat/score_01.png);}
+.score_12{
+	height: 109px;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 109px;
+    background-image: url(../../images/wechat/score_02.png);}
+.score_13{
+	height: 109px;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 109px;
+    background-image: url(../../images/wechat/score_03.png);}
+.score_14{
+	height: 109px;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 109px;
+    background-image: url(../../images/wechat/score_04.png);}
+/*成绩分析之统计图*/
+.count_box{
+	border-top:1px dashed #d3d3d3;
+	overflow:hidden;
+	padding-bottom:42px;}
+.count_title{
+	color:#f08e02;
+	font-size:1.125em;
+	line-height:1.2em;
+	font-family:"微软雅黑";
+	font-weight:normal;
+	text-align:center;}
+.count_tb{
+	float:right;
+	padding:0;
+	margin:0;}
+.count_tb img{
+	float:left;
+	margin:3px;}
+.count_img{
+	overflow:hidden;}
+.img_c{
+	margin:0 auto;}
+	
+/*孩子的一天样式*/
+.oneday_start{
+    padding:20px 30px 0px 22px;
+	overflow:hidden;}
+.quan_text{
+	float:left;
+	color:#48a1dd;
+	font-size:1.2em;
+	font-family:"微软雅黑";}
+.oneday_box{
+	background-color:#ffffff;
+	margin:16px;}
+.oneday_form_bj{
+	padding:0px 30px 60px 30px}
+.oneday_form{
+	border-left:1px solid #aaaaaa;
+	border-bottom:1px solid #aaaaaa;
+	padding-top: 30px;}
+.quan{
+	float:left;
+	margin-right:20px;
+	position: relative;
+    top: 6px;}
+/*孩子的一天----活动条目样式*/
+.morning{
+	padding:0px 0px 70px 0px;}
+.afternoon{
+	padding:0px 0px 40px 0px;}
+/*宿舍颜色*/
+.one_su{
+	text-align:center;
+	width:26px;
+	color:#fff;
+	font-size:1.1em;
+	font-family:"微软雅黑";
+	font-weight:normal;
+	background-color:#F6B37F;
+	margin:0px 32px 0px 22px;
+	float:left;}
+/*餐厅颜色*/
+.one_can{
+	text-align:center;
+	width:26px;
+	color:#fff;
+	font-size:1.1em;
+	font-family:"微软雅黑";
+	font-weight:normal;
+	background-color:#73cc71;
+	margin:0px 32px 0px 22px;
+	float:left;
+	}
+/*上课颜色*/
+.one_ke{
+	text-align:center;
+	width:26px;
+	color:#fff;
+	font-size:1.1em;
+	font-family:"微软雅黑";
+	font-weight:normal;
+	background-color:#fd83d3;
+	margin:0px 32px 0px 22px;
+	float:left;
+}
+/*图书馆颜色*/
+.one_shu{
+	text-align:center;
+	width:26px;
+	color:#fff;
+	font-size:1.1em;
+	font-family:"微软雅黑";
+	font-weight:normal;
+	background-color:#8ddedf;
+	margin:0px 32px 0px 22px;
+	float:left;
+	}
+/*超市颜色*/
+.one_chao{
+	text-align:center;
+	width:26px;
+	color:#fff;
+	font-size:1.1em;
+	font-family:"微软雅黑";
+	font-weight:normal;
+	background-color:#8E00C8;
+	margin:0px 32px 0px 22px;
+	float:left;
+	}
+/*洗澡颜色*/
+.one_xi{
+	text-align:center;
+	width:26px;
+	color:#fff;
+	font-size:1.1em;
+	font-family:"微软雅黑";
+	font-weight:normal;
+	background-color:#5699E5;
+	margin:0px 32px 0px 22px;
+	float:left;
+	}
+
+.one_content_01{
+	overflow:hidden;
+	margin: 10px 0px;}
+.one_line img{
+	margin:5px 32px 5px 0px;
+	float:left;}
+.one_time1,.one_text1{
+	color:#5e5e5e;
+	font-family:"微软雅黑";
+	font-weight:600;
+	float:left;
+	line-height:1.6em;}
+.one_time1,.one_time{
+	width:58px;}
+
+.one_time,.one_text{
+	color:#5e5e5e;
+	font-family:"微软雅黑";
+	font-weight:normal;
+	float:left;
+	line-height:1.6em;
+	letter-spacing:0.05em;}
+.one_tb{
+	float:left;
+	margin:0 20px;}
+.oneday_over{
+    float: right;
+    margin-top: 10px;}
+img.quan1 {
+    float: right;
+    padding-right: 18px;
+    position: relative;
+    top: -70px;
+}
+
+/*孩子的一天----活动条目样式End*/
+input#home {
+	background-image:url(../../images/wechat/home.png);
+	height:21px;
+	width:28px;
+	border:none;
+	background-color:#48a1dd;
+	position:relative;
+    top: -35px;
+    left: 2%;
+}
+.index{
+	position: fixed;
+    width: 100%;
+    z-index: 10;
+}
+.body_main{
+	padding-top: 60px;
+}
+
+/*
+辅导员中心*/
+input#back {
+	background-image:url(../../images/wechat/back.png);
+	height:21px;
+	width:28px;
+	border:none;
+	background-color:#48a1dd;
+	position:relative;
+    top: -35px;
+    left: 2%;
+}
+.fd-content {
+	padding:1em 2em;
+}
+.fd-banji {
+	color:#494949;
+	text-align:center;
+	font-size:1.125em;
+	font-weight:normal;
+	margin:10px;
+	padding:0
+}
+.fd-zhuanye {
+	color:#48a1dd;
+	text-align:center;
+	font-size:1em;
+}
+.fd-p {
+	color:#494949;
+	font-size:1em;
+	line-height:1.6em;
+}
+.fd-border {
+	border:1px dashed #b5b5b5;
+	padding: 0.5em 1.5em;
+	border-radius:5px;
+	overflow:hidden;
+}
+.fd-imp {
+	color:#494949;
+}
+.fd-hr {
+	border:none;
+	border-bottom:1px solid #d7d7d7;
+}
+
+.fd-border-boy {
+	border:1px dashed #7EC0EE;
+	padding: 0.5em 1.5em;
+	border-radius:5px;
+	overflow:hidden;
+}
+
+.fd-hr-boy {
+	border:none;
+	border-bottom:1px solid #7EC0EE;
+}
+
+.fd-border-girl {
+	border:1px dashed #FFC0CB;
+	padding: 0.5em 1.5em;
+	border-radius:5px;
+	overflow:hidden;
+}
+.fd-hr-girl {
+	border:none;
+	border-bottom:1px solid #FFC0CB;
+}
+
+.fd-right {
+	text-align:right
+}
+.fd-fl-right {
+	float:right;
+	margin-top:0;
+}
+a.fd-link {
+	color:#48a1dd;
+/*	color:#fb0202;            */
+    font-size:1em;
+    text-decoration:none;
+/*	text-decoration:underline; */
+	margin-right:1.5em;
+	line-height:1.6em;
+}
+samp.fd-link {
+	color:#4876FF;
+    font-size:1.5em;
+	margin-right:0.3em;
+	line-height:1.6em;
+}
+.fd-boy-icon {
+	background:url(../../images/wechat/boy-icon.png) left center no-repeat;
+	padding-left:30px;
+}
+.fd-girl-icon {
+	background:url(../../images/wechat/girl-icon.png) left center no-repeat;
+	padding-left:30px;
+}

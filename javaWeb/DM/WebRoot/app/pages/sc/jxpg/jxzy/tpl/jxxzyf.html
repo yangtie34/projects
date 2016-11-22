@@ -1,0 +1,357 @@
+<div style="font-size: 20px;font-weight: bold;font-family: '黑体';text-align: center;">{xn}学年</div>
+<div>
+    <table  class="jxpg-common-table">
+        <tr>
+            <td class="title" colspan="2" rowspan="2">项目</td>
+            <td class="title" rowspan="2">学校情况</td>
+            <td  class="title">办学条件指标</td>
+            <td  class="title" rowspan="2">常模值</td>
+        </tr>
+        <tr>
+            <td class="title">合格标准</td>
+        </tr>
+        <tpl for="items">
+        <tpl if="XM=='1'">
+            <tr>
+                <td rowspan="10">教学行政用房</td>
+                <td>总面积（平方米）</td>
+                <td>
+                    <span  class="realvalue" >{XXQK_T}</span>
+                    <span class="value" code="XXQK_F" rowid="{ID}" isnum="float" type="itemvalue">{XXQK_F}</span>
+                    <div></div>
+                </td>
+                <td>
+                    <span>{HGBZ_T}</span>
+                </td>
+                <td>
+                    <span>{CMZ_T}</span>
+                </td>
+            </tr>
+        </tpl>
+        <tpl if="XM=='2'">
+        <tr>
+            <td>教学科研及辅助用房（平方米）</td>
+            <td>
+                <span class="realvalue">{XXQK_T}</span>
+                <span class="value" code="XXQK_F" rowid="{ID}" isnum="float" type="itemvalue">{XXQK_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span>{HGBZ_T}</span>
+            </td>
+            <td>
+                <span>{CMZ_T}</span>
+            </td>
+        </tr>
+        </tpl>
+        <tpl if="XM=='3'">
+        <tr>
+            <td>其中：教室（平方米）</td>
+            <td>
+                <span class="realvalue">{XXQK_T}</span>
+                <span class="value" code="XXQK_F" rowid="{ID}" isnum="float" type="itemvalue">{XXQK_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span>{HGBZ_T}</span>
+            </td>
+            <td>
+                <span>{CMZ_T}</span>
+            </td>
+        </tr>
+        </tpl>
+        <tpl if="XM=='4'">
+        <tr>
+            <td>图书馆（平方米）</td>
+            <td>
+                <span class="realvalue">{XXQK_T}</span>
+                <span class="value" code="XXQK_F" rowid="{ID}" isnum="float" type="itemvalue">{XXQK_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span>{HGBZ_T}</span>
+            </td>
+            <td>
+                <span>{CMZ_T}</span>
+            </td>
+        </tr>
+        </tpl>
+        <tpl if="XM=='5'">
+        <tr>
+            <td>实验室、习场所（平方米）</td>
+            <td>
+                <span class="realvalue">{XXQK_T}</span>
+                <span class="value" code="XXQK_F" rowid="{ID}" isnum="float" type="itemvalue">{XXQK_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span>{HGBZ_T}</span>
+            </td>
+            <td>
+                <span>{CMZ_T}</span>
+            </td>
+        </tr>
+        </tpl>
+        <tpl if="XM=='6'">
+        <tr>
+            <td>专用科研房（平方米）</td>
+            <td>
+                <span class="realvalue">{XXQK_T}</span>
+                <span class="value" code="XXQK_F" rowid="{ID}" isnum="float" type="itemvalue">{XXQK_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span>{HGBZ_T}</span>
+            </td>
+            <td>
+                <span>{CMZ_T}</span>
+            </td>
+        </tr>
+        </tpl>
+        <tpl if="XM=='7'">
+        <tr>
+            <td>体育馆（平方米）</td>
+            <td>
+                <span class="realvalue">{XXQK_T}</span>
+                <span class="value" code="XXQK_F" rowid="{ID}" isnum="float" type="itemvalue">{XXQK_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span>{HGBZ_T}</span>
+            </td>
+            <td>
+                <span>{CMZ_T}</span>
+            </td>
+        </tr>
+        </tpl>
+        <tpl if="XM=='8'">
+        <tr>
+            <td>会堂（平方米）</td>
+            <td>
+                <span class="realvalue">{XXQK_T}</span>
+                <span class="value" code="XXQK_F" rowid="{ID}" isnum="float" type="itemvalue">{XXQK_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span>{HGBZ_T}</span>
+            </td>
+            <td>
+                <span>{CMZ_T}</span>
+            </td>
+        </tr>
+        </tpl>
+        <tpl if="XM=='9'">
+        <tr>
+            <td>行政用房（平方米）</td>
+            <td>
+                <span class="realvalue">{XXQK_T}</span>
+                <span class="value" code="XXQK_F" rowid="{ID}" isnum="float" type="itemvalue">{XXQK_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span>{HGBZ_T}</span>
+            </td>
+            <td>
+                <span>{CMZ_T}</span>
+            </td>
+        </tr>
+        </tpl>
+        <tpl if="XM=='10'">
+        <tr>
+            <td>生均教学行政用房面积（平方米/生）</td>
+            <td>
+                <span class="realvalue">{XXQK_T}</span>
+                <span class="value" code="XXQK_F" rowid="{ID}" isnum="float" type="itemvalue">{XXQK_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span>{HGBZ_T}</span>
+            </td>
+            <td>
+                <span>{CMZ_T}</span>
+            </td>
+        </tr>
+        </tpl>
+        <tpl if="XM=='11'">
+        <tr>
+            <td rowspan="7">教室</td>
+            <td>数量（间）</td>
+            <td>
+                <span  class="realvalue">{XXQK_T}</span>
+                <span class="value" code="XXQK_F" rowid="{ID}" isnum="int" type="itemvalue">{XXQK_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span>{HGBZ_T}</span>
+            </td>
+            <td>
+                <span>{CMZ_T}</span>
+            </td>
+        </tr>
+        </tpl>
+        <tpl if="XM=='12'">
+        <tr>
+            <td>其中：外语教学计算机房（含音室）（间）</td>
+            <td>
+                <span class="realvalue">{XXQK_T}</span>
+                <span class="value" code="XXQK_F" rowid="{ID}" isnum="int" type="itemvalue">{XXQK_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span>{HGBZ_T}</span>
+            </td>
+            <td>
+                <span>{CMZ_T}</span>
+            </td>
+        </tr>
+        </tpl>
+        <tpl if="XM=='13'">
+        <tr>
+            <td>多媒体教室（间）</td>
+            <td>
+                <span class="realvalue">{XXQK_T}</span>
+                <span class="value" code="XXQK_F" rowid="{ID}" isnum="int" type="itemvalue">{XXQK_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span>{HGBZ_T}</span>
+            </td>
+            <td>
+                <span>{CMZ_T}</span>
+            </td>
+        </tr>
+        </tpl>
+        <tpl if="XM=='14'">
+        <tr>
+            <td>座位数（个）</td>
+            <td>
+                <span  class="realvalue">{XXQK_T}</span>
+                <span class="value" code="XXQK_F" rowid="{ID}" isnum="int" type="itemvalue">{XXQK_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span>{HGBZ_T}</span>
+            </td>
+            <td>
+                <span>{CMZ_T}</span>
+            </td>
+        </tr>
+        </tpl>
+        <tpl if="XM=='15'">
+        <tr>
+            <td>其中：外语教学计算机房（含音室）（个） </td>
+            <td>
+                <span class="realvalue">{XXQK_T}</span>
+                <span class="value" code="XXQK_F" rowid="{ID}" isnum="int" type="itemvalue">{XXQK_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span>{HGBZ_T}</span>
+            </td>
+            <td>
+                <span>{CMZ_T}</span>
+            </td>
+        </tr>
+        </tpl>
+        <tpl if="XM=='16'">
+        <tr>
+            <td>多媒体教室（个）</td>
+            <td>
+                <span class="realvalue">{XXQK_T}</span>
+                <span class="value" code="XXQK_F" rowid="{ID}" isnum="int" type="itemvalue">{XXQK_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span>{HGBZ_T}</span>
+            </td>
+            <td>
+                <span>{CMZ_T}</span>
+            </td>
+        </tr>
+        </tpl>
+        <tpl if="XM=='17'">
+        <tr>
+            <td>百名学生配多媒体教室和语音实验座位数（个）</td>
+            <td>
+                <span class="realvalue">{XXQK_T}</span>
+                <span class="value" code="XXQK_F" rowid="{ID}" isnum="float" type="itemvalue">{XXQK_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span>{HGBZ_T}</span>
+            </td>
+            <td>
+                <span>{CMZ_T}</span>
+            </td>
+        </tr>
+        </tpl>
+        <tpl if="XM=='18'">
+        <tr>
+            <td rowspan="2">运动场馆</td>
+            <td>面积（平方米）</td>
+            <td>
+                <span class="realvalue">{XXQK_T}</span>
+                <span class="value" code="XXQK_F" rowid="{ID}" isnum="float" type="itemvalue">{XXQK_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span>{HGBZ_T}</span>
+            </td>
+            <td>
+                <span>{CMZ_T}</span>
+            </td>
+        </tr>
+        </tpl>
+        <tpl if="XM=='19'">
+        <tr>
+
+            <td>体育馆数量（个）</td>
+            <td>
+                <span class="realvalue">{XXQK_T}</span>
+                <span class="value" code="XXQK_F" rowid="{ID}" isnum="int" type="itemvalue">{XXQK_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span>{HGBZ_T}</span>
+            </td>
+            <td>
+                <span>{CMZ_T}</span>
+            </td>
+        </tr>
+        </tpl>
+        <tpl if="XM=='20'">
+        <tr>
+            <td rowspan="2">学生活动中心</td>
+            <td>面积（平方米）</td>
+            <td>
+                <span class="realvalue">{XXQK_T}</span>
+                <span class="value" code="XXQK_F" rowid="{ID}" isnum="float" type="itemvalue">{XXQK_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span>{HGBZ_T}</span>
+            </td>
+            <td>
+                <span>{CMZ_T}</span>
+            </td>
+        </tr>
+        </tpl>
+        <tpl if="XM=='21'">
+        <tr>
+            <td>数量（间）</td>
+            <td>
+                <span class="realvalue">{XXQK_T}</span>
+                <span class="value" code="XXQK_F" rowid="{ID}" isnum="int" type="itemvalue">{XXQK_F}</span>
+                <div></div>
+            </td>
+            <td>
+                <span>{HGBZ_T}</span>
+            </td>
+            <td>
+                <span>{CMZ_T}</span>
+            </td>
+        </tr>
+        </tpl>
+        </tpl>
+    </table>
+</div>

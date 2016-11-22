@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css">
+    <script src="data/data.js"></script>
+    <script src="../../base1/util/LAB.min.js"></script>
+    <script src="../ns-debug.js"></script>
+    <script src="../../extjs/ext-all.js"></script>
+    <script src="../mvc/Controller.js"></script>
+    <script src="../mvc/Model.js"></script>
+    <script src="../mvc/View.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function(){
+            NS.define('App.com.MyController',{
+                extend : 'NS.mvc.Controller',
+                modelConfig : {
+                    serviceConfig : {
+                        'xsHeader_data' : {
+                            service : "base_Service",
+                            params : {}
+                        },
+                        'xs_show_data' : {
+                            service : "xsxx_showData",
+                            params : {
+                                age : 12,
+                                sex : '12121212'
+                            }
+                        }
+                    }
+                },
+                viewConfig : {
+
+                }
+            });
+            var ct = new App.com.MyController({});
+            var model = ct.model;
+            model.updateServiceConfig('xsHeader_data','base_addservice');
+//            ct.callService(['xsHeader_data','xs_show_data'],function(data){
+//                alert(NS.encode(data));
+//            });
+//            ct.registerComponent('grid',new NS.component.Component());
+//            var v = ct.getView();
+////            v.register('grid',new NS.component.Component());
+//            var grid = v.getGrid();
+////            var b = grid;
+//            var c = ct.getGrid();
+//            var b = c;
+
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<div class="rxs-menu-top">
+  <div class="media"><a href="#/info" style="text-decoration: none;color:#fff">
+    <div class="media-left media-middle"><img class="img-circle" width="85" height="85" src="{{personalInfo.headimg}}"></div>
+    <div class="media-body media-middle rxs-pad-lft">
+      <h4 class="rxs-ft-20">{{personalInfo.name}} <i class="rxs-sex rxs-boy-icon" ng-show="personalInfo.gender == '男'"></i><i class="rxs-sex rxs-girl-icon" ng-show="personalInfo.gender == '女'"></i></h4>
+      <p>{{personalInfo.tno}}</p>
+    </div>
+    <div class="media-right media-middle"><i class="rxs-menu-arw"></i></div></a>
+  </div>
+</div>
+<div class="rxs-menu">
+  <ul class="rxs-menu-ul clearfix">
+      <li  check-permiss shirotag="personal:student:school:*"><a href="school/school.jsp"> <img src="images/xyuan-icon.png"> </a> 我的校园</li>
+      <li  check-permiss shirotag="personal:student:major:*"><a href="major/major.jsp"> <img src="images/zye-icon.png"> </a> 专业介绍</li>
+      <li  check-permiss shirotag="personal:student:paisan:*"><a href="paisan/paisan.jsp"> <img src="images/lxiang-icon.png"> </a>老乡校友 </li>
+      <li  check-permiss shirotag="personal:student:book:*"><a href="book/book.jsp"> <img src="images/tshu-icon.png"> </a> 图书借阅</li>
+      <li  check-permiss shirotag="personal:student:course:*"><a href="course/course.jsp"> <img src="images/kcheng-icon.png"> </a> 课程信息</li>
+      <li  check-permiss shirotag="personal:student:card:*"><a href="card/card.jsp"> <img src="images/xfei-icon.png"> </a> 我的消费</li>
+      <li  check-permiss shirotag="personal:student:score:*"><a href="score/score.jsp"> <img src="images/cji-icon.png"> </a>我的成绩 </li>
+      <li  check-permiss shirotag="personal:student:smart:*"><a href="smart/smart.jsp"> <img src="images/pk-icon.png"> </a>我和学霸</li>
+      <li  check-permiss shirotag="personal:student:colorPage:*"><a href="colorPage/colorPage.jsp"> <img src="images/clzd-icon.png"> </a>初来乍到</li>
+      <li  check-permiss shirotag="personal:student:concat:*"><a href="concat/concat.jsp"> <img src="images/txl-icon.png"> </a>通讯录</li>
+      <li  check-permiss shirotag="personal:student:four:*"><a href="four/four.jsp"> <img src="images/four-year.png"> </a>大学四年</li>
+      <li  check-permiss shirotag="personal:social:liao:*"><a href="../social/liao/index.jsp"> <img src="images/liao.png"> </a>聊吧</li>
+  </ul>
+</div>
+

@@ -1,0 +1,39 @@
+<div class=" permiss-user-sheding-table-width permiss-common-windows">
+    <h1>
+        <span class="wbh-common-model">角色管理</span>
+        <span class="wbh-common-user">设定功能显示的内容</span>
+        <span class="wbh-common-orange">{description}</span>
+    </h1>
+    <div class="wbh-common-box" id="{0}">
+
+    </div>
+    <div class="wbh-common-box">
+        <h2><span class="wbh-common-title ">内容列表</span> </h2>
+        <table width="100%" border="0" class="wbh-common-table_green">
+            <tr>
+                <td width="30%" class="wbh-common-greenbg"><input class="wbh-common-inputdefault" ctype="checkAll" type="checkbox" value=""/></td>
+                <td width="30%" class="wbh-common-greenbg">内容名称</td>
+                <td width="40%" class="wbh-common-greenbg">标识</td>
+                <td width="40%" class="wbh-common-greenbg">内容描述</td>
+            </tr>
+            <tpl for="contentList">
+                <tr>
+                    <td class="wbh-common-greenbg">
+                        <tpl if="checked">
+                            <input class="wbh-common-inputdefault" ctype="item" type="checkbox" value="{id}" checked="{checked}"/>
+                        <tpl else>
+                                <input class="wbh-common-inputdefault" ctype="item" type="checkbox" value="{id}">
+                        </tpl>
+                    </td>
+                    <td>{text}</td>
+                    <td>{funTag}</td>
+                    <td>{funDesc}</td>
+                </tr>
+            </tpl>
+        </table>
+    </div>
+    <p class="wbh-common-pcenter">
+        <button class="wbh-common-buttondefault wbh-common-margincenter"  name="submit" type="button">设置完成</button>
+        <button class="wbh-common-buttondefault wbh-common-margincenter"  name="cancel" type="button">关闭</button>
+    </p>
+</div>

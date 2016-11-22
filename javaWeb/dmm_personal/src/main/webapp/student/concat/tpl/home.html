@@ -1,0 +1,14 @@
+<div class="rxs-comn-list rxs-comn-pad-top"> 
+  <ul class="rxs-comn-ul rxs-margin-bottom rxs-padding-8 rxs-hover-ul">
+    <li ng-repeat="concat in concats">
+      <div class="media">
+        <div class="media-left media-middle"><img class="img-circle" ng-show="concat.wechat_head_img != ''" ng-src="{{concat.wechat_head_img}}" width="50"></div>
+        <div class="media-body media-middle">
+          <h4 class="rxs-text-16">{{concat.name_}}<div class="rxs-ts-span rxs-bg-red rxs-ts-pad" ng-show = "concat.flag == '辅导员'">{{concat.flag}}</div>
+          <div class="rxs-ts-span rxs-bg-green rxs-ts-pad" ng-show = "concat.flag == '授课教师'">{{concat.flag}}</div>
+           <span class="text-center" style="font-size:small;">{{concat.course_name}}</span></h4></div>
+        <div class="media-right media-middle rxs-text-16"><a href="tel:{{concat.tel}}">{{concat.tel}}</a></div>
+      </div>
+    </li>
+  </ul>
+</div>

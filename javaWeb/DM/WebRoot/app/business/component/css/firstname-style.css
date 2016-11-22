@@ -1,0 +1,69 @@
+@charset "utf-8";
+/* CSS Document */
+/*浮出小窗口样式*/
+.wbh-common-history-beside {
+	display: none;
+    left: -100px;
+    margin-top: -3px;
+    padding-top: 10px;
+    position: absolute;
+    width: 160px;
+    z-index: 1000;
+}
+.wbh-common-history-hover {
+	padding:8px;
+	border:1px solid #999;
+	background:#fff;
+}
+
+.wbh-common-history-title {
+	color:#438237;
+	font-size:12px;
+	font-weight:bold;
+	margin:0 0 0 0;
+	border-bottom:1px solid #ccc;
+	padding-bottom:5px;
+}
+.wbh-common-history-title a {
+	color:#438237;
+	text-decoration:none;
+}
+.wbh-common-history-title a:hover {
+	color:#438237;
+	text-decoration:underline;
+}
+.wbh-common-history-new {
+	border-bottom:1px solid #ccc;
+}
+.wbh-common-history-new a {
+	color:#438237;
+	text-decoration:none;
+}
+.wbh-common-history-new a:hover {
+	color:#438237;
+	text-decoration:underline;
+}
+.wbh-common-history-content {
+	color:#666;
+	font-size:12px;
+}
+.wbh-common-history-content h4 {
+	font-size:12px;
+	color:#666;
+	margin:10px 0 5px 0;
+}
+.wbh-common-history-content ul {
+	list-style:none;
+}
+.wbh-common-history-content ul li {
+	padding:3px 0;
+}
+.wbh-common-history-content ul li a {
+	color:#666;
+	text-decoration:none;
+}
+.wbh-common-history-content ul li a:hover {
+	color:#FF6600;
+	text-decoration:underline;
+}
+/*浮出小窗口样式end*/

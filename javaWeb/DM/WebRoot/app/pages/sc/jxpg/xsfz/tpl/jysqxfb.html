@@ -1,0 +1,116 @@
+<div style="font-size: 20px;font-weight: bold;font-family: '黑体';text-align: center;">{xn}学年</div>
+<div>
+    <table class="jxpg-common-table">
+        <tr>
+            <td class="title"></td>
+            <td class="title">政府机构</td>
+            <td class="title">事业单位</td>
+            <td class="title">企业</td>
+            <td class="title">部队</td>
+            <td class="title">灵活就业</td>
+            <td class="title">升学</td>
+            <td class="title">参加国家地方项目就业</td>
+            <td class="title">其他</td>
+            <td class="title">总计</td>
+        </tr>
+        <tpl for="items">
+            <tr>
+                <td>{XM}</td>
+                <tpl if="BS == 'SL'">
+                    <td>
+                        <span class="realvalue">{ZFJG_T}</span>
+                        <span class="value" code="ZFJG_F" rowid="{ID}" type="itemvalue" isnum="int">{ZFJG_F}</span>
+                        <div></div>
+                    </td>
+                    <td>
+                        <span class="realvalue">{SYDW_T}</span>
+                        <span class="value" code="SYDW_F" rowid="{ID}" type="itemvalue" isnum="int">{SYDW_F}</span>
+                        <div></div>
+                    </td>
+                    <td>
+                        <span class="realvalue">{QY_T}</span>
+                        <span class="value" code="QY_F" rowid="{ID}" type="itemvalue" isnum="int">{QY_F}</span>
+                        <div></div>
+                    </td>
+                    <td>
+                        <span class="realvalue">{BD_T}</span>
+                        <span class="value" code="BD_F" rowid="{ID}" type="itemvalue" isnum="int">{BD_F}</span>
+                        <div></div>
+                    </td>
+                    <td>
+                        <span class="realvalue">{LHJY_T}</span>
+                        <span class="value" code="LHJY_F" rowid="{ID}" type="itemvalue" isnum="int">{LHJY_F}</span>
+                        <div></div>
+                    </td>
+                    <td>
+                        <span class="realvalue">{SX_T}</span>
+                        <span class="value" code="SX_F" rowid="{ID}" type="itemvalue" isnum="int">{SX_F}</span>
+                        <div></div>
+                    </td>
+                    <td>
+                        <span class="realvalue">{DFXM_T}</span>
+                        <span class="value" code="DFXM_F" rowid="{ID}" type="itemvalue" isnum="int">{DFXM_F}</span>
+                        <div></div>
+                    </td>
+                    <td>
+                        <span class="realvalue">{QT_T}</span>
+                        <span class="value" code="QT_F" rowid="{ID}" type="itemvalue" isnum="int">{QT_F}</span>
+                        <div></div>
+                    </td>
+                    <td>
+                        <span class="realvalue">{ZJ_T}</span>
+                        <span class="value" code="ZJ_F" rowid="{ID}" type="itemvalue" isnum="int">{ZJ_F}</span>
+                        <div></div>
+                    </td>
+                </tpl>
+                <tpl if="BS == 'BL'">
+                    <td>
+                        <span class="realvalue">{ZFJG_T}</span>
+                        <span class="value_unedit" code="ZFJG_F" rowid="{ID}">{ZFJG_F}</span>
+                        <div></div>
+                    </td>
+                    <td>
+                        <span class="realvalue">{SYDW_T}</span>
+                        <span class="value_unedit" code="SYDW_F" rowid="{ID}">{SYDW_F}</span>
+                        <div></div>
+                    </td>
+                    <td>
+                        <span class="realvalue">{QY_T}</span>
+                        <span class="value_unedit" code="QY_F" rowid="{ID}">{QY_F}</span>
+                        <div></div>
+                    </td>
+                    <td>
+                        <span class="realvalue">{BD_T}</span>
+                        <span class="value_unedit" code="BD_F" rowid="{ID}">{BD_F}</span>
+                        <div></div>
+                    </td>
+                    <td>
+                        <span class="realvalue">{LHJY_T}</span>
+                        <span class="value_unedit" code="LHJY_F" rowid="{ID}">{LHJY_F}</span>
+                        <div></div>
+                    </td>
+                    <td>
+                        <span class="realvalue">{SX_T}</span>
+                        <span class="value_unedit" code="SX_F" rowid="{ID}" >{SX_F}</span>
+                        <div></div>
+                    </td>
+                    <td>
+                        <span class="realvalue">{DFXM_T}</span>
+                        <span class="value_unedit" code="DFXM_F" rowid="{ID}">{DFXM_F}</span>
+                        <div></div>
+                    </td>
+                    <td>
+                        <span class="realvalue">{QT_T}</span>
+                        <span class="value_unedit" code="QT_F" rowid="{ID}">{QT_F}</span>
+                        <div></div>
+                    </td>
+                    <td>
+                        <span class="realvalue">{ZJ_T}</span>
+                        <span class="value_unedit" code="ZJ_F" rowid="{ID}">{ZJ_F}</span>
+                        <div></div>
+                    </td>
+                </tpl>
+            </tr>
+        </tpl>
+    </table>
+</div>

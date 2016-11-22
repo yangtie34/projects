@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+	"http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true"></constant>
+	
+	<package name="json" extends="json-default">
+        <action name="commonUpload" class="com.jhkj.mosdc.framework.action.CommonFileUploadAction">
+			<result name="success" type="json">
+				<param name="contentType">text/html;charset=utf-8</param>
+				<param name="includeProperties">ret.*,success,message</param>
+			</result>
+		</action>
+		<action name="loadFile" class="com.jhkj.mosdc.framework.action.CommonFileUploadAction"
+			method="loadFile">
+			<result name="success" type="stream">
+				<param name="inputName">stream</param>
+				<param name="contentType">application/octet-stream</param>
+				<param name="contentDisposition">attachment;filename="${loadFileName}"</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+		<!-- 新登录开始 -->
+			<action name="login" class="com.jhkj.mosdc.permiss.action.LoginAction" method="login">
+				<result name="success" type="redirect">/main.jsp</result>
+				<result name="login" type="redirect">/login2.jsp?loginName=${loginName}</result>
+			</action>
+		<!-- 新登录结束 -->
+		<!-- 单点登录开始 -->
+			<action name="casLoginAction" class="com.jhkj.mosdc.permiss.action.CasLoginAction">
+				<result name="success" type="redirect">/main.jsp</result>
+				<result name="login" type="redirect">/login2.jsp?loginName=${loginName}</result>
+			</action>
+		<!-- 新登录结束 -->
+		<!-- 上传离校学生开始 -->
+			<action name="LeaveSchool" class="com.jhkj.mosdc.sc.action.LeaveSchoolAction" method="upload">
+			</action>
+		<!-- 上传离校学生结束 -->
+	</package>
+	<package name="default" extends="struts-default">
+		<interceptors>
+			<interceptor name="json" class="org.apache.struts2.json.JSONInterceptor"/>
+			<interceptor name="exceptionInterceptor" class="com.jhkj.mosdc.framework.util.ExceptionInterceptor"/>
+			<interceptor name="checkLoginInterceptor" class="com.jhkj.mosdc.permiss.action.CheckLoginInterceptor"/>
+			<interceptor-stack name="checkLoginStack">
+				<interceptor-ref name="exception"/>
+				<interceptor-ref name="alias" />
+				<interceptor-ref name="json" />
+				<interceptor-ref name="servletConfig" />
+				<interceptor-ref name="prepare" />
+				<interceptor-ref name="i18n" />
+				<interceptor-ref name="chain" />
+				<interceptor-ref name="debugging" />
+				<interceptor-ref name="profiling" />
+				<interceptor-ref name="scopedModelDriven" />
+				<interceptor-ref name="modelDriven" />
+				<interceptor-ref name="staticParams" />
+				<interceptor-ref name="actionMappingParams"/>
+				<interceptor-ref name="params" />
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="exceptionInterceptor" />
+				<interceptor-ref name="checkLoginInterceptor" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="checkLoginStack" />
+		<global-results>
+			<!--<result name="error">/error.jsp</result>
+			<result name="sessionout">/session.jsp</result>
+			<result name="login">/login2.jsp</result>-->
+			<result name="error">/error.jsp</result>
+			<result name="sessionout">/session.jsp</result>
+			<result name="login">/login2.jsp</result>
+			<result name = "main.jsp">/main.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception" result="error"/>
+		</global-exception-mappings>
+		<action name="baseAction" class="com.jhkj.mosdc.framework.action.BaseAction">
+			<result name="success">main1.jsp</result>
+			<result name="error">/jsp/error.jsp</result>
+			<result name="export" type="stream">
+				<param name="contentType">
+					application/vnd.ms-excel
+                </param>
+				<param name="inputName">excelStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${fileName}"
+                </param>
+                <param name="contentType">text/html;charset=utf-8</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+		<action name="downloadAction" class="com.jhkj.mosdc.framework.action.DownloadAction">
+			<result name="success" type="stream">
+				<param name="contentType">
+					application/zip;charset=gbk
+                </param>
+				<param name="inputName">zipStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${fileName}"
+                </param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+		<action name="customExportAction" class="com.jhkj.mosdc.framework.action.CustomExportAction">
+			<result name="customExport" type="stream">
+				<param name="contentType">
+					application/vnd.ms-excel
+                </param>
+				<param name="inputName">excelStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${fileName}"
+                </param>
+				<param name="bufferSize">4096</param>
+			</result>
+			<result name="error">error.jsp</result>
+		</action>
+		<action name="downLoadZip" class="com.jhkj.mosdc.framework.action.CustomExportAction" method="downLoadZipStreamFile">
+			<result name="customExport" type="stream">
+				<param name="contentType">
+					application/zip
+                </param>
+				<param name="inputName">excelStream</param>
+				<param name="contentDisposition">
+					attachment;filename="${fileName}"
+                </param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+        <action name="sjkDownloadAction" class="com.jhkj.mosdc.framework.action.SjkAction" method="downFjByid">
+            <result name="success" type="stream">
+                <param name="contentType">application</param>
+                <param name="inputName">ipsm</param>
+                <param name="contentDisposition">
+                    attachment;filename="${fileName}"
+                </param>
+                <param name="bufferSize">4096</param>
+            </result>
+        </action>
+		
+        
+        <action name="outerSystemLoginAction" class="com.jhkj.mosdc.permission.action.OuterSystemLoginAction">
+            <result name="success" type="redirect">/permissAction.action</result>
+        </action>
+        
+		<action name="permissAction" class="com.jhkj.mosdc.permission.action.PermissAction">
+			<result name="error">/error.jsp</result>
+			<result name="sessionout">/session.jsp</result>
+			<result name="login">/login2.jsp</result>
+			<result name = "testPage.jsp">/testPage.jsp</result>
+		</action>
+		<action name="uploadFileAction" class="com.jhkj.mosdc.framework.action.UploadFileAction">
+			<result name="success">sucess.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+        <action name="sjkAction" class="com.jhkj.mosdc.framework.action.SjkAction" method="uploadMethod">
+            <param name="uploadPath">/uploadFile/jwgl/sjk</param>
+        </action>
+		<action name="validateImgAction" class="com.jhkj.mosdc.framework.action.ValidateImgAction">
+	        <param name="width">95</param>   
+	        <param name="height">45</param>   
+	        <param name="fontSize">18</param>   
+	        <param name="codeLength">6</param>   
+	        <result name="success" type="stream">   
+            <param name="contentType">image/jpeg</param>   
+        </result>
+		</action>
+
+		<!-- 招生dbf导入 -->
+		<action name="importDbf" class="com.jhkj.mosdc.zsgl.action.DbfAction"
+			method="importDbfFile">
+			<!--
+				<result name="success">sucess.jsp</result> <result
+				name="error">error.jsp</result>
+			-->
+		</action>
+
+		<action name="ZsxxmbExport" class="com.jhkj.mosdc.zsgl.action.DbfAction"
+			method="exportMb">
+			<result name="success" type="stream">
+				<param name="inputName">input</param>
+				<param name="contentType">application</param>
+				<param name="contentDisposition">attachment;filename="${filename}"</param>
+				<param name="bufferSize">4096</param>
+			</result>
+			<result name="error">error.jsp</result>
+
+		</action>
+		
+	</package>
+	<package name="struts-base-out" extends="struts-default">
+		<action name="logout" class="com.jhkj.mosdc.permission.action.LogoutAction">
+			<result name="success" type="redirect">
+				${path}/login2.jsp
+			</result>		
+		</action>
+	</package>
+	
+	
+</struts>
+	

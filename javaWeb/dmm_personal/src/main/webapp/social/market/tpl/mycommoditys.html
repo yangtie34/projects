@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<div class="rxs-add-dt"><a href="#putcommodity/mycommoditys" class="rxs-add-link"><img src="../images/add-lb.png" width="20"></a></div>
+<div class="rxs-comn-list rxs-comn-patop">
+  <ul class="rxs-comn-ul   rxs-hover-ul">
+    <li class="rxs-position-center" ng-repeat = "c in commoditys">
+      <div class="media">
+        <div class="media-left media-middle"><a href="#/details/{{c.id}}" style="text-decoration: none">
+        <img ng-show="c.is_sold == 1" class="rxs-logo-lb" src="../images/logo-lb.png">
+        <img ng-src="{{c.image_url}}" width="80"></a></div>
+        <div class="media-body media-middle rxs-hpage">
+          <a href="#/details/{{c.id}}" style="text-decoration: none"><h4 class="rxs-ft-16">{{c.name_}}</h4>
+          <p class="rxs-cor-9b">使用时长：<span class="rxs-cor-ff9">{{c.use_time}}</span></p>
+          <p class="rxs-cor-9b">{{c.stu_name}}:{{c.tel}}</p>
+          <p class="rxs-cor-9b">发布时间：{{c.create_time}}</p>
+          <p class="rxs-cor-9b" ng-show = "c.is_sold == 1">交易完成时间：{{c.sold_time}}</p></a>
+        </div>
+        <div class="media-right  rxs-cor-ff9 rxs-nowrap">￥ <span class=" rxs-ft-16">{{c.price}}</span></div>
+      </div>
+       <div class="rxs-zt-lb rxs-zt-lb-ok"><a href="" ng-click="modify(c.id);" style="text-decoration: none;color:#fff">完成交易</a></div>
+       <div class="rxs-zt-lb" ng-show = "c.is_sold == 1">完成交易</div>
+    </li>
+   </ul>
+</div>

@@ -1,0 +1,72 @@
+	<div class="jiaoxuerizhi">
+		<div style="float:left;">
+			<div>
+				<a href="" class="jiaoxuerizhi-alink" ng-class="clickId==0?'jiaoxuerizhi-alink-visited':''"ng-click="cliclickId(0);">今年</a>
+					<a href="" class="jiaoxuerizhi-alink" ng-class="clickId==1?'jiaoxuerizhi-alink-visited':''" ng-click="cliclickId(1);">去年</a>
+					<a href="" class="jiaoxuerizhi-alink" ng-class="clickId==5?'jiaoxuerizhi-alink-visited':''"ng-click="cliclickId(5);">近五年</a>
+					<a href="" class="jiaoxuerizhi-alink" ng-class="clickId==10?'jiaoxuerizhi-alink-visited':''"ng-click="cliclickId(10);">近十年</a>
+					<a href="" class="jiaoxuerizhi-alink" ng-class="clickId==20?'jiaoxuerizhi-alink-visited':''"ng-click="cliclickId(20);">近二十年</a>
+			</div>
+		</div>
+		<div class="btn-group "  style="float:left;margin-right:10px" ng-repeat="item in [0,1] ">
+        <button class="btn btn-default btn-sm dropdown-toggle dropdown-nftj" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           {{year[$index]}}年 <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu jiaoxuerizhi-select" >
+          <li><a ng-click="yearclick(item,i);" ng-repeat="i in years[item]">{{i}}</a></li>
+        </ul>
+      </div>
+		<div  class="x-clear"></div>
+	</div>
+	
+	<style>
+.jiaoxuerizhi{
+    background: #f6f6f6;
+border: 1px solid #AAA;
+    padding: 10px;
+    margin: 0px 0px 10px 0px;
+    font-size: 12px;
+}
+a.jiaoxuerizhi-alink {
+    padding: 5px;
+    display: block;
+    margin-right: 8px;
+    float: left;
+    border: 1px solid #999;
+    /* background: #fff; */
+    text-decoration: none;
+    color: #333;
+}
+ .jiaoxuerizhi-alink-visited  {
+    background: #00b102;
+    text-decoration: none;
+    color: #fff;
+}
+a.jiaoxuerizhi-alink:hover  {
+    background: #00b102;
+    text-decoration: none;
+    color: #fff;
+}
+.dropdown-menu{
+height:150px;
+overflow-y:scroll;
+min-width: 80px;important
+}
+.dropdown-menu>li>a {
+    display: block;
+    padding: 3px 3px;important
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+}
+.x-clear {
+    overflow: hidden;
+    clear: both;
+    height: 0;
+    width: 0;
+    font-size: 0;
+    line-height: 0;
+}
+</style>	

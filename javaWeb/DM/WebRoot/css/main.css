@@ -1,0 +1,235 @@
+.page-unfriend{
+    background-image: url(images/unfriend.png);
+}
+.page-expand{
+	background-image: url(images/expand.gif) !important;
+}
+.page-collapse{
+	background-image: url(images/collapse.gif) !important;
+}
+.connect {
+	background-image: url(../images/connect.gif) !important;
+}
+
+.page-xtsz {
+	background-image: url(../images/advanced_search.png) !important;
+}
+
+.page-qxgl {
+	background-image: url(../images/logout2.gif) !important;
+}
+
+.page-book {
+	background-image: url(../images/book1.gif) !important;
+}
+
+.page-jcgl {
+	background-image: url(../images/jcgl.gif) !important;
+}
+
+.page-tjfx {
+	background-image: url(../images/tjfx2.ico) !important;
+}
+
+.page-jcgl-tjfx {
+	background-image: url(../images/tjfx1.gif) !important;
+}
+
+.page-ssgl {
+	background-image: url(../images/ssgl.gif) !important;
+}
+
+.page-xxmh {
+	background-image: url(../images/xxmh1.gif) !important;
+}
+
+.page-zsgl {
+	background-image: url(../images/zsgl.gif) !important;
+}
+
+.page-zhuye {
+	background-image: url(../images/zhuye.gif) !important;
+}
+
+.page-jwgl {
+	background-image: url(../images/jwgl.gif) !important;
+}
+
+.page-rsgl {
+	background-image: url(../images/rsgl1.gif) !important;
+}
+
+.page-xggl {
+	background-image: url(../images/xggl1.gif) !important;
+}
+
+.page-xtbg {
+	background-image: url(../images/xtbg.ico) !important;
+}
+
+.page-yingxin {
+	background-image: url(../images/yingxin.gif) !important;
+}
+
+.page-rss {
+	background-image: url(../images/rss.gif) !important;
+}
+
+.page-find {
+	background-image: url(../images/find.ico) !important;
+}
+
+.page-help {
+	background-image: url(../images/help.ico) !important;
+}
+
+.page-xitong {
+	background-image: url(../images/xitong.gif) !important;
+}
+
+.page-081 {
+	background-image: url(../images/081.gif) !important;
+}
+
+.page-xiuli {
+	background-image: url(../images/xiuli.gif) !important;
+}
+
+.page-tab {
+	background-image: url(../images/tab.gif) !important;
+}
+
+.settingform {
+	background-image: url(../images/gears.gif) !important;
+}
+
+.page-add {
+	background-image: url(../images/add.gif) !important;
+}
+
+.page-update {
+	background-image: url(../images/folder_go.gif) !important;
+}
+
+.page-delete {
+	background-image: url(../images/cross.gif) !important;
+}
+
+.page-search {
+	background-image: url(../images/search.png) !important;
+}
+.page-advanced-search {
+	background-image: url(../images/advanced_search.png) !important;
+}
+.page-reducation {
+	background-image: url(../images/reducation.png) !important;
+}
+.page-importIcon {
+	background-image: url(../images/daoru1.gif) !important;
+}
+
+.page-excel {
+	background-image: url(../images/daoru.gif) !important;
+}
+
+.page-exportIcon {
+	background-image: url(../images/daochu.gif) !important;
+}
+
+.page-downloadIcon {
+	background-image: url(../images/excelmuban.gif) !important;
+}
+
+.page-save {
+	background-image: url(../images/save2.gif) !important;
+}
+
+.page-refresh {
+	background-image: url(../images/refresh.gif) !important;
+}
+
+.page-cancel {
+	background-image: url(../images/cancel.gif) !important;
+}
+
+.page-ok {
+	background-image: url(../images/ok.ico) !important;
+}
+
+.page-review {
+	background-image: url(../images/review.ico) !important;
+}
+
+.page-checked {
+	background-image: url(../images/gears.png) !important;
+}
+.page-Volume {
+	background-image: url(../images/Volume.png) !important;
+}
+.page-remove{
+	background-image: url(../images/Mute.ico) !important;
+}
+.page-print{
+	background-image: url(../images/print.png) !important;
+}
+.page-img{
+	background-image: url(../images/img.png) !important;
+}
+.page-rar{
+	background-image: url(../images/rar.png) !important;
+}
+/******wyt锟斤拷锟酵硷拷锟斤拷锟绞�****/
+.user_change_password{
+	background-image: url(images/change_password.png) !important;
+}
+.system_switch{
+	background-image: url(images/switchover.png) !important;
+}
+/*************页锟斤拷锟斤拷锟斤拷锟斤拷**************/
+.chuantong_img{
+	background-image:url(../images/tradition_page.png) !important;
+}
+.desktop_img{
+	background-image:url(../images/desktop_page.png) !important;
+}
+.headway_img{
+	background-image:url(../images/headway_img.png) !important;
+}
+a.link-ziti{color:#0066cc; font-size:12px; text-decoration:none;}
+a.link-ziti:hover{color:#0099CC;  text-decoration:underline;}
+/********haw_king-统计输出页面专用CSS start*********/
+.output_zdytjym_goback{background-image: url(../images/goback-output.png) !important;}
+.output_zdytjym_pass{background-image: url(../images/pass-output.png) !important;}
+.output_zdytjym_preview{background-image: url(../images/preview-output.png) !important;}
+.output_zdytjym_expansion{background-image: url(../images/expansion.png) !important;}
+.output_zdytjym_shrink{background-image: url(../images/shrink.png) !important;}
+.output_zdytjym_up{background-image: url(../images/up2.gif) !important;}
+.output_zdytjym_down{background-image: url(../images/down2.gif) !important;}
+.output_zdytjym_remove{background-image: url(../images/delete2.gif) !important;}
+.output_zdytjym_add_layout{background-image:url(../images/add_layout.png) !important;}
+.output_zdytjym_delete_layout{background-image:url(../images/delete_layout.png) !important;}
+/**************************下拉框的图标*********************************/
+.output_zdytjym_text{padding-left:20px; background-image: url(../images/out_put_text.png);background-repeat:no-repeat; background-position:left center;}
+.output_zdytjym_table{padding-left:20px; background-image: url(../images/out_put_table.png);background-repeat:no-repeat; background-position:left center;}
+.output_zdytjym_column{padding-left:20px; background-image: url(../images/out_put_column.png);background-repeat:no-repeat; background-position:left center;}
+.output_zdytjym_pie{padding-left:20px; background-image: url(../images/out_put_pie.png);background-repeat:no-repeat; background-position:left center;}
+.output_zdytjym_line{padding-left:20px; background-image: url(../images/out_put_line.png);background-repeat:no-repeat; background-position:left center;}
+.output_zdytjym_doughnut{padding-left:20px; background-image: url(../images/out_put_doughnut.png);background-repeat:no-repeat; background-position:left center;}
+.output_zdytjym_treelinkage{padding-left:20px; background-image: url(../images/out_put_treelinkage.png);background-repeat:no-repeat; background-position:left center;}
+.output_zdytjym_datelinkage{padding-left:20px; background-image: url(../images/out_put_datelinkage.png);background-repeat:no-repeat; background-position:left center;}
+.output_zdytjym_{padding-left:20px; background-image: url(../images/out_put_unknow.png);background-repeat:no-repeat; background-position:left center;}
+.output_zdytjym_area{padding-left:20px; background-image: url(../images/out_put_area.png);background-repeat:no-repeat; background-position:left center;}
+.output_zdytjym_bar{padding-left:20px; background-image: url(../images/out_put_bar.png);background-repeat:no-repeat; background-position:left center;}
+/******************************统计输出页面专用CSS end******************************/
+.jcmk_reback_page{background-image:url(../images/jc_reback_page.png) !important;}
+.jcmk_set{background-image:url(../images/jc_set.png) !important;}
+.jcmk_show_detail{background-image:url(../images/jc_show_detail.png) !important;}
+.jcmk_submit{background-image:url(../images/jc_submit.png) !important;}
+.gobal_grid_link{
+	color:#0066cc;
+	font-size:12px;
+	text-decoration:underline;
+}
+.gobal_grid_button{
+	
+}

@@ -1,0 +1,44 @@
+@CHARSET "UTF-8";
+/* 学校资产信息 */
+.metro {
+	width: 100%;
+	font-family: 微软雅黑;
+	font-size: 20px;
+	color: #fff;
+}
+
+.pic-contain {
+	width: 100px;
+	height: 100px;
+	background-image: url(zcpic.png);
+	background-position: -200px -200px;
+}
+
+.table-container {
+	width: 100%;
+	border-spacing: 0;
+	margin: 0px;
+	height: 320px;
+}
+
+.table-container>tbody>tr>td {
+	border-spacing: 0;
+	padding: 5px;
+}
+
+.metro-table {
+	width: 100%;
+	font-family: 微软雅黑;
+	font-size: 26px;
+	color: #fff;
+	text-align: center;
+	line-height: 35px;
+	border-spacing: 0px;
+}
+
+.metro-table>tbody>tr>td {
+	border-spacing: 0px;
+	border-style: dashed;
+	border-color: #FFF;
+	border-width: 0px;
+}

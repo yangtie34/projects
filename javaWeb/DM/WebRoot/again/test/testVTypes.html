@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <title></title>
+            <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css">
+                <script src="data/data.js"></script>
+                <script src="../../base1/util/LAB.min.js"></script>
+                <script src="../../extjs/ext-all-debug.js"></script>
+                <script src="../ns-debug.js"></script>
+                <script src="../component/Template.js"></script>
+                <script type="text/javascript">
+                Ext.onReady(function(){
+                    var date1 = new NS.form.field.Date({
+                        format : 'Y-m-d',
+                        vtype :  'daterange'
+                    });
+                    var date2 = new NS.form.field.Date({
+                        vtype :  'daterange',
+//                        value : new Date(),
+                        format : 'Y-m-d'
+                    });
+                    var st = new NS.form.field.DateTime({
+//                        value : new Date(),
+                        format : 'Y-m-d H:i:s',
+                        vtype : 'daterange'
+                    });
+                    var et = new NS.form.field.DateTime({
+//                        value : new Date(),
+                        format : 'Y-m-d H:i:s',
+                        vtype : 'daterange'
+                    });
+                    var e = new NS.form.field.Date({
+                        format : 'Y-m-d H:i:s'
+                    });
+                    e.setMaxValue(new Date());
+                    date2.setStartDateField(date1);
+                    date1.setEndDateField(date2);
+                    st.setEndDateField(et);
+                    et.setStartDateField(st);
+                    var component = new NS.toolbar.Toolbar({
+                        items : [date1,date2,st,et,e],
+                        renderTo: Ext.getBody()
+                });
+                });
+
+
+                </script>
+            </head>
+            <body>
+
+            </body>
+        </html>

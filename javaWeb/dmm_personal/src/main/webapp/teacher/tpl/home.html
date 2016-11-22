@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<div class="container-fluid phone-common-media">
+  <div class="media">
+    <div class="media-left media-middle">
+	     <a class="img-circle phone-common-img-border" href="#/info">
+	    	 <img ng-src="{{personalInfo.headimg}}" width="70" height="70" class="img-circle "> 
+	     </a>
+     </div>
+    <div class="media-body media-middle">
+      <h3 ><p>{{personalInfo.name}} <small class="phone-common-boy-icon"></small></p></h3> 
+      <p>工号：{{personalInfo.tno}}</p>
+      <p>部门：{{personalInfo.dept}}</p>
+    </div>
+    <div class="media-right media-middle"> <a class="phone-common-mediaright-icon" title="个人信息" href="#/info">   </a> </div>
+  </div>
+</div>
+
+<div class="container-fluid" style="background: #fff;margin-left: -1px;">
+	<div class="phone-common-jiumenu">
+		<div class="row">
+			<div class="col-xs-4" style="border-left:1px solid #ddd;border-bottom:1px solid #ddd;" check-permiss shirotag="personal:teacher:teaching:*" >
+				<a href="teaching/index.jsp"> <img
+					src="images/home-jxue-icon.png">
+				</a> 教学活动
+			</div>
+			<div class="col-xs-4" style="border-left:1px solid #ddd;border-bottom:1px solid #ddd;" check-permiss shirotag="personal:teacher:salary:*">
+				<a href="salary/index.jsp"> <img src="images/home-xzi.png">
+				</a>薪资待遇
+			</div>
+			<div class="col-xs-4"  style="border-left:1px solid #ddd;border-bottom:1px solid #ddd;" check-permiss shirotag="personal:teacher:warn:*">
+				<a href="warning/warning.jsp"> <img src="images/home-yjing.png">
+				</a>预警信息
+			</div>
+			<div class="col-xs-4"  style="border-left:1px solid #ddd;border-bottom:1px solid #ddd;" check-permiss shirotag="personal:teacher:classes:*">
+				<a href="classes/classes.jsp"> <img src="images/home-banji.png">
+				</a> 班级详情
+			</div>
+			<div class="col-xs-4" style="border-left:1px solid #ddd;border-bottom:1px solid #ddd;" check-permiss shirotag="personal:teacher:research:*">
+				<a href="research/index.jsp"> <img src="images/home-kyan.png">
+				</a> 科研成果
+			</div>
+			<div class="col-xs-4" style="border-left:1px solid #ddd;border-bottom:1px solid #ddd;" check-permiss shirotag="personal:teacher:dailylife:*">
+				<a href="dailylife/index.jsp"> <img src="images/home-richang.png">
+				</a> 日常生活
+			</div>
+			<div class="col-xs-4" style="border-left:1px solid #ddd;border-bottom:1px solid #ddd;" check-permiss shirotag="personal:teacher:score:*">
+				<a href="score/index.jsp"> <img src="images/home-chengji.png">
+				</a>成绩分析
+			</div>
+			<div class="col-xs-4 hidden">
+				<a href="#"> <img src="images/home-more.png">
+				</a>添加更多
+			</div>
+			<div class="col-xs-4">
+				<a> <img src="images/home-zhan.png"></a><span
+					style="color: #fff;">占位</span>
+			</div>
+		</div>
+	</div>
+</div>
+

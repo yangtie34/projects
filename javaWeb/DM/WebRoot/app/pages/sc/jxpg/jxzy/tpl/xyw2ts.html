@@ -1,0 +1,26 @@
+<div style="font-size: 20px;font-weight: bold;font-family: '黑体';text-align: center;">{xn}学年</div>
+<div>
+    <table  class="jxpg-common-table">
+        <tr>
+            <td  rowspan="2" class="title">项目</td>
+            <td  rowspan="2" class="title">学校情况</td>
+            <td class="title" >办学条件指标</td>
+            <td   rowspan="2" class="title">常模值</td>
+        </tr>
+        <tr>
+            <td class="title">合格标准</td>
+        </tr>
+        <tpl for="items">
+            <tr>
+                <td >{XM}</td>
+                <td>
+                    <span class="realvalue">{XXQK_T}</span>
+                    <span class="value" code="XXQK_F" rowid="{ID}" isnum="float" type="itemvalue">{XXQK_F}</span>
+                    <div></div>
+                </td>
+                <td>{HGBZ_T}</td>
+                <td><span>{CMZ_T}</span></td>
+            </tr>
+        </tpl>
+    </table>
+</div>

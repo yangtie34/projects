@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<div class="rxs-comn-patop" ng-repeat="it in monthlist"><a href="#detail/{{it.datetime}}" style="text-decoration: none;color:#333">
+<div class="rxs-comn-title rxs-comn-noicon"> {{it.datetime}} <span class="pull-right">{{it.sumval}}元</span></div></a>
+<div class="rxs-bg-ff">
+  <ul class="rxs-comn-ul rxs-hover-ul rxs-pad-none">
+    <li class="rxs-td-active">
+      <div class="media">
+        <div class="media-left media-middle">
+          <div class="rxs-icon-green rxs-icon-canting">餐厅</div>
+        </div>
+        <div class="media-body media-middle text-center rxs-text-green rxs-ft-20"> {{it.cfzc}} </div>
+      </div>
+    </li>
+    <li class="rxs-td-active">
+      <div class="media">
+        <div class="media-left media-middle">
+          <div class="rxs-icon-green rxs-icon-shop">超市</div>
+        </div>
+        <div class="media-body media-middle text-center rxs-org-cor rxs-lh-18 rxs-ft-20"> {{it.scgw}} </div>
+      </div> 
+    </li>
+  </ul>
+</div>
+</div>
+<div class="hidden">
+	<div pagination total-items="page.sumcount" ng-model="page.curpage" items-per-page="page.pagesize" max-size="5" class="pagination-sm pull-right" boundary-links="true"></div>
+	<div class="clear-all"></div>
+</div>
+<button class="btn btn-primary btn-block" ng-click="loadMore()" ng-hide="page.loading || page.pagesize*page.curpage >= page.sumcount"> 点击加载更多 </button>
+<button class="btn btn-danger btn-block" ng-show="page.loading">加载中</button>
+<div ng-show="page.pagesize*page.curpage >= page.sumcount">
+	<div class="text-center jzhi-text-ccc">
+	 	没有更多数据
+	</div>
+</div>

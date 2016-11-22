@@ -1,0 +1,11 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata></metadata>
+<defs>
+<font id="rtws_yueroundedgothic_demo_Rg" horiz-adv-x="1000" vert-adv-y="1000" >
+<font-face units-per-em="1000" ascent="800" descent="-200" />
+<missing-glyph horiz-adv-x="500" />
+<glyph unicode="&#xe000;" d="M625 465h177v-72h-59v-22h59v-28h-84l-3 -23h87v-80h-30v52h-60l-2 -52h-34l8 103h-26l-10 -103h-35l12 114v111zM420 240v32h74v195h-71v28h179v-28h-71v-195h73v-32h-184zM221 428h125v-71h60v-32h-62l-40 -85h-42l39 85h-82v32h88v45h-86v26zM77 384h122v-92h-122v92z M57 269h148v-29h-187v144h39v-115zM74 465v44h31v-16h14v16h37v-16h46v-28h-46v-26h46v-32h-128v32h45v26h-45zM406 450h-39v17h-109v-17h-39v45h74v18h42v-18h71v-45zM618 482v27h188v-27h-188zM923 509l16 -42l15 42h28v-73h-19v48h-1l-15 -48h-16l-16 48v-48h-20v73h28z M885 509v-19h-20v-54h-21v54h-20v19h61zM766 420l3 19h-111v-19h108zM114 323h48v31h-48v-31zM658 371h52v22h-52v-22zM18 439h39v-28h-39v28zM18 493h39v-28h-39v28z" />
+</font>
+</defs></svg> 

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<style>
+  .transformgrid-base tr{border:1px solid #000;} 
+  .transformgrid-base td{padding:5px;border:1px solid #000;}
+</style>
+<link rel="stylesheet" type="text/css"
+	href="../../extjs/resources/css/ext-all.css">
+<script src="data/data.js"></script>
+<script src="../../base1/util/LAB.min.js"></script>
+<script src="../../extjs/ext-all-debug.js"></script>
+<script src="../ns-debug.js"></script>
+<script src="../../extjs/ext-lang-zh_CN.js"></script>
+<script type="text/javascript">
+	Ext.onReady(function() {
+
+		var display = new NS.form.field.Display({
+            fieldLabel : '张三',
+//            renderTo : NS.getBody()
+        });
+        display.on('click',function(){
+            alert(111);
+        });
+        var component = new NS.Component({
+            html : '李四'
+        });
+        component.on('click',function(){
+            alert(222);
+        });
+        var window = new NS.container.Panel({
+            width : 300,
+            height : 300,
+            layout : 'column',
+            renderTo : NS.getBody(),
+            items : [component,display]
+        });
+        window.component.enableBubble('click');
+
+	});
+</script>
+</head>
+<body>
+
+</body>
+</html>

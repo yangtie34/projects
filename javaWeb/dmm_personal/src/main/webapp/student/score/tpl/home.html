@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<div class="rxs-menu-top rxs-bg-green02 rxs-pad-top-lr">
+  <div class="media">
+    <div class="media-left media-middle">
+      <div class="rxs-xiaofei-circle-text rxs-xuefen-icon ">已修学分 </div>
+    </div>
+    <div class="media-body media-middle ">
+      <h4 class="text-center rxs-ft-40"><span class="rxs-text-yellow">{{credit.my_credit}} /</span> {{credit.total_credit}}</h4>
+    </div>
+  </div>
+</div>
+<div class="rxs-bg-green02">
+  <ul class="rxs-tab-list rxs-tab-list-yellow clearfix">
+    <li> 必修： <span class="rxs-text-yellow">{{creditType.mybx}} /</span>{{creditType.bx}}</li>
+    <li> 选修： <span class="rxs-text-yellow">{{creditType.myxx}} /</span>{{creditType.xx}}</li>
+  </ul>
+</div>
+<div class="rxs-comn-title rxs-comn-noicon"> 上学期成绩 <a href="#/historyScore" class="rxs-list-icon pull-right"></a></div>
+<div class="rxs-comn-list">
+  <ul class="rxs-link-ul rxs-mt-0 clearfix rxs-text-16">
+    <li class="rxs-width-50"> <img src="../images/zong.png" width="24">总分
+      <h4 class="rxs-num-red rxs-ft-24"> {{score.total_score}} </h4>
+    </li>
+    <li class="rxs-width-50"> <img src="../images/pming.png" width="24"> 专业排名
+      <h4 class="rxs-num-red rxs-ft-24">{{score.rank_}}</h4>
+    </li>
+  </ul>
+  <div class="rxs-progress">
+    <div class="rxs-position-center" id="myProportion" style="width:100%;height:200px;">
+    </div>
+  </div>
+  <div class="rxs-text-16 rxs-line-ht rxs-bg-ff text-center">击败了<span class="rxs-num-red"> {{proportion}}</span> 的本专业学生</div>
+</div>

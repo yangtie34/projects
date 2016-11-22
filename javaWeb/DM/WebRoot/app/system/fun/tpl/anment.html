@@ -1,0 +1,29 @@
+<div class="index_page_list_top ">
+    <h3 class="index_page_floatRight index_page_list_information" >{show.sendTime}<em class="index_page_list_author">{show.jzgXm}</em></h3>
+    <h2> <span class="index_page_list_title">{show.title}</span></h2>
+</div>
+<hr class="index_page_hrdefault" />
+<div class="index_page_list_content" style="font-size: 18px;">
+    <p> {show.content}</p>
+</div>
+<div class="index_page_positionfixed "  style="padding:0px 20px;" >
+    <tpl for="list">
+        {%  this.className='index_page_list_news index_page_list_mar-right index_page_list_important index_page_floatLeft index_page_Boxshadow';
+            if(values.important)this.className+=' index_page_antclick';
+        %}
+        <div class="{[this.className]}" style="width: 150px;" >
+            <ul>
+                <li class="index_page_list_align">
+                    <h3><a href='javascript:void(0);' vId="{id}" index="{[xindex]}">{title}</a></h3>
+                    <p>{sendTime} | {jzgXm}</p>
+                </li>
+            </ul>
+        </div>
+    </tpl>
+    <!--<div  style="border-radius:5px; margin-top:25px; padding-top:30px;" class="index_page_list_news index_page_list_mar-right index_page_floatLeft index_page_Boxshadow" >
+        <ul>
+            <li><a href="#"><img src="image/forward_ltr.png"  width="24" height="24"/></a>
+            </li>
+        </ul>
+    </div>-->
+</div>

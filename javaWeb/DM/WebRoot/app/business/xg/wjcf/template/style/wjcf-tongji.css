@@ -1,0 +1,131 @@
+/* 学籍打印表CSS */
+/*搜索模块select，input，button宽度定义*/
+ 
+.wjcf-tongji_search select.wjcf-tongji_select {
+	min-width:134px;
+}
+.wjcf-tongji_marginLeft {
+	margin-left:15px;
+}
+.wjcf-tongji_marginLeftMin {
+	margin-left:10px;
+}
+.wjcf-tongji_marginLeftLong {
+	margin-left:45px;
+}
+/* 统计 */
+.wjcf-tongji_stats {
+	margin-top:0.6em;
+	font-size:10px;
+	color:#0066FF;
+	font-family: 'Microsoft YaHei'
+}
+.wjcf-tongji_margintop {
+	margin-top:-4px;
+}
+.wjcf-tongji_pmargin {
+	margin-top:0.6em;
+}
+.wjcf-tongji_textbold {
+	font-weight:bold;
+}
+/* 链接样式*/
+a.wjcf-tongji_linkchange {
+	color:#3366FF;
+	text-decoration:none;
+}
+a.wjcf-tongji_linkchange:hover {
+	color:#3399FF;
+	text-decoration:underline;
+}
+button.font-size {
+	font-size:12px;
+}
+/*切换样式*/
+/*历史记录样式*/
+.wjcf-tongji_history {
+	position:relative;
+	display:inline-block;
+}
+.wjcf-tongji_history a {
+	color:#3366FF;
+	font-size:13px;
+	font-weight:normal;
+	text-decoration:none;
+}
+.wjcf-tongji_history a:hover {
+	color:#3399FF;
+	font-size:13px;
+	font-weight:normal;
+}
+.wjcf-tongji_history-beside {
+	display: none;
+	position: absolute;
+	width: 180px;
+	padding-top: 10px;
+	left:-5px; 
+	margin-top: -10px; 
+	z-index:1999;
+}
+.wjcf-tongji_history-hover {
+	padding:10px;
+	border:1px solid #999;
+	background:#fff;
+}
+.wjcf-tongji_history-title {
+	color:#438237;
+	font-size:12px;
+	font-weight:bold;
+	margin:5px 0 0 0;
+	border-bottom:1px solid #ccc;
+	padding-bottom:5px;
+}
+.wjcf-tongji_history-title a {
+	color:#438237;
+	text-decoration:none;
+}
+.wjcf-tongji_history-title a:hover {
+	color:#438237;
+	text-decoration:underline;
+}
+.wjcf-tongji_history-new {
+	border-bottom:1px solid #ccc;
+}
+.wjcf-tongji_history-new a {
+	color:#438237;
+	text-decoration:none;
+}
+.wjcf-tongji_history-new a:hover {
+	color:#438237;
+	text-decoration:underline;
+}
+.wjcf-tongji_wjcf-tongji_history-content {
+	color:#666;
+	font-size:12px;
+}
+.wjcf-tongji_history-content h4 {
+	font-size:12px;
+	color:#666;
+	margin:10px 0 5px 0;
+}
+.wjcf-tongji_history-content ul {
+	list-style:none;
+}
+.wjcf-tongji_history-content ul li {
+	padding:3px 0;
+}
+.wjcf-tongji_history-content ul li a {
+	color:#666;
+	text-decoration:none;
+}
+.wjcf-tongji_history-content ul li a:hover {
+	color:#FF6600;
+	text-decoration:underline;
+}
+.wjcf-tongji_current-nobtm {
+	border-bottom:none;
+}
+.wjcf-tongji_new-jiaoxuerili {
+	padding:2px 10px;
+	margin:0 0 5px 0;
+}

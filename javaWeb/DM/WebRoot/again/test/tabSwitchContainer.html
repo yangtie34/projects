@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+<title>Insert title here</title>
+</head>
+
+<link rel="stylesheet" type="text/css"
+	href="../../extjs/resources/css/ext-all.css">
+<script src="../../extjs/ext-all-debug.js"></script>
+<script src="../../base1/util/LAB.min.js"></script>
+<script src="../ns-debug.js"></script>
+<script type="text/javascript" src="../component/container/TabSwitchContainer.js"></script>
+<script src="../../extjs/ext-lang-zh_CN.js"></script>
+<script type="text/javascript">
+	Ext.onReady(function() {
+        var initPage1 = function(swth,container,params){
+             var panel = new NS.container.Container({
+                 html : '第一个页面的初始化动作'
+             });
+            container.add(panel);
+        }
+            var initPage2 = function(swth,container,params){
+                var panel = new NS.container.Container({
+                    html : '第二个页面的初始化动作'
+                });
+                container.add(panel);
+            }
+		var sth = new NS.container.TabSwitchContainer({
+            width : 400,
+            height : 400,
+            items : [
+                       {
+                           name : 'component1',
+                           scope : window,
+                           title : '第一个tab页',
+                           init : initPage1
+                       },
+                        {
+                            name : 'component2',
+                            scope : window,
+                            title : '第二个tab页',
+                            init : initPage2
+                        }
+                    ]
+        });
+        var panel = new NS.container.Panel({
+            width : 500,
+            height : 500,
+            renderTo : Ext.getBody(),
+            tbar : new NS.toolbar.Toolbar({items : [
+                {text : "切换到第一个页面",xtype : 'button',name : 's1'},
+                {text : "切换到第二个页面",xtype : 'button',name : 's2'}
+            ]}),
+            items : [sth]
+        });
+        panel.bindItemsEvent({
+            s1 : {
+                event : 'click',
+                fn : function(){
+                    sth.switchTo('component1',{name : 'zhangsan'});
+                }
+            },
+            s2 : {
+                event : 'click',
+                fn : function(){
+                    sth.switchTo('component2',{name : 'lisi'});
+                }
+            }
+        })
+
+	});
+</script>
+<body>
+
+</body>
+</html>

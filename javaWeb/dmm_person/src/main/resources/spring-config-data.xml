@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans.xsd
+  http://www.springframework.org/schema/context
+  http://www.springframework.org/schema/context/spring-context.xsd
+  http://www.springframework.org/schema/aop
+  http://www.springframework.org/schema/aop/spring-aop.xsd
+  http://www.springframework.org/schema/tx
+  http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<context:property-placeholder location="classpath:db.properties" />
+	<!-- 上传 配置文件-->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+
+        <property name="defaultEncoding" value="utf-8" />
+
+        <property name="maxUploadSize" value="104857600"/>
+
+        <property name="maxInMemorySize" value="4096"/>
+
+    </bean>
+    
+	<bean id="ds-base" class="com.atomikos.jdbc.AtomikosDataSourceBean"
+        init-method="init" destroy-method="close">
+        <description>oracle xa datasource</description>
+        <property name="uniqueResourceName">
+            <value>dsbase</value>
+        </property>
+        <property name="xaDataSourceClassName">
+            <value>oracle.jdbc.xa.client.OracleXADataSource</value>
+        </property>
+        <property name="xaProperties">
+            <props>
+                <prop key="user">${dataSource.username.base}"</prop>
+                <prop key="password">${dataSource.password.base}</prop>
+                <prop key="URL">${dataSource.url.base}</prop>
+            </props>
+        </property> 
+        <property name="borrowConnectionTimeout" value="60" />
+        <property name="maxPoolSize" value="${dataSource.maxActive}"/>
+        <property name="minPoolSize" value="1"/>
+    </bean>
+    <bean id="ds-log" class="com.atomikos.jdbc.AtomikosDataSourceBean"
+        init-method="init" destroy-method="close">
+        <description>oracle xa datasource</description>
+        <property name="uniqueResourceName">
+            <value>dslog</value>
+        </property>
+        <property name="xaDataSourceClassName">
+            <value>oracle.jdbc.xa.client.OracleXADataSource</value>
+        </property>
+        <property name="xaProperties">
+            <props>
+                <prop key="user">${dataSource.username.log}"</prop>
+                <prop key="password">${dataSource.password.log}</prop>
+                <prop key="URL">${dataSource.url.log}</prop>
+            </props>
+        </property> 
+        <property name="borrowConnectionTimeout" value="60" />
+        <property name="maxPoolSize" value="${dataSource.maxActive}"/>
+        <property name="minPoolSize" value="1"/>
+    </bean>
+   
+    <!-- atomikos事务管理器 -->
+    <bean id="atomikosTransactionManager" class="com.atomikos.icatch.jta.UserTransactionManager"
+        init-method="init" destroy-method="close">
+        <description>UserTransactionManager</description>
+        <property name="forceShutdown">
+            <value>true</value>
+        </property>
+    </bean>
+
+    <bean id="atomikosUserTransaction" class="com.atomikos.icatch.jta.UserTransactionImp">
+        <property name="transactionTimeout" value="6000" />
+    </bean>
+
+    <!-- spring 事务管理器 -->
+    <bean id="springTransactionManager" class="org.springframework.transaction.jta.JtaTransactionManager">
+        <property name="transactionManager">
+            <ref bean="atomikosTransactionManager" />
+        </property>
+        <property name="userTransaction">
+            <ref bean="atomikosUserTransaction" />
+        </property>
+        <property name="allowCustomIsolationLevels" value="true"/> 
+    </bean>
+    
+    <!-- 注解式事务  -->
+	<tx:annotation-driven transaction-manager="springTransactionManager"/> 
+    
+	<bean id="jds-base" class="org.springframework.jdbc.core.JdbcTemplate">
+        <constructor-arg>
+            <ref bean="ds-base" />
+        </constructor-arg>
+    </bean>
+    
+    <bean id="jds-log" class="org.springframework.jdbc.core.JdbcTemplate">
+        <constructor-arg>
+            <ref bean="ds-log" />
+        </constructor-arg>
+    </bean> 
+    
+	<bean id="jtaBaseDao" class="com.jhnu.framework.data.base.impl.JtaBaseDaoImpl" >
+        <property name="jdbcTemplate" ref="jds-base" />
+        <property name="seqGenerator" ref="baseIdGenerator"></property>
+	</bean>
+	
+	<bean id="jtaLogDao" class="com.jhnu.framework.data.base.impl.JtaLogDaoImpl" >
+		<property name="jdbcTemplate" ref="jds-log" />
+		<property name="seqGenerator" ref="logIdGenerator"></property>
+	</bean>
+	
+	<bean id="baseDao" class="com.jhnu.framework.data.base.impl.BaseDaoImpl" >
+		<property name="jtaBaseDao" ref="jtaBaseDao" />
+		<property name="jtaLogDao" ref="jtaLogDao" />
+	</bean>
+	
+	<bean id="baseIdGenerator" class="org.springframework.jdbc.support.incrementer.OracleSequenceMaxValueIncrementer">
+		<property name="dataSource" ref="ds-base"></property>
+		<property name="incrementerName" ><value>ID_SEQ</value></property>
+	</bean>
+	
+	<bean id="logIdGenerator" class="org.springframework.jdbc.support.incrementer.OracleSequenceMaxValueIncrementer">
+		<property name="dataSource" ref="ds-log"></property>
+		<property name="incrementerName" ><value>ID_SEQ</value></property>
+	</bean>
+</beans>

@@ -1,0 +1,86 @@
+.pageheader_top {
+	padding-bottom:0.8em;
+}
+.pageheader-floatRight {
+    float:right;
+}
+.pageheader-term {
+    color:#FF6600;
+    line-height:1.8em;
+    font:bold 14px 'Microsoft YaHei';
+}
+.pageheader-model {
+    padding-right:0.6em;
+    color:#FF6600;
+    font:bold 16px 'Microsoft YaHei';
+    background:url(../image/border-rightbold.jpg) right center no-repeat;
+}
+.pageheader-user {
+    margin:auto 1.3em auto 0.5em;
+    color:#3366FF;
+    font:bold 14px 'Microsoft YaHei';
+}
+.pageheader-dept {
+    color:#333;
+    font:bold 12px 'Microsoft YaHei';
+}
+.pageheader-shuoming {
+	position: relative;
+	border-radius: 8px;
+	border: 1px solid #CCC;
+	background: #F6F6F6;
+	height: 35px;
+	line-height: 36px;
+	margin-top: 20px;
+	padding-left: 10px;
+	color: #666;
+}
+.pageheader-imgcss {
+	position: absolute;
+	left: 15px;
+	top: -17px;
+	width:29px;
+	height:21px;
+	background:url(../image/bgsj.png) left center no-repeat;
+}
+.pageheader-text-cor {
+	color: #39F;
+	font-weight: bold;
+}
+.pageheader_bottom {
+	position: relative;
+	border-radius: 8px;
+	border: 1px solid #CCC;
+	background: #F6F6F6;
+	height: 35px;
+	line-height: 36px;
+	margin-top: 20px;
+	padding-left: 10px;
+	color: #666;
+}
+.pageheader_marginLeft {
+	margin-left:15px;
+}
+.pagesubtitle {
+	margin : 8px 0 5px;
+}
+.pageheader h2 {
+    border-bottom: 2px solid #3399FF;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 1.6;
+}
+.pagesubtitle_title{
+	margin-right:2em;
+	padding-left:0.5em;
+	color:#3366FF;
+	font-weight:bold;
+	font-size:14px;
+	font-family:'Microsoft YaHei';
+	background:url(../image/border-leftnormal.jpg) left center no-repeat;
+}
+.pageheader_win {
+	padding-right:0.6em;
+	color:#FF6600;
+	font:bold 16px 'Microsoft YaHei';
+}

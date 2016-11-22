@@ -1,0 +1,156 @@
+.zxj_search select.zxj_select {
+	min-width:134px;
+}
+
+
+.zxj_marginLeft {
+	margin-left:15px;
+}
+.zxj_marginLeftMin {
+	margin-left:10px;
+}
+.zxj_marginLeftLong {
+	margin-left:45px;
+}
+
+.zxj_stats {
+	margin-top:0.6em;
+	color:#333333;
+	padding:5px;
+	font-family: 'Microsoft YaHei'
+}
+.zxj_pmargin {
+	margin-top:0.6em;
+}
+.zxj_textbold {
+	font-weight:bold;
+}
+
+a.zxj_linkchange {
+	color:#3366FF;
+	text-decoration:none;
+}
+a.zxj_linkchange:hover {
+	color:#3399FF;
+	text-decoration:underline;
+}
+button.font-size {
+	font-size:12px;
+}
+ 
+.zxj_history { 
+	position:relative;
+	display:inline-block;
+	z-index:1000;
+}
+.zxj_history a {
+	color:#3366FF;
+	font-size:13px;
+	font-weight:normal;
+	text-decoration:none;
+}
+.zxj_history a:hover {
+	color:#3399FF;
+	font-size:13px;
+	font-weight:normal;
+} 
+.zxj_history-beside {
+	display: none;
+	position: absolute;
+	width: 180px;
+	padding-top: 10px;
+	left:-5px; 
+	margin-top: -10px; 
+	z-index:1999;
+	
+}
+.zxj_history-hover { 
+	padding:10px;
+	border:1px solid #999;
+	background:#fff;
+}
+.zxj_history-title {
+	color:#438237;
+	font-size:12px;
+	font-weight:bold;
+	margin:5px 0 0 0;
+	border-bottom:1px solid #ccc;
+	padding-bottom:5px;
+}
+.zxj_history-title a {
+	color:#438237;
+	text-decoration:none;
+}
+.zxj_history-title a:hover {
+	color:#438237;
+	text-decoration:underline;
+}
+.zxj_history-new {
+	border-bottom:1px solid #ccc;
+}
+.zxj_history-new a {
+	color:#438237;
+	text-decoration:none;
+}
+.zxj_history-new a:hover {
+	color:#438237;
+	text-decoration:underline;
+}
+.zxj_zxj_history-content {
+	color:#666;
+	font-size:12px;
+}
+.zxj_history-content h4 {
+	font-size:12px;
+	color:#666;
+	margin:10px 0 5px 0;
+}
+.zxj_history-content ul {
+	list-style:none;
+}
+.zxj_history-content ul li {
+	padding:3px 0;
+}
+.zxj_history-content ul li a {
+	color:#666;
+	text-decoration:none;
+}
+.zxj_history-content ul li a:hover {
+	color:#FF6600;
+	text-decoration:underline;
+}
+a.zxj_index{
+     color:#0066FF;
+     text-decoration:none;
+ }
+a.zxj_index:hover{
+    color:#0066FF;
+    text-decoration:none;
+}
+
+.zxj-yuxuan_box{ margin:0;}
+
+/*表格样式*/
+table.zxj-yuxuan_table_gl {
+	border-collapse:collapse;
+	table-layout:fixed;
+	line-height:22px;
+}
+.zxj-yuxuan_blue {
+	color:#0066FF
+}
+
+.zxj-yuxuan_box h2 .zxj-yuxuan_title {
+	margin-right:2em;
+	padding-left:0.5em;
+	color:#3366FF;
+	font-weight:bold;
+	font-size:14px;
+	font-family:'微软雅黑';
+	background:url(../image/border-leftnormal.jpg) left center no-repeat;
+}
+
+/*颜色定义*/
+.zxj-yuxuan_greenbg {
+	background:#d4ff94;
+}

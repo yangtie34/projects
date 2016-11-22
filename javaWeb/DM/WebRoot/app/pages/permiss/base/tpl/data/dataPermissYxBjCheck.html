@@ -1,0 +1,50 @@
+<table width="100%" border="0" cellpadding="5" class="wbh-common-table_green" style="table-layout: auto;">
+    {%
+        this.yxmc = values.yxmc;
+        this.rowspan = values.rowspan;
+    %}
+    <tr>
+        <td colspan="2">
+                        <span class="windows-outname-table-td-mode" style="color: #0000ff;">
+                            <span class="wbh-common-orange" style="font-size: 18px;font-weight: bolder;">{[this.yxmc]}</span>|专业班级列表展示 </span>
+        </td>
+    </tr>
+    <tpl if="node.children.length==0">
+        <tr  class="wbh-common-greenbg">
+            <td   colspan="2">{[this.yxmc]}-无专业</td>
+        </tr>
+    <tpl else>
+        <tpl for="node.children">
+                <tr class="wbh-common-greenbg">
+                    <td width="5%" style="text-align: left;">
+                        <tpl if="checked == true">
+                            <input  type="checkbox" dtype="checkAll" checked="true" itemid="{id}" class="wbh-common-inputdefault" style="margin-left: 15px;"/>
+                        <tpl else>
+                            <input  type="checkbox" dtype="checkAll" itemid="{id}" class="wbh-common-inputdefault"  style="margin-left: 15px;"/>
+                        </tpl>
+
+                        <label class="wbh-common-labeldefault"></label></td>
+                    <td width="95%">{text}</td>
+                </tr>
+                <tpl if="children.length!=0">
+                    <tr>
+                        <td width="100%" colspan="2" style="text-align:left">
+                            <tpl for="children">
+                                <tpl if="checked == true">
+                                    <span class="wbh-common-table-td-nowrap wbh-common-margin-rightl" style="margin-left: 15px;width:140px;display:inline-block;">
+                                            <input name="" type="checkbox" itemid="{id}"  checked="true" class="wbh-common-inputdefault"/>
+                                            <label class="wbh-common-labeldefault">{text}</label>
+                                        </span>
+                                    <tpl else>
+                                    <span class="wbh-common-table-td-nowrap wbh-common-margin-rightl" style="margin-left: 15px;width:140px;display:inline-block;">
+                                            <input name="" type="checkbox" itemid="{id}"  class="wbh-common-inputdefault"/>
+                                            <label class="wbh-common-labeldefault">{text}</label>
+                                        </span>
+                                    </tpl>
+                            </tpl>
+                        </td>
+                    </tr>
+                </tpl>
+        </tpl>
+    </tpl>
+</table>

@@ -1,0 +1,103 @@
+@charset "utf-8";
+/* CSS Document */ 
+/*重新定义*/
+.windows-out-pcinfo-box {
+	margin:0.6em 0 0 0;
+}
+ .windows-out-pcinfo-infocont {
+	width:490px;
+	padding:25px;
+	border:1px solid #797979;
+	font-family:'microsoft yahei';
+	font-size:13px;
+}
+.windows-out-pcinfo-infopiliang {
+	width:300px;
+	padding:25px;
+	border:1px solid #797979;
+	font-family:'microsoft yahei';
+	font-size:13px;
+}
+/*名称样式*/
+.windows-out-pcinfo-name {
+	font-size:16px;
+	font-weight:bold;
+	color:#ff6600;
+}
+/*表格样式*/
+table.windows-out-pcinfo-table_gl {
+	border-collapse:collapse;
+	table-layout:fixed;
+	line-height:22px;
+}
+table.windows-out-pcinfo-table_lishi {
+	border-collapse:collapse;
+	table-layout:fixed;
+	line-height:22px;
+	border:1px solid #797979;
+}
+table.windows-out-pcinfo-table_lishi td {
+	border:1px solid #797979;
+	text-align:center;
+}
+.windows-out-pcinfo-td-right {
+	text-align:right
+}
+.windows-out-pcinfo-td-left {
+	text-align:left
+}
+.windows-out-pcinfo-table-left {
+	padding-left:13px;
+	border-left:2px solid #ccc;
+}
+.windows-out-pcinfo-table-right {
+	padding-right:13px;
+}
+/*颜色定义*/
+.windows-out-pcinfo-greenbg {
+	background:#d4ff94;
+}
+.windows-out-pcinfo-red {
+	color:#ff0000;
+}
+/*按钮样式*/
+.windows-out-pcinfo-pcenter {
+	text-align:center;
+	margin-top:5px;
+}
+.windows-out-pcinfo-buttonwid {
+	width:75px;
+	padding:5px 0;
+}
+.windows-out-pcinfo-buttonmaf {
+	margin-left:15px;
+}
+/*文本域定义*/
+.windows-out-pcinfo-textarea {
+	width:207px;
+	height:72px;
+}
+/*文本定义*/
+.windows-out-pcinfo-select {
+	width:214px;
+}
+.windows-out-pcinfo-textarea-exp {
+	height:120px;
+}
+/*边距样式*/
+.windows-out-pcinfo-bjleft {
+	margin-left:5px;
+}
+.windows-out-pcinfo-upload {
+	margin-left:25px;
+}
+/*链接样式*/
+a.windows-out-pcinfo-a-link {
+	color:#000;
+	text-decoration:none;
+}
+table.windows-out-pcinfo-table_lishi div{
+	text-overflow:ellipsis; 
+	white-space:nowrap; 
+	overflow:hidden;
+}

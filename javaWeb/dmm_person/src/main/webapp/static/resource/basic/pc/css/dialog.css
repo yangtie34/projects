@@ -1,0 +1,130 @@
+/******
+*对话框指令
+******/
+@charset "utf-8";
+/* CSS Document */
+.dialog-windows-pt-body {
+    width:500px;
+    height:275px;
+    box-shadow:2px 2px 10px #999;
+    border-radius:10px;
+    position:fixed;
+    background:#ebf4f8;
+    z-index:100000;
+    box-sizing: border-box;
+    padding-top: 25px;
+    font:normal 12px microsoft yahei, Arial, Helvetica, sans-serif;
+}
+.dialog-windows-pt-close {
+    position:absolute;
+    top:10px;
+    right:10px;
+    background:url(images/dialog/close.png) 0 0 no-repeat;
+    width:25px;
+    height:25px;
+}
+.dialog-windows-pt-img {
+    padding-top:135px;
+    text-align:center;
+    color:#888;
+    font-size:18px;
+}
+.dialog-windows-pt-button {
+    height:55px;
+    text-align:center;
+    font-size:18px;
+    color:#fff;
+    position:absolute;
+    left:0;
+    bottom:0;
+    border-radius:0px 0px 10px 10px;
+    line-height:55px;
+    width:100%;
+    overflow:hidden;
+}
+.dialog-windows-pt-span {
+    display:inline-block;
+    width:50%;
+}
+.dialog-windows-pt-list {
+    background:url(images/dialog/list.png) left center no-repeat
+}
+/*操作有误*/
+.dialog-windows-pt-close-red:hover {
+    background:url(images/dialog/close-red.png) 0 0 no-repeat;
+    cursor:pointer;
+}
+.dialog-windows-pt-img-red {
+    background:url(images/dialog/error.png) center top no-repeat;
+}
+.dialog-windows-pt-button-red {
+    background-color:#d1322e;
+}
+.dialog-windows-pt-button-red:hover {
+    cursor:pointer;
+    background-color:#d55350
+}
+/*操作有误*/
+/*没有权限*/
+.dialog-windows-pt-close-orange:hover {
+    background:url(images/dialog/close-orange.png) 0 0 no-repeat;
+    cursor:pointer;
+}
+.dialog-windows-pt-img-orange {
+    background:url(images/dialog/important.png) center top no-repeat;
+}
+.dialog-windows-pt-button-orange {
+    background-color:#f76707;
+}
+.dialog-windows-pt-button-orange:hover {
+    cursor:pointer;
+    background-color:#f58337
+}
+/*没有权限*/
+/*数据补充*/
+.dialog-windows-pt-close-green:hover {
+    background:url(images/dialog/close-green.png) 0 0 no-repeat;
+    cursor:pointer;
+}
+.dialog-windows-pt-img-green {
+    background:url(images/dialog/about.png) center top no-repeat;
+}
+.dialog-windows-pt-button-green {
+    background:#3b5d5e;
+}
+.dialog-windows-pt-button-green:hover {
+    cursor:pointer;
+    background-color:#436667
+}
+/*数据补充*/
+/*确认*/
+.dialog-windows-pt-close-blue:hover {
+    background:url(images/dialog/close-blue.png) 0 0 no-repeat;
+    cursor:pointer;
+}
+.dialog-windows-pt-img-blue {
+    background:url(images/dialog/question.png) center top no-repeat;
+}
+.dialog-windows-pt-button-blue {
+    background-color:#06acf9;
+}
+.dialog-windows-pt-button-blue:hover {
+    cursor:pointer;
+    background-color:#1fb4f9
+}
+/*确认*/
+/*注册成功*/
+.dialog-windows-pt-close-qing:hover {
+	background:url(images/dialog/close-qing.png) 0 0 no-repeat;
+	cursor:pointer;
+}
+.dialog-windows-pt-img-qing {
+	background:url(images/dialog/success.png) center top no-repeat;
+}
+.dialog-windows-pt-button-qing {
+	background-color:#00a67d;
+}
+.dialog-windows-pt-button-qing:hover {
+	cursor:pointer;
+	background-color:#1aaf8b
+}

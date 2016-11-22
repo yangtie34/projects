@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web>
+	<!-- 输出框架统一入口函数-->
+	<request>
+		<name>commonEntrance</name>
+		<service>outputEntrance</service>
+		<method>queryData</method>
+	</request>
+
+	<!-- 统计功能  自定义统计页面操作   start -->
+	<!-- 处理更新是否通过审核 -->
+	<request>
+		<name>outPut_updateTjgnZdytjymSftgSh</name>
+		<service>tbTjgnZdytjymService</service>
+		<method>updateTjgnZdytjymSftgSh</method>
+	</request>
+
+	<!-- 遍历自定义统计页面数据  -->
+	<request>
+		<name>outPut_queryTjgnZdytjym</name>
+		<service>tbTjgnZdytjymService</service>
+		<method>queryTjgnZdytjym</method>
+	</request>
+
+	<!-- 新增自定义统计页面 -->
+	<request>
+		<name>outPut_saveTjgnZdytjym</name>
+		<service>tbTjgnZdytjymService</service>
+		<method>saveTjgnZdytjym</method>
+	</request>
+
+	<!-- 删除自定义统计页面数据 -->
+	<request>
+		<name>outPut_deleteTjgnZdytjym</name>
+		<service>tbTjgnZdytjymService</service>
+		<method>deleteTjgnZdytjym</method>
+	</request>
+	
+	<!-- load自定义统计页面数据 -->
+	<request>
+		<name>outPut_loadTjgnZdytjymById</name>
+		<service>tbTjgnZdytjymService</service>
+		<method>loadTjgnZdytjymById</method>
+	</request>
+	
+	<!-- 修改自定义统计页面数据 -->
+	<request>
+		<name>outPut_updateTjgnZdytjym</name>
+		<service>tbTjgnZdytjymService</service>
+		<method>updateTjgnZdytjym</method>
+	</request>
+	
+	<!-- 模糊查询tb_sc_zj表的数据 -->
+	<request>
+		<name>outPut_queryZjData</name>
+		<service>tbTjgnZdytjymService</service>
+		<method>queryZjData</method>
+	</request>
+	
+	<!-- 统计功能  自定义统计页面操作   end -->
+	<request>
+		<name>queryGridResult</name>
+		<service>outPutCommonProcess</service>
+		<method>queryGridResult</method>
+	</request>
+</web>

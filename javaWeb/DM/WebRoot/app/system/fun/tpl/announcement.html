@@ -1,0 +1,42 @@
+<div class="annct_container" >
+    <div class="annct_main">
+        <table width="100%" cellpadding="0" cellspacing="10" border="0"  >
+
+            <tr>
+                <td  width="70%" class="annct_ten"  valign="top" style="background: left bottom no-repeat;"><div class="list_mainleft">
+                    <div class="annct_mainleft  ">
+                        <div class="annct_body">
+                            <div class="annct_top">
+                                <h3 class="floatRight annct_information" >{show.sendTime}<em class="annct_author">{show.jzgXm}</em></h3>
+                                <h2> <span class="annct_title">{show.title}</span></h2>
+                            </div>
+                            <hr />
+                            <div class="annct_content">
+                                <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{show.content}</p>
+                            </div>
+                        </div>
+                        <div height="600" width="100%" style="background:url(app/system/fun/css/image/list-bg.jpg) left ;"></div>
+                    </div>
+
+                </td>
+                <td   valign="top"  width="30%">
+                    <div class="annct_mainright" id="annct_news">
+                        <tpl for="list">
+                            {%this.className='annct_news annct_mar-btm';if(values.important)this.className+=' annct_important';%}
+                            <div class="{[this.className]}">
+                                <ul>
+                                    <!--<li><img src="../css/image/touxiang.png"  width="76" height="76"/></li>-->
+                                    <li>&nbsp;</li>
+                                    <li class="annct_align">
+                                        <h3 class="annct_colorimp"><a href='javascript:void(0);' vId="{id}" index="{[xindex]}">{title}</a></h3>
+                                        <p>{sendTime} | {jzgXm}</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </tpl>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

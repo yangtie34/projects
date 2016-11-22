@@ -1,0 +1,69 @@
+<object id="LODOP" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" width=0 height=0> 
+	<embed id="LODOP_EM" type="application/x-print-lodop" width=0 height=0 pluginspage="install_lodop.exe"></embed>
+</object> 
+  <table  style="font-size:12px;line-height:36px;margin:0 auto;" width="99%" border="0" cellspacing="0" cellpadding="0">
+   <tr>
+    <td align="right"> 
+	<input style="padding:2px 10px;" name="yxtj_export" type="button" value="导出" /> 
+	<input style="padding:2px 10px;" name="yxtj_print" type="button" value="打印" /></td>
+  </tr>
+</table>
+<div id='yxtj_conent'  style="width:99%;font-size:12px;border:1px solid #797979;padding:20px;" >
+  <table  style="font-size:12px;text-align:center;margin:15px 0;" width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td> 
+     <tpl for=".">
+    <h1>{pc}绿色通道办理情况统计</h1>
+    </tpl>
+    </td>
+  </tr>
+  <tr>
+    <td align="left">&nbsp;</td>
+  </tr>
+</table>
+ <table  style="font-size:12px;text-align:center;border-collapse:collapse;margin:10px 0;" width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr  style="background:#f2f2f2;">
+    <td style="border:1px solid #797979;padding:5px 2px;">序号</td>
+    <td style="border:1px solid #797979;padding:5px 2px;">院系</td>
+    <td style="border:1px solid #797979;padding:5px 2px;">总人数</td>
+    <td style="border:1px solid #797979;padding:5px 2px;">办理人数</td>
+    <td style="border:1px solid #797979;padding:5px 2px;">缓缴费用</td>
+    <td style="border:1px solid #797979;padding:5px 2px;">办理率</td>
+  </tr>
+   <tpl for="data.data">
+  <tr>
+    <td style="border:1px solid #797979;padding:5px 2px;">{#}</td>
+    <td style="border:1px solid #797979;padding:5px 2px;">{yxmc}</td>
+    <td style="border:1px solid #797979;padding:5px 2px;">{zrs}</td>
+    <td style="border:1px solid #797979;padding:5px 2px;">{blrs}</td>
+	<td style="border:1px solid #797979;padding:5px 2px;"></td>
+	<td style="border:1px solid #797979;padding:5px 2px;">{bll}</td>
+  </tr>
+   </tpl>
+   <tpl for="data">
+  <tr>
+    <td style="border:1px solid #797979;padding:5px 2px;">合计</td>
+    <td style="border:1px solid #797979;padding:5px 2px;"></td>
+    <td style="border:1px solid #797979;padding:5px 2px;">{zrsHj}</td>
+    <td style="border:1px solid #797979;padding:5px 2px;">{blrsHj}</td>
+    <td style="border:1px solid #797979;padding:5px 2px;">&nbsp;</td>
+	<td style="border:1px solid #797979;padding:5px 2px;">{bllHj}</td>
+
+  </tr>
+ </tpl>
+</table>
+  <table  style="font-size:12px;line-height:36px;" width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+  <tpl for=".">
+    <td>日期：{sj} </td><td align="right">制表人：{username} </td>
+    </tpl>
+  </tr>
+</table>
+</div>
+  <table  style="font-size:12px;line-height:36px;margin:0 auto;" width="99%" border="0" cellspacing="0" cellpadding="0">
+   <tr>
+    <td align="right"> 
+	<input style="padding:2px 10px;" name="yxtj_export" type="button" value="导出" /> 
+	<input style="padding:2px 10px;" name="yxtj_print" type="button" value="打印" /></td>
+  </tr>
+</table>

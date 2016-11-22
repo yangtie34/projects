@@ -1,0 +1,57 @@
+<div style="font-size: 20px;font-weight: bold;font-family: '黑体';text-align: center;">{xn}学年</div>
+<div>
+    <table class="jxpg-common-table">
+        <tr>
+            <td rowspan="2" class="title">省份</td>
+            <td rowspan="2" class="title">批次</td>
+            <td colspan="2" class="title">录取数</td>
+            <td colspan="2" class="title">批次最低控制线(分)</td>
+            <td colspan="2" class="title">当年录取平均分与批次最低控制线的差值(分)</td>
+
+        </tr>
+        <tr>
+            <td class="title">文科</td>
+            <td class="title">理科</td>
+            <td class="title">文科</td>
+            <td class="title">理科</td>
+            <td class="title">文科</td>
+            <td class="title">理科</td>
+        </tr>
+        <tpl for="items">
+            <tr>
+                <td>{SF}</td>
+                <td>{PC}</td>
+                <td>
+                    <span class="realvalue">{LQS_WK_T}</span>
+                    <span class="value" code="LQS_WK_F" rowid="{ID}" type="itemvalue" isnum="int">{LQS_WK_F}</span>
+                    <div></div>
+                </td>
+                <td>
+                    <span class="realvalue">{LQS_LK_T}</span>
+                    <span class="value" code="LQS_LK_F" rowid="{ID}" type="itemvalue" isnum="int">{LQS_LK_F}</span>
+                    <div></div>
+                </td>
+                <td>
+                    <span class="realvalue">{ZDKZX_WK_T}</span>
+                    <span class="value" code="ZDKZX_WK_F" rowid="{ID}" type="itemvalue" isnum="int">{ZDKZX_WK_F}</span>
+                    <div></div>
+                </td>
+                <td>
+                    <span class="realvalue">{ZDKZX_LK_T}</span>
+                    <span class="value" code="ZDKZX_LK_F" rowid="{ID}" type="itemvalue" isnum="int">{ZDKZX_LK_F}</span>
+                    <div></div>
+                </td>
+                <td>
+                    <span class="realvalue">{LQF_ZDKZX_WK_T}</span>
+                    <span class="value" code="LQF_ZDKZX_WK_F" rowid="{ID}" type="itemvalue" isnum="float">{LQF_ZDKZX_WK_F}</span>
+                    <div></div>
+                </td>
+                <td>
+                    <span class="realvalue">{LQF_ZDKZX_LK_T}</span>
+                    <span class="value" code="LQF_ZDKZX_LK_F" rowid="{ID}" type="itemvalue" isnum="float">{LQF_ZDKZX_LK_F}</span>
+                    <div></div>
+                </td>
+            </tr>
+        </tpl>
+    </table>
+</div>

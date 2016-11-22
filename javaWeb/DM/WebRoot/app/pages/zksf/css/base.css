@@ -1,0 +1,67 @@
+@CHARSET "UTF-8";
+.sc_base_main{
+	font-family: '微软雅黑';
+	width: 100%;
+	background-color: #FEFEFE;
+	padding: 10px;
+}
+.sc_base_main > div{
+	margin-bottom: 10px;
+}
+.sc_base_title{
+	color: #FF6600;
+}
+
+.sc_base_title_text {
+	line-height: 18px;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.sc_base_title_help{
+	line-height: 18px;
+	height:18px;
+	width:16px;
+	display:inline-block;
+	background: url("help.png") no-repeat bottom;
+	cursor: pointer;
+}
+
+.sc_base_title_help:HOVER{
+	border: 1px dotted #EA764F;
+}
+
+.sc_base_helpinfo{
+	width: 100%;
+	padding: 10px;
+	height : auto;
+	background-color: #e9f5ec;
+	border: 2px 0px 2px 0px;
+	border-top: 2px solid #BBDFC3;
+	border-bottom: 1px solid #BBDFC3;
+	margin-bottom: 10px;
+}
+
+.sc_base_div_border{
+	border: 1px solid #AAA;
+	width: 100%;
+}
+
+.sc_base_div_title{
+	background-color: #838383;
+	font-size:14px;
+	font-weight:bold;
+	width: 150px;
+	color: #fff;
+	text-align: center;
+}
+
+.div-border{
+	border: 1px solid #AAA;
+	padding: 10px;
+}
+.ft-green-bold{
+	font-weight: bold;
+	color:#00BE3D;
+	font-size: 14px;
+}

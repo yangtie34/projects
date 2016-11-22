@@ -1,0 +1,44 @@
+<div style="font-size: 20px;font-weight: bold;font-family: '黑体';text-align: center;">{xn}学年</div>
+<div>
+	<table class="jxpg-common-table">
+		<tr>
+			<td class="title">社团类别</td>
+			<td class="title">科技类社团</td>
+			<td class="title">文艺类社团</td>
+			<td class="title">人文社会类社团</td>
+			<td class="title">体育类社团</td>
+			<td class="title">总数</td>
+		</tr>
+		<tpl for="items">
+			<tr>
+				<td>{STLB}</td>
+				<td>
+					<span class="realvalue">{KJLST_T}</span>
+					<span class="value" code="KJLST_F" isnum = "int"  rowid="{ID}" type="itemvalue">{KJLST_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{WYLST_T}</span>
+					<span class="value" code="WYLST_F" isnum = "int"  rowid="{ID}" type="itemvalue">{WYLST_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{RWSHLST_T}</span>
+					<span class="value" code="RWSHLST_F" isnum = "int"  rowid="{ID}" type="itemvalue">{RWSHLST_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{TYLST_T}</span>
+					<span class="value" code="TYLST_F"  isnum = "int" rowid="{ID}" type="itemvalue">{TYLST_F}</span>
+					<div></div>
+				</td>
+				<td>
+					<span class="realvalue">{ZS_T}</span>
+					<span class="value" code="ZS_F"  isnum = "int" rowid="{ID}" type="itemvalue">{ZS_F}</span>
+					<div></div>
+				</td>
+			</tr>
+		</tpl>
+	</table>
+
+</div>

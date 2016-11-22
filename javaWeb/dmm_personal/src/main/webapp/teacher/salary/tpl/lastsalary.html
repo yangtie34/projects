@@ -1,0 +1,56 @@
+<div class="container-fluid jzhi-menu jzhi-menu-xinzi ">
+  <div class="row text-center">
+    <div class="col-xs-4">
+      <h5>应发工资 </h5>
+      <h4>{{salaryCom.SALARY_PAYABLE}}</h4>
+    </div>
+    <div class="col-xs-4">
+      <h5>代扣工资 </h5>
+      <h4>{{salaryCom.SALARY_SUBTRACT}}</h4>
+    </div>
+    <div class="col-xs-4">
+      <h5>实发工资 </h5>
+      <h4>{{salaryCom.SALARY}}</h4>
+    </div>
+  </div>
+</div>
+<div class="phone-common-list   phone-common-martb">
+  <h3 class="phone-common-title"> <span class="jzhi-shour-icon pull-left"></span>收入明细 </h3>
+  <ul class="phone-common-group">
+    <li class="phone-common-group-item jzhi-banner-menu-item">
+      <div class=" jzhi-banner-menu">
+        <div class="row">
+          <div class="col-xs-6" ng-repeat="salary in totalSalaryCom">
+            <div class="media">
+              <div class="media-body media-middle"> {{salary.SALARY_TYPE}} </div>
+              <div class="media-right media-middle jzhi-text-info"> {{salary.VALUE_}} </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li class="phone-common-group-item text-center">合计金额：<span class="jzhi-text-info">{{totalSalary.TOTAL_SALARY}}</span></li>
+  </ul>
+</div >
+<div class="phone-common-list   phone-common-martb">
+  <h3 class="phone-common-title"> <span class="jzhi-daik-icon pull-left"></span>代扣明细  </h3>
+  <ul class="phone-common-group">
+    <li class="phone-common-group-item jzhi-banner-menu-item">
+      <div class=" jzhi-banner-menu">
+        <div class="row">
+          <div class="col-xs-6" ng-repeat="subtract in subtracts ">
+            <div class="media">
+              <div class="media-body media-middle"> {{subtract.SALARY_TYPE}} </div>
+              <div class="media-right media-middle jzhi-text-danger"> {{subtract.VALUE_}} </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li class="phone-common-group-item text-center">合计金额：<span class="jzhi-text-danger">{{subtractSalary.SUBTRACT_SALARY}}</span></li>
+  </ul>
+</div>
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+

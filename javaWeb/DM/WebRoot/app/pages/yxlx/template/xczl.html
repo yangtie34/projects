@@ -1,0 +1,169 @@
+<OBJECT classid="clsid:10946843-7507-44FE-ACE8-2B3483D179B7"
+id="CVR_IDCard" name="CVR_IDCard" width="0" height="0" >
+</OBJECT>
+<div class="live-container">
+  <table  width=" 100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td valign="top" class="live-padd-left live-padd-right" ><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td ><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width="110"><h2 class="live-org">现场招录</h2></td>
+                  <td><h3 class="live-blue">登记信息 </h3></td>
+                </tr>
+              </table></td>
+          </tr>
+          <tr>
+            <td height="30"  class="live-bor-btmblu"><span class="live-left-iconblu">身份证号</span><span style="float:right;">
+              <input name="yx_dk" type="button" value="读卡" />
+              </span></td>
+          </tr>
+          <tr>
+            <td><table  class="live-pad" width=" 100%" height="60" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width="15%" class="name" align="right"><span  class="live-org">身份证号：</span></td>
+                  <td width="50%">
+                  	<input id="CardNo" type="text" />×
+                  </td>
+                  <td width="35%"><sapn class="live-blue">-输入身份证号，其它信息将</sapn>
+                    <span class="live-org">自动获取</span></td>
+                </tr>
+              </table></td>
+          </tr>
+          <tr>
+            <td height="30"  class="live-bor-btmblu"><span class="live-left-iconblu">个人信息</span></td>
+          </tr>
+          <tr>
+            <td><table class="live-pad" width=" 100%" height="130"  border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width="15%" align="right" height="30" >姓名：</td> 
+                  <td  width="85%"   height="30" ><table  width=" 100%" height="30"  border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                  <td height="30">
+                  	<input id="Name" class="live-sec-widb" type="text"/>×</td>
+                  <td>性别：
+                    <select class="live-sec-widb" id="Sex">
+                      <option selected="selected"></option>
+                      <tpl for="queryXbCombox.data">
+	                        <option value="{0}">{1}</option>
+                      </tpl>
+                    </select>×</td>
+                  <td align="right"> 民族：
+                    <select class="live-sec-widb" id="Nation">
+                      <option selected="selected"></option>
+                      <tpl for="queryMzCombox.data">
+                        <option value="{0}">{1}</option>
+                      </tpl>
+                    </select>
+                  </td> </tr>
+                    </table></td>
+                </tr>
+                <tr>
+                  <td  width="15%" align="right" class="name" height="30" > 出生日期：</td>
+                   <td width="85%"><table width=" 100%"  border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                  <td height="30">
+                  <input class="live-sec-widc" id="Born" type="text"/>
+                  </td>
+                  <td align="right" >家长联系电话：
+                    <input class="live-txt-widb" id="lxdh" type="text" />
+                    </td> </tr>
+                    </table></td>
+                </tr>
+                <tr>
+                  <td width="15%" align="right">家庭住址：</td>
+                  <td width="85%" height="30"  >
+                  <input class="live-txt-widc"   id="Address" type="text" /></td>
+                </tr>
+              </table></td>
+          </tr>
+          <tr>
+            <td height="30"  class="live-bor-btmblu"><span class="live-left-iconblu">录取信息</span></td>
+          </tr>
+          <tr>
+            <td><table class="live-pad" width=" 100%" height="160" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                 
+                <td  width="15%"  class="name" align="right">学制：</td> 
+                   <td  width="85%"   height="30" >
+                   <table  width=" 100%" height="30"  border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                  <td  height="30">
+                    <select class="live-sec-widb" id="yx_xz">
+                     <option selected="selected"></option>
+                      <tpl for="queryXzCombox.data">
+                        <option value="{ID}">{MC}</option>
+                      </tpl>
+                    </select>
+                  </td>
+                 
+                  <td  align="right">生源地：
+                    <select class="live-sec-widb" id="yx_syd">
+                     <option selected="selected"></option>
+                      <tpl for="querySydCombox.data">
+                        <option value="{ID}">{MC}</option>
+                      </tpl>
+                    </select></td> </tr>
+                    </table>
+                    </td>
+                </tr>
+                <tr>
+                  <td width="15%" class="name" align="right"> 录取院系：</td> <td width="85%"  height="30" ><table  width=" 100%" height="30"  border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                  <td  height="30"><select class="live-sec-widc" id="yx_yx" name="yx_yx">
+                     <option selected="selected"></option>
+                     <tpl for="queryYxCombox.data">
+                        <option value="{ID}">{MC}</option>
+                      </tpl>
+                    </select>×</td>
+                  <td align="right" >录取专业：
+                    <select class="live-sec-widc" id="yx_zy">
+                     <option selected="selected"></option>
+                    <!-- 专业组件的下拉集合放置处 -->
+                    </select>×
+                    </td></tr>
+                    </table></td>
+                </tr>
+				  <tr>
+                  <td width="15%" align="right">所属年级：</td>
+                  <td width="85%" colspan="2" height="30">
+                  <select class="live-sec-widc" id="yx_nj" name="yx_nj">
+                    <tpl for="queryNjCombox.data">
+                      <option value="{ID}">{MC}</option>
+                    </tpl>
+                  </select></td>
+				  </tr>
+                <tr>
+                  <td width="15%" align="right">所属班级：</td>
+                  <td width="85%" colspan="2" height="30">
+                  <input id="yx_bjId" name="yx_bjId" type="hidden"  />
+                  <input class="live-txt-widb"   id= "yx_bj" name="yx_bj" type="text" />
+                    <input class="live-org" id="yxlx_xczdfb" name="yxlx_xczdfb" type="button" value="自动分配" />
+                    <input  class="live-org"  id="yxlx_xcfb" name="yxlx_xcfb" type="button" value="分配" /></td>
+                
+                </tr>
+                <tr>
+                  <td colspan="4" height="30" align="right"><span class="live-org"> -</span> 标记   ×号的为<span class="live-org">必填项</span></td>
+                </tr>
+              </table></td>
+          </tr>
+        </table></td>
+      <td valign="bottom" width="140" class="live-border-left live-padd-left"><table width=" 100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td><table width=" 100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td height="60" align="center"><input class="live-btn-print" name="yx_jxbl" type="button" value="继续办理" />
+                  </td>
+                </tr>
+                <tr>
+                  <td height="60"  align="center"><input class="live-btn-print" name="yx_gb" type="button" value="关闭" /></td>
+                </tr>
+                <tr>
+                  <td height="40"></td>
+                </tr>
+              </table></td>
+          </tr>
+        </table></td>
+    </tr>
+  </table>
+</div>

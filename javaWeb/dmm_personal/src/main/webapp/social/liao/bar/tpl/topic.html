@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<div class="rxs-comn-list rxs-comn-patop" ng-show="topic != null">
+  <ul class="rxs-talk">
+    <li>
+      <div class="media">
+        <div class="media-left media-middle center-text"><a ng-href="../../personal/{{topic.username}}/main">
+        <img class="img-circle" width="60" ng-src="{{topic.wechat_head_img}}"/>
+        <i class="fa fa-user"  ng-if="topic.wechat_head_img == '' " style="height: 60px;width: 60px;font-size: 40px;color: #ddd;"></i></a></div>
+        <div class="media-body media-middle  rxs-re-lab">
+          <h4 class="rxs-ft-16">{{topic.real_name}} <i ng-show="topic.sex == '男'" class="rxs-sex rxs-boy-icon"></i><i ng-show="topic.sex == '女'" class="rxs-sex rxs-girl-icon"></i></h4>
+          <p class="rxs-cor-9b">{{topic.create_time}}</p>
+        </div>
+        <div class="media-right media-middle"><a href="" ng-show="topic.is_mine == 1" ng-click="deleteTopic()" class="rxs-rgt-delete"></a></div>
+        <div class="media-right  media-middle"><a href="" class="rxs-rgt-msg" ng-click="toggleCommentForm(topic)"></a></div>
+      </div>
+      <div class="rxs-fbq rxs-ft-15"><pre ng-bind-html="topic.content | trusthtml"  style="white-space: pre-wrap;word-wrap: break-word;"></pre></div>
+      <div class="clearfix">
+		<img  ng-repeat="it in topic.images" class="col-xs-3" style="height: 80px;padding: 2px;" ng-src="{{it.img_url}}">
+	  </div>
+	  <div>
+	</div>
+	 <div class="rxs-bg-fff">
+		<div class="media" ng-repeat="it in topic.comments">
+			<div class="media-left "><a href="../../personal/{{it.username}}/main">
+			<img class="img-circle" width="60" ng-src="{{it.wechat_head_img}}"/>
+			<i class="fa fa-user"  ng-if="it.wechat_head_img == '' " style="height: 60px;width: 60px;font-size: 40px;color: #ddd;"></i></a></div>
+			<div class="media-body  rxs-btm-br">
+            <div class="media">
+              <div class="media-body media-middle rxs-re-lab">
+                <h4 class="rxs-ft-16">{{it.real_name}} <i ng-show="it.sex == '女'" class="rxs-sex rxs-girl-icon"></i><i ng-show="it.sex == '男'" class="rxs-sex rxs-boy-icon"></i></h4>
+                <p class="rxs-cor-9b">{{it.create_time}}</p>
+              </div>
+              <div class="media-right  media-middle"><a href="" class="rxs-rgt-msg" ng-click="openCommentForm(topic,it)"></a></div>
+            </div>
+			 <div class="rxs-fbq">{{it.content}}</div>
+			<div class="rxs-tlq">
+				<p ng-repeat="r in it.replyList">
+					<a href="../../personal/{{r.username}}/main"><span class="rxs-cor-ff9">{{r.real_name}} </span></a>回复
+					<a href="../../personal/{{r.to_username}}/main"><span class="rxs-cor-ff9">{{r.to_real_name}}:</span></a> 
+					<span ng-click="openCommentForm(topic,it,r)">{{r.content}}</span><i class="rxs-cor-9b">{{r.create_time}}</i>
+				</p>
+			</div>
+			<br />
+		</div>
+		</div>
+	</div>
+    </li>
+  </ul>
+  <div ng-show="topic.showCommentForm">
+	<div class="input-group">
+      <input type="text" class="form-control" id="c_input" ng-model="topic.newComment.commentContent" placeholder="{{topic.commentPlaceholder}}">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" ng-click="submitComment(topic)">提交</button>
+      </span>
+    </div>
+    </div>
+</div>
+
+
+
+<div ng-show="topic == null && !onLoading" class="text-center">
+	<h4>该贴子已被删除！</h4>
+	<a href="#/index">返回聊吧广场</a>
+</div>

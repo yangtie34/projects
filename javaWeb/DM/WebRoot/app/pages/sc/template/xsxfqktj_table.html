@@ -1,0 +1,19 @@
+<table>
+	<tr>
+		<th>地点</th>
+		<th>早上</th>
+		<th>中午</th>
+		<th>晚上</th>
+	</tr>
+	<tpl for=".">
+		<tr>
+			<td style="text-align: center;">{name}</td>
+			<tpl for="data">
+				<td>
+					<div>消费总额:<span style="font-size: 14px;font-weight: bold;color: #A01A1A;">{value}</span></div>
+					<div>占总消费额的<span style="font-size: 14px;font-weight: bold;color:#4FB120;">{scale}%</span></div>
+				</td>
+			<tpl>
+		</tr>
+	</tpl>
+</table>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<style>
+  .transformgrid-base tr{border:1px solid #000;} 
+  .transformgrid-base td{padding:5px;border:1px solid #000;}
+</style>
+<link rel="stylesheet" type="text/css"
+	href="../../extjs/resources/css/ext-all.css">
+<script src="data/data.js"></script>
+<script src="../../base1/util/LAB.min.js"></script>
+<script src="../../extjs/ext-all-debug.js"></script>
+<script src="../ns-debug.js"></script>
+<script src="../../extjs/ext-lang-zh_CN.js"></script>
+<script type="text/javascript">
+	Ext.onReady(function() {
+        Ext.Loader.setConfig({'enabled' : true,
+            paths : {'Ext' : '../../extjs'}});
+        var cg = new NS.form.field.CheckboxGroup({
+            columns : 2,
+            name : 'pop',
+            vertical : true,
+            items : [
+                {
+                    boxLabel:'张三',
+                    name : 'z',
+                    inputValue : '1',
+                },{
+                    boxLabel:'李四',
+                    name : 'z',
+                    inputValue : '2',
+                }
+            ]
+        });
+        cg.setValue({z : 2});
+        var cg1 = new NS.form.field.RadioGroup({
+            columns : 2,
+            vertical : true,
+            items : [
+                {
+                    boxLabel:'s 三',
+                    inputValue : '1',
+                    name : 'a',
+                    checked : false
+                },{
+                    boxLabel:'fd四',
+                    inputValue : '2',
+                    name : 'a',
+                    checked : false
+                }
+            ]
+        });
+        var panel  = new NS.form.BasicForm({
+            width : 400,
+            height : 400,
+            renderTo : NS.getBody(),
+            items : [cg,cg1]
+        });
+        var ddd = panel.getField('pop');
+        console.log(ddd.getValue());
+
+	});
+</script>
+</head>
+<body>
+
+</body>
+</html>

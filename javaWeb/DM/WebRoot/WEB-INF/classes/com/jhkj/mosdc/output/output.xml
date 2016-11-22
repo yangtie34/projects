@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+                        
+	<bean id="commonDao" class="com.jhkj.mosdc.output.dao.impl.OutputCommonDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate"/>
+		 </property>
+	</bean>
+	
+	<bean id="outputEntrance" class="com.jhkj.mosdc.output.process.impl.OutPutEntranceImpl">
+		<property name="commonDao" ref="commonDao"></property>
+	</bean>
+	
+	
+	<!-- 组织机构联动  输出组件 -->
+	<bean id="treeLinkage" class="com.jhkj.mosdc.output.util.TreeDataLinkage">
+		
+	</bean>
+	<!-- 日期联动  输出组件 -->
+	<bean id="dateLinkage" class="com.jhkj.mosdc.output.service.impl.DateLinkage">
+		<property name="dateUtil" ref="dateUtil"></property>
+	</bean>
+	<bean id="dateUtil" class="com.jhkj.mosdc.output.service.impl.DateUtils">
+		<property name="commonDao" ref="commonDao"></property>
+	</bean>
+
+	<!-- 输出组件  通用组件配置-->
+	<bean id='outPutChartDao' class="com.jhkj.mosdc.output.dao.impl.OutPutChartDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id="outPutTextDao" class="com.jhkj.mosdc.output.dao.impl.OutPutTextDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id='outPutCommonProcess' class="com.jhkj.mosdc.output.process.impl.OutPutCommonProcessImpl">
+		<property name="outPutChartDao" ref='outPutChartDao'></property>
+		<property name="outPutTextDao" ref="outPutTextDao"></property>
+	</bean>
+	
+	<!-- 教材统计配置 -->
+	<bean id="jctjService" class="com.jhkj.mosdc.output.outputBusiness.jwxt.impl.JctjServiceImpl">
+	    <property name="outPutCommonProcess" ref="outPutCommonProcess"></property>
+	</bean>
+	
+	<!-- 考勤统计配置 -->
+	<bean id="kqtjService" class="com.jhkj.mosdc.output.outputBusiness.xgxt.impl.KqtjServiceImpl">
+	    <property name="outPutCommonProcess" ref="outPutCommonProcess"></property>
+	</bean>
+	
+	<!-- 奖学金、助学金统计配置 -->
+	<bean id="jxjZxjtjService" class="com.jhkj.mosdc.output.outputBusiness.xgxt.impl.JxjZxjtjServiceImpl">
+	    <property name="outPutCommonProcess" ref="outPutCommonProcess"></property>
+	</bean>
+	
+	<!--  学校资源统计配置 -->
+	<bean id="xxzytjService" class="com.jhkj.mosdc.output.outputBusiness.xxzygl.impl.XxzytjServiceImpl">
+	    <property name="outPutCommonProcess" ref="outPutCommonProcess"></property>
+	</bean>
+	<!-- 人事系统统计 -->
+	<bean id="rsxttjService" class="com.jhkj.mosdc.output.outputBusiness.rsxt.impl.RsxttjServiceImpl">
+	    <property name="outPutCommonProcess" ref="outPutCommonProcess"></property>
+	</bean>
+	
+	<bean id="textOfStuSituation" class="com.jhkj.mosdc.output.service.impl.TextOfStuSituationImpl">
+		<property name="process" ref="outPutCommonProcess"></property>
+	</bean>
+	<!--成绩统计 -->
+	<bean id='cjtjService' class="com.jhkj.mosdc.output.outputBusiness.jwxt.impl.CjtjServiceImp">
+		<property name="outPutCommonProcess" ref='outPutCommonProcess'></property>
+	</bean>
+	<!--教职工统计 -->
+	<bean id='jzggkService' class="com.jhkj.mosdc.output.outputBusiness.jwxt.impl.JzgtjServiceImp">
+		<property name="outPutCommonProcess" ref='outPutCommonProcess'></property>
+	</bean>
+		<!--教职工统计 -->
+	<bean id='zstjService' class="com.jhkj.mosdc.output.outputBusiness.jwxt.impl.ZstjServiceImpl">
+		<property name="outPutCommonProcess" ref='outPutCommonProcess'></property>
+	</bean>
+	<!--宿舍资源以及使用情况统计 -->
+	<bean id='sszysyService' class="com.jhkj.mosdc.output.outputBusiness.xgxt.impl.SszytjServiceImp">
+		<property name="outPutCommonProcess" ref='outPutCommonProcess'></property>
+	</bean>
+	
+	<!-- 自定义统计页面配置 -->
+	<bean id='tbTjgnZdytjymDao' class="com.jhkj.mosdc.output.dao.impl.TbTjgnZdytjymDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<bean id='tbTjgnZdytjymService' class="com.jhkj.mosdc.output.service.impl.TbTjgnZdytjymServiceImpl">
+		<property name="tbTjgnZdytjymDao" ref='tbTjgnZdytjymDao'></property>
+	</bean>
+	<bean id="personalDao" class="com.jhkj.mosdc.output.dao.impl.PersonalInfoDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+</beans>

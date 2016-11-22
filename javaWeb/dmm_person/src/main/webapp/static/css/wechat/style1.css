@@ -1,0 +1,183 @@
+/* CSS Document */
+@charset "utf-8";
+@media screen and (max-device-width: 400px) {
+	.column {
+		float: none;
+		width: auto;
+	}
+	#sidebar {
+		display: none;
+	}
+}
+/*首页样式*/
+img{
+	display:block;}
+a{
+	text-decoration:none;}
+
+body {
+	margin:0;
+	padding:0;
+	background:#f9f9f9;
+	font-family:'microsoft yahei', Arial, Helvetica, sans-serif;
+}
+
+.index_title{
+	background:#48a1dd;
+	padding:10px 0;
+	color:#fff;
+	font-size:1.2em;
+	text-align:center;
+}
+
+.more1{
+	float:right;
+	margin:0.25em;}
+.in_content{
+	overflow:hidden;
+/*	height:955px; */
+	width:90%;
+	margin:0 auto;}
+/*dl{
+	overflow:hidden;
+	width:90%;
+	padding-top:0.76em;
+	margin:0 auto;}*/
+.line{
+	/*width: 90%;*/
+    margin: 0 auto;
+	float:left;}
+.in_content h4{
+	font-size:1.25em;
+	font-family:"微软雅黑";
+	font-weight:normal;
+	float:left;
+	margin:0.5em;
+	text-align:center;
+	line-height:5.5em;
+}
+.in_content a{
+	color: #666666;;}
+.in_content a:hover{
+	color:#48a1dd;}
+/*模块背景*/
+.module01{
+	background-image:url(../../images/wechat/ind_01.png);
+	
+	width:6.2em;
+	background-repeat:no-repeat;}
+.module02{
+	background-image:url(../../images/wechat/ind_02.png);
+	
+	width:6.2em;
+	background-repeat:no-repeat;}
+.module03{
+	background-image:url(../../images/wechat/ind_03.png);
+	
+	width:6.2em;
+	background-repeat:no-repeat;}
+	
+.module04{
+	background-image:url(../../images/wechat/ind_04.png);
+	
+	width:6.2em;
+	background-repeat:no-repeat;}
+.module05{
+	background-image:url(../../images/wechat/ind_05.png);
+	
+	width:6.2em;
+	background-repeat:no-repeat;}
+.module06{
+	background-image:url(../../images/wechat/ind_06.png);
+	
+	width:6.2em;
+	background-repeat:no-repeat;}
+.module07{
+	background-image:url(../../images/wechat/ind_07.png);
+	
+	width:6.2em;
+	background-repeat:no-repeat;}
+.module08{
+	background-image:url(../../images/wechat/ind_08.png);
+	
+	width:6.2em;
+	background-repeat:no-repeat;}
+/*隐藏样式*/
+#myDiv{
+   border:1px solid #7b7b7b;
+   width:50px;
+   height:100px;
+   float: right;}
+
+#box{
+	border:1px solid #7b7b7b; height:100px; width:50px;}
+input#btn {
+	background-image:url(../../images/wechat/ind_2.png);
+	height:21px;
+	width:28px;
+	border:none;
+	background-color:#48a1dd;
+}
+#menudiv {
+	position: relative; 
+	left: 90%; 
+	top: -32px; 
+	width: 28px;
+}
+#menudiv2 {
+	position: absolute; 
+	text-align: right; 
+	left: -32px; 
+	width: 64px; 
+	top: 30px;
+}
+#menuul {
+	background-clip: padding-box;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
+    display: none;
+    float: left;
+    font-size: 14px;
+    left: 0;
+    list-style: outside none none;
+    margin: 2px 0 0;
+    min-width: 65px;
+    padding: 5px 0;
+    position: absolute;
+    text-align: left;
+    top: 100%;
+    z-index: 1000;
+}
+
+
+.login-hr-line {
+	height:31px;
+	background:url(../../images/wechat/hr-line.png) center center repeat-x;
+}
+.login-hr-icon {
+	background:url(../../images/wechat/hr-icon.jpg) center center no-repeat;
+	margin:0 auto;
+	width:56px;
+	height:31px;
+	display:block;
+}
+
+.module_box {
+    float: left;
+  /*  overflow: hidden; */
+    width: 9.7em;
+    position: relative;
+}
+
+.xiaoxi {
+    background-image: url("../../images/wechat/xiaoxi.png");
+    background-repeat: no-repeat;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 16px;
+    padding: 6.5px 11px;
+    position: absolute;
+    right: 10px;
+}

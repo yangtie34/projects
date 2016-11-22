@@ -1,0 +1,116 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*现场招录弹出窗部分样式*/
+td {
+	margin:0;
+	padding:0;
+}
+.live-container {
+	width:650px;
+	margin:0 auto;
+	font-size:13px;
+	font-family:Arial, Helvetica, sans-serif, "宋体";
+	border:1px solid #999999;
+	padding:10px
+}
+.live-container h2 {
+	border-right:5px solid #ff651f;
+	margin-right:5px;
+	margin-top:20px;
+	margin-bottom:20px;
+	font-size:20px;/*添加一条2013.6.28*/
+}
+.live-border-left {
+	border-left:2px solid #CCCCCC;
+}
+.live-padd-right {
+	padding-right:20px;
+}
+.live-padd-left {
+	padding-left:20px;
+}
+.live-pad {
+	padding:5px;
+}
+.live-left-icon {
+	border-left:3px solid #ff651f;
+	font-size:16px;
+	font-weight:bold;
+	color:#ff651f;
+	padding-left:10px;
+}
+.live-bor-btmblu {
+	border-bottom:2px solid #3399FF;
+}
+.live-bor-btm {
+	border-bottom:2px solid #ff651f;
+}
+.live-left-iconblu {
+	border-left:3px solid #3399FF;
+	font-size:16px;
+	font-weight:bold;
+	color:#3366FF;
+	padding-left:10px;
+}
+.live-cor-blu {
+	color:#3399FF;
+	font-size:20px;
+	font-weight:bold;
+}
+.live-rgt-r {
+	text-align:right;
+}
+.live-rgt-c {
+	text-align:center;
+}
+.live-btn-print {
+	width:95px;
+	height:45px;
+	text-align:center;
+	line-height:40px;
+}
+.live-blue {
+	color:#3366ff;
+}
+.live-org {
+	color:#ff651f;
+}
+.live-txt-wida {
+	width:210px;
+}
+.live-txt-widb {
+	width:130px;
+}
+.live-txt-widc {
+	width:390px
+}
+.live-txt-widd {
+	width:140px;
+}
+.live-txt-wide {
+	width:140px;
+}
+.live-sec-wida {
+	width:55px;
+	padding:1px 0;
+}
+.live-sec-widb {
+	width:80px;
+	padding:1px 0;
+}
+.live-sec-widc {
+	width:100px;
+	padding:1px 0;
+}
+.name {
+	text-align:right;
+	width:77px;
+	white-space:nowrap
+}
+.text {
+	width:105px;
+}
+.live-padd-top {
+	margin-top:20px;
+}

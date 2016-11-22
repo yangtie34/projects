@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<div class="rxs-comn-list  rxs-comn-patop">
+  <div class="rxs-tools">
+  	<input ng-model="searchText" style="float:left;width:85%;padding-bottom:10px;margin-bottom:10px;" class="rxs-search form-control" placeholder="输入姓名查询" />
+  	<button type="button" style="float:right;width:15%;padding-bottom:6px;margin-bottom:10px;" class="btn btn-info" ng-click="queryUserList()">搜索</button>
+  	</div><br/><br/>
+  <ul class="rxs-comn-ul rxs-padding-5 rxs-hover-ul">
+    <li ng-repeat="it in vm.list">
+      <div class="media">
+        <div class="media-left media-middle"><img class="img-circle" ng-src="{{it.wechat_head_img}}" width="57"></div>
+        <div class="media-body media-middle">
+          <h4>{{it.real_name}}</h4>
+          <span class="rxs-text-grey">{{it.username}}</span></div>
+        <div class="media-right media-middle rxs-nowrap">
+        	<div ng-if="it.is_apply == 0">
+        	<button class="rxs-btn rxs-btn-green" type="button" ng-click="sendFriendApply(it)">加好友</button>
+			</div>
+			<div ng-if="it.is_apply == 1 && it.username == it.apply_username">
+        	<button class="rxs-btn rxs-btn-green" type="button" ng-click="passApply(it)">通过</button>
+			</div>
+			<div ng-if="it.is_apply == 1 && it.username == it.apply_target">
+				<span style="color:#fc58a1">等待通过验证</span>
+			 </div>
+			 <div ng-if="it.pass">
+			 	<span style="color:#16bf7e">你们已经是好友关系</span>
+		 </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+
+<div ng-show="(vm.sumcount == 0 || vm.sumcount == '') && !onloading" class="text-center text-primary"> 
+	<span class="rxs-cor-ff9">未找到相关信息</span>
+</div>
+
+<div ng-show="vm.curpage*vm.pagesize &gt;= vm.sumcount && !onloading && vm.curpage > 1" class="text-center text-primary"> 
+	<span class="rxs-cor-ff9">没有更多信息</span>
+</div>
+<div ng-show="onloading" class="text-center text-warning">
+	<i class="fa fa-spinner fa-spin"></i>加载中
+</div>
+
+ <div  class="hide" pagination total-items="vm.sumcount" ng-model="vm.curpage"
+	max-size="0" items-per-page="vm.pagesize"  boundary-links="true"></div>

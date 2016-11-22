@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<div class="container-fluid jzhi-menu jzhi-menu-yujing ">
+    <div class="row text-center">
+      <div class="col-xs-6">
+        <h5><span class="jzhi-yj-yichang01-icon"></span>男生日均消费</h5>
+        <h4 class="jzhi-size-26">{{avgDayConsume.male}}</h4>
+      </div>
+      <div class="col-xs-6">
+        <h5><span class="jzhi-yj-yichang02-icon"></span>女生日均消费</h5>
+        <h4 class="jzhi-size-26">{{avgDayConsume.female}}</h4>
+      </div>
+    </div>
+</div>
+<div class="phone-common-list">
+  <ul class="phone-common-group">
+    <li class="phone-common-group-item phone-common-group-item02" ng-repeat="xs in xfycXslist">
+      <div class="media">
+        <div class="media-body media-middle">
+          <h4> {{xs.xm}}  <small ng-class="{'phone-common-boy-head':xs.gender=='男','phone-common-girl-head':xs.gender=='女'}" > </small> </h4>
+          <p class="jzhi-text-ccc">{{xs.bj}}</p>
+        </div>
+        <div class="media-right media-middle"> 
+        	<span class="jzhi-text-item jzhi-text-item-green" ng-show="params.type == 'low'">
+        		<i>低</i> <b>{{xs.nums}}</b>次
+        	</span>
+        	
+        	<span class="jzhi-text-item jzhi-text-item-org" ng-show="params.type == 'high'">
+        		<i>高</i> <b>{{xs.nums}}</b>次
+        	</span>
+        	<a class="phone-common-telephone-icon phone-common-mar-btm" ng-href="tel:{{xs.tel}}}" title="{{xs.tel}}"> </a>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

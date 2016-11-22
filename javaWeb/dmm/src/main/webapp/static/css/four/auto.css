@@ -1,0 +1,1321 @@
+@charset "utf-8";
+/* CSS Document */
+/*屏幕自适应*/
+@media screen and (min-width: 1360px) { /*当屏幕尺寸大于1px时，应用下面的CSS样式*/
+ .usty-auto {
+ width:1200px;
+}
+ .usty-common-auto {
+ width:1080px;
+}
+ .usty-first-imgbg {
+ background:url(../../images/four/home-banner1200.png) center bottom no-repeat;
+ width:752px;
+ height:780px;
+}
+ .usty-first-imgbg article {
+ width:125px;
+ height:125px;
+ background-size:auto;
+}
+.usty-first-p {
+ line-height:42px;
+ padding-top:260px;                          /* 修改260px*/
+}
+ .usty-first-ul li {
+ line-height:85px;               /*行高修改85*/
+}
+.usty-first-left03 {
+ position:absolute;
+ left:3%;
+ top:37%;
+}
+.usty-first-left04 {
+ position:absolute;
+ left:13%;
+ top:60%;
+}
+.usty-first-right03 {
+ position:absolute;
+ right:3%;
+ top:37%;
+}
+.usty-first-right04 {
+ position:absolute;
+ right:13%;
+ top:60%;
+}
+/*字号*/
+.usty-first-f30 {
+ font-size:30px;
+}
+.usty-first-f14 {
+ font-size:14px;
+}
+.usty-first-f24 {
+ font-size:24px;
+}
+/*字号end*/  
+/*我的大学室友--人脉*/
+.usty-shiyou-imgbg {
+ width:706px;
+ height:679px;                                                    /* 宽高修改auto*/
+}
+.usty-shiyou-imgbg {
+background-size:auto;
+}
+.usty-shiyou-imgbg article {
+ background-size:auto;
+ width:193px;
+ height:193px;
+}
+.usty-shiyou-textp {
+ font-size:37px;
+ margin-top:1.5em;
+}
+.usty-shiyou-name {
+ font-size:32px;
+ line-height:193px;
+}
+/*我的大学室友--人脉end*/
+/*奖惩*/
+.usty-jiang-leftimg01 img, .usty-jiang-rightimg01 img, .usty-jiang-rightimg02 img {
+width:auto;
+}
+/*奖惩*/
+
+/*图书馆*/ 
+.usty-shu-line01-button {
+ padding:10px 30px 12px 32px;
+}
+.usty-shu-left {
+ margin-top:1em;
+}
+.usty-shu-textp {
+ font-size:25px;
+ line-height:3em
+}
+.usty-shu-text {
+ font-size:50px;
+ margin:0px 10px;
+}
+.usty-shu-right .usty-shu-textp {
+ line-height:2.5em
+}
+.usty-shu-right .usty-shu-text {
+ font-size:30px;
+}
+.usty-shu-line03 {
+ margin-top:2em;
+}
+.usty-shu-line03 img {
+ width:auto
+}
+/*图书馆end*/
+/*标签墙*/
+.usty-biaoqian-imgbg {
+ padding:5em;
+ height:620px;
+ background-size:auto;
+}
+.usty-biaoqian-name-left {
+ width:170px;
+ height:170px;
+ font-size:36px;
+}
+/*成绩*/
+.usty-chengji-line {
+width:700px;
+margin: 0 20% 0 10%;
+}
+.usty-chengji-right {
+margin-top:3em
+}
+.usty-chengji-left {
+margin-top:4em;
+}
+.usty-shu-right .usty-chengji-text {
+ font-size:46px;
+}
+.usty-echart {
+ width:752px;
+ height:350px;
+}
+.usty-echartPie {
+ width:400px;
+ height:350px;
+}
+/*成绩end*/
+/*第一次*/ 
+.usty-firstxf {
+ width:1100px;
+ height:850px;
+ background-size:auto;
+ padding-top:285px;
+}
+.usty-firstxf-h3 {
+ margin:0px 0px 50px 0px;
+ font-size:60px;
+}
+.usty-firstxf-line ul {
+ width:840px;
+}
+.usty-firstxf-line li {
+ width:210px;
+}
+.usty-firstxf-line dt {
+ font-size:18px;
+ width:121px;
+ height:120px;
+ margin:20px auto;
+ background-size:auto;
+}
+.usty-firstxf-line dd {
+ font-size:20px;
+}
+/*第一次end*/
+/*消费第二屏*/ 
+.usty-xiaofei-two-left {
+ position:absolute;
+ top:5%;
+ left:0%;
+}
+.usty-xiaofei-two-left img {
+ width:100%
+}
+ .usty-xiaofei-two-right li+li {
+ margin-top:50px;
+}
+.usty-xiaofei-two-dl02 dd {
+ margin-right: 100px;
+}
+ 
+ /*消费第二屏*/
+ /*第一次第二屏*/ 
+.usty-firstxf-three article {
+height:155px;
+}
+.usty-firstxf-three article dt {
+font-size:30px;
+}
+.usty-firstxf-three article dd {
+font-size:20px;
+}
+/*第一次第二屏end*/
+/*第一次第二屏*/
+.usty-firstxf-four-list01 {
+ transform:scale(1);
+ -ms-transform:scale(1);
+ -moz-transform:scale(1);
+ width:708px;
+ height:708px;
+}
+/*添加修改部分*/
+.usty-firstxf-four-list01 article {
+ overflow:hidden;
+ padding-top:240px;
+ background:url(../images/tushu.png) center 40px no-repeat #00749a;
+ height:708px;
+}
+.usty-firstxf-four-list01 dl {
+ color:#94e0ff;
+ font-size:24px;
+ text-align:left;
+ float:left;
+ margin-left:110px;
+ line-height:2.3em;
+ text-shadow:1px 1px 1px #005773
+}
+.usty-firstxf-four-list01 dt {
+ color:#013a4d;
+ font-size:36px;
+ text-shadow:1px 1px 1px #4097b3;
+ text-align:center
+}
+.usty-firstxf-four-list01 dd .color-time-imp {
+ color:#f5f5f5;
+}
+.usty-firstxf-four-bottom {
+ bottom: 8%;
+ color: #013a4d;
+ font-size: 60px;
+ font-weight: bold;
+ left: 38%;
+ position: absolute;
+ text-shadow: 1px 1px 1px #4097b3;
+}
+/*添加修改部分*/
+/*第一次第二屏*/
+/*图书馆第二屏*/
+.usty-shu02-left img {
+ width:auto;
+}
+.usty-shu02-textp {
+ font-size:24px;
+}
+.usty-shu02-text {
+ font-size:36px;
+ margin:0px 10px;
+}
+/*图书馆第二屏end*/
+/*成绩第二屏*/ 
+.usty-chengji02-title {
+ font-size:20px;
+}
+.usty-chengji02-title h3 {
+ font-size: 27px;
+}
+.usty-chengji02-title p {
+ margin:35px 0;
+}
+.usty-chengji02-span {
+ font-size:34px;
+}
+.usty-chengji02-line {
+ width:850px;
+}
+.usty-chengji02-line article {
+ width:140px;
+ height:140px;
+ margin:22px;
+}
+.usty-chengji02-line article dl {
+ width:140px;
+ height:140px;
+}
+.usty-chengji02-line article dt {
+ font-size:27px;
+}
+.usty-chengji02-line article dd {
+ font-size:18px;
+}
+/*成绩第二屏*/
+/*成绩第三屏*/
+  .usty-chengji03{width:1200px;}
+.usty-chengji03-line {
+ width:auto;
+}
+.usty-chengji03-ul {
+ letter-spacing:4px;
+}
+ 
+/*成绩第三屏end*/
+/*消费第五屏*/
+.usty-xiaofei05-fenxi {
+margin:30px 0
+}
+.usty-xiaofei05-section {
+ margin:50px 0
+}
+.usty-xiaofei05-paiming-dl dd {
+ margin-top:10px;
+}
+.usty-xiaofei05-tongji-dl dd {
+ margin-top:0px;
+}
+/*消费第五屏end*/
+/*人脉第二屏*/ 
+.usty-renmai-textp {
+ color:#3c445e;
+ font-size:37px;
+ margin-bottom:4em;
+}
+.usty-renmai02-dl {
+ margin:0px 45px;
+}
+/*人脉第二屏end*/
+/*人脉第三屏*/
+.usty-renmai03-textp {
+margin-bottom:2em;
+}
+.usty-renmai03-dl {
+ margin:25px 0px;
+ width: 250px;
+}
+.usty-renmai03-dl dd {
+font-size:17px;
+line-height:36px;
+}
+.usty-renmai03-dl dt {
+width:162px;
+height:162px;
+border-radius:50%;
+background-size:auto;
+margin-bottom:10px;
+}
+/*人脉第三屏end*/
+/*奖惩第二屏*/ 
+ .usty-jiang02-title {
+ margin-bottom:6em;
+}
+.usty-jiang02-title h3 {
+ background:#5e7493;
+}
+.usty-jiang02-title h3:after {
+ border-top-color:#5e7493;
+}
+.usty-jiang02-line dl {
+margin:0px 80px;
+}
+ .usty-jiang02-line dd {
+ margin-top: 20px;
+}
+/*奖惩第二屏end*/
+/*添加修改*/
+/*上网*/
+.usty-shangwang {
+ font-size:18px;
+ font-weight:bold;
+ padding:80px 0 0
+}
+.usty-shangwang-left00-1 {
+ position:absolute;
+ left:39%;
+ top:-10%;
+}
+.usty-shangwang-textp {
+ margin-top:30px;
+}
+/*上网*/
+/*添加修改*/
+}
+@media screen and (min-width: 1200px) and (max-width: 1359px) { /*当屏幕尺寸大于1600px小于1680px时，应用下面的CSS样式*/
+}
+@media screen and (max-width:600px) {
+	/*当屏幕尺寸小于600px时，应用下面的CSS样式*/
+	.usty-auto {
+ width: 266px;
+}
+ .usty-common-auto {
+ width: 266px;
+}
+ .usty-first-bottom .fp-tableCell {
+ vertical-align: middle;
+}
+ .usty-exit {
+ background: url(../../images/four/exit.png) right center no-repeat;
+ text-indent: -1999px;
+}
+ .usty-first-imgbg {
+ background: url(../../images/four/home-banner400.png) center bottom no-repeat;
+ width: 261px;
+ height: 293px;
+}
+ .usty-first-imgbg article {
+ width: 43px;
+ height: 43px;
+}
+ .usty-first-p {
+ line-height: 16px;
+ padding-top: 87px; /* 修改260px*/
+}
+ .usty-first-ul li {
+ line-height: 35px; /*行高修改85*/
+}
+ .usty-first-left01 {
+ position: absolute;
+ left: 27%;
+ top: 0%;
+}
+ .usty-first-left02 {
+ position: absolute;
+ left: 9%;
+ top: 15%;
+}
+ .usty-first-left03 {
+ position: absolute;
+ left: 3%;
+ top: 35%;
+}
+ .usty-first-left04 {
+ position: absolute;
+ left: 12%;
+ top: 56%;
+}
+ .usty-first-right01 {
+ position: absolute;
+ right: 27%;
+ top: 0%;
+}
+ .usty-first-right02 {
+ position: absolute;
+ right: 9%;
+ top: 15%;
+}
+ .usty-first-right03 {
+ position: absolute;
+ right: 3%;
+ top: 35%;
+}
+ .usty-first-right04 {
+ position: absolute;
+ right: 12%;
+ top: 56%;
+}
+
+	/*字号*/
+	.usty-first-f30 {
+ font-size: 12px;
+}
+ .usty-first-f14 {
+ font-size: 8px;
+}
+ .usty-first-f24 {
+ font-size: 10px;
+}
+
+	/*字号end*/
+	.usty-first-ul {
+ font-size: 12px;
+}
+ .usty-first-ul li:before {
+ width: 6px;
+ height: 6px;
+ margin-right: 5px;
+}
+ .usty-first-ul li {
+ line-height: 35px;
+ float: left;
+ width: 65px; /*行高修改85*/
+}
+ .padd-left20, .padd-left90, .padd-left100, .padd-left110, .padd-left130, .padd-left170 {
+ padding-left: 0px;
+}
+ .usty-ul {
+ display: none;
+}
+
+	/*我的大学室友--人脉*/
+	.usty-shiyou-imgbg {
+ width: 256px;
+ height: 249px; /* 宽高修改auto*/
+}
+ .usty-shiyou-imgbg article {
+ width: 70px;
+ height: 70px;
+}
+ .usty-shiyou-center00 {
+ height: 35px;
+ padding-top: 59%;
+ width: 35px;
+ background-size:100%;
+}
+ .usty-shiyou-textp {
+ font-size: 16px;
+ letter-spacing: 3px;
+}
+ .usty-shiyou-name {
+ font-size: 14px;
+ line-height: 70px;
+ letter-spacing: 0px
+}
+
+	/*我的大学室友--人脉end*/
+	/*奖惩*/
+	.usty-jiang-line {
+ padding: 10% 10% 30%;
+ width: 100%;
+ letter-spacing: 1px;
+ margin-left: 0
+}
+ .usty-jiang-left {
+ margin-bottom: 15%;
+ margin-left: 10%
+}
+ .usty-jiang-right {
+ float: left;
+}
+ .usty-jiang-textp {
+ font-size: 15px;
+}
+ .usty-jiang-text {
+ font-size: 30px;
+ padding: 0px 3px;
+}
+ .usty-jiang-right .usty-jiang-textp {
+ font-size: 14px;
+}
+ .usty-jiang-right .usty-jiang-text {
+ font-size: 23px;
+}
+ .usty-jiang-leftimg01 {
+ width: 37px;
+ height: 47px;
+ top: 35%;
+ left: 5%;
+}
+ .usty-jiang-rightimg01 {
+ width: 48px;
+ height: 63px;
+ top: 0%;
+ right: 15%;
+}
+ .usty-jiang-rightimg02 {
+ width: 49px;
+ height: 60px;
+ top: 75%;
+ right: 10%;
+}
+ .usty-jiang-leftimg01 img, .usty-jiang-rightimg01 img, .usty-jiang-rightimg02 img {
+ width: auto;
+}
+
+	/*奖惩*/
+	/*图书馆*/
+	.usty-shu-line01-button {
+ font-size: 14px;
+ letter-spacing: 1px;
+ padding: 4px 10px 5px 12px;
+}
+ .usty-shu-left {
+ margin-top: 30px;
+}
+ .usty-shu-textp {
+ font-size: 14px;
+}
+ .usty-shu-text {
+ font-size: 24px;
+ margin: 0px 10px;
+}
+ .usty-shu-right {
+ margin-top: 1.5em;
+}
+ .usty-shu-right .usty-shu-text {
+ font-size: 18px;
+}
+
+	/*图书馆end*/
+	/*标签*/
+	.usty-biaoqian-imgbg {
+ padding: 0em;
+ height: 300px;
+ background-position: center bottom 0px;
+}
+ .usty-biaoqian-textp {
+ font-size: 18px;
+ letter-spacing: 4px;
+}
+ .usty-biaoqian-name-left {
+ font-size: 12px;
+ width: 60px;
+ height: 60px;
+}
+ .usty-biaoqian-name-left:after {
+ border-top-width: 10px;
+ border-bottom-width: 10px;
+ border-left-width: 20px;
+ bottom: -8px;
+ right: 15px;
+}
+ .usty-biaoqian-name-right:after {
+ bottom: -8px;
+ left: 15px;
+}
+ .usty-biaoqian-name-shadow {
+ top: 5px;
+ left: 15px;
+}
+
+	/*标签*/
+	/*成绩*/
+	.usty-chengji-line {
+ width: 240px;
+ margin: 0 auto;
+}
+
+	/*成绩*/
+	.usty-echart {
+ width: 300px;
+ height: 250px;
+}
+ .usty-echartPie {
+ width: 300px;
+ height: 200px;
+}
+
+	/*消费*/
+	.usty-xiaofei-line {
+ margin-top: 25px;
+}
+ .usty-xiaofei-mingxi {
+ position: absolute;
+ right: 0;
+ top: 0;
+}
+.usty-xiaofei-two-dl02 dd {
+ margin-right: 50px;
+}
+ .usty-xiaofei-line ul li {
+ float: auto;
+ padding: 7px 10px;
+ line-height: 20px;
+ font-size: 13px;
+}
+ .usty-xiaofei-lispan {
+ font-size: 16px;
+}
+ .usty-xiaofei-line ul li + li {
+ border-left: none;
+}
+ .usty-xiaofei-line dt {
+ width: 65px;
+ font-size: 12px;
+ letter-spacing: 2px;
+ padding-left: 5px;
+ float: left
+}
+ .usty-xiaofei-line dd {
+ margin-top: 0px;
+ float: left
+}
+
+	/*消费*/
+	/*第一次*/
+	.usty-firstxf {
+ width: 250px;
+ height: 380px;
+ padding-top: 20px;
+}
+ .usty-firstxf-h3 {
+ margin: 0px 0px 20px 0px;
+ font-size: 24px;
+}
+ .usty-firstxf-line ul {
+ width: 220px;
+}
+ .usty-firstxf-line li {
+ width: 110px;
+ height: 125px;
+}
+ .usty-firstxf-line dt {
+ font-size: 13px;
+ width: 90px;
+ height: 90px;
+ margin: 0px auto;
+}
+ .usty-firstxf-line dd {
+ font-size: 13px;
+}
+
+	/*第一次end*/ 
+	
+	/*上网*/
+	.usty-shangwang {
+ font-size: 11px;
+ padding: 40px 0 0
+}
+ .usty-shangwang-imgbg {
+ width: 260px;
+ height: 250px;
+ background-size: 100%; /* 宽高修改auto*/
+}
+ .usty-shangwang-imgbg article {
+ display: block;
+}
+/*添加修改*/
+ .usty-shangwang-left00 {
+ left:41%;
+ width:50px;
+}
+.usty-shangwang-left01 {
+ left:3%;
+ width:50px;
+}
+.usty-shangwang-right01 {
+ right:3%;
+ width:50px;
+}
+.usty-shangwang-left02 {
+ width:130px;
+}
+.usty-shangwang-left00-1 {
+ position:absolute;
+ left:39%;
+ top:-10%;
+}
+ .usty-shangwang-left01-1 {
+ position: absolute;
+ left: 0;
+ top: 20%;
+}
+ .usty-shangwang-right01-1 {
+ position: absolute;
+ right: 0%;
+ top: 20%;
+}
+ .usty-shangwang-textp {
+ padding: 5px 8px;
+ width: 200px;
+ margin-top: 30px;
+ font-size: 11px;
+}
+/*添加修改*/
+ .usty-shangwang-textp:before {
+ border-bottom: 15px solid #fff;
+ border-left: 10px solid transparent;
+ border-right: 10px solid transparent;
+ content: "";
+ display: block;
+ left: 50%;
+ position: absolute;
+ top: -15px;
+}
+ .usty-shangwang-span {
+ font-size: 18px;
+}
+ .usty-shangwang-textp .usty-shangwang-span {
+ font-size: 12px;
+}
+
+	/*上网end*/ 
+	/*消费第二屏*/
+	.usty-xiaofei-two-left {
+ position: relative;
+ width: 160px;
+ margin: 0 auto
+}
+ .usty-xiaofei-two-left img {
+ width: 100%
+}
+ .usty-xiaofei-two-right {
+ float: none;
+ text-align: center;
+ letter-spacing: 0px;
+ font-size: 8px;
+ width: 240px;
+ margin: 0 auto
+}
+ .usty-xiaofei-two-h3 {
+ font-size: 13px;
+ font-weight: bold;
+ margin-bottom: 5px;
+ margin-top: 5px
+}
+ .usty-xiaofei-two-right li + li {
+ margin-top: 20px;
+}
+ .usty-xiaofei-two-right dl {
+ width: 240px;
+ height: 50px;
+ line-height: 14px;
+ padding: 4px 0px 0px 40px;
+ background-size: 100%;
+}
+ .usty-xiaofei-two-right dt {
+ height: 0px;
+ float: left;
+ width: 0px;
+}
+ .usty-xiaofei-two-right dl span {
+ margin: 0px 0px;
+}
+ .usty-xiaofei-two-right dl span.usty-xiaofei-two-imp {
+ font-size: 18px;
+ display: block;
+ margin: 15px 0px 0px 0px;
+ text-align: left;
+}
+ .usty-xiaofei-two-right dl span.usty-xiaofei-two-bold {
+ font-weight: bold;
+ margin-left: 20px;
+}
+
+	/*消费第二屏*/
+	/*第一次第二屏*/
+	.usty-firstxf-two-img {
+ width: 250px;
+ height: 160px;
+ background-size: 100%;
+}
+ .usty-firstxf-two-list {
+ width: 255px;
+}
+ .usty-firstxf-two-list dl {
+ overflow: auto;
+ margin: 20px 0;
+ letter-spacing: 0px;
+ border-radius: 5px;
+}
+ .usty-firstxf-two-list dt {
+ width: 35%;
+ padding: 4px;
+ color: #fff;
+ font-size: 13px;
+ text-align: center;
+ border-radius: 5px;
+}
+ .usty-firstxf-two-list dt.blue-bg {
+ background: #44b5da;
+}
+ .usty-firstxf-two-list dd {
+ padding: 8px;
+ float: left;
+ color: #d12b31;
+ font-size: 10px;
+ width: 90%;
+}
+ .usty-firstxf-two-list dd.blue-font {
+ color: #34849d;
+}
+
+	/*第一次四屏end*/
+	/*第一次第三屏屏*/
+	.usty-firstxf-three article {
+ height: 70px;
+ background-size: 100%;
+}
+ .usty-firstxf-three article dt {
+ font-size: 14px;
+}
+ .usty-firstxf-three article dd {
+ font-size: 10px;
+ margin-top: 15px;
+}
+ .usty-firstxf-three-padright {
+ padding-right: 20px;
+}
+ .usty-firstxf-three-padleft {
+ padding-left: 20px;
+}
+
+	/*第一次第二屏end*/
+	/*第一次第三屏*/
+	.usty-firstxf-four-list01 {
+ width: 260px;
+ height: 260px;
+ transform: scale(1);
+ -ms-transform: scale(1);
+ -moz-transform: scale(1)
+}
+ .usty-firstxf-four-list01 article {
+ overflow: hidden;
+ padding-top: 90px;
+ background: url(../../images/four/tushu.png) center 10px no-repeat #00749a;
+ background-size: 60%;
+ height: 260px;
+}
+ .usty-firstxf-four-list01 dl {
+ font-size: 11px;
+ margin-left: 30px; 
+}
+ .usty-firstxf-four-list01 dt {
+ font-size: 16px;
+}
+ .usty-firstxf-four-bottom {
+ bottom: 4%;
+ font-size: 22px;
+ left: 38%;
+}
+ .text-align-right {
+ text-align: right
+}
+ .text-align-right-indent {
+ text-align: right;
+ margin-right: -2em;
+}
+
+	/*第一次第二屏*/
+	/*图书馆第二屏*/
+	.usty-shu02-left, .usty-shu02-right {
+ float: none;
+ margin-top: 10px;
+}
+ .usty-shu02-left img {
+ width: 50%;
+}
+ .usty-shu02-textp {
+ font-size: 11px;
+ line-height: 2.5em
+}
+ .usty-shu02-text {
+ font-size: 17px;
+ margin: 0px;
+}
+
+	/*图书馆第二屏end*/
+	/*成绩第二屏*/
+	.usty-chengji02-title {
+ font-size: 12px;
+ letter-spacing: 0px;
+}
+ .usty-chengji02-title h3 {
+ font-size: 16px;
+ padding: 7px 35px;
+}
+ .usty-chengji02-title p {
+ margin: 15px auto;
+ text-align: left;
+ width: 200px;
+}
+ .usty-chengji02-span {
+ font-size: 18px;
+}
+ .usty-chengji02-line {
+ width: 260px;
+}
+ .usty-chengji02-line article {
+ width: 66px;
+ height: 66px;
+ margin: 2px;
+}
+ .usty-chengji02-line article dl {
+ width: 66px;
+ height: 66px;
+}
+ .usty-chengji02-line article dt {
+ font-size: 14px;
+}
+ .usty-chengji02-line article dd {
+ font-size: 11px;
+ margin-top: 2px;
+}
+
+	/*成绩第二屏*/
+	/*成绩第三屏*/
+	/*添加修改*/
+.usty-chengji03{ width:300px;}
+	/*添加修改*/
+	.usty-chengji03-title {
+ margin-bottom: 1em;
+}
+ .usty-chengji03-float-left {
+ float: left;
+}
+ .usty-chengji03-icon dl {
+ background: url(../../images/four/chengji-img-266.png) center center no-repeat;
+ width: 69px;
+ height: 67px;
+}
+ .usty-chengji03-icon dt {
+ font-size: 12px;
+}
+ .usty-chengji03-icon dd {
+ background: url(../../images/four/chengji-icon-266.png) center center no-repeat;
+ width: 100%;
+ height: 21px;
+ margin-top: 5px;
+}
+ .usty-chengji03-ul {
+ font-size: 8px;
+ line-height: 18px;
+ margin-left: 0px;
+ margin-top: 0px;
+ letter-spacing: 0px;
+}
+ .usty-chengji03-ul li:before {
+ content: ".";
+ width: 5px;
+ padding-right: 5px;
+ margin-right: 2px;
+ background: url(../../images/four/chengji-yellow-icon-266.png) right center no-repeat;
+}
+ li.usty-chengji03-green:before {
+ background: url(../../images/four/chengji-green-icon-266.png) right center no-repeat;
+}
+ li.usty-chengji03-red:before {
+ background: url(../../images/four/chengji-red-icon-266.png) right center no-repeat;
+}
+ .usty-chengji03-zong {
+ font-size: 12px;
+ background: url(../../images/four/chengji-kuohao-266.png) left bottom no-repeat;
+ width: 15px;
+ height: 56px;
+ line-height: 56px;
+ margin-left: 3px;
+ padding-left: 15px;
+}
+ .usty-chengji03-line {
+ margin: 0 auto;
+ text-align: center
+}
+ .usty-chengji03-h3 {
+ background: url(../../images/four/chengji-list-266.png) center center no-repeat;
+ width: 145px;
+ height: 30px;
+ font-size: 10px;
+ line-height: 25px;
+ letter-spacing: 0px;
+}
+
+	/*成绩第三屏end*/
+	/*消费第三屏*/
+	.usty-xiaofei03-icon dl {
+ background: url(../../images/four/xiyu-title-icon-266.png) center center no-repeat;
+ width: 75px;
+ height: 74px;
+}
+ .usty-xiaofei03-icon dt {
+ font-size: 16px;
+ padding-left: 20px;
+}
+ .usty-xiaofei03-icon dd {
+ background: url(../../images/four/xiyu-title-266.png) center center no-repeat;
+ height: 39px;
+}
+ .usty-xiaofei03-ul {
+ font-size: 12px;
+ line-height: 22px;
+ letter-spacing: 1px;
+}
+ .usty-wenjuan-content {
+ bottom: 19px;
+ font-size: 12px;
+ line-height: 22px;
+ padding: 5px;
+ width: 180px;
+}
+
+	/*消费第三屏end*/
+	/*消费第四屏*/
+	.usty-xiaofei04-title {
+ margin-bottom: 1em;
+}
+ .usty-xiaofei04-icon dl {
+ background: url(../../images/four/canyin-title-266.png) center center no-repeat;
+ width: 81px;
+ height: 78px;
+}
+ .usty-xiaofei04-icon dd {
+ background: url(../../images/four/canyin-icon-266.png) center center no-repeat;
+ height: 30px;
+}
+ .usty-xiaofei04-ul {
+ font-size: 11px;
+ line-height: 22px;
+}
+ .usty-xiaofei04-section {
+ letter-spacing: 1px;
+ height: 24px;
+ line-height: 24px;
+}
+ .usty-xiaofei04-section h3 {
+ width: 120px;
+ font-size: 12px;
+}
+ .usty-xiaofei04-section h3:after {
+ right: -8px;
+ border-left: 8px solid #5fa5a7;
+ border-top: 12px solid transparent;
+ border-bottom: 12px solid transparent;
+}
+ .usty-tishi-list-ul {
+ float: right;
+}
+ .usty-tishi-list-ul li {
+ float: left;
+ margin-right: 10px;
+}
+ .usty-tishi-list-ul dt {
+ width: 10px;
+ height: 10px;
+ margin-right: 5px;
+ margin-top: 10px;
+}
+ .usty-tishi-list-ul dt.yellow-circle {
+ background: #e8ac2a;
+}
+ .usty-tishi-list-ul dt.green-circle {
+ background: #5fa5a7;
+}
+ .usty-tishi-list-ul dd {
+ font-size: 12px;
+ color: #747677;
+ line-height: 32px;
+ float: left;
+}
+ .usty-tongji-img {
+ margin: 5px 0;
+}
+ .usty-tongji-img img {
+ margin: 0 5px;
+ width: 25%
+}
+
+	/*消费第四屏end*/
+	/*消费第五屏*/
+	.usty-xiaofei05-fenxi {
+ margin: 5px 0
+}
+ .usty-xiaofei05-floatleft {
+ float: none;
+}
+ .usty-xiaofei05-section h3 {
+ font-size: 12px;
+ padding: 3px 8px 5px;
+}
+ .usty-xiaofei05-section h3:after {
+ right: -8px;
+ border-left: 8px solid #fff;
+ border-top: 12px solid transparent;
+ border-bottom: 12px solid transparent;
+}
+ .usty-xiaofei05-tongji {
+ width: 240px;
+ margin: 0 auto;
+ text-align: center
+}
+ .usty-xiaofei05-tongji-dl {
+ width: 60px;
+}
+ .usty-xiaofei05-tongji-dl dt {
+ width: 30px;
+ height: 30px;
+ background-size: 100%;
+}
+ .usty-xiaofei05-tongji-dl dd {
+ font-size: 10px;
+ margin-top: 5px;
+}
+ .usty-xiaofei05-paiming {
+ width: 240px;
+ margin: 0 auto;
+}
+ .usty-xiaofei05-paiming-dl {
+ float: left;
+ width: 60px;
+}
+ .usty-xiaofei05-paiming dl + dl {
+ background: url(../../images/four/paiming-bg-icon.png) left 8px no-repeat;
+ background-size: 20%
+}
+ .usty-xiaofei05-paiming-dl dt {
+ width: 22px;
+ height: 22px;
+ font-size: 14px;
+ line-height: 22px;
+}
+ .usty-xiaofei05-paiming-dl dd {
+ font-size: 10px;
+ margin-top: 5px;
+}
+
+	/*消费第五屏end*/
+	/*人脉第二屏*/
+	.usty-renmai-textp {
+ font-size: 20px;
+ margin-bottom: 0.5em;
+ letter-spacing: 8px;
+}
+ dd.usty-renmai02-touxiang {
+ width: 80px;
+ height: 79px;
+ margin: 2px 0;
+ background-size: 60%;
+}
+ .usty-renmai02-dl {
+ line-height: 14px;
+ margin: 5px 25px;
+}
+ .usty-renmai02-dl dt {
+ font-size: 12px;
+}
+ .usty-renmai02-dl dd {
+ font-size: 10px;
+}
+
+	/*人脉第二屏end*/
+	/*人脉第三屏*/
+	.usty-renmai03-textp {
+ font-size: 16px;
+ letter-spacing: 5px;
+ margin-bottom: 0;
+ text-align: left;
+}
+ .usty-renmai03-dl {
+ margin: 5px 0px;
+ width: 88px;
+}
+ .usty-renmai03-dl dd {
+ font-size: 10px;
+ line-height: 12px;
+}
+ .usty-renmai03-dl dt {
+ width: 65px;
+ height: 65px;
+ border-radius: 50%;
+ background-size: 50%;
+}
+
+	/*挂科标注*/
+	.usty-renmai03-dl em {
+ width: 27px;
+ height: 24px;
+ background-size: 90%;
+}
+
+	/*学期选择*/
+	.usty-renmai03-section {
+ width: 120px;
+}
+ .usty-renmai03-selectblock {
+ background: url(../../images/four/arrow-down-266.png) right 15px top 7px no-repeat #3fa9a8;
+ font-size: 11px;
+ height: 20px;
+ line-height: 20px;
+ padding-left: 5px;
+}
+ .usty-renmai03-section ul li {
+ font-size: 11px;
+ height: 20px;
+ line-height: 20px;
+ padding-left: 10px;
+}
+ .usty-renmai03-section ul li:hover {
+ background: #d0f2f2;
+ cursor: pointer
+}
+
+	/*人脉第三屏end*/
+	/*奖惩第二屏*/
+	.usty-jiang02-title {
+ margin-bottom: 2em;
+}
+ .usty-jiang02-title h3 {
+ background: #5e7493;
+}
+ .usty-jiang02-title h3:after {
+ border-top-color: #5e7493;
+}
+ .usty-jiang02-line dl {
+ float: left;
+ margin: 15px 10px;
+ width: 110px;
+}
+ .usty-jiang02-line dt {
+ width: 65px;
+ height: 65px;
+ background-size: 50%;
+}
+
+	/*奖惩第二屏end*/
+	/*奖惩第三屏*/
+	.usty-jiang03-dl {
+ width: 250px;
+ margin: 0 auto;
+ text-align: center;
+ font-weight: bold;
+}
+ .usty-jiang03-dl dt {
+ float: none;
+}
+ .usty-jiang03-dl dt img {
+ width: 70%;
+}
+ .usty-jiang03-dl dd {
+ font-size: 14px;
+ text-align: center;
+ margin-top: 0px;
+ margin-bottom: 30px;
+ float: none;
+ letter-spacing: 0px;
+}
+ .usty-jiang03-span {
+ color: #2c777c;
+ font-size: 38px;
+ margin: 0px 5px;
+}
+ .usty-jiang03-dl .usty-jiang04-dt img {
+ width: 100%;
+}
+/*奖惩第三屏end*/
+}

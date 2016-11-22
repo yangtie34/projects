@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css">
+    <script src="../../base1/util/LAB.min.js"></script>
+    <script src="../../extjs/ext-all-debug.js"></script>
+    <script src="../ns-debug.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function(){
+            var loadMask = new NS.mask.LoadMask({
+                target : NS.getBody(),
+                msg : '提示'
+            })
+            loadMask.show();
+//            loadMask.destroy();
+            loadMask.hide();
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

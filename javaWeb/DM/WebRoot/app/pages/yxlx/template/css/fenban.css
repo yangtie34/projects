@@ -1,0 +1,55 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*分班弹出窗部分样式*/
+a {
+	color:#3366ff;
+	text-decoration:underline;
+}
+a:hover {
+	color:#ff651f;
+	text-decoration:underline;
+}
+.fenban-container {
+	width:455px;
+	margin:0 auto;
+	font-size:13px;
+	font-family:Arial, Helvetica, sans-serif, "宋体";
+	border:1px solid #999999;
+	padding:10px
+}
+.fenban-container h2 {
+	border-right:5px solid #ff651f;
+	margin-right:5px;
+	margin-top:20px;
+	margin-bottom:20px;
+}
+.fen-padd-right {
+	padding-right:20px;
+}
+.fen-padd-left {
+	padding-left:20px;
+}
+  
+.fen-btn-print {
+	width:95px;
+	height:45px;
+	text-align:center;
+	line-height:40px;
+}
+.fen-blue {
+	color:#3366ff;
+}
+.fen-org {
+	color:#ff651f;
+}
+.fenban-sec-widb {
+	width:130px;
+	padding:1px 0;
+	margin-right:5px;
+}
+.fenban-sec-widc {
+	width:269px;
+	padding:1px 0;
+	margin-top:15px;
+}

@@ -1,0 +1,48 @@
+<object id="LODOP" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" width=0 height=0> 
+	<embed id="LODOP_EM" type="application/x-print-lodop" width=0 height=0 pluginspage="install_lodop.exe"></embed>
+</object>  
+<div id="yxdy_title" style="font-size:24px;"><strong>迎新单</strong></div>
+<div id="yxdy_conent">
+<tpl for="xsData">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><div align="left">
+     <tpl if="xm != null">{xm}</tpl></span> <!--17岁-->
+     <tpl if="xbmc != null">{xbmc}</tpl>
+     <tpl if="mzmc != null">{mzmc}</tpl>
+     <tpl if="lqlbmc != null">{lqlbmc}</tpl></td>
+    </td>
+  </tr>
+  <tr>
+    <td><div align="left">
+    <tpl if="jtdz != null">{jtdz}</tpl>
+    </div></td>
+  </tr>
+  <tr>
+    <td><div align="left">家长联系电话：<tpl if="lxdh != null">{lxdh}</tpl> </div></td>
+  </tr>
+  <tr>
+    <td><div align="left">身份证号：<tpl if="sfzh != null">{sfzh}</tpl></div></td>
+  </tr>
+ <!--  <tr>
+    <td><div align="left">考生号：<tpl if="ksh != null">{ksh}</tpl></div></td>
+  </tr> -->
+  <tr>
+    <td><div align="left">生源地：<tpl if="syd != null">{syd}</tpl></div></td>
+  </tr>
+  <tr>
+    <td><div align="left">录取院系：<tpl if="yxmc != null">{yxmc}</tpl> </div></td>
+  </tr>
+  <tr>
+    <td><div align="left">录取专业：<tpl if="yxmc != null">{zymc}</tpl></div></td>
+  </tr>
+  <tr>
+    <td><div align="left">所属班级：<tpl if="bjmc != null">{bjmc}</tpl> </div></td>
+  </tr>
+   <tr>
+    <td><div align="left">楼宇：&nbsp;&nbsp;&nbsp;&nbsp;楼层：&nbsp;&nbsp;&nbsp;&nbsp;房间：&nbsp;&nbsp;&nbsp;&nbsp; 床位：</div></td>
+  </tr>
+</table>
+</tpl>
+</div>
+<div id="yx_print"></div>

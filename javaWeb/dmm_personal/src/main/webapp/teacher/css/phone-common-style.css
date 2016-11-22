@@ -1,0 +1,377 @@
+@charset "utf-8";
+/* CSS Document */ 
+body {
+	font-family:"microsoft yahei";
+	font-size:13px;
+}
+a:focus {
+	outline:none
+}
+.phone-common-martb {
+	margin-top:15px;
+	margin-bottom:15px;
+}
+.phone-common-margin-left {
+	margin-left:5px;
+}
+.phone-common-mar-top {
+	margin-top:10px;
+}
+.phone-common-mar-btm {
+    vertical-align:sub;
+}
+.phone-common-img-width>img {
+	width:55px;
+	height:55px;
+}
+.phone-common-mar-right{ margin-right:20px;}
+/*文本-inline*/
+.phone-common-danger-inline {
+	background:#f28042;
+	padding:2px 4px;
+	display:inline-block;
+	text-align:center;
+	border-radius:5px;
+	min-width:55px;
+	color:#fff;
+	font-size:14px
+}
+.phone-common-green-inline {
+	background:#4bd779;
+	padding:2px 4px;
+	display:inline-block;
+	text-align:center;
+	border-radius:5px;
+	min-width:55px;
+	color:#fff;
+	font-size:14px;
+}
+/*图标*/
+.phone-common-girl-icon {
+	background:url(../images/girl-tips.png) center center no-repeat;
+	width:25px;
+	height:25px;
+	display:inline-block;
+	margin-bottom:-5px;
+	background-size:70%;
+}
+.phone-common-boy-icon {
+	background:url(../images/boy-tips.png) center center no-repeat;
+	width:25px;
+	height:25px;
+	display:inline-block;
+	margin-bottom:-5px;
+	background-size:70%;
+}
+.phone-common-girl-head {
+	background:url(../images/girl-head.png) center center no-repeat;
+	width:24px;
+	height:16px;
+	display:inline-block;
+	margin-bottom:-2px;
+}
+.phone-common-boy-head {
+	background:url(../images/boy-head.png) center center no-repeat;
+	width:24px;
+	height:16px;
+	display:inline-block;
+	margin-bottom:-2px;
+}
+.phone-common-girl-icon-bg {
+	background:url(../images/girl-icon.png) center center no-repeat;
+	width:30px;
+	height:18px;
+	display:inline-block;
+	margin-bottom:-4px;
+}
+.phone-common-boy-icon-bg {
+	background:url(../images/boy-icon.png) center center no-repeat;
+	width:30px;
+	height:18px;
+	display:inline-block;
+	margin-bottom:-4px;
+}
+.phone-common-edit-icon {
+	background:url(../images/edit-icon.png) center center no-repeat;
+	width:25px;
+	height:25px;
+	display:inline-block;
+	margin-bottom:-5px;
+	background-size:70%;
+}
+.phone-common-mediaright-icon {
+	background:url(../images/button-right.png) center center no-repeat;
+	width:43px;
+	height:23px;
+	display:inline-block;
+	background-size:70%;
+}
+.phone-common-top-back-icon {
+	background:url(../images/back-icon.png) left 0 top 6px no-repeat;
+	height:32px;
+	display:inline-block;
+	padding-left:14px;
+	color:#fff;
+	background-size:20%;
+	white-space:nowrap;
+}
+.phone-common-top-more-icon {
+	background:url(../images/three-icon.png) left 7px center no-repeat;
+	height:9px;
+	display:inline-block;
+	width:39px;
+	color:#fff;
+	background-size:60%;
+}
+/*顶栏*/
+.phone-common-top {
+	background:#36353a;
+	font-size:16px;
+	padding:10px 0;
+	color:#fff;
+	line-height:28px;
+}
+/*banner*/
+.phone-common-media {
+	background:url(../images/index-bg.png) left center repeat;
+	color:#fff;
+	padding:5px 15px;
+}
+.phone-common-img-border {
+	border:2px solid #fff;
+	display:inline-block;
+}
+/*九宫格*/
+.phone-common-jiumenu {
+	color:#616161;
+	text-align:center;
+	font-size:16px;
+}
+.phone-common-jiumenu>.row+.row {
+	border-top:1px solid #dedede;
+}
+.phone-common-jiumenu>.row>.col-xs-4 {
+	padding:20px 0;
+	white-space:nowrap
+}
+.phone-common-jiumenu>.row>.col-xs-4+.col-xs-4 {
+	border-left:1px solid #dedede;
+}
+.phone-common-jiumenu>.row>.col-xs-4>a {
+	display:block;
+	padding:0px 20px;
+}
+.phone-common-jiumenu>.row>.col-xs-4>a>img {
+	max-width:106px;
+	max-height:106px;
+	width:100%;
+	height:100%;
+	margin-bottom:10px;
+}
+/*内容列表信息*/
+/*标题栏*/
+.phone-common-title {
+	color: inherit;
+	font-size: 16px;
+	margin-bottom: 0;
+	margin-top: 0;
+	padding:5px 15px;
+	line-height:49px;
+}
+.phone-common-arrow-up {
+	background:url(../images/arrow-up.png) center center no-repeat;
+	display:inline-block;
+	width:23px;
+	height:49px;
+	background-size:80%;
+}
+.phone-common-arrow-down {
+	background:url(../images/arrow-down.png) center center no-repeat;
+	display:inline-block;
+	width:23px;
+	height:49px;
+	background-size:80%;
+}
+.phone-common-arrow-right {
+	background:url(../images/arrow-right.png) center center no-repeat;
+	display:inline-block;
+	width:12px;
+	height:49px;
+	background-size:80%;
+}
+.phone-common-arrow-left {
+	background:url(../images/arrow-left.png) center center no-repeat;
+	display:inline-block;
+	width:12px;
+	height:49px;
+	background-size:80%;
+}
+.phone-common-date-icon {
+	background:url(../images/date-time.png) center center no-repeat;
+	display:inline-block;
+	width:20px;
+	height:49px;
+}
+.phone-common-date-org-icon {
+	background:url(../images/date-time-org.png) center center no-repeat;
+	display:inline-block;
+	width:20px;
+	height:49px;
+}
+.phone-common-border-arrow-right {
+	background:url(../images/right-border.png) center center no-repeat;
+	display:inline-block;
+	width:30px;
+	height:49px;
+	background-size:80%;
+}
+.phone-common-border-arrow-left {
+	background:url(../images/left-border.png) center center no-repeat;
+	display:inline-block;
+	width:30px;
+	height:49px;
+	background-size:80%;
+}
+.phone-common-border-bold-arrow-left {
+	background:url(../images/date-left.png) center center no-repeat;
+	display:inline-block;
+	width:30px;
+	height:49px;
+	background-size:80%;
+}
+.phone-common-border-bold-arrow-right {
+	background:url(../images/date-right.png) center center no-repeat;
+	display:inline-block;
+	width:30px;
+	height:49px;
+	background-size:80%;
+}
+.phone-common-telephone-icon {
+	background:url(../images/telephone.png) center center no-repeat;
+	display:inline-block;
+	width:14px;
+	height:22px;
+	background-size:90%;
+}
+.phone-common-ipt-icon {
+	background:url(../images/ipt-icon.png) left center no-repeat;
+	width:20px;
+	height:12px;
+	display:inline-block;
+}
+.phone-common-zan-no-icon {
+	background:url(../images/zan-no-icon.png) left center no-repeat;
+	width:28px;
+	height:17px;
+	display:inline-block;
+	margin-bottom:-2px;
+}
+.phone-common-zan-icon {
+	background:url(../images/zan-icon.png) left center no-repeat;
+	width:28px;
+	height:17px;
+	display:inline-block;
+	margin-bottom:-2px;
+}
+.phone-common-jie-icon {
+	background:url(../images/jie-icon.png) left center no-repeat;
+	width:28px;
+	height:16px;
+	display:inline-block;
+	margin-bottom:-2px;
+}
+.phone-common-huan-icon {
+	background:url(../images/huan-icon.png) left center no-repeat;
+	width:28px;
+	height:16px;
+	display:inline-block;
+	margin-bottom:-2px;
+}
+/*图标*/
+.phone-common-arrow-change {
+	background:url(../images/change-icon.png) center center no-repeat;
+	display:inline-block;
+	width:28px;
+	height:49px;
+	background-size:80%;
+}
+.phone-common-list {
+	border-top:1px solid #ddd;
+	border-bottom:1px solid #ddd;
+	background-color: #fff;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+	margin-bottom:15px;
+}
+.phone-common-list-line {
+	border-bottom:1px solid #ddd;
+	background-color: #fff;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+.phone-common-list-line>h3+h3 {
+	border-top:1px solid #ddd
+}
+.phone-common-group {
+	list-style:none;
+	padding:0;
+	margin:0
+}
+.phone-common-group-item {
+	padding:15px;
+	border-top:1px solid #ddd;
+}
+.phone-common-group-item:hover {
+	background:#f5f5f5;
+}
+.phone-common-group-item02 {
+	padding:5px 15px;
+}
+.phone-common-group-item02:first-child {
+	border-top:none;
+}
+/*表单样式*/
+.phone-common-input-default {
+	background:transparent;
+	border:none;
+	min-width:160px;
+}
+.phone-common-input-default:focus {
+	outline:none
+}
+.phone-common-input-default[disabled] {
+	color:#b6b6b6;
+}
+.phone-common-button-pad {
+	padding:15px 30px;
+}
+.phone-common-button-group {
+	margin-bottom:30px;
+	margin-top:20px;
+	padding:15px 30px;
+}
+.phone-common-button-group>.btn-block+.btn-block {
+	margin-top:15px;
+}
+.phone-common-textarea {
+	width:100%;
+	background:#fafafc;
+	border:1px solid #ddd;
+	border-radius:5px;
+	padding:10px 15px;
+}
+.phone-common-textarea:focus {
+	outline:none;
+}
+.phone-common-search-input {
+	padding-left:35px;
+	background:url(../images/search-icon.png) left 10px center no-repeat #fff;
+	border:none;
+}
+.phone-common-menu-bg {
+	background:#3cb4f4;
+	background:-moz-linear-gradient(top, #58d0f4, #32a9f4);/*Mozilla*/
+	background:-webkit-gradient(linear, top center, bottom center, from(#58d0f4), to(#32a9f4));/*Old gradient for webkit*/
+	background:-webkit-linear-gradient(top, #58d0f4, #32a9f4);/*new gradient for Webkit*/
+	background:-o-linear-gradient(top, #58d0f4, #32a9f4); /*Opera11*/
+	color:#fff;
+	padding:10px 15px;
+}

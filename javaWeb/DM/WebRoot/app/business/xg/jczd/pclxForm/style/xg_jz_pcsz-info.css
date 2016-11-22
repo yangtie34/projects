@@ -1,0 +1,90 @@
+@charset "utf-8";
+/* CSS Document */
+/*重新定义*/
+.jz-pcsz-pclxform_box{ margin:0;}
+.jz-pcsz-pclxform_top .jz-pcsz-pclxform_model_xinxi {
+	padding-right:0.6em;
+	color:#FF6600;
+	font:bold 16px 'Microsoft YaHei';
+	background:url(../image/border-rightbold.jpg) right center no-repeat;
+}
+.jz-pcsz-pclxform_infocont {
+	width:680px;
+	padding:25px;
+	border:1px solid #797979;
+	font-family:'microsoft yahei';
+	font-size:13px;
+}
+/*表格样式*/
+table.jz-pcsz-pclxform_table_gl {
+	border-collapse:collapse;
+	table-layout:fixed;
+	line-height:30px;
+}
+table.jz-pcsz-pclxform_table_lishi {
+	border-collapse:collapse;
+	table-layout:fixed;
+	line-height:22px;
+	border:1px solid#797979;
+}
+table.jz-pcsz-pclxform_table_lishi td {
+	border:1px solid#797979;
+	text-align:center;
+}
+.jz-pcsz-pclxform_td-right {
+	text-align:right
+}
+.jz-pcsz-pclxform_td-left {
+	text-align:left
+}
+/*颜色定义*/
+.jz-pcsz-pclxform_greenbg {
+	background:#d4ff94;
+}
+.jz-pcsz-pclxform_red {
+	color:#ff0000;
+}
+/*按钮样式*/
+.jz-pcsz-pclxform_pcenter {
+	text-align:center;
+	margin-top:5px;
+}
+.jz-pcsz-pclxform_buttonwid {
+	width:75px;
+	padding:5px 0;
+}
+.jz-pcsz-pclxform_buttonmaf {
+	margin-left:15px;
+}
+/*文本域定义*/
+.jz-pcsz-pclxform_textarea {
+	width:207px;
+	height:72px;
+}
+.jz-pcsz-pclxform_formwidth{ width:100%;}
+/*边距样式*/
+.jz-pcsz-pclxform_bjleft {
+	margin-left:5px;
+}
+.jz-pcsz-pclxform_upload {
+	margin-left:25px;
+}
+.jz-pcsz-pclxform_margin-topfu{ margin-top:-3px;}
+.jz-pcsz-pclxform_margin-tops{ margin-top:5px; text-align:right;}
+.jz-pcsz-pclxform_margin-tops button{margin-left:10px;}
+/*链接样式*/
+a.jz-pcsz-pclxform_a-link {
+	color:#000;
+	text-decoration:none;
+}
+.jz-pcsz-pclxform_cancleDiv {
+	position:absolute; 
+	top:65px; 
+	left:0; 
+	background:#dfe8f7; 
+	border: 0px solid #CCCCCC; 
+	text-align:center;  
+	width:100%; 
+	height:62px;
+	line-height:62px;
+}

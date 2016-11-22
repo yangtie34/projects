@@ -1,0 +1,89 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*我的学业预警样式*/
+.gua_box{
+	width:90%;
+	color:#494949;
+	padding:24px 0px;
+	margin:0px 18px 20px 18px;
+	overflow: hidden;
+	border-bottom:1px dashed #d0d0d0;}
+.guake{
+	font-size:1.25em;
+	line-height:1.8em;
+	font-family:"微软雅黑";
+	font-weight:normal;}
+.guake2{
+	font-size:1em;
+	line-height:1.8em;
+	font-family:"微软雅黑";
+	font-weight:normal;}
+.gua1{
+	color:#48a1dd;
+	font-size:1.5em;
+	margin-left:0.4em;}
+.gua2{
+	color:#EE9A00;
+	font-size:2.0em;
+	margin-left:0.4em;
+	margin-right:0.4em;}
+.guag_box{
+	padding:0px 0px 24px 0px;
+	margin:20px 18px;
+	overflow: hidden;
+	border-bottom:1px dashed #d0d0d0;}
+.red_gua{
+	font-size:1em;
+	font-family:"微软雅黑";
+	font-weight:normal;
+	color:#fe0000;}
+.table{
+	background-color:#ffffff;
+	margin-bottom:20px;
+	padding:28px 28px 24px 28px;}
+
+/*成绩表格*/
+table{
+	width:100%;
+	font-family:"微软雅黑";
+	font-weight:normal;
+	font-size:1.125em;
+	}
+th{
+	font-size:1.125em;
+	font-family:"微软雅黑";
+	font-weight:normal;
+	color:#888;
+	text-align:left;
+	line-height:3em;}
+tbody{
+	font-family:Arial;
+	font-size:1.125em;
+	color:#494949;}
+td{
+	cellpadding:0xp;
+	line-height:1.8em;
+	border-bottom:1px solid #dddddd;	
+}
+.fen{
+	text-align:center;}
+.red_zy{
+	color:#fd0202;
+	font-size:1.5em;
+	font-family:"微软雅黑";
+	font-weight:normal;
+	}
+.guake3{
+	font-size:1em;
+	line-height:1.8em;
+	font-family:"微软雅黑";
+	font-weight:normal;
+	color:#fd0202;}
+.gua3{
+	color:#fd0202;
+	font-size:2.0em;
+	margin-left:0.4em;
+	margin-right:0.4em;}
+.zhuyi{padding:0px 48px 24px 48px;}
+

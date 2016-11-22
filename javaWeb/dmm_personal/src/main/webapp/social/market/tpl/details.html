@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+ <div class="rxs-comn-list rxs-comn-patop">
+  <ul class="rxs-talk">
+    <li>
+      <div class="media">
+        <div class="media-left media-middle text-center">
+        <img class="img-circle" width="60" ng-src="{{cd.wechat_head_img}}">
+        <i class="fa fa-user"  ng-if="cd.wechat_head_img == ''" style="height: 60px;width: 60px;font-size: 40px;color: #ddd;"></i></div>
+        <div class="media-body media-middle  rxs-re-lab">
+          <h4 class="rxs-ft-16">{{cd.stu_name}} </h4>
+          <p class="rxs-cor-ff9">{{cd.tel}}</p>
+        </div>
+        <div class="media-right  rxs-cor-ff9 rxs-nowrap">￥ <span class=" rxs-ft-16"><b>{{cd.price}}</b></span></div>
+      </div>
+      <div class="rxs-fbq rxs-ft-15">{{cd.name_}}</div>
+      
+    </li></ul>
+    <div class="rxs-mar-tb-10 rxs-bg-fff rxs-pad-lr"><h4 class="rxs-ft-15   text-center">商品详情</h4>
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;{{cd.desc_}}</p>
+    <img ng-repeat = "img in cd.imgList" ng-src="{{img.image_url}}" width="100%">
+     
+    </div>
+    </div>

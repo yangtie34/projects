@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<div class="container-fluid jzhi-menu jzhi-menu-keyan ">
+  <div class="row text-center">
+    <div class="jzhi-col-2 jzhi-menu-hover" id="fb">
+      <h5>发表论文 </h5>
+      <h4><a href="" ng-click="getPublisher();" style="color:#fff;text-decoration: none">{{thesisCounts}}</a></h4>
+    </div>
+    <div class="jzhi-col-2 " id="hj">
+      <h5>获奖论文</h5>
+      <h4><a href="" ng-click="getAward();" style="color:#fff;text-decoration: none">{{awardThesisCounts}}</a></h4>
+    </div>
+    <div class="jzhi-col-2 " id="qk">
+      <h5>期刊收录 </h5>
+      <h4><a href="" ng-click="getIn();" style="color:#fff;text-decoration: none">{{inThesisCounts}}</a></h4>
+    </div>
+    <div class="jzhi-col-2 " id="hy">
+      <h5>会议收录 </h5>
+      <h4><a href="" ng-click="getMeeting();" style="color:#fff;text-decoration: none">{{meetingThesisCounts}}</a></h4>
+    </div>
+    <div class="jzhi-col-2  " id="zz">
+      <h5>论文转载 </h5>
+      <h4><a href="" ng-click="getReship();" style="color:#fff;text-decoration: none">{{reshipThesisCounts}}</a></h4>
+    </div>
+  </div>
+</div> 
+<div class="jzhi-line-title-bg jzhi-line-title text-center">论文列表</div>
+<div class="jzhi-no-table" ng-show="thesises == ''">
+  <div class="jzhi-no-cell">
+    <div class="jzhi-no-list jzhi-no-zhuanli">暂无论文</div>
+  </div>
+</div>
+<div class="container-fluid">
+ <ul class="jzhi-cglist" id="publishertable">
+   <li ng-repeat="thesis in thesises"><dl class="jzhi-list-dl"><span>{{$index+1}}</span><dt>论文名称</dt><dd>{{thesis.TITLE_}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>发表年份</dt><dd>{{thesis.YEAR_}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>第一作者</dt><dd>{{thesis.FIRST_AUTHOR}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>挂名作者</dt><dd>{{thesis.OTHERAUTHORS}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>期刊名称</dt><dd>{{thesis.PERIODICAL}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>期刊类别</dt><dd>{{thesis.PERIODICAL_TYPE}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>年卷期页</dt><dd>{{thesis.NJQY}}</dd></dl></li>
+ </ul>
+ <ul class="jzhi-cglist" id="awardtable">
+   <li ng-repeat="thesis in thesises"><dl class="jzhi-list-dl"><span>{{$index+1}}</span><dt>论文名称</dt><dd>{{thesis.TITLE_}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>论文作者</dt><dd>{{thesis.AUTHORS}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>获奖名称</dt><dd>{{thesis.AWARD_NAME}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>获奖名次</dt><dd>{{thesis.AWARD_RANK}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>授奖单位</dt><dd>{{thesis.AWARD_DEPT}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>授奖日期</dt><dd>{{thesis.AWARD_TIME}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>证书编号</dt><dd>{{thesis.CERTIFICATE_NO}}</dd></dl></li>
+ </ul>
+ <ul class="jzhi-cglist" id="intable">
+   <li ng-repeat="thesis in thesises"><dl class="jzhi-list-dl"><span>{{$index+1}}</span><dt>论文名称</dt><dd>{{thesis.TITLE_}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>论文作者</dt><dd>{{thesis.AUTHORS}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>收录期刊名称</dt><dd>{{thesis.PERIODICAL}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>收录年份</dt><dd>{{thesis.YEAR_}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>年卷期页</dt><dd>{{thesis.NJQY}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>ISSN</dt><dd>{{thesis.ISSN}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>影响因子</dt><dd>{{thesis.IMPACT_FACTOR}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>SCI分区</dt><dd>{{thesis.SCI_ZONE}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>收录类别</dt><dd>{{thesis.PERIODICAL_TYPE}}</dd></dl></li>
+ </ul>
+ <ul class="jzhi-cglist" id="meetingtable">
+   <li ng-repeat="thesis in thesises"><dl class="jzhi-list-dl"><span>{{$index+1}}</span><dt>论文名称</dt><dd>{{thesis.TITLE_}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>论文作者</dt><dd>{{thesis.AUTHORS}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>来源出处</dt><dd>{{thesis.COMEFROM}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>收录年份</dt><dd>{{thesis.YEAR_}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>会议信息</dt><dd>{{thesis.CONFERENCE}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>会议时间</dt><dd>{{thesis.CONFERENCE_TIME}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>收录号</dt><dd>{{thesis.ACCESSION_NUMBER}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>会议收录类别</dt><dd>{{thesis.MEETING_TYPE}}</dd></dl></li>
+ </ul>
+ <ul class="jzhi-cglist" id="reshiptable">
+   <li ng-repeat="thesis in thesises"><dl class="jzhi-list-dl"><span>{{$index+1}}</span><dt>论文名称</dt><dd>{{thesis.TITLE_}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>论文作者</dt><dd>{{thesis.AUTHORS}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>转载期刊名称</dt><dd>{{thesis.PERIODICAL}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>转载年卷期页</dt><dd>{{thesis.NJQY}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>转载年份</dt><dd>{{thesis.YEAR_}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>转载期刊类别</dt><dd>{{thesis.THESIS_RESHIP}}</dd></dl></li>
+ </ul>
+</div>
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+

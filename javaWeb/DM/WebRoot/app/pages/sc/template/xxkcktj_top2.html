@@ -1,0 +1,5 @@
+<span >本学期开设课程中</span><br>
+{% var colors = ['#2f7ed8','#8bbc21','#910000','#1aadce'] ;%}
+<tpl for='.'>
+<span style="color: {[colors[xindex-1]]};">{name}：<font style="font-size:20px;">{num} 学时&nbsp;&nbsp; {zb}%</font></span><br>
+</tpl>	

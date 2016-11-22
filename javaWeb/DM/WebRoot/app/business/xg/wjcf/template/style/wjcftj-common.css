@@ -1,0 +1,189 @@
+/* 通用模块 CSS */
+ div, span, h1, h2, h3, h4, h5, h6, p, ul, ol, dl, li, dt, dd, table, option, input, label, a, strong, em, br {
+	margin:0;
+	padding:0;
+}
+.floatRight {
+	float:right;
+}
+.floatLeft {
+	float:left;
+}
+.clear {
+	clear:both;
+}
+/* 页面容器 */
+.wjcf-tongji_container {
+	margin-bottom:2em;
+	overflow:hidden;
+	color:#333;
+	font:normal 12px 宋体;
+	padding:25px;
+	overflow: hidden;
+}
+hr.wjcf-tongji_hrdefault {
+	height:1px;
+	border:none;
+	border-bottom:1px dashed #999;
+}
+input.inputdefault, select.selectdefault {
+	border:1px solid #cccccc;
+	vertical-align:middle;
+}
+input.inputdefault {
+	height:1.5em;
+	font-family:"微软雅黑"
+}
+label.labeldefault {
+	vertical-align:middle;
+	margin-top:0;
+}
+button.buttondefault {
+	font-family:"微软雅黑";
+	padding:0 4px;
+	vertical-align:middle;
+}
+select.selectdefault {
+	font-family:"微软雅黑";
+	vertical-align:middle;
+}
+.wjcf-tongji_orange {
+	color:#FF6600;
+}
+.wjcf-tongji_blue {
+	color:#0066FF
+}
+.wjcf-tongji_grey {
+	color:#333333;
+}
+.wjcf-tongji_green {
+	color:#009900;
+}
+.wjcf-tongji_orange-import {
+	color:#FF3300;
+}
+.wjcf-tongji_grey-qian {
+	color:#999999
+}
+.wjcf-tongji_blue-qian {
+	color:#3399FF;
+}
+.wjcf-tongji_margin-leftfif {
+	margin-left:25px;
+}
+.wjcf-tongji_margin-leftsmall {
+	margin-left:5px
+}
+.wjcf-tongji_margin-leftinput {
+	margin-left:6px
+}
+.wjcf-tongji_fontSize{
+	font-size:14px;
+}
+/* 盒子 */
+.wjcf-tongji_box {
+	margin:0.6em 0;
+}
+.wjcf-tongji_box h2 {
+	border-bottom:2px solid #3399FF;
+	font-weight:normal;
+	font-size:12px;
+	line-height:1.6;
+	margin-bottom:0.6em;
+}
+/*.wjcf-tongji_box h2 span {
+	margin-right:1em;
+}*/
+.wjcf-tongji_box h2 .wjcf-tongji_title {
+	margin-right:0.5em;
+	padding-left:0.5em;
+	color:#3366FF;
+	font-weight:bold;
+	font-size:14px;
+	font-family:'微软雅黑';
+	background:url(../image/border-leftnormal.jpg) left center no-repeat;
+}
+.wjcf-tongji_body {
+	margin:0.6em 0 1em 0;
+	background:#FFFFFF;
+	color:#333333;
+	overflow: hidden;
+}
+.wjcf-tongji_body a {
+	color:#3366FF;
+	text-decoration:none;
+}
+
+.wjcf-tongji_body a:hover {
+	color:#3366FF;
+	text-decoration:none;
+}
+table.wjcf-tongji_mainList {
+	border-collapse:collapse;
+}
+
+.wjcf-tongji_gracetborder {
+	border:1px solid #797979;
+}
+.wjcf-tongji_body p, .wjcf-tongji_body li {
+	padding:0.3em 0;
+	width:100%;
+}
+/* 页面顶部 */
+.wjcf-tongji_top {
+	padding-bottom:0.8em;
+}
+.wjcf-tongji_top .wjcf-tongji_model {
+	padding-right:0.6em;
+	color:#FF6600;
+	font:bold 16px 'Microsoft YaHei';
+	background:url(../image/border-rightbold.jpg) right center no-repeat;
+}
+.wjcf-tongji_top .wjcf-tongji_user {
+	margin:auto 1.3em auto 0.5em;
+	color:#3366FF;
+	font:bold 14px 'Microsoft YaHei';
+}
+.wjcf-tongji_top .wjcf-tongji_dept {
+	color:#333;
+	font:bold 12px 'Microsoft YaHei';
+}
+.wjcf-tongji_top .wjcf-tongji_term {
+	color:#FF6600;
+	line-height:1.8em;
+	font:bold 14px 'Microsoft YaHei';
+}
+/* 搜索模块 */
+.wjcf-tongji_search {
+	border:1px solid #797979;
+	padding:0.6em 0;
+}
+.wjcf-tongji_search label {
+	margin-left:0.6em;
+	font-family:'Microsoft YaHei'
+}
+.wjcf-tongji_search select {
+	border:1px solid #CCC;
+}
+/* 主体 */ 
+ 
+.shuoming {
+	position: relative;
+	border-radius: 8px;
+	border: 1px solid #CCC;
+	background: #F6F6F6;
+	height: 35px;
+	line-height: 36px;
+	margin-top: 20px;
+	padding-left: 10px;
+	color: #666;
+}
+.imgcss {
+	position: absolute;
+	left: 15px;
+	top: -17px;
+}
+.text-cor {
+	color: #39F;
+	font-weight: bold;
+}

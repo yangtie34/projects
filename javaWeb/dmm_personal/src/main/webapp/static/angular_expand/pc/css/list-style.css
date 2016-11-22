@@ -1,0 +1,113 @@
+@charset "utf-8";
+/* CSS Document */
+html{
+	font-family: '微软雅黑';
+}
+
+.sub-term {
+	border-top:1px solid #d0dddf;
+	color:#6b6b6b;
+	line-height:22px;
+	padding:13px 10px;
+	font-size:14px;
+}
+.sub-term h4 {
+	font-size:14px;
+	font-weight:normal;
+	float:left;
+    line-height: 22px;
+	margin: 0px;
+}
+.forterm {
+	float:left;
+}
+
+.forterm ul {
+	list-style: none;
+	margin: 0px !important;
+	padding:0px;
+} 
+
+.sub-term ul {
+	list-style: none;
+	margin: 0px !important;
+	padding:0px;
+} 
+
+.sub-term ol {
+	list-style: none;
+	margin: 0px !important;
+	padding : 0px;
+} 
+
+.forterm ol li {
+	float:left;
+	margin: 0px;
+	padding : 0px;
+}
+.forterm ol li+li {
+	margin-left:20px;
+}
+span.term-cancel {
+	background:url(../image/cancel.png) right center no-repeat;
+	text-indent:-1999px;
+	width:32px;
+	height:22px;
+	display:inline-block;
+}
+span.term-cancel:hover {
+	cursor:pointer;
+}
+.forterm ul li {
+	float:left;
+	font-size:14px;
+	margin: 0px;
+	padding : 0px;
+}
+.forterm ul li+li {
+	margin-left:20px;
+}
+.forterm-more {
+}
+
+.forterm-est {
+	border:1px solid #bccccf;
+	border-radius:5px;
+	padding:7px 10px;
+	display:block;/*研发添加*/
+}
+.forterm-est:HOVER,.forterm-est:FOCUS{
+	text-decoration: none;
+}
+
+.est-bg {
+	background:url(../image/top4.png) 0 center no-repeat;
+	display:inline-block;
+	width:13px;
+	height:13px;
+}
+.est-bg2 {
+	background:url(../image/down-xianshi.png) 0 center no-repeat;
+	display:inline-block;
+	width:13px;
+	height:13px;
+	margin-bottom: -2px;
+}
+.forterm-select {
+	color:#f28671;
+}
+.forterm-select:FOCUS{
+	color:#f28671 !important;
+}
+
+.forterm a {
+	text-decoration: none;
+}
+
+.forterm a:HOVER,.forterm a:ACTIVE,.forterm a:FOCUS{
+	text-decoration: none !important;
+}
+
+.fright{
+	float: right;
+}

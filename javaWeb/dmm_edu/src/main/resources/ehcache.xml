@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<ehcache updateCheck="false" name="myShiro-activeSessionCaches">
+	<diskStore path="java.io.tmpdir" />
+	<!-- DefaultCache setting. -->
+	<defaultCache maxElementsInMemory="10000"
+	 eternal="false" timeToIdleSeconds="3600" 
+	 timeToLiveSeconds="6000" 
+	 overflowToDisk="true"  />
+    
+</ehcache>

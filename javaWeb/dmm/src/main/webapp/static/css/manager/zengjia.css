@@ -1,0 +1,449 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*右边增加内容样式*/
+.boxx{
+	overflow:hidden;}
+.yearbox{
+	float:left;
+	width:100%;
+	font-size:1em;
+	font-family:"微软雅黑";
+	color:#5e5e5f;
+	font-weight:normal;}
+.year{
+	text-align:center;
+	}
+.blue_year{
+	background-color:#569fe1;
+	height:28px;
+	color:#fff;
+	font-family:"微软雅黑";
+	border:none;
+	border-radius: 4px;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+/*奖助金部分样式*/
+.jzjbox{
+	padding-left:18px;
+	padding-right:18px;
+	}
+.jin_title{
+	font-family:"微软雅黑";
+	color:#bbbec2;
+	background-color:#34495e;
+	padding: 0;
+	margin: 0;
+	font-size: 1.125em;
+	line-height: 3.6em;
+	padding-left: 2em;
+	font-weight: normal;
+	}
+.jin_nei{
+	background-color:#fff;
+	margin-top: 5px;
+	padding-top: 1.2em;
+	overflow:hidden;
+	}
+.jin_nei2{
+	padding-bottom:1.25em;
+	overflow:hidden;
+	background-color:#fff;
+	}
+.jinjin{
+	font-size:1.25em;
+	color:#5e5e5f;
+	font-weight:normal;
+	line-height:1.8em;
+	padding-left: 2em;
+	}
+.orange{
+	color:#fb7b13;
+	font-size:1.5em;
+	font-family:"Arial";
+	font-weight:normal;
+	padding-left: 8px;
+	padding-right: 8px;
+	}
+.jin_nei ul,li{
+	list-style-type:disc;}
+.jin_nei li{
+	color:#00b7ee;
+	float:left;
+	font-size:0.875em;
+}
+.jin_nei ul{padding-left: 3em;}
+.jin_nei p{
+	color:#5e5e5f;
+	margin-right: 4em;
+	line-height: 2em;
+	}
+/*图表部分*/
+.jintu_box{
+	background-color:#e5e5e5;
+	margin:18px;
+	overflow: hidden;
+	}
+.jintu_title{
+	color:#5e5e5f;
+	font-family:"微软雅黑";
+	font-weight:normal;
+	font-size:1.125em;
+	padding-left: 1.125em;
+	line-height: 3.6em;
+	}
+/*下拉奖学金人数*/
+.tongji_nei1{
+	font-size:1em;
+	margin-left: 1.125em;
+	background-color:#b9becc;
+	width:415px;
+	overflow:hidden;
+	line-height:2em;
+	}
+.tongji_nei1 span{
+	float:left;
+	padding-left: 1.125em;
+	color:#716f5e;
+	font-family: "微软雅黑";
+	font-weight:normal;
+	padding-right: 2.2em;
+	}	
+.tongji_tu_box1{
+	background-color:#fff;
+	margin-left:18px;
+	margin-right:18px;
+	margin-bottom:18px;
+	border-top:6px solid #b9becc;
+	overflow:hidden;
+	}
+.choice1 {
+	margin-top: 0.5em;
+}
+.choice1 select{
+	float:left;
+	background:#fff;
+	width: 205px;
+	font-size: 0.875em;
+	border: none;
+	line-height: 1.4em;
+	-webkit-appearance: none;
+	font-family: "微软雅黑";
+	color: #4c4c4c;
+	background-image: url(../../images/manager/zzjd_04.png);
+	background-repeat: no-repeat;
+	background-position: right;
+}
+/*下拉助学金人数*/	
+.tongji_nei2{
+	font-size:1em;
+	margin-left: 1.125em;
+	background-color:#d1cca9;
+	width:415px;
+	overflow:hidden;
+	line-height:2em;
+	}
+.tongji_nei2 span{
+	float:left;
+	padding-left: 1.125em;
+	color:#716f5e;
+	font-family: "微软雅黑";
+	font-weight:normal;
+	padding-right: 2.2em;
+	}	
+.choice2 {
+	margin-top: 0.5em;
+}
+.choice2 select{
+	float:left;
+	background:#fff;
+	width: 205px;
+	font-size: 0.875em;
+	border: none;
+	line-height: 1.4em;
+	-webkit-appearance: none;
+	font-family: "微软雅黑";
+	color: #4c4c4c;
+	background-image: url(../../images/manager/zzjd_09.png);
+	background-repeat: no-repeat;
+	background-position: right;
+}
+
+/*下拉助学贷款人数*/	
+.tongji_nei3{
+	font-size:1em;
+	margin-left: 1.125em;
+	background-color:#b4c2ab;
+	width:415px;
+	overflow:hidden;
+	line-height:2em;
+	}
+.tongji_nei3 span{
+	float:left;
+	padding-left: 1.125em;
+	color:#716f5e;
+	font-family: "微软雅黑";
+	font-weight:normal;
+	padding-right: 2.2em;
+	}	
+.choice3 {
+	margin-top: 0.5em;
+}
+.choice3 select{
+	float:left;
+	background:#fff;
+	width: 205px;
+	font-size: 0.875em;
+	border: none;
+	line-height: 1.4em;
+	-webkit-appearance: none;
+	font-family: "微软雅黑";
+	color: #4c4c4c;
+	background-image: url(../../images/manager/zzjd_11.png);
+	background-repeat: no-repeat;
+	background-position: right;
+}
+.tongji_tu_box3{
+	background-color:#fff;
+	margin-left:18px;
+	margin-right:18px;
+	margin-bottom:18px;
+	border-top:6px solid #b4c2ab;
+	overflow:hidden;
+	}
+/*学费减免情况*/	
+.tongji_nei4{
+	font-size:1em;
+	margin-left: 1.125em;
+	background-color:#e9c8cb;
+	width:415px;
+	overflow:hidden;
+	line-height:2em;
+	}
+.tongji_nei4 span{
+	float:left;
+	padding-left: 1.125em;
+	color:#716f5e;
+	font-family: "微软雅黑";
+	font-weight:normal;
+	padding-right: 2.2em;
+	}	
+.choice4 {
+	margin-top: 0.5em;
+}
+.choice4 select{
+	float:left;
+	background:#fff;
+	width: 205px;
+	font-size: 0.875em;
+	border: none;
+	line-height: 1.4em;
+	-webkit-appearance: none;
+	font-family: "微软雅黑";
+	color: #4c4c4c;
+	background-image: url(../../images/manager/zzjd_13.png);
+	background-repeat: no-repeat;
+	background-position: right;
+}
+.tongji_tu_box4{
+	background-color:#fff;
+	margin-left:18px;
+	margin-right:18px;
+	margin-bottom:18px;
+	border-top:6px solid #e9c8cb;
+	overflow:hidden;
+	}
+
+/*图案样式*/
+.tongji_tu_box2{
+	background-color:#fff;
+	margin-left:18px;
+	margin-right:18px;
+	margin-bottom:18px;
+	border-top:6px solid #d1cca9;
+	overflow:hidden;
+	}
+	
+	
+.tutu_title{
+	text-align:center;
+	}
+.zhushi{
+	float: left;
+	font-family: "微软雅黑";
+	font-size: 0.875em;
+	padding: 0;
+	margin: 0;
+	line-height: 1.8em;
+	padding-left: 1.9em;
+	overflow: hidden;
+	width: 190px;
+}
+.zhushi h5{
+	font-weight:normal;
+	padding:0;
+	margin:0;}
+.zhushi img{
+	padding-right:5px;}
+.tutu_right{
+	float:right;
+}
+
+/*学生生源统计样式*/
+/*表哥之一*/
+.table{
+	margin:0 auto;}
+th{
+	color:#4c4c4c;
+	font-size:1em;
+	font-family:"微软雅黑";
+	font-weight:normal;
+	background-color:#f5f5f5;
+	line-height:2.25em;
+	width:170px;
+	text-align:center;
+	}
+td{
+	background-color:#edf9ff;
+	color:#2f7dc3;
+	font-family:"微软雅黑";
+	font-weight:normal;
+	font-size:1.5em;
+	text-align:center;
+}
+.biao3{
+	border-top:1px solid #d1d9dd;
+	background-color:#edf9ff;
+	}
+.bai{
+	background-color:#fff;	
+}
+.excel_box{
+	padding-top:18px;
+	padding-bottom:18px;
+	padding-left:18px;
+	padding-right:18px;
+	background-color:#fff;
+	overflow:hidden;
+	margin-left:18px;
+	margin-right:18px;
+	}
+.zhibiao_box{
+	margin:18px;
+	background-color:#fff;}	
+.zhi_title{
+	background-color:#34495e;
+	overflow:hidden;
+	}
+.zhi_title span{
+	float:left;
+	color:#b9c0c7;
+	font-family: "微软雅黑";
+	font-size: 1.125em;
+	line-height: 3.6em;
+	padding-left: 2em;
+	padding-right:1em;
+	font-weight:normal;
+	}
+.choice{
+	padding-top: 1.25em;}
+.choice select{
+	float: left;
+	background: #fff;
+	width: 205px;
+	font-size: 0.875em;
+	border: none;
+	line-height: 1.4em;
+	-webkit-appearance: none;
+	font-family: "微软雅黑";
+	color: #4c4c4c;
+	background-image: url(../../images/manager/zzjd_04.png);
+	background-repeat: no-repeat;
+	background-position: right;
+	}
+.zhi_ps {
+	padding-top: 2em;
+}
+.zhibiao_tu{
+	overflow:hidden;
+	width:80%;
+	margin:0 auto;
+	}
+.zhi_map{float:left;}
+.zhi_tj{float:right;}
+.biaoge2{
+	padding:18px;}
+.biaoge2 ul,li{
+	list-style-type:none;}
+#tab {
+	overflow:hidden;
+	zoom:1;
+	background:#34495e;
+	font-family: "微软雅黑";
+	font-size: 1.125em;
+	padding-left: 2em;
+	padding-right: 1em;
+	font-weight: normal;
+}
+#tab li {
+	float:left;
+	color:#b6bdc5;
+	height:30px;	
+	cursor:pointer;	
+	/*line-height:3.6em;*/
+	padding:0 2.2em;
+	margin-top: 1.2em;}
+#tab li.current {
+	color:#414141;
+	background:#fff;}
+#content {
+	background-color:#fff;
+	border-top-width:0;}
+#content ul {
+	line-height:25px;
+	display:none;	
+	
+	background-color:#fff;
+	padding:18px;}
+.diqu_bg{
+	background-color:#e5e5e5;
+	padding:18px;}
+
+/*地区表格*/
+th{
+	color:#4c4c4c;
+	font-size:1em;
+	font-family:"微软雅黑";
+	font-weight:normal;
+	background-color:#a4ddf7;
+	line-height:2.25em;
+	width:170px;
+	text-align:center;
+	border-top:3px solid #9dd5f0;}
+.number_b{
+	width:46px;}
+.huihui{
+	background-color:#f5f5f5;
+	text-align:center;
+	line-height:2.25em;
+	color:#4c4c4c;
+	font-size:1em;
+	font-family:"微软雅黑";
+	}
+.baibai{
+	background-color:#fff;
+	text-align:center;
+	line-height:2.25em;
+	color:#4c4c4c;
+	font-size:1em;
+	font-family:"微软雅黑";
+	}
+#bai_number{
+	text-align:center;
+	line-height: 2.25em;
+	color: #4c4c4c;
+	font-size: 1em;
+	font-family: "微软雅黑";
+	background-color:#fff;
+	}

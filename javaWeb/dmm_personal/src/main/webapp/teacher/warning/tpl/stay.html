@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<div class="container-fluid jzhi-menu jzhi-menu-zhusu-bg ">
+    <div class="row text-center">
+      <div class="col-xs-6">
+        <h5><span class="jzhi-yj-zhusu-kai-icon"></span>宿舍开门时间</h5>
+        <h4 class="jzhi-size-26">
+        	{{dormOpenTime.open}}
+			<span ng-show="dormOpenTime.open == ''">未统计</span>
+		</h4>
+      </div>
+      <div class="col-xs-6">
+        <h5><span class="jzhi-yj-zhusu-guan-icon"></span>宿舍关门时间</h5>
+        <h4 class="jzhi-size-26">
+			{{dormOpenTime.lock}}
+			<span ng-show="dormOpenTime.lock == ''">未统计</span>
+		</h4>
+      </div>
+    </div>
+</div>
+<div class="jzhi-month-slt text-center hidden"><div class="btn-group"><button type="button" class="btn btn-info jzhi-btn-default">晚归</button><button type="button" class="btn jzhi-btn-default  jzhi-btn-blue">离校</button></div></div>
+<div ng-show="params.type == 'late'">
+<div class="phone-common-list">
+  <ul class="phone-common-group">
+    <li class="phone-common-group-item phone-common-group-item02" ng-repeat="xs in lateStudentList">
+      <div class="media">
+        <div class="media-body media-middle">
+          <h4> {{xs.name}}  <small ng-class="{'phone-common-boy-head':xs.gender=='男','phone-common-girl-head':xs.gender=='女'}" > </small></h4>
+          <p class="jzhi-text-ccc">{{xs.bj}} </p>
+        </div>
+        <div class="media-right media-middle">  <span class="jzhi-text-item jzhi-text-item-green"><i>归 </i> {{xs.backtime}} </span> 
+        <a class="phone-common-telephone-icon phone-common-mar-btm " ng-href="tel:{{xs.tel}}" title="{{xs.tel}}" ng-show="xs.tel != ''"> </a> </div>
+      </div>
+    </li>
+  </ul>
+</div>
+</div>
+<div ng-show="params.type == 'out'">
+<div class="phone-common-list">
+  <ul class="phone-common-group">
+    <li class="phone-common-group-item phone-common-group-item02" ng-repeat="xs in outStudentList">
+      <div class="media">
+        <div class="media-body media-middle">
+          <h4> {{xs.name}}  <small ng-class="{'phone-common-boy-head':xs.gender=='男','phone-common-girl-head':xs.gender=='女'}" > </small></h4>
+          <p class="jzhi-text-ccc">{{xs.bj}} </p>
+        </div>
+        <div class="media-right media-middle">
+        	 <p class="list-group-item-text" >
+				<span style="color:#FF6600">最后出现：<b>{{xs.lasttime}}</b></span>
+			</p>
+		    <p class="list-group-item-text text-primary text-right" style="margin-top:10px;">
+		    	<span class="jzhi-text-item jzhi-text-item-org">
+	        		<i>离 </i>{{xs.outdays}}天 <br />
+	        	</span>
+		   		&nbsp;&nbsp;&nbsp;&nbsp;
+		   		<a ng-href="tel:{{xs.tel}}" title="{{xs.tel}}"><i class="phone-common-telephone-icon phone-common-mar-btm"></i></a>
+		    </p>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+</div>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css">
+<script src="data/data.js"></script>
+<script src="../../base1/util/LAB.min.js"></script>
+<script src="../../extjs/ext-all-debug.js"></script>
+<script src="../ns-debug.js"></script>
+<script src="../component/grid/expand/NumberPaging.js"></script>
+<script type="text/javascript">
+Ext.onReady(function(){
+    var store = Ext.create('Ext.data.Store', {
+        storeId:'simpsonsStore',
+        fields:['name', 'email', 'phone'],
+        pageSize : 25,
+        data:{'items':[
+            { 'name': 'Lisa',  "email":"lisa@simpsons.com",  "phone":"555-111-1224"  },
+            { 'name': 'Bart',  "email":"bart@simpsons.com",  "phone":"555-222-1234" },
+            { 'name': 'Homer', "email":"home@simpsons.com",  "phone":"555-222-1244"  },
+            { 'name': 'Marge', "email":"marge@simpsons.com", "phone":"555-222-1254"  }
+        ]},
+        proxy: {
+            type: 'memory',
+            reader: {
+                type: 'json',
+                root: 'items'
+            }
+        }
+    });
+    store.currentPage  = 1;
+    store.totalCount = 1000;
+    var panel = Ext.create('Ext.grid.Panel', {
+        title: 'Simpsons',
+        store: Ext.data.StoreManager.lookup('simpsonsStore'),
+        columns: [
+            { header: 'Name',  dataIndex: 'name' },
+            { header: 'Email', dataIndex: 'email', flex: 1 },
+            { header: 'Phone', dataIndex: 'phone' }
+        ],
+        dockedItems: [Ext.create('Ext.toolbar.NumberPaging',{
+            store: store,
+            dock: 'bottom',
+            maxLink : 8,
+            displayInfo: true
+        })],
+        height: 200,
+        width: 400,
+        renderTo: Ext.getBody()
+    });
+});
+</script>
+</head>
+<body>
+
+</body>
+</html>

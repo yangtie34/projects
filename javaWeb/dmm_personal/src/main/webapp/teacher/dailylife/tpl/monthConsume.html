@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<div class="container-fluid jzhi-menu jzhi-menu-xiaofei-bg ">
+    <div class="row text-center">
+     <a href="" ng-click = "getEat();" style="text-decoration: none;color:#fff;">
+      <div class="col-xs-6" style="border-right: 1px solid rgba(0, 0, 0, .1);">
+        <h5><span class="jzhi-xiaofei01-icon"></span>餐饮消费 </h5>
+        <h4>￥{{pay_type.pay_eat}}</h4> 
+      </div> </a>
+      <a href="" ng-click = "getOther();" style="text-decoration: none;color:#fff"> 
+      <div class="col-xs-6">
+      <h5><span class="jzhi-xiaofei01-icon">
+       </span>其它消费</h5>
+        <h4>￥{{pay_type.pay_other}}</h4>
+      </div>
+      </a>
+    </div>
+  </div>
+  <div class="jzhi-no-table" ng-show="monthConsumes == ''">
+  <div class="jzhi-no-cell">
+    <div class="jzhi-no-list jzhi-no-zhuanli">暂无数据</div>
+  </div>
+</div>
+<div class="phone-common-list">
+  <ul class="phone-common-group">
+    <li class="phone-common-group-item phone-common-group-item02" ng-repeat="monthConsume in monthConsumes">
+      <div class="media">
+        <div class="media-body media-middle"> <h5>{{monthConsume.pay_time}} <span class="phone-common-margin-left"></span> <span class="pull-right jzhi-text-danger">{{monthConsume.pay_type}}</span></h5> </div>
+        <div class="media-right media-middle text-right"> <span class="phone-common-danger-inline">￥{{monthConsume.pay_money}}</span></div> 
+      </div>
+    </li>
+  </ul>
+</div>  
+<center  id="lodingC" ng-hide="currpage >= totalpage || monthConsumes == ''"><img src="../../static/images/onloading.gif"/></center>
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+

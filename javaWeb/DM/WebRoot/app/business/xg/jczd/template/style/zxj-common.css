@@ -1,0 +1,165 @@
+.floatRight {
+	float:right;
+}
+.floatLeft {
+	float:left;
+}
+.clear {
+	clear:both;
+}
+
+.zxj_container {
+	margin-bottom:2em;
+	color:#333;
+	font:normal 12px '宋体';
+	padding:25px;
+}
+hr.zxj_hrdefault {
+	height:1px;
+	border:none;
+	border-bottom:1px dashed #999;
+}
+input.inputdefault, select.selectdefault {
+	border:1px solid #cccccc;
+	vertical-align:middle;
+}
+input.inputdefault {
+	height:1.5em;
+	font-family:"微软雅黑"
+}
+label.labeldefault {
+	vertical-align:middle;
+	margin-top:0;
+}
+button.buttondefault {
+	font-family:"微软雅黑";
+	padding:0 4px;
+	vertical-align:middle;
+}
+select.selectdefault {
+	font-family:"微软雅黑";
+	vertical-align:middle;
+}
+.zxj_orange {
+	color:#FF6600;
+}
+.zxj_blue {
+	color:#0066FF
+}
+.zxj_grey {
+	color:#333333;
+}
+.zxj_green {
+	color:#009900;
+}
+.zxj_orange-import {
+	color:#FF3300;
+}
+.zxj_grey-qian {
+	color:#999999
+}
+.zxj_blue-qian {
+	color:#3399FF;
+}
+.zxj_margin-leftfif {
+	margin-left:25px;
+}
+.zxj_margin-leftsmall {
+	margin-left:5px
+}
+.zxj_margin-leftinput {
+	margin-left:6px
+}
+
+.zxj_box {margin:0.6em 0;}
+.zxj_box h2 {
+	border-bottom:2px solid #3399FF;
+	font-weight:normal;
+	font-size:12px;
+	line-height:1.6;
+	margin-bottom:0.6em;
+}
+
+.zxj_box h2 .zxj_title {
+	margin-right:0.5em;
+	padding-left:0.5em;
+	color:#3366FF;
+	font-weight:bold;
+	font-size:14px;
+	font-family:'微软雅黑';
+	background:url(../image/border-leftnormal.jpg) left center no-repeat;
+}
+.zxj_body {
+	margin:0.6em 0 1em 0; 
+	background:#FFFFFF;
+	color:#333333;
+	overflow: hidden;
+}
+
+.zxj_body a {
+	color:#3366FF;
+	text-decoration:none;
+}
+
+.zxj_body a:hover {
+	color:#3366FF;
+	text-decoration:none;
+}
+
+
+.zxj_gracetborder {
+	border:1px solid #797979;
+}
+.zxj_body p,  .zxj_body li {
+	padding:0.3em 0;
+	width:100%;
+}
+
+.zxj_top {
+	padding-bottom:0.8em;
+}
+.zxj_top .zxj_model {
+	padding-right:0.6em;
+	color:#FF6600;
+	font:bold 16px 'Microsoft YaHei';
+	background:url(../image/border-rightbold.jpg) right center no-repeat;
+}
+.zxj_top .zxj_user {
+	margin:auto 1.3em auto 0.5em;
+	color:#3366FF;
+	font:bold 14px 'Microsoft YaHei';
+}
+.zxj_top .zxj_dept {
+	color:#333;
+	font:bold 12px 'Microsoft YaHei';
+}
+.zxj_top .zxj_term {
+	color:#FF6600;
+	line-height:1.8em;
+	font:bold 14px 'Microsoft YaHei';
+}
+
+.zxj_search {
+	border:1px solid #999999;
+	padding:0.6em 0;
+}
+.zxj_search label {
+	margin-left:0.6em;
+	font-family:'Microsoft YaHei'
+}
+.zxj_search select {
+	border:1px solid #CCC;
+}
+.zxj_imgcss {
+	position: absolute;
+	left: 15px;
+	top: -17px;
+}
+.zxj_text-cor {
+	color: #39F;
+	font-weight: bold;
+}
+.zxj_fontSize{
+	
+	font-size:14px;
+}

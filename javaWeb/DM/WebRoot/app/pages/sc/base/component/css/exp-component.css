@@ -1,0 +1,385 @@
+@CHARSET "UTF-8";
+/* 通用模块 CSS */
+div, span, h1, h2, h3, h4, h5, h6, p, ul, ol, dl, li, dt, dd, table, option, input, label, a, strong, em, br {
+    margin:0;
+    padding:0;
+}
+/*顶部样式*/
+.wbh-common-top {
+    padding-bottom:0.8em;
+}
+.wbh-common-model {
+    padding-right:0.6em;
+    color:#FF6600;
+    font:bold 16px 'Microsoft YaHei';
+    /*background:url(../image/border-rightbold.jpg) right center no-repeat;*/
+}
+
+.another-add-help{
+    line-height: 18px;
+    height:18px;
+    width:16px;
+    display:inline-block;
+    background: url("../images/help.png") no-repeat bottom;
+    cursor: pointer;
+}
+
+.another-add-help:HOVER{
+    border: 1px dotted #EA764F;
+}
+
+.another-add-more {
+    float:right;
+    margin-top:3px;
+    font-size:12px;
+}
+.another-add-more a {
+    color:#3366ff;
+    text-decoration:none;
+}
+a.another-add-abg {
+    background:url(../images/abg.jpg) left center no-repeat;
+    padding-left:18px;
+    padding:5px 18px;
+    color:#1c91db;
+}
+.another-add-more a:hover {
+    color:#ff6600;
+    text-decoration:none;
+}
+
+.another-add-helpinfo{
+    width: 100%;
+    height : auto;
+    background-color: #e9f5ec;
+    border: 2px 0px 2px 0px;
+    border-top: 2px solid #BBDFC3;
+    border-bottom: 1px solid #BBDFC3;
+    margin-bottom: 10px;
+    padding:10px;
+}
+
+a.jiaoxuerizhi-alink {
+    padding:5px;
+    display:block;
+    margin-right:8px;
+    float:left;
+    border:1px solid #999;
+    background:#fff;
+    text-decoration:none;
+    color:#333
+}
+a.jiaoxuerizhi-alink:hover {
+    background:#39f;
+    text-decoration:none;
+    color:#fff
+}
+a.jiaoxuerizhi-alink-visited  {
+    background:#39f;
+    text-decoration:none;
+    color:#fff
+}
+
+.student-sta-floatLeft {
+    float:left
+}
+.student-sta-floatRight {
+    float:right
+}
+
+.student-sta-weightbold {
+    font-weight:bold;
+}
+.student-sta-bigfont {
+    font-size:16px;
+}
+
+.student-sta-clear {
+    clear:both;
+}
+/*tab切换样式*/
+.student-sta-tableft {
+    border:1px solid #797979;
+    border-radius:5px;
+    padding:15px 10px;
+    text-align:center;
+    margin-right:10px;
+    margin-top:10px;
+}
+
+.student-sta-tabright {
+    border:1px solid #797979;
+    border-radius:5px;
+    height:230px;
+    margin-top:10px;
+}
+.student-sta-tabbg-grey {
+    background:#e4e4e4;
+}
+.student-sta-tabbg-white {
+    background:#ffffff;
+}
+/*颜色定义*/
+.student-sta-white {
+    color:#fff;
+}
+.student-sta-blue {
+    color:#0099ff;
+}
+.student-sta-orange {
+    color:#cc6666;
+}
+.student-sta-green {
+    color:#009900;
+}
+.student-sta-bg-blue {
+    background:#0099ff;
+}
+.student-sta-bg-orange {
+    background:#cc6666;
+}
+.student-sta-bg-green {
+    background:#009900;
+}
+.student-sta-title {
+    border:1px solid #c9c9c9;
+    padding:3px 0;
+}
+.student-sta-renshu {
+    font-size:32px;
+    font-weight:bold;
+    margin:10px 0;
+}
+.student-sta-liang {
+    width:26px;
+    height:26px;
+    margin:5px auto;
+    border-radius:13px;
+    line-height:26px;
+}
+.student-sta-zhuanye {
+    margin:15px 0;
+}
+.student-sta-zongjie {
+    background:#fff;
+    border:5px solid #e4e4e4;
+    width:110px;
+    line-height:24px;
+    padding:10px;
+    margin:0px auto;
+    position: absolute;
+}
+
+.student-sta-marginauto {
+    margin:0px auto;
+    width:100%;
+}
+.student-sta-list-red {
+    background:#fd5443;
+    height:16px;
+    width:30%;
+    color:#fff;
+}
+.student-sta-list-blue {
+    background:#37a6f5;
+    height:16px;
+    width:70%;
+    color:#fff;
+}
+.student-sta-weightbold {
+    font-weight:bold;
+}
+.student-sta-titname {
+    color:#36f;
+    font-size:12px;
+    font-family:"microsoft yahei";
+    border-bottom:1px dashed #797979;
+    height:36px;
+    line-height:36px;
+    margin:0px 10px;
+}
+.student-sta-titname a {
+    color:#36f;
+    text-decoration:underline;
+}
+.student-sta-titname a:hover {
+    color:#39f;
+    text-decoration:underline;
+}
+
+.student-sta-iconname {
+    margin:5px 0;
+}
+.student-sta-iconname a {
+    color:#333;
+    display:inline-block;
+    padding:5px 10px;
+    background:#97e5ff;
+    border:1px solid #4cb9ff;
+    box-shadow:1px 1px 3px #4cb9ff;
+    border-radius:5px;
+    text-decoration:none;
+    margin:5px 10px;
+}
+.student-sta-iconname a:hover {
+    color:#fff;
+    text-decoration:none;
+    background:#67c0ff;
+}
+
+.student-sta-leibietop-triangle {
+    width:179px;
+    height:24px;
+    background:url(../images/orange.png) 0 0 no-repeat;
+    margin:0 auto
+}
+.student-sta-leibietop {
+    background:#ff6633;
+    width:179px;
+    height:80px;
+    padding:5px 10px;
+    color:#fff;
+    font-size:14px;
+    margin:0 auto
+}
+.student-sta-leibietop-triangle {
+    width:179px;
+    height:24px;
+    background:url(../images/orange.png) 0 0 no-repeat;
+    margin:0 auto
+}
+.student-sta-leibiebottom-triangle {
+    width:179px;
+    height:24px;
+    background:url(../images/green.png) 0 0 no-repeat;
+    margin:0 auto 7px
+}
+.student-sta-leibiebottom {
+    background:#8bbc21;
+    width:179px;
+    height:55px;
+    padding:5px 10px;
+    color:#fff;
+    font-size:14px;
+    margin:10px auto 0px
+}
+
+.student-sta-alignright {
+    text-align:right;
+}
+.student-sta-aligncenter {
+    text-align:center;
+}
+.student-sta-leibiebottom p, .student-sta-leibietop p {
+    margin:0;
+    padding: 0;
+}
+.student-sta-imporant {
+    font-size:26px;
+    padding:0 18px;
+}
+.student-sta-titlediv {
+    color:#333;
+    font-size:12px;
+    font-family:"microsoft yahei";
+    border:1px solid #797979;
+}
+
+/*********************************************宿舍统计组件css*********************************************/
+.rztj-titname {
+    border:1px solid #797979;
+    padding:5px 10px;
+    font-size:12px;
+    font-family:"microsoft yahei";
+    border-radius: 5px;
+}
+.rztj-titname p {
+    margin:3px 0;
+}
+.student-sta-ti {
+    padding:3px 0px;
+    margin:10px 0px 0px 0px;
+}
+.student-sta-ti-title {
+    background:#009900;
+    color:#ffffff;
+    font-size:14px;
+    padding:2px 5px;
+    text-align:center;
+}
+.student-sta-ti fieldset {
+    border:1px solid #797979;
+    margin:0;
+    padding:5px 10px;
+}
+.student-sta-ti legend {
+    margin:0px 0px 0px 10px;
+}
+.student-sta-ti-border {
+    border:1px solid #797979;border-radius:5px;
+    padding:0px 10px 0px 0px;
+    text-align:right;
+    margin:10px 0px 0px 15px;
+}
+.student-sta-ti-border h3 {
+    margin:10px 0;
+}
+.student-sta-ti-border p {
+    margin:5px 0 10px 0;
+}
+.student-sta-left-width {
+    float:left;
+    width:60%;
+}
+.student-sta-right-width {
+    float:left;
+    width:40%;
+}
+.student-sta-bg-blue {
+    background:#0099ff;
+}
+.student-sta-bg-orange {
+    background:#cc6666;
+}
+.student-sta-bg-green {
+    background:#009900;
+}
+.student-sta-white {
+    color:#fff;
+}
+.student-sta-green {
+    color:#009900;
+}
+.student-sta-count-green {
+    color:#009900;
+    font:bold 20px "microsoft yahei";
+}
+.student-sta-count-blue {
+    color:#0099ff;
+    font:bold 20px "microsoft yahei";
+}
+.student-sta-count-red {
+    color:#ff0000;
+    font:bold 20px "microsoft yahei";
+}
+
+.student-sta-sanjiao {
+    border-color: transparent transparent transparent #e4e4e4;
+    border-width: 10px;
+    border-style: solid;
+    position: absolute;
+    top: 50%;
+    margin-top: -10px;
+    left: 100%;
+}
+.student-sta-zonepart {
+    border:1px solid #797979;
+    text-align:center;
+    font-size:12px;
+    font-family:"microsoft yahei";
+    height:100%;
+    border-radius: 5px;
+}
+.student-sta-left{
+    float:left;
+}

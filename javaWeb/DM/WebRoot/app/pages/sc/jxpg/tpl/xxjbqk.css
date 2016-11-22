@@ -1,0 +1,45 @@
+@CHARSET "UTF-8";
+.jxpg-common-table{
+	width: 100%;
+	border:1px solid #666;
+	border-spacing: 0px;
+	border-collapse: collapse;
+	margin: 15px 0px;
+	table-layout:fixed;
+}
+.jxpg-common-table tr td{
+	border:1px solid #666;
+	line-height: 25px;
+	height: 25px;
+	padding: 0px;
+	font-size: 12px;
+	text-align: center;
+}
+.jxpg-common-table .title{
+	background-color: #DEF1FF;
+}
+.jxpg-common-table .realvalue{
+	min-height: 26px;
+	line-height:26px;
+	display: inline-block;
+	width: 40%;
+	background-color: #7CFF91;
+	vertical-align: middle;
+}
+.jxpg-common-table .value{
+	min-height: 26px;
+	line-height:26px;
+	display: inline-block;
+	width: 40%;
+	background-color: #FFC2C2;
+	vertical-align: middle;
+}
+
+.jxpg-common-table .value_unedit{
+	min-height: 26px;
+	line-height:26px;
+	display: inline-block;
+	width: 40%;
+	background-color: #FFFB96;
+	vertical-align: middle;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<div class="container-fluid jzhi-menu jzhi-menu-keyan ">
+  <div class="row text-center">
+    <div class="col-xs-6 jzhi-menu-hover" id="zb">
+      <h5>主编 </h5>
+      <h4><a href="" ng-click="getChiefEditor();" style="color:#fff;text-decoration: none">{{chief_editor}}</a></h4>
+    </div>
+    <div class="col-xs-6" id="cyry">
+      <h5>参与 </h5>
+      <h4><a href="" ng-click="getPartake();" style="color:#fff;text-decoration: none">{{partake}}</a></h4>
+    </div> 
+  </div>
+</div> 
+<div class="jzhi-line-title-bg jzhi-line-title text-center">著作列表</div>
+<div class="jzhi-no-table" ng-show="works == ''">
+  <div class="jzhi-no-cell">
+    <div class="jzhi-no-list jzhi-no-zhuanli">暂无著作</div>
+  </div>
+</div>
+<div class="container-fluid">
+ <ul class="jzhi-cglist">
+   <li ng-repeat="work in works"><dl class="jzhi-list-dl"><span>{{$index+1}}</span><dt>著作名称</dt><dd>{{work.TITLE_}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>作者</dt><dd>{{work.AUTHORS}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>作者单位</dt><dd>{{work.DEPT_NAME}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>出版单位</dt><dd>{{work.PRESS_NAME}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>出版时间</dt><dd>{{work.PRESS_TIME}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>著作字数</dt><dd>{{work.NUMBER_}}字</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>著作书号</dt><dd>{{work.WORK_NO}}</dd></dl></li>
+ </ul>
+</div>
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+

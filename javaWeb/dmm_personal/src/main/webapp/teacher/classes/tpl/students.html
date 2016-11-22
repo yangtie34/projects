@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<div  class="container-fluid  phone-common-menu-bg col-md-8 col-xs-12" style="position:fixed;top:0;z-index:1000;">
+  <input ng-model="searchText" class="form-control phone-common-search-input" placeholder="请输入学号或者姓名进行查询">
+</div>
+<div class="phone-common-list" style="margin-top: 53px;">
+  <ul class="phone-common-group">
+    <li ng-repeat="xs in xslist | filter:searchText" class="phone-common-group-item phone-common-group-item02">
+      <div class="media">
+        <div class="media-left media-middle"> 
+	        <span class="img-circle phone-common-img-width"> 
+	        <img ng-src="{{xs.headimg}}" class="img-circle "> 
+        </span> </div>
+        <div class="media-body media-middle">
+          <h4>{{xs.name}} <small ng-class="{'phone-common-boy-head':xs.gender=='男','phone-common-girl-head':xs.gender=='女'}" > </small><i class="phone-common-margin-left small"> {{xs.sno}}</i> </h4>
+          <p class="jzhi-text-ccc">{{xs.bjmc}} </p>
+        </div>
+        <div class="media-right media-middle"> 
+        	<a ng-href="tel:{{xs.tel}}" ng-hide="xs.tel == '' || xs.tel == null" title="{{xs.tel}}">
+				<i class="phone-common-telephone-icon"></i>
+			</a>
+       	</div>
+      </div>
+    </li>
+  </ul>
+</div>
+

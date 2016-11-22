@@ -1,0 +1,19 @@
+<div style="font-size: 20px;font-weight: bold;font-family: '黑体';text-align: center;">{xn}学年</div>
+<div>
+	<table class="jxpg-common-table">
+		<tr>
+			<td class="title">项目</td>
+			<td class="title" style="width: 200px;">数量</td>
+		</tr>
+		<tpl for="items">
+			<tr>
+				<td>{XM}</td>
+				<td >
+					<span class="realvalue">{SL_T}</span>
+					<span class="value" code="SL_F" rowid="{ID}" isnum = "float"  type="itemvalue">{SL_F}</span>
+					<div></div>
+				</td>
+			</tr>
+		</tpl>
+	</table>
+</div>

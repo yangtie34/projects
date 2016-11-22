@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<div class="rxs-comn-list rxs-comn-pad-top">
+  <table class="rxs-comn-table rxs-td-pad-5 rxs-td-ft-15" width="100%" border="0" cellpadding="0" cellspacing="0">
+    <thead>
+      <tr>
+        <th>课程名称</th>
+        <th>学分</th>
+        <th>被选次数</th>
+        <th>通过率</th> 
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat = "course in chooseCourse">
+        <td><h4 class="rxs-text-15">{{course.course_name}}</h4><small class="rxs-af-cor">{{course.course_attr}}</small></td>
+        <td><span class="rxs-af-cor">{{course.credit}}</span></td>
+         <td><span class="rxs-af-cor">{{course.choose_count}}</span></td>
+        <td><span class="rxs-org-cor">{{course.pass}}</span></td> 
+      </tr> 
+    </tbody>
+  </table>
+</div>
+<center ng-hide="currpage == totalpage || chooseCourse.length == 0"><img src="../../static/images/onloading.gif"/></center>

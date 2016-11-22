@@ -1,0 +1,24 @@
+<div class="index_page_list_news index_page_list_mar-btm index_page_list_important index_page_OverflowHidden index_page_Boxshadow"  >
+    <ul>
+
+            <li class="index_page_list_align">
+                 <h3 class="index_page_list_colorimp" style="font-size:22px;">待办事项（<span style="color:#ff6600;">{[values.length]}</span>）</h3>
+            </li>
+
+    </ul>
+</div>
+<div style="height:1000px;" class="index_page_list_news index_page_OverflowHidden index_page_Boxshadow">
+    <ul>
+        <tpl for=".">
+                <li class="index_page_list_align">
+                    <h3><span  style="color:#39f;">{mkm}</span>：<a href="javascript:void(0);"  linkUrl="{url}" index="{[xindex]}">{message}</a></h3>
+                </li>
+        </tpl>
+        {%this.length = values.length;%}
+        <tpl if="this.length == 0">
+            <p style="color: red;font-size: 25px;">您暂时没有待办事宜信息!</p>
+        </tpl>
+    </ul>
+</div>
+
+

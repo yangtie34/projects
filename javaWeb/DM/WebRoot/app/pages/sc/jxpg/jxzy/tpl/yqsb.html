@@ -1,0 +1,65 @@
+<div style="font-size: 20px;font-weight: bold;font-family: '黑体';text-align: center;">{xn}学年</div>
+<div>
+    <table  class="jxpg-common-table">
+        <tr>
+            <td class="title" colspan="2" rowspan="2">项目</td>
+            <td class="title" rowspan="2">学校情况</td>
+            <td class="title">办学条件指标</td>
+            <td class="title" rowspan="2">常模值</td>
+        </tr>
+        <tr>
+            <td class="title">合格标准</td>
+        </tr>
+        <tpl for="items">
+            <tpl if="XM=='1'">
+                <tr>
+                    <td width="39" rowspan="4">教学、科研仪器设备</td>
+                    <td width="31">资产总值（万元）</td>
+                    <td>
+                        <span class="realvalue">{XXQK_T}</span>
+                        <span class="value" code="XXQK_F" rowid="{ID}" isnum="float" type="itemvalue">{XXQK_F}</span>
+                        <div></div>
+                    </td>
+                    <td><span>{HGBZ_T}</span></td>
+                    <td><span>{CMZ_T}</span></td>
+                </tr>
+            </tpl>
+            <tpl if="XM=='2'">
+                <tr>
+                    <td>生均（万元）</td>
+                    <td>
+                        <span class="realvalue">{XXQK_T}</span>
+                        <span class="value" code="XXQK_F" rowid="{ID}" isnum="float" type="itemvalue">{XXQK_F}</span>
+                        <div></div>
+                    </td>
+                    <td><span>{HGBZ_T}</span></td>
+                    <td><span>{CMZ_T}</span></td>
+                </tr>
+         </tpl>
+            <tpl if="XM=='3'">
+                <tr>
+                    <td>当年新增（万元）</td>
+                    <td>
+                        <span class="realvalue">{XXQK_T}</span>
+                        <span class="value" code="XXQK_F" rowid="{ID}" isnum="float" type="itemvalue">{XXQK_F}</span>
+                        <div></div>
+                    </td>
+                    <td><span>{HGBZ_T}</span></td>
+                    <td><span>{CMZ_T}</span></td>
+                </tr>
+            </tpl>
+            <tpl if="XM=='4'">
+                <tr>
+                    <td>当年新增所占比例（%）</td>
+                    <td>
+                        <span class="realvalue">{XXQK_T}</span>
+                        <span class="value" code="XXQK_F" rowid="{ID}" isnum="float" type="itemvalue">{XXQK_F}</span>
+                        <div></div>
+                    </td>
+                    <td><span>{HGBZ_T}</span></td>
+                    <td><span>{CMZ_T}</span></td>
+                </tr>
+             </tpl>
+        </tpl>
+    </table>
+</div>

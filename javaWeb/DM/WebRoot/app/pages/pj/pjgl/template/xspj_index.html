@@ -1,0 +1,29 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr class="title-style title-bg" >
+        <td width="10%">序号</td>
+        <td  width="15%">指标名称</td>
+        <td  width="55%">指标内容</td>
+        <td  width="10%">分值</td>
+        <td  width="10%">得分<span id="dfSum" style='color:red'></span></td>
+      </tr>
+	  <tpl for=".">
+			  <tr>
+				<td class="title-style">
+					{[xindex]}
+				</td>
+				<td>
+					{idxMc}
+				</td>
+				<td align="left" >
+					{idxNr}
+				</td>
+				<td>
+					{idxFz}
+				</td>
+				<td>
+					<input type="hidden" name='topicId' value='{topicId}'>
+					 <input class="pingfen" name="xspj_index_pingfen_name" type="text" fz="{idxFz}" id="{id}" value='{idxDf}' />
+				</td>
+			</tr>
+			</tpl>     
+  </table>

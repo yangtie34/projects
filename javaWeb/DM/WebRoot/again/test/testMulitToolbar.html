@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css">
+    <script src="data/data.js"></script>
+    <script src="../../base1/util/LAB.min.js"></script>
+    <script src="../../extjs/ext-all.js"></script>
+    <script src="../ns-debug.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function(){
+            var check = new NS.form.field.Checkbox({
+                boxLabel: '1212',
+                style : {
+                    paddingTop : '3px'
+                }
+            });
+            var tbar = new NS.toolbar.MultiLineTbar({
+                height : 100,
+                contentWidth : 300,
+                items : [
+                    {xtype : 'textfield',width : 130,labelWidth : 50,fieldLabel : '性别',name : 'sex'},
+                    check,
+                    {xtype : 'button',text : '获取值',name : 'query',margin : '4 0 0 40'}]
+            });
+            var component = new NS.container.Panel({
+                width: 500,
+                height: 500,
+                layout : 'border',
+                renderTo : Ext.getBody(),
+                tbar : tbar,
+                items : [new NS.Component({
+                    width: '100%',
+                    height: '40%',
+                    region : 'north',
+                    padding: 20,
+                    style: {
+                        color: 'blue',
+                        backgroundColor:'blue'
+                    }
+                })
+                    ],
+                renderTo: NS.getBody()
+            });
+            var b = component.getComponent(0);
+            var button = tbar.queryComponentByName('query');
+//            tbar.bindItemEvent('query','click',function(){
+//                console.log(tbar.getValues());
+//                console.log(tbar.getValuesByName('name','sex'));
+//            });
+            tbar.bindItemsEvent({
+                'query' : {
+                    event : 'click',
+                    fn : function(){
+                        console.log(tbar.getValues());
+                        console.log(tbar.getValuesByName('name','sex'));
+                    }
+                }
+            });
+//            button.addListener('click',function(){
+//
+//            });
+        });
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

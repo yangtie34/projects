@@ -1,0 +1,39 @@
+<div style="font-size: 20px;font-weight: bold;font-family: '黑体';text-align: center;">{xn}学年</div>
+<div>
+    <table class="jxpg-common-table">
+        <tr>
+            <td class="title">序号</td>
+            <td class="title">专业(大类)</td>
+            <td class="title">招生计划数</td>
+            <td class="title">实际录取数</td>
+            <td class="title">实际报到数</td>
+            <td class="title">报到率</td>
+        </tr>
+        <tpl for="items">
+            <tr>
+                <td>{#}</td>
+                <td>{ZYMC}</td>
+                <td>
+                    <span class="realvalue">{ZSJHS_T}</span>
+                    <span class="value" code="ZSJHS_F" rowid="{ID}" type="itemvalue" isnum="int">{ZSJHS_F}</span>
+                    <div></div>
+                </td>
+                <td>
+                    <span class="realvalue">{SJLQS_T}</span>
+                    <span class="value" code="SJLQS_F" rowid="{ID}" type="itemvalue" isnum="int">{SJLQS_F}</span>
+                    <div></div>
+                </td>
+                <td>
+                    <span class="realvalue">{SJBDS_T}</span>
+                    <span class="value" code="SJBDS_F" rowid="{ID}" type="itemvalue" isnum="int">{SJBDS_F}</span>
+                    <div></div>
+                </td>
+                <td>
+                    <span class="realvalue">{BDL_T}</span>
+                    <span class="value_unedit" code="BDL_F" rowid="{ID}" >{BDL_F}</span>
+                    <div></div>
+                </td>
+            </tr>
+        </tpl>
+    </table>
+</div>

@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">  
+<html>  
+
+<head>  
+<script language="Javascript" src="../../FusionCharts/fusionJS/FusionCharts.js"></script>　   
+<body>  
+<div id="chart1div"></div>  
+<script language="JavaScript">  
+/*      var areaObject=[{name:"三枪",count:1100,color:"008E8E"},   
+                      {name:"刺陵",count:901,color:"A186BE"},   
+                      {name:"熊猫大侠",count:807,color:"F6BD0F"},   
+                      {name:"大兵小将",count:41,color:"AFD8F8"},   
+                      {name:"花田囍事2010",count:741,color:"B3AA00"},   
+                      {name:"全称热恋",count:121,color:"008ED6"}   
+                     ];  */  
+    /*  var length=areaObject.length; 
+     for(var i=1;i<=length;i++){   
+    	 strXML= strXML+"<set name='"+areaObject[i-1].name+"' value='"+areaObject[i-1].count+"' color='"+areaObject[i-1].color+"'/>";   
+     }   
+     strXML= strXML+"</chart>"; */       
+/*      var strXML="<?xml version=\'1.0\' encoding=\'GBK\'?> <graph caption=\'最烂电影排名\' xAxisName=\'电影名\' yAxisName=\'count\' baseFont=\'宋体\' baseFontSize=\'12\' >"+
+    	"<set name=\'三枪\' value=\'100\' color=\'008E8E\'/></graph>";   
+                 var chart1 = new FusionCharts("../../FusionCharts/charts/MSColumn3D.swf","chart1Id", "500", "400");   
+                 chart1.setJSONData({"chart":{                                    "caption" : "电压统计值",                                              "xAxisName" : "季度",                                              "yAxisName" : "电压值",                                           "numberprefix" : "V"                               },            "categories":[                  {                      "category":[                     {  "label":"1季度"},                     {  "label":"2季度"},                     {  "label":"3季度"},                     {  "label":"4季度"},                     {  "label":"5季度"}                    ]                  }               ],           "dataset":[                 { "seriesname":"监测点1", "color":"AFD8F8", "showvalues":"0",                         "data" :                                                    [                                                                                             {"value" : "14400"},                                      {"value" : "19600"},                                    {"value" : "24000"},                                                             {"value" : "15700"}                                    ]                   },                   { "seriesname":"监测点2", "color":"F6BD0F", "showvalues":"0",                         "data" :                                                    [                                                             {"value" : "16400"},                                                                      {"value" : "18600"},                                                                 {"value" : "22000"},                                                                                  {"value" : "16700"}                                    ]                   }                ]          }); 
+                 //.setDataXML("<graph caption='Monthly Unit Sales' xAxisName='Month' yAxisName='Units' showNames='1' decimalPrecision='0' formatNumberScale='0'><set name='Jan' value='462' color='AFD8F8' /><set name='Feb' value='857' color='F6BD0F' /><set name='Mar' value='671' color='8BBA00' /><set name='Apr' value='494' color='FF8E46'/><set name='May' value='761' color='008E8E'/><set name='Jun' value='960' color='D64646'/><set name='Jul' value='629' color='8E468E'/><set name='Aug' value='622' color='588526'/><set name='Sep' value='376' color='B3AA00'/><set name='Oct' value='494' color='008ED6'/><set name='Nov' value='761' color='9D080D'/><set name='Dec' value='960' color='A186BE'/></graph>");   
+                 chart1.render("chart1div");   
+             */     
+                  
+     /* function chartdiv(obj){	 	
+    	 var myChart = new FusionCharts(
+    	 "./chars/swfs/"+obj+"?ChartNoDataText=无数据显示","myChartid","520","250","0","100"
+    	);
+    	myChart.setDataXML("<graph showNames=\"1\" decimalPrecision=\"0\"><set name=\"USA\" value=\"20\" /><set name=\"France\" value=\"7\" /></graph>");
+    	myChart.render("chartdiv");
+
+    	 } */
+    	 
+    	 
+         var chart = new FusionCharts("../../FusionCharts/charts/MSColumn3D.swf","chart1Id", "500", "400");
+     chart.setJSONData({"chart":{                  
+     	"caption" : "学期注册统计分析",                            
+			 "xAxisName" : "系部",                            
+			 "yAxisName" : "人数",                         
+			 "numberprefix" : "人"    
+			 }, 
+	  "categories":
+			 {  
+			   "category":[
+				{  "label":"化工工艺系"},
+				{  "label":"仪表自动化系"},
+				{  "label":"电气自动化系"},
+				{  "label":"信息工程系"},
+				{  "label":"工业分析系"}
+			   ]
+			 }
+		  ,
+	  "dataset":[
+			{ "seriesname":"已注册", "color":"AFD8F8", "showvalues":"0", 
+				   "data" :                     
+						  [                         								
+							   {"value" : "440"},  
+							   {"value" : "960"},
+							   {"value" : "400"}, 	   			     
+							   {"value" : "570"},
+							   {"value" : "670"} 
+						  ]
+			  },
+			  { "seriesname":"未注册", "color":"F6BD0F", "showvalues":"0", 
+				   "data" :                     
+						  [                         
+							   {"value" : "164"},  								
+							   {"value" : "186"},							 
+							   {"value" : "220"}, 										     
+							   {"value" : "167"},
+							   {"value" : "70"} 
+						  ]
+			  }
+		   ]
+	 });
+    	 
+    	/*  var chart = NS.define('Output.Chart',{
+    		       		title : '标题--名称',
+    						unit : '只',
+    						"xaxisname" : "数量",
+    						"yaxisname" : "种类",
+    						componentType : 'MSColumn3D',
+    						model : [ '牛', '羊', '猪', '马' ],// 维度名称-label
+    						data : [ {
+    							"牛" : '200',
+    							"羊" : '230',
+    							"猪" : '120',
+    							"马" : '130',
+    							seriesname : 'M1'
+    						}, {
+    							"牛" : '100',
+    							"羊" : '130',
+    							"猪" : '190',
+    							"马" : '30',
+    							seriesname : 'M2'
+    						} ]
+    		     }); */
+    	 chart.render("chart1div");  
+</script>　   
+</body>  
+</html> 

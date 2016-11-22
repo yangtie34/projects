@@ -1,0 +1,28 @@
+<div class="rxs-bg-f0 rxs-pad-top-lr">
+  <div class="media"><a href="#/bookList" style="text-decoration: none;coloe:#333">
+    <div class="media-left media-middle"><div class="rxs-tushu-circle"> </div></div>
+    <div class="media-body media-middle ">
+      <h5 class="rxs-text-15 text-center"><p>你已借阅<span class="rxs-cor-red rxs-text-18"> {{borrowCounts}}</span> 本书籍</p>
+<p>超越<span class="rxs-cor-red rxs-text-18"> {{proportion}} </span>的同学</p>   </h5> 
+    </div>
+    <div class="media-right media-middle"><i class="rxs-right-red"></i></div></a>
+  </div>
+</div> 
+<div class="rxs-tj-img">
+	<div id="mycharts" style="height:250px;width:250px;margin: 0 auto;"></div>
+</div>
+<div class="rxs-comn-list">
+ <div class="rxs-comn-title"> 推荐阅读</div>
+  <table class="rxs-comn-table rxs-td-pad-5 rxs-td-ft-15" width="100%" border="0" cellpadding="0" cellspacing="0"> 
+    <tbody>
+      <tr ng-repeat="book in books" >
+        <td><h4 class="rxs-text-16">{{book.name_}}</h4><small class="rxs-af-cor">{{book.store_name}}</small></td> 
+        <td><h4 class="rxs-org-cor"><small class="rxs-af-cor">借阅次数：</small>{{book.counts}}</h4></td> 
+      </tr> 
+    </tbody>
+  </table>
+</div>
+	
+	
+
+                    

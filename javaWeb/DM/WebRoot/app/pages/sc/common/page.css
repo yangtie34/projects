@@ -1,0 +1,23 @@
+
+.pages-lj {
+	float:right;
+	height:40px;
+	line-height:40px;
+}
+.pages-lj span.spage {
+	padding:0px 9px;
+	display:inline-block
+}
+.pages-txt {
+	width:40px;
+	margin:0 6px;
+}
+.pages-lj a {
+	color:#fc8239;
+	;
+	text-decoration:underline;
+}
+.pages-lj a:hover {
+	color:#fc8239;
+	text-decoration:underline;
+}

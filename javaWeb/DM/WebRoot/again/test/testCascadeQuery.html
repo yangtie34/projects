@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css">
+    <link rel="stylesheet" type="text/css" href="../../jsp/portal/css/myCenter.css">
+    <link rel="stylesheet" type="text/css" href="../../css/main.css">
+    <script src="data/data.js"></script>
+    <script src="../../base1/util/LAB.min.js"></script>
+    <script src="../../extjs/ext-all.js"></script>
+    <script src="../ns-debug.js"></script>
+    <script type="text/javascript">
+ 	Ext.onReady(function(){
+        var arraydata = [];
+        var obj = {
+                crosswise : true,// 默认为true 级联组件是横向排列的。如果设置为纵向请改为false。
+                holistic :true,//默认为true ，整体的，即生成的级联组件是在一个容器组件中。
+                cascadeType:[{
+                     cclx:"YX",
+                     labelName :"院系"
+                 },{
+                     cclx:"ZY",
+                     labelName :"专业"
+                 },{
+                     cclx:"BJ",
+                     labelName :"班级"
+                 }],// 默认不给层次类型的话，系统自动计算层数。
+                data :treeData,
+                width  : 400,
+                border :true
+        }
+        var cascadeQuery = new NS.appExpand.CascadeQuery(obj);
+        /*cascadeQuery.render('cascadeQuery');*/
+         var button = Ext.create('Ext.Button', {
+             text: '显示级联组件的值',
+             renderTo: Ext.get("button"),
+             handler: function() {
+                 var array = cascadeQuery.getValues();
+                 alert(array);
+             }
+         });
+         var tbar = Ext.create('Ext.toolbar.Toolbar',{
+                    items:[
+                        cascadeQuery.getLibComponent(),button
+                    ]
+         });
+        Ext.create('Ext.panel.Panel',{
+            title:'测试级联查询',
+            height:300,
+            width:500,
+            tbar:tbar,
+            renderTo:'cascadeQuery'
+        });
+
+ 	});
+	     
+    </script>
+</head>
+<body>
+	<div class="portal-news" style="width: 400;float:left">
+		<a href="#" style="font-size: large;">功能</a>
+		<ul>
+			<li>node:扩展支持具有树形关系的数组数据。即：从树结构表中查出的数据可以直接传给此树而无需转成树结构的对象。</li>
+		</ul>
+		<a href="#" style="font-size: large;">接口</a>
+		<ul>
+			<li>1.getChecked() return Array接口可以获取数中被选择的节点对象。</li>
+		</ul>
+		<a href="#" style="font-size: large;">事件</a>
+		<ul>
+			<li>1.itemclick点击节点事件</li>
+		</ul>
+	</div>
+	<div id="cascadeQuery" style="float: left;"></div>
+    <div id="button" style="float: left;"></div>
+</body>
+</html>

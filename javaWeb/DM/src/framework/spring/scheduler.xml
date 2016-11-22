@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           http://www.springframework.org/schema/tx 
+           http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+    <!-- 调度对象 -->
+	<bean id="scheduler"  lazy-init="false" autowire="no" 
+	      class="org.springframework.scheduling.quartz.SchedulerFactoryBean"/>
+	<!-- 调度任务解析工具类 -->
+	<bean id="taskParser" class="com.jhkj.mosdc.framework.scheduling.TaskXmlParserImpl">
+	 	<property name="inputFile" value="framework/job.xml" />
+	</bean>	
+	<!-- 实际调度执行对象 -->
+	<bean class="com.jhkj.mosdc.framework.scheduling.DynamicTaskStartImpl">
+		<property name="scheduler" ref="scheduler" />
+		<property name="taskParser" ref="taskParser" />
+	</bean>
+	<bean id="mytask" class="com.jhkj.mosdc.framework.scheduling.MyTask"  scope="prototype">
+		<property name="name" value="周国庆"></property>
+	</bean>
+	<bean id="excuteTask" class="com.jhkj.mosdc.framework.scheduling.service.impl.ExcuteTask"  scope="prototype">
+	</bean>
+</beans>

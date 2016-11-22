@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<div class="container-fluid jzhi-menu jzhi-menu-keyan "> 
+  <div class="row text-center">
+    <div class="col-xs-3" id="recomment">
+      <h5>推荐图书 </h5>
+      <h4><a href="" style="text-decoration: none;color:#fff;" ng-click="recommentBorrow();">{{recomment_book}}</a></h4>
+    </div>
+    <div class="col-xs-3 jzhi-menu-hover" id="inBorrow">
+      <h5>在阅图书 </h5>
+      <h4><a href="" style="text-decoration: none;color:#fff" ng-click="inBorrow();">{{in_borrow}}</a></h4>
+    </div>
+    <div class="col-xs-3 " id="outOfDate">
+      <h5>超期图书 </h5>
+      <h4><a href="" style="text-decoration: none;color:#fff" ng-click="outOfDate();">{{out_of_date}}</a></h4>
+    </div>
+     <div class="col-xs-3" id="return">
+      <h5>已还图书 </h5>
+      <h4><a href="" style="text-decoration: none;color:#fff" ng-click="returnBorrow();">{{return_book}}</a></h4>
+    </div>
+  </div>
+</div>
+<div class="jzhi-no-table" id="noneOut" style="display:none;">
+	  <div class="jzhi-no-cell">
+	    <div class="jzhi-no-list jzhi-no-book">暂无超期数据</div>
+	  </div>
+	</div>
+	<div class="jzhi-no-table" id="noneIn" style="display:none;">
+	  <div class="jzhi-no-cell">
+	    <div class="jzhi-no-list jzhi-no-book">暂无在借数据</div>
+	  </div>
+	</div>
+	<div class="jzhi-no-table" id="noneRecomment" style="display:none;">
+	  <div class="jzhi-no-cell">
+	    <div class="jzhi-no-list jzhi-no-book">暂无推荐数据</div>
+	  </div>
+	</div>
+	<div class="jzhi-no-table" id="noneReturn" style="display:none;" >
+	  <div class="jzhi-no-cell">
+	    <div class="jzhi-no-list jzhi-no-book">暂无已还数据</div>
+	  </div>
+	</div>
+<div class="phone-common-list">
+  <ul class="phone-common-group" id="in">
+    <li class="phone-common-group-item phone-common-group-item02" ng-repeat="inborrow in inborrowbooks">
+      <div class="media">
+        <div class="media-left media-middle jzhi-left-width"> <h5>{{inborrow.book_name}}</h5><p class="jzhi-text-info"></p> </div>
+         <div class="media-body media-middle text-right jzhi-text-danger"> <h5 class="jzhi-text-green"><span class="phone-common-jie-icon"></span>{{inborrow.borrow_time}}</h5><h5 class="jzhi-text-danger"><span class="phone-common-huan-icon"></span>{{inborrow.should_return_time}}</h5></div> 
+      </div>
+    </li>
+  </ul>
+  <ul class="phone-common-group" id="re"  style="display:none;">
+  	
+    <li class="phone-common-group-item phone-common-group-item02" ng-repeat="recommendbook in recommendbooks">
+      <div class="media">
+        <div class="media-left media-middle jzhi-left-width"> <h5>{{recommendbook.name_}}</h5><p class="jzhi-text-info"></p> </div>
+        <div class="media-body media-middle text-right jzhi-text-danger"> <h5><span class="phone-common-zan-no-icon"></span>{{recommendbook.counts}}</h5></div> 
+      </div>
+    </li>
+  </ul>
+  <ul class="phone-common-group" id="out"  style="display:none;">
+    <li class="phone-common-group-item phone-common-group-item02" ng-repeat="outofdatebook in outofdatebooks">
+     <div class="media">
+        <div class="media-left media-middle jzhi-left-width"> <h5>{{outofdatebook.book_name}}</h5><p class="jzhi-text-info"></p> </div>
+        <div class="media-body media-middle text-right jzhi-text-danger"> <span class="phone-common-ipt-icon"></span>{{outofdatebook.should_return_time}}</div> 
+      </div>
+    </li>
+  </ul>
+  <ul class="phone-common-group" id="retu"  style="display:none;">
+    <li class="phone-common-group-item phone-common-group-item02" ng-repeat="returnbook in returnbooks">
+      <div class="media">
+        <div class="media-left media-middle jzhi-left-width"> <h5>{{returnbook.book_name}}</h5><p class="jzhi-text-info"></p></div>
+        <div class="media-body media-middle text-right jzhi-text-danger"> <h5 class="jzhi-text-green"><span class="phone-common-jie-icon"></span>{{returnbook.borrow_time}}</h5><h5 class="jzhi-text-danger"><span class="phone-common-huan-icon"></span>{{returnbook.return_time}}</h5></div> 
+      </div>
+    </li>
+  </ul>
+</div>  
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+

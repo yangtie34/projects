@@ -1,0 +1,220 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+
+body {
+	background-color:#f1f1f1;
+        font-family:"microsoft yahei"
+}
+/*外框1920px*/
+.content {
+	width:100%;
+	height:100%;
+	overflow:hidden;
+	overflow-y: auto;
+}
+.con_left {
+	width:290px;
+	background-color:#32323a;
+	overflow:hidden;
+	font-size:14px;
+	height:100%;
+	position:fixed;
+	overflow-y:scroll;
+}
+/*侧边栏*/ 
+.subNavBox {
+	width:100%;
+}
+.navContent {
+	/* padding-top:10px; */
+	padding-bottom:10px;
+	display:none;
+	background:#1b1b1f;
+	border-left: 4px solid #facd89;
+	padding-left: 0px;
+}
+.subNav {
+	text-decoration:none;
+	outline:none;
+	color:#D8D8D8;
+	display: block;
+	line-height: 18px;
+	font-family: "微软雅黑";
+	font-size: 14px;
+ blr:expression(this.onFocus=this.blur());
+	cursor:pointer;
+	background:url(../images/xtxi_02.png) no-repeat;
+	background-position:94% 50%;
+	padding-left:20px;
+	padding-top: 16px;
+	padding-bottom: 16px;
+}
+.line_border {
+	border-bottom:1px solid #404047;
+}
+.currentDt {
+	background-image:url(../images/xtxi_01.png);
+	color:#D8D8D8;
+	line-height: 18px;
+	font-family: "微软雅黑";
+	font-size: 1em;
+	padding-left:20px;
+	padding-top: 16px;
+	padding-bottom: 16px;
+}
+.subNavBox span {
+	text-decoration:none;
+	outline:none;
+	color:#D8D8D8;
+	display: block;
+	line-height: 28px;
+	font-family: Arial;
+	font-size: 0.725em;
+ blr:expression(this.onFocus=this.blur());
+}
+.navContent li a {
+	line-height:2em;
+	display:block;
+	padding:10px 10px 10px 40px;
+	color:#eeeeee;
+	font-family:"微软雅黑";
+	background:none;
+	font-size: 12px;
+}
+.navContent li a:hover {
+	background-color:#248b8a;
+	background-image:url(../images/more.png);
+	background-repeat:no-repeat;
+	background-position:right 20px center;
+	width:100%;
+}
+.navContent li a.Btn-hover {
+	background-color:#30b9b8;
+	background-image:url(../images/more.png);
+	background-repeat:no-repeat;
+	background-position:right 20px center;
+	width:100%;
+}
+.subNav-icon-xtzs {
+	display:inline-block;
+	background:url(../images/icon-xtzs.png) left center no-repeat;
+	font-style:normal;
+	padding-left:40px;
+}
+.subNav-icon-xtqx {
+	display:inline-block;
+	background:url(../images/icon-xtqx.png) left center no-repeat;
+	font-style:normal;
+	padding-left:40px;
+}
+.subNav-icon-xtsz {
+	display:inline-block;
+	background:url(../images/icon-xtsz.png) left center no-repeat;
+	font-style:normal;
+	padding-left:40px;
+}
+.subNav-icon-xtykt {
+	display:inline-block;
+	background:url(../images/icon-xtykt.png) left center no-repeat;
+	font-style:normal;
+	padding-left:40px;
+}
+.subNav-icon-xtcg {
+	display:inline-block;
+	background:url(../images/icon-xtcg.png) left center no-repeat;
+	font-style:normal;
+	padding-left:40px;
+}
+/*头像*/
+.face-line {
+	position:relative;
+	background:#28282e;
+	color:#fff;
+	font-size:14px;
+	display:table;
+	width:100%;
+	padding: 15px;
+}
+.face-radius {
+	background:url(../images/face.png) center center no-repeat;
+	border-radius:50%;
+	width:50px;
+	height:50px;
+	display:inline-block;
+	overflow:hidden;
+	display:table-cell;
+	text-align:center;
+	line-height:50px;
+	color:#CCCCCC;
+	font-size:12px;
+	text-indent:-1999px;
+	cursor:pointer;
+}
+.face-name {
+	vertical-align:middle;
+	display:table-cell;
+	padding-left:20px;
+}
+.face-windows-icon {
+	background:url(../images/xtxi_02.png) center center no-repeat;
+	display:table-cell;
+	width:25px;
+	height:25px;
+	vertical-align:middle;
+	position:relative;
+}
+.face-windows-icon:hover {
+	background:url(../images/xtxi_01.png) center center no-repeat;
+}
+.face-windows-beside {
+	display: none;
+	padding-top: 13px;
+	position: absolute;
+	right: -10px;
+	top: 30px;
+	width: 150px;
+}
+.face-windows {
+	background:#f9f9f9;
+	padding:10px;
+	border-radius:5px;
+	font-size:12px;
+}
+.face-windows a:hover {
+	text-decoration:none
+}
+.face-windows li {
+	display:inline-block;
+}
+.face-windows li+li {
+	margin-left:10px
+}
+.face-windows:before {
+	border-bottom: 8px solid #fff;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	content: "11";
+	display: inline-block;
+	font-size: 0;
+	position: absolute;
+	right: 15px;
+	top: 5px;
+}
+.face-windows-icon:hover .face-windows-beside {
+	display:block;
+}
+.face-windows-edit {
+	background:url(../images/edit.png) left center no-repeat;
+	padding-left:22px;
+}
+.face-windows-exit {
+	background:url(../images/exit.png)left center no-repeat;
+	padding-left:22px;
+}
+.face-windows-edit:hover {
+	background:url(../images/edit-hover.png) left center no-repeat;
+}
+.face-windows-exit:hover {
+	background:url(../images/exit-hover.png)left center no-repeat;
+}

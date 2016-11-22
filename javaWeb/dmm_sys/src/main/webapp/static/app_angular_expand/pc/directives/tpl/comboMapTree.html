@@ -1,0 +1,28 @@
+
+
+<div>
+       	<div  ng-repeat="st in treeData track by $index" >
+			<ul class="ztree" >
+			    <li  cg-tree="node in children of st" >
+			    <span  ng-class="node.children&&node.children.length>0?node.id==0?'root_open':'root_close':node.thelast?'bottom_docu':'center_docu'" class="button level switch " ng-click="switchclick($event,node)"></span>
+			      <span ng-if="node.checked!=true"
+			      ng-class="node.check?'checkbox_true_full':node.childCheck?'checkbox_false_part':'checkbox_false_full'" 
+			      class="button chk" ng-click="nodeClick(node)"></span>
+			      <span ng-if="node.checked==true" class="checkbox_true_disable button chk"></span>
+					 <a href="javascript:void(0);"  title="{{node.mc}}" ng-click="node.checked==true?null:nodeClick(node)">
+			       <span id="jxjg_tree_1_ico" title="" treenode_ico="" class="button " 
+						ng-class="node.children&&node.children.length>0?'ico_close':'ico_docu'"></span>
+			      	<span title="{{node.mc}}">{{node.mc}}</span>
+			      </a>
+			      <ul ng-class="node.thelast?'sdfa':'level1 line'" ng-if="node.id==0">
+			      	<li cg-treecurse style="float:none">
+			      </ul> 
+			      <ul ng-class="node.thelast||node.id==0?'sdfa':'level1 line'" ng-if="node.id>0" ng-show="node.childrenShow">
+			      	<li cg-treecurse style="float:none"></li> 
+			      </ul>
+			    </li>
+				<span ng-show="treeData.length != ($index+1)">&gt;</span>
+		    </ul>
+		</div>
+</div>
+

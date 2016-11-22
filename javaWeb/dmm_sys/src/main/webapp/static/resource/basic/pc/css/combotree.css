@@ -1,0 +1,70 @@
+@CHARSET "UTF-8";
+.tree-list1{
+	
+}
+.tree-list1>li{
+	float: left;
+	padding:  0px 10px 0px 10px;
+	position: relative;
+}
+
+.tree-list1>li:hover>.tree-list2{
+	display: inline;
+}
+.selectComb:hover>.selectCombul{
+	display: inline;
+}
+.tree-list2>li:hover>.tree-list2{
+	display: inline;
+}
+.tree-list2{
+	position: absolute;
+	top:0px;
+	right :-188px;
+	padding:10px 0px;
+	margin : 0px;
+	width: 188px;
+	display: none;
+	border: 1px solid #3e80ab;
+	z-index: 999;
+	background-color: #FFF;
+	border-radius : 5px;
+	box-shadow: 5px 5px 5px #C5C5C5;
+}
+.tree-list2>li{
+	position: relative;
+	line-height: 36px;
+	margin-left: 0px !important;
+	width: 100%;
+}
+.tree-list2>li>a{
+	padding: 0px 10px 0px 20px;
+	color: #6b6b6b;
+	display: block;
+}
+
+.tree-list2 .tree-list-leaf-icon{
+	 background: url(../image/erji-disc.png) 10px center no-repeat;
+}
+.tree-list2 .tree-list-folder-icon{
+	 background: url(../image/disc.png) 10px center no-repeat;
+	 white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.tree-list-leaf-icon:hover{
+	 background: url(../image/erji-dischover.png) 10px center no-repeat;
+}
+
+.tree-list-folder-icon:hover{
+	 background: url(../image/disc-hover.png) 10px center no-repeat;
+}
+
+.tree-list2>li:hover{
+	background-color: #3e80ab;
+	color: #fff;
+}
+.tree-list2>li:hover>a{
+	color: #fff;
+}

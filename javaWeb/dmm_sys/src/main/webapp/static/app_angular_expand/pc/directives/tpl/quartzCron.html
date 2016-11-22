@@ -1,0 +1,278 @@
+<link rel="stylesheet" type="text/css"
+	href="../../static/framework/easyui/easyui.css" />
+
+<script type="text/javascript"
+	src="../../static/framework/easyui/jquery.easyui.min.js"></script>
+<style>
+.easyui-layout .numberspinner{
+width: 46px; height: 20px; line-height: 20px;
+}
+.easyui-layout .line {
+    height: 25px;
+    line-height: 25px;
+    margin: 3px;
+}
+.easyui-layout .imp{
+			padding-left: 25px;
+		}
+		.easyui-layout .col{
+			width:95px;
+			    margin-right: 10px;
+		}
+</style>
+
+<div class="easyui-layout layout" style="width:830px;height:540px;border:1px rgb(202, 196, 196) solid;border-radius: 5px">
+	<div class="panel layout-panel layout-panel-center" style="left: 0px; top: 0px; width: 830px;">
+		<div class="panel-tool">
+			<a class="panel-tool-collapse" href="javascript:void(0)" ></a>
+		</div>
+		<div data-options="region:'center',border:false" title="" class="panel-body panel-body-noborder layout-body panel-noscroll" >
+			<div class="easyui-tabs tabs-container" data-options="fit:true,border:false" >
+				<div class="tabs-header tabs-header-noborder" >
+					<div class="tabs-scroller-left" ></div>
+					<div class="tabs-scroller-right" ></div>
+					<div class="tabs-wrap" >
+						<ul class="tabs">
+							<li ng-class="SecondDiv?'tabs-selected':''" ng-click="divshow();SecondDiv=!SecondDiv;"><a href="javascript:void(0)" class="tabs-inner"><span class="tabs-title">秒</span><span class="tabs-icon"></span></a></li>
+							<li ng-class="MinuteDiv?'tabs-selected':''" ng-click="divshow();MinuteDiv=!MinuteDiv"><a href="javascript:void(0)" class="tabs-inner"><span class="tabs-title">分钟</span><span class="tabs-icon"></span></a></li>
+							<li ng-class="HourDiv?'tabs-selected':''" ng-click="divshow();HourDiv=!HourDiv"><a href="javascript:void(0)" class="tabs-inner"><span class="tabs-title">小时</span><span class="tabs-icon"></span></a></li>
+							<li ng-class="DayDiv?'tabs-selected':''" ng-click="divshow();DayDiv=!DayDiv"><a href="javascript:void(0)" class="tabs-inner"><span class="tabs-title">日</span><span class="tabs-icon"></span></a></li>
+							<li ng-class="MonthDiv?'tabs-selected':''" ng-click="divshow();MonthDiv=!MonthDiv"><a href="javascript:void(0)" class="tabs-inner"><span class="tabs-title">月</span><span class="tabs-icon"></span></a></li>
+							<li ng-class="WeekDiv?'tabs-selected':''" ng-click="divshow();WeekDiv=!WeekDiv"><a href="javascript:void(0)" class="tabs-inner"><span class="tabs-title">周</span><span class="tabs-icon"></span></a></li>
+							<li ng-class="YearDiv?'tabs-selected':''" ng-click="divshow();YearDiv=!YearDiv"><a href="javascript:void(0)" class="tabs-inner"><span class="tabs-title">年</span><span class="tabs-icon"></span></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="tabs-panels tabs-panels-noborder" style="height: 254px; width: 830px;">
+					<div class="panel" style="display: block; width: 830px;" ng-show="SecondDiv">
+						<div title="" class="panel-body panel-body-noheader panel-body-noborder" >
+							<div class="line">
+								<input type="radio" checked value="che1" ng-model="cron.second.che" name="second" >每秒 允许的通配符[, - * /]
+							</div>
+							<div class="line">
+								<input type="radio"  value="che2" name="second" ng-model="cron.second.che">
+								周期从 
+								<input class="numberspinner"  type="number"ng-model="cron.second.che2.inp1">
+								 - <input class="numberspinner" type="number"ng-model="cron.second.che2.inp2"> 秒
+							</div>
+							<div class="line">
+								<input type="radio" value="che3" name="second" ng-model="cron.second.che">
+								从 <input class="numberspinner"  type="number"ng-model="cron.second.che3.inp1"> 秒开始,每 <input class="numberspinner" type="number"ng-model="cron.second.che3.inp2"> 秒执行一次
+							</div>
+							<div class="line">
+								<input type="radio" value="che4" name="second" id="sencond_appoint" ng-model="cron.second.che">
+								自定义
+							</div>
+							<div class="imp secondList">
+							<re ng-repeat="data in cron.second.che4.data">
+							<input type="checkbox" ng-model="cron.second.che4.chevalue[$index-1]" >{{data/10<1?'0'+data:data}}<br ng-show="(data+1)%10==0"/>
+							</re>
+							</div>
+						</div>
+					</div>
+					<div class="panel" style=" width: 830px;" ng-show="MinuteDiv">
+						<div title="" class="panel-body panel-body-noheader panel-body-noborder" >
+							<div class="line">
+								<input type="radio" checked="checked" value="che1" name="min" ng-model="cron.min.che"> 分钟 允许的通配符[, - * /]
+							</div>
+							<div class="line">
+								<input type="radio" name="min" value="che2" ng-model="cron.min.che">
+								周期从 <input class="numberspinner" type="number" ng-model="cron.min.che2.inp1"> - <input class="numberspinner" type="number" ng-model="cron.min.che2.inp2"> 分钟
+							</div>
+							<div class="line">
+								<input type="radio" name="min"  value="che3" ng-model="cron.min.che">
+								从 <input class="numberspinner" type="number"ng-model="cron.min.che2.inp1"> 分钟开始,每 <input class="numberspinner" type="number" ng-model="cron.min.che2.inp2"> 分钟执行一次
+							</div>
+							<div class="line">
+								<input type="radio" name="min" id="min_appoint" value="che4" ng-model="cron.min.che"> 自定义
+							</div>
+							<div class="imp minList">
+								<re ng-repeat="data in cron.min.che4.data">
+								<input type="checkbox" ng-model="cron.min.che4.chevalue[$index-1]" >{{data/10<1?'0'+data:data}}<br ng-show="(data+1)%10==0"/>
+								</re>
+							</div>
+						</div>
+					</div>
+					<div class="panel" style=" width: 830px;" ng-show="HourDiv">
+						<div title="" class="panel-body panel-body-noheader panel-body-noborder" >
+							<div class="line">
+								<input type="radio" checked="checked" value="che1" name="hour"  ng-model="cron.hour.che"> 小时 允许的通配符[, - * /]
+							</div>
+							<div class="line">
+								<input type="radio" name="hour" value="che2" ng-model="cron.hour.che">
+								周期从 <input class="numberspinner" type="number"ng-model="cron.hour.che2.inp1">- <input ng-model="cron.hour.che2.inp2" class="numberspinner" type="number"><input type="hidden" value="2"><span class="spinner-arrow" ><span class="spinner-arrow" style="height: 10px;"></span><span class="spinner-arrow" style="height: 10px;"></span></span> 小时
+							</div>
+							<div class="line">
+								<input type="radio" name="hour" value="che3"  ng-model="cron.hour.che">
+								从 <input class="numberspinner" type="number"  ng-model="cron.hour.che3.inp1">小时开始,每 <input class="numberspinner" type="number"  ng-model="cron.hour.che3.inp2"> 小时执行一次
+							</div>
+							<div class="line">
+								<input type="radio" name="hour" value="che4" id="hour_appoint"ng-model="cron.hour.che"> 自定义
+							</div>
+							<div class="imp hourList">
+								AM: 
+								<re ng-repeat="data in cron.hour.che4.data">
+								<input type="checkbox" ng-model="cron.hour.che4.chevalue[$index-1]" >{{data/10<1?'0'+data:data}}
+								<pr ng-show="data<20&&data>10&&data%11==0"><br/>PM: </pr>
+								</re>
+							</div>
+						</div>
+					</div>
+					<div class="panel" style=" width: 830px;" ng-show="DayDiv">
+						<div title="" class="panel-body panel-body-noheader panel-body-noborder" >
+							<div class="line">
+								<input type="radio"checked="checked" value="che1"  name="day" ng-model="cron.day.che"> 日 允许的通配符[, - * / L W]
+							</div>
+							<div class="line">
+								<input type="radio" name="day" value="che2" ng-model="cron.day.che">
+								不指定
+							</div>
+							<div class="line">
+								<input type="radio" name="day" value="che3"ng-model="cron.day.che">
+								周期从 <input class="numberspinner" type="number"  ng-model="cron.day.che3.inp2">- <input ng-model="cron.day.che3.inp2" class="numberspinner" type="number"><input type="hidden" value="2"><span class="spinner-arrow" ><span class="spinner-arrow" style="height: 10px;"></span><span class="spinner-arrow" style="height: 10px;"></span></span> 日
+							</div>
+							<div class="line">
+								<input type="radio" name="day" value="che4"ng-model="cron.day.che">
+								从 <input class="numberspinner" type="number" ng-model="cron.day.che4.inp1">日开始,每 <input  ng-model="cron.day.che4.inp2"class="numberspinner" type="number">天执行一次
+							</div>
+							<div class="line">
+								<input type="radio" name="day"value="che5" ng-model="cron.day.che">
+								每月 <input class="numberspinner" type="number" ng-model="cron.day.che5.inp1">号最近的那个工作日
+							</div>
+							<div class="line">
+								<input type="radio" name="day"value="che6" ng-model="cron.day.che">
+								本月最后一天
+							</div>
+							<div class="line">
+								<input type="radio" name="day"value="che7" id="day_appoint"ng-model="cron.day.che"> 自定义
+							</div>
+							<div class="imp dayList">
+								<re ng-repeat="data in cron.day.che7.data">
+								<input type="checkbox" ng-model="cron.day.che7.chevalue[$index]" >{{data/10<1?'0'+data:data}}
+								<br ng-show="data%16==0"/>
+								</re>
+								</div>
+						</div>
+					</div>
+					<div class="panel" style=" width: 830px;" ng-show="MonthDiv">
+						<div title="" class="panel-body panel-body-noheader panel-body-noborder" >
+							<div class="line">
+								<input type="radio"checked="checked" value="che1"  name="mouth" ng-model="cron.mouth.che"> 月 允许的通配符[, - * /]
+							</div>
+							<div class="line" ng-show="false">
+								<input type="radio" name="mouth"value="che2" ng-model="cron.mouth.che">
+								不指定
+							</div>
+							<div class="line">
+								<input type="radio" name="mouth"value="che3" ng-model="cron.mouth.che">
+								周期从 <input class="numberspinner" type="number" ng-model="cron.mouth.che3.inp1"> - <input ng-model="cron.mouth.che3.inp2" class="numberspinner" type="number"><input type="hidden" value="2"><span class="spinner-arrow" ><span class="spinner-arrow" style="height: 10px;"></span><span class="spinner-arrow" style="height: 10px;"></span></span> 月
+							</div>
+							<div class="line">
+								<input type="radio" name="mouth"value="che4" ng-model="cron.mouth.che">
+								从 <input class="numberspinner" type="number"ng-model="cron.mouth.che4.inp1"> 日开始,每 <input ng-model="cron.mouth.che4.inp2" class="numberspinner" type="number"> 月执行一次
+							</div>
+							<div class="line">
+								<input type="radio" name="mouth" value="che5"id="mouth_appoint"ng-model="cron.mouth.che"> 自定义
+							</div>
+							<div class="imp mouthList">
+								<re ng-repeat="data in cron.mouth.che5.data">
+								<input type="checkbox" ng-model="cron.mouth.che5.chevalue[$index]" >{{data/10<1?'0'+data:data}}月
+								<br ng-show="data%6==0"/>
+								</re>
+								</div>
+						</div>
+					</div>
+					<div class="panel" style=" width: 830px;" ng-show="WeekDiv">
+						<div title="" class="panel-body panel-body-noheader panel-body-noborder" >
+							<div class="line">
+								<input type="radio" checked="checked" value="che1"  name="week" ng-model="cron.week.che"> 周 允许的通配符[, - * / L #]
+							</div>
+							<div class="line" ng-show="false">
+								<input type="radio" name="week"value="che2" ng-model="cron.week.che">
+								不指定
+							</div>
+							<div class="line">
+								<input type="radio" name="week"value="che3" ng-model="cron.week.che">
+								周期 从星期<input class="numberspinner" type="number"ng-model="cron.week.che3.inp1">- <input ng-model="cron.week.che3.inp2"class="numberspinner" type="number"><input type="hidden" value="2"><span class="spinner-arrow" ><span class="spinner-arrow" style="height: 10px;"></span><span class="spinner-arrow" style="height: 10px;"></span></span>
+							</div>
+							<div class="line">
+								<input type="radio" name="week" value="che4"ng-model="cron.week.che">
+								第<input class="numberspinner" type="number"ng-model="cron.week.che4.inp1">周 的星期<input ng-model="cron.week.che4.inp2"class="numberspinner" type="number"><input type="hidden" value="4"><span class="spinner-arrow" ><span class="spinner-arrow" style="height: 10px;"></span><span class="spinner-arrow" style="height: 10px;"></span></span>
+							</div>
+							<div class="line">
+								<input type="radio" name="week" value="che5"ng-model="cron.week.che">
+								本月最后一个星期<input ng-model="cron.week.che5.inp1"class="numberspinner" type="number"><input type="hidden" value="3"><span class="spinner-arrow" ><span class="spinner-arrow" style="height: 10px;"></span><span class="spinner-arrow" style="height: 10px;"></span></span>
+							</div>
+							<div class="line">
+								<input type="radio" name="week" value="che6"id="week_appoint"ng-model="cron.week.che"> 自定义
+							</div>
+							<div class="imp weekList">
+								<re ng-repeat="data in cron.week.che6.data">
+								<input type="checkbox" ng-model="cron.week.che6.chevalue[$index]" >星期{{data}}
+								<br ng-show="data%10==0"/>
+								</re>
+								</div>
+						</div>
+					</div>
+					<div class="panel" style=" width: 830px;" ng-show="YearDiv">
+						<div title="" class="panel-body panel-body-noheader panel-body-noborder" >
+							<div class="line">
+								<input type="radio" checked="checked" value="che1" name="year" ng-model="cron.year.che"> 不指定 允许的通配符[, - * /] 非必填
+							</div>
+							<div class="line">
+								<input type="radio" name="year"value="che2" ng-model="cron.year.che">
+								每年
+							</div>
+							<div class="line">
+								<input type="radio" name="year" value="che3"ng-model="cron.year.che">周期
+								从 <input ng-model="cron.year.che3.inp1"class="numberspinner" type="number"> - <input ng-model="cron.year.che3.inp2"class="numberspinner" type="number">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="panel layout-panel layout-panel-south" style="left: 0px; top: 310px; width: 830px;">
+		<div data-options="region:'south',border:false"  title="" class="panel-body panel-body-noheader panel-body-noborder layout-body">
+			<fieldset style="border-radius: 3px;">
+				<legend>表达式</legend>
+				<table style="height: 100px;">
+					<tbody>
+						<tr>
+							<td></td>
+							<td align="center">秒</td>
+							<td align="center">分钟</td>
+							<td align="center">小时</td>
+							<td align="center">日</td>
+							<td align="center">月<br>
+							</td>
+							<td align="center">星期</td>
+							<td align="center">年</td>
+						</tr>
+						<tr>
+							<td>表达式字段:</td>
+							<td><input type="text" ng-model="cron1.second.exp" class="col" value="*" readonly="readonly"></td>
+							<td><input type="text" ng-model="cron1.min.exp" class="col" value="*" readonly="readonly"></td>
+							<td><input type="text" ng-model="cron1.hour.exp" class="col" value="*" readonly="readonly"></td>
+							<td><input type="text" ng-model="cron1.day.exp" class="col" value="*" readonly="readonly"></td>
+							<td><input type="text" ng-model="cron1.mouth.exp" class="col" value="*" readonly="readonly"></td>
+							<td><input type="text" ng-model="cron1.week.exp" class="col" value="?" readonly="readonly"></td>
+							<td><input type="text" ng-model="cron1.year.exp" class="col" readonly="readonly"></td>
+						</tr>
+						<tr>
+							<td>Cron表达式:</td>
+							<td colspan="7"><input type="text" ng-model="cron1.exp"  value="* * * * * ? " id="cron" ></td>
+						</tr>
+					</tbody>
+				</table>
+			</fieldset>
+			<div style="text-align:center;margin-top: 5px;">
+
+				<div></div>
+			</div>
+		</div>
+	</div>
+	<div class="layout-split-proxy-h"></div>
+	<div class="layout-split-proxy-v"></div>
+</div>

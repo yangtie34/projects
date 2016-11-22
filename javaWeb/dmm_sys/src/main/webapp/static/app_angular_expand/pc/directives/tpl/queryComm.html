@@ -1,0 +1,28 @@
+<div class="sub-term clearfix" ng-show='result.length &gt; 0'>
+    <h4>当前条件：</h4>
+    <div style="padding: 0px 80px;" >
+        <ol>
+            <li  class="forterm"  style="padding: 0px 20px 5px 0px;" ng-repeat='obj in result'>
+                <a href="javascript:void(0);" class="forterm-select">{{obj.mc}}</a><span class="term-cancel" ng-click='cancleQuery(obj)'>取消</span>
+            </li>
+        </ol>
+    </div>
+    <div class="fright"><a class="forterm-more" href="javascript:void(0)" ng-click='cancleQueryAll()'>清空条件</a></div>
+</div>
+<div style="position: relative;border-bottom: 1px solid #d0dddf;" >
+	<div class="sub-term clearfix" ng-repeat=" q in queryArray" ng-show="q.isShow" >
+	    <h4>{{q.queryName}}：</h4>
+	    <div style="padding: 0px 80px;" >
+	        <ul>
+	            <li  class="forterm" style="padding: 0px 20px 5px 0px;" ng-show='obj.show' ng-repeat='obj in q.items'  ng-click='change(obj,q)'>
+	                <a href="javascript:void(0)" ng-class="{'forterm-select' : obj.checked}">{{obj.mc}}</a>
+	            </li>
+	            <li ng-show='!q.isAll' ng-click='showAll(q)'  class="forterm"><a href="javascript:void(0)"  class="forterm-more">更多>></a></li>
+	            <li  style="clear: both;"></li>
+	        </ul>
+	    </div>
+    </div>
+	<div style="position: absolute;right: 0;top: 10px;" ng-click='expandALL()' ng-show="queryArray.length &gt;= 2">
+        <a class="forterm-est" href="javascript:void(0)">高级筛选&nbsp;&nbsp;<span ng-class="{'est-bg':isExpandALL, 'est-bg2':!isExpandALL}"></span></a>
+    </div>
+</div>

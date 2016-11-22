@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans.xsd
+  http://www.springframework.org/schema/context
+  http://www.springframework.org/schema/context/spring-context.xsd
+  http://www.springframework.org/schema/aop
+  http://www.springframework.org/schema/aop/spring-aop.xsd">
+  
+  
+	<!-- 组件扫描,不扫描@Controller注解的类 -->
+	<context:component-scan base-package="com.jhnu" >
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+    
+	<!-- 开启AOP监听 只对当前配置文件有效 -->
+    <aop:aspectj-autoproxy expose-proxy="true"/>	
+	
+	<!-- 引入数据库配置 -->
+	<import resource="classpath:spring-config-data.xml"/>
+	
+	<!-- 引入neo4j库配置 
+	<import resource="classpath:spring-config-neo4j.xml"/> -->
+	
+	<!-- 引入shiro配置 -->
+	<import resource="classpath:spring-config-shiro.xml"/>
+	
+	<!-- 引入调度配置 -->
+	<import resource="classpath:spring-config-quartz.xml"/>
+	
+	<bean id="componentStaticRetriever" class="com.jhnu.framework.spring.ApplicationComponentStaticRetriever"/>
+	
+</beans>

@@ -1,0 +1,70 @@
+ <div ng-switch on="treeType">
+ <div ng-switch-when="comboTree" class="clearfix checkTree" style="color: #6b6b6b;" >
+       	<div class="forterm" ng-repeat="st in selectTree track by $index" style="padding-right:5px;">
+			<ul class=" tree-list1">
+			    <li  cg-tree="node in children of st" class="sdfsf">
+			    <input ng-if="checkType=='checkbox'" type="checkbox" ng-model="node.check" ng-click="selectBox(node)"
+			     style="float: left; margin-top: 10px;"/>
+			     <input ng-if="checkType=='radio'&&!node.children" type="radio" name="radio" ng-click="selectRadio(node)"
+			     style="float: left; margin-top: 10px;"/>
+			      <a href="javascript:void(0);"  title="{{node.mc}}" 
+			     	>
+			      	<span title="{{node.mc}}">{{node.mc}}</span>
+			      </a>
+			      <ul class="tree-list2" ng-show="node.children.length &gt; 0">
+			      	<li cg-treecurse></li> 
+			      </ul>
+			    </li>
+				<span ng-show="selectTree.length != ($index+1)">&gt;</span>
+		    </ul>
+		</div>
+</div>
+
+
+<div ng-switch-when="zTree" >
+       	<div  ng-repeat="st in selectTree track by $index" >
+			<ul class="ztree" >
+			    <li  cg-tree="node in children of st" >
+			    <span  ng-class="node.children&&node.children.length>0?node.nodeId==0?'root_open':'root_close':node.thelast?'bottom_docu':'center_docu'" class="button level switch " ng-click="switchclick($event,node)"></span>
+			      <span ng-if="checkType=='checkbox'&&node.checked!=true"
+			      ng-class="node.check?'checkbox_true_full':getParentCheck(node)?'checkbox_false_part':'checkbox_false_full'" 
+			      class="button chk" ng-click="selectBox(node)"></span>
+			      <span ng-if="checkType=='checkbox'&&node.checked==true" class="checkbox_true_disable button chk"></span>
+			       
+			       <!--    <span ng-if="checkType=='radio'" --><!-- fei子选项才能单选 -->
+			        <span ng-if="(!node.children||node.children.length==0)&&checkType=='radio'" 
+			      ng-class="node.check?'radio_true_full':'radio_false_full'" 
+			      class="button chk" ng-click="selectRadio(node)"></span>
+					 <a href="javascript:void(0);"  title="{{node.mc}}" ng-click="checkType=='radio'?selectRadio(node):selectBox(node)">
+			       <span id="jxjg_tree_1_ico" title="" treenode_ico="" class="button " 
+						ng-class="node.children&&node.children.length>0?'ico_close':'ico_docu'"></span>
+			      	<span title="{{node.mc}}">{{node.mc}}</span>
+			      </a>
+			      <ul ng-class="node.thelast?'sdfa':'level1 line'" ng-if="node.nodeId==0">
+			      	<li cg-treecurse style="float:none">
+			      </ul> 
+			      <ul ng-class="node.thelast||node.nodeId==0?'sdfa':'level1 line'" ng-if="node.nodeId>0" ng-show="node.childrenShow">
+			      	<li cg-treecurse style="float:none"></li> 
+			      </ul>
+			    </li>
+				<span ng-show="selectTree.length != ($index+1)">&gt;</span>
+		    </ul>
+		</div>
+</div>
+<div ng-switch-when="listTree" >
+       	<div  ng-repeat="st in selectTree track by $index" class="listTree-list">
+			<ul>
+			    <li  cg-tree="node in children of st"  >
+				<a style="background: #eeeeee;" ng-class="node.check?'menu-li-selected':'asdfg'" class="list-group-item" ng-click="listTreeSelect(node)" >{{node.mc}} <span ng-if="node.children" style="float:right">></span> </a>
+			    
+			      <ul ng-show="node.nodeId==0||nodeHasCheck(node)||(node.check&&node.childrenShow)">
+			      	<li cg-treecurse ></li> 
+			      </ul>
+			    </li>
+		    </ul>
+		</div>
+</div>
+</div>
+<style>
+
+</style>

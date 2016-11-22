@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/context
+  	   http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<bean id="casRealm" class="com.jhnu.framework.shiro.realm.MyCasRealm">
+        <property name="userService" ref="userService"/>
+        <property name="cachingEnabled" value="true"/>
+        <property name="authenticationCachingEnabled" value="true"/>
+        <property name="authenticationCacheName" value="authenticationCache"/>
+        <property name="authorizationCachingEnabled" value="true"/>
+        <property name="authorizationCacheName" value="authorizationCache"/>
+        <property name="casServerUrlPrefix" value="${sys.casServerUrl}"/>
+        <property name="casService" value="${sys.serverUrl}/cas"/>
+    </bean>
+
+	<bean id="logout" class="org.apache.shiro.web.filter.authc.LogoutFilter">
+          <property name="redirectUrl" value="${sys.casServerUrl}/logout"/>
+	</bean>
+	
+	<bean id="casFilter" class="org.apache.shiro.cas.CasFilter">  
+    	<property name="failureUrl" value="/unauthorized.jsp"/>  
+	</bean>  
+
+    <bean id="casSubjectFactory" class="org.apache.shiro.cas.CasSubjectFactory"/>
+    
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="casRealm"/>
+        <property name="subjectFactory" ref="casSubjectFactory"/>
+    </bean>
+    
+
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager"/>
+        <property name="loginUrl" value="${sys.casServerUrl}/login?service=${sys.serverUrl}/cas"/>
+        <property name="filters">
+            <util:map>
+                <entry key="cas" value-ref="casFilter"/>
+                <entry key="logout" value-ref="logout" />
+            </util:map>
+        </property>
+        <property name="filterChainDefinitions">
+            <value>
+            	/index.jsp = anon
+                /casFailure.jsp = anon
+                /static/** =anon 
+                /task/job/execute = anon
+                /user/changepwd = anon
+                /user/changepwd/page = anon
+                /user/checkuser = anon
+                /cas = cas
+                /logout = logout
+                /** = user
+            </value>
+        </property>
+    </bean>
+    
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">  
+        <property name="exceptionMappings">  
+            <props>  
+                <prop key="org.apache.shiro.authz.UnauthorizedException">/unauthorized</prop>
+            </props>  
+        </property>  
+    </bean>
+    
+    <!-- Shiro生命周期处理器-->
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+
+</beans>

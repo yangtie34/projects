@@ -1,0 +1,211 @@
+﻿@charset "utf-8";
+/* CSS Document */ 
+* {
+	box-sizing: border-box;
+}
+*:after, *:before {
+	box-sizing: border-box;
+}
+.clearfix:after {
+	clear: both;
+	content: " ";
+	display: block;
+	font-size: 0;
+	height: 0;
+	line-height: 0;
+	visibility: hidden;
+}
+i, em {
+	font-style:normal;
+}
+img {
+	border:none;
+}
+a {
+	color:#393939;
+	text-decoration:none;
+}
+a:hover {
+	text-decoration:none;
+}
+a.sj-alink {
+	color:#07a79e;
+	text-decoration:none;
+}
+a.sj-alink:hover {
+    color:#ea9b23;
+	text-decoration:none;
+}
+ol, ul, li {
+	list-style:none;
+}
+.shuju-con-right a {
+	text-decoration:none;
+	outline:none;
+}
+/*右侧内容*/
+.shuju-con-right {
+	height: 100%;
+	padding-left:290px;
+	margin-bottom:150px;
+	font-size:12px;
+	line-height:22px;
+	color:#393939;
+}
+/*右侧头部*/
+.shuju-right-title {
+	padding:25px 30px;
+	width: 100%;
+	overflow:hidden;
+}
+.shuju-title-left {
+	float:left;
+	width:60%;
+}
+.shuju-title-left h3, .shuju-title-left p {
+	font-family:"微软雅黑";
+	font-weight:normal;
+	padding:0;
+	margin:0;
+}
+.shuju-title-left h3 {
+	font-size:18px;
+	line-height:40px;
+	color:#393939
+}
+.shuju-title-left p {
+	line-height:22px;
+	color:#393939
+}
+.shuju-title-right {
+	float:right;
+}
+/*图标*/
+.shuju-img-xiugai-icon {
+	background:url(../images/edit-icon-ccc.png) center center no-repeat;
+}
+.shuju-img-xiugai-icon:hover {
+	background:url(../images/edit-icon.png) center center no-repeat;
+}
+.shuju-img-qiyong-icon {
+	background:url(../images/qiyong-hover.png) center center no-repeat;
+}
+.shuju-img-jinyong-icon {
+	background:url(../images/qiyong.png) center center no-repeat;
+}
+.shuju-img-szzy-icon {
+	background:url(../images/szzy.png) center center no-repeat;
+}
+.shuju-img-szzy-icon:hover {
+	background:url(../images/szzy-hover.png) center center no-repeat;
+}
+.shuju-img-shouquan-icon {
+	background:url(../images/shouquan.png) center center no-repeat;
+}
+.shuju-img-shouquan-icon:hover {
+	background:url(../images/shouquan-hover.png) center center no-repeat;
+}
+.shuju-img-delete-icon {
+	background:url(../images/delete-icon.png) center center no-repeat;
+}
+.shuju-img-delete-icon:hover {
+	background:url(../images/delete-icon-hover.png) center center no-repeat;
+}
+/*图标*/
+
+/*窗口样式*/
+.shuju-windows-box {
+	border-radius:5px;
+	width:400px;
+	box-shadow:1px 1px 5px #000;
+	font-size:14px;
+}
+.shuju-windows-title {
+	background:#1cc9bf;
+	height:50px;
+	line-height:50px;
+	font-size:20px;
+	color:#fff;
+	padding:0px 10px;
+	position:relative;
+}
+.shuju-windows-close {
+	position:absolute;
+	top:13px;
+	right:10px;
+	display:inline-block;
+	width:25px;
+	height:25px;
+}
+.shuju-windows-content {
+	padding:20px;
+}
+.checkbox-key {
+	width:106px;
+	height:34px;
+	border:1px solid #1cc9bf;
+	border-radius:5px;
+	position: relative;
+	margin:8px 0
+}
+.checkbox-key:before {
+	position:absolute;
+	top:-6px;
+	left:10px;
+	font-size:16px;
+	content:"OFF";
+	color:#1cc9bf;
+}
+.checkbox-key:after {
+	position:absolute;
+	top:-6px;
+	left:65px;
+	font-size:16px;
+	content:"ON";
+	color:#1cc9bf;
+}
+.checkbox-key input {
+	visibility:hidden;
+}
+.checkbox-key label {
+	display: block;
+	width: 53px;
+	height: 32px;
+	border-radius:5px;
+ -webkit-transition: all .5s ease;
+ -moz-transition: all .5s ease;
+ -o-transition: all .5s ease;
+ -ms-transition: all .5s ease;
+ transition: all .5s ease;
+	cursor: pointer;
+	position: absolute;
+	top:0;
+	z-index: 1;
+	left:51px;
+	background: #ddd;
+}
+.checkbox-key input[type=checkbox]:checked+label {
+	background:#1cc9bf;
+	left:0px;
+}
+.shuju-btn {
+	background:#f8aa29;
+	min-width:100px;
+	border-radius:5px;
+	text-align:center;
+	padding:5px 10px;
+	color:#fff;
+	font-size:16px;
+	border:none;
+}
+.shuju-btn:hover {
+	background:#f7a113;
+	cursor:pointer
+}
+.shuju-center {
+	text-align:center;
+}
+.shuju-mar-tb20 {
+	margin:20px 0;
+}
+/*窗口样式*/

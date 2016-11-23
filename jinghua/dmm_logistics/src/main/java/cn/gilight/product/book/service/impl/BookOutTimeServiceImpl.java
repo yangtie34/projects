@@ -83,16 +83,16 @@ public class BookOutTimeServiceImpl implements BookOutTimeService {
 	}
 
 	@Override
-	public Page getNowOutTime(int currentPage, int numPerPage,int totalRow) {
+	public Page getNowOutTime(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc) {
 		
-		return bookOutTimePageDao.getNowOutTime(currentPage, numPerPage,totalRow);
+		return bookOutTimePageDao.getNowOutTime(currentPage, numPerPage,totalRow,sort,isAsc);
 	}
 
 	@Override
-	public Page getOutTime(int currentPage, int numPerPage,int totalRow, String startDate,
+	public Page getOutTime(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc, String startDate,
 			String endDate) {
 		
-		return bookOutTimePageDao.getOutTime(currentPage,numPerPage,totalRow, startDate, endDate);
+		return bookOutTimePageDao.getOutTime(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate);
 	}
 
 	@Override
@@ -103,10 +103,10 @@ public class BookOutTimeServiceImpl implements BookOutTimeService {
 	}
 
 	@Override
-	public Page getOutTimeByPeople(int currentPage, int numPerPage,int totalRow,
+	public Page getOutTimeByPeople(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc,
 			String startDate, String endDate, String people) {
 		
-		return bookOutTimePageDao.getOutTimeByPeople(currentPage,numPerPage,totalRow, startDate, endDate, people);
+		return bookOutTimePageDao.getOutTimeByPeople(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, people);
 	}
 
 	@Override
@@ -117,31 +117,31 @@ public class BookOutTimeServiceImpl implements BookOutTimeService {
 	}
 
 	@Override
-	public Page getOutTimeByStore(int currentPage, int numPerPage,int totalRow,
+	public Page getOutTimeByStore(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc,
 			String startDate, String endDate, String store) {
 		
-		return bookOutTimePageDao.getOutTimeByStore(currentPage,numPerPage,totalRow, startDate, endDate, store);
+		return bookOutTimePageDao.getOutTimeByStore(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, store);
 	}
 
 	@Override
-	public Page getOutTimeByDeptTeach(int currentPage, int numPerPage,int totalRow,
+	public Page getOutTimeByDeptTeach(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc,
 			String startDate, String endDate, String deptTeach) {
 		
-		return bookOutTimePageDao.getOutTimeByDeptTeach(currentPage,numPerPage,totalRow, startDate, endDate, deptTeach);
+		return bookOutTimePageDao.getOutTimeByDeptTeach(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, deptTeach);
 	}
 
 	@Override
-	public Page getBorrowByTimePeo(int currentPage, int numPerPage,int totalRow,
+	public Page getBorrowByTimePeo(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc,
 			String startDate, String endDate, String time, String people) {
 		
-		return bookOutTimePageDao.getBorrowByTimePeo(currentPage,numPerPage,totalRow, startDate, endDate, time, people);
+		return bookOutTimePageDao.getBorrowByTimePeo(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, time, people);
 	}
 
 	@Override
-	public Page getOutTimeBySchoolYear(int currentPage, int numPerPage,int totalRow,
+	public Page getOutTimeBySchoolYear(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc,
 			String schoolYeasr) {
 		
-		return bookOutTimePageDao.getOutTimeBySchoolYear(currentPage,numPerPage,totalRow, schoolYeasr);
+		return bookOutTimePageDao.getOutTimeBySchoolYear(currentPage,numPerPage,totalRow,sort,isAsc, schoolYeasr);
 	}
 	
 }

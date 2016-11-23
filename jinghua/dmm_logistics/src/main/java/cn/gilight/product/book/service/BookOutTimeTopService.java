@@ -146,7 +146,7 @@ public interface BookOutTimeTopService {
 	 * @return
 	 * tl_book_borrow_detil表所有字段
 	 */
-	public Page getOutTime(int currentPage ,int numPerPage,int totalRow,String type,String numOrDay,String startDate,String endDate,String id);
+	public Page getOutTime(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String type,String numOrDay,String startDate,String endDate,String id);
 	
 	/**
 	 * 获取Top10名次列表
@@ -158,7 +158,7 @@ public interface BookOutTimeTopService {
 	 * school_year,year_,month_,rank_,borrow_num,id,name,ofid,ofname <br>
 	 * 所处学年，年份，月份，名次，借阅次数，人员ID，人员名称，所属ID，所属名称
 	 */
-	public Page getTop(int currentPage ,int numPerPage,int totalRow,String type,String numOrDay,String startDate,String endDate,String id);
+	public Page getTop(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String type,String numOrDay,String startDate,String endDate,String id);
 	
 	/**
 	 * 
@@ -179,7 +179,7 @@ public interface BookOutTimeTopService {
 	 * 名次，借阅次数，书名，教师ID，教师名称，单位ID，单位名称，学历ID，学历名称，性别代码，姓名名称，职称ID，职称名称<br>
 	 * 
 	 */
-	public Page getEdu(int currentPage ,int numPerPage,int totalRow,String type,String numOrDay,Map<String,String> ofId,String startDate,String endDate,int rank,String value);
+	public Page getEdu(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String type,String numOrDay,Map<String,String> ofId,String startDate,String endDate,int rank,String value);
 	
 	/**
 	 * 
@@ -198,7 +198,7 @@ public interface BookOutTimeTopService {
 	 * rank_,borrow_num,TEA_ID,user_name,DEPT_ID,DEPT_NAME,EDU_ID,EDU_NAME,SEX_CODE,SEX_NAME,ZC_ID,ZC_NAME <br>
 	 * 名次，借阅次数，书名，教师ID，教师名称，单位ID，单位名称，学历ID，学历名称，性别代码，姓名名称，职称ID，职称名称<br>
 	 */
-	public Page getSex(int currentPage ,int numPerPage,int totalRow,String type,String numOrDay,Map<String,String> ofId,String startDate,String endDate,int rank,String value);
+	public Page getSex(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String type,String numOrDay,Map<String,String> ofId,String startDate,String endDate,int rank,String value);
 	
 	/**
 	 * 
@@ -217,7 +217,7 @@ public interface BookOutTimeTopService {
 	 * rank_,borrow_num,TEA_ID,user_name,DEPT_ID,DEPT_NAME,EDU_ID,EDU_NAME,SEX_CODE,SEX_NAME,ZC_ID,ZC_NAME <br>
 	 * 名次，借阅次数，书名，教师ID，教师名称，单位ID，单位名称，学历ID，学历名称，性别代码，姓名名称，职称ID，职称名称<br>
 	 */
-	public Page getGrade(int currentPage ,int numPerPage,int totalRow,String type,String numOrDay,Map<String,String> ofId,String startDate,String endDate,int rank,String value);
+	public Page getGrade(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String type,String numOrDay,Map<String,String> ofId,String startDate,String endDate,int rank,String value);
 	
 	/**
 	 * 
@@ -239,5 +239,5 @@ public interface BookOutTimeTopService {
 	 * rank_,borrow_num,BOOK_NAME,STORE_CODE,STORE_NAME <br>
 	 * 名次，借阅次数，书名，藏书类别，类别名称<br>
 	 */
-	public Page getOf(int currentPage ,int numPerPage,int totalRow,String type,String numOrDay,Map<String,String> ofId, Map<String, String> value,String startDate,String endDate,int rank);
+	public Page getOf(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String type,String numOrDay,Map<String,String> ofId, Map<String, String> value,String startDate,String endDate,int rank);
 }

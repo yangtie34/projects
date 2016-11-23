@@ -35,11 +35,11 @@ public class NetStuWarnServiceImpl implements NetStuWarnService{
 	}
 
 	@Override
-	public Page getNetWarnTypeStus(int currentPage,int numPerPage,int totalRow,String startDate, String endDate,
+	public Page getNetWarnTypeStus(int currentPage,int numPerPage,int totalRow,String sort,boolean isAsc,String startDate, String endDate,
 			Map<String, String> deptTeach, String type, String value,
 			String codeType, String codeValue) {
 		
-		return netStuWarnDao.getNetWarnTypeStus(currentPage, numPerPage, totalRow, startDate, endDate, deptTeach, type, value, codeType, codeValue);
+		return netStuWarnDao.getNetWarnTypeStus(currentPage, numPerPage, totalRow,sort,isAsc, startDate, endDate, deptTeach, type, value, codeType, codeValue);
 	}
 	
 }

@@ -92,7 +92,7 @@ public interface DormRkeUsedDao {
 	 * @return
 	 * tl_card_use_stu_month 表所有<br>
 	 */
-	public Page getDormRkeUsedPage(int currentPage,int numPerPage,int totalRow,String startDate,String endDate,Map<String,String> deptTeach,String type,String type_code);
+	public Page getDormRkeUsedPage(int currentPage,int numPerPage,int totalRow,String sort,boolean isAsc,String startDate,String endDate,Map<String,String> deptTeach,String type,String type_code);
 	
 	/**
 	 * 不活跃人群
@@ -102,6 +102,6 @@ public interface DormRkeUsedDao {
 	 * @return
 	 * tl_card_use_stu_month 表所有<br>
 	 */
-	public Page getNoDormRkeUsed(int currentPage,int numPerPage,int totalRow,String startDate,String endDate,Map<String,String> deptTeach);
+	public Page getNoDormRkeUsed(int currentPage,int numPerPage,int totalRow,String sort,boolean isAsc,String startDate,String endDate,Map<String,String> deptTeach);
 	
 }

@@ -19,7 +19,7 @@ public interface BookBorrowTeaTopPageDao {
 	 * tl_book_borrow_detil表所有字段
 	 * 
 	 */
-	public Page getAllBorrow(int currentPage ,int numPerPage,int totalRow,String peopleId);
+	public Page getAllBorrow(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String peopleId);
 	
 	/**
 	 * 根据人员ID获取所有上榜TOP10次数列表
@@ -30,7 +30,7 @@ public interface BookBorrowTeaTopPageDao {
 	 * school_year,year_,month_,rank_,borrow_num,id,name,ofid,ofname<br>
 	 * 所处学年，年份，月份，名次，借阅次数，人员ID，人员名称，所属ID，所属名称
 	 */
-	public Page getAllTop(int currentPage ,int numPerPage,int totalRow,String peopleId);
+	public Page getAllTop(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String peopleId);
 	
 	/**
 	 * 获取根据人员ID和起止时间获取所有借书列表
@@ -43,7 +43,7 @@ public interface BookBorrowTeaTopPageDao {
 	 * tl_book_borrow_detil表所有字段
 	 * 
 	 */
-	public Page getBorrowByTime(int currentPage ,int numPerPage,int totalRow,String startDate, String endDate,String peopleId);
+	public Page getBorrowByTime(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String startDate, String endDate,String peopleId);
 	
 	/**
 	 * 根据人员ID和起止时间获取所有上榜TOP10次数列表
@@ -57,7 +57,7 @@ public interface BookBorrowTeaTopPageDao {
 	 * 所处学年，年份，月份，名次，借阅次数，人员ID，人员名称，所属ID，所属名称
 	 * 
 	 */
-	public Page getTopByTime(int currentPage ,int numPerPage,int totalRow,String startDate, String endDate,String peopleId);
+	public Page getTopByTime(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String startDate, String endDate,String peopleId);
 	
 	/**
 	 * 根据教师学历和起止时间与名次获取列表
@@ -71,7 +71,7 @@ public interface BookBorrowTeaTopPageDao {
 	 * rank_,borrow_num,TEA_ID,user_name,DEPT_ID,DEPT_NAME,EDU_ID,EDU_NAME,SEX_CODE,SEX_NAME,ZC_ID,ZC_NAME <br>
 	 * 名次，借阅次数，书名，教师ID，教师名称，单位ID，单位名称，学历ID，学历名称，性别代码，姓名名称，职称ID，职称名称
 	 */
-	public Page getEdu(int currentPage ,int numPerPage,int totalRow,String startDate, String endDate,int rank,Map<String,String> deptId,String value);
+	public Page getEdu(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String startDate, String endDate,int rank,Map<String,String> deptId,String value);
 	
 	/**
 	 * 根据教师性别和起止时间与名次获取列表
@@ -85,7 +85,7 @@ public interface BookBorrowTeaTopPageDao {
 	 * rank_,borrow_num,TEA_ID,user_name,DEPT_ID,DEPT_NAME,EDU_ID,EDU_NAME,SEX_CODE,SEX_NAME,ZC_ID,ZC_NAME <br>
 	 * 名次，借阅次数，书名，教师ID，教师名称，单位ID，单位名称，学历ID，学历名称，性别代码，姓名名称，职称ID，职称名称
 	 */
-	public Page getSex(int currentPage ,int numPerPage,int totalRow,String startDate, String endDate,int rank,Map<String,String> deptId,String value);
+	public Page getSex(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String startDate, String endDate,int rank,Map<String,String> deptId,String value);
 	
 	/**
 	 * 根据教师职称和起止时间与名次获取列表
@@ -99,7 +99,7 @@ public interface BookBorrowTeaTopPageDao {
 	 * rank_,borrow_num,TEA_ID,user_name,DEPT_ID,DEPT_NAME,EDU_ID,EDU_NAME,SEX_CODE,SEX_NAME,ZC_ID,ZC_NAME <br>
 	 * 名次，借阅次数，书名，教师ID，教师名称，单位ID，单位名称，学历ID，学历名称，性别代码，姓名名称，职称ID，职称名称
 	 */
-	public Page getZc(int currentPage ,int numPerPage,int totalRow,String startDate, String endDate,int rank,Map<String,String> deptId,String value);
+	public Page getZc(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String startDate, String endDate,int rank,Map<String,String> deptId,String value);
 	
 	/**
 	 * 根据教师单位和起止时间与名次获取列表
@@ -113,6 +113,6 @@ public interface BookBorrowTeaTopPageDao {
 	 * rank_,borrow_num,TEA_ID,user_name,DEPT_ID,DEPT_NAME,EDU_ID,EDU_NAME,SEX_CODE,SEX_NAME,ZC_ID,ZC_NAME <br>
 	 * 名次，借阅次数，书名，教师ID，教师名称，单位ID，单位名称，学历ID，学历名称，性别代码，姓名名称，职称ID，职称名称
 	 */
-	public Page getDept(int currentPage ,int numPerPage,int totalRow,String startDate, String endDate,int rank,Map<String,String> deptId, Map<String, String> value);
+	public Page getDept(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String startDate, String endDate,int rank,Map<String,String> deptId, Map<String, String> value);
 	
 }

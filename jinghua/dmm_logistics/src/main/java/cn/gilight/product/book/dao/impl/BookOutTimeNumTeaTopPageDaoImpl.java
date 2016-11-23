@@ -22,69 +22,69 @@ public class BookOutTimeNumTeaTopPageDaoImpl implements BookOutTimeNumTeaTopPage
 	private BaseDao baseDao;
 
 	@Override
-	public Page getAllOutTime(int currentPage ,int numPerPage,int totalRow, String peopleId) {
+	public Page getAllOutTime(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc, String peopleId) {
 		String sql=BookBorrowTjUtil.OUTTIMESQL+" and people_id='"+peopleId+"' "+BookBorrowTjUtil.OUTTIMEORDERSQL;
-		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow);
+		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow,sort,isAsc);
 	}
 
 	@Override
-	public Page getAllTop(int currentPage ,int numPerPage,int totalRow, String peopleId) {
+	public Page getAllTop(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc, String peopleId) {
 		String sql="select school_year,year_,month_,nums_rank,nums,tea_id id,user_name name,dept_id ofid,dept_name ofname "
 				+ "from tl_book_outtime_tea_month where  tea_id='"+peopleId+"' and nums_rank <= 10 ";
-		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow);
+		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow,sort,isAsc);
 	}
 
 	@Override
-	public Page getOutTimeByTime(int currentPage ,int numPerPage,int totalRow,
+	public Page getOutTimeByTime(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,
 			String startDate, String endDate, String peopleId) {
 		String sql=BookBorrowTjUtil.OUTTIMESQL
 				+BookBorrowTjUtil.getReturnDateTJ(startDate, endDate)+" and people_id='"+peopleId+"' "
 				+BookBorrowTjUtil.OUTTIMEORDERSQL;
-		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow);
+		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow,sort,isAsc);
 	}
 
 	@Override
-	public Page getTopByTime(int currentPage ,int numPerPage,int totalRow, String startDate,
+	public Page getTopByTime(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc, String startDate,
 			String endDate, String peopleId) {
 		String sql="select school_year,year_,month_,nums_rank,nums,tea_id id,user_name name,dept_id ofid,dept_name ofname "
 				+ "from tl_book_outtime_tea_month where "
 				+ "year_||'-'||month_>='"+startDate+"' and  year_||'-'||month_<='"+endDate+"' "
 				+ "and tea_id='"+peopleId+"' and nums_rank <= 10 ";
-		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow);
+		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow,sort,isAsc);
 	}
 
 	@Override
-	public Page getEdu(int currentPage ,int numPerPage,int totalRow, String startDate,
+	public Page getEdu(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc, String startDate,
 			String endDate, int rank, Map<String, String> deptId,
 			String value) {
 		String sql=BookBorrowTjUtil.getBorrowTopPage("num","tea",startDate,endDate,deptId,null,"",rank," and edu_id='"+value+"' ");
-		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow);
+		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow,sort,isAsc);
 	}
 
 	@Override
-	public Page getSex(int currentPage ,int numPerPage,int totalRow, String startDate,
+	public Page getSex(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc, String startDate,
 			String endDate, int rank, Map<String, String> deptId,
 			String value) {
 		String sql=BookBorrowTjUtil.getBorrowTopPage("num","tea",
 				startDate,endDate,deptId,null,"",rank," and sex_code='"+value+"' ");
-		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow);
+		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow,sort,isAsc);
 	}
 
 	@Override
-	public Page getZc(int currentPage ,int numPerPage,int totalRow, String startDate,
+	public Page getZc(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc, String startDate,
 			String endDate, int rank, Map<String, String> deptId,
 			String value) {
 		String sql=BookBorrowTjUtil.getBorrowTopPage("num","tea",
 				startDate,endDate,deptId,null,"",rank," and zc_id='"+value+"' ");
-		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow);
+		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow,sort,isAsc);
 	}
 
 	@Override
-	public Page getDept(int currentPage ,int numPerPage,int totalRow, String startDate,
+	public Page getDept(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc, String startDate,
 			String endDate, int rank, Map<String, String> deptId,Map<String,String> value) {
 		String sql=BookBorrowTjUtil.getBorrowTopPage("num","tea",
 				startDate,endDate,deptId,value,"",rank,"");
-		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow);
+		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow,sort,isAsc);
 	}
 	
 }

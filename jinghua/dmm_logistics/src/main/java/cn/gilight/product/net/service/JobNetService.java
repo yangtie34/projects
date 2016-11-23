@@ -12,6 +12,12 @@ public interface JobNetService {
 	public JobResultBean initNetStuMonth();
 	
 	/**
+	 * 初始化教师网络信息log
+	 * @return
+	 */
+	public JobResultBean initNetTeaMonth();
+	
+	/**
 	 * 初始化网络信息log
 	 * @return
 	 */
@@ -28,6 +34,13 @@ public interface JobNetService {
 	 * @return
 	 */
 	public JobResultBean updateNetStuMonth();
+	
+	/**
+	 * 更新教师网络信息log
+	 * @return
+	 */
+	public JobResultBean updateNetTeaMonth();
+	
 	/**
 	 * 更新网络信息log
 	 * @return

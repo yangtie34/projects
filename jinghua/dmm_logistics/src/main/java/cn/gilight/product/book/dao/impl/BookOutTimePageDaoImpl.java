@@ -23,15 +23,15 @@ public class BookOutTimePageDaoImpl implements BookOutTimePageDao{
 	private BaseDao baseDao;
 	
 	@Override
-	public Page getNowOutTime(int currentPage ,int numPerPage,int totalRow) {
+	public Page getNowOutTime(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc) {
 		String sql="select * from tl_book_borrow_detil t where to_char(sysdate,'yyyy-mm-dd')>t.should_return_time and t.return_time is null";
-		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow);
+		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow,sort,isAsc);
 	}
 
 	@Override
-	public Page getOutTime(int currentPage ,int numPerPage,int totalRow, String startDate,String endDate) {
+	public Page getOutTime(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc, String startDate,String endDate) {
 		String sql=BookBorrowTjUtil.OUTTIMESQL+BookBorrowTjUtil.getReturnDateTJ(startDate, endDate)+BookBorrowTjUtil.OUTTIMEORDERSQL;
-		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow);
+		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow,sort,isAsc);
 	}
 
 	@Override
@@ -42,10 +42,10 @@ public class BookOutTimePageDaoImpl implements BookOutTimePageDao{
 	}
 
 	@Override
-	public Page getOutTimeByPeople(int currentPage ,int numPerPage,int totalRow,
+	public Page getOutTimeByPeople(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,
 			String startDate, String endDate, String people) {
 		String sql=BookBorrowTjUtil.OUTTIMESQL+BookBorrowTjUtil.getReturnDateTJ(startDate, endDate)+" and t.people_type_code='"+people+"' "+BookBorrowTjUtil.OUTTIMEORDERSQL;
-		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow);
+		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow,sort,isAsc);
 	}
 
 	@Override
@@ -56,33 +56,33 @@ public class BookOutTimePageDaoImpl implements BookOutTimePageDao{
 	}
 
 	@Override
-	public Page getOutTimeByStore(int currentPage ,int numPerPage,int totalRow,
+	public Page getOutTimeByStore(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,
 			String startDate, String endDate, String store) {
 		String sql=BookBorrowTjUtil.OUTTIMESQL+BookBorrowTjUtil.getReturnDateTJ(startDate, endDate)+" and t.store_code='"+store+"' "+BookBorrowTjUtil.OUTTIMEORDERSQL;
-		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow);
+		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow,sort,isAsc);
 	}
 
 	@Override
-	public Page getOutTimeByDeptTeach(int currentPage ,int numPerPage,int totalRow,
+	public Page getOutTimeByDeptTeach(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,
 			String startDate, String endDate, String deptTeach) {
 		String sql=BookBorrowTjUtil.OUTTIMESQL+BookBorrowTjUtil.getReturnDateTJ(startDate, endDate)+" and (t.dept_id='"+deptTeach+"' or t.major_id='"+deptTeach+"') "+BookBorrowTjUtil.OUTTIMEORDERSQL;
-		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow);
+		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow,sort,isAsc);
 	}
 
 	@Override
-	public Page getBorrowByTimePeo(int currentPage ,int numPerPage,int totalRow,
+	public Page getBorrowByTimePeo(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,
 			String startDate, String endDate, String time, String people) {
 		String sql=BookBorrowTjUtil.OUTTIMESQL+BookBorrowTjUtil.getReturnDateTJ(startDate, endDate)+" and t.people_type_code='"+people+"' and substr(t.return_time,12,2)='"+time+"' "+BookBorrowTjUtil.OUTTIMEORDERSQL;
-		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow);
+		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow,sort,isAsc);
 	}
 
 	@Override
-	public Page getOutTimeBySchoolYear(int currentPage ,int numPerPage,int totalRow,
+	public Page getOutTimeBySchoolYear(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,
 			String schoolYear) {
 		int startYear=Integer.parseInt(schoolYear.substring(0, 4));
 		int endYear=Integer.parseInt(schoolYear.substring(0, 4))+1;
 		String sql=BookBorrowTjUtil.OUTTIMESQL+BookBorrowTjUtil.getReturnDateTJ(startYear+"",endYear+"")+BookBorrowTjUtil.OUTTIMEORDERSQL;
-		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow);
+		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow,sort,isAsc);
 	}
 	
 }

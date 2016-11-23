@@ -71,16 +71,16 @@ public class DormEmployeeDaoImpl implements  DormEmployeeDao{
 	}
 
 	@Override
-	public Page getDormTopByGroup(int currentPage,int numPerPage,int totalRow,Map<String, String> dorm, String type) {
+	public Page getDormTopByGroup(int currentPage,int numPerPage,int totalRow,String sort,boolean isAsc,Map<String, String> dorm, String type) {
 		String sql="select nvl(count(distinct berth_id),0) CW_SUM , "+ 
 					"nvl(count(case when stu_id is null then '1' else null end ),0) KCW_SUM ,"+
 					type+"_id code,"+type+"_name name from tl_dorm_stu t where 1=1 "+DormSqlUtil.getDormTj(dorm)+
 					" group by "+type+"_id,"+type+"_name order by "+type+"_id ";
-		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow);
+		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow,sort,isAsc);
 	}
 
 	@Override
-	public Page getDormTopPage(int currentPage,int numPerPage,int totalRow,Map<String, String> dorm, String type,
+	public Page getDormTopPage(int currentPage,int numPerPage,int totalRow,String sort,boolean isAsc,Map<String, String> dorm, String type,
 			String id) {
 		String schoolYear=EduUtils.getSchoolYearTerm(new Date())[0];
 		String endYear=schoolYear.substring(schoolYear.indexOf("-")+1, schoolYear.length());
@@ -112,7 +112,7 @@ public class DormEmployeeDaoImpl implements  DormEmployeeDao{
 		
 		String sql="select * from tl_dorm_stu t where 1=1 "+DormSqlUtil.getDormTj(dorm)+tj;
 		
-		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow);
+		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow,sort,isAsc);
 	}
 
 }

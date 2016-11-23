@@ -26,34 +26,34 @@ public class BookInfoPageDaoImpl implements BookInfoPageDao{
 	
 	
 	@Override
-	public Page getAllBook(int currentPage ,int numPerPage,int totalRow) {
-		return new Page(bookSql+bookOrderSql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow);
+	public Page getAllBook(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc) {
+		return new Page(bookSql+bookOrderSql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow,sort,isAsc);
 	}
 
 	@Override
-	public Page getReaderBySchoolYear(int currentPage ,int numPerPage,int totalRow,String schoolYear) {
+	public Page getReaderBySchoolYear(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String schoolYear) {
 		String sql=readerSql+" and school_year='"+schoolYear+"' "+readerOrderSql;
-		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow);
+		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow,sort,isAsc);
 	}
 
 	@Override
-	public Page getBookBySchoolYear(int currentPage ,int numPerPage,int totalRow,String schoolYear) {
+	public Page getBookBySchoolYear(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String schoolYear) {
 		int endYear=Integer.parseInt(schoolYear.substring(0, 4))+1;
 		String sql=bookSql+"and b.store_date <'"+endYear+"-09' "+bookOrderSql;
-		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow);
+		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow,sort,isAsc);
 	}
 	
 	@Override
-	public Page getUpBookBySchoolYear(int currentPage ,int numPerPage,int totalRow,String schoolYear) {
+	public Page getUpBookBySchoolYear(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String schoolYear) {
 		int startYear=Integer.parseInt(schoolYear.substring(0, 4));
 		int endYear=Integer.parseInt(schoolYear.substring(0, 4))+1;
 		String sql=bookSql+"and b.store_date <'"+endYear+"-09' and b.store_date>='"+startYear+"-09' "+bookOrderSql;
-		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow);
+		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow,sort,isAsc);
 	}
 
 
 	@Override
-	public Page getBookByLanguage(int currentPage ,int numPerPage,int totalRow,boolean isCN,String schoolYear) {
+	public Page getBookByLanguage(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,boolean isCN,String schoolYear) {
 		int endYear=Integer.parseInt(schoolYear.substring(0, 4))+1;
 		String where ="";
 		if(isCN){
@@ -61,29 +61,29 @@ public class BookInfoPageDaoImpl implements BookInfoPageDao{
 		}else{
 			where="and b.store_code= '00013' and b.store_date <'"+endYear+"-09' ";
 		}
-		return new Page(bookSql+where+bookOrderSql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow);
+		return new Page(bookSql+where+bookOrderSql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow,sort,isAsc);
 	}
 	@Override
-	public Page getBookByState(int currentPage ,int numPerPage,int totalRow,String state,String schoolYear) {
+	public Page getBookByState(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String state,String schoolYear) {
 		int endYear=Integer.parseInt(schoolYear.substring(0, 4))+1;
 		String where ="";
 	
 			where="and b.state_code='"+state+"' and b.store_date <'"+endYear+"-09' ";
 		
-		return new Page(bookSql+where+bookOrderSql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow);
+		return new Page(bookSql+where+bookOrderSql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow,sort,isAsc);
 	}
 
 	@Override
-	public Page getReaderByType(int currentPage ,int numPerPage,int totalRow,String type,String schoolYear) {
+	public Page getReaderByType(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String type,String schoolYear) {
 		String sql=readerSql+" and school_year='"+schoolYear+"' and people_type_code='"+type+"'"+readerOrderSql;
-		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow);
+		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow,sort,isAsc);
 	}
 
 	@Override
-	public Page getBookByStore(int currentPage ,int numPerPage,int totalRow,String store,String schoolYear) {
+	public Page getBookByStore(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String store,String schoolYear) {
 		int endYear=Integer.parseInt(schoolYear.substring(0, 4))+1;
 		String where="and b.store_code= '"+store+"' and b.store_date <'"+endYear+"-09' ";
-		return new Page(bookSql+where+bookOrderSql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow);
+		return new Page(bookSql+where+bookOrderSql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow,sort,isAsc);
 	}
 	
 }

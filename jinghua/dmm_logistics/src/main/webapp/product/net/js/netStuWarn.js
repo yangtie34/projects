@@ -33,15 +33,17 @@ scope.getxqlb=function(i){
 	var title='';
 	var titles='';var titlesCode='';
 	if(i==2){
-		params=[scope.page.currentPage || 1,
-		         scope.page.numPerPage || 10,0,
-		         startTime,endTime,deptTeach,scope.netType,scope.value,scope.codeType,scope.codeValue];
+		
 		title='按类型获取预警人员信息';
 		titles=scope.titles;
 		titlesCode=scope.titlesCode;
 	}
 	var query=function(pg){
-		htt[i].params=params;
+		if(i==2){
+			htt[i].params=[pg.currentPage || 1,
+			               pg.numPerPage || 10,0,pg.sort,pg.isAsc,
+			    		         startTime,endTime,deptTeach,scope.netType,scope.value,scope.codeType,scope.codeValue];
+		}
 	 if(pg.exportExcel){
 		 var invoke=angular.copy(htt[i]);
 		 invoke.params[0]=1;

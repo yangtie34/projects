@@ -121,7 +121,7 @@ public interface BookOutTimeService {
 	 * @param numPerPage
 	 * @return tl_book_borrow_detil 所有内容
 	 */
-	public Page getNowOutTime(int currentPage ,int numPerPage,int totalRow);
+	public Page getNowOutTime(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc);
 	
 	/**
 	 * 获取逾期未还书籍
@@ -131,7 +131,7 @@ public interface BookOutTimeService {
 	 * @param endDate
 	 * @return tl_book_borrow_detil 所有内容
 	 */
-	public Page getOutTime(int currentPage ,int numPerPage,int totalRow,String startDate, String endDate);
+	public Page getOutTime(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String startDate, String endDate);
 	
 	/**
 	 * 获取逾期未还书籍人均逾期比
@@ -150,7 +150,7 @@ public interface BookOutTimeService {
 	 * @param people
 	 * @return tl_book_borrow_detil 所有内容
 	 */
-	public Page getOutTimeByPeople(int currentPage ,int numPerPage,int totalRow,String startDate, String endDate,String people);
+	public Page getOutTimeByPeople(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String startDate, String endDate,String people);
 	
 	/**
 	 * 获取逾期未还书籍人员比
@@ -169,7 +169,7 @@ public interface BookOutTimeService {
 	 * @param store
 	 * @return tl_book_borrow_detil 所有内容
 	 */
-	public Page getOutTimeByStore(int currentPage ,int numPerPage,int totalRow,String startDate, String endDate,String store);
+	public Page getOutTimeByStore(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String startDate, String endDate,String store);
 	
 	/**
 	 * 通过学院获取逾期未还书籍
@@ -180,7 +180,7 @@ public interface BookOutTimeService {
 	 * @param deptTeach
 	 * @return tl_book_borrow_detil 所有内容
 	 */
-	public Page getOutTimeByDeptTeach(int currentPage ,int numPerPage,int totalRow,String startDate, String endDate,String deptTeach);
+	public Page getOutTimeByDeptTeach(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String startDate, String endDate,String deptTeach);
 	
 	/**
 	 * 通过还书时间获取逾期未还书籍
@@ -192,7 +192,7 @@ public interface BookOutTimeService {
 	 * @param people
 	 * @return tl_book_borrow_detil 所有内容
 	 */
-	public Page getBorrowByTimePeo(int currentPage ,int numPerPage,int totalRow,String startDate, String endDate,String time,String people);
+	public Page getBorrowByTimePeo(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String startDate, String endDate,String time,String people);
 	
 	/**
 	 * 通过学年获取逾期未还书籍
@@ -201,6 +201,6 @@ public interface BookOutTimeService {
 	 * @param schoolYeasr
 	 * @return tl_book_borrow_detil 所有内容
 	 */
-	public Page getOutTimeBySchoolYear(int currentPage ,int numPerPage,int totalRow,String schoolYeasr);
+	public Page getOutTimeBySchoolYear(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String schoolYeasr);
 
 }

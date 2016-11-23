@@ -239,131 +239,131 @@ public class BookOutTimeTopServiceImpl implements BookOutTimeTopService {
 		return null;
 	}
 	@Override 
-	public Page getOutTime(int currentPage, int numPerPage,int totalRow, String type,
+	public Page getOutTime(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc, String type,
 			String numOrDay, String startDate, String endDate, String id) {
 		if("stu".equals(type)){
 			if("num".equals(numOrDay)){
-				return bookOutTimeNumStuTopPageDao.getOutTimeByTime(currentPage,numPerPage,totalRow, startDate, endDate, id);
+				return bookOutTimeNumStuTopPageDao.getOutTimeByTime(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, id);
 			}else if("day".equals(numOrDay)){
-				return bookOutTimeDayStuTopPageDao.getOutTimeByTime(currentPage,numPerPage,totalRow, startDate, endDate, id);
+				return bookOutTimeDayStuTopPageDao.getOutTimeByTime(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, id);
 			}
 		}else if("tea".equals(type)){
 			if("num".equals(numOrDay)){
-				return bookOutTimeNumTeaTopPageDao.getOutTimeByTime(currentPage,numPerPage,totalRow, startDate, endDate, id);
+				return bookOutTimeNumTeaTopPageDao.getOutTimeByTime(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, id);
 			}else if("day".equals(numOrDay)){
-				return bookOutTimeDayTeaTopPageDao.getOutTimeByTime(currentPage,numPerPage,totalRow, startDate, endDate, id);
+				return bookOutTimeDayTeaTopPageDao.getOutTimeByTime(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, id);
 			}
 		}else if("book".equals(type)){
 			if("num".equals(numOrDay)){
-				return bookOutTimeNumBookTopPageDao.getOutTimeByTime(currentPage,numPerPage,totalRow, startDate, endDate, id);
+				return bookOutTimeNumBookTopPageDao.getOutTimeByTime(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, id);
 			}else if("day".equals(numOrDay)){
-				return bookOutTimeDayBookTopPageDao.getOutTimeByTime(currentPage,numPerPage,totalRow, startDate, endDate, id);
+				return bookOutTimeDayBookTopPageDao.getOutTimeByTime(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, id);
 			}
 		}
 		return null;
 	}
 	@Override
-	public Page getTop(int currentPage, int numPerPage,int totalRow, String type,
+	public Page getTop(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc, String type,
 			String numOrDay, String startDate, String endDate, String id) {
 		if("stu".equals(type)){
 			if("num".equals(numOrDay)){
-				return bookOutTimeNumStuTopPageDao.getTopByTime(currentPage,numPerPage,totalRow, startDate, endDate, id);
+				return bookOutTimeNumStuTopPageDao.getTopByTime(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, id);
 			}else if("day".equals(numOrDay)){
-				return bookOutTimeDayStuTopPageDao.getTopByTime(currentPage,numPerPage,totalRow, startDate, endDate, id);
+				return bookOutTimeDayStuTopPageDao.getTopByTime(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, id);
 			}
 		}else if("tea".equals(type)){
 			if("num".equals(numOrDay)){
-				return bookOutTimeNumTeaTopPageDao.getTopByTime(currentPage,numPerPage,totalRow, startDate, endDate, id);
+				return bookOutTimeNumTeaTopPageDao.getTopByTime(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, id);
 			}else if("day".equals(numOrDay)){
-				return bookOutTimeDayTeaTopPageDao.getTopByTime(currentPage,numPerPage,totalRow, startDate, endDate, id);
+				return bookOutTimeDayTeaTopPageDao.getTopByTime(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, id);
 			}
 		}else if("book".equals(type)){
 			if("num".equals(numOrDay)){
-				return bookOutTimeNumBookTopPageDao.getTopByTime(currentPage,numPerPage,totalRow, startDate, endDate, id);
+				return bookOutTimeNumBookTopPageDao.getTopByTime(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, id);
 			}else if("day".equals(numOrDay)){
-				return bookOutTimeDayBookTopPageDao.getTopByTime(currentPage,numPerPage,totalRow, startDate, endDate, id);
+				return bookOutTimeDayBookTopPageDao.getTopByTime(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, id);
 			}
 		}
 		return null;
 	}
 	@Override
-	public Page getEdu(int currentPage, int numPerPage,int totalRow, String type,
+	public Page getEdu(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc, String type,
 			String numOrDay, Map<String, String> ofId, String startDate,
 			String endDate, int rank, String value) {
 		if("stu".equals(type)){
 			if("num".equals(numOrDay)){
-				return bookOutTimeNumStuTopPageDao.getEdu(currentPage,numPerPage,totalRow, startDate, endDate, rank, ofId, value);
+				return bookOutTimeNumStuTopPageDao.getEdu(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, rank, ofId, value);
 			}else if("day".equals(numOrDay)){
-				return bookOutTimeDayStuTopPageDao.getEdu(currentPage,numPerPage,totalRow, startDate, endDate, rank, ofId, value);
+				return bookOutTimeDayStuTopPageDao.getEdu(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, rank, ofId, value);
 			}
 		}else if("tea".equals(type)){
 			if("num".equals(numOrDay)){
-				return bookOutTimeNumTeaTopPageDao.getEdu(currentPage,numPerPage,totalRow, startDate, endDate, rank, ofId, value);
+				return bookOutTimeNumTeaTopPageDao.getEdu(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, rank, ofId, value);
 			}else if("day".equals(numOrDay)){
-				return bookOutTimeDayTeaTopPageDao.getEdu(currentPage,numPerPage,totalRow, startDate, endDate, rank, ofId, value);
+				return bookOutTimeDayTeaTopPageDao.getEdu(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, rank, ofId, value);
 			}
 		}
 		return null;
 	}
 	@Override
-	public Page getSex(int currentPage, int numPerPage,int totalRow, String type,
+	public Page getSex(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc, String type,
 			String numOrDay, Map<String, String> ofId, String startDate,
 			String endDate, int rank, String value) {
 		if("stu".equals(type)){
 			if("num".equals(numOrDay)){
-				return bookOutTimeNumStuTopPageDao.getSex(currentPage,numPerPage,totalRow, startDate, endDate, rank, ofId, value);
+				return bookOutTimeNumStuTopPageDao.getSex(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, rank, ofId, value);
 			}else if("day".equals(numOrDay)){
-				return bookOutTimeDayStuTopPageDao.getSex(currentPage,numPerPage,totalRow, startDate, endDate, rank, ofId, value);
+				return bookOutTimeDayStuTopPageDao.getSex(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, rank, ofId, value);
 			}
 		}else if("tea".equals(type)){
 			if("num".equals(numOrDay)){
-				return bookOutTimeNumTeaTopPageDao.getSex(currentPage,numPerPage,totalRow, startDate, endDate, rank, ofId, value);
+				return bookOutTimeNumTeaTopPageDao.getSex(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, rank, ofId, value);
 			}else if("day".equals(numOrDay)){
-				return bookOutTimeDayTeaTopPageDao.getSex(currentPage,numPerPage,totalRow, startDate, endDate, rank, ofId, value);
+				return bookOutTimeDayTeaTopPageDao.getSex(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, rank, ofId, value);
 			}
 		}
 		return null;
 	}
 	@Override
-	public Page getGrade(int currentPage, int numPerPage,int totalRow, String type,
+	public Page getGrade(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc, String type,
 			String numOrDay, Map<String, String> ofId, String startDate,
 			String endDate, int rank, String value) {
 		if("stu".equals(type)){
 			if("num".equals(numOrDay)){
-				return bookOutTimeNumStuTopPageDao.getGrade(currentPage,numPerPage,totalRow, startDate, endDate, rank, ofId, value);
+				return bookOutTimeNumStuTopPageDao.getGrade(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, rank, ofId, value);
 			}else if("day".equals(numOrDay)){
-				return bookOutTimeDayStuTopPageDao.getGrade(currentPage,numPerPage,totalRow, startDate, endDate, rank, ofId, value);
+				return bookOutTimeDayStuTopPageDao.getGrade(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, rank, ofId, value);
 			}
 		}else if("tea".equals(type)){
 			if("num".equals(numOrDay)){
-				return bookOutTimeNumTeaTopPageDao.getZc(currentPage,numPerPage,totalRow, startDate, endDate, rank, ofId, value);
+				return bookOutTimeNumTeaTopPageDao.getZc(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, rank, ofId, value);
 			}else if("day".equals(numOrDay)){
-				return bookOutTimeDayTeaTopPageDao.getZc(currentPage,numPerPage,totalRow, startDate, endDate, rank, ofId, value);
+				return bookOutTimeDayTeaTopPageDao.getZc(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, rank, ofId, value);
 			}
 		}
 		return null;
 	}
 	@Override
-	public Page getOf(int currentPage, int numPerPage,int totalRow, String type,
+	public Page getOf(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc, String type,
 			String numOrDay, Map<String, String> ofId, Map<String, String> value, String startDate,
 			String endDate, int rank) {
 		if("stu".equals(type)){
 			if("num".equals(numOrDay)){
-				return bookOutTimeNumStuTopPageDao.getDept(currentPage,numPerPage,totalRow, startDate, endDate, rank, ofId,value);
+				return bookOutTimeNumStuTopPageDao.getDept(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, rank, ofId,value);
 			}else if("day".equals(numOrDay)){
-				return bookOutTimeDayStuTopPageDao.getDept(currentPage,numPerPage,totalRow, startDate, endDate, rank, ofId,value);
+				return bookOutTimeDayStuTopPageDao.getDept(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, rank, ofId,value);
 			}
 		}else if("tea".equals(type)){
 			if("num".equals(numOrDay)){
-				return bookOutTimeNumTeaTopPageDao.getDept(currentPage,numPerPage,totalRow, startDate, endDate, rank, ofId,value);
+				return bookOutTimeNumTeaTopPageDao.getDept(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, rank, ofId,value);
 			}else if("day".equals(numOrDay)){
-				return bookOutTimeDayTeaTopPageDao.getDept(currentPage,numPerPage,totalRow, startDate, endDate, rank, ofId,value);
+				return bookOutTimeDayTeaTopPageDao.getDept(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, rank, ofId,value);
 			}
 		}else if("book".equals(type)){
 			if("num".equals(numOrDay)){
-				return bookOutTimeNumBookTopPageDao.getStore(currentPage,numPerPage,totalRow, startDate, endDate, rank, ofId.get("store"),value.get("store"));
+				return bookOutTimeNumBookTopPageDao.getStore(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, rank, ofId.get("store"),value.get("store"));
 			}else if("day".equals(numOrDay)){
-				return bookOutTimeDayBookTopPageDao.getStore(currentPage,numPerPage,totalRow, startDate, endDate, rank, ofId.get("store"),value.get("store"));
+				return bookOutTimeDayBookTopPageDao.getStore(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, rank, ofId.get("store"),value.get("store"));
 			}
 		}
 		return null;

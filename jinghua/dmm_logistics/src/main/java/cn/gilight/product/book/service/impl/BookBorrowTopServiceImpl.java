@@ -179,105 +179,105 @@ public class BookBorrowTopServiceImpl implements BookBorrowTopService{
 	}
 
 	@Override
-	public Page getBorrow(int currentPage, int numPerPage,int totalRow, String type,
+	public Page getBorrow(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc, String type,
 			String startDate, String endDate, String id) {
 		if("stu".equals(type)){
-			return bookBorrowStuTopPageDao.getBorrowByTime(currentPage,numPerPage,totalRow, startDate, endDate, id);
+			return bookBorrowStuTopPageDao.getBorrowByTime(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, id);
 		}else if("tea".equals(type)){
-			return bookBorrowTeaTopPageDao.getBorrowByTime(currentPage,numPerPage,totalRow, startDate, endDate, id);
+			return bookBorrowTeaTopPageDao.getBorrowByTime(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, id);
 		}else if("book".equals(type)){
-			return bookBorrowBookTopPageDao.getBorrowByTime(currentPage,numPerPage,totalRow, startDate, endDate, id);
+			return bookBorrowBookTopPageDao.getBorrowByTime(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, id);
 		}
 		return null;
 	
 	}
 
 	@Override
-	public Page getTop(int currentPage, int numPerPage,int totalRow, String type,
+	public Page getTop(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc, String type,
 			String startDate, String endDate, String id) {
 		if("stu".equals(type)){
-			return bookBorrowStuTopPageDao.getTopByTime(currentPage,numPerPage,totalRow, startDate, endDate, id);
+			return bookBorrowStuTopPageDao.getTopByTime(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, id);
 		}else if("tea".equals(type)){
-			return bookBorrowTeaTopPageDao.getTopByTime(currentPage,numPerPage,totalRow, startDate, endDate, id);
+			return bookBorrowTeaTopPageDao.getTopByTime(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, id);
 		}else if("book".equals(type)){
-			return bookBorrowBookTopPageDao.getTopByTime(currentPage,numPerPage,totalRow, startDate, endDate, id);
+			return bookBorrowBookTopPageDao.getTopByTime(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, id);
 		}
 		return null;
 	
 	}
 
 	@Override
-	public Page getEdu(int currentPage, int numPerPage,int totalRow, String type,
+	public Page getEdu(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc, String type,
 			Map<String, String> ofId, String startDate, String endDate,
 			int rank, String value) {
 		if("stu".equals(type)){
-			return bookBorrowStuTopPageDao.getEdu(currentPage,numPerPage,totalRow, startDate, endDate, rank, ofId, value);
+			return bookBorrowStuTopPageDao.getEdu(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, rank, ofId, value);
 		}else if("tea".equals(type)){
-			return bookBorrowTeaTopPageDao.getEdu(currentPage,numPerPage,totalRow, startDate, endDate, rank, ofId, value);
+			return bookBorrowTeaTopPageDao.getEdu(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, rank, ofId, value);
 		}
 		return null;
 	}
 
 	@Override
-	public Page getSex(int currentPage, int numPerPage,int totalRow, String type,
+	public Page getSex(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc, String type,
 			Map<String, String> ofId, String startDate, String endDate,
 			int rank, String value) {
 		if("stu".equals(type)){
-			return bookBorrowStuTopPageDao.getSex(currentPage,numPerPage,totalRow, startDate, endDate, rank, ofId, value);
+			return bookBorrowStuTopPageDao.getSex(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, rank, ofId, value);
 		}else if("tea".equals(type)){
-			return bookBorrowTeaTopPageDao.getSex(currentPage,numPerPage,totalRow, startDate, endDate, rank, ofId, value);
+			return bookBorrowTeaTopPageDao.getSex(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, rank, ofId, value);
 		}
 		return null;
 	}
 
 	@Override
-	public Page getGrade(int currentPage, int numPerPage,int totalRow, String type,
+	public Page getGrade(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc, String type,
 			Map<String, String> ofId, String startDate, String endDate,
 			int rank, String value) {
 		if("stu".equals(type)){
-			return bookBorrowStuTopPageDao.getGrade(currentPage,numPerPage,totalRow, startDate, endDate, rank, ofId, value);
+			return bookBorrowStuTopPageDao.getGrade(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, rank, ofId, value);
 		}else if("tea".equals(type)){
-			return bookBorrowTeaTopPageDao.getZc(currentPage,numPerPage,totalRow, startDate, endDate, rank, ofId, value);
+			return bookBorrowTeaTopPageDao.getZc(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, rank, ofId, value);
 		}
 		return null;
 	}
 
 	@Override
-	public Page getOf(int currentPage, int numPerPage,int totalRow, String type,
+	public Page getOf(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc, String type,
 			Map<String, String> ofId, Map<String, String> value, String startDate, String endDate,
 			int rank) {
 		if("stu".equals(type)){
-			return bookBorrowStuTopPageDao.getDept(currentPage,numPerPage,totalRow, startDate, endDate, rank, ofId,value);
+			return bookBorrowStuTopPageDao.getDept(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, rank, ofId,value);
 		}else if("tea".equals(type)){
-			return bookBorrowTeaTopPageDao.getDept(currentPage,numPerPage,totalRow, startDate, endDate, rank, ofId,value);
+			return bookBorrowTeaTopPageDao.getDept(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, rank, ofId,value);
 		}else if("book".equals(type)){
-			return bookBorrowBookTopPageDao.getStore(currentPage,numPerPage,totalRow, startDate, endDate, rank, ofId.get("store"),value.get("store"));
+			return bookBorrowBookTopPageDao.getStore(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, rank, ofId.get("store"),value.get("store"));
 		}
 		return null;
 	}
 
 	@Override
-	public Page getAllBorrow(int currentPage, int numPerPage,int totalRow, String type,
+	public Page getAllBorrow(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc, String type,
 			String id) {
 		if("stu".equals(type)){
-			return bookBorrowStuTopPageDao.getAllBorrow(currentPage,numPerPage,totalRow, id);
+			return bookBorrowStuTopPageDao.getAllBorrow(currentPage,numPerPage,totalRow,sort,isAsc, id);
 		}else if("tea".equals(type)){
-			return bookBorrowTeaTopPageDao.getAllBorrow(currentPage,numPerPage,totalRow, id);
+			return bookBorrowTeaTopPageDao.getAllBorrow(currentPage,numPerPage,totalRow,sort,isAsc, id);
 		}else if("book".equals(type)){
-			return bookBorrowBookTopPageDao.getAllBorrow(currentPage,numPerPage,totalRow, id);
+			return bookBorrowBookTopPageDao.getAllBorrow(currentPage,numPerPage,totalRow,sort,isAsc, id);
 		}
 		return null;
 	}
 
 	@Override
-	public Page getAllTop(int currentPage, int numPerPage,int totalRow, String type,
+	public Page getAllTop(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc, String type,
 			String id) {
 		if("stu".equals(type)){
-			return bookBorrowStuTopPageDao.getAllTop(currentPage,numPerPage,totalRow, id);
+			return bookBorrowStuTopPageDao.getAllTop(currentPage,numPerPage,totalRow,sort,isAsc, id);
 		}else if("tea".equals(type)){
-			return bookBorrowTeaTopPageDao.getAllTop(currentPage,numPerPage,totalRow, id);
+			return bookBorrowTeaTopPageDao.getAllTop(currentPage,numPerPage,totalRow,sort,isAsc, id);
 		}else if("book".equals(type)){
-			return bookBorrowBookTopPageDao.getAllTop(currentPage,numPerPage,totalRow, id);
+			return bookBorrowBookTopPageDao.getAllTop(currentPage,numPerPage,totalRow,sort,isAsc, id);
 		}
 		return null;
 	}

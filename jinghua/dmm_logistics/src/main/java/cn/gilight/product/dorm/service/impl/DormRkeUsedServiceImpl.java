@@ -58,17 +58,17 @@ public class DormRkeUsedServiceImpl implements DormRkeUsedService{
 
 	@Override
 	public Page getDormRkeUsedPage(int currentPage, int numPerPage,
-			int totalRow, String startDate, String endDate,
+			int totalRow,String sort,boolean isAsc, String startDate, String endDate,
 			Map<String, String> deptTeach, String type, String type_code) {
 		
-		return dormRkeUsedDao.getDormRkeUsedPage(currentPage, numPerPage, totalRow, startDate, endDate, deptTeach, type, type_code);
+		return dormRkeUsedDao.getDormRkeUsedPage(currentPage, numPerPage, totalRow,sort,isAsc, startDate, endDate, deptTeach, type, type_code);
 	}
 
 	@Override
-	public Page getNoDormRkeUsed(int currentPage, int numPerPage, int totalRow,
+	public Page getNoDormRkeUsed(int currentPage, int numPerPage, int totalRow,String sort,boolean isAsc,
 			String startDate, String endDate, Map<String, String> deptTeach) {
 		
-		return dormRkeUsedDao.getNoDormRkeUsed(currentPage, numPerPage, totalRow, startDate, endDate, deptTeach);
+		return dormRkeUsedDao.getNoDormRkeUsed(currentPage, numPerPage, totalRow,sort,isAsc, startDate, endDate, deptTeach);
 	}
 
 }

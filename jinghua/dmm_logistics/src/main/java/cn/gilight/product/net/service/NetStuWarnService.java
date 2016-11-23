@@ -45,7 +45,7 @@ public interface NetStuWarnService {
 	 * @param codeValue code值
 	 * @return
 	 */
-	public Page getNetWarnTypeStus(int currentPage,int numPerPage,int totalRow,String startDate,String endDate,Map<String,String> deptTeach,String type,String value,String codeType,String codeValue);
+	public Page getNetWarnTypeStus(int currentPage,int numPerPage,int totalRow,String sort,boolean isAsc,String startDate,String endDate,Map<String,String> deptTeach,String type,String value,String codeType,String codeValue);
 	
 	
 }

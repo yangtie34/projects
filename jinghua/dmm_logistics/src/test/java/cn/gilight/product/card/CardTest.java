@@ -67,7 +67,7 @@ public class CardTest extends SpringTest{
 		printList(list);
 		list=cardUsedService.getCardUsedBySex(startDate, endDate, deptTeach);
 		printList(list);
-		list=cardUsedService.getNoCardUsed(1, 5, 0, startDate, endDate, deptTeach).getResultList();
+		//list=cardUsedService.getNoCardUsed(1, 5, 0, startDate, endDate, deptTeach).getResultList();
 		printList(list);
 		
 //		String queryType="all";

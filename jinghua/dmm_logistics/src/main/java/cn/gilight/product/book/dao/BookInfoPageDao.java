@@ -16,7 +16,7 @@ public interface BookInfoPageDao {
 	 * NO_,NAME_,ISBN,PERSS,BIRTH_DATE,WRITER,PRICE,STORE_DATE,STORE_CODE,STATE_CODE,STATE_NAME,STORE_NAME<BR>
 	 * 图书ID，图书名称，ISBN，出版社，出版日期，出版人，图书价格，藏书日期，藏书代码，状态代码，状态名称，藏书名称
 	 */
-	public Page getAllBook(int currentPage ,int numPerPage,int totalRow);
+	public Page getAllBook(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc);
 	/**
 	 * 通过学年获取所有读者
 	 * @param currentPage
@@ -25,7 +25,7 @@ public interface BookInfoPageDao {
 	 * @return
 	 * tl_book_reader_detil_year 表所有内容
 	 */
-	public Page getReaderBySchoolYear(int currentPage ,int numPerPage,int totalRow,String schoolYear);
+	public Page getReaderBySchoolYear(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String schoolYear);
 	
 	/**
 	 * 通过学年获取所有图书
@@ -36,7 +36,7 @@ public interface BookInfoPageDao {
 	 * NO_,NAME_,ISBN,PERSS,BIRTH_DATE,WRITER,PRICE,STORE_DATE,STORE_CODE,STATE_CODE,STATE_NAME,STORE_NAME<BR>
 	 * 图书ID，图书名称，ISBN，出版社，出版日期，出版人，图书价格，藏书日期，藏书代码，状态代码，状态名称，藏书名称
 	 */
-	public Page getBookBySchoolYear(int currentPage ,int numPerPage,int totalRow,String schoolYear);
+	public Page getBookBySchoolYear(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String schoolYear);
 	
 	/**
 	 * 通过学年获取所有新增图书
@@ -47,7 +47,7 @@ public interface BookInfoPageDao {
 	 * NO_,NAME_,ISBN,PERSS,BIRTH_DATE,WRITER,PRICE,STORE_DATE,STORE_CODE,STATE_CODE,STATE_NAME,STORE_NAME<BR>
 	 * 图书ID，图书名称，ISBN，出版社，出版日期，出版人，图书价格，藏书日期，藏书代码，状态代码，状态名称，藏书名称
 	 */
-	public Page getUpBookBySchoolYear(int currentPage ,int numPerPage,int totalRow,String schoolYear);
+	public Page getUpBookBySchoolYear(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String schoolYear);
 	
 	/**
 	 * 通过学年和语言类型获取所有图书
@@ -59,7 +59,7 @@ public interface BookInfoPageDao {
 	 * NO_,NAME_,ISBN,PERSS,BIRTH_DATE,WRITER,PRICE,STORE_DATE,STORE_CODE,STATE_CODE,STATE_NAME,STORE_NAME<BR>
 	 * 图书ID，图书名称，ISBN，出版社，出版日期，出版人，图书价格，藏书日期，藏书代码，状态代码，状态名称，藏书名称
 	 */
-	public Page getBookByLanguage(int currentPage ,int numPerPage,int totalRow,boolean isCN,String schoolYear);
+	public Page getBookByLanguage(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,boolean isCN,String schoolYear);
 	
 	/**
 	 * 通过学年和读者类型获取所有读者
@@ -70,7 +70,7 @@ public interface BookInfoPageDao {
 	 * @return
 	 * tl_book_reader_detil_year 表所有内容
 	 */
-	public Page getReaderByType(int currentPage ,int numPerPage,int totalRow,String type,String schoolYear);
+	public Page getReaderByType(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String type,String schoolYear);
 	
 	/**
 	 * 通过学年和藏书类别获取所有图书
@@ -82,7 +82,6 @@ public interface BookInfoPageDao {
 	 * NO_,NAME_,ISBN,PERSS,BIRTH_DATE,WRITER,PRICE,STORE_DATE,STORE_CODE,STATE_CODE,STATE_NAME,STORE_NAME<BR>
 	 * 图书ID，图书名称，ISBN，出版社，出版日期，出版人，图书价格，藏书日期，藏书代码，状态代码，状态名称，藏书名称
 	 */
-	public Page getBookByStore(int currentPage ,int numPerPage,int totalRow,String store,String schoolYear);
-	public Page getBookByState(int currentPage, int numPerPage, int totalRow,
-			String state, String string);
+	public Page getBookByStore(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String store,String schoolYear);
+	public Page getBookByState(int currentPage, int numPerPage, int totalRow,String sort,boolean isAsc,String state, String string);
 }

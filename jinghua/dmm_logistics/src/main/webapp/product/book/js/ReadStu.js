@@ -77,7 +77,7 @@ app.controller("BookReadStuController", [ "$scope","dialog",'mask','$timeout','h
 	  	var query=function(pg){
 	  		htt[i].params=[pg.currentPage || 1,
 	  				          pg.numPerPage || 10,
-	  				        pg.totalRows||0
+	  				        pg.totalRows||0,pg.sort,pg.isAsc
 	  				          ];
 	  		htt[i].params = htt[i].params.concat(params);  
 	  		htt[i].params = htt[i].params.concat([deptTeach]);  

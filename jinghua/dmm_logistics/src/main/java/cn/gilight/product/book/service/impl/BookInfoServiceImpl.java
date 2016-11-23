@@ -66,60 +66,60 @@ public class BookInfoServiceImpl implements BookInfoService {
 	}
 
 	@Override
-	public Page getAllBook(int currentPage, int numPerPage,int totalRow) {
-		return bookInfoPageDao.getAllBook(currentPage, numPerPage,totalRow);
+	public Page getAllBook(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc) {
+		return bookInfoPageDao.getAllBook(currentPage, numPerPage,totalRow,sort,isAsc);
 	}
 
 	@Override
-	public Page getNowReader(int currentPage, int numPerPage,int totalRow) {
-		return bookInfoPageDao.getReaderBySchoolYear(currentPage,numPerPage,totalRow, EduUtils.getSchoolYearTerm(new Date())[0]);
+	public Page getNowReader(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc) {
+		return bookInfoPageDao.getReaderBySchoolYear(currentPage,numPerPage,totalRow,sort,isAsc, EduUtils.getSchoolYearTerm(new Date())[0]);
 	}
 
 	@Override
-	public Page getNowBook(int currentPage, int numPerPage,int totalRow) {
-		return bookInfoPageDao.getUpBookBySchoolYear(currentPage,numPerPage,totalRow, EduUtils.getSchoolYearTerm(new Date())[0]);
+	public Page getNowBook(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc) {
+		return bookInfoPageDao.getUpBookBySchoolYear(currentPage,numPerPage,totalRow,sort,isAsc, EduUtils.getSchoolYearTerm(new Date())[0]);
 	}
 	
 	@Override
-	public Page getBookBySchoolYear(int currentPage, int numPerPage,int totalRow,
+	public Page getBookBySchoolYear(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc,
 			String schoolYear) {
-		return bookInfoPageDao.getBookBySchoolYear(currentPage,numPerPage,totalRow, schoolYear);
+		return bookInfoPageDao.getBookBySchoolYear(currentPage,numPerPage,totalRow,sort,isAsc, schoolYear);
 	}
 
 	@Override
-	public Page getUpBookBySchoolYear(int currentPage, int numPerPage,int totalRow,
+	public Page getUpBookBySchoolYear(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc,
 			String schoolYear) {
-		return bookInfoPageDao.getUpBookBySchoolYear(currentPage,numPerPage,totalRow, schoolYear);
+		return bookInfoPageDao.getUpBookBySchoolYear(currentPage,numPerPage,totalRow,sort,isAsc, schoolYear);
 	}
 
 	@Override
-	public Page getNowBookByLanguage(int currentPage, int numPerPage,int totalRow,boolean isCN) {
-		return bookInfoPageDao.getBookByLanguage(currentPage,numPerPage,totalRow, isCN, EduUtils.getSchoolYearTerm(new Date())[0]);
+	public Page getNowBookByLanguage(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc,boolean isCN) {
+		return bookInfoPageDao.getBookByLanguage(currentPage,numPerPage,totalRow,sort,isAsc, isCN, EduUtils.getSchoolYearTerm(new Date())[0]);
 	}
 	@Override
-	public Page getNowBookByState(int currentPage, int numPerPage,int totalRow,String state) {
-		return bookInfoPageDao.getBookByState(currentPage,numPerPage,totalRow, state, EduUtils.getSchoolYearTerm(new Date())[0]);
+	public Page getNowBookByState(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc,String state) {
+		return bookInfoPageDao.getBookByState(currentPage,numPerPage,totalRow,sort,isAsc, state, EduUtils.getSchoolYearTerm(new Date())[0]);
 	}
 	@Override
-	public Page getBookByLanguage(int currentPage, int numPerPage,int totalRow,
+	public Page getBookByLanguage(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc,
 			boolean isCN, String schoolYear) {
-		return bookInfoPageDao.getBookByLanguage(currentPage,numPerPage,totalRow, isCN, schoolYear);
+		return bookInfoPageDao.getBookByLanguage(currentPage,numPerPage,totalRow,sort,isAsc, isCN, schoolYear);
 	}
 
 	@Override
-	public Page getNowReaderByType(int currentPage, int numPerPage,int totalRow, String type) {
-		return bookInfoPageDao.getReaderByType(currentPage,numPerPage,totalRow, type, EduUtils.getSchoolYearTerm(new Date())[0]);
+	public Page getNowReaderByType(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc, String type) {
+		return bookInfoPageDao.getReaderByType(currentPage,numPerPage,totalRow,sort,isAsc, type, EduUtils.getSchoolYearTerm(new Date())[0]);
 	}
 	
 	@Override
-	public Page getReaderByType(int currentPage, int numPerPage,int totalRow, String type,
+	public Page getReaderByType(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc, String type,
 			String schoolYear) {
-		return bookInfoPageDao.getReaderByType(currentPage,numPerPage,totalRow, type, schoolYear);
+		return bookInfoPageDao.getReaderByType(currentPage,numPerPage,totalRow,sort,isAsc, type, schoolYear);
 	}
 
 	@Override
-	public Page getNowBookByStore(int currentPage, int numPerPage,int totalRow, String store) {
-		return bookInfoPageDao.getBookByStore(currentPage,numPerPage,totalRow, store, EduUtils.getSchoolYearTerm(new Date())[0]);
+	public Page getNowBookByStore(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc, String store) {
+		return bookInfoPageDao.getBookByStore(currentPage,numPerPage,totalRow,sort,isAsc, store, EduUtils.getSchoolYearTerm(new Date())[0]);
 	}
 	
 	

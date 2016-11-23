@@ -137,7 +137,7 @@ public interface BookBorrowService {
 	 * @return
 	 * tl_book_borrow_detil 所有内容
 	 */
-	public Page getBorrow(int currentPage ,int numPerPage,int totalRow,String startDate, String endDate);
+	public Page getBorrow(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String startDate, String endDate);
 	
 	/**
 	 * 通过借阅者获取人均借书比
@@ -157,7 +157,7 @@ public interface BookBorrowService {
 	 * @param people
 	 * @return tl_book_borrow_detil 所有内容
 	 */
-	public Page getBorrowByPeople(int currentPage ,int numPerPage,int totalRow,String startDate, String endDate,String people);
+	public Page getBorrowByPeople(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String startDate, String endDate,String people);
 	
 	/**
 	 * 通过借阅者获取人均比
@@ -176,7 +176,7 @@ public interface BookBorrowService {
 	 * @param store
 	 * @return tl_book_borrow_detil 所有内容
 	 */
-	public Page getBorrowByStore(int currentPage ,int numPerPage,int totalRow,String startDate, String endDate,String store);
+	public Page getBorrowByStore(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String startDate, String endDate,String store);
 	
 	/**
 	 * 通过学院获取借书列表
@@ -187,7 +187,7 @@ public interface BookBorrowService {
 	 * @param deptTeach
 	 * @return tl_book_borrow_detil 所有内容
 	 */
-	public Page getBorrowByDeptTeach(int currentPage ,int numPerPage,int totalRow,String startDate, String endDate,String deptTeach);
+	public Page getBorrowByDeptTeach(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String startDate, String endDate,String deptTeach);
 	
 	/**
 	 * 通过时间和人员类型获取借书列表
@@ -199,7 +199,7 @@ public interface BookBorrowService {
 	 * @param people
 	 * @return tl_book_borrow_detil 所有内容
 	 */
-	public Page getBorrowByTimePeo(int currentPage ,int numPerPage,int totalRow,String startDate, String endDate,String time,String people);
+	public Page getBorrowByTimePeo(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String startDate, String endDate,String time,String people);
 	
 	/**
 	 * 通过学年获取借书列表
@@ -208,7 +208,7 @@ public interface BookBorrowService {
 	 * @param schoolYear
 	 * @return tl_book_borrow_detil 所有内容
 	 */
-	public Page getBorrowBySchoolYear(int currentPage ,int numPerPage,int totalRow,String schoolYear);
+	public Page getBorrowBySchoolYear(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String schoolYear);
 	
 	/**
 	 * 通过月份获取借书列表
@@ -217,6 +217,6 @@ public interface BookBorrowService {
 	 * @param month
 	 * @return tl_book_borrow_detil 所有内容
 	 */
-	public Page getBorrowCountByMonth(int currentPage ,int numPerPage,int totalRow,String month);
+	public Page getBorrowCountByMonth(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String month);
 
 }

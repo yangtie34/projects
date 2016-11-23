@@ -82,9 +82,9 @@ public class BookBorrowServiceImpl implements BookBorrowService {
 	}
 
 	@Override
-	public Page getBorrow(int currentPage, int numPerPage,int totalRow, String startDate,
+	public Page getBorrow(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc, String startDate,
 			String endDate) {
-		return bookBorrowPageDao.getBorrow(currentPage,numPerPage,totalRow, startDate, endDate);
+		return bookBorrowPageDao.getBorrow(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate);
 	}
 
 	@Override
@@ -94,10 +94,10 @@ public class BookBorrowServiceImpl implements BookBorrowService {
 	}
 
 	@Override
-	public Page getBorrowByPeople(int currentPage, int numPerPage,int totalRow,
+	public Page getBorrowByPeople(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc,
 			String startDate, String endDate, String people) {
 		
-		return bookBorrowPageDao.getBorrowByPeople(currentPage,numPerPage,totalRow, startDate, endDate, people);
+		return bookBorrowPageDao.getBorrowByPeople(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, people);
 	}
 
 	@Override
@@ -108,38 +108,38 @@ public class BookBorrowServiceImpl implements BookBorrowService {
 	}
 
 	@Override
-	public Page getBorrowByStore(int currentPage, int numPerPage,int totalRow,
+	public Page getBorrowByStore(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc,
 			String startDate, String endDate, String store) {
 		
-		return bookBorrowPageDao.getBorrowByStore(currentPage,numPerPage,totalRow, startDate, endDate, store);
+		return bookBorrowPageDao.getBorrowByStore(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, store);
 	}
 
 	@Override
-	public Page getBorrowByDeptTeach(int currentPage, int numPerPage,int totalRow,
+	public Page getBorrowByDeptTeach(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc,
 			String startDate, String endDate, String deptTeach) {
 		
-		return bookBorrowPageDao.getBorrowByDeptTeach(currentPage,numPerPage,totalRow, startDate, endDate, deptTeach);
+		return bookBorrowPageDao.getBorrowByDeptTeach(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, deptTeach);
 	}
 
 	@Override
-	public Page getBorrowByTimePeo(int currentPage, int numPerPage,int totalRow,
+	public Page getBorrowByTimePeo(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc,
 			String startDate, String endDate, String time, String people) {
 		
-		return bookBorrowPageDao.getBorrowByTimePeo(currentPage,numPerPage,totalRow, startDate, endDate, time, people);
+		return bookBorrowPageDao.getBorrowByTimePeo(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, time, people);
 	}
 
 	@Override
-	public Page getBorrowBySchoolYear(int currentPage, int numPerPage,int totalRow,
+	public Page getBorrowBySchoolYear(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc,
 			String schoolYear) {
 		
-		return bookBorrowPageDao.getBorrowBySchoolYear(currentPage,numPerPage,totalRow, schoolYear);
+		return bookBorrowPageDao.getBorrowBySchoolYear(currentPage,numPerPage,totalRow,sort,isAsc, schoolYear);
 	}
 
 	@Override
-	public Page getBorrowCountByMonth(int currentPage, int numPerPage,int totalRow,
+	public Page getBorrowCountByMonth(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc,
 			String month) {
 		
-		return bookBorrowPageDao.getBorrowCountByMonth(currentPage,numPerPage,totalRow, month);
+		return bookBorrowPageDao.getBorrowCountByMonth(currentPage,numPerPage,totalRow,sort,isAsc, month);
 	}
 	
 }

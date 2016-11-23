@@ -30,7 +30,7 @@ public class JobNetServiceImpl implements JobNetService {
 	public JobResultBean initNetStuMonth() {
 		JobResultBean jrb=new JobResultBean();
 		int allNum=0;
-		logger.debug("初始化上网信息开始：");
+		logger.debug("初始化学生上网信息开始：");
 		for (int i = startYear; i <= nowYear; i++) {
 			for (int j = 0; j < months.length; j++) {
 				String yearMonth=i+"-"+months[j];
@@ -79,7 +79,7 @@ public class JobNetServiceImpl implements JobNetService {
 	@Override
 	public JobResultBean updateNetStuMonth() {
 		JobResultBean jrb=new JobResultBean();
-		logger.debug("更新上网信息开始：");
+		logger.debug("更新学生上网信息开始：");
 		try {
 			Map<String, Integer> map = jobNetDao.updateNetStuMonth(nowYearMonth);
 			jrb.setIsTrue(true);
@@ -192,6 +192,48 @@ public class JobNetServiceImpl implements JobNetService {
 		logger.debug("更新教师网络账号预警信息开始：");
 		try {
 			Map<String, Integer> map = jobNetDao.updateNetTeaWarn(nowYearMonth);
+			jrb.setIsTrue(true);
+			jrb.setMsg(nowYearMonth+"同步数据："+MapUtils.getIntValue(map, "addNum")+"条"
+					+ "（新增："+(MapUtils.getIntValue(map, "addNum")-MapUtils.getIntValue(map, "delNum"))+"条）");
+		} catch (Exception e) {
+			jrb.setIsTrue(false);
+			jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+		}
+		return jrb;
+	}
+
+	@Override
+	public JobResultBean initNetTeaMonth() {
+		JobResultBean jrb=new JobResultBean();
+		int allNum=0;
+		logger.debug("初始化教师上网信息开始：");
+		for (int i = startYear; i <= nowYear; i++) {
+			for (int j = 0; j < months.length; j++) {
+				String yearMonth=i+"-"+months[j];
+				Map<String, Integer> map;
+				try {
+					map = jobNetDao.updateNetTeaMonth(yearMonth);
+					allNum+=MapUtils.getIntValue(map, "addNum");
+					logger.debug(yearMonth+"结束：当前"+allNum);
+					jrb.setIsTrue(true);
+					jrb.setMsg("完成同步"+startYear+"-01至"+yearMonth+"中上网信息月报,共计"+allNum+"条数据");
+					System.out.println(jrb.getMsg());
+				} catch (Exception e) {
+					jrb.setIsTrue(false);
+					jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+					return jrb;
+				}
+			}
+		}
+		return jrb;
+	}
+
+	@Override
+	public JobResultBean updateNetTeaMonth() {
+		JobResultBean jrb=new JobResultBean();
+		logger.debug("更新教师上网信息开始：");
+		try {
+			Map<String, Integer> map = jobNetDao.updateNetTeaMonth(nowYearMonth);
 			jrb.setIsTrue(true);
 			jrb.setMsg(nowYearMonth+"同步数据："+MapUtils.getIntValue(map, "addNum")+"条"
 					+ "（新增："+(MapUtils.getIntValue(map, "addNum")-MapUtils.getIntValue(map, "delNum"))+"条）");

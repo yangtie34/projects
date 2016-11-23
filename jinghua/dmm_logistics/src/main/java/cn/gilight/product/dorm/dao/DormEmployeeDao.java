@@ -48,7 +48,7 @@ public interface DormEmployeeDao {
 	 * @param type 'LY','FJ'
 	 * @return
 	 */
-	public Page getDormTopByGroup(int currentPage,int numPerPage,int totalRow,Map<String,String> dorm,String type);
+	public Page getDormTopByGroup(int currentPage,int numPerPage,int totalRow,String sort,boolean isAsc,Map<String,String> dorm,String type);
 	
 	/**
 	 * 通过当前宿舍获取明细
@@ -57,7 +57,7 @@ public interface DormEmployeeDao {
 	 * @param id 'CW','KCW'时，次值为空，其余次值为所选的ID值
 	 * @return
 	 */
-	public Page getDormTopPage(int currentPage,int numPerPage,int totalRow,Map<String,String> dorm,String type,String id);
+	public Page getDormTopPage(int currentPage,int numPerPage,int totalRow,String sort,boolean isAsc,Map<String,String> dorm,String type,String id);
 	
 	
 }

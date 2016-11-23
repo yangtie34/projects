@@ -40,4 +40,12 @@ public interface JobNetDao {
 	 * @return
 	 */
 	public Map<String,Integer> updateNetTeaWarn(String yearMonth);
+	
+	/**
+	 * 教师上网月度LOG
+	 * @param year
+	 * @param month
+	 * @return
+	 */
+	public Map<String,Integer> updateNetTeaMonth(String yearMonth);
 }

@@ -127,7 +127,7 @@ public interface BookBorrowStuService {
 	 * @return
 	 * tl_book_borrow_detil 所有内容
 	 */
-	public Page getBorrow(int currentPage ,int numPerPage,int totalRow,String startDate, String endDate,Map<String,String> deptTeachs);
+	public Page getBorrow(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String startDate, String endDate,Map<String,String> deptTeachs);
 	
 	/**
 	 * 通过借阅者获取人均借书比
@@ -147,7 +147,7 @@ public interface BookBorrowStuService {
 	 * @param people
 	 * @return tl_book_borrow_detil 所有内容
 	 */
-	public Page getBorrowByPeople(int currentPage ,int numPerPage,int totalRow,String startDate, String endDate,String people,Map<String,String> deptTeachs);
+	public Page getBorrowByPeople(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String startDate, String endDate,String people,Map<String,String> deptTeachs);
 	
 	/**
 	 * 通过借阅者获取人均比
@@ -166,7 +166,7 @@ public interface BookBorrowStuService {
 	 * @param store
 	 * @return tl_book_borrow_detil 所有内容
 	 */
-	public Page getBorrowByStore(int currentPage ,int numPerPage,int totalRow,String startDate, String endDate,String store,Map<String,String> deptTeachs);
+	public Page getBorrowByStore(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String startDate, String endDate,String store,Map<String,String> deptTeachs);
 	
 	/**
 	 * 通过学院获取借书列表
@@ -177,7 +177,7 @@ public interface BookBorrowStuService {
 	 * @param deptTeach
 	 * @return tl_book_borrow_detil 所有内容
 	 */
-	public Page getBorrowByDeptTeach(int currentPage ,int numPerPage,int totalRow,String startDate, String endDate,String deptTeach,Map<String,String> deptTeachs);
+	public Page getBorrowByDeptTeach(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String startDate, String endDate,String deptTeach,Map<String,String> deptTeachs);
 	
 	/**
 	 * 通过时间和人员类型获取借书列表
@@ -189,7 +189,7 @@ public interface BookBorrowStuService {
 	 * @param people
 	 * @return tl_book_borrow_detil 所有内容
 	 */
-	public Page getBorrowByTimePeo(int currentPage ,int numPerPage,int totalRow,String startDate, String endDate,String time,String people,Map<String,String> deptTeachs);
+	public Page getBorrowByTimePeo(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String startDate, String endDate,String time,String people,Map<String,String> deptTeachs);
 	
 	/**
 	 * 通过学年获取借书列表
@@ -198,7 +198,7 @@ public interface BookBorrowStuService {
 	 * @param schoolYear
 	 * @return tl_book_borrow_detil 所有内容
 	 */
-	public Page getBorrowBySchoolYear(int currentPage ,int numPerPage,int totalRow,String schoolYear,Map<String,String> deptTeachs);
+	public Page getBorrowBySchoolYear(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String schoolYear,Map<String,String> deptTeachs);
 	
 	/**
 	 * 通过月份获取借书列表
@@ -207,7 +207,7 @@ public interface BookBorrowStuService {
 	 * @param month
 	 * @return tl_book_borrow_detil 所有内容
 	 */
-	public Page getBorrowCountByMonth(int currentPage ,int numPerPage,int totalRow,String month,Map<String,String> deptTeachs);
+	public Page getBorrowCountByMonth(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String month,Map<String,String> deptTeachs);
 	
 	/**
 	 * 图书借阅历史趋势

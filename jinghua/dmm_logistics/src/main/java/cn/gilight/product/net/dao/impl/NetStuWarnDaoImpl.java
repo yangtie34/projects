@@ -59,7 +59,7 @@ public class NetStuWarnDaoImpl implements NetStuWarnDao{
 	}
 
 	@Override
-	public Page getNetWarnTypeStus(int currentPage,int numPerPage,int totalRow,String startDate, String endDate,
+	public Page getNetWarnTypeStus(int currentPage,int numPerPage,int totalRow,String sort,boolean isAsc,String startDate, String endDate,
 			Map<String, String> deptTeach, String type, String value,
 			String codeType, String codeValue) {
 		String tj=getWhere(startDate, endDate, deptTeach);
@@ -85,7 +85,7 @@ public class NetStuWarnDaoImpl implements NetStuWarnDao{
 					"GROUP BY T.STU_ID,T.STU_NAME,T.DEPT_ID, T.DEPT_NAME ,T.MAJOR_ID,T.MAJOR_NAME ,T.CLASS_ID,        "+
 					"t.CLASS_NAME,t.SEX_CODE ,t.SEX_NAME ,t.EDU_ID, t.EDU_NAME ,t.NATION_CODE,t.NATION_NAME , t.NATION_NAME	 "+   
 					")t where STU_ID IS NOT NULL AND T.all_"+type+">="+value+" AND T."+codeType+"='"+codeValue+"' ORDER BY  all_"+type+" DESC";
-		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow);
+		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow,sort,isAsc);
 	}
 	
 }

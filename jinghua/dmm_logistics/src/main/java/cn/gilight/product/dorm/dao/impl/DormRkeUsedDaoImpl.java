@@ -76,8 +76,7 @@ public class DormRkeUsedDaoImpl implements DormRkeUsedDao{
 	}
 
 	@Override
-	public Page getDormRkeUsedPage(int currentPage, int numPerPage,
-			int totalRow, String startDate, String endDate,
+	public Page getDormRkeUsedPage(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc, String startDate, String endDate,
 			Map<String, String> deptTeach, String type, String type_code) {
 		//TODO 需要看一下一卡通的使用情况在点击院系明细的时候是否有错。
 		
@@ -85,7 +84,7 @@ public class DormRkeUsedDaoImpl implements DormRkeUsedDao{
 	}
 
 	@Override
-	public Page getNoDormRkeUsed(int currentPage, int numPerPage, int totalRow,
+	public Page getNoDormRkeUsed(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc,
 			String startDate, String endDate, Map<String, String> deptTeach) {
 		String dateTj=CardTjUtil.getDateTJ(startDate, endDate);
 		String deptTj=SqlUtil.getDeptTeachTj(deptTeach, ShiroTagEnum.DORM_RKE_STU.getCode(),"t");
@@ -97,7 +96,7 @@ public class DormRkeUsedDaoImpl implements DormRkeUsedDao{
 					"where rke_count <(MONTHS_BETWEEN(to_date('"+endDate+"', 'yyyy-mm'), "+
 					"to_date('"+startDate+"', 'yyyy-mm')) * "+Code.getKey("dorm.uesd")+") ) a "+
 					"inner join tl_dorm_stu b on a.stu_id=b.stu_id order by rke_count";
-		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow);
+		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow,sort,isAsc);
 	}
 	
 	private String getDormUsedSql(String startDate,String endDate, Map<String, String> deptTeach,String queryType){

@@ -96,7 +96,7 @@ app.controller("dormEmployController", [ "$scope","dialog",'mask','$timeout','ht
 			  	titlesCode=titlesCode.split(',');
 			  	var query=function(pg){
 			  		htt[i].params=[pg.currentPage || 1,
-			  				          pg.numPerPage || 10,  pg.totalRows||0,
+			  				          pg.numPerPage || 10,  pg.totalRows||0,pg.sort,pg.isAsc,
 			  				        deptTeach,scope.pageType
 			  				          ];
 			  		htt[i].params = htt[i].params.concat(params);  

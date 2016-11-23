@@ -17,7 +17,7 @@ public interface BookBorrowBookTopPageDao {
 	 * tl_book_borrow_detil表所有字段
 	 * 
 	 */
-	public Page getAllBorrow(int currentPage ,int numPerPage,int totalRow,String bookName);
+	public Page getAllBorrow(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String bookName);
 	
 	/**
 	 * 根据书名获取所有上榜TOP10次数列表
@@ -28,7 +28,7 @@ public interface BookBorrowBookTopPageDao {
 	 * school_year,year_,month_,rank_,borrow_num,name,ofid,ofname<br>
 	 * 所处学年，年份，月份，名次，借阅次数，书名，所属ID，所属名称
 	 */
-	public Page getAllTop(int currentPage ,int numPerPage,int totalRow,String bookName);
+	public Page getAllTop(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String bookName);
 	
 	/**
 	 * 获取根据书名和起止时间获取所有借书列表
@@ -41,7 +41,7 @@ public interface BookBorrowBookTopPageDao {
 	 * tl_book_borrow_detil表所有字段
 	 * 
 	 */
-	public Page getBorrowByTime(int currentPage ,int numPerPage,int totalRow,String startDate, String endDate,String bookName);
+	public Page getBorrowByTime(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String startDate, String endDate,String bookName);
 	
 	/**
 	 * 根据书名和起止时间获取所有上榜TOP10次数列表
@@ -55,7 +55,7 @@ public interface BookBorrowBookTopPageDao {
 	 * 所处学年，年份，月份，名次，借阅次数，书名，所属ID，所属名称
 	 * 
 	 */
-	public Page getTopByTime(int currentPage ,int numPerPage,int totalRow,String startDate, String endDate,String bookName);
+	public Page getTopByTime(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String startDate, String endDate,String bookName);
 	
 	/**
 	 * 根据藏书类别和起止时间与名次获取列表
@@ -69,6 +69,6 @@ public interface BookBorrowBookTopPageDao {
 	 * rank_,borrow_num,BOOK_NAME,STORE_CODE,STORE_NAME <br>
 	 * 名次，借阅次数，书名，藏书类别，类别名称
 	 */
-	public Page getStore(int currentPage ,int numPerPage,int totalRow,String startDate, String endDate,int rank,String storeId,String value);
+	public Page getStore(int currentPage ,int numPerPage,int totalRow,String sort,boolean isAsc,String startDate, String endDate,int rank,String storeId,String value);
 	
 }

@@ -68,14 +68,14 @@ public class DormEmployeeServiceImpl implements DormEmployeeService {
 
 	@Override
 	public Page getDormTopByGroup(int currentPage, int numPerPage,
-			int totalRow, Map<String, String> dorm, String type) {
-		return dormEmployeeDao.getDormTopByGroup(currentPage, numPerPage, totalRow, dorm, type);
+			int totalRow,String sort,boolean isAsc, Map<String, String> dorm, String type) {
+		return dormEmployeeDao.getDormTopByGroup(currentPage, numPerPage, totalRow,sort,isAsc, dorm, type);
 	}
 
 	@Override
 	public Page getDormTopPage(int currentPage, int numPerPage,
-			int totalRow, Map<String, String> dorm, String type, String id) {
-		return dormEmployeeDao.getDormTopPage(currentPage, numPerPage, totalRow, dorm, type, id);
+			int totalRow,String sort,boolean isAsc, Map<String, String> dorm, String type, String id) {
+		return dormEmployeeDao.getDormTopPage(currentPage, numPerPage, totalRow,sort,isAsc, dorm, type, id);
 	}
 
 }

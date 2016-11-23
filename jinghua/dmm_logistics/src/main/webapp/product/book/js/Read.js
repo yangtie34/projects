@@ -62,7 +62,7 @@ app.controller("BookReadController", [ "$scope","dialog",'mask','$timeout','http
 	  	var query=function(pg){
 	  		htt[i].params=[pg.currentPage || 1,
 	  				          pg.numPerPage || 10,
-	  				        pg.totalRows||0
+	  				        pg.totalRows||0,pg.sort,pg.isAsc
 	  				          ];
 	  		htt[i].params = htt[i].params.concat(params);  
 	  	 mask.showLoading();

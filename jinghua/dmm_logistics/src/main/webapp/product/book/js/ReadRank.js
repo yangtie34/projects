@@ -145,7 +145,7 @@ app.controller("ReadRankController", [ "$scope","dialog",'mask','$timeout','http
 	  	var query=function(pg){
 	  		htt[i].params=[pg.currentPage || 1,
 	  				          pg.numPerPage || 10,
-	  				        pg.totalRows||0
+	  				        pg.totalRows||0,pg.sort,pg.isAsc
 	  				          ];
 	  		htt[i].params = htt[i].params.concat(params);  
 	  	 mask.showLoading();
@@ -165,6 +165,7 @@ app.controller("ReadRankController", [ "$scope","dialog",'mask','$timeout','http
 	  		  d.titles=titles;
 	  		  d.titlesCode=titlesCode;
 	  		  d.func=query;
+	  		  //d.Sort=false;
 	  		  scope.pagexq=angular.copy(d);
 	  	  });
 	  	};

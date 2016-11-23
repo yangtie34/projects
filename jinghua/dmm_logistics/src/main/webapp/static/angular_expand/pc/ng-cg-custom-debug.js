@@ -2269,7 +2269,7 @@ jxpg.directive('cgComboXz', ['$interval',"$timeout","$compile",'mask','exportPag
 				
 			}, true);
 			scope.orderReload=function(index){
-				if(scope.data.Sort=false)return;
+				if(scope.data.Sort==false)return;
 				var sort=scope.data.titlesCode[index];
 				var isAsc=scope.titlesClick[index];
 				if(isAsc==null){

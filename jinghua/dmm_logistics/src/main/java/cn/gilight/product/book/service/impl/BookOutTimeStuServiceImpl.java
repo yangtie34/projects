@@ -83,16 +83,16 @@ public class BookOutTimeStuServiceImpl implements BookOutTimeStuService {
 	}
 
 	@Override
-	public Page getNowOutTime(int currentPage, int numPerPage,int totalRow,Map<String,String> deptTeachs) {
+	public Page getNowOutTime(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc,Map<String,String> deptTeachs) {
 		
-		return bookOutTimeStuPageDao.getNowOutTime(currentPage, numPerPage,totalRow,deptTeachs);
+		return bookOutTimeStuPageDao.getNowOutTime(currentPage, numPerPage,totalRow,sort,isAsc,deptTeachs);
 	}
 
 	@Override
-	public Page getOutTime(int currentPage, int numPerPage,int totalRow, String startDate,
+	public Page getOutTime(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc, String startDate,
 			String endDate,Map<String,String> deptTeachs) {
 		
-		return bookOutTimeStuPageDao.getOutTime(currentPage,numPerPage,totalRow, startDate, endDate,deptTeachs);
+		return bookOutTimeStuPageDao.getOutTime(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate,deptTeachs);
 	}
 
 	@Override
@@ -103,10 +103,10 @@ public class BookOutTimeStuServiceImpl implements BookOutTimeStuService {
 	}
 
 	@Override
-	public Page getOutTimeByPeople(int currentPage, int numPerPage,int totalRow,
+	public Page getOutTimeByPeople(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc,
 			String startDate, String endDate, String people,Map<String,String> deptTeachs) {
 		
-		return bookOutTimeStuPageDao.getOutTimeByPeople(currentPage,numPerPage,totalRow, startDate, endDate, people,deptTeachs);
+		return bookOutTimeStuPageDao.getOutTimeByPeople(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, people,deptTeachs);
 	}
 
 	@Override
@@ -117,31 +117,31 @@ public class BookOutTimeStuServiceImpl implements BookOutTimeStuService {
 	}
 
 	@Override
-	public Page getOutTimeByStore(int currentPage, int numPerPage,int totalRow,
+	public Page getOutTimeByStore(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc,
 			String startDate, String endDate, String store,Map<String,String> deptTeachs) {
 		
-		return bookOutTimeStuPageDao.getOutTimeByStore(currentPage,numPerPage,totalRow, startDate, endDate, store,deptTeachs);
+		return bookOutTimeStuPageDao.getOutTimeByStore(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, store,deptTeachs);
 	}
 
 	@Override
-	public Page getOutTimeByDeptTeach(int currentPage, int numPerPage,int totalRow,
+	public Page getOutTimeByDeptTeach(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc,
 			String startDate, String endDate, String deptTeach,Map<String,String> deptTeachs) {
 		
-		return bookOutTimeStuPageDao.getOutTimeByDeptTeach(currentPage,numPerPage,totalRow, startDate, endDate, deptTeach,deptTeachs);
+		return bookOutTimeStuPageDao.getOutTimeByDeptTeach(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, deptTeach,deptTeachs);
 	}
 
 	@Override
-	public Page getBorrowByTimePeo(int currentPage, int numPerPage,int totalRow,
+	public Page getBorrowByTimePeo(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc,
 			String startDate, String endDate, String time, String people,Map<String,String> deptTeachs) {
 		
-		return bookOutTimeStuPageDao.getBorrowByTimePeo(currentPage,numPerPage,totalRow, startDate, endDate, time, people,deptTeachs);
+		return bookOutTimeStuPageDao.getBorrowByTimePeo(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, time, people,deptTeachs);
 	}
 
 	@Override
-	public Page getOutTimeBySchoolYear(int currentPage, int numPerPage,int totalRow,
+	public Page getOutTimeBySchoolYear(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc,
 			String schoolYeasr,Map<String,String> deptTeachs) {
 		
-		return bookOutTimeStuPageDao.getOutTimeBySchoolYear(currentPage,numPerPage,totalRow, schoolYeasr,deptTeachs);
+		return bookOutTimeStuPageDao.getOutTimeBySchoolYear(currentPage,numPerPage,totalRow,sort,isAsc, schoolYeasr,deptTeachs);
 	}
 	
 }

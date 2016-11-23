@@ -53,9 +53,30 @@
 
 						<div class="clearfix"></div>
 						<div cg-combo-nyrtj result="date" yid=1></div>
-				<div cg-mul-query-comm source="mutiSource" result="deptResult"
+				
+                            选择排名：
+                                                        <div class="danxuan">
+                                <div class="radio radio-inline radio-change radio-blue">
+                                    <input type="radio" name="radio053_41" id="xs_053_41" value=10 checked="" ng-model="rank">
+                                    <label for="xs_053_41" class="fw-nm">
+                                      top10
+                                    </label>
+                                </div>
+                                <div class="radio radio-inline radio-change radio-blue">
+                                    <input type="radio" name="radio053_41" id="js_053_41" value=20 ng-model="rank">
+                                    <label for="js_053_41" class="fw-nm">
+                                     top20
+                                    </label>
+                                </div>
+                                <div class="radio radio-inline radio-change radio-blue">
+                                    <input type="radio" name="radio053_41" id="sj_053_41" value=100 ng-model="rank">
+                                    <label for="sj_053_41" class="fw-nm">
+                                      top100
+                                    </label>
+                                </div>
+                            </div>
+                            <div cg-mul-query-comm source="mutiSource" result="deptResult"
 									noborder="true"></div>
-
 						<div class="clearfix"></div>
 					</div>
 					<!--------------------------------------------------- 以上为books-top-imges内容------------------------------------------------>
@@ -65,11 +86,56 @@
 						    padding-bottom: 0px;
 						        border-bottom: 1px solid #7a8aa3;
 						">
-									<h4 >教师上网{{type}}排名</h4>
+									<h4 >教师上网{{type=='flow'?'流量':'时长'}}排名</h4>
 								</div>
-								
-				<div cg-report-table resource="tableData"
-							class=" xscz-ft-18"></div>				
+								 <br>
+								  <p class="pad-r-10 text-right"><a href="" ng-click="exportExcel();"title="导出列表"><img src="${images}/send.png" alt="">导出</a></p>
+                                  <!--  -->
+				                    <div class="tab">
+                    <!-- 	<div class="tab_tit">
+                        	<a href="" ng-class="queryTypeindex==0?'tab_active':''" ng-click="queryTypeClick(0);">个人排名</a>
+                            <a href=""ng-class="queryTypeindex==1?'tab_active':''" ng-click="queryTypeClick(1);">单位排名</a>
+                        </div> -->
+                        <table class="table table-change"> 
+                           <thead>
+                              <tr>
+                                 <th ng-repeat="item in titles.name">{{item}}</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr class="tab_dashed" ng-repeat="item in vm.items[0]">
+                                 <td ng-repeat="ite in titles.code">{{item[ite]}}</td>
+                              </tr>
+                            <!--   <tr>
+                                 <td>2</td>
+                                 <td><a href="" class="colorr">124123</a></td>
+                                 <td><a href="" class="colorr">刘佳媛</a></td>
+                                 <td>科研室</td>
+                                 <td><a href="" class="colorr">7</a>（贵：<a href="" class="colorr">5</a>）</td>
+                                 <td>233万元</td>
+                              </tr> -->
+                           </tbody>
+                        </table>
+                    </div>
+           <!--分页-->
+      		<div class="quanxian-pager"><span class="quanxian-pager-text-ccc">当前查询：共 {{page.totalPages}} 页，数据 {{page.totalRows}} 条</span>
+		<div>                                                                                                                                                                           
+		<div class="table-info table-inline-block set-page-width fright">
+				<div pagination total-items="page.totalRows" ng-model="page.currentPage" max-size="page.numPerPage" items-per-page="page.numPerPage"
+				 class="pagination-sm pull-right" boundary-links="true"></div>
+			</div>
+			<div style="float: right;padding-top: 10px;" class="page_numPerPage">
+				<select ng-model="page.numPerPage" style="border: 1px solid #DDD;"><option
+						value="5">5</option>
+					<option value="10">10</option>
+					<option value="20">20</option>
+					<option value="50">50</option>
+				</select> / 每页
+			</div>
+			<div style="clear: both;"></div>
+			</div>
+      	</div> 
+<!--分页-->		
 								
 			</div>
 			<div class="clearfix"></div>

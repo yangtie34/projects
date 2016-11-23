@@ -10,11 +10,9 @@ app.controller("netTeaRankController", [ "$scope","dialog",'mask','$timeout','ht
 	 	};
 
 	  var htt=[];
-	  var httservice="netTeaRankService?"; //学生上网预警
+	  var httservice="netTeaTopService?"; //
 	  var methods=[	
-	        	'getNetWarnStus',					//0获取预警人员
-	        	'getNetStuType',		//1预警人员分类型展示
-	        	'getNetWarnTypeStus',//2按类型获取预警人员信息
+	        	'getTeaTop',					//0获取排名
 	               ]; 
 var getServiceData=function(){
 	  for(var i=0;i<methods.length;i++){
@@ -25,17 +23,14 @@ var getServiceData=function(){
 	 }
 };
 getServiceData();
-scope.type='flow';
 scope.flowOrtimeClick=function(flowtime){
 	scope.type=flowtime;
-}
-	scope.titlesCode="STU_ID,STU_NAME,SEX_NAME,DEPT_NAME,MAJOR_NAME,CLASS_NAME,EDU_NAME,NATION_NAME,ALL_TIME,ALL_FLOW,ALL_MONEY".split(',');
-	scope.titles="学号,学生,性别,学院,专业,班级,学历,民族,时长(分),流量(MB),金额(元)".split(',');
-	  
+	getparams(0);
+}  
 var getDeptData=function(method){
 http.callService({
 	  service:'deptTreeService?get'+method,
-	  params:['hq:net:netStuWarn:'+method+':*']
+	  params:['hq:net:netTeaRank:'+method+':*']
   }).success(function(data){
 	var getChildren=function(data){
 		var item={};
@@ -68,72 +63,65 @@ http.callService({
 })
 };
 getDeptData("DeptTeach");
-scope.timeFlow=function(type){
-	if(scope.netType==type){
-		return;
-	}else{
-		scope.netType=type;
-	}
-	initvm();getAllData(m);
-}
 var initvm=function(){
 	vm = scope.vm = {};
 	  vm.items = [];
 }
-var getvmData=function(i,type){
+scope.exportExcel=function(){
+	 mask.showLoading();
+var invoke=angular.copy(htt[0]);
+invoke.params[0]=1;
+invoke.params[1]=scope.page.totalRows;
+var ex={
+	 invoke:invoke,
+	 title:'教师上网信息排名',
+	 titles:scope.titles.name,
+	 titleCodes:scope.titles.code
+}
+mask.hideLoading(); 
+exportPage.callService(ex).success(function(ret){
+	
+})
+
+}
+var getvmData=function(i){
 	http.callService(htt[i]).success(function(data){
 		 if(i==0){
 			  vm.items[i]=data.resultList;
 			  scope.page.totalRows=data.totalRows;
 			  scope.page.totalPages=data.totalPages;
-		 }else if(i==1){//饼状图
-			 vm.items[i]=vm.items[i]||{};
-			 var d=[];
-			 for(var j=0;j<data.length;j++){
-				 d.push({field:data[j].NAME,fieldCode:data[j].CODE,value:data[j].VALUE,name:'人数(人)'}); 
-			 }
-			 var option=getOption(d,'',type=='allMz'?'zzt':'bzt'); 
-			 option.event=function(param){
-					scope.codeValue=type=='allMz'?option.series[param.seriesIndex].dataCode[param.dataIndex]:param.data.nameCode;
-					scope.codeType=type;
-					scope.getxqlb(2);
-					 timeout();
-				 };
-			 vm.items[i][type]=option;
 		 }
 		 mask.hideLoading(); 
 	  });
 	
 };
-var getparams=function(i,type){
+scope.titles={
+			code:['RANK_','TEA_NO','TEA_NAME','USE_FLOW','USE_MONEY','USE_TIME','ALL_COUNTS','SEX_NAME','DEPT_NAME','EDU_NAME'],
+			name:['排名','职工号','姓名','流量','金额','时长','上网次数','性别','部门','学历']
+	}
+var getparams=function(i){
 		 var params=[];
 		 if(i==0){
 			 params=[scope.page.currentPage || 1,
 			         scope.page.numPerPage || 10,0,
-			         startTime,endTime,deptTeach,scope.netType,scope.value];
+			         startTime,endTime,deptTeach,scope.type,scope.rank];
 			 htt[i].params=params;
-			 getvmData(i,null);
-		 }else if(i==1){
-			 for(var k=0;k<type.length;k++){
-				 params=[startTime,endTime,deptTeach,scope.netType,scope.value,type[k]];
-				 htt[i].params=params;
-				 getvmData(i,type[k]); 
-			 }
+			 getvmData(i);
 		 }
 };
 var getAllData=function(m){
 	for(var i=0;i<m.length;i++){
 		 mask.showLoading();
-		getparams(m[i],['xb','xl','allMz']);
+		getparams(m[i]);
 	}
 };
-var m=[0,1];
-scope.netType='time';
+var m=[0];
+scope.type='flow';
 var startTime=null;
 var endTime=null;
 var deptTeach=null;
 var initId=0;
-scope.value=400;
+scope.rank=10;
 
 /*监控时间*/
 scope.$watch('date',function(val1,val2){
@@ -149,10 +137,7 @@ scope.$watch('date',function(val1,val2){
 		  if(val1.currentPage != val2.currentPage && angular.toJson(val1.conditions) == angular.toJson(val2.conditions)||val1.numPerPage!=val2.numPerPage){
 			  mask.showLoading();getparams(0);
 		  }
-	  },true);
-	  var type1Titles=[['排名','学生号','学生名称','所属学院','借书次数','月度上榜次数'],
-	                   ['Id','教师号','学生名称','所属学院','借书次数','月度上榜次数'],
-	                   ['Id','生号','学生名称','所属学院','借书次数','月度上榜次数']];
+	  },true);	 
 	  
 	  /*监控dept*/
 		scope.$watch('deptResult',function(val1,val2){
@@ -160,23 +145,11 @@ scope.$watch('date',function(val1,val2){
 				 deptTeach=val1[0];
 				if(initId>0){initvm();getAllData(m);}
 		},true);
-		
-	  scope.myKeyup=function(e){
-		  var keynum;
-			if(window.event) 
-		  	{
-		  		keynum = e.keyCode;
-		  	} else if(e.which) 
-		  	{
-		  		keynum = e.which;
-		  	}
-		  	if(keynum==13){
-		  		scope.sxreload();
-		  	}
-	  };
-	  scope.sxreload=function(){
-		  getAllData(m);
-	  };
+		  scope.$watch('rank',function(val1,val2){
+			  	if(val1!=null){ mask.showLoading();vm.items[0]=null;
+			  		if(initId!=0) getAllData(m);
+			  	}
+			  },true);
 	//初始化数据
 		var initData=function(){
 			if(initId==0&&startTime!=null&&deptTeach!=null&&initvm!=null){

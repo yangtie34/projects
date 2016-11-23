@@ -162,7 +162,7 @@
 				<div pagination total-items="page.totalRows" ng-model="page.currentPage" max-size="page.numPerPage" items-per-page="page.numPerPage"
 				 class="pagination-sm pull-right" boundary-links="true"></div>
 			</div>
-			<div style="float: right;padding-top: 23px;" class="page_numPerPage">
+			<div style="float: right;padding-top: 10px;" class="page_numPerPage">
 				<select ng-model="page.numPerPage" style="border: 1px solid #DDD;"><option
 						value="5">5</option>
 					<option value="10">10</option>

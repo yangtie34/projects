@@ -96,8 +96,8 @@ var getvmData=function(i){
 	
 };
 scope.titles={
-			code:['RANK_','TEA_NO','TEA_NAME','USE_FLOW','USE_MONEY','USE_TIME','ALL_COUNTS','SEX_NAME','DEPT_NAME','EDU_NAME'],
-			name:['排名','职工号','姓名','流量','金额','时长','上网次数','性别','部门','学历']
+			code:['RANK_','TEA_NO','TEA_NAME','USE_FLOW','USE_TIME','SEX_NAME','DEPT_NAME','EDU_NAME'],
+			name:['排名','职工号','姓名','流量','时长','性别','部门','学历']
 	}
 var getparams=function(i){
 		 var params=[];

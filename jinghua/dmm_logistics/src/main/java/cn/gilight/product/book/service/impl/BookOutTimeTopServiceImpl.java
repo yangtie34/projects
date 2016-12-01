@@ -6,7 +6,11 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.jhnu.syspermiss.GetCachePermiss;
+
+import cn.gilight.framework.enums.ShiroTagEnum;
 import cn.gilight.framework.page.Page;
+import cn.gilight.framework.uitl.common.UserUtil;
 import cn.gilight.product.book.dao.BookOutTimeDayBookTopDao;
 import cn.gilight.product.book.dao.BookOutTimeDayBookTopPageDao;
 import cn.gilight.product.book.dao.BookOutTimeDayStuTopDao;
@@ -241,6 +245,9 @@ public class BookOutTimeTopServiceImpl implements BookOutTimeTopService {
 	@Override 
 	public Page getOutTime(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc, String type,
 			String numOrDay, String startDate, String endDate, String id) {
+		if(!GetCachePermiss.hasPermssion(UserUtil.getCasLoginName(), ShiroTagEnum.BOOK_OVERDUERANK_JYXZ.getCode())){
+			return new Page(false);
+		}
 		if("stu".equals(type)){
 			if("num".equals(numOrDay)){
 				return bookOutTimeNumStuTopPageDao.getOutTimeByTime(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, id);

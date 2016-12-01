@@ -35,7 +35,7 @@ public class ResourcesDaoImpl implements ResourcesDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Resources> getAllResources(String sys) {
-		String sql = "select * from t_sys_resources  where istrue=1 and sysGroup_ in(select id from t_sys_resources where "+"';'||lower(url_)||';'"+" like '%;"+sys.toLowerCase()+";%' or "+"';'||lower(url_)||';'"+" like '%;"+sys.toLowerCase()+"/;%' ) start with pid=-1 connect by prior id=pid order siblings by level_,order_";
+		String sql = "select * from t_sys_resources  where istrue=1 and (resource_type_code='01' or resource_type_code='02') and sysGroup_ in(select id from t_sys_resources where "+"';'||lower(url_)||';'"+" like '%;"+sys.toLowerCase()+";%' or "+"';'||lower(url_)||';'"+" like '%;"+sys.toLowerCase()+"/;%' ) start with pid=-1 connect by prior id=pid order siblings by level_,order_";
 		return baseDao.query(sql, Resources.class);
 	}
 
@@ -116,7 +116,7 @@ public class ResourcesDaoImpl implements ResourcesDao {
 				"where (r.resource_type_code='01' or r.resource_type_code='02') and r.istrue=1 "+
 				"and r.sysgroup_ = (select id from t_sys_resources where "+"';'||lower(url_)||';'"+" like '%;"+sys.toLowerCase()+";%' or "+"';'||lower(url_)||';'"+" like '%;"+sys.toLowerCase()+"/;%' ) "+
 				"order  by  r.level_ ,r.order_ ";
-	return baseDao.query(sql,Resources.class, new Object[]{username,username,sys.toLowerCase()});
+	return baseDao.query(sql,Resources.class, new Object[]{username,username});
 }
 	@SuppressWarnings({ "unchecked" })
 	@Override

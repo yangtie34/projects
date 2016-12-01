@@ -22,7 +22,27 @@ public enum ShiroTagEnum {
 	NET_STU("hq:net:netStu:*","学生上网习惯分析"),
 	NET_STU_WARN("hq:net:netStuWarn:*","学生上网预警"),
 	NET_STU_DEPT("hq:net:netStuDept:*","各院系学生上网对比"),
-	NET_TEA_WARN("hq:net:netTeaWarn:*","教师上网账号异常");
+	NET_TEA_WARN("hq:net:netTeaWarn:*","教师上网账号异常"),
+	NET_TEA_RANK("hq:net:netTeaRank:*","教师上网排名"),
+
+
+	
+	//下钻shiro_tag
+	YQSB_SBXZ("hq:yqsb:sbxz:*","设备下钻"),
+	YQSB_RYXZ("hq:yqsb:ryxz:*","人员下钻"),
+	BOOK_INFO_TSXZ("hq:book:info:tsxz:*","图书下钻"),
+	BOOK_INFO_DZXZ("hq:book:info:dzxz:*","读者下钻"),
+	BOOK_READ_JYXZ("hq:book:read:jyxz:*","借阅下钻"),
+	BOOK_READRANK_JYXZ("hq:book:readRank:jyxz:*","借阅下钻"),
+	BOOK_OVERDUE_JYXZ("hq:book:overdue:jyxz:*","借阅下钻"),
+	BOOK_OVERDUERANK_JYXZ("hq:book:overdueRank:jyxz:*","借阅下钻"),
+	BOOK_READSTU_JYXZ("hq:book:readStu:jyxz:*","借阅下钻"),
+	BOOK_OVERDUESTU_JYXZ("hq:book:overdueStu:jyxz:*","借阅下钻"),
+	DORM_DORMEMPLOY_SSXZ("hq:dorm:dormEmploy:ssxz:*","宿舍下钻"),
+	DORM_DORMEMPLOY_CWXZ("hq:dorm:dormEmploy:cwxz:*","床位下钻"),
+	NET_NETTEAWARN_IPXZ("hq:net:netTeaWarn:ipxz:*","ip下钻");
+
+	
 	
 	
     private String code;  

@@ -6,7 +6,11 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.jhnu.syspermiss.GetCachePermiss;
+
+import cn.gilight.framework.enums.ShiroTagEnum;
 import cn.gilight.framework.page.Page;
+import cn.gilight.framework.uitl.common.UserUtil;
 import cn.gilight.product.book.dao.BookOutTimeStuDao;
 import cn.gilight.product.book.dao.BookOutTimeStuPageDao;
 import cn.gilight.product.book.service.BookOutTimeStuService;
@@ -84,14 +88,18 @@ public class BookOutTimeStuServiceImpl implements BookOutTimeStuService {
 
 	@Override
 	public Page getNowOutTime(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc,Map<String,String> deptTeachs) {
-		
+		if(!GetCachePermiss.hasPermssion(UserUtil.getCasLoginName(), ShiroTagEnum.BOOK_OVERDUESTU_JYXZ.getCode())){
+			return new Page(false);
+		}
 		return bookOutTimeStuPageDao.getNowOutTime(currentPage, numPerPage,totalRow,sort,isAsc,deptTeachs);
 	}
 
 	@Override
 	public Page getOutTime(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc, String startDate,
 			String endDate,Map<String,String> deptTeachs) {
-		
+		if(!GetCachePermiss.hasPermssion(UserUtil.getCasLoginName(), ShiroTagEnum.BOOK_OVERDUESTU_JYXZ.getCode())){
+			return new Page(false);
+		}
 		return bookOutTimeStuPageDao.getOutTime(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate,deptTeachs);
 	}
 
@@ -105,7 +113,9 @@ public class BookOutTimeStuServiceImpl implements BookOutTimeStuService {
 	@Override
 	public Page getOutTimeByPeople(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc,
 			String startDate, String endDate, String people,Map<String,String> deptTeachs) {
-		
+		if(!GetCachePermiss.hasPermssion(UserUtil.getCasLoginName(), ShiroTagEnum.BOOK_OVERDUESTU_JYXZ.getCode())){
+			return new Page(false);
+		}
 		return bookOutTimeStuPageDao.getOutTimeByPeople(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, people,deptTeachs);
 	}
 
@@ -119,28 +129,36 @@ public class BookOutTimeStuServiceImpl implements BookOutTimeStuService {
 	@Override
 	public Page getOutTimeByStore(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc,
 			String startDate, String endDate, String store,Map<String,String> deptTeachs) {
-		
+		if(!GetCachePermiss.hasPermssion(UserUtil.getCasLoginName(), ShiroTagEnum.BOOK_OVERDUESTU_JYXZ.getCode())){
+			return new Page(false);
+		}
 		return bookOutTimeStuPageDao.getOutTimeByStore(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, store,deptTeachs);
 	}
 
 	@Override
 	public Page getOutTimeByDeptTeach(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc,
 			String startDate, String endDate, String deptTeach,Map<String,String> deptTeachs) {
-		
+		if(!GetCachePermiss.hasPermssion(UserUtil.getCasLoginName(), ShiroTagEnum.BOOK_OVERDUESTU_JYXZ.getCode())){
+			return new Page(false);
+		}
 		return bookOutTimeStuPageDao.getOutTimeByDeptTeach(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, deptTeach,deptTeachs);
 	}
 
 	@Override
 	public Page getBorrowByTimePeo(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc,
 			String startDate, String endDate, String time, String people,Map<String,String> deptTeachs) {
-		
+		if(!GetCachePermiss.hasPermssion(UserUtil.getCasLoginName(), ShiroTagEnum.BOOK_OVERDUESTU_JYXZ.getCode())){
+			return new Page(false);
+		}
 		return bookOutTimeStuPageDao.getBorrowByTimePeo(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, time, people,deptTeachs);
 	}
 
 	@Override
 	public Page getOutTimeBySchoolYear(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc,
 			String schoolYeasr,Map<String,String> deptTeachs) {
-		
+		if(!GetCachePermiss.hasPermssion(UserUtil.getCasLoginName(), ShiroTagEnum.BOOK_OVERDUESTU_JYXZ.getCode())){
+			return new Page(false);
+		}
 		return bookOutTimeStuPageDao.getOutTimeBySchoolYear(currentPage,numPerPage,totalRow,sort,isAsc, schoolYeasr,deptTeachs);
 	}
 	

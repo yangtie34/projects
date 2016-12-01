@@ -37,7 +37,6 @@ import com.alibaba.fastjson.JSONObject;
  */
 public class ExportUtil {
 	private static final int BUFFER = 1024;
-	public static List list=null;
 	/**
 	 * 创建路径下的文件，并返回文件
 	 * @param fileName

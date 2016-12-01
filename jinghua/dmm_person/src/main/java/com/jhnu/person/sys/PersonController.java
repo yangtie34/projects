@@ -8,20 +8,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.jhnu.framework.data.base.BaseDao;
 import com.jhnu.person.stu.service.StuInfoService;
 import com.jhnu.person.tea.service.TeaInfoService;
 import com.jhnu.syspermiss.GetCachePermiss;
 import com.jhnu.syspermiss.catche.PermissCache;
-import com.jhnu.syspermiss.util.UserUtil;
-import com.jhnu.util.common.ContextHolderUtils;
+
 
 
 @Controller
 @RequestMapping("/person")
 public class PersonController {	
-	@Autowired
-	private BaseDao baseDao;
 	@Autowired
 	private StuInfoService stuInfoService;
 	@Autowired
@@ -30,9 +26,9 @@ public class PersonController {
 	@RequestMapping(method=RequestMethod.GET, value="index")
 	public ModelAndView goToIndex(){
 		String url="";
-		String userName = UserUtil.getCasLoginName();
+		String userName = IDStarUserUtil.getUserName();//UserUtil.getCasLoginName();
+		IDStarUserUtil.initPermiss(userName);
 		String rootRole=GetCachePermiss.getUserRootRole(userName);
-		String sql="";
 		String sex=null;
 		switch(rootRole){
 		case "student":
@@ -78,4 +74,10 @@ public class PersonController {
 		ModelAndView mv=new ModelAndView(url);
 		return mv;
 	}
+	@RequestMapping(method=RequestMethod.GET, value="logout")
+	public ModelAndView logout(){
+		ModelAndView mv=new ModelAndView("common/logout");
+		return mv;
+	}
+	
 }

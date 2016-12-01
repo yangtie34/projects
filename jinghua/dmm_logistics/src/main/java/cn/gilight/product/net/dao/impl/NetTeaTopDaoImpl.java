@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import cn.gilight.framework.base.dao.BaseDao;
+import cn.gilight.framework.enums.ShiroTagEnum;
 import cn.gilight.framework.page.Page;
 import cn.gilight.framework.uitl.common.SqlUtil;
 import cn.gilight.product.net.dao.NetTeaTopDao;
@@ -20,7 +21,7 @@ public class NetTeaTopDaoImpl implements NetTeaTopDao{
 	public Page getTeaTop(int currentPage, int numPerPage, int totalRow,
 			String startDate, String endDate, Map<String, String> dept,
 			String type, int rank) {
-		String tj=SqlUtil.getDateTJ(startDate, endDate, "t")+SqlUtil.getDeptTj(dept, "", "t");
+		String tj=SqlUtil.getDateTJ(startDate, endDate, "t")+SqlUtil.getDeptTj(dept, ShiroTagEnum.NET_TEA_RANK.getCode(), "t");
 		String sql="select * from ( "+
 					"select dense_rank() over(order by sum(t.use_"+type+") desc) rank_, "+
 					"sum(t.use_time) use_time,sum(t.use_flow) use_flow,sum(t.use_money) use_money, "+

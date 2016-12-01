@@ -6,7 +6,11 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.jhnu.syspermiss.GetCachePermiss;
+
+import cn.gilight.framework.enums.ShiroTagEnum;
 import cn.gilight.framework.page.Page;
+import cn.gilight.framework.uitl.common.UserUtil;
 import cn.gilight.product.book.dao.BookBorrowDao;
 import cn.gilight.product.book.dao.BookBorrowPageDao;
 import cn.gilight.product.book.service.BookBorrowService;
@@ -84,6 +88,9 @@ public class BookBorrowServiceImpl implements BookBorrowService {
 	@Override
 	public Page getBorrow(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc, String startDate,
 			String endDate) {
+		if(!GetCachePermiss.hasPermssion(UserUtil.getCasLoginName(), ShiroTagEnum.DORM_DORMEMPLOY_SSXZ.getCode())){
+			return new Page(false);
+		}
 		return bookBorrowPageDao.getBorrow(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate);
 	}
 
@@ -96,7 +103,9 @@ public class BookBorrowServiceImpl implements BookBorrowService {
 	@Override
 	public Page getBorrowByPeople(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc,
 			String startDate, String endDate, String people) {
-		
+		if(!GetCachePermiss.hasPermssion(UserUtil.getCasLoginName(), ShiroTagEnum.BOOK_READ_JYXZ.getCode())){
+			return new Page(false);
+		}
 		return bookBorrowPageDao.getBorrowByPeople(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, people);
 	}
 
@@ -110,35 +119,45 @@ public class BookBorrowServiceImpl implements BookBorrowService {
 	@Override
 	public Page getBorrowByStore(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc,
 			String startDate, String endDate, String store) {
-		
+		if(!GetCachePermiss.hasPermssion(UserUtil.getCasLoginName(), ShiroTagEnum.BOOK_READ_JYXZ.getCode())){
+			return new Page(false);
+		}
 		return bookBorrowPageDao.getBorrowByStore(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, store);
 	}
 
 	@Override
 	public Page getBorrowByDeptTeach(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc,
 			String startDate, String endDate, String deptTeach) {
-		
+		if(!GetCachePermiss.hasPermssion(UserUtil.getCasLoginName(), ShiroTagEnum.BOOK_READ_JYXZ.getCode())){
+			return new Page(false);
+		}
 		return bookBorrowPageDao.getBorrowByDeptTeach(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, deptTeach);
 	}
 
 	@Override
 	public Page getBorrowByTimePeo(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc,
 			String startDate, String endDate, String time, String people) {
-		
+		if(!GetCachePermiss.hasPermssion(UserUtil.getCasLoginName(), ShiroTagEnum.BOOK_READ_JYXZ.getCode())){
+			return new Page(false);
+		}
 		return bookBorrowPageDao.getBorrowByTimePeo(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, time, people);
 	}
 
 	@Override
 	public Page getBorrowBySchoolYear(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc,
 			String schoolYear) {
-		
+		if(!GetCachePermiss.hasPermssion(UserUtil.getCasLoginName(), ShiroTagEnum.BOOK_READ_JYXZ.getCode())){
+			return new Page(false);
+		}
 		return bookBorrowPageDao.getBorrowBySchoolYear(currentPage,numPerPage,totalRow,sort,isAsc, schoolYear);
 	}
 
 	@Override
 	public Page getBorrowCountByMonth(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc,
 			String month) {
-		
+		if(!GetCachePermiss.hasPermssion(UserUtil.getCasLoginName(), ShiroTagEnum.BOOK_READ_JYXZ.getCode())){
+			return new Page(false);
+		}
 		return bookBorrowPageDao.getBorrowCountByMonth(currentPage,numPerPage,totalRow,sort,isAsc, month);
 	}
 	

@@ -9,7 +9,7 @@
 String basePath = request.getContextPath();
 int port = request.getServerPort();
 String ip = request.getServerName();
-String projectPath = "http://"+ip+":"+port+basePath;
+String projectPath = request.getScheme()+"://"+ip+":"+port+basePath;
 /* String username=request.getUserPrincipal().getName();
  GetCachePermiss.init(username,projectPath);  */
 response.sendRedirect(projectPath+"/person/index");  

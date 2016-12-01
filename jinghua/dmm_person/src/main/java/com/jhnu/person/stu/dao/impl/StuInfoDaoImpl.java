@@ -82,18 +82,19 @@ public class StuInfoDaoImpl implements StuInfoDao {
 	public List getXjyd(String id) {
 		//异动日期 异动类型 异动前班级名称 异动前专业名称 异动前院系名称 异动后班级名称 异动后专业名称 异动后院系名称
 		
-		String sql="  SELECT DISTINCT TSC.YDRQ  c1 ,TSC.YDLBDM c2 , "
+		String sql="  SELECT DISTINCT TSC.DATE_  c1 ,tclx.name_ c2 , "
 				   +" tc.name_ c3,tcdtq.name_ c4,tcdtt.name_ c5, "
 				   +" tc1.name_ c6,tcdtq1.name_ c7,tcdtt1.name_ c8  "
-				   +" FROM T_STU_CHANGE_kd TSC "
+				   +" FROM T_STU_CHANGE TSC "
 				   //+" LEFT JOIN T_STU TTS ON TTS.NO_=TSC.STU_ID "
-				   +" LEFT JOIN T_CLASSES tc on tc.no_ = TSC.Ybh "
-				   +" LEFT JOIN t_code_dept_teach tcdtq  ON tcdtq.id = TSC.Yzydm "
-				   +" LEFT JOIN t_code_dept_teach tcdtt  ON tcdtt.id=TSC.Yyxdm "
-				   +" LEFT JOIN T_CLASSES tc1 on tc1.no_ = TSC.Xbh "
-				   +" LEFT JOIN t_code_dept_teach tcdtq1  ON tcdtq1.id = TSC.Xzydm "
-				   +" LEFT JOIN t_code_dept_teach tcdtt1  ON tcdtt1.id=TSC.Xyxdm "
-				   +" WHERE TSC.XH='"+id+"' ";
+				   +" LEFT JOIN T_CLASSES tc on tc.no_ = TSC.OLD_CLASS_ID "
+				   +" LEFT JOIN t_code tclx on tclx.code_ = TSC.STU_CHANGE_CODE and tclx.code_type like '%STU_CHANGE_CODE%' "
+				   +" LEFT JOIN t_code_dept_teach tcdtq  ON tcdtq.id = TSC.OLD_MAJOR_ID "
+				   +" LEFT JOIN t_code_dept_teach tcdtt  ON tcdtt.id=TSC.OLD_DEPT_ID "
+				   +" LEFT JOIN T_CLASSES tc1 on tc1.no_ = TSC.NOW_CLASS_ID "
+				   +" LEFT JOIN t_code_dept_teach tcdtq1  ON tcdtq1.id = TSC.NOW_MAJOR_ID "
+				   +" LEFT JOIN t_code_dept_teach tcdtt1  ON tcdtt1.id=TSC.NOW_DEPT_ID "
+				   +" WHERE TSC.STU_ID='"+id+"' ";
 		return baseDao.getBaseDao().getJdbcTemplate().queryForList(sql);
 	}
 /**

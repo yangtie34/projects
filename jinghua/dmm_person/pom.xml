@@ -374,7 +374,7 @@
                     <password>tomcat</password>
                     <uriEncoding>UTF-8</uriEncoding>
                     <path>/${finalName}</path>
-                    <port>8088</port>
+                    <port>8089</port>
                 </configuration>
             </plugin>
             <plugin>

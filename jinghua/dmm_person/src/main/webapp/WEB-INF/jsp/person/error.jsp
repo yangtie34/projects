@@ -13,5 +13,5 @@
 
 <script language="javascript" type="text/javascript"> 
 //window.location.href='$(ctx)';
-setTimeout("javascript:location.href='${ctx}/logout'", 2000); 
+setTimeout("javascript:location.href='${ctx}/person/logout'", 2000); 
 </script>

@@ -8,10 +8,13 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import cn.gilight.framework.enums.ShiroTagEnum;
 import cn.gilight.framework.page.Page;
+import cn.gilight.framework.uitl.common.UserUtil;
 import cn.gilight.product.dorm.dao.DormEmployeeDao;
 import cn.gilight.product.dorm.service.DormEmployeeService;
 
+import com.jhnu.syspermiss.GetCachePermiss;
 import com.jhnu.syspermiss.school.entity.Dept;
 @Service("dormEmployeeService")
 public class DormEmployeeServiceImpl implements DormEmployeeService {
@@ -69,12 +72,18 @@ public class DormEmployeeServiceImpl implements DormEmployeeService {
 	@Override
 	public Page getDormTopByGroup(int currentPage, int numPerPage,
 			int totalRow,String sort,boolean isAsc, Map<String, String> dorm, String type) {
+		if(!GetCachePermiss.hasPermssion(UserUtil.getCasLoginName(), ShiroTagEnum.DORM_DORMEMPLOY_SSXZ.getCode())){
+			return new Page(false);
+		}
 		return dormEmployeeDao.getDormTopByGroup(currentPage, numPerPage, totalRow,sort,isAsc, dorm, type);
 	}
 
 	@Override
 	public Page getDormTopPage(int currentPage, int numPerPage,
 			int totalRow,String sort,boolean isAsc, Map<String, String> dorm, String type, String id) {
+		if(!GetCachePermiss.hasPermssion(UserUtil.getCasLoginName(), ShiroTagEnum.DORM_DORMEMPLOY_CWXZ.getCode())){
+			return new Page(false);
+		}
 		return dormEmployeeDao.getDormTopPage(currentPage, numPerPage, totalRow,sort,isAsc, dorm, type, id);
 	}
 

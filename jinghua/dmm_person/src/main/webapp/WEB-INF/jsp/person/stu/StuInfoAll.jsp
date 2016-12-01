@@ -6,7 +6,7 @@
 <jsp:include page="/WEB-INF/jsp/common/baseIndex.jsp"></jsp:include>
 <html ng-app="app">
 <head>
-    <title>本硕博</title>
+    <title>学生信息</title>
      <script type="text/javascript"
 	src="${ctxStatic}/resource/person/jiaozhi-hover-menu.js"></script>
 	    <script type="text/javascript" src="${ctxStatic}/person/index.js"></script>

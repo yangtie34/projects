@@ -6,7 +6,7 @@
 <jsp:include page="/WEB-INF/jsp/common/baseIndex.jsp"></jsp:include>
 <html ng-app="app">
 <head>
-    <title>个人信息</title>
+    <title>教工全景</title>
     <script type="text/javascript" src="${ctxStatic}/person/index.js"></script>
     <script type="text/javascript"
 	src="${ctxStatic}/person/teacher/TeaQjController.js"></script>

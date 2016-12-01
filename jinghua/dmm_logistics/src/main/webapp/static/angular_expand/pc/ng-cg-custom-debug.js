@@ -2243,6 +2243,11 @@ jxpg.directive('cgComboXz', ['$interval',"$timeout","$compile",'mask','exportPag
 					 scope.data.func(scope.page);
 					return;
 				}
+				if(scope.data.hasPermiss==false){
+					toastr['error']('本用户无此浏览权限！', null,{"positionClass": "toast-top-center",timeOut:1000});
+					mask.hideLoading();
+					return;
+				}
 				var page={
 						currentPage:scope.data.currentPage,
 						lastIndex: scope.data.lastIndex,

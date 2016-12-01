@@ -101,9 +101,9 @@ public class StuSchLifeDaoImpl implements StuSchLifeDao {
 	@Override
 	public List ieAvgTime(String id, String startTime, String endTime) {
 		//TODO 学生上网信息
-		String sql = " SELECT TNR.ACCOUNT_ID 上网账号,SUBSTR(TNR.ON_TIME,0,10) 开始时间,MIN(TNR.OFF_TIME-TNR.ON_TIME) 最小值,MAX(TNR.OFF_TIME-TNR.ON_TIME) 最大值,(sum(TNR.OFF_TIME-TNR.ON_TIME)/(to_date('"+startTime+"','yyyy-mm-dd')-to_date('"+endTime+"','yyyy-mm-dd'))) 日均上网时间  "
+		String sql = " SELECT TNR.id 上网账号,SUBSTR(TNR.ON_TIME,0,10) 开始时间,MIN(TNR.OFF_TIME-TNR.ON_TIME) 最小值,MAX(TNR.OFF_TIME-TNR.ON_TIME) 最大值,(sum(TNR.OFF_TIME-TNR.ON_TIME)/(to_date('"+startTime+"','yyyy-mm-dd')-to_date('"+endTime+"','yyyy-mm-dd'))) 日均上网时间  "
 				+ " FROM T_NET_RECORD TNR "
-				+ " left join T_NET_USER tnu on TNR.ACCOUNT_ID=tnu.NO_"
+				+ " left join T_NET_USER tnu on TNR.id=tnu.id"
 				+ " WHERE tnu.PEOPLE_ID='"
 				+ id
 				+ "' AND SUBSTR(TNR.ON_TIME,0,10) BETWEEN '"
@@ -111,7 +111,7 @@ public class StuSchLifeDaoImpl implements StuSchLifeDao {
 				+ "' and '"
 				+ endTime
 				+ "' "
-				+ " GROUP BY TNR.ACCOUNT_ID,SUBSTR(TNR.ON_TIME,0,10) ";
+				+ " GROUP BY TNR.id,SUBSTR(TNR.ON_TIME,0,10) ";
 		return baseDao.getBaseDao().getJdbcTemplate().queryForList(sql);
 	}
 
@@ -120,7 +120,7 @@ public class StuSchLifeDaoImpl implements StuSchLifeDao {
 		// 创建上网时间视图
 		String sql="CREATE OR REPLACE VIEW TL_NET_VIEW "
 				+"　AS　"
-				+"　SELECT TNR.ACCOUNT_ID ACCOUNT_ , "
+				+"　SELECT TNR.id ACCOUNT_ , "
 				+"　floor(to_number(to_date(TNR.OFF_TIME,'yyyy-mm-dd hh24:mi:ss')-to_date(TNR.ON_TIME,'yyyy-mm-dd hh24:mi:ss'))*24*60) TIME_NUM  " 
 				+"  FROM T_NET_RECORD TNR " 
 				+"  WHERE to_char(TO_DATE(SUBSTR(TNR.ON_TIME,1,10),'yyyy-mm-dd'),'yyyy-mm-dd') "

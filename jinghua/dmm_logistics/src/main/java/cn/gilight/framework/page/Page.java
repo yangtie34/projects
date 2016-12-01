@@ -33,6 +33,17 @@ private List<Map<String,Object>> resultList;
 private List<?> resultListObject;
 // JdbcTemplate jTemplate
 private JdbcTemplate jTemplate;
+
+private boolean hasPermiss= true;
+
+public boolean isHasPermiss() {
+	return hasPermiss;
+}
+
+public void setHasPermiss(boolean hasPermiss) {
+	this.hasPermiss = hasPermiss;
+}
+
 //private Pagination pagination = new Pagination();
 /**
 * 每页显示10条记录的构造函数,使用该函数必须先给Pagination设置currentPage，jTemplate初值
@@ -44,6 +55,10 @@ private JdbcTemplate jTemplate;
  
 public Page() {
    
+}
+
+public Page(boolean hasPermiss) {
+	   this.hasPermiss=hasPermiss;
 }
  
 public Page(int currentPage){

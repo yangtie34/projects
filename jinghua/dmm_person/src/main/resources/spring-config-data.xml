@@ -43,7 +43,7 @@
         <property name="maxPoolSize" value="${dataSource.maxActive}"/>
         <property name="minPoolSize" value="1"/>
     </bean>
-    <bean id="ds-log" class="com.atomikos.jdbc.AtomikosDataSourceBean"
+<!--     <bean id="ds-log" class="com.atomikos.jdbc.AtomikosDataSourceBean"
         init-method="init" destroy-method="close">
         <description>oracle xa datasource</description>
         <property name="uniqueResourceName">
@@ -62,7 +62,7 @@
         <property name="borrowConnectionTimeout" value="60" />
         <property name="maxPoolSize" value="${dataSource.maxActive}"/>
         <property name="minPoolSize" value="1"/>
-    </bean>
+    </bean> -->
    
     <!-- atomikos事务管理器 -->
     <bean id="atomikosTransactionManager" class="com.atomikos.icatch.jta.UserTransactionManager"
@@ -97,25 +97,25 @@
         </constructor-arg>
     </bean>
     
-    <bean id="jds-log" class="org.springframework.jdbc.core.JdbcTemplate">
+<!--     <bean id="jds-log" class="org.springframework.jdbc.core.JdbcTemplate">
         <constructor-arg>
             <ref bean="ds-log" />
         </constructor-arg>
-    </bean> 
+    </bean>  -->
     
 	<bean id="jtaBaseDao" class="com.jhnu.framework.data.base.impl.JtaBaseDaoImpl" >
         <property name="jdbcTemplate" ref="jds-base" />
         <property name="seqGenerator" ref="baseIdGenerator"></property>
 	</bean>
 	
-	<bean id="jtaLogDao" class="com.jhnu.framework.data.base.impl.JtaLogDaoImpl" >
+<!-- 	<bean id="jtaLogDao" class="com.jhnu.framework.data.base.impl.JtaLogDaoImpl" >
 		<property name="jdbcTemplate" ref="jds-log" />
 		<property name="seqGenerator" ref="logIdGenerator"></property>
-	</bean>
+	</bean> -->
 	
 	<bean id="baseDao" class="com.jhnu.framework.data.base.impl.BaseDaoImpl" >
 		<property name="jtaBaseDao" ref="jtaBaseDao" />
-		<property name="jtaLogDao" ref="jtaLogDao" />
+		<!-- <property name="jtaLogDao" ref="jtaLogDao" /> -->
 	</bean>
 	
 	<bean id="baseIdGenerator" class="org.springframework.jdbc.support.incrementer.OracleSequenceMaxValueIncrementer">
@@ -123,8 +123,8 @@
 		<property name="incrementerName" ><value>ID_SEQ</value></property>
 	</bean>
 	
-	<bean id="logIdGenerator" class="org.springframework.jdbc.support.incrementer.OracleSequenceMaxValueIncrementer">
+<!-- 	<bean id="logIdGenerator" class="org.springframework.jdbc.support.incrementer.OracleSequenceMaxValueIncrementer">
 		<property name="dataSource" ref="ds-log"></property>
 		<property name="incrementerName" ><value>ID_SEQ</value></property>
-	</bean>
+	</bean> -->
 </beans>

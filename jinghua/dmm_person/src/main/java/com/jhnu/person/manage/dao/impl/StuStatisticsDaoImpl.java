@@ -198,7 +198,7 @@ public class StuStatisticsDaoImpl implements StuStatisticsDao {
 				+ " code.code_type = 'POLITICS_CODE' and code.code_ = '03' ) a on stu.POLITICS_CODE = a.code_ where stu.stu_roll_code = '1' and stu.edu_id='"+st_xl+"' and stu.major_id in (select id from t_code_dept_teach tea where tea.path_ like '"+node.get("qxm")+"%') "
 						+ " and a.name_ is not null )";
 		String sql1 = "(select count(*) as rs from t_stu stu left join (select * from  t_code code where "
-				+ " code.code_type = 'POLITICS_CODE' and "+st_xl+" and code.code_ <> '03' ) a on stu.POLITICS_CODE = a.code_ where stu.stu_roll_code = '1' and stu.major_id in (select id from t_code_dept_teach tea where tea.path_ like '"+node.get("qxm")+"%') "
+				+ " code.code_type = 'POLITICS_CODE'  and code.code_ <> '03' ) a on stu.POLITICS_CODE = a.code_ where stu.stu_roll_code = '1' and "+st_xl+" and stu.major_id in (select id from t_code_dept_teach tea where tea.path_ like '"+node.get("qxm")+"%') "
 						+ " and a.name_ is not null)";
 		String sql2 = "(select count(*) as rs from t_stu stu left join (select * from  t_code code where "
 				+ " code.code_type = 'POLITICS_CODE') a on stu.POLITICS_CODE = a.code_ where stu.stu_roll_code = '1' and "+st_xl+" and stu.major_id in (select id from t_code_dept_teach tea where tea.path_ like '"+node.get("qxm")+"%') "

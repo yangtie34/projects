@@ -39,8 +39,8 @@ public class ViewDao {
 			return getGroups();
 		}
 		sql="select id,name_ name,(select tp.url_ from t_sys_resources tp where t.pid = tp.id) ||url_ url_,shiro_tag shiroTag,istrue from t_sys_resources t where resource_type_code='06' and shiro_tag in"
-		+"(select  substr(shiro_tag, 0, instr(shiro_tag||':', ':')-1 ) w from  t_sys_resources  where";
-		sql+=" id in "
+		+"(select shiro_tag  w from  t_sys_resources  where";//substr(shiro_tag, 0, instr(shiro_tag||':', ':')-1 )
+		sql+=" resource_type_code = '06' and id in "
 				+ "(select rp.resource_id "
 				+ " from t_sys_user  u, "
            + "    t_sys_role      r, "

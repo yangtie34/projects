@@ -112,8 +112,12 @@ public class ReflectController {
 	@SuppressWarnings("unchecked")
 	@ResponseBody
 	@RequestMapping(value="/common/exportPage",method=RequestMethod.GET)
-	public Object exportPage(HttpServletRequest req, HttpServletResponse resp,@RequestParam Map<String,Object> args){
-		Map<String,Object> params=JSONObject.parseObject(args.get("params").toString());
+	public Object exportPage(HttpServletRequest req, HttpServletResponse resp,@RequestParam Map<String,Object> args) throws UnsupportedEncodingException{
+		String asgString=args.get("params").toString();
+		if(asgString.equals(new String(asgString.getBytes("ISO-8859-1"), "ISO-8859-1"))){
+			asgString = new String(asgString.getBytes("ISO-8859-1"),"UTF-8");
+		}
+		Map<String,Object> params=JSONObject.parseObject(asgString);
 		String beanName=MapUtils.getString(params, "beanName");
 		String methodName=MapUtils.getString(params, "methodName"); 
 		String title=MapUtils.getString(params, "title");
@@ -130,15 +134,11 @@ public class ReflectController {
 		List<Map<String,Object>> xsList = page.getResultList();
 		HSSFWorkbook hw = ExportUtil.getHSSFWorkbookByCodes(titles,titleCodes, "sheet", xsList);
 		String fileName=title+".xls";
-		try {
-			fileName = new String(fileName.getBytes("GB2312"), "ISO_8859_1");
-		} catch (UnsupportedEncodingException e1) {
-			e1.printStackTrace();
-		}
+		fileName = new String(fileName.getBytes("UTF-8"), "ISO_8859_1");
 		HttpServletResponse response = resp;   
 	    response.setContentType("application/vnd.ms-excel");   
-			response.setHeader("Content-disposition", "attachment;filename=" +  fileName);
-	    response.setCharacterEncoding("utf-8"); 
+		response.setHeader("Content-disposition", "attachment;filename=" +  fileName);
+	//    response.setCharacterEncoding("utf-8"); 
 	    OutputStream ouputStream;
 		try {
 			ouputStream = response.getOutputStream();

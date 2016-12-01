@@ -24,6 +24,8 @@ var base = "<%=projectPath%>/";
 <!-- 引入jquery -->
 <script type="text/javascript" src="<%=projectPath %>/static/framework/jquery/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="<%=projectPath %>/product/clomun.js"></script> 
+<link href="<%=projectPath %>/static/toastr/toastr.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src='<%=projectPath %>/static/toastr/toastr.js'></script> 
 <!-- 引入日历组件 -->
 <script type="text/javascript" src="<%=projectPath %>/static/framework/components/My97DatePicker/WdatePicker.js"></script>
 <!-- 引入Ext的模版对象 -->
@@ -66,3 +68,5 @@ var base = "<%=projectPath%>/";
 <link href="<%=projectPath %>/resource/css/font-awesome.min.css" rel="stylesheet">
 <link href="<%=projectPath %>/resource/css/yiqisbguoqiqkfx.css" rel="stylesheet">
 <link href="<%=projectPath %>/resource/css/xscz-style.css" rel="stylesheet">
+
+

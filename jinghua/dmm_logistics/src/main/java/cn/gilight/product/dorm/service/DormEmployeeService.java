@@ -41,7 +41,7 @@ public interface DormEmployeeService {
 	public List<Map<String,Object>> getDormByStuType(Map<String,String> dorm,String stuType);
 	
 	/**
-	 * 通过当前宿舍获取明细分组
+	 * 通过当前宿舍获取明细分组 精确到楼宇，房间
 	 * @param dorm
 	 * @param type 'LY','FJ'
 	 * @return
@@ -49,7 +49,7 @@ public interface DormEmployeeService {
 	public Page getDormTopByGroup(int currentPage,int numPerPage,int totalRow,String sort,boolean isAsc,Map<String,String> dorm,String type);
 	
 	/**
-	 * 通过当前宿舍获取明细
+	 * 通过当前宿舍获取明细 精确到床位
 	 * @param dorm 
 	 * @param type 'CW','KCW','DORM_RZ','DORM_WRZ','NEWS','NJ','EDU','SEX','MZ','DEPT','MAJOR','CLASS'
 	 * @param id 'CW','KCW'时，次值为空，其余次值为所选的ID值

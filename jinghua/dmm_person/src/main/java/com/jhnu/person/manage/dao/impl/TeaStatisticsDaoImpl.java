@@ -42,7 +42,7 @@ public class TeaStatisticsDaoImpl implements TeaStatisticsDao {
 		//教职工类别_CODE
 		sql="select tc5.name_ ,count(*) COUNT_ "
 				  +" from t_tea t "
-				  + "left join t_code tc5 on tc5.code_ = t.AUTHORIZED_STRENGTH_CODE and tc5.code_type='AUTHORIZED_STRENGTH_CODE' "
+				  + "left join t_code tc5 on tc5.code_ = t.AUTHORIZED_STRENGTH_ID and tc5.code_type like '%AUTHORIZED_STRENGTH%' "
 				  +" where 1=1  "
 				  + st_xl
 				  +" group by tc5.name_"	;
@@ -174,14 +174,13 @@ public class TeaStatisticsDaoImpl implements TeaStatisticsDao {
 			st_xl="tt.dept_id="+pid;
 		}
 		//TODO职称级别
-		String sql="";
-		/*String sql="SELECT TCZ.NAME_ FIELD,COUNT(*) VALUE "
+		String sql="SELECT TCZ.NAME_ FIELD,COUNT(*) VALUE "
 					+" FROM T_TEA TT "
 					+" LEFT JOIN T_CODE_ZYJSZW TCZ ON TCZ.ID=TT.ZYJSZW_ID  "
 					+" WHERE   "
 					+st_xl
 					+" AND TCZ.NAME_ IS NOT NULL"
-					+" GROUP BY TCZ.NAME_";*/
+					+" GROUP BY TCZ.NAME_";
 		return basedao.getBaseDao().querySqlList(sql);
 	}
 	@Override

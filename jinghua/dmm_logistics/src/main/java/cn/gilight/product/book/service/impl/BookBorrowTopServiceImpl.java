@@ -6,8 +6,12 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.jhnu.syspermiss.GetCachePermiss;
+
+import cn.gilight.framework.enums.ShiroTagEnum;
 import cn.gilight.framework.page.Page;
 import cn.gilight.framework.uitl.common.MapUtils;
+import cn.gilight.framework.uitl.common.UserUtil;
 import cn.gilight.product.book.dao.BookBorrowBookTopDao;
 import cn.gilight.product.book.dao.BookBorrowBookTopPageDao;
 import cn.gilight.product.book.dao.BookBorrowStuTopDao;
@@ -181,6 +185,9 @@ public class BookBorrowTopServiceImpl implements BookBorrowTopService{
 	@Override
 	public Page getBorrow(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc, String type,
 			String startDate, String endDate, String id) {
+		if(!GetCachePermiss.hasPermssion(UserUtil.getCasLoginName(), ShiroTagEnum.BOOK_READRANK_JYXZ.getCode())){
+			return new Page(false);
+		}
 		if("stu".equals(type)){
 			return bookBorrowStuTopPageDao.getBorrowByTime(currentPage,numPerPage,totalRow,sort,isAsc, startDate, endDate, id);
 		}else if("tea".equals(type)){
@@ -259,6 +266,9 @@ public class BookBorrowTopServiceImpl implements BookBorrowTopService{
 	@Override
 	public Page getAllBorrow(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc, String type,
 			String id) {
+		if(!GetCachePermiss.hasPermssion(UserUtil.getCasLoginName(), ShiroTagEnum.BOOK_READRANK_JYXZ.getCode())){
+			return new Page(false);
+		}
 		if("stu".equals(type)){
 			return bookBorrowStuTopPageDao.getAllBorrow(currentPage,numPerPage,totalRow,sort,isAsc, id);
 		}else if("tea".equals(type)){

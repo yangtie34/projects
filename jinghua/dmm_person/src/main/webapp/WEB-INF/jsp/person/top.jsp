@@ -1,5 +1,5 @@
 <%@ page language="java"
-	import="com.jhnu.syspermiss.*,com.jhnu.syspermiss.permiss.entity.User,java.util.*,com.jhnu.person.sys.PersonInfo"
+	import="com.jhnu.syspermiss.*,com.jhnu.syspermiss.permiss.entity.User,java.util.*,com.jhnu.person.sys.*"
 	contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
@@ -24,7 +24,7 @@
 		menuMap.put("教学活动", "/tea/TeaTeach");
 		menuMap.put("学生管理", "/tea/TeaStu");
 		//如果此教师是管理员
-		if(true){
+		if(false){
 	       menuMap.put("教师管理统计", "/tea/manage/teaStatistics");	
 	       menuMap.put("学生管理统计", "/tea/manage/stuStatistics");	
 	       //menuMap.put("高基报表", "/tea/manage/Report");	
@@ -70,7 +70,7 @@
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a>你好， <%=user.getReal_name()%></a></li>
-				<li><a href="${ctx }/logout">退出</a></li>
+				<li><a href="${ctx }/person/logout">退出</a></li>
 				<!--         <li><a href="#">安全中心</a></li>
         <li><a href="#">快速注册</a></li>
         <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">修改信息 <span class="caret"></span></a>
@@ -91,7 +91,7 @@
 		<div class="media">
 			<div class="media-left media-middle">
 				<a href="${ctx}<%=grUrl%>"> <img
-					src="${ctxImg}/user-<%=user.getSalt().equalsIgnoreCase("男")?"boy":"girl" %>.jpg"
+					src="<%=IDStarUserUtil.getPhotoByUserName(userName) %>"
 					alt="姓名" class="img-circle pull-left">
 				</a>
 			</div>

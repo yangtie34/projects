@@ -13,12 +13,15 @@ import org.rosuda.REngine.Rserve.RserveException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import cn.gilight.framework.code.Code;
+import com.jhnu.syspermiss.GetCachePermiss;
+
+import cn.gilight.framework.enums.ShiroTagEnum;
 import cn.gilight.framework.page.Page;
 import cn.gilight.framework.uitl.CsvUtils;
 import cn.gilight.framework.uitl.RListUtil;
 import cn.gilight.framework.uitl.RUtils;
 import cn.gilight.framework.uitl.common.ListUtil;
+import cn.gilight.framework.uitl.common.UserUtil;
 import cn.gilight.product.net.dao.NetTeaWarnDao;
 import cn.gilight.product.net.service.NetTeaWarnService;
 
@@ -47,7 +50,8 @@ public class NetTeaWarnServiceImpl implements NetTeaWarnService{
 		}
 		
 		//获取R语言代码路径
-		String basePath=Code.getKey("rfile.path")+"/net/tea_warn";
+		String basePath=this.getClass().getResource("/").getPath()+"r/net/tea_warn";
+		basePath=basePath.replaceFirst("/", "");
 		//创建CSV文件
 		CsvUtils.createCsvFile(basePath+"/tea_warn.csv",rList);
 		//执行R语言获取分析结果
@@ -78,6 +82,9 @@ public class NetTeaWarnServiceImpl implements NetTeaWarnService{
 	@Override
 	public Page getTeaWarnDetil(int currentPage, int numPerPage, int totalRow,
 			String startDate, String endDate, String teaId) {
+		if(!GetCachePermiss.hasPermssion(UserUtil.getCasLoginName(), ShiroTagEnum.NET_NETTEAWARN_IPXZ.getCode())){
+			return new Page(false);
+		}
 		return netTeaWarnDao.getTeaWarnDetil(currentPage, numPerPage, totalRow, startDate, endDate, teaId);
 	}
 	

@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="cn.gilight.framework.uitl.SysConfig"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="com.jhnu.syspermiss.util.SysConfig"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
 <c:set var="ctxStatic" value="${pageContext.request.contextPath}/static"/>
@@ -132,8 +132,6 @@
  	$("iframe").attr("src",firstA.attr("href"));
  	firstA.click();
  	$(".subNav:eq(0)").click();
- 	
- 	debugger;
 	})
 	</script>
    <div class="con_left">

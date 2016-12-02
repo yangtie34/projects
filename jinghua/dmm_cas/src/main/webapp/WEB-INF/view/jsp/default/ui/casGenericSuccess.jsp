@@ -49,7 +49,7 @@
     <%-- <div class="lgn-ap lgn-ap-0${status.index+1}"><a class="lgn-whlink" href="${sy.url_}" target="_blank">${sy.name}</a></div> --%>
     <div class="col-xs-3">
     <c:if test="${sy.istrue eq '1'}"> 
-     <a href="${ fn:split(sy.url_,';')[0]}" target="_blank"><div class="mu-img-bg mu-img-${sy.shiroTag}${fn:replace(sy.shiroTag,':', '-')}">${sy.name}</div></a>
+     <a href="${ fn:split(sy.url_,';')[0]}" target="_blank"><div class="mu-img-bg mu-img-${fn:replace(sy.shiroTag,':', '-')}">${sy.name}</div></a>
 	</c:if> 
         <c:if test="${sy.istrue eq '0'}"> 
     <div class="mu-img-bg mu-img-${sy.shiroTag}">${sy.name}<span style="color:red;font-size: smaller;">(未启用)</span></div>

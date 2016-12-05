@@ -163,6 +163,33 @@ public class deptPermissionServiceImpl implements DeptPermissionService{
 		return null;
 	}
 	@Override
+	public Object getDeptTeach() {
+		List<DeptTeach> deptTeachList1=new ArrayList<DeptTeach>();
+			deptTeachList1= deptPermissionDao.getAllDeptTeachPerms();
+			for(DeptTeach dept:deptTeachList1){
+				dept.setIstrue(1);
+			}
+		
+		Map<String,DeptTeach> deptMap1=new HashMap<String,DeptTeach>();
+		DeptTeach root=null;
+		for(DeptTeach dept:deptTeachList1){
+			deptMap1.put(dept.getId(), dept);
+		}
+		for(DeptTeach dept:deptTeachList1){
+			if(dept.getLevel_().intValue()==0){
+				root=dept;
+			}else{
+				if(deptMap1.get(dept.getPid())!=null)
+					deptMap1.get(dept.getPid()).getChildren().add(dept);
+			}
+			
+		}
+		if(root!=null){
+			return root;
+		}
+		return null;
+	}
+	@Override
 	public Object getDeptTeachByShiroTag(String shiroTag) {
 		String userName=UserUtil.getCasLoginName();//获取用户名
 		

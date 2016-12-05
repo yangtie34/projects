@@ -15,6 +15,11 @@ public interface DeptTreeService {
 	 * 获取教学组织机构树
 	 * @return
 	 */
+	public Object getDeptTeach();
+	/**
+	 * 获取教学组织机构树
+	 * @return
+	 */
 	public Object getDeptTeach(String shiroTag);
 	/**
 	 * 获取行政组织机构树

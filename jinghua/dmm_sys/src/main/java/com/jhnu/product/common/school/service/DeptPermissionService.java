@@ -124,4 +124,6 @@ public interface DeptPermissionService {
 	 * @return
 	 */
 	public Object getDeptByShiroTag(String shiroTag);
+
+	Object getDeptTeach();
 }

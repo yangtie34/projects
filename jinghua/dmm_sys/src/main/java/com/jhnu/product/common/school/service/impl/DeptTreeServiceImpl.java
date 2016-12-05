@@ -79,6 +79,10 @@ public class DeptTreeServiceImpl implements DeptTreeService {
 		return deptList;
 	}
 	@Override
+	public Object getDeptTeach() {
+		return dataPermissionService.getDeptTeach();
+	}
+	@Override
 	public Object getDeptTeach(String shiroTag) {
 		return dataPermissionService.getDeptTeachByShiroTag(shiroTag);
 	}

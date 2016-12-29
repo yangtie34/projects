@@ -23,6 +23,8 @@ import com.jhnu.product.common.stu.entity.Student;
 import com.jhnu.product.common.teacher.dao.TeacherDao;
 import com.jhnu.product.common.teacher.entity.Teacher;
 import com.jhnu.system.common.page.Page;
+import com.jhnu.system.log.entity.ChangePwdLog;
+import com.jhnu.system.log.service.ChangePwdLogService;
 import com.jhnu.system.permiss.dao.UserDao;
 import com.jhnu.system.permiss.entity.Role;
 import com.jhnu.system.permiss.entity.User;
@@ -33,6 +35,7 @@ import com.jhnu.system.permiss.service.UserService;
 import com.jhnu.util.catche.MacForPassCache;
 import com.jhnu.util.common.DateUtils;
 import com.jhnu.util.common.IpMacUtil;
+import com.jhnu.util.common.UserUtil;
 import com.jhnu.util.product.EduUtils;
 import com.jhnu.util.product.Globals;
 
@@ -46,6 +49,9 @@ public class UserServiceImpl implements UserService{
 	
 	@Autowired
 	private TeacherDao teacherDao;
+	
+	@Autowired
+	private ChangePwdLogService changePwdLogService;
 	
 	@Autowired
 	private PasswordHelper passwordHelper;
@@ -86,11 +92,18 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public void changePassword(Long userId, String newPassword) {
+    @Transactional
+    public void changePassword(Long userId, String newPassword,String type) {
         User user =userDao.findOne(userId);
         user.setPassword(newPassword);
         passwordHelper.encryptPassword(user);
         userDao.updateUser(user);
+        ChangePwdLog changePwdLog=new ChangePwdLog();
+        changePwdLog.setExc_ip(IpMacUtil.getIp());
+        changePwdLog.setUsername(user.getUsername());
+        changePwdLog.setExc_username(UserUtil.getCasLoginName());
+        changePwdLog.setExc_type_code(type);
+        changePwdLogService.addChangePwdLog(changePwdLog);
     }
 
     @Override
@@ -245,7 +258,7 @@ public class UserServiceImpl implements UserService{
 		logger.info("====开始重置密码====");
 		User user =userDao.findOne(userId);
 		if(user !=null){
-			 changePassword(userId,EduUtils.getPasswordByIdno(user.getId_no(), user.getUsername()));
+			 changePassword(userId,EduUtils.getPasswordByIdno(user.getId_no(), user.getUsername()),"01");
 		}
 		logger.info("====重置密码结束====");
 	}
@@ -304,7 +317,7 @@ public class UserServiceImpl implements UserService{
 		}else {
 			User user =findByUsername(username);
 			if(user!=null&&checkPassword(user.getId(), oldpwd)){
-				changePassword(user.getId(), newpwd);
+				changePassword(user.getId(), newpwd,"02");
 				rb.setTrue(true);
 				rb.setName("修改成功！");
 				MacForPassCache.moveFreeze(ip, username);

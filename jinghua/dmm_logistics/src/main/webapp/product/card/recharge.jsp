@@ -43,22 +43,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <div class="xscz-tab-ct xscz-ft-18">
         <div class="row">
           <div class="col-xs-3">
-            <h3 class="xscz-ct-1">充值总金额 <span class="icon-time"  ng-click="qushiClick(0);" title="趋势统计"></span></h3>
+            <h3 class="xscz-ct-1">充值总金额 <span tool-tip placement="top" hide-icon="true" class="icon-time" ng-click="qushiClick(0);">
+								<div style="width: 160px">点击此处查看趋势</div>
+								</span></h3>
             <h4>{{vm.items[0].ALL_MONEY}}</h4>
             <p>元</p>
           </div>
           <div class="col-xs-3">
-            <h3 class="xscz-ct-2">充值总次数 <span class="icon-time"  ng-click="qushiClick(1);"title="趋势统计"></span></h3>
+            <h3 class="xscz-ct-2">充值总次数 <span tool-tip placement="top" hide-icon="true" class="icon-time" ng-click="qushiClick(1);">
+									<div style="width: 160px">点击此处查看趋势</div>
+								</span></h3>
             <h4>{{vm.items[0].ALL_COUNT}}</h4>
             <p>次</p>
           </div>
           <div class="col-xs-3">
-            <h3 class="xscz-ct-3">充值总人数 <span class="icon-time"  ng-click="qushiClick(2);"title="趋势统计"></span></h3>
+            <h3 class="xscz-ct-3">充值总人数 <span tool-tip placement="top" hide-icon="true" class="icon-time" ng-click="qushiClick(2);">
+									<div style="width: 160px">点击此处查看趋势</div>
+								</span></h3>
             <h4>{{vm.items[0].ALL_STU}}</h4>
             <p>人</p>
           </div>
           <div class="col-xs-3">
-            <h3 class="xscz-ct-4">人均充值 <span class="icon-time"  ng-click="qushiClick(3);"title="趋势统计"></span></h3>
+            <h3 class="xscz-ct-4">人均充值 <span tool-tip placement="top" hide-icon="true" class="icon-time" ng-click="qushiClick(3);">
+									<div style="width: 160px">点击此处查看趋势</div>
+								</span></h3>
             <h4>{{vm.items[0].STU_MONEY|number:2}}</h4>
             <p>元</p>
           </div>

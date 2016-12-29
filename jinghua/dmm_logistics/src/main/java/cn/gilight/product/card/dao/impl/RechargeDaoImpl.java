@@ -75,17 +75,17 @@ public class RechargeDaoImpl implements RechargeDao {
 			String endDate, Map<String, String> deptTeach) {
 		String sql="select sum(value) value,name,code from (                       "+
 				"select count(*) value,                                         "+
-				"case when t.old_money <=50 then '50元(含)以下'                 "+
-				"when t.old_money >50 and t.old_money <=100 then '50-100(含)'   "+
-				"when t.old_money >100 and t.old_money <=150 then '100-150(含)' "+
-				"when t.old_money >150 and t.old_money <=200 then '150-200(含)' "+
-				"when t.old_money >200  then '200元以上'                        "+
+				"case when t.old_money <=10 then '10元(含)以下'                 "+
+				"when t.old_money >10 and t.old_money <=25 then '10-25(含)'   "+
+				"when t.old_money >25 and t.old_money <=50 then '25-50(含)' "+
+				"when t.old_money >50 and t.old_money <=100 then '50-100(含)' "+
+				"when t.old_money >100  then '100元以上'                        "+
 				"else  '未维护' end name,                                       "+
-				"  case when t.old_money <=50 then 50                           "+
-				"when t.old_money >50 and t.old_money <=100 then 100            "+
-				"when t.old_money >100 and t.old_money <=150 then 150           "+
-				"when t.old_money >150 and t.old_money <=200 then 200           "+
-				"when t.old_money >200  then 201                                "+
+				"  case when t.old_money <=10 then 10                           "+
+				"when t.old_money >10 and t.old_money <=25 then 25            "+
+				"when t.old_money >25 and t.old_money <=50 then 50           "+
+				"when t.old_money >50 and t.old_money <=100 then 100           "+
+				"when t.old_money >100  then 101                                "+
 				"else 0 end code                                                "+
 				"from tl_card_recharge_stu_detil t where 1=1                    "+
 				CardTjUtil.getDateTJ(startDate, endDate)+

@@ -43,16 +43,23 @@ app.controller("OverdueController", [ "$scope","dialog",'mask','$timeout','http'
 	  		titles=em_manager_detil.name;
 	  	}
   		if(i==8){
-  			title="仪器设备";
+  			switch(scope.emType){
+  			case "all":title="仪器设备";
+  				break;
+  			case "val":title="贵重设备";
+				break;
+  			case "now":title="新增仪器设备";
+				break;
+  			}
   		}else if(i==9){
 	  		params=[scope.type,scope.typeValue];
-	  		title="仪器设备";
+	  		title=scope.typeName+"仪器设备";
 	  	}else if(i==10){
 	  		params=[scope.deptGroup];
-	  		title="仪器设备";
+	  		title=scope.deptName+"仪器设备";
 	  	}else if(i==11){
 	  		params=[scope.deptGroup,scope.deptId];
-	  		title="仪器设备";
+	  		title=scope.deptName+"仪器设备";
 	  	}else if(i==12){
 	  		params=[scope.managerId];
 	  		title="仪器设备";
@@ -125,13 +132,14 @@ var getvmData=function(i,k){
 		 }else if(i==1){//饼状图
 			 var d=[];
 			 for(var j=0;j<data.length;j++){
-				 d.push({field:data[j].NAME,fieldCode:data[j].CODE,value:data[j].VALUE,name:k==1?'经费(万元)':'数量(件)'}); 
+				 d.push({field:data[j].NAME,fieldCode:data[j].CODE,value:data[j].VALUE,name:k==1?'数量(件)':'数量(件)'}); 
 			 }
 			 var option=getOption(d,'','bzt');
 				option.event=function(param){
 					scope.type=type[k];
 					scope.emType=emType[scope.emTypeIndex];
 					scope.typeValue=param.data.nameCode
+					scope.typeName=param.name;
 					 scope.getxqlb(9);
 					 timeout();
 				 };
@@ -142,18 +150,19 @@ var getvmData=function(i,k){
 			 for(var j=0;j<data.length;j++){
 				 d.push({field:data[j].YEAR_,value:data[j].VALUE,name:data[j].NAME}); 
 			 }
-			 vm.items[i][k]=fomatSwtDw(getOption(d,'过期在用设备'+(k==0?'分类型':k==1?'经费':'单价')+'对比趋势','xzt'),k==1?'经费':'数量',k==1?'万元':'件'); 
+			 vm.items[i][k]=fomatSwtDw(getOption(d,'过期在用设备'+(k==0?'分类型':k==1?'经费':'单价')+'对比趋势','xzt'),k==1?'数量':'数量',k==1?'件':'件'); 
 		 }else if(i==4){//柱状图
 			 var d=[];
 			 for(var j=0;j<data.length;j++){
 				 d.push({field:data[j].NAME,fieldCode:data[j].CODE,value:data[j].NUMS,name:'设备数量(件)'}); 
-				 d.push({field:data[j].NAME,fieldCode:data[j].CODE,value:data[j].MONEYS,name:'设备价值(万元)'});
+				 d.push({field:data[j].NAME,fieldCode:data[j].CODE,value:data[j].MONEYS,name:'设备数量(件)'});
 			 } 
 			 var option=getOption(d,'','zxt');
 			 option.event=function(param){
 				 scope.emType=emType[scope.emTypeIndex];
 				 scope.deptGroup=angular.copy(scope.DeptGroup);
 					scope.deptId=option.series[param.seriesIndex].dataCode[param.dataIndex]; 
+					scope.deptName=param.name;
 					scope.getxqlb(11);
 					 timeout();
 				 };
@@ -197,7 +206,8 @@ scope.DeptGroupClick=function(item){
 }
 scope.getEmDetilByDeptGroup=function(deptGroup){
 	scope.emType=emType[scope.emTypeIndex];
-	scope.deptGroup=deptGroup;
+	scope.deptGroup=deptGroup.CODE||'';
+	scope.deptName=deptGroup.NAME;
 	scope.getxqlb(10);
 }
 scope.DeptGroup="all";

@@ -132,7 +132,7 @@ directives.directive('csWindow',['$timeout','$compile',function($timeout,$compil
             scope.$watch('title',function(newV,oldV){
             	//scope.title=scope.title||"&nbsp";
             	element.removeAttr('title');
-            	 var headerHtml=$("<div class='modal-header'>"+
+            	 var headerHtml=$("<div class='modal-header' style='z-index:3000'>"+
                  "<button type='button' class='close' data-dismiss='modal'><span class='aclose' >×</span></button>"+
                  "<h4 style='margin:0px;line-height:1;'>"+scope.title+"&nbsp</h4>"+
                  "</div>");
@@ -141,8 +141,41 @@ directives.directive('csWindow',['$timeout','$compile',function($timeout,$compil
                  element.prepend(headerHtml);
                  element.css("background-color","rgb(255, 255, 255);");
                  
-                 
-                 $(".modal-header").mousedown(function(e)//e鼠标事件  
+                 function popMoveWin(ele) {
+                		var d,
+                			e,
+                			b = 9e3,
+                			c = !1,
+                			f = ele,
+                			g = f.width(),
+                			h = f.height(),
+                			i = f.find(".modal-header"),
+                			j = f.find(".close"),
+                			k = document.documentElement,
+                			l = ($(document).width() - f.width()) / 2,
+                			m = (k.clientHeight - f.height()) / 2;
+                		 i.mousedown(function(a) {
+                			 $(".modal-header").css("cursor","move");//改变鼠标指针的形状  
+                			c = !0, d = a.pageX - parseInt(f.css("left")), e = a.pageY - parseInt(f.css("top")), f.css({
+                				"z-index" : b - -1
+                			}).fadeTo(50, 1)
+                		}), i.mouseup(function() {
+                			 $(".modal-header").css("cursor","default");  
+                			c = !1, f.fadeTo("fast", 1)
+                		}), $(document).mousemove(function(a) {
+                			if (c) {
+                				var b = a.pageX - d;
+                				0 >= b && (b = 0), b = Math.min(k.clientWidth - g, b) - 5;
+                				var i = a.pageY - e;
+                				0 >= i && (i = 0), i = Math.min(k.clientHeight - h, i) - 5, f.css({
+                					top : i,
+                					left : b
+                				})
+                			}
+                		})
+                	};
+                	popMoveWin(element);
+/*                 $(".modal-header").mousedown(function(e)//e鼠标事件  
                          {  
                              $(".modal-header").css("cursor","move");//改变鼠标指针的形状  
                                
@@ -156,7 +189,7 @@ directives.directive('csWindow',['$timeout','$compile',function($timeout,$compil
                                          var _x = ev.pageX - x;//获得X轴方向移动的值  
                                          var _y = ev.pageY - y;//获得Y轴方向移动的值  
                                            
-                                         element.animate({left:_x+"px",top:_y+"px"},10);  
+                                         element.animate({left:_x+"px",top:_y+"px"},0);  
                                      });  
                                        
                                
@@ -167,7 +200,7 @@ directives.directive('csWindow',['$timeout','$compile',function($timeout,$compil
                                      element.unbind("mousemove");  
                                  })  
                          }
-                 );
+                 );*/
                  //element.find(".modal-header").next().attr("style"," width: 100%;height: 100%;overflow: hidden;overflow-y: auto;");
             },true);
            

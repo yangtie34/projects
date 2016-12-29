@@ -74,6 +74,12 @@
                                       top100
                                     </label>
                                 </div>
+                                 <div class="radio radio-inline radio-change radio-blue">
+                                    <input type="radio" name="radio053_41" id="sj1_053_41" value=10000000 ng-model="rank">
+                                    <label for="sj1_053_41" class="fw-nm">
+                                      全部
+                                    </label>
+                                </div>
                             </div>
                             <div cg-mul-query-comm source="mutiSource" result="deptResult"
 									noborder="true"></div>

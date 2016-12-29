@@ -1955,17 +1955,17 @@ jxpg.directive("datePicker",["$interval","$timeout","$compile",function($interva
 			scope.dateFmt = scope.dateFmt || "yyyy-MM-dd";
 			scope.double = scope.double!=null || false;
 			var fomatDate=function(d){
-				var m=d.getMonth();
-				if(m<9)m='0'+(m+1);
+				var m=d.getMonth()+1;
+				//if(m<9)m='0'+(m+1);
 				var day=d.getDate();
-				if(day<10)day='0'+day;
+				//if(day<10)day='0'+day;
 				return d.getFullYear()+"-"+m+"-"+day;
 			};
 			scope.result={
 					startTime:function(){
 						var d=new Date();
-						d.setMonth(d.getMonth());
-						d.setFullYear(d.getFullYear()-1);
+						d.setMonth(d.getMonth()-1);
+						//d.setFullYear(d.getFullYear()-1);
 						return fomatDate(d);
 					}(),
 					endTime:fomatDate(new Date())	

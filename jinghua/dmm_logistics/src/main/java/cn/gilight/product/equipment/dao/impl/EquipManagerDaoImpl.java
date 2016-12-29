@@ -71,7 +71,7 @@ public class EquipManagerDaoImpl implements EquipManagerDao{
 					"left join t_code_dept cd on cd.id=te.DEPT_ID "+
 					"left join t_code_education c on te.edu_id=c.id "+
 					"where t.manager is not null  "+group+EquipmentSqlUtil.getIsOT(false)+
-					"group by c.id,c.name_,substr(t.buy_date,0,4) order by code ";
+					"group by c.id,c.name_,substr(t.buy_date,0,4) order by year_,code ";
 		return baseDao.getJdbcTemplate().queryForList(sql);
 	}
 	
@@ -111,7 +111,7 @@ public class EquipManagerDaoImpl implements EquipManagerDao{
 					"left join t_code_zyjszw cc on  te.zyjszw_id=cc.id "+
 					"left join t_code_zyjszw c on  cc.pid=c.id "+
 					"where t.manager is not null  "+group+EquipmentSqlUtil.getIsOT(false)+
-					"group by c.id,c.name_,substr(t.buy_date,0,4) order by code ";
+					"group by c.id,c.name_,substr(t.buy_date,0,4) order by year_,code ";
 		return baseDao.getJdbcTemplate().queryForList(sql);
 	}
 

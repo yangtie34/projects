@@ -82,6 +82,6 @@ public interface CardUsedService {
 	 * @return
 	 * tl_card_use_stu_month 表所有<br>
 	 */
-	public Page getNoCardUsed(int currentPage,int numPerPage,int totalRow,String sort,boolean isAsc,String startDate,String endDate,Map<String,String> deptTeach);
+	public Page getNoCardUsed(int currentPage,int numPerPage,int totalRow,String startDate,String endDate,Map<String,String> deptTeach);
 	
 }

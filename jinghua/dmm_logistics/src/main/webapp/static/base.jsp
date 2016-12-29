@@ -68,5 +68,6 @@ var base = "<%=projectPath%>/";
 <link href="<%=projectPath %>/resource/css/font-awesome.min.css" rel="stylesheet">
 <link href="<%=projectPath %>/resource/css/yiqisbguoqiqkfx.css" rel="stylesheet">
 <link href="<%=projectPath %>/resource/css/xscz-style.css" rel="stylesheet">
+<link href="<%=projectPath %>/static/angular_expand/css/tooltip.css" rel="stylesheet">
 
 

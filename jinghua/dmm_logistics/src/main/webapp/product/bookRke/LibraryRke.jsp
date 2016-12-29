@@ -46,12 +46,18 @@
                     <span>{{v.name}}</span>
                 </li>
                 <li class="text-left">
-               		<span class="icon-time" ng-click="qushiClick(k,key,'all');" style="float:right" title="趋势统计"></span>
+                <span tool-tip placement="right" hide-icon="true" class="icon-time" style="float:right"ng-click="qushiClick(k,key,'all');">
+									<div style="width: 60px">查看趋势</div>
+								</span>
+               		<!-- <span class="icon-time" ng-click="qushiClick(k,key,'all');" style="float:right" title="趋势统计"></span> -->
                 	<p class="xscz-ft-14">出入总次数（单位：次）</p>
                     <p><b class="xscz-ft-22">{{v.ALL_COUNT}}</b></p>
                 </li>
                 <li class="text-left">
-               		<span class="icon-time" ng-click="qushiClick(k,key,'avg');" style="float:right" title="趋势统计"></span>
+                      <span tool-tip placement="right" hide-icon="true" class="icon-time" style="float:right"ng-click="qushiClick(k,key,'avg');">
+									<div style="width: 60px">查看趋势</div>
+								</span>
+               	<!-- 	<span class="icon-time" ng-click="qushiClick(k,key,'avg');" style="float:right" title="趋势统计"></span> -->
                 	<p class="xscz-ft-14">人均出入次数（单位：次）</p>
                 	 <p><b class="xscz-ft-22" ng-class="key!='all'?v.AVG_COUNT>vm.items[0].all.all.AVG_COUNT?'xscz-red':'xscz-greener':''">{{v.AVG_COUNT}}</b></p>
                        <p class="height-31"ng-show="key=='all'"></p>
@@ -61,7 +67,10 @@
                     <p class="height-31"></p>
                 </li>
                 <li class="text-left">
-               		<span class="icon-time" ng-click="qushiClick(k,key,'rate');" style="float:right" title="趋势统计"></span>
+                      <span tool-tip placement="right" hide-icon="true" class="icon-time" style="float:right"ng-click="qushiClick(k,key,'rate');">
+									<div style="width: 60px">查看趋势</div>
+								</span>
+               		<!-- <span class="icon-time" ng-click="qushiClick(k,key,'rate');" style="float:right" title="趋势统计"></span> -->
                 	<p class="xscz-ft-14">入馆率（单位：%）</p>
                 	<p><b class="xscz-ft-22" ng-class="key!='all'?v.INRATE>vm.items[0].all.all.INRATE?'xscz-red':'xscz-greener':''">{{v.INRATE}}</b></p>
                 	  <p class="height-31"ng-show="key=='all'"></p>

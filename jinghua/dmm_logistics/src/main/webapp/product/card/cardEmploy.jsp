@@ -47,7 +47,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <!-- /* 统计*/-->
       
       <div class="xscz-tj">
-        <div class="xscz-cit text-center"><span>一卡通学生活跃度分析</span></div>
+        <div class="xscz-cit text-center"><span>一卡通学生活跃度分析</span><div  tool-tip placement="top" ><div style="width: 160px">月刷卡次数不下于${cardUsed }称谓为：活跃</div></div></div>
         <div class="row text-center clearfix mar-btm-40">
 				<div class="col-xs-2 wid-22 border-r-dash">
                 	<ul class="list-unstyled no-mar-btm">

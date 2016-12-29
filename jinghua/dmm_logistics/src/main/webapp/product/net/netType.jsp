@@ -55,12 +55,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <span>{{orderName[$index]}}</span>
                 </li>
                  <li class="text-left">
-                 <span class="icon-time" ng-click="qushiClick(key,'ALL_TIME');" style="float:right"title="趋势统计"></span>
+                  <div tool-tip placement="top" hide-icon="true" class="icon-time"style="float:right" ng-click="qushiClick(key,'ALL_TIME');">
+									<div style="width: 60px">查看趋势</div>
+								</div>
+               <!--   <span class="icon-time" ng-click="qushiClick(key,'ALL_TIME');" style="float:right"title="趋势统计"></span> -->
                 	<p class="xscz-ft-14">上网时长（单位：分钟）</p>
                     <p><b class="xscz-ft-22">{{vm[key].info.ALL_TIME}}</b></p>
                 </li>
                  <li class="text-left">
-                 <span class="icon-time" ng-click="qushiClick(key,'ALL_FLOW');" style="float:right"title="趋势统计"></span>
+                 <div tool-tip placement="top" hide-icon="true" class="icon-time"style="float:right" ng-click="qushiClick(key,'ALL_FLOW');">
+									<div style="width: 60px">查看趋势</div>
+								</div>
+                 <!-- <span class="icon-time" ng-click="qushiClick(key,'ALL_FLOW');" style="float:right"title="趋势统计"></span> -->
                 	<p class="xscz-ft-14">上网流量（单位：MB）</p>
                     <p><b class="xscz-ft-22">{{vm[key].info.ALL_FLOW}}</b></p>
                 </li>
@@ -134,7 +140,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </div>
                 </li> -->
                 <li class="text-left">
-                <span class="icon-time" ng-click="qushiClick(key,'STU_RATIO');" style="float:right"title="趋势统计"></span>
+                <div tool-tip placement="top" hide-icon="true" class="icon-time"style="float:right" ng-click="qushiClick(key,'STU_RATIO');">
+									<div style="width: 60px">查看趋势</div>
+								</div>
+               <!--  <span class="icon-time" ng-click="qushiClick(key,'STU_RATIO');" style="float:right"title="趋势统计"></span> -->
                 	<p class="xscz-ft-14">上网人次占比</p>
                     <p><b class="xscz-ft-22">{{vm[key].STU_RATIO>100?100:vm[key].STU_RATIO}}%</b></p>
                     <div class="progress xscz-progress">

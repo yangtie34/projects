@@ -104,7 +104,7 @@ public class ResourcesServiceImpl implements ResourcesService {
 					if(StringUtils.isEmpty(resource.getUrl_())){
 						logger.error("====URL不能为空====");
 						throw new EmptyParamException("URL不能为空");
-					}else{
+					}/*else{
 						Resources re = new Resources();
 						re.setUrl_(resource.getUrl_());
 						re.setSysGroup_(resource.getSysGroup_());
@@ -113,11 +113,13 @@ public class ResourcesServiceImpl implements ResourcesService {
 							logger.error("====资源URL不能重复====");
 							throw new HasOneException("资源URL不能重复");
 						}
-					}
+					}*/
 				}
 			}
 			if(StringUtils.isEmpty(resource.getShiro_tag())){
 				throw new EmptyParamException("shiro资源标识符不能为空");
+			}/*else if(resource.getShiro_tag().split(":").length==1){
+				
 			}else{
 				Resources re = new Resources();
 				re.setShiro_tag(resource.getShiro_tag());
@@ -125,10 +127,10 @@ public class ResourcesServiceImpl implements ResourcesService {
 				if(rl!=null && rl.size()>0){
 					throw new HasOneException("shiro资源标识符不能重复");
 				}
-				/*if(com.jhnu.util.common.StringUtils.hasOtherText(resource.getShiro_tag())){
+				if(com.jhnu.util.common.StringUtils.hasOtherText(resource.getShiro_tag())){
 					throw new ParamException("shiro资源标识符不能包含特殊字符");
-				}*/
-			}
+				}
+			}*/
 			logger.info("====创建资源开始保存====");
 			rs = resourcesDao.createResource(resource);
 			logger.info("====创建资源结束保存====");
@@ -202,7 +204,7 @@ public class ResourcesServiceImpl implements ResourcesService {
 				if("02".equals(resource.getResource_type_code())){
 					if(StringUtils.isEmpty(resource.getUrl_())){
 						throw new EmptyParamException("修改的URL不能为空");
-					}else{
+					}/*else{
 						Resources re = new Resources();
 						re.setUrl_(resource.getUrl_());
 						re.setSysGroup_(resource.getSysGroup_());
@@ -214,11 +216,13 @@ public class ResourcesServiceImpl implements ResourcesService {
 								}
 							}
 						}
-					}
+					}*/
 				}
 			}
 			if(StringUtils.isEmpty(resource.getShiro_tag())){
 				throw new EmptyParamException("修改的shiro资源标识符不能为空");
+			}/*else if(resource.getShiro_tag().split(":").length==1){
+				
 			}else{
 				Resources re = new Resources();
 				re.setShiro_tag(resource.getShiro_tag());
@@ -230,7 +234,7 @@ public class ResourcesServiceImpl implements ResourcesService {
 						}
 					}
 				}
-			}
+			}*/
 			logger.info("====开始修改资源====");
 			resourcesDao.updateResources(resource);
 			logger.info("====修改资源结束====");

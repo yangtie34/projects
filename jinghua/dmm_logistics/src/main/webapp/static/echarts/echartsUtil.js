@@ -292,13 +292,14 @@ var fomatbztzx=function(option){//饼状图不显示折线
 	var getOption=function(data,title,type){
 		var option={};
 		switch(type){
+		case 'bztwz'://饼状图无折线
 		case 'bzt'://饼状图
 			option=fomatOption(echarbzt(data),title);
 			option.calculable = true;
 			break;
-		case 'bztwz'://饼状图无折线
-			option=fomatbztzx(fomatOption(echarbzt(data),title));
-			break;
+//		case 'bztwz'://饼状图无折线
+//			option=fomatbztzx(fomatOption(echarbzt(data),title));
+//			break;
 		case 'mgt'://玫瑰图
 			option=fomatOption(echarmgt(data),title);
 			break;
@@ -737,6 +738,15 @@ var fomatbztzx=function(option){//饼状图不显示折线
 			        data:legends
 			    },
 			series : [ {
+		        itemStyle:{ 
+					normal: {
+		        label: {
+		            formatter: "{b} ({d}%)"
+		        },     
+		    }
+		          },
+		          startAngle:90,
+		          clockWise:false,
 				name : data[2],
 				type : 'pie',
 				radius : '55%',

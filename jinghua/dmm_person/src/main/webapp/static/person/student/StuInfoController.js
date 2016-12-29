@@ -12,7 +12,13 @@ app.controller("StuInfoController", [ "$scope","dialog",'mask','$timeout','http'
 	               'getSsTzxx'	//4获得宿舍调整信息
 	               
 	               ];
-	  
+		scope.page = {
+				  totalPages : 0,
+				  totalRows : 0,
+				  currentPage : 1,
+				  numPerPage : 10,
+				  conditions : []
+		 	};
 var getServiceData=function(){
 	  for(var i=0;i<methods.length;i++){
 		  htt.push({
@@ -44,16 +50,26 @@ var getVmData=function(){
 
 		vm.items[2] = data;
 	  });
-	//获得学生宿舍信息
-	http.callService(htt[3]).success(function(data){
-//		data=[{C1:'1',C2:'李俊',C3:'22',C4:'18339919808',C5:'电信12-02',C6:'杜保强',C7:'河南省信阳市',C8:'一区',C9:'3号楼',C10:'513'},
-//		      {C1:'2',C2:'程大江',C3:'22',C4:'15138910983',C5:'电信12-02',C6:'杜保强',C7:'河南省南阳市',C8:'一区',C9:'3号楼',C10:'513'},
-//		      {C1:'3',C2:'杜维敏',C3:'23',C4:'18339919937',C5:'电信12-02',C6:'杜保强',C7:'云南省昆明市',C8:'一区',C9:'3号楼',C10:'513'},
-//		      {C1:'4',C2:'马海龙',C3:'24',C4:'18937518355',C5:'电信12-02',C6:'杜保强',C7:'河南省平顶山',C8:'一区',C9:'3号楼',C10:'513'},
-//		      {C1:'5',C2:'孔天培',C3:'23',C4:'13700869624',C5:'电信12-02',C6:'杜保强',C7:'河南省商丘市',C8:'一区',C9:'3号楼',C10:'513'},
-//		      {C1:'6',C2:'张安新',C3:'23',C4:'18339934131',C5:'电信12-02',C6:'杜保强',C7:'河南省信阳市',C8:'一区',C9:'3号楼',C10:'513'}];
-		vm.items[3] = data;
-	  });
+
+	  /*监控分页工具选择页码的变化，若变更则执行后台调用*/
+	  scope.$watch('page',function(val1,val2){
+	  	 // if(val1.currentPage != val2.currentPage && angular.toJson(val1.conditions) == angular.toJson(val2.conditions)||val1.numPerPage!=val2.numPerPage){
+	  		//获得学生宿舍信息
+	  		 htt[3].params=[userId,scope.page.currentPage || 1,scope.page.numPerPage || 10],
+	  		http.callService(htt[3]).success(function(data){
+//	  			data=[{C1:'1',C2:'李俊',C3:'22',C4:'18339919808',C5:'电信12-02',C6:'杜保强',C7:'河南省信阳市',C8:'一区',C9:'3号楼',C10:'513'},
+//	  			      {C1:'2',C2:'程大江',C3:'22',C4:'15138910983',C5:'电信12-02',C6:'杜保强',C7:'河南省南阳市',C8:'一区',C9:'3号楼',C10:'513'},
+//	  			      {C1:'3',C2:'杜维敏',C3:'23',C4:'18339919937',C5:'电信12-02',C6:'杜保强',C7:'云南省昆明市',C8:'一区',C9:'3号楼',C10:'513'},
+//	  			      {C1:'4',C2:'马海龙',C3:'24',C4:'18937518355',C5:'电信12-02',C6:'杜保强',C7:'河南省平顶山',C8:'一区',C9:'3号楼',C10:'513'},
+//	  			      {C1:'5',C2:'孔天培',C3:'23',C4:'13700869624',C5:'电信12-02',C6:'杜保强',C7:'河南省商丘市',C8:'一区',C9:'3号楼',C10:'513'},
+//	  			      {C1:'6',C2:'张安新',C3:'23',C4:'18339934131',C5:'电信12-02',C6:'杜保强',C7:'河南省信阳市',C8:'一区',C9:'3号楼',C10:'513'}];
+	  			vm.items[3] = data.resultList;
+	  			scope.page.totalRows=data.totalRows;
+	  			  scope.page.totalPages=data.totalPages;
+	  		  });
+	  	 // }
+	  },true);
+	
 	//获得宿舍调整信息
 	http.callService(htt[4]).success(function(data){
 //		data=[{C1:'2015-01-11',C2:'一区',C3:'3号楼',C4:'513',C5:'二区',C6:'1号楼',C7:'513'},

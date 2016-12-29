@@ -40,7 +40,11 @@
                     <div class="jieyue_top_img">
                     	<div class="fl">
                             <div id="octagon">
-                                <div id="liub"><h4>流通量 <span class="icon-time" ng-click="getxqlb(17);"></span></h4></div>
+                                <div id="liub"><h4>流通量 
+                                <span tool-tip placement="top" hide-icon="true" class="icon-time" ng-click="getxqlb(17);">
+									<div style="width: 160px">点击此处查看趋势</div>
+								</span>
+                               <!--  <span class="icon-time" ng-click="getxqlb(17);"></span> --></h4></div>
                                 <ul>
                                    <li class="text_bold" ng-click="getxqlb(10);"><a href="" class="colorr">{{vm.items[4].NUMS}}</a></li>
                                    <li>本</li>
@@ -87,7 +91,9 @@
                         	<h5>分类型统计人均借书量</h5>
                         </div>
                         <div class="shuliang_img">
-                        	<span class="icon-time" ng-click="qushiClick(0);"></span>
+                        	<span tool-tip placement="left" hide-icon="true" class="icon-time" ng-click="qushiClick(0);">
+									<div style="width: 160px">点击此处查看趋势</div>
+								</span>
                         	<div stu-chart config="vm.items[5]" style="height:310px;"class="img-top"> </div>
                         	<%-- <img style="padding-top:0;" src="${images}/books_images/xianyouduzhe.jpg" alt="" class="img-top"> --%>
                         </div>
@@ -97,7 +103,9 @@
                         	<h5>分类型统计借书人数占比</h5>
                         </div>
                         <div class="duzheleix_img">
-                        	<span class="icon-time"  ng-click="qushiClick(1);"></span>
+                        	<span tool-tip placement="left" hide-icon="true" class="icon-time" ng-click="qushiClick(1);">
+									<div style="width: 160px">点击此处查看趋势</div>
+								</span>
                         	<div stu-chart config="vm.items[6]" style="height:310px;"class="img-top"> </div>
                         	<%-- <img src="${images}/books_images/xianyouduzhe.jpg" alt="" class="img-top"> --%>
                         </div>

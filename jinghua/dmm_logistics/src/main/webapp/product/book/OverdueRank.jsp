@@ -184,13 +184,17 @@
                 	</div>
                      <div class="fenbu_con rylxfb_con" ng-show="type1!='book'">
                     	<div class="col-md-4" style="width:50%">
-                        	<h4>学历对比<span class="icon-time" ng-click="qushiClick(2);"></span></h4>
+                        	<h4>学历对比<span tool-tip placement="right" hide-icon="true" class="icon-time" ng-click="qushiClick(2);">
+									<div style="width: 160px">点击此处查看趋势</div>
+								</span></h4>
                         	<div stu-chart config="vm.items[1]" style="height:310px;"class="img-responsive img-top"> </div>
                         	
                         	<%-- <img src="${images}/books_images/rylxfb_lx.jpg" class="img-responsive img-top"> --%>
                         </div>
                         <div class="col-md-4 fenbu_con_m" style="width:50%;border-right: none;">
-                        	<h4>性别对比<span class="icon-time" ng-click="qushiClick(4);"></span></h4>
+                        	<h4>性别对比<span tool-tip placement="right" hide-icon="true" class="icon-time" ng-click="qushiClick(4);">
+									<div style="width: 160px">点击此处查看趋势</div>
+								</span></h4>
                         	<div stu-chart config="vm.items[3]" style="height:310px;"class="img-responsive img-top"> </div>
                             <%-- <img src="${images}/books_images/rylxfb_xb.jpg" class="img-responsive img-top"> --%>
                         </div>
@@ -202,7 +206,9 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="fenbu_con rylxfb_con">
-                    <h4>所属{{type1=='book'?'类型':deptlname}}对比<span class="icon-time" ng-click="qushiClick(8);"></span></h4>
+                    <h4>所属{{type1=='book'?'类型':deptlname}}对比<span tool-tip placement="right" hide-icon="true" class="icon-time" ng-click="qushiClick(8);">
+									<div style="width: 160px">点击此处查看趋势</div>
+								</span></h4>
                     <div stu-chart config="vm.items[7]" style="height:310px; width:100%"class="img_marg img-top"> </div>
                   <%--   <img src="${images}/books_images/yqzssyxfb_sl.png" class="img_marg img-top"> --%>
                     </div>

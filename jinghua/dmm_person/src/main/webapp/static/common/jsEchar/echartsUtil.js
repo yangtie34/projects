@@ -86,8 +86,8 @@ var echarColor= [
 					                      formatter:''+all,
 					                        position : 'center',
 					                        textStyle : {
-					                            fontSize : '20',
-					                            fontWeight : 'bold'
+					                            fontSize : '15',
+					                            //fontWeight : 'bold'
 					                        }
 					                    },
 					                    labelLine:{show:false}
@@ -118,6 +118,13 @@ var echarColor= [
 					        }
 					    ]
 					};
+		option.noDataLoadingOption ={
+				text :title+'暂无数据',
+			    effectOption : null,
+			    effect : 'bubble',
+			    effectOption : {
+			    	effect : {n:'0'}
+			    }};
 		return option;
 	};
 	/*
@@ -193,7 +200,7 @@ var echarColor= [
 	            },
 				data : datas
 			} ]
-		};
+		};	
 		return option;
 	};
 	/*
@@ -294,7 +301,7 @@ var echarColor= [
 				if (yxData[leg] == null) {
 					legentMap[leg].data.push(0);
 				} else {
-					legentMap[leg].data.push(yxData[leg].VALUE);
+					legentMap[leg].data.push(yxData[leg].VALUE||0);
 				}
 			}
 		}

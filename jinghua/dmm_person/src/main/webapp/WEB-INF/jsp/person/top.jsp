@@ -70,7 +70,7 @@
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a>你好， <%=user.getReal_name()%></a></li>
-				<li><a href="${ctx }/person/logout">退出</a></li>
+				<%-- <li><a href="${ctx }/person/logout">退出</a></li> --%>
 				<!--         <li><a href="#">安全中心</a></li>
         <li><a href="#">快速注册</a></li>
         <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">修改信息 <span class="caret"></span></a>

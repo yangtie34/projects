@@ -6,6 +6,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.util.StringUtils;
 
 import com.jhnu.cas.entity.LoginResultBean;
 import com.jhnu.cas.entity.User;
@@ -19,14 +20,15 @@ import com.wiscom.is.IdentityManager;
 public class WiseduLoginUtil {
 	
 	public static LoginResultBean checkLogin(String username,String password,JdbcTemplate jdbcTemplate,HttpServletRequest resquest){
-		LoginResultBean lrb = CommonLoginUtil.checkUserName(username,jdbcTemplate);
+		LoginResultBean lrb=checkSSO(resquest);
+		
+		if(!lrb.getIsTrue()){
+    		return lrb;
+		}
+		System.out.println("单点登录用户为："+lrb.getUsername());
+		lrb = CommonLoginUtil.checkUserName(lrb.getUsername(),jdbcTemplate);
 		if(!lrb.getIsTrue()){
 			return lrb;
-		}
-
-		lrb=checkSSO(username,resquest);
-    	if(!lrb.getIsTrue()){
-    		return lrb;
 		}
 
 		lrb=CommonLoginUtil.checkIsTrue((User)lrb.getObject());
@@ -36,10 +38,12 @@ public class WiseduLoginUtil {
 		return lrb;
 	}
 
-	private static LoginResultBean checkSSO(String username,HttpServletRequest resquest){
+	private static LoginResultBean checkSSO(HttpServletRequest resquest){
 		LoginResultBean lrb = new LoginResultBean();
 		try {
-			String is_config = resquest.getSession().getServletContext().getRealPath("/client.properties");
+		//	String is_config = resquest.getSession().getServletContext().getRealPath("/client.properties");
+			String is_config=WiseduLoginUtil.class.getResource("/").getPath()+"client.properties";
+			is_config=is_config.replaceFirst("/", "");
 			Cookie all_cookies[] = resquest.getCookies();
 			Cookie myCookie;
 			String decodedCookieValue = null;
@@ -60,7 +64,10 @@ public class WiseduLoginUtil {
 			IdentityFactory factory = IdentityFactory.createFactory(is_config);
 			IdentityManager im = factory.getIdentityManager();
 			String curUser = im.getCurrentUser(decodedCookieValue);
-			if(!curUser.equals(username)){
+			if(StringUtils.hasLength(curUser)){
+				lrb.setUsername(curUser);
+				return lrb;
+			}else{
 				lrb.setTrue(false);
 				lrb.setErrorMas("认证失败");
 				return lrb;
@@ -71,7 +78,6 @@ public class WiseduLoginUtil {
 			lrb.setErrorMas("认证失败");
 			return lrb;
 		}
-		return lrb;
 	}
 	
 }

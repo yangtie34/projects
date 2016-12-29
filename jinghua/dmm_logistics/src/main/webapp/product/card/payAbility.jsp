@@ -62,12 +62,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <span>{{ico_title[key][k].name}}</span>
                 </li>
                 <li class="text-left">
-                 <span class="icon-time" ng-click="qushiClick(k,key,'all');" style="float:right"title="趋势统计"></span>
+                 <div tool-tip placement="top" hide-icon="true" class="icon-time"style="float:right" ng-click="qushiClick(k,key,'all');">
+									<div style="width: 60px">查看趋势</div>
+								</div>
+                <!--  <span class="icon-time" ng-click="qushiClick(k,key,'all');" style="float:right"title="趋势统计"></span> -->
                 	<p class="xscz-ft-14">消费金额（单位：元）</p>
                     <p><b class="xscz-ft-22">{{v.xfnl.ALL_MONEY|number:2}}</b></p>
                 </li>
                 <li class="text-left">
-                 <span class="icon-time" ng-click="qushiClick(k,key,'bj');" style="float:right"title="趋势统计"></span>
+                 <div tool-tip placement="top" hide-icon="true" class="icon-time"style="float:right" ng-click="qushiClick(k,key,'bj');">
+									<div style="width: 60px">查看趋势</div>
+								</div>
+                <!--  <span class="icon-time" ng-click="qushiClick(k,key,'bj');" style="float:right"title="趋势统计"></span> -->
                 	<p class="xscz-ft-14">人均单笔消费（单位：元）</p>
                     <p><b class="xscz-ft-22"
                       ng-class="v.xfnl.ONE_MONEY>vm.items[0].all.all.xfnl.ONE_MONEY?'xscz-red':v.xfnl.ONE_MONEY==vm.items[0].all.all.xfnl.ONE_MONEY?'':'xscz-greener'">{{v.xfnl.ONE_MONEY|number:2}}</b></p>
@@ -77,7 +83,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                      {{v.xfnl.ONE_MONEY>vm.items[0].all.all.xfnl.ONE_MONEY?((v.xfnl.ONE_MONEY-vm.items[0].all.all.xfnl.ONE_MONEY)|number:2):((vm.items[0].all.all.xfnl.ONE_MONEY-v.xfnl.ONE_MONEY)|number:2)}}</b></p>
                 </li>
                 <li class="text-left">
-                  <span class="icon-time" ng-click="qushiClick(k,key,'rj');" style="float:right"title="趋势统计"></span>
+                <div tool-tip placement="top" hide-icon="true" class="icon-time"style="float:right" ng-click="qushiClick(k,key,'rj');">
+									<div style="width: 60px">查看趋势</div>
+								</div>
+                 <!--  <span class="icon-time" ng-click="qushiClick(k,key,'rj');" style="float:right"title="趋势统计"></span> -->
                 	<p class="xscz-ft-14">人均日消费（单位：元）</p>
                     <p><b class="xscz-ft-22" 
                     ng-class="v.xfnl.DAY_MONEY>vm.items[0].all.all.xfnl.DAY_MONEY?'xscz-red':v.xfnl.DAY_MONEY==vm.items[0].all.all.xfnl.DAY_MONEY?'':'xscz-greener'">{{v.xfnl.DAY_MONEY|number:2}}</b></p>

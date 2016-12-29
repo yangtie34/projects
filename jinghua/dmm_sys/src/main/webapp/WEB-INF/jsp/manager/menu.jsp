@@ -72,6 +72,7 @@
 			}
 			if(d[i].resource_type_code=='01'  ){
 				var divClass="",ulStyle="style='margin:0px'";
+				//debugger;
 				if(this_path.indexOf(d[i].path)>=0){
 					divClass="currentDd currentDt",ulStyle="style='display:block'";
 				}

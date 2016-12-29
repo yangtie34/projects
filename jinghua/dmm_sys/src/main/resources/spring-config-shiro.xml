@@ -53,8 +53,6 @@
                 /casFailure.jsp = anon
                 /static/** =anon 
                 /task/job/execute = anon
-                /user/changepwd = anon
-                /user/changepwd/page = anon
                 /user/checkuser = anon
                 /cas = cas
                 /logout = logout

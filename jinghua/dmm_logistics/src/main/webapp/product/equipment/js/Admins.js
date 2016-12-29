@@ -58,20 +58,20 @@ app.controller("AdminsController", [ "$scope","dialog",'mask','$timeout','http',
 	  		title="仪器设备";
 	  	}else if(i==11){
 	  		params=[scope.DeptGroup,scope.deptId];
-	  		title="仪器设备";
+	  		title=scope.deptName+"仪器设备";
 	  	}else if(i==12){
 	  		params=[scope.managerId];
-	  		title="仪器设备";
+	  		title=scope.managerName+"管理仪器设备";
 	  	}else if(i==13){
 	  		scope.emType='all';
 	  		params=[scope.deptGroup];
-	  		title="管理者";
+	  		title=scope.deptName+"管理者";
 	  	}else if(i==14){
 	  		params=[scope.deptGroup,scope.type,scope.typeValue];
-	  		title="管理者";
+	  		title=scope.typeName+"管理者";
 	  	}else if(i==15){
 	  		params=[scope.deptGroup];
-	  		title="管理者";
+	  		title=scope.deptName+"管理者";
 	  	}else if(i==16){
 	  		params=[scope.deptGroup,scope.deptId];
 	  		title="管理者";
@@ -106,8 +106,9 @@ app.controller("AdminsController", [ "$scope","dialog",'mask','$timeout','http',
 	  	};
 	  	scope.pagexq={func:query};
 	  }	 
-		scope.getxq=function(code){
-			scope.deptGroup=code||'';
+		scope.getxq=function(item){
+			scope.deptGroup=item.CODE||'';
+			scope.deptName=item.NAME;
 			scope.getxqlb(13);
 		}
 		scope.deptGroup='all';
@@ -115,9 +116,11 @@ app.controller("AdminsController", [ "$scope","dialog",'mask','$timeout','http',
 			scope.emType=angular.copy(scope.rankType);
 			if(scope.queryType=='dept'){
 				scope.deptId=item.DEPT_ID;	
+				scope.deptName=item.DEPT_NAME;;
 				scope.getxqlb(11);
 			}else{
 				scope.managerId=item.TEA_ID;	
+				scope.managerName=item.TEA_NAME;	
 				scope.getxqlb(12);
 			}
 		}
@@ -171,7 +174,7 @@ var getvmData=function(i,k){
 		 if(i==2){//饼状图
 			 var d=[];
 			 for(var j=0;j<data.length;j++){
-				 d.push({field:data[j].NAME,fieldCode:data[j].CODE,value:data[j].VALUE,name:'人次(人)'}); 
+				 d.push({field:data[j].NAME,fieldCode:data[j].CODE,value:data[j].VALUE,name:'人数(人)'}); 
 			 }
 			 var option=getOption(d,'','bzt');
 				option.event=function(param){
@@ -179,6 +182,7 @@ var getvmData=function(i,k){
 					scope.emType='all';
 					scope.deptGroup=angular.copy(scope.DeptGroup);
 					scope.typeValue=param.data.nameCode
+					scope.typeName=param.name;
 					 scope.getxqlb(14);
 					 timeout();
 				 };
@@ -189,16 +193,17 @@ var getvmData=function(i,k){
 			 for(var j=0;j<data.length;j++){
 				 d.push({field:data[j].YEAR_,value:data[j].VALUE,name:data[j].NAME}); 
 			 }
-			 vm.items[i][k]=fomatSwtDw(getOption(d,(vm.items[i]==0?'分类型':'按职称')+'对比趋势','xzt'),'人次','人'); 
+			 vm.items[i][k]=fomatSwtDw(getOption(d,(vm.items[i]==0?'分类型':'按职称')+'对比趋势','xzt'),'人数','人'); 
 		 }else if(i==4){//柱状图
 			 var d=[];
 			 for(var j=0;j<data.length;j++){
-				 d.push({field:data[j].NAME,fieldCode:data[j].CODE,value:data[j].USERS,name:'人次(人)'}); 
+				 d.push({field:data[j].NAME,fieldCode:data[j].CODE,value:data[j].USERS,name:'人数(人)'}); 
 			 }
 			 var option=getOption(d,'','zzt');
 			 option.event=function(param){
 				 scope.emType=angular.copy(scope.DeptGroup);
 					scope.deptGroup=option.series[param.seriesIndex].dataCode[param.dataIndex]; 
+					scope.deptName=param.name;
 					scope.getxqlb(15);
 					 timeout();
 				 };
@@ -216,6 +221,7 @@ var getvmData=function(i,k){
 				 option.event=function(param){
 					 	scope.deptGroup=angular.copy(scope.DeptGroup);
 						scope.deptId=option.series[param.seriesIndex].dataCode[param.dataIndex]; 
+						scope.deptName=param.name;
 						scope.getxqlb(11);
 						 timeout();
 					 };

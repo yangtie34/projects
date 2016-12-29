@@ -52,7 +52,7 @@ public class StuInfoDaoImpl implements StuInfoDao {
 				+ " from T_STU_GLORY t  "
 				+ " left join t_code tc1 on tc1.code_ = t.TERM_CODE  and tc1.code_type='TERM_CODE'  "
 				+ " left join t_code tc2 on tc2.code_ = t.GLORY_CODE  and tc1.code_type='GLORY_CODE'  "
-				+ " where t.stu_id='" + id + "'";
+				+ " where t.stu_id='" + id + "' order by t.SCHOOL_YEAR,t.TERM_CODE,t.DATE_" ;
 		return baseDao.getBaseDao().getJdbcTemplate().queryForList(sql);
 	}
 
@@ -94,16 +94,17 @@ public class StuInfoDaoImpl implements StuInfoDao {
 				   +" LEFT JOIN T_CLASSES tc1 on tc1.no_ = TSC.NOW_CLASS_ID "
 				   +" LEFT JOIN t_code_dept_teach tcdtq1  ON tcdtq1.id = TSC.NOW_MAJOR_ID "
 				   +" LEFT JOIN t_code_dept_teach tcdtt1  ON tcdtt1.id=TSC.NOW_DEPT_ID "
-				   +" WHERE TSC.STU_ID='"+id+"' ";
+				   +" WHERE TSC.STU_ID='"+id+"' order by TSC.DATE_";
 		return baseDao.getBaseDao().getJdbcTemplate().queryForList(sql);
 	}
 /**
  * 获得学生宿舍信息
  */
 	@Override
-	public List getSsZsxx(String id) {
+	public Page getSsZsxx(String id, int currentPage, int numPerPage) {
+		
 		// 床位号  姓名  年龄 电话号码 班级 班主任 生源地
-		String sql=" select berth.berth_name c1,stu.name_ c2, "
+		String sql=" select distinct berth.berth_name c1,stu.name_ c2, "
 		           +" floor(months_between(sysdate,to_date(substr(stu.idno,7,8), 'yyyymmdd'))/12) c3, "
 		           +" TSC.TEL c4,TCB.NAME_ c5,concat(TCADSS.NAME_,TCADS.NAME_) c6, "
 		           +" DIV2.NAME_||DIV1.NAME_||DIV.NAME_ c7,TDLC.NAME_ c8,TD.NAME_ c9"
@@ -122,12 +123,17 @@ public class StuInfoDaoImpl implements StuInfoDao {
 		           +" LEFT JOIN T_CODE_ADMINI_DIV TCAD ON TCAD.ID=STU.STU_ORIGIN_ID "
 		           +" LEFT JOIN T_CODE_ADMINI_DIV TCADS ON TCADS.ID=TCAD.PID "
 		           +" LEFT JOIN T_CODE_ADMINI_DIV TCADSS ON TCADSS.ID=TCADS.PID "
-		           +" where   berth.dorm_id = (select dorm_id  "
+		           +" where berth_stu.stu_id in"
+		           + "(select no_ from t_stu where CLASS_ID="
+		           + "(select CLASS_ID from t_stu where no_='"+id+"')"
+		           + ")";
+		         /*  + "berth.dorm_id = (select dorm_id  "
 		           +" from t_dorm_berth "
 		           +" where id = (select berth_id "
 		           +" from t_dorm_berth_stu "
-		           +" where stu_id = '"+id+"')) ";
-		return baseDao.getBaseDao().getJdbcTemplate().queryForList(sql);
+		           +" where stu_id = '"+id+"')) ";*/
+		return new Page(sql.toString(), currentPage, numPerPage, baseDao
+				.getBaseDao().getJdbcTemplate(), null);
 	}
 /**
  * 获得学生宿舍调整信息
@@ -151,7 +157,7 @@ public class StuInfoDaoImpl implements StuInfoDao {
 				   +" LEFT JOIN T_DORM TDH ON TDH.ID=TDC.AFTERCHANGE_DORM_ID "
 				   +" LEFT JOIN T_DORM TDLCH ON TDLCH.ID=TDH.PID "
 				   +" LEFT JOIN T_DORM TDLYH ON TDLYH.ID=TDLCH.PID "
-				   +" WHERE TDC.STU_ID='"+id+"' ";
+				   +" WHERE TDC.STU_ID='"+id+"' order by TDC.CHANGE_DATE";
 		return baseDao.getBaseDao().getJdbcTemplate().queryForList(sql);
 	}
 	@Override

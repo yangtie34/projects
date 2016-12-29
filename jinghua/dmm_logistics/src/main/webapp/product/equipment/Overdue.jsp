@@ -51,7 +51,9 @@
                     <div class="rig fl">
                     	<div class="guizhong fl">
                             <div id="octagon">
-                                <div id="liub" ng-class="emTypeIndex==1?'':'cursordiv'"ng-click="emTypeClick(1);"><h4>贵重设备</h4></div>
+                                <div id="liub" ng-class="emTypeIndex==1?'':'cursordiv'"ng-click="emTypeClick(1);"><h4>贵重设备 <div tool-tip placement="top">
+									<div style="width: 160px">单价在{{gzbz/10000}}万元以上的设备</div>>
+								</div>	</h4></div>
                                 <ul class="ul_1">
                                     <li>共拥有</li>
                                     <li>总价值</li>
@@ -87,20 +89,26 @@
                 	</div>
                     <div class="fenbu_con gqzysb_con">
                     	<div class="col-md-4">
-                        	<h4>设备类型对比<span class="icon-time"ng-click="qushiClick(0);"></span></h4>
+                        	<h4>设备类型对比<div tool-tip placement="right" hide-icon="true" class="icon-time" ng-click="qushiClick(0);">
+									<div style="width: 160px">点击此处查看趋势</div>
+								</div></h4>
                         	<div stu-chart config="vm.items[1][0]" style="height:310px;"class="img-responsive img-top"> </div>
                         	
                         <%-- 	<img src="${images}/shebei_21.jpg" class="img-responsive img-top"> --%>
                         </div>
                         <div class="col-md-4 fenbu_con_m">
-                        	<h4>经费组成对比<span class="icon-time"ng-click="qushiClick(1);"></span></h4>
+                        	<h4>经费组成对比<div tool-tip placement="right" hide-icon="true" class="icon-time" ng-click="qushiClick(1);">
+									<div style="width: 160px">点击此处查看趋势</div>
+								</div></h4>
                             <div stu-chart config="vm.items[1][1]" style="height:310px;"class="img-responsive img-top"> </div>
                         	
                            <%--  <img src="${images}/jingfei_22.jpg" class="img-responsive img-top"> --%>
                            <!--  <p><i class="icon-info-sign"></i>经费组成中<b>教育事业费</b>共计<b>500元</b>，占总经费<b>60%</b>，以上是<b>其余经费</b>对比。</p>
                         --> </div>
                         <div class="col-md-4">
-                        	<h4>设备单价对比<span class="icon-time"ng-click="qushiClick(2);"></span></h4>
+                        	<h4>设备单价对比<div tool-tip placement="right" hide-icon="true" class="icon-time" ng-click="qushiClick(2);">
+									<div style="width: 160px">点击此处查看趋势</div>
+								</div></h4>
                         	<div stu-chart config="vm.items[1][2]" style="height:310px;"class="img-responsive img-top"> </div>
                         	
                         	<%-- <img src="${images}/shebeidanjia_24.gif" class="img-responsive img-top"> --%>
@@ -116,7 +124,7 @@
                     <div class="suoshu_con">
                     	<div class="suoshu_section">
                         	<div class="col-md-3" style="width:20%" ng-repeat="item in vm.items[3]"
-                        	ng-class="emTypeIndex==0?'':'cursordiv'"ng-click="DeptGroupClick(item);">
+                        	ng-class="emTypeIndex==0?'':'cursordiv'">
                                 <img src="${images}/border_15.png" class="img-top">
                                 <div class="xz_con">
                                     <ul class="ul_1">
@@ -124,12 +132,12 @@
                                         <li>价值</li>
                                     </ul>
                                     <ul class="ul_2 text-right">
-                                        <li><a href="" class="colorr" ng-click="getEmDetilByDeptGroup(item.CODE);">{{item.NUMS}}</a>件</li>
+                                        <li><a href="" class="colorr" ng-click="getEmDetilByDeptGroup(item);">{{item.NUMS}}</a>件</li>
                                         <li>{{item.MONEYS}}万元</li>
                                     </ul>
                                 </div>
                                 <img src="${images}/border_18.png" class="mtfw img-top">
-                                <a href=""><div id="liub" ng-class="DeptGroup==item.CODE?'xuanzhong':''">
+                                <a href="" ng-click="DeptGroupClick(item);"><div id="liub" ng-class="DeptGroup==item.CODE?'xuanzhong':''">
                                 <h4>{{item.NAME}}</h4></div></a>
                             </div>
                  <%--            <div class="col-md-3">

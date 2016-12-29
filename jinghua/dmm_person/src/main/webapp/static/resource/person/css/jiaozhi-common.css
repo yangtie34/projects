@@ -222,7 +222,7 @@ a.jiaozhi-more-link:hover {
 /*标题*/ 
 a.jiaozhi-alink-under {
 	color:#1e1a28;
-	text-decoration:underline;
+	/* text-decoration:underline; */
 	position:relative;
 }
 a.jiaozhi-alink-under:hover {
@@ -641,22 +641,22 @@ a.jiaozhi-alink-under:hover {
 .jiaozhi-block-listli {
 	border:1px solid #999;
 	border-radius:5px;
-	padding:10px;
-	margin:10px;
+	padding:5px;
+	margin:5px;
 	text-align:center;
-	min-width:175px;
+	min-width:95px;
 	display:inline-block;
 }
 .jiaozhi-block-list-li {
 	border:1px solid #78b3cd;
 	display:inline-block;
-	padding:10px;
+	padding:5px;
 	border-radius:5px;
 	min-width:95px;
 	color:#393939;
-	margin:10px;
+	margin:5px;
 	text-align:center;
-	min-width:175px;
+	min-width:95px;
 	cursor:pointer;
 }
 .jiaozhi-block-list-li:hover, .jiaozhi-blockcircle:hover {

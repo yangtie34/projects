@@ -77,7 +77,7 @@
               <dl class="quanxian-select-group-dl clearfix">
                 <dt>操作权限：</dt>
                 <dd>
-                  <select type="button" style="outline:none;-webkit-appearance: none;" ng-model="perm_data.operId" class="quanxian-btn-default quanxian-btn-bottom-icon">
+                  <select id="operateList" type="button" disabled="disabled" style="outline:none;-webkit-appearance: none;" ng-model="perm_data.operId" class="quanxian-btn-default quanxian-btn-bottom-icon">
 		<option value="">---请选择---</option>
 		<c:forEach items="${operateList }" var="operate">
 			<option value="${operate.id}">${operate.description }</option>
@@ -159,17 +159,17 @@
 	 	<button type="button" class="btn btn-primary" ng-click="zyInfoWindow = false;">确定</button>
 	</div>
 </div>
-<div cs-window show="resourceInfoWindow" autoCenter="true" style="position: absolute" offset="offset" >
+<!-- <div cs-window show="resourceInfoWindow" autoCenter="true" style="position: absolute" offset="offset" >
 <span>*灰色为已分配权限</span>
 		<div cg-check-map-tree source="res_treeData" result="res_treeResult" 
 			type="'res'"   >
-			<!-- code 是条件对应的字段代码 -->
+			code 是条件对应的字段代码
 		</div>
 			 	 <div class="modal-footer">
 	 	<button type="button" class="btn btn-primary" ng-click="perm_data.resName=res_treeResult[0].mc;perm_data.resId=res_treeResult[0].id;resourceInfoWindow = false;">确定</button>
 
 	</div>
-</div>
+</div> -->
 
 <div cs-window show="zzjgInfoWindow"  offset="offset" autoCenter="true" style="position: absolute">
 		<div cg-check-map-tree source="zzjg_treeData" result="zzjg_treeResult" type="'tree'">

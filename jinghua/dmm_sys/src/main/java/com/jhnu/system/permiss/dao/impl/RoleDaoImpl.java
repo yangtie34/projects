@@ -86,7 +86,7 @@ public class RoleDaoImpl implements RoleDao {
 				sql.append(" AND (t.name_ LIKE '%"+role.getName_OrDescription()+"%' or t.description LIKE '%"+role.getName_OrDescription()+"%') ");
 			}
 		}
-		return new Page(sql.toString(),currentPage, numPerPage ,baseDao.getBaseDao().getJdbcTemplate(),null,role);
+		return new Page(sql.toString()+" order by t.id ",currentPage, numPerPage ,baseDao.getBaseDao().getJdbcTemplate(),null,role);
 	}
 
 	@Override

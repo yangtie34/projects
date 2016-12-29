@@ -4,8 +4,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 session.invalidate();
-String casLogoutURL=application.getInitParameter("casServerLogoutUrl");
-	   casLogoutURL="http://localhost:8080/dmm_cas/logout";
+String casLogoutURL=application.getInitParameter("casServerLogoutUrl");	  
 String redirectURL=casLogoutURL+"?service="+URLEncoder.encode(basePath);
 response.sendRedirect(redirectURL);
 %>

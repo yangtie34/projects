@@ -38,7 +38,13 @@
                         </div>
                         <div class="fl">
                             <div id="octagon" class="fl">
-                                <div id="liub" class="liub_blue"><h4>逾期率 &nbsp;<i class="icon-info-sign" title="计算方式：逾期已还书籍/借书总书籍)"></i></h4></div>
+                                <div id="liub" class="liub_blue"><h4>逾期率 &nbsp;
+                                <span tool-tip placement="top" hide-icon="false" ng-click="qushiClick(2);">
+									<div style="width: 200px">计算方式：逾期已还书籍/借书总书籍)</div>
+								</span>
+                                <!-- <i class="icon-info-sign" title="计算方式：逾期已还书籍/借书总书籍)"></i> -->
+                                
+                                </h4></div>
                                 <ul>
                                    <li class="text_bold">{{vm.items[4].NUMRATE}}</li>
                                    <li>‱</li>
@@ -65,7 +71,10 @@
                         <div class="renyuan_fenbu_con">
                             <div class="fl leixing">
                                 <h4 class="h4_16">已还书籍人数对比
-                                	<span class="icon-time" ng-click="qushiClick(1);"></span>
+                                <span tool-tip placement="right" hide-icon="true" class="icon-time" ng-click="qushiClick(1);">
+									<div style="width: 160px">点击此处查看趋势</div>
+								</span>
+                                	<!-- <span class="icon-time" ng-click="qushiClick(1);"></span> -->
                                 	</h4>
                                  <div class="shuliang_img">
                         	 	<div stu-chart config="vm.items[5]" style="height:310px;"class="img-responsive img_marg img-top" style="padding-top:36px;"> </div>
@@ -75,7 +84,10 @@
                            
                             <div class="fl zhicheng">
                                 <h4 class="h4_16">逾期率对比
-                                <span class="icon-time" ng-click="qushiClick(2);"></span>
+                                <span tool-tip placement="right" hide-icon="true" class="icon-time" ng-click="qushiClick(2);">
+									<div style="width: 160px">点击此处查看趋势</div>
+								</span>
+                               <!--  <span class="icon-time" ng-click="qushiClick(2);"></span> -->
                                 </h4>
                                  <div class="shuliang_img">
                         		

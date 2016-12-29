@@ -230,3 +230,121 @@ color:#bdcff1;
 	height:0;
 }
 /*系统选择*/
+
+
+/*2016-12-20*/
+/*browser*/
+.tishi-area{
+	display:inline-block;
+	margin:0 45px;
+	position:relative;
+	}
+.waring-red{
+	width:33px;
+	height:33px;
+	display:inline-block;
+	vertical-align:middle;
+	background:url(../img/tishi-icon.png) no-repeat 0 0;
+	}
+.waring-red + span{
+	font-size:18px;
+	color:#ff3737;
+	line-height:33px;
+	margin:0 15px;
+	display:inline-block;
+	vertical-align:middle;
+	}
+.pointer-box{
+	display:inline-block;
+	vertical-align:middle;
+	cursor:pointer;
+	}
+.pointer-r{
+	width:33px;
+	height:33px;
+	display:inline-block;
+	vertical-align:middle;
+	background:url(../img/tishi-icon.png) no-repeat -447px 0;
+	}
+/* .tishi-area:hover .browser-area{
+	visibility:visible;
+	transform:translateX(0);
+	-webkit-transform:translateX(0);
+	-moz-transform:translateX(0);
+	-ms-transform:translateX(0);
+	-o-transform:translateX(0);
+	transition:all ease .3s;
+	-webkit-transition:all ease .3s;
+	-moz-transition:all ease .3s;
+	-ms-transition:all ease .3s;
+	-o-transition:all ease .3s;
+	} */
+.browser-area{
+	padding-top:10px;
+	position:absolute;
+	right:-15px;
+	visibility:hidden;
+	transform:translateX(-15px);
+	-webkit-transform:translateX(-15px);
+	-moz-transform:translateX(-15px);
+	-ms-transform:translateX(-15px);
+	-o-transform:translateX(-15px);
+	}
+.arrow-t{
+	width:20px;
+	height:14px;
+	display:inline-block;
+	background:url(../img/tc-arrow-t-3.png) no-repeat;
+	position:absolute;
+	right:10px;
+	top:-14px;
+	}
+.browser-box{
+	position:relative;
+	border:1px solid #9aa4b8;
+	border-radius:6px;
+	width:100%;
+	background:#fff;
+	color:#666666;
+	font-size:16px;
+	word-break:break-all;
+	padding:15px 12px 5px 12px;
+	line-height:26px;
+	box-shadow:0 0px 9px 1px rgba(115,141,198,.75);
+	}
+.browser-head{
+	font-size:18px;
+	margin-bottom:20px;
+	margin-top:5px;
+	}
+.browser-box li{
+	margin:15px 0;
+	white-space:nowrap;
+	}
+.brs-icon{
+	width:33px;
+	height:26px;
+	display:inline-block;
+	vertical-align:middle;
+	background:url(../img/browser-icon.png) no-repeat;
+	}
+.brs-icon.ff{
+	background-position:0 -48px;
+	}
+.brs-icon.jisu{
+	background-position:0 -95px
+	}
+.brs-icon+span,
+.browser-box a{
+	display:inline-block;
+	vertical-align:middle;
+	}
+.browser-box a{
+	color:#738dc6;
+	font-size:16px;
+	
+	text-decoration:underline;
+	}
+.browser-box a:hover{
+	color:#376BDD;
+	}

@@ -17,7 +17,8 @@
   <div class="container">
     <form class="form-inline">
       <h3 class="jiaozhi-page-header">借阅信息</h3>
- 		<div class="input-group input-group-sm" date-picker result="date1" dateFmt="yyyy-MM-dd" double="true" ></div>
+ 		  <small class="text-danger"> <span class="glyphicon glyphicon-star" style="font-size:12px;" aria-hidden="true"></span> 信息来源：图书系统</small>
+    <div class="input-group input-group-sm" date-picker result="date1" dateFmt="yyyy-MM-dd" double="true" ></div>
      <!--  <small class="text-danger"> <span class="glyphicon glyphicon-star" style="font-size:12px;" aria-hidden="true"></span> 信息来源：人事部（2016-03-01）</small>
     --> </form>
   </div>
@@ -26,34 +27,36 @@
   <div class="container">
     <div class="row jiaozhi-cross">
       <section class="col-xs-12 col-md-6">
-        <h4 class="jiaozhi-section-title"><a class="jiaozhi-alink-under" href="#">推荐图书</a> &gt;&gt;</h4>
+        <h4 class="jiaozhi-section-title"><span class="jiaozhi-alink-under" href="#">推荐图书</span> &gt;&gt;</h4>
+        <span ng-show="vm.items[0].length==0" style="color: #f93d0a;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;无数据</span>
         <div class=" ">
           <ol class="jiaozhi-ol-list"  ng-repeat="item in vm.items[0]">
             <li >
             <span class="label label-danger">{{$index+1}}</span>
             &nbsp;&nbsp;
-            <a class="jiaozhi-alink-under" href="#">{{item.NAME_}}&nbsp;&nbsp;&nbsp;&nbsp;作者：{{item.WRITE_}}&nbsp;&nbsp;&nbsp;&nbsp;出版社：{{item.PRESS}}</a> 
+            <span class="jiaozhi-alink-under" href="#">{{item.NAME_}}&nbsp;&nbsp;&nbsp;&nbsp;作者：{{item.WRITE_}}&nbsp;&nbsp;&nbsp;&nbsp;出版社：{{item.PRESS}}</span> 
             </li>
           </ol>
         </div>
       </section>
       <section class="col-xs-12 col-md-6">
-        <h4 class="jiaozhi-section-title"><a class="jiaozhi-alink-under" href="#">借阅分类</a> &gt;&gt;</h4>
+        <h4 class="jiaozhi-section-title"><span class="jiaozhi-alink-under" href="#">借阅分类</span> &gt;&gt;</h4>
         <div cs-chart config = "vm.items[1]" class="col-xs-12" style="height:350px;"></div>
       </section>
     </div>
     <div class="row jiaozhi-cross">
       <section class="col-xs-12 col-md-6">
-        <h4><a class="jiaozhi-alink-under" href="#">借阅数量</a> &gt;&gt;</h4>
+        <h4><span class="jiaozhi-alink-under" href="#">借阅数量</span> &gt;&gt;</h4>
         <div class="row ">
           <div class="col-xs-12 ">
-            <p>共借阅图书 <span class="lead"> {{vm.items[2].sum}}</span> 本  ,阅读综合排名已排列在矿大 <span class="lead">73% </span> 人之前。</p>
+            <p>在借阅图书 <span class="lead"> {{vm.items[2].sum}}</span> 本 。</p>
              <div cs-chart config = "vm.items[2].option" class="col-xs-12" style="height:350px;"></div>
         </div>
       </section>
       <section class="col-xs-12 col-md-6">
-        <h4><a class="jiaozhi-alink-under" href="#">借阅明细</a> &gt;&gt;</h4>
-        <div class="row">
+        <h4><span class="jiaozhi-alink-under" href="#">借阅明细</span> &gt;&gt;</h4>
+           <span ng-show="page.totalRows==0" style="color: #f93d0a;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;无数据</span>
+        <div class="row" ng-show="page.totalRows>0">
           <div class="col-xs-12">
             <table class="table table-hover  jiaozhi-common-table" width="100%" border="0" cellspacing="0" cellpadding="0">
             <thead>
@@ -97,7 +100,8 @@
       <h3 class="jiaozhi-page-header">个人课程</h3>
 <!-- <div class="input-group input-group-sm" date-picker result="date2" dateFmt="yyyy-MM-dd" double="true" ></div>
     -->   <!-- <small class="text-danger"> <span class="glyphicon glyphicon-star" style="font-size:12px;" aria-hidden="true"></span> 信息来源：人事部（2016-03-01）</small>
-    --> </form>
+    -->   <small class="text-danger"> <span class="glyphicon glyphicon-star" style="font-size:12px;" aria-hidden="true"></span> 信息来源：计费系统</small>
+    </form>
   </div>
 </section>
 <div class="container">
@@ -110,7 +114,7 @@
     
     <div class="row">
       <section class="col-xs-12">
-        <h4><a class="jiaozhi-alink-under" href="#">成绩查询</a> &gt;&gt;</h4>
+        <h4><span class="jiaozhi-alink-under" href="#">成绩查询</span> &gt;&gt;</h4>
         <div class="row">
           <div class="col-xs-12">
             <table class="table table-hover  jiaozhi-common-table" width="100%" border="0" cellspacing="0" cellpadding="0">

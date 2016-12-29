@@ -55,11 +55,15 @@ public class TeaStuDaoImpl implements TeaStuDao {
 				+ " left join t_class_teaching tc   on  t.teachingclass_id=tc.code_  "
 				+ "  where  t.tea_id='" + id + "'";
 		}else{
-			 sql="select distinct tc.no_ id, tc.name_ "
+			sql="select distinct tc.no_ id, tc.name_  "
+					+ " from t_classes_instructor t "
+					+ " left join T_CLASSES tc on tc.no_=t.class_id "
+					+ " where t.tea_id='" + id + "'";
+			/* sql="select distinct tc.no_ id, tc.name_ "
 					  +" from t_course_arrangement t "
 					  +"  left join T_CLASS_TEACHING_XZB TCTX ON  TCTX.TEACH_CLASS_ID=T.TEACHINGCLASS_ID "
 					  +"  left join T_CLASSES tc on tc.no_=tctx.class_id "
-					  +"  where t.tea_id = '"+id+"' and tc.no_ is not null";
+					  +"  where t.tea_id = '"+id+"' and tc.no_ is not null";*/
 		}
 		return sql;
 		
@@ -202,9 +206,9 @@ public class TeaStuDaoImpl implements TeaStuDao {
 		map.put("xx", baseDao.getBaseDao().getJdbcTemplate().queryForList(sql));
 		// 成绩明细
 		//姓名 院系 专业 学年 学期 课程名 综合成绩 等级成绩
-		sql="SELECT "//TS.NAME_ 姓名,TCDTL.NAME_ 院系,TCDT.NAME_ 专业,TCLL.NAME_ 班级  ,"
+		sql="SELECT DISTINCT "//TS.NAME_ 姓名,TCDTL.NAME_ 院系,TCDT.NAME_ 专业,TCLL.NAME_ 班级  ,"
 				//+ "TSS.SCHOOL_YEAR 学年, TC1.NAME_ 学期,TC.NAME_ 课程,TSS.CENTESIMAL_SCORE 综合成绩,TCLA.THEORY_CREDIT  学分 "
-				+ "TSS.SCHOOL_YEAR cl01, TC1.NAME_ cl02,TC.NAME_ cl03,TSS.CENTESIMAL_SCORE cl04,TCLA.THEORY_CREDIT  cl05 "
+				+ "TSS.SCHOOL_YEAR cl01, TC1.NAME_ cl02,TC.NAME_ cl03,TSS.CENTESIMAL_SCORE cl04,TC.THEORY_CREDIT  cl05 "
 				+"  FROM T_STU_SCORE TSS  "
 				+"  LEFT JOIN T_COURSE TC ON TC.CODE_=TSS.COURE_CODE  "
 				+"  LEFT JOIN T_CODE TC1 ON TC1.CODE_TYPE='TERM_CODE' AND TSS.TERM_CODE=TC1.CODE_ "
@@ -213,7 +217,7 @@ public class TeaStuDaoImpl implements TeaStuDao {
 				+"  LEFT JOIN T_CODE_DEPT_TEACH TCDTL ON TCDTL.ID=TS.DEPT_ID "
 				+"  LEFT JOIN T_CLASSES TCLL ON TCLL.NO_=TS.CLASS_ID "
 				+"  LEFT JOIN T_COURSE_ARRANGEMENT_PLAN TCAP ON TCAP.CLASS_ID=TCLL.NO_ "
-				+"  LEFT JOIN T_COURSE TCLA ON TCLA.CODE_=TCAP.COURSE_CODE "
+				//+"  LEFT JOIN T_COURSE TCLA ON TCLA.CODE_=TCAP.COURSE_CODE "
 				+"  WHERE TSS.STU_ID='"+id+"' ORDER BY TSS.SCHOOL_YEAR";
 		
 		map.put("cj", baseDao.getBaseDao().getJdbcTemplate().queryForList(sql));

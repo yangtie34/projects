@@ -19,6 +19,8 @@
   <div class="container">
     <form class="form-inline">
       <h3 class="jiaozhi-page-header">个人档案</h3>
+      <small class="text-danger"> <span class="glyphicon glyphicon-star" style="font-size:12px;" aria-hidden="true"></span> 信息来源：人事系统</small>
+    
     </form>
   </div>
 </section>
@@ -48,6 +50,7 @@
   <div class="container">
     <form class="form-inline">
       <h3 class="jiaozhi-page-header">信息变动历史</h3>
+      <small class="text-danger"> <span class="glyphicon glyphicon-star" style="font-size:12px;" aria-hidden="true"></span> 信息来源：人事系统</small>
     </form>
   </div>
 </section>
@@ -67,7 +70,7 @@
             ng-class="index1==0?'jiaozhi-fang-box-org':'jiaozhi-fang-box-green'"
             > <span class="jiaozhi-fang-bg" 
              ng-class="index1==0?'jiaozhi-fang-bg-0{{index2+1}}':'jiaozhi-fang-bg-green-0{{index2+1}}'"
-            >{{item.NAME_}}</span> </div>
+            >{{item.NAME_||'未维护'}}</span> </div>
             <p class="lead-normal">{{item.DATA_}}</p>
           </div>
           <div class="col-xs-1" ng-show="index2<value.length-1">

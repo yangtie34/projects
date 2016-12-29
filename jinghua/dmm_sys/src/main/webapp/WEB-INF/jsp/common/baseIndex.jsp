@@ -15,6 +15,7 @@
 	 var httpConfig = {
     		 basePath : "<%=projectPath%>",
     		 baseUrl : "<%=projectPath%>"+"/common/getData",
+    		 exportPageUrl:"<%=projectPath%>"+"/common/exportPage",
     		 uploadUrl : "<%=projectPath%>"+"/controller/upload_ng_fileupload",
     		 downloadUrl : "<%=projectPath%>"+"/controller/brower_common_download"
          };

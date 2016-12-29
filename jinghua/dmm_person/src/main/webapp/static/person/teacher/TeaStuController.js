@@ -95,6 +95,9 @@ var getjxData=function(gradeId){
 	htt[5].params=[userId,scope.jxgradeId];
 	http.callService(htt[5]).success(function(data){
 		vm.items[5]= {
+				  title : {
+				        text: '课程通过率',
+				    },
 		  	      big:'10',
 		  	      type :'column',
 		  	      data:data,
@@ -227,13 +230,13 @@ scope.jxstuClick=function(stuId){
 /*监控分页工具选择页码的变化，若变更则执行后台调用*/
 scope.$watch('page',function(val1,val2){
 	  if(val1.currentPage != val2.currentPage && angular.toJson(val1.conditions) == angular.toJson(val2.conditions)||val1.numPerPage!=val2.numPerPage){
-		  getData2();
+		  getxzData();
 	  }
 },true);
 /*监控分页工具选择页码的变化，若变更则执行后台调用*/
 scope.$watch('page1',function(val1,val2){
 	  if(val1.currentPage != val2.currentPage && angular.toJson(val1.conditions) == angular.toJson(val2.conditions)||val1.numPerPage!=val2.numPerPage){
-		  getxzData8();
+		  getjxData();
 	  }
 },true);
 }]);

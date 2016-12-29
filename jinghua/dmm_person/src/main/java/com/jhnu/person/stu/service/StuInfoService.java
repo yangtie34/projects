@@ -3,6 +3,8 @@ package com.jhnu.person.stu.service;
 import java.util.List;
 import java.util.Map;
 
+import com.jhnu.system.common.page.Page;
+
 
 public interface StuInfoService {
 	/**
@@ -32,7 +34,7 @@ public interface StuInfoService {
 	 * 获取宿舍住宿信息
 	 * @return
 	 */
-	public List getSsZsxx(String id);
+	public Page getSsZsxx(String id, int currentPage, int numPerPage);
 	/**
 	 * 获取宿舍调整信息
 	 * @return

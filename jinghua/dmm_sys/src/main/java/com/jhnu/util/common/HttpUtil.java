@@ -22,6 +22,7 @@ public class HttpUtil {
     public static Object rpcJobPost(String sysurl,String beanName,String methodName,String planLogDetailId){
     	Object result = null;
     	CloseableHttpClient httpclient = HttpClients.createDefault();
+    	String line="";
     	try {
 	        try {
 	            HttpPost httpPost = new HttpPost(sysurl+"/task/job/execute");
@@ -33,7 +34,7 @@ public class HttpUtil {
 	            CloseableHttpResponse response2 = httpclient.execute(httpPost);
 	            try {
 	            	   HttpEntity entity2 = response2.getEntity();
-		                String line =EntityUtils.toString(
+		               line =EntityUtils.toString(
 		                		entity2, "UTF-8");
 	                if ( line != null) {
 	                	result = JSONObject.parse(line);
@@ -46,6 +47,7 @@ public class HttpUtil {
 	        	httpclient.close();
         	}
     	} catch (IOException e) {
+    		System.out.println("------------------error:line=  "+line+"  --------------------------------");
 			e.printStackTrace();
 		}
 		return result;

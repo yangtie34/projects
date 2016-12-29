@@ -98,7 +98,10 @@
                         	<h5>现有读者类型对比</h5>
                         </div>
                         <div class="duzheleix_img">
-                        	<span class="icon-time"  ng-click="qushiClick(4);"></span>
+                         <div tool-tip placement="left" hide-icon="true" class="icon-time"style="float:right" ng-click="qushiClick(4);">
+									<div style="width: 60px">查看趋势</div>
+								</div>
+                        	<!-- <span class="icon-time"  ng-click="qushiClick(4);"></span> -->
                         	<div stu-chart config="vm.items[3]" style="height:310px;"class="img-top"> </div>
                         	<%-- <img src="${images}/books_images/xianyouduzhe.jpg" alt="" class="img-top"> --%>
                         </div>

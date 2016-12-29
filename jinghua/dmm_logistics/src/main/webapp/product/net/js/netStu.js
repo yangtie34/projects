@@ -155,6 +155,9 @@ var getDeptData=function(method){
 		var xl=angular.copy(vm[code]);
 		vm[code]={};
 		vm[code]=xl;
+		var all=angular.copy(vm['all']);
+		vm['all']={};
+		vm['all']=all;
 		scope.ulcla=vm[code]!=null&&scope[code+'xsids'].length>2?['col-md-3','col-md-9']:['col-md-4','col-md-8'];
 	};
 	scope.xbxl('xb');

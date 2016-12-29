@@ -58,7 +58,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <span>{{vm.items[1][key].name}}</span>
                 </li>
                 <li class="text-left">
-                <span class="icon-time" style="float:right"ng-click="qushiClick(key);" title="趋势统计"></span>
+                <div tool-tip placement="top" hide-icon="true" class="icon-time"style="float:right" ng-click="qushiClick(key);">
+									<div style="width: 60px">查看趋势</div>
+								</div>
+								
+               <!--  <span class="icon-time" style="float:right"ng-click="qushiClick(key);" title="趋势统计"></span> -->
                 	<p class="xscz-ft-14">{{csjecode=='cs'?'刷卡次数（单位：笔）':'消费金额（单位：元）'}}</p>
                     <p><b class="xscz-ft-22">{{vm.items[1][key][csjecode]||0}}</b></p>
                 </li>

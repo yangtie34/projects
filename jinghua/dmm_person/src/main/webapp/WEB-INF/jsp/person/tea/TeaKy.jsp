@@ -16,7 +16,7 @@
 <section class="jiaozhi-title">
   <div class="container">
     <form class="form-inline">
-      <h3 class="jiaozhi-page-header">借阅信息</h3>
+      <h3 class="jiaozhi-page-header">借阅信息</h3><small class="text-danger"> <span class="glyphicon glyphicon-star" style="font-size:12px;" aria-hidden="true"></span> 信息来源：图书馆系统</small>
       <div class="input-group input-group-sm" date-picker result="date1" dateFmt="yyyy-MM-dd" double="true" ></div>
      <!--  <small class="text-danger"> <span class="glyphicon glyphicon-star" style="font-size:12px;" aria-hidden="true"></span> 信息来源：人事部（2016-03-01）</small>
      --></form>
@@ -26,13 +26,14 @@
   <div class="container">
     <div class="row jiaozhi-cross">
       <section class="col-xs-12 col-md-6">
-        <h4 class="jiaozhi-section-title"><a class="jiaozhi-alink-under" >推荐图书</a> >></h4>
+        <h4 class="jiaozhi-section-title"><span class="jiaozhi-alink-under" >推荐图书</span> >></h4>
+         <span ng-show="vm.items[0].length==0" style="color: #f93d0a;" class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;无数据</span>
         <div class=" " >
           <ol class="jiaozhi-ol-list"  ng-repeat="item in vm.items[0]">
             <li >
             <span class="label label-default" ng-class="$index<3?'label-danger':''">{{$index+1}}</span>
             &nbsp;&nbsp;
-            <a class="jiaozhi-alink-under" >{{item.NAME_}}&nbsp;&nbsp;&nbsp;&nbsp;作者：{{item.WRITE_}}&nbsp;&nbsp;&nbsp;&nbsp;出版社：{{item.PRESS}}</a> 
+            <span class="jiaozhi-alink-under" >{{item.NAME_}}&nbsp;&nbsp;&nbsp;&nbsp;作者：{{item.WRITE_}}&nbsp;&nbsp;&nbsp;&nbsp;出版社：{{item.PRESS}}</span> 
             </li>
             
          <!--    <li><span class="label label-danger">2</span>&nbsp;&nbsp;<a class="jiaozhi-alink-under" >工艺发展史    作者：李砚祖 </a></li>
@@ -43,22 +44,23 @@
         </div>
       </section>
       <section  class="col-xs-12 col-md-6">
-        <h4 class="jiaozhi-section-title"><a class="jiaozhi-alink-under" >借阅分类</a> >></h4>
+        <h4 class="jiaozhi-section-title"><span class="jiaozhi-alink-under" >借阅分类</span> >></h4>
         <div cs-chart config = "vm.items[1]" class="col-xs-12" style="height:350px;"></div>
       </section>
     </div>
     <div class="row jiaozhi-cross">
       <section  class="col-xs-12 col-md-6">
-        <h4><a class="jiaozhi-alink-under" >借阅数量</a> >></h4>
+        <h4><span class="jiaozhi-alink-under" >借阅数量</span> >></h4>
         <div class="row ">
           <div class="col-xs-12 ">
-            <p>共借阅图书 <span class="lead"> {{vm.items[2].sum}}</span> 本  ,阅读综合排名已排列在矿大 <span class="lead">73% </span> 人之前。</p>
+            <p>在借阅图书 <span class="lead"> {{vm.items[2].sum}}</span> 本。</p>
            <div cs-chart config = "vm.items[2].option" class="col-xs-12" style="height:350px;"></div>
         </div>
       </section>
       <section  class="col-xs-12 col-md-6">
-        <h4><a class="jiaozhi-alink-under" >借阅明细</a> >></h4>
-        <div class="row">
+        <h4><span class="jiaozhi-alink-under" >借阅明细</span> >></h4>
+         <span ng-show="page.totalRows==0" style="color: #f93d0a;" class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;无数据</span>
+        <div class="row" ng-show="page.totalRows>0">
           <div class="col-xs-12">
             <table class="table table-hover  jiaozhi-common-table" width="100%" border="0" cellspacing="0" cellpadding="0">
             <thead>
@@ -99,7 +101,7 @@
 <section class="jiaozhi-title">
   <div class="container">
     <form class="form-inline">
-      <h3 class="jiaozhi-page-header">科研信息</h3>
+      <h3 class="jiaozhi-page-header">科研信息</h3><small class="text-danger"> <span class="glyphicon glyphicon-star" style="font-size:12px;" aria-hidden="true"></span> 信息来源：科研系统</small>
        <div class="input-group input-group-sm" date-picker result="date2" dateFmt="yyyy-MM-dd" double="true" ></div>
      <!--  <small class="text-danger"> <span class="glyphicon glyphicon-star" style="font-size:12px;" aria-hidden="true"></span> 信息来源：人事部（2016-03-01）</small>
     --> </form>
@@ -110,7 +112,7 @@
 <div class="row jiaozhi-cross" >
   <section  class="col-xs-12 col-md-6">
     <h4 class="jiaozhi-section-title">
-    <a class="jiaozhi-alink-under" >科研信息 <!-- <span class="badge jiaozhi-section-badge">5</span></a> --> >></a></h4>
+    <span class="jiaozhi-alink-under" >科研信息 <!-- <span class="badge jiaozhi-section-badge">5</span></a> --> >></p></h4>
     <div class="row">
 <!--       <div class="col-xs-6 ">
         <ul class="jiaozhi-square-ul">
@@ -139,7 +141,8 @@
     </div>
     <hr>
     <!-- 科研成果 -->
-    <h4 class="jiaozhi-section-title"><a class="jiaozhi-alink-under" >获得成果</a> >></h4>
+    <h4 class="jiaozhi-section-title"><span class="jiaozhi-alink-under" >获得成果</span> >></h4>
+             <span ng-show="vm.items[4].hjcg.length==0" style="color: #f93d0a;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;无数据</span>
     <div class=" " ng-repeat="(key,value) in vm.items[4]" >
       <ul class="jiaozhi-square-ul jiaozhi-square-ul-hr">
         <li ng-repeat="item in value" init="i=0;" ng-show ="key=='hjcg'&&$index<3">
@@ -161,7 +164,8 @@
     </div>
   </section>
   <section  class="col-xs-12 col-md-6"  x>
-    <h4 class="jiaozhi-section-title"><a class="jiaozhi-alink-under" >科研项目</a> >></h4>
+    <h4 class="jiaozhi-section-title"><span class="jiaozhi-alink-under" >科研项目</span> >></h4>
+             <span ng-show="vm.items[4].kyxm.length==0" style="color: #f93d0a;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;无数据</span>
     <div class=" "  ng-repeat="(key,value) in vm.items[4]" >
       <ul class="jiaozhi-square-ul jiaozhi-square-ul-hr">
         <li ng-repeat="item in value" init="i=0;" ng-show ="key=='kyxm'&&$index<4">
@@ -177,7 +181,8 @@
 </div>
 <div class="row jiaozhi-cross">
   <section  class="col-xs-12 col-md-6">
-    <h4 class="jiaozhi-section-title"><a class="jiaozhi-alink-under" >项目经费</a> >></h4>
+    <h4 class="jiaozhi-section-title"><span class="jiaozhi-alink-under" >项目经费</span> >></h4>
+             <span ng-show="vm.items[4].xmjf.length==0" style="color: #f93d0a;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;无数据</span>
     <div class=" " ng-repeat="(key,value) in vm.items[4]" >
       <ul class="jiaozhi-square-ul jiaozhi-square-ul-hr">
         <li ng-repeat="item in value" init="i=0;" ng-show ="key=='xmjf'&&$index<3">
@@ -200,7 +205,8 @@
     </div>
   </section>
   <section  class="col-xs-12 col-md-6">
-    <h4 class="jiaozhi-section-title"><a class="jiaozhi-alink-under" >发表文献</a> >></h4>
+    <h4 class="jiaozhi-section-title"><span class="jiaozhi-alink-under" >发表文献</span> >></h4>
+             <span ng-show="vm.items[4].lw.length==0" style="color: #f93d0a;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;无数据</span>
     <div class=" "  ng-repeat="(key,value) in vm.items[4]" >
       <ul class="jiaozhi-square-ul jiaozhi-square-ul-hr">
         <li ng-repeat="item in value" init="i=0;" ng-show ="key=='lw'&&$index<3">
@@ -227,7 +233,7 @@
 <section class="jiaozhi-title">
   <div class="container">
     <form class="form-inline">
-      <h3 class="jiaozhi-page-header">资产状况</h3>
+      <h3 class="jiaozhi-page-header">资产状况</h3><small class="text-danger"> <span class="glyphicon glyphicon-star" style="font-size:12px;" aria-hidden="true"></span> 信息来源：资产系统</small>
        <!-- <div class="input-group input-group-sm" date-picker result="date2" dateFmt="yyyy-MM-dd" double="true" ></div> -->
      <!--   <small class="text-danger"> <span class="glyphicon glyphicon-star" style="font-size:12px;" aria-hidden="true"></span> 信息来源：资产平台（2016-03-01）</small>
       --></form>
@@ -237,7 +243,7 @@
   <div class="container">
 <div class="row jiaozhi-cross">
   <section  class="col-xs-12 col-md-6">
-    <h4 class="jiaozhi-section-title"><a class="jiaozhi-alink-under" >设备资产</a> >></h4>
+    <h4 class="jiaozhi-section-title"><span class="jiaozhi-alink-under" >设备资产</span> >></h4>
     <div class="row"> 
       <div class="col-xs-12 ">
         <ul class="jiaozhi-square-ul jiaozhi-square-ul-hr jiaozhi-square-ul-half">
@@ -253,7 +259,7 @@
     </div>
   </section>
    <section  class="col-xs-12 col-md-6">
-    <h4 class="jiaozhi-section-title"><a class="jiaozhi-alink-under" >公房使用</a> >></h4>
+    <h4 class="jiaozhi-section-title"><span class="jiaozhi-alink-under" >公房使用</span> >></h4>
         <div class="row"> 
       <div class="col-xs-12 ">
         <ul class="jiaozhi-square-ul jiaozhi-square-ul-hr jiaozhi-square-ul-half">

@@ -1,0 +1,22 @@
+
+<div class="clearfix" style="color: #6b6b6b; padding-bottom:5px">
+	 <ul style="list-style: none outside none;">
+		            <li  class="forterm ng-scope" style="padding: 0px 20px 0px 0px;" ng-repeat='obj in selectObj'>
+		              <!--   <span class="forterm-select">{{obj.mc}}:</span> -->
+		                <div class="quanxian-block-search" style="position:inherit;">
+          <div class="quanxian-in-search"><span class="quanxian-fposition">{{obj.mc}}
+		                 <input class="quanxian-search-t" style="width:150px;padding: 4px 5px;" type="text" placeholder="{{obj.placeholder}}" ng-keyup="myKeyup($event,obj)" ng-model="obj.val">
+           				 <a href="javascript:void(0)" class="quanxian-search-q" ng-click="cgComboTreeNodeClick(obj);" style="    height: 15px;
+    right: 8px;
+    padding-left: 20px;
+    background-size: contain;"></a> </span>
+           				 </div></div>
+		            </li>		          
+		        </ul>
+</div>
+
+
+
+
+
+

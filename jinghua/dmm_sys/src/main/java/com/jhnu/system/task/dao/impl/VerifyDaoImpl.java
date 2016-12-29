@@ -15,7 +15,7 @@ public class VerifyDaoImpl extends TaskBaseDaoImpl implements VerifyDao {
 		String sql=sqlByBean.getQuerySql(new Verify())+" where 1=1 ";
 		
 		if(verify.getName_()!=null){
-			sql+=" and name_ like '%"+verify.getName_()+"%' or SERVICE like '%"+verify.getName_()+"%' ";
+			sql+=" and (name_ like '%"+verify.getName_()+"%' or SERVICE like '%"+verify.getName_()+"%') ";
 		}
 		if(verify.getGroup_()!=null){
 			sql+=" and GROUP_='"+verify.getGroup_()+"' ";

@@ -1182,6 +1182,47 @@ angular.module('services').factory('http',['$http',function($http){
         }
     }
 ]);
+
+/**
+ * 基于angularjs的$http服务之上的封装
+ * */
+angular.module('services').factory('exportPage',['$http',function($http){
+    var baseUrl = httpConfig.exportPageUrl;
+        return {
+            callService : function(request){
+            	var requestCopy = angular.copy(request),
+        		params = requestCopy.invoke.params,
+        		backKey = "data",
+                requests = [],
+                sm = requestCopy.invoke.service.split("?"),
+        		callback,
+        		ret = {
+        			success : function(thenCallback){
+        				callback = thenCallback;
+        			}
+        		};
+	        	requestCopy.beanName = sm[0];
+	        	requestCopy.methodName = sm[1];
+	        	if(!requestCopy.invoke.params)requestCopy.invoke.params = [];
+	        	requestCopy.dataArray=requestCopy.invoke.params;
+	        	delete requestCopy.invoke;
+	        	//alert(JSON.stringify(requestCopy));
+	        	var url=baseUrl+"?params="+JSON.stringify(requestCopy);
+	        	
+	        	window.open(url,'newwindow','');//'width=400,height=400,top=50%,left=50%,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');
+	        	/*OpenWindow.document.write("<HTML><BODY><h1>正在下载excel。。。</h1></BODY></HTML>") 
+	        	//location.href=url;  
+	        	OpenWindow.onload=function(){
+	        		location.href=url;  
+	        		OpenWindow.document.close()
+	        	}*/
+	        	
+	    		return ret;
+            }
+        }
+    }
+]);
+
 /**
  * 通用上传组件
  * fileUpload.upload({

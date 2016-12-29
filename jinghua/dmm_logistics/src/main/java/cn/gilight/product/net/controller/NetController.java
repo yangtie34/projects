@@ -38,5 +38,10 @@ public class NetController {
 		ModelAndView mv=new ModelAndView("/net/netTeaRank");
 		return mv;
 	}
+	@RequestMapping(value="/netTea",method=RequestMethod.GET)
+	public ModelAndView netTea(){
+		ModelAndView mv=new ModelAndView("/net/netTea");
+		return mv;
+	}
 }
  

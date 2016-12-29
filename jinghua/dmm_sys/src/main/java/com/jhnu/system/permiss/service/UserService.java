@@ -33,7 +33,7 @@ public interface UserService {
      * @param userId
      * @param newPassword
      */
-    public void changePassword(Long userId, String newPassword);
+    public void changePassword(Long userId, String newPassword,String type);
     
     /**
      * 重置密码

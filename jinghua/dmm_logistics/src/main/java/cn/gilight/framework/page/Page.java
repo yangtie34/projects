@@ -251,10 +251,56 @@ public Page(String sql, int currentPage, int numPerPage,JdbcTemplate jTemplate,I
    logger.info("分页查询："+paginationSQL);
    
    setResultListObject(jTemplate.query(paginationSQL.toString(), (RowMapper) new BeanPropertyRowMapper(o.getClass())));
- //  Long tl2=System.currentTimeMillis();
-//   System.out.println("分页查询用时："+(tl2-tl));
 }
- 
+
+@SuppressWarnings({ "unchecked", "rawtypes" })
+public Page(String sql, int currentPage, int numPerPage,JdbcTemplate jTemplate,Integer totalRow,Object o,String sort,boolean isAsc) {
+	this.jTemplate=jTemplate;
+   this.currentPage = currentPage;
+   if (jTemplate == null){
+    throw new IllegalArgumentException(
+      "com.deity.ranking.util.Pagination.jTemplate is null,please initial it first. ");
+   } else if (sql == null || sql.equals("")) {
+    throw new IllegalArgumentException(
+      "com.deity.ranking.util.Pagination.sql is empty,please initial it first. ");
+   }
+   // 设置每页显示记录数
+   setNumPerPage(numPerPage);
+   // 设置要显示的页数
+   setCurrentPage(currentPage);
+   // 计算总记录数
+   StringBuffer totalSQL = new StringBuffer(" SELECT count(*) FROM ( ");
+   totalSQL.append(sql);
+   totalSQL.append(" ) totalTable ");
+   // 给JdbcTemplate赋值
+   // 总记录数
+   if(totalRow!=null && totalRow!=0){
+	   setTotalRows(totalRow);
+   }else{
+	   setTotalRows(jTemplate.queryForObject(totalSQL.toString(),Integer.class));
+   }
+   // 计算总页数
+   setTotalPages();
+   // 计算起始行数
+   setStartIndex();
+   // 计算结束行数
+   setLastIndex();
+   // 构造oracle数据库的分页语句
+   StringBuffer paginationSQL = new StringBuffer(" SELECT * FROM ( ");
+   paginationSQL.append(" SELECT temp.* ,ROWNUM num FROM ( ");
+   if(StringUtils.hasLength(sort)){
+	   paginationSQL.append(" SELECT * FROM ("+sql+") ORDER BY "+sort+(isAsc==true?" ":" desc ") );
+   }else{
+	   paginationSQL.append(sql);
+   }
+   paginationSQL.append("　) temp where ROWNUM <= " + lastIndex);
+   paginationSQL.append(" ) WHERE　num > " + startIndex);
+   // 装入结果集
+   logger.info("分页查询："+paginationSQL);
+   
+   setResultListObject(jTemplate.query(paginationSQL.toString(), (RowMapper) new BeanPropertyRowMapper(o.getClass())));
+}
+
 /**
 * @param args
 */

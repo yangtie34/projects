@@ -21,7 +21,7 @@ var echartsgetsex=function(d){
 		    title: {
 		        text: '男女比例',
 		        subtext: '共'+all+'人',
-		        sublink: 'http://e.weibo.com/1341556070/AhQXtjbqh',
+		        //sublink: 'http://e.weibo.com/1341556070/AhQXtjbqh',
 		        x: 'center',
 		        y: 'center',
 		        itemGap: 20,
@@ -189,6 +189,7 @@ return {
          	end = config.dataZoom.end
          }
 		var result = {
+				title : config.title||null,
 			tooltip : {
            trigger: 'axis',
            textStyle:{  align:'left'},

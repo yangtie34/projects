@@ -20,8 +20,8 @@
   <div class="container">
     <form class="form-inline">
       <h3 class="jiaozhi-page-header">班级管理</h3>
-     <!--  <small class="text-danger"> <span class="glyphicon glyphicon-star" style="font-size:12px;" aria-hidden="true"></span> 信息来源：人事部（2016-03-01）</small>
-    --> </form>
+    <small class="text-danger"> <span class="glyphicon glyphicon-star" style="font-size:12px;" aria-hidden="true"></span> 信息来源：学工管理系统</small>
+    </form>
   </div>
 </section>
 <!--<article class="jiaozhi-content" ng-show="stujxDiv2">-->
@@ -104,16 +104,16 @@
 </article>
 <!-- 行政班管理 -->
 <!-- <section class="jiaozhi-title" ng-show="stuxzDiv1"> -->
-<section class="jiaozhi-title" >
+<section class="jiaozhi-title"  ng-show="vm.items[4].length>0">
   <div class="container">
     <form class="form-inline">
       <h3 class="jiaozhi-page-header">行政班管理</h3>
-      <small class="text-danger"> <span class="glyphicon glyphicon-star" style="font-size:12px;" aria-hidden="true"></span> 信息来源：学工管理系统（2016-03-01）</small>
+      <small class="text-danger"> <span class="glyphicon glyphicon-star" style="font-size:12px;" aria-hidden="true"></span> 信息来源：学工管理系统</small>
     </form>
   </div>
 </section>
 <!-- <article class="jiaozhi-content" ng-show="stuxzDiv2"> -->
-<article class="jiaozhi-content" >
+<article class="jiaozhi-content" ng-show="vm.items[4].length>0" >
   <div class="container">
     <section>
       <div class="media">
@@ -132,6 +132,13 @@
         </div>
       </div>
       <div class="container">
+   <!--    <h4 class="" style="
+    float: left;
+    position: relative;
+    top: 10;
+    margin: 50 0 0 100;
+">课程通过率</h4> -->
+<br>
        <div stu-chart config = "vm.items[5]" class="col-xs-12" style="height:350px;"></div>
     <div class="">
       <section class="col-xs-12 col-md-6">

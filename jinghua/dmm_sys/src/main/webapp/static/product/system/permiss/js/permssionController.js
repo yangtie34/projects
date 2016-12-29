@@ -3,6 +3,14 @@
  */
 
 app.controller("permssionController", [ "$scope","dialog",'mask','$timeout','http','timeAlert',function(scope,dialog,mask,timeout,http,timeAlert) {
+    $(function(){
+        obj = document.getElementById("operateList");
+        for(i=0;i<obj.length;i++){
+            if(obj[i].value=='6')
+                obj[i].selected = true;
+            scope.perm_data.operId='6';
+        }
+    })
 	if(scope.perm_flag=='role'){
 		if(scope.urole.id == ""){
 		toastr['error']('该角色不存在', "");

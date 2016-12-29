@@ -33,7 +33,7 @@ public interface StuInfoDao {
 	 * 获取宿舍住宿信息
 	 * @return
 	 */
-	public List getSsZsxx(String id);
+	public Page getSsZsxx(String id, int currentPage, int numPerPage);
 	/**
 	 * 获取宿舍调整信息
 	 * @return

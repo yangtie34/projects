@@ -21,6 +21,7 @@
   <div class="container">
     <form class="form-inline">
       <h3 class="jiaozhi-page-header">我的动态</h3>
+      <small class="text-danger"> <span class="glyphicon glyphicon-star" style="font-size:12px;" aria-hidden="true"></span> 信息来源：一卡通系统</small>
     <div class="input-group input-group-sm" date-picker result="date1" dateFmt="yyyy-MM-dd" double="true" ></div>
      <!--  <small class="text-danger"> <span class="glyphicon glyphicon-star" style="font-size:12px;" aria-hidden="true"></span> 信息来源：人事部（2016-03-01）</small>
     --> </form>
@@ -30,7 +31,7 @@
   <div class="container">
     <div class="row jiaozhi-cross">
       <section class="col-xs-12 col-md-6">
-        <h4 class="jiaozhi-section-title"><a class="jiaozhi-alink-under" href="#">消费</a> >></h4>
+        <h4 class="jiaozhi-section-title"><span class="jiaozhi-alink-under" href="#">消费</span> >></h4>
         <div class="row">
           <div cs-chart config = "vm.items[0].option" class="col-xs-4 col-md-4" style="height:250px;"></div>
           <div class="col-xs-8 col-md-8">
@@ -41,7 +42,7 @@
               </tr> -->
               <tr ng-repeat="item in vm.items[0].list">
                 <td><span class="glyphicon glyphicon-stop" style="color:{{echarColor[$index]}};" aria-hidden="true"></span> {{item.FIELD}}</td>
-                <td><span class="lead">{{item.VALUE}}</span></td>
+                <td><span class="lead">{{item.VALUE}}元</span></td>
               </tr>
             </table>
           <!--   <p>根据你的个人消费习惯,请及时充值，以免影响使用。</p> -->
@@ -49,14 +50,14 @@
         </div>
       </section>
       <section  class="col-xs-12 col-md-6">
-        <h4 class="jiaozhi-section-title"><a class="jiaozhi-alink-under" href="#">充值记录</a> >></h4>
+        <h4 class="jiaozhi-section-title"><span class="jiaozhi-alink-under" href="#">充值记录</span> >></h4>
         <div class="row">
          <div cs-chart config = "vm.items[1].option" class="col-xs-4 col-md-4" style="height:250px;"></div>
           <div class="col-xs-8 col-md-8">
             <table width="100%" class="table table-hover jiaozhi-common-table" border="0" cellspacing="0" cellpadding="0">
               <tr ng-repeat="item in vm.items[1].list1">
                 <td><span class="glyphicon glyphicon-stop" style="color:{{echarColor[$index]}};" aria-hidden="true"></span>  {{item.FIELD}}</td>
-                <td><span class="lead">{{item.VALUE}}</span></td>
+                <td><span class="lead">{{item.VALUE}}元</span></td>
               </tr>
               <tr ng-repeat="item in vm.items[1].list2"ng-show="$index<5">
                 <td>{{item.TIME_}}</td>
@@ -65,24 +66,24 @@
             </table>
              <small style="float: right;" ng-show="vm.items[1].list2.length>5"><a ng-click="teaczDiv=true;teaczDivindex=10;">显示更多...</a></small>
        
-            <p>现金充值 <span class="lead"> {{vm.items[1].xjcz.val|number:2}} </span> 占比 <span class="lead">{{vm.items[1].xjcz.bl}}</span> 。</p>
+            <p>现金充值 <span class="lead"> {{vm.items[1].xjcz.val|number:2}} 元</span> 占比 <span class="lead">{{vm.items[1].xjcz.bl}}</span> 。</p>
           </div>
         </div>
       </section>
       </div><div class="row jiaozhi-cross">
       <section  class="col-xs-12 col-md-6">
-        <h4 class="jiaozhi-section-title"><a class="jiaozhi-alink-under" href="#">消费分析</a> >></h4>
+        <h4 class="jiaozhi-section-title"><span class="jiaozhi-alink-under" href="#">消费分析</span> >></h4>
         <div class="row">
           <div class="col-xs-12 ">
-            <p>日均消费为 <span class="lead"> {{vm.items[2].rjxf}}</span> 元 ,消费水平已排列在矿大 <span class="lead">73% </span> 人之前。</p>
+            <p>日均消费为 <span class="lead"> {{vm.items[2].rjxf}}</span> 元 。</p>
              <div cs-chart config = "vm.items[2].xffx" class="col-xs-12" style="height:250px;"></div>
         </div>
       </section>
 <section class="col-xs-12 col-md-6"> 
-  <h4 class="jiaozhi-section-title"><a class="jiaozhi-alink-under" href="#">余额</a> >></h4>
+  <h4 class="jiaozhi-section-title"><span class="jiaozhi-alink-under" href="#">余额</span> >></h4>
         <div class="jiaozhi-card-info"> 
             <span class="jiaozhi-money-top-icon"> 一卡通余额</span> 
-            <h2 class="jiaozhi-card-jine">{{vm.items[0].ye}}</h2>
+            <h2 class="jiaozhi-card-jine">{{vm.items[0].ye}}元</h2>
              <p>根据你的个人消费习惯,请及时充值，以免影响使用。 </p>
           
         </div>
@@ -95,15 +96,16 @@
     <form class="form-inline">
       <h3 class="jiaozhi-page-header">矿大生活</h3>
     <div class="input-group input-group-sm" date-picker result="date2" dateFmt="yyyy-MM-dd" double="true" ></div>
-     <!--  <small class="text-danger"> <span class="glyphicon glyphicon-star" style="font-size:12px;" aria-hidden="true"></span> 信息来源：人事部（2016-03-01）</small>
-    --> </form>
+       <small class="text-danger"> <span class="glyphicon glyphicon-star" style="font-size:12px;" aria-hidden="true"></span> 信息来源：教务、图书、计费系统</small>
+      </form>
   </div>
 </section>
 <article class="jiaozhi-content">
   <div class="container">
   <div class="row jiaozhi-cross">
         <section class="col-xs-12 col-md-6">
-        <h4 class="jiaozhi-section-title"><a class="jiaozhi-alink-under" href="#">今日课程<span class="badge jiaozhi-section-badge">{{vm.items[0].length}}</span></a> >></h4>
+        <h4 class="jiaozhi-section-title"><span class="jiaozhi-alink-under" href="#">今日课程<span class="badge jiaozhi-section-badge">{{vm.items[0].length}}</span></span> >></h4>
+       <span ng-show="vm.items[3].length==0" style="color: #f93d0a;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;无数据</span>
         <div class=" " ng-repeat="item in vm.items[3]" init="i=0;">
           <dl class="jiaozhi-biaoji-dl">
             <dt>{{$index+1}}、{{item.COURSE_NAME}} </dt>
@@ -116,23 +118,24 @@
         </div>
       </section>
  <section  class="col-xs-12 col-md-6">
-      <h4 class="jiaozhi-section-title"><a class="jiaozhi-alink-under" href="#">日均上网时间</a> >></h4>
+      <h4 class="jiaozhi-section-title"><span class="jiaozhi-alink-under" href="#">日均上网时间</span> >></h4>
       <div class="row">
         <div class="col-xs-12 ">
-          <p>日均上网时长为    <span class="lead"> 3</span>   小时  ,在线时长已排列在矿大       <span class="lead">73% </span> 人之前。</p>
+          <p>日均上网时长为    <span class="lead">{{rjswsj}}</span>   分钟 。</p>
            <div cs-chart config = "vm.items[4]" class="col-xs-12" style="height:350px;"></div>
       </div>
     </section>
  </div>
      <div class="row jiaozhi-cross">
       <section class="col-xs-12 col-md-6">
-        <h4 class="jiaozhi-section-title"><a class="jiaozhi-alink-under" >推荐图书</a> >></h4>
-        <div class=" " >
+        <h4 class="jiaozhi-section-title"><span class="jiaozhi-alink-under" >推荐图书</span> >></h4>
+        <span ng-show="vm.items[5].length==0" style="color: #f93d0a;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;无数据</span>
+        <div class=" "  ng-show="vm.items[5].length>0">
           <ol class="jiaozhi-ol-list"  ng-repeat="item in vm.items[5]">
             <li >
             <span class="label label-default" ng-class="$index<3?'label-danger':''">{{$index+1}}</span>
             &nbsp;&nbsp;
-            <a class="jiaozhi-alink-under" >{{item.NAME_}}&nbsp;&nbsp;&nbsp;&nbsp;作者：{{item.WRITE_}}&nbsp;&nbsp;&nbsp;&nbsp;出版社：{{item.PRESS}}</a> 
+            <span class="jiaozhi-alink-under" >{{item.NAME_}}&nbsp;&nbsp;&nbsp;&nbsp;作者：{{item.WRITE_}}&nbsp;&nbsp;&nbsp;&nbsp;出版社：{{item.PRESS}}</p> 
             </li>
             
          <!--    <li><span class="label label-danger">2</span>&nbsp;&nbsp;<a class="jiaozhi-alink-under" >工艺发展史    作者：李砚祖 </a></li>
@@ -143,7 +146,7 @@
         </div>
       </section>
       <section  class="col-xs-12 col-md-6">
-        <h4 class="jiaozhi-section-title"><a class="jiaozhi-alink-under" >借阅分类</a> >></h4>
+        <h4 class="jiaozhi-section-title"><span class="jiaozhi-alink-under" >借阅分类</span> >></h4>
         <div cs-chart config = "vm.items[6]" class="col-xs-12" style="height:350px;"></div>
       </section>
     </div>

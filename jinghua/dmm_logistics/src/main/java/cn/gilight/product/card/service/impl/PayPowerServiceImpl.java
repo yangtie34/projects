@@ -100,6 +100,12 @@ public class PayPowerServiceImpl implements PayPowerService{
 		map.put("hz", Code.getKey("mz.hz"));
 		map.put("zzcode", Code.getKey("mz.zz.code"));
 		map.put("zzname", Code.getKey("mz.zz.name"));
+		map.put("tea.status.code", Code.getKey("tea.status.code").replaceAll("'", ""));
+		map.put("tea.status.name", Code.getKey("tea.status.name").replaceAll("'", ""));
+		map.put("tea.bzlb.code", Code.getKey("tea.bzlb.code").replaceAll("'", ""));
+		map.put("tea.bzlb.name", Code.getKey("tea.bzlb.name").replaceAll("'", ""));
+		map.put("tea.zwjb.code", Code.getKey("tea.zwjb.code").replaceAll("'", ""));
+		map.put("tea.zwjb.name", Code.getKey("tea.zwjb.name").replaceAll("'", ""));
 		return map;
 	}
 	

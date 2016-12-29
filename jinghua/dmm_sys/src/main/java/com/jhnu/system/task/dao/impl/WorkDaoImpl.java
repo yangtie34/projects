@@ -14,7 +14,7 @@ public class WorkDaoImpl extends TaskBaseDaoImpl implements WorkDao {
 		String sql=sqlByBean.getQuerySql(new Work())+" where 1=1 ";
 		
 		if(work.getName_()!=null){
-			sql+=" and name_ like '%"+work.getName_()+"%' or SERVICE like '%"+work.getName_()+"%' " ;
+			sql+=" and (name_ like '%"+work.getName_()+"%' or SERVICE like '%"+work.getName_()+"%') " ;
 		}
 		if(work.getGroup_()!=null){
 			sql+=" and GROUP_='"+work.getGroup_()+"' ";

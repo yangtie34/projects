@@ -137,6 +137,7 @@ public class SqlUtil {
 		return CardTjUtil.getDateTJ(startDate, endDate)+
 				SqlUtil.getDeptTeachTj(deptTeach, enum_,"t");
 	}
+	
 	public static String[] getZDBylb(String lb){
 		
 		if(lb.equalsIgnoreCase("all")){
@@ -166,6 +167,30 @@ public class SqlUtil {
 		}
 		return null;
 	}
+	
+	public static String[] getTeaBylb(String lb){
+		
+		if(lb.equalsIgnoreCase("all")){
+			return new String[]{" 'all' code,'all' name "," 'all','all' "," "};
+		}else if(lb.equalsIgnoreCase("xb")){
+			return new String[]{" nvl(t.sex_code,'null') code,nvl(t.sex_name,'未维护') name "," t.sex_code,t.sex_name "," "};
+		}else if(lb.equalsIgnoreCase("xl")){
+			return new String[]{" nvl(t.edu_id,'null') code,nvl(t.edu_name,'未维护') name "," t.edu_id,t.edu_name "," and t.edu_id in ('10','20','30','01') "};
+		}else if(lb.equalsIgnoreCase("status")){
+			return new String[]{" nvl(t.status_code,'null') code,nvl(t.status_name,'未维护') name "," t.status_code,t.status_name "," and t.status_code in ("+Code.getKey("tea.status.code")+") "};
+		}else if(lb.equalsIgnoreCase("bzlb")){
+			return new String[]{" nvl(t.bzlb_code,'null') code,nvl(t.bzlb_name,'未维护') name "," t.bzlb_code,t.bzlb_name "," and t.bzlb_code in ("+Code.getKey("tea.bzlb.code")+") "};
+		}else if(lb.equalsIgnoreCase("zwjb")){
+			return new String[]{" nvl(t.zw_jb_code,'null') code,nvl(t.zw_jb_name,'未维护') name "," t.zw_jb_code,t.zw_jb_name "," and t.zw_jb_code in ("+Code.getKey("tea.zwjb.code")+") "};
+		}else if(lb.equalsIgnoreCase("hour")){
+			return new String[]{" nvl(t.hour_,'null') fieldcode,nvl(t.hour_,'未维护') fieldname "," t.hour_,t.hour_ "," "};
+		}else if(lb.equalsIgnoreCase("onType")){
+			return new String[]{" nvl(t.on_type_code,'null') code,nvl(t.on_type_name,'未维护') name "," t.on_type_code,t.on_type_name "," "};
+		}
+		return null;
+	}
+	
+	
 	
 	public static String getDateTJ(String startDate,String endDate,String t){
 		String tj=" and "+t+".year_month>=to_date('"+startDate+"','yyyy-mm') and "+t+".year_month<to_date('"+endDate+"','yyyy-mm') ";

@@ -36,6 +36,7 @@ ng-init="menus=['个人档案','信息变动历史','工资收入','一卡通','
   <div class="container">
     <form class="form-inline">
       <h3 class="jiaozhi-page-header">个人档案</h3>
+       <small class="text-danger"> <span class="glyphicon glyphicon-star" style="font-size:12px;" aria-hidden="true"></span> 信息来源：人事系统</small>
     </form>
   </div>
 </section>
@@ -65,6 +66,7 @@ ng-init="menus=['个人档案','信息变动历史','工资收入','一卡通','
   <div class="container">
     <form class="form-inline">
       <h3 class="jiaozhi-page-header">信息变动历史</h3>
+       <small class="text-danger"> <span class="glyphicon glyphicon-star" style="font-size:12px;" aria-hidden="true"></span> 信息来源：人事系统</small>
     </form>
   </div>
 </section>
@@ -84,7 +86,7 @@ ng-init="menus=['个人档案','信息变动历史','工资收入','一卡通','
             ng-class="index1==0?'jiaozhi-fang-box-org':'jiaozhi-fang-box-green'"
             > <span class="jiaozhi-fang-bg" 
              ng-class="index1==0?'jiaozhi-fang-bg-0{{index2+1}}':'jiaozhi-fang-bg-green-0{{index2+1}}'"
-            >{{item.NAME_}}</span> </div>
+            >{{item.NAME_||'未维护'}}</span> </div>
             <p class="lead-normal">{{item.DATA_}}</p>
           </div>
           <div class="col-xs-1" ng-show="index2<value.length-1">
@@ -106,14 +108,14 @@ ng-init="menus=['个人档案','信息变动历史','工资收入','一卡通','
     <form class="form-inline">
       <h3 class="jiaozhi-page-header">工资收入</h3>
      <div class="input-group input-group-sm" date-picker result="date1" dateFmt="yyyy-MM-dd" double="true" ></div>
-     <!--  <small class="text-danger"> <span class="glyphicon glyphicon-star" style="font-size:12px;" aria-hidden="true"></span> 信息来源：人事部（2016-03-01）</small>
-     --></form>
+      <small class="text-danger"> <span class="glyphicon glyphicon-star" style="font-size:12px;" aria-hidden="true"></span> 信息来源：财务系统</small>
+      </form>
   </div>
 </section>
 <article class="jiaozhi-content">
   <div class="container">
     <section>
-      <h4 class="jiaozhi-section-title"><a class="jiaozhi-alink-under" href="#">工资组成</a> >></h4>
+      <h4 class="jiaozhi-section-title"><span class="jiaozhi-alink-under" href="#">工资组成</span> >></h4>
       <div class="row">
        <div cs-chart config = "vm.items[0].option" class="col-xs-12 col-md-5" style="height:250px;"></div>
         <div class="col-xs-12 col-md-7">
@@ -140,12 +142,12 @@ ng-init="menus=['个人档案','信息变动历史','工资收入','一卡通','
     </section>
     <hr/>
     <section class="col-xs-12 col-md-6">
-      <h4 class="jiaozhi-section-title"><a class="jiaozhi-alink-under" href="#">工资变化</a> >></h4>
+      <h4 class="jiaozhi-section-title"><span class="jiaozhi-alink-under" href="#">工资变化</span> >></h4>
       <div class="row">
       <div cs-chart config = "vm.items[1]"  style="height:350px;"></div>
     </section>
     <section class="col-xs-12 col-md-6">
-      <h4><a class="jiaozhi-alink-under" href="#">工资条</a> >></h4>
+      <h4><span class="jiaozhi-alink-under" href="#">工资条</span> >></h4>
       <div class="row">
         <div >
           <table class="table table-hover  jiaozhi-common-table" width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -188,15 +190,15 @@ ng-init="menus=['个人档案','信息变动历史','工资收入','一卡通','
     <form class="form-inline">
       <h3 class="jiaozhi-page-header">一卡通</h3>
     <div class="input-group input-group-sm" date-picker result="date2" dateFmt="yyyy-MM-dd" double="true" ></div>
-     <!--  <small class="text-danger"> <span class="glyphicon glyphicon-star" style="font-size:12px;" aria-hidden="true"></span> 信息来源：人事部（2016-03-01）</small>
-    --> </form>
+       <small class="text-danger"> <span class="glyphicon glyphicon-star" style="font-size:12px;" aria-hidden="true"></span> 信息来源：一卡通系统</small>
+     </form>
   </div>
 </section>
 <article class="jiaozhi-content">
   <div class="container">
     <div class="row jiaozhi-cross">
       <section class="col-xs-12 col-md-6">
-        <h4 class="jiaozhi-section-title"><a class="jiaozhi-alink-under" href="#">消费+余额</a> >></h4>
+        <h4 class="jiaozhi-section-title"><span class="jiaozhi-alink-under" href="#">消费+余额</span> >></h4>
         <div class="row">
           <div cs-chart config = "vm.items[3].option" class="col-xs-4 col-md-4" style="height:250px;"></div>
           <div class="col-xs-8 col-md-8">
@@ -215,7 +217,7 @@ ng-init="menus=['个人档案','信息变动历史','工资收入','一卡通','
         </div>
       </section>
       <section  class="col-xs-12 col-md-6">
-        <h4 class="jiaozhi-section-title"><a class="jiaozhi-alink-under" href="#">充值记录</a> >></h4>
+        <h4 class="jiaozhi-section-title"><span class="jiaozhi-alink-under" href="#">充值记录</span> >></h4>
         <div class="row">
          <div cs-chart config = "vm.items[4].option" class="col-xs-4 col-md-4" style="height:250px;"></div>
           <div class="col-xs-8 col-md-8">
@@ -246,7 +248,7 @@ ng-init="menus=['个人档案','信息变动历史','工资收入','一卡通','
       </section>
       </div><div class="row jiaozhi-cross">
       <section  class="col-xs-12 col-md-6">
-        <h4 class="jiaozhi-section-title"><a class="jiaozhi-alink-under" href="#">消费分析</a> >></h4>
+        <h4 class="jiaozhi-section-title"><span class="jiaozhi-alink-under" href="#">消费分析</span> >></h4>
         <div class="row">
           <div class="col-xs-12 ">
             <p>日均消费为 <span class="lead"> {{vm.items[5].rjxf}}</span> 元 ,消费水平已排列在矿大 <span class="lead">73% </span> 人之前。</p>
@@ -254,7 +256,7 @@ ng-init="menus=['个人档案','信息变动历史','工资收入','一卡通','
         </div>
       </section>
       <section  class="col-xs-12 col-md-6">
-        <h4 class="jiaozhi-section-title"><a class="jiaozhi-alink-under" href="#">消费明细</a> >></h4>
+        <h4 class="jiaozhi-section-title"><span class="jiaozhi-alink-under" href="#">消费明细</span> >></h4>
       <div class="row">
         <div class="col-xs-12">
           <table class="table table-hover  jiaozhi-common-table" width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -305,7 +307,7 @@ ng-init="menus=['个人档案','信息变动历史','工资收入','一卡通','
 <article class="jiaozhi-content">
   <div class="container">
     <section  class="col-xs-12 col-md-6">
-      <h4 class="jiaozhi-section-title"><a class="jiaozhi-alink-under" href="#">日均上网时间</a> >></h4>
+      <h4 class="jiaozhi-section-title"><span class="jiaozhi-alink-under" href="#">日均上网时间</span> >></h4>
       <div class="row">
         <div class="col-xs-12 ">
           <p>日均上网时长为    <span class="lead"> 3</span>   小时  ,在线时长已排列在矿大       <span class="lead">73% </span> 人之前。</p>
@@ -313,7 +315,7 @@ ng-init="menus=['个人档案','信息变动历史','工资收入','一卡通','
       </div>
     </section>
     <section  class="col-xs-12 col-md-6">
-      <h4 class="jiaozhi-section-title"><a class="jiaozhi-alink-under" href="#">累计上网时间</a> >></h4>
+      <h4 class="jiaozhi-section-title"><span class="jiaozhi-alink-under" href="#">累计上网时间</span> >></h4>
       <div class="row">
         <div class="col-xs-12 ">
           <!-- <p>累计上网时长为       <span class="lead"> 340</span>   小时 ,在线时长已排列在矿大   <span class="lead">73% </span> 人之前。</p>
@@ -336,13 +338,13 @@ ng-init="menus=['个人档案','信息变动历史','工资收入','一卡通','
   <div class="container">
     <div class="row jiaozhi-cross">
       <section class="col-xs-12 col-md-6">
-        <h4 class="jiaozhi-section-title"><a class="jiaozhi-alink-under" >推荐图书</a> >></h4>
+        <h4 class="jiaozhi-section-title"><span class="jiaozhi-alink-under" >推荐图书</span> >></h4>
         <div class=" " >
           <ol class="jiaozhi-ol-list"  ng-repeat="item in vm.items[0]">
             <li >
             <span class="label label-default" ng-class="$index<3?'label-danger':''">{{$index+1}}</span>
             &nbsp;&nbsp;
-            <a class="jiaozhi-alink-under" >{{item.NAME_}}&nbsp;&nbsp;&nbsp;&nbsp;作者：{{item.WRITE_}}</a> 
+            <span class="jiaozhi-alink-under" >{{item.NAME_}}&nbsp;&nbsp;&nbsp;&nbsp;作者：{{item.WRITE_}}</span> 
             </li>
             
          <!--    <li><span class="label label-danger">2</span>&nbsp;&nbsp;<a class="jiaozhi-alink-under" >工艺发展史    作者：李砚祖 </a></li>
@@ -353,13 +355,13 @@ ng-init="menus=['个人档案','信息变动历史','工资收入','一卡通','
         </div>
       </section>
       <section  class="col-xs-12 col-md-6">
-        <h4 class="jiaozhi-section-title"><a class="jiaozhi-alink-under" >借阅分类</a> >></h4>
+        <h4 class="jiaozhi-section-title"><span class="jiaozhi-alink-under" >借阅分类</span> >></h4>
         <div cs-chart config = "vm.items[1]" class="col-xs-12" style="height:350px;"></div>
       </section>
     </div>
     <div class="row jiaozhi-cross">
       <section  class="col-xs-12 col-md-6">
-        <h4><a class="jiaozhi-alink-under" >借阅数量</a> >></h4>
+        <h4><span class="jiaozhi-alink-under" >借阅数量</span> >></h4>
         <div class="row ">
           <div class="col-xs-12 ">
             <p>共借阅图书 <span class="lead"> 48</span> 本  ,阅读综合排名已排列在矿大 <span class="lead">73% </span> 人之前。</p>
@@ -367,7 +369,7 @@ ng-init="menus=['个人档案','信息变动历史','工资收入','一卡通','
         </div>
       </section>
       <section  class="col-xs-12 col-md-6">
-        <h4><a class="jiaozhi-alink-under" >借阅明细</a> >></h4>
+        <h4><span class="jiaozhi-alink-under" >借阅明细</span> >></h4>
         <div class="row">
           <div class="col-xs-12">
             <table class="table table-hover  jiaozhi-common-table" width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -421,19 +423,19 @@ ng-init="menus=['个人档案','信息变动历史','工资收入','一卡通','
     <section class="jiaozhi-first-list" ng-repeat="(key,value) in vm.items[9]" >
        <div class="media" ng-show="key=='cf'">
          <div class="media-left media-middle"><div class="jiaozhi-img-circle jiaozhi-can-icon" > </div></div>
-         <div class="media-body media-middle"><h4 class="jiaozhi-inline-block ">{{value[0].TIME_}} </h4><p class="jiaozhi-inline-block">进行了在矿大的首次就餐。消费了<span class="lead"> {{value[0].PAY_MONEY}}</span> 元 ,本次消费在你的单次就餐消费金额中高过<span class="lead">56%</span>范围。</p></div>
+         <div class="media-body media-middle"><h4 class="jiaozhi-inline-block ">{{value[0].TIME_}} </h4><p class="jiaozhi-inline-block" ng-show="value[0].PAY_MONEY==null">未就餐！</p><p class="jiaozhi-inline-block" ng-show="value[0].PAY_MONEY!=null">进行了在矿大的首次就餐。消费了<span class="lead"> {{value[0].PAY_MONEY}}</span> 元 <!-- ,本次消费在你的单次就餐消费金额中高过<span class="lead">56%</span>范围 -->。</p></div>
        </div>
        <div class="media" ng-show="key=='gw'">
          <div class="media-left media-middle"><div class="jiaozhi-img-circle jiaozhi-shopping-icon" > </div></div>
-         <div class="media-body media-middle"><h4 class="jiaozhi-inline-block ">{{value[0].TIME_}} </h4><p class="jiaozhi-inline-block">进行了在矿大的首次购物。消费了<span class="lead"> {{value[0].PAY_MONEY}}</span> 元 ,本次消费在你的单次就餐消费金额中高过<span class="lead">58%</span>范围。</p></div>
+         <div class="media-body media-middle"><h4 class="jiaozhi-inline-block ">{{value[0].TIME_}} </h4><p class="jiaozhi-inline-block" ng-show="value[0].PAY_MONEY==null">未购物！</p><p class="jiaozhi-inline-block"ng-show="value[0].PAY_MONEY!=null">进行了在矿大的首次购物。消费了<span class="lead"> {{value[0].PAY_MONEY}}</span> 元<!--  ,本次消费在你的单次就餐消费金额中高过<span class="lead">58%</span>范围 -->。</p></div>
        </div>
        <div class="media" ng-show="key=='jy'">
          <div class="media-left media-middle"><div class="jiaozhi-img-circle jiaozhi-book-icon" > </div></div>
-         <div class="media-body media-middle"><h4 class="jiaozhi-inline-block ">{{value[0].TIME_}} </h4><p class="jiaozhi-inline-block">进行了在矿大的首次图书馆借本次借阅内容为《{{value[0].NAME_}}》。</p></div>
+         <div class="media-body media-middle"><h4 class="jiaozhi-inline-block ">{{value[0].TIME_}} </h4><p class="jiaozhi-inline-block" ng-show="value[0].NAME_==null">未借阅！</p><p class="jiaozhi-inline-block"ng-show="value[0].NAME_!=null">进行了在矿大的首次图书馆借阅，本次借阅内容为《{{value[0].NAME_}}》。</p></div>
        </div>
        <div class="media" ng-show="key=='ry'">
          <div class="media-left media-middle"><div class="jiaozhi-img-circle jiaozhi-jiang-icon" > </div></div>
-         <div class="media-body media-middle"><h4 class="jiaozhi-inline-block ">{{value[0].TIME_}} </h4><p class="jiaozhi-inline-block">获得了在矿大的首次荣誉。本次被评为{{value[0].NAME_}}。</p></div>
+         <div class="media-body media-middle"><h4 class="jiaozhi-inline-block ">{{value[0].TIME_}} </h4><p class="jiaozhi-inline-block" ng-show="value[0].NAME_==null">未获得荣誉！</p><p class="jiaozhi-inline-block" ng-show="value[0].NAME_!=null">获得了在矿大的首次荣誉。本次被评为{{value[0].NAME_}}。</p></div>
        </div>
     </section>
      

@@ -84,7 +84,7 @@ public class CardUsedDaoImpl implements CardUsedDao{
 	}
 	
 	@Override
-	public Page getNoCardUsed(int currentPage, int numPerPage,int totalRow,String sort,boolean isAsc,
+	public Page getNoCardUsed(int currentPage, int numPerPage,int totalRow,
 			String startDate, String endDate, Map<String, String> deptTeach) {
 		String dateTj=CardTjUtil.getDateTJ(startDate, endDate);
 		String deptTj=SqlUtil.getDeptTeachTj(deptTeach, ShiroTagEnum.CARD_CU.getCode(),"t");
@@ -97,7 +97,7 @@ public class CardUsedDaoImpl implements CardUsedDao{
 					") where  pay_count < (MONTHS_BETWEEN(to_date('"+endDate+"','yyyy-mm'),"+
 					"to_date('"+startDate+"','yyyy-mm'))*"+Code.getKey("card.uesd")+") "+
 					"order by pay_count";
-		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow,sort,isAsc);
+		return new Page(sql, currentPage, numPerPage, baseDao.getJdbcTemplate(), totalRow);
 	}
 	
 	private static String getCardUsedSql(String startDate,String endDate, Map<String, String> deptTeach,String queryType){

@@ -45,10 +45,19 @@ app.controller("InfoController", [ "$scope","dialog",'mask','$timeout','http','t
 	  		titles=em_manager_detil.name;
 	  	}
   		if(i==8){
-  			title="仪器设备";
+  			switch(scope.emType){
+  			case "all":title="仪器设备";
+  				break;
+  			case "val":title="贵重设备";
+				break;
+  			case "now":title="新增仪器设备";
+				break;
+  			case "nowVal":title="新增贵重设备";
+				break;
+  			}
   		}else if(i==9){
 	  		params=[scope.type,scope.typeValue];
-	  		title="仪器设备";
+	  		title=scope.typeName+"仪器设备";
 	  	}else if(i==10){
 	  		params=[scope.deptGroup];
 	  		title="仪器设备";
@@ -177,13 +186,14 @@ var getData2=function(){
 		  http.callService(htt[1]).success(function(data){
 				 var d=[];
 				 for(var j=0;j<data.length;j++){
-					 d.push({field:data[j].NAME,fieldCode:data[j].CODE,value:data[j].VALUE,name:i==1?'经费(万元)':'数量(件)'}); 
+					 d.push({field:data[j].NAME,fieldCode:data[j].CODE,value:data[j].VALUE,name:i==1?'数量(件)':'数量(件)'}); 
 				 }
 				 var option=getOption(d,'','bzt');
 				option.event=function(param){
 					scope.type=type[i];
 					scope.emType=emType[scope.emTypeId];
 					scope.typeValue=param.data.nameCode
+					scope.typeName=param.name;
 					 scope.getxqlb(9);
 					 timeout();
 				 };
@@ -197,7 +207,7 @@ var getData2=function(){
 				 for(var j=0;j<data.length;j++){
 						 d.push({field:data[j].YEAR_,value:data[j].VALUE,name:data[j].NAME});  
 				 }
-					 vm.items[2][i]=fomatSwtDw(getOption(d,'仪器设备'+qstitle[i]+'对比趋势','xzt'),i==1?'经费':'数量',i==1?'万元':'件');  
+					 vm.items[2][i]=fomatSwtDw(getOption(d,'仪器设备'+qstitle[i]+'对比趋势','xzt'),i==1?'数量':'数量',i==1?'件':'件');  
 					 mask.hideLoading(); 
 		  });
 	}

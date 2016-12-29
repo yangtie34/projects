@@ -44,10 +44,13 @@ public class NetTest extends SpringTest{
 		System.out.println(jrb.getIsTrue()+"------"+jrb.getMsg());
 		jrb=jobNetService.initStuNumMonth();
 		System.out.println(jrb.getIsTrue()+"------"+jrb.getMsg());
-//		jrb=jobNetService.updateNetTrend();
-//		System.out.println(jrb.getIsTrue()+"------"+jrb.getMsg());
-//		jrb=jobNetService.initNetTeaWarnMonth();
-//		System.out.println(jrb.getIsTrue()+"------"+jrb.getMsg());
+
+		jrb=jobNetService.updateNetTrend();
+		System.out.println(jrb.getIsTrue()+"------"+jrb.getMsg());
+		jrb=jobNetService.initNetTeaWarnMonth();
+		System.out.println(jrb.getIsTrue()+"------"+jrb.getMsg()); 
+		jrb=jobNetService.initNetTeaMonth();
+		System.out.println(jrb.getIsTrue()+"------"+jrb.getMsg()); 
 	}
 	
 //	@Test

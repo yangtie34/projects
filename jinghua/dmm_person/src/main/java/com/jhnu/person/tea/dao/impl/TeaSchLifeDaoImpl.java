@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.jhnu.framework.data.base.BaseDao;
+import com.jhnu.person.sys.Code;
 import com.jhnu.person.tea.dao.TeaSchLifeDao;
 import com.jhnu.system.common.page.Page;
 
@@ -32,7 +33,7 @@ public class TeaSchLifeDaoImpl implements TeaSchLifeDao {
 				
 				+ "sum(tl.salary_payable) yf,"//应发合计,"
 				+ "sum(tl.salary_subtract) dk,"//代扣合计,"
-				+ "sum(tl.salary_payable) sf"//实发合计,"
+				+ "sum(tl.SALARY) sf"//实发合计,"
 					 +"  from T_TEA_SALARY tl "
 					 +"  where tl.TEA_ID = '"+id+"' "
 					 +"  and to_char(to_date(tl.YEAR_ ||'-'|| tl.MONTH_, 'yyyy-mm'), 'yyyy-mm') between "
@@ -43,12 +44,13 @@ public class TeaSchLifeDaoImpl implements TeaSchLifeDao {
 
 	@Override
 	public List gzChange(String id, String startTime, String endTime) {//工资变化 无数据 无AFTER_GW_CODE字段
-		String sql = "select nvl(t.salary_payable,0) value, t.YEAR_ || '/' || t.MONTH_ field ,'实发工资' name"
+		String sql = "select nvl(t.SALARY,0) value, t.YEAR_ || '/' || t.MONTH_ field ,'实发工资' name"
 					 +"  from T_TEA_SALARY t "
 					 //+"  left join T_TEA_SALARY_DETAIL ttsd on ttsd.salary_id=t.id "
 					 +"  where t.TEA_ID = '"+id+"' "
 					 +"  and to_char(to_date(t.YEAR_ ||'-'|| t.MONTH_, 'yyyy-mm'), 'yyyy-mm') between "
-					 +"       substr('"+startTime+"', 1, 7) and substr('"+endTime+"', 1, 7)  ";
+					 +"       substr('"+startTime+"', 1, 7) and substr('"+endTime+"', 1, 7)  "
+					 		+ " order by t.YEAR_ || '/' || t.MONTH_";
 		//sql="select * from ("+sql+") where value is not null";
 		return baseDao.getBaseDao().getJdbcTemplate().queryForList(sql);
 	}
@@ -58,7 +60,7 @@ public class TeaSchLifeDaoImpl implements TeaSchLifeDao {
 			int currentPage, int numPerPage) {// 
 		
 		//年月 基本工资 课时收入 绩效工资 住房补贴 五险一金 合计 带扣 实发
-		String sql = "  SELECT t.YEAR_ || '/' || t.MONTH_ CL01, "
+		String sql = "  SELECT to_char(to_date(t.YEAR_ ||'-'|| t.MONTH_, 'yyyy-mm'), 'yyyy-mm') CL01, "
 				+ " WM_CONCAT(TTSD.SALARY_TYPE) types,"
 				+ " WM_CONCAT(TTSD.VALUE_) vals,"
 					/* +" CASE TTSD.SALARY_TYPE WHEN '基本工资' THEN TTSD.VALUE_ END  CL02, "
@@ -74,11 +76,11 @@ public class TeaSchLifeDaoImpl implements TeaSchLifeDao {
 					 +" where t.TEA_ID = '"+id+"' "
 					 +"  and to_char(to_date(t.YEAR_ ||'-'|| t.MONTH_, 'yyyy-mm'), 'yyyy-mm') between "
 					 +"    substr('"+startTime+"', 1, 7) and substr('"+endTime+"', 1, 7)  "
-					 		+ "group by t.YEAR_ || '/' || t.MONTH_,"
+					 		+ "group by to_char(to_date(t.YEAR_ ||'-'|| t.MONTH_, 'yyyy-mm'), 'yyyy-mm'),"
 					 		+ "T.SALARY_PAYABLE,"
 					 		+ "T.SALARY_SUBTRACT,"
-					 		+ "T.SALARY";
-					// +"  ORDER BY TIME_";
+					 		+ "T.SALARY"
+					 +"  ORDER BY to_char(to_date(t.YEAR_ ||'-'|| t.MONTH_, 'yyyy-mm'), 'yyyy-mm') desc ";
 		Page page = new Page(sql.toString(), currentPage, numPerPage, baseDao
 				.getBaseDao().getJdbcTemplate(), null);
 /*		List<Map<String, Object>> l = page.getResultList();
@@ -101,11 +103,11 @@ public class TeaSchLifeDaoImpl implements TeaSchLifeDao {
 	@Override
 	public List yktxf(String id, String startTime, String endTime) {
 		
-		String sql = " SELECT  TCCP.NAME_ field,SUM(TCCP.PAY_MONEY) value "
-				+ " FROM (SELECT TCCD.NAME_,TCP.PAY_MONEY "
+		String sql = " SELECT  TCCP.NAME_ field,SUM(TCCP.pay_money) value ,1 bz "
+				+ " FROM (SELECT TCCD.NAME_,TCP.pay_money "
 				+ " FROM T_CARD_PAY TCP "
 				+ " LEFT JOIN T_CODE_CARD_DEAL TCCD ON TCCD.ID = TCP.CARD_DEAL_ID "
-				+ "  left join T_CARD TC on tc.no_=TCP.CARD_ID "
+				+ "  left join T_CARD TC on tc.NO_=TCP.CARD_ID "
 				+ "   WHERE tc.people_id = '"
 				+ id
 				+ "' AND TCP.TIME_ BETWEEN '"
@@ -114,6 +116,9 @@ public class TeaSchLifeDaoImpl implements TeaSchLifeDao {
 				+ endTime
 				+ "' and (TCP.CARD_DEAL_ID='G18' OR TCP.CARD_DEAL_ID='G2')) TCCP "
 				+ " GROUP BY TCCP.NAME_ ";
+				//+ " UNION "
+				//+ " SELECT '余额' field,to_number(TC.CARD_BALANCE) value,0 bz FROM T_CARD TC WHERE TC.PEOPLE_ID='"
+				//+ id + "' ";
 		return baseDao.getBaseDao().getJdbcTemplate().queryForList(sql);
 	}
 	@Override
@@ -132,11 +137,19 @@ public class TeaSchLifeDaoImpl implements TeaSchLifeDao {
 	public List yktcz(String id, String startTime, String endTime) {
 		
 
-		String sql = " SELECT DISTINCT DZTYK.code_, tcre.time_, DZTYK.name_ field,tcre.pay_money value "
-				+ " FROM T_CARD_PAY TCRE "
+		String sql = " SELECT DISTINCT DZTYK.code_, tcre.time_ time_, DZTYK.name_ field,tcre.Pay_Money value "
+				+ " FROM t_card_PAY TCRE "
 				+ " LEFT JOIN T_CODE_CARD_DEAL DZTYK ON TCRE.CARD_DEAL_ID=DZTYK.id "
 				+ "  left join T_CARD TC on tc.NO_=TCRE.CARD_ID "
-				+ "   WHERE tc.people_id = '" + id + "'  and( tcre.card_deal_id='G19' or tcre.card_deal_id='G21' or tcre.card_deal_id='G24')   order by  tcre.time_ desc";
+				+ "   WHERE tc.people_id = '" + id + "' "
+						+ " AND TCRE.TIME_ BETWEEN '"
+				+ startTime
+				+ "' and '"
+				+ endTime
+				+ "' "
+						+ " and( tcre.card_deal_id='G19' or tcre.card_deal_id='G21' or tcre.card_deal_id='G24')  "
+						+ " order by  tcre.time_ desc";
+	           
 		return baseDao.getBaseDao().getJdbcTemplate().queryForList(sql);
 
 	}
@@ -188,10 +201,13 @@ public class TeaSchLifeDaoImpl implements TeaSchLifeDao {
 	@Override
 	public Page yktxfmx(String id, String startTime, String endTime,
 			int currentPage, int numPerPage) {
-		String sql = " SELECT TCCD.NAME_ cl01,TCP.PAY_MONEY cl02,TCP.TIME_ cl03"
+		String sql = " SELECT TCCD.NAME_ cl01,TCP.PAY_MONEY cl02,pcde.name_ cl03,TCP.TIME_ cl04"
 				+ " FROM T_CARD_PAY TCP "
 				+ " LEFT JOIN T_CODE_CARD_DEAL TCCD ON TCP.CARD_DEAL_ID=TCCD.ID "
 				+ "  left join T_CARD TC on tc.no_=TCP.CARD_ID "
+				+"   left join T_CARD_PORT TP on Tcp.card_port_id=TP.NO_ "
+				+"	left join T_CARD_DEPT cde on TP.card_DEPT_id=cde.id "
+				+"  left join T_CARD_DEPT pcde on cde.pid=pcde.id   "
 				+ "   WHERE tc.people_id = '"
 				+ id
 				+ "' "
@@ -199,7 +215,7 @@ public class TeaSchLifeDaoImpl implements TeaSchLifeDao {
 				+ startTime
 				+ "' and '"
 				+ endTime
-				+ "'";
+				+ "' order by TCP.TIME_ desc";
 
 		return new Page(sql.toString(), currentPage, numPerPage, baseDao
 				.getBaseDao().getJdbcTemplate(), null);
@@ -211,39 +227,39 @@ public class TeaSchLifeDaoImpl implements TeaSchLifeDao {
 		String gethours="floor(to_number(to_date(TNR.OFF_TIME,'yyyy-mm-dd hh24:mi:ss')-to_date(TNR.ON_TIME,'yyyy-mm-dd hh24:mi:ss'))*24*60)";
 		//TODO 教师上网信息
 		//上网账号,开始时间,最小值,最大值,日均上网时间 
-		String sql = " SELECT TNR.id cl01,SUBSTR(TNR.ON_TIME,0,10) cl02,MIN("+gethours+") cl03,MAX("+gethours+") cl04,"
+		String sql = " SELECT "//TNR.ACCOUNT_ID cl01,SUBSTR(TNR.ON_TIME,0,10) cl02,"
+				+ "MIN("+gethours+") cl03,MAX("+gethours+") cl04,"
 				+ "(sum("+gethours+")/(to_date('"+endTime+"','yyyy-mm-dd')-to_date('"+startTime+"','yyyy-mm-dd'))) cl05  "
 				+ " FROM T_NET_RECORD TNR "
-				+ " left join T_NET_USER tnu on TNR.id=tnu.id"
-				+ " WHERE tnu.PEOPLE_ID='"
+				+ " left join T_NET_USER tnu on TNR.net_id=tnu.people_id"
+				+ " WHERE tnu.people_id='"
 				+ id
 				+ "' AND SUBSTR(TNR.ON_TIME,0,10) BETWEEN '"
 				+ startTime
 				+ "' and '"
 				+ endTime
-				+ "' "
-				+ " GROUP BY TNR.id,SUBSTR(TNR.ON_TIME,0,10) ";
+				+ "' ";
+				//+ " GROUP BY TNR.ACCOUNT_ID,SUBSTR(TNR.ON_TIME,0,10) ";
 		return baseDao.getBaseDao().getJdbcTemplate().queryForList(sql);
 	}
 
 	@Override
-	public List ieAllTime(String id, String startTime, String endTime) {
+	public List<Map<String,List<Map<String,Object>>>> ieAllTime(String id, String startTime, String endTime) {
 		// 创建上网时间视图
-		String sql="CREATE OR REPLACE VIEW TL_NET_VIEW "
-				+"　AS　"
-				+"　SELECT TNR.id ACCOUNT_ , "
+		String sqlselect= "select ACCOUNT_,sum(TIME_NUM) SSUM_ from( "
+				+"　SELECT TNR.Net_Id ACCOUNT_ , "
 				+"　floor(to_number(to_date(TNR.OFF_TIME,'yyyy-mm-dd hh24:mi:ss')-to_date(TNR.ON_TIME,'yyyy-mm-dd hh24:mi:ss'))*24*60) TIME_NUM  " 
 				+"  FROM T_NET_RECORD TNR " 
 				+"  WHERE to_char(TO_DATE(SUBSTR(TNR.ON_TIME,1,10),'yyyy-mm-dd'),'yyyy-mm-dd') "
-				+"  BETWEEN '"+startTime+"' AND '"+endTime+"'";
-		baseDao.getBaseDao().getJdbcTemplate().execute(sql);
+				+"  BETWEEN '"+startTime+"' AND '"+endTime+"' ) ";
+		//baseDao.getBaseDao().getJdbcTemplate().execute(sql);
 		//本人累计上网时长
 		//上网账号 累计上网时长
-		sql="SELECT TNV.ACCOUNT_ ACCOUNT_,SUM(TNV.TIME_NUM) SSUM_ FROM TL_NET_VIEW TNV WHERE TNV.ACCOUNT_='"+id+"' GROUP BY TNV.ACCOUNT_ ";
-		List list=new ArrayList();
-		Map map=new HashMap();
+		String sql=sqlselect+"where ACCOUNT_='"+id+"' GROUP BY ACCOUNT_";
+		List<Map<String,List<Map<String,Object>>>> list=new ArrayList<>();
+		Map<String,List<Map<String,Object>>> map=new HashMap<>();
 		map.put("grsw", baseDao.getBaseDao().getJdbcTemplate().queryForList(sql));
-		sql="SELECT MIN(TNV.TIME_NUM) MIN_, MAX(TNV.TIME_NUM) MAX_ ,avg(TNV.TIME_NUM) avg_,SUM(TNV.TIME_NUM) SUM_ FROM TL_NET_VIEW TNV  GROUP BY TNV.ACCOUNT_";
+		sql="SELECT MIN(TNV.SSUM_) MIN_, MAX(TNV.SSUM_) MAX_ ,avg(TNV.SSUM_) avg_,SUM(TNV.SSUM_) SUM_ FROM ("+sqlselect+" GROUP BY ACCOUNT_)TNV  ";
 		map.put("xxsw", baseDao.getBaseDao().getJdbcTemplate().queryForList(sql));
 		list.add(map);
 		return list;
@@ -270,7 +286,7 @@ public class TeaSchLifeDaoImpl implements TeaSchLifeDao {
 				+ " SELECT PAY_MONEY FROM TCP_VIEW_SCXF WHERE CARD_ID='G18'AND ROWNUM=1)) c1 "
 				+ " left join "
 				+ " (SELECT COUNT(*) c2 FROM TCP_VIEW_SCXF)c2 on 1=1 "
-				+ " ) T1 ON 1=1 " + " WHERE CARD_ID='G18'AND ROWNUM=1";
+				+ " ) T1 ON 1=1 " + " WHERE CARD_ID='"+Code.getKey("ykt.rice")+"'AND ROWNUM=1";
 		List list=new ArrayList();
 		Map map=new HashMap();
 		map.put("cf", baseDao.getBaseDao().getJdbcTemplate().queryForList(sql));
@@ -283,7 +299,7 @@ public class TeaSchLifeDaoImpl implements TeaSchLifeDao {
 				+ " SELECT PAY_MONEY FROM TCP_VIEW_SCXF WHERE CARD_ID='G2'AND ROWNUM=1)) c1 "
 				+ " left join "
 				+ " (SELECT COUNT(*) c2 FROM TCP_VIEW_SCXF)c2 on 1=1 "
-				+ " ) T1 ON 1=1 " + " WHERE CARD_ID='G2'AND ROWNUM=1 ";
+				+ " ) T1 ON 1=1 " + " WHERE CARD_ID='"+Code.getKey("ykt.shop")+"'AND ROWNUM=1 ";
 		map.put("gw", baseDao.getBaseDao().getJdbcTemplate().queryForList(sql));
 		// 矿大首次--首次借阅
 		sql = " SELECT TT.NAME_ NAME_, TT.BORROW_TIME TIME_ "

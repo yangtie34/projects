@@ -113,9 +113,10 @@ app.controller("teaQjController", [ "$scope","dialog",'mask','$timeout','http','
 				sum:sum
 			}; });
 		htt[8].params=[userId,scope.date2.startTime,scope.date2.endTime];
-		http.callService(htt[7]).success(function(data){
+		http.callService(htt[8]).success(function(data){
 			//上网账号,开始时间,最小值,最大值,日均上网时间 
-			data=[{CL03:5,CL04:6,CL05:4}]
+			//data=[{CL03:5,CL04:6,CL05:4}]
+			scope.rjswsj=data[0].CL04||0;
 			var d=[{FIELD:'最低',VALUE:data[0].CL03,NAME:'上网时间'},
 			       {FIELD:'我的',VALUE:data[0].CL04,NAME:'上网时间'},
 			       {FIELD:'最高',VALUE:data[0].CL05,NAME:'上网时间'},
@@ -131,7 +132,7 @@ app.controller("teaQjController", [ "$scope","dialog",'mask','$timeout','http','
 		return option;
 	}
 	 function Percentage(num, total) { 
-		    return (Math.round(num / total * 10000) / 100.00 + "%");// 小数点后两位百分比
+		    return ((Math.round(num / total * 10000) / 100.00)||0 + "%");// 小数点后两位百分比
 		}
 	 scope.echarColor=echarColor;
 	 getServiceData();

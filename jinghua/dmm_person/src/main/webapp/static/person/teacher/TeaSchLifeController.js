@@ -58,17 +58,20 @@ app.controller("TeaSchLifeController", [ "$scope","dialog",'mask','$timeout','ht
 			 scope.gztTitles=['年月'];
 			 var titess={};
 			for(var i=0; i<d.length;i++){
-				var types=d[i].TYPES.split(',');
-				var vals=d[i].VALS.split(',');
 				dt[i]={};
 				dt[i]['年月']=d[i].CL01;
+				 dt[i]['合计(元)']=d[i].CL07; 
+				 dt[i]['带扣(元)']=d[i].CL08;
+				 dt[i]['实发(元)']=d[i].CL09;
+				if(d[i].TYPES==null)continue;
+				var types=d[i].TYPES.split(',');
+				var vals=d[i].VALS.split(',');
+				
 			 for(var j=0;j<types.length;j++){
 				 titess[types[j]]=null;
 				 dt[i][types[j]]=vals[j]; 
 			 }	
-			 dt[i]['合计']=d[i].CL07; 
-			 dt[i]['带扣']=d[i].CL08;
-			 dt[i]['实发']=d[i].CL09;
+			
 			}
 				for(var key in titess){
 					scope.gztTitles.push(key);	
@@ -81,7 +84,7 @@ app.controller("TeaSchLifeController", [ "$scope","dialog",'mask','$timeout','ht
 			for(var i=0;i<xAxiss.length;i++){
 				scope.gztTitles.push(xAxiss[i]);
 			}*/
-			scope.gztTitles.push('合计');scope.gztTitles.push('带扣');scope.gztTitles.push('实发');
+			scope.gztTitles.push('合计(元)');scope.gztTitles.push('带扣(元)');scope.gztTitles.push('实发(元)');
 			/*var nyrm={};	
 			var list=[];
 			for(var i=0;i<legents.length;i++){
@@ -142,7 +145,7 @@ app.controller("TeaSchLifeController", [ "$scope","dialog",'mask','$timeout','ht
 		  });
 		getgztData();
 	};
-	scope.xfmxTitles=['序号','消费内容','消费金额(元)','消费时间'];
+	scope.xfmxTitles=['序号','消费内容','消费金额(元)','消费地点','消费时间'];
 	var getXfData=function(){
 		htt[6].params=[userId,scope.date2.startTime,scope.date2.endTime];
 		htt[6].params.push(scope.pageXf.currentPage || 1);
@@ -211,24 +214,28 @@ app.controller("TeaSchLifeController", [ "$scope","dialog",'mask','$timeout','ht
 		htt[7].params=[userId,scope.date3.startTime,scope.date3.endTime];
 		http.callService(htt[7]).success(function(data){
 			//上网账号,开始时间,最小值,最大值,日均上网时间 
-			data=[{CL03:5,CL04:6,CL05:4}]
-			var d=[{FIELD:'最低',VALUE:data[0].CL03,NAME:'上网时间'},
+			/*data=[{CL03:5,CL04:6,CL05:4}]*/
+			var d=[];
+			if(data.length>0)
+			 d=[{FIELD:'最低',VALUE:data[0].CL03,NAME:'上网时间'},
 			       {FIELD:'平均',VALUE:data[0].CL04,NAME:'上网时间'},
 			       {FIELD:'最高',VALUE:data[0].CL05,NAME:'上网时间'},
-			       ]
+			       ];
 			vm.items[7] =get3woption(d,'line');
 		  });
 		htt[8].params=[userId,scope.date3.startTime,scope.date3.endTime];
 		http.callService(htt[8]).success(function(data){
-			data=[{grsw:[
+			/*data=[{grsw:[
 			            {SSUM_:15} 
 			             ],
 				xxsw:[ {MIN_:5,MAX_:20,AVG_:15,SUM_:100} 
-				      ]}]
-			var d=[{FIELD:'个人累计',VALUE:data[0].grsw[0].SSUM_,NAME:'上网时间'},
-			       {FIELD:'校平均',VALUE:data[0].xxsw[0].AVG_,NAME:'上网时间'},
-			       {FIELD:'校累计最低',VALUE:data[0].xxsw[0].MIN_,NAME:'上网时间'},
-			       ]
+				      ]}]*/
+			var d=[];
+			data[0].grsw[0]=data[0].grsw[0]||{};
+			 d=[{FIELD:'个人累计',VALUE:data[0].grsw[0].SSUM_||0,NAME:'上网时间'},
+			       {FIELD:'校平均',VALUE:data[0].xxsw[0].AVG_||0,NAME:'上网时间'},
+			       {FIELD:'校累计最低',VALUE:data[0].xxsw[0].MIN_||0,NAME:'上网时间'},
+			       ];
 			vm.items[8] = {
 			  	      type :'columnf',
 			  	      data:d,
@@ -248,6 +255,13 @@ app.controller("TeaSchLifeController", [ "$scope","dialog",'mask','$timeout','ht
 		            saveAsImage : {show: true}
 		        }
 		    },
+		    noDataLoadingOption : {
+				  text : '暂无数据',
+				   // effectOption : null,
+				    effect : 'bubble',
+				    effectOption : {
+				    	effect : {n:'0'}
+				    }},
 		     series : {
 		            type:'bar',
 		            stack:'总时长',
@@ -255,7 +269,7 @@ app.controller("TeaSchLifeController", [ "$scope","dialog",'mask','$timeout','ht
 		     },
 		  	  xAxis : [
 		         {
-		            name:'时长',
+		            name:'时长(分)',
 		            type:'value',
 		            max:'defualt',
 		            min:0
@@ -319,6 +333,6 @@ app.controller("TeaSchLifeController", [ "$scope","dialog",'mask','$timeout','ht
 		  	  }
 		  },true);
 		  function Percentage(num, total) { 
-			    return (Math.round(num / total * 10000) / 100.00 + "%");// 小数点后两位百分比
+			    return ((Math.round(num / total * 10000) / 100.00)||0 + "%");// 小数点后两位百分比
 			}	  
 }]);

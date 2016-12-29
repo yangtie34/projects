@@ -45,10 +45,10 @@ public class CardUsedServiceImpl implements CardUsedService{
 	}
 
 	@Override
-	public Page getNoCardUsed(int currentPage, int numPerPage, int totalRow,String sort,boolean isAsc,
+	public Page getNoCardUsed(int currentPage, int numPerPage, int totalRow,
 			String startDate, String endDate, Map<String, String> deptTeach) {
 		
-		return cardUsedDao.getNoCardUsed(currentPage, numPerPage, totalRow,sort,isAsc, startDate, endDate, deptTeach);
+		return cardUsedDao.getNoCardUsed(currentPage, numPerPage, totalRow, startDate, endDate, deptTeach);
 	}
 
 	@Override

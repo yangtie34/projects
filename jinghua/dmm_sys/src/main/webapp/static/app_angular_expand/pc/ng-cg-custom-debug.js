@@ -298,7 +298,160 @@ jxpg.directive('cgComboSelect', ['$interval',function($interval) {
 		}
 	};
 }]);
-
+jxpg.directive('cgComboInput', ['$interval',function($interval) {
+	return {
+		restrict : 'AE',
+		templateUrl : base + '/static/app_angular_expand/pc/directives/tpl/comboInput.html',
+		scope : {
+			source:"=",
+			result:"=",
+			code : "="
+		},
+		link : function(scope, element, attrs) {
+			//生成节点的唯一ID和 父节点 ID
+			var nodeId = 0;
+			scope.packageSourceData = function(dt){
+				for ( var i = 0; i < dt.length; i++) {
+					for ( var j = 0; j < dt.children.length; j++) {
+						dt.children[i].nodeId = nodeId++;
+					}
+				}
+			};
+			scope.selectObj = [];
+			
+			//监听元数据的变化，意在当元数据是通过异步请求得到的时候刷新数据
+			scope.$watch("source",function(){
+				scope.treeData = {};
+				//元数据备份
+				scope.treeData = angular.copy(scope.source);
+				
+				//选定的节点置空
+				//scope.result = {};
+				angular.copy({},scope.result);
+				// 当前查询条件名称
+				// scope.queryName = scope.source.queryName;
+				
+				//选定节点以及其所有的父节点
+				//scope.packageSourceData(scope.treeData);
+				
+				scope.selectObj=[scope.treeData];
+				//scope.initClick();
+			},true);
+			scope.myKeyup=function(e,obj){
+				  var keynum;
+					if(window.event) 
+				  	{
+				  		keynum = e.keyCode;
+				  	} else if(e.which) 
+				  	{
+				  		keynum = e.which;
+				  	}
+				  	if(keynum==13){
+				  		scope.cgComboTreeNodeClick(obj);
+				  	}
+			  };
+			//节点点击事件
+			scope.cgComboTreeNodeClick = function(node){
+				if(node.val==null) return;
+				//设置输出结果为选定节点
+				angular.copy(node,scope.result);
+				delete scope.result.children;
+				scope.result.queryCode = angular.copy(scope.code);
+				scope.result.queryType = "comboInput";
+				scope.result.mc=scope.result.mc+(scope.result.mc.length>0?':':'')+scope.result.val;
+			};
+		}
+	};
+}]);
+jxpg.directive('cgComboNyrtj', ['$interval',"$timeout","$compile",'mask',function($interval,$timeout,$compile,mask) {
+	return {
+		restrict : 'AE',
+		templateUrl : base + '/static/app_angular_expand/pc/directives/tpl/nyrtj.html',
+		scope : {
+			result:"=",
+			code:"="
+		},
+		link : function(scope, ele, attrs) {
+			 var thisYear=new Date().getFullYear();
+			 scope.cliclickId=function(i){
+				 scope.clickId=i;
+			 }
+			 function getTime(d){
+				 var tod=new Date();tod.setDate(1);
+				 if(tod.toString()==d.toString())tod.setMonth( tod.getMonth()+1 );
+				 scope.startTime=d.getFullYear()+"-"+(d.getMonth()>8?'':"0")+(d.getMonth()+1);//+"-"+d.getDate();
+				 scope.endTime=tod.getFullYear()+"-"+(tod.getMonth()>8?'':"0")+(tod.getMonth()+1);//+"-"+tod.getDate();
+			 }
+			 var id=scope.$id;
+			 ele.find('#dp000').attr('id','dp000'+id);
+			 ele.find('#dp001').attr('id','dp001'+id);
+			 //$compile(ele);
+			 var getRes=function(){
+				 delete scope.result.children;
+				 var node={
+								id:id,
+								mc:scope.startTime+'~'+scope.endTime,
+								queryType : "comboNyrtj",
+								queryCode : scope.code,
+								date:{startTime:scope.startTime,endTime:scope.endTime}
+					};
+				 angular.copy(node,scope.result);
+					
+			 };
+			 scope.$watch("clickId",function(){
+				 var dt = new Date();
+				 dt.setDate(1);
+				 switch(scope.clickId){
+				 case 0:
+					 getTime(dt);
+					 break;
+				 case 1:
+					 dt.setMonth( dt.getMonth()-1 );
+					 getTime(dt);
+					 break;
+				 case 3:
+					 dt.setMonth( dt.getMonth()-3 );
+					 getTime(dt);
+					 break;
+				 case 6:
+					 dt.setMonth( dt.getMonth()-6);
+					 getTime(dt);
+					 break;
+				 }
+				 ele.find("#dp000"+id).val(scope.startTime);
+				 ele.find("#dp001"+id).val(scope.endTime);
+				 if(scope.startTime==null)return;
+				 getRes();
+			  });	
+			 var dp001clid=100;
+				var dp001fouc=function(){
+					WdatePicker({el: 'dp001'+id,
+						dateFmt:"yyyy-MM-dd HH:mm:ss",
+						startDate:'%y-{%M-3)-%d',
+						onpicked:function(){
+							scope.startTime=angular.copy(ele.find("#dp000"+id).val());
+							scope.endTime=angular.copy(ele.find("#dp001"+id).val());
+							//scope.result=scope.resul;
+							 scope.clickId=dp001clid++;
+							 $timeout();
+						}});
+				};
+				
+				ele.find("#dp000"+id).focus(function(){
+					var dp000=$dp.$('dp000'+id);
+					var dp001=$dp.$('dp001'+id);
+					WdatePicker({el: 'dp000'+id,
+						dateFmt:"yyyy-MM-dd HH:mm:ss",
+						startDate:'%y-%M-%d',
+						onpicked:function(){
+						dp001fouc()}});
+				});
+				//	scope.startTime='2013-09';
+				//	scope.endTime='2013-10';
+				//scope.clickId=Number(scope.yid)||0;
+		}
+	};
+}]);
 jxpg.directive('cgComboBox', ['$interval',function($interval) {
 	return {
 		restrict : 'AE',
@@ -723,16 +876,46 @@ jxpg.directive('cgComboCheckTree', ['$interval',function($interval) {
 	};
 }]);
 //permiss页面专用
-jxpg.directive('cgCheckMapTree', ['$interval',function($interval) {
+jxpg.directive('cgCheckMapTree', ['$interval',"$compile",function($interval,$compile) {
 	return {
 		restrict : 'AE',
-		templateUrl : base + '/static/app_angular_expand/pc/directives/tpl/comboMapTree.html',
+		//templateUrl : base + '/static/app_angular_expand/pc/directives/tpl/comboMapTree.html',
+		template : "<div><div id='root'></div></div>",
 		scope : {
 			source:"=",
 			result:"=",
 			type:"=",
 		},
 		link : function(scope, element, attrs) {
+
+        
+           var initNode=function(nodes){
+        	   scope.nodess=scope.nodess||{};
+        	   scope.nodess[nodes.id]=nodes;
+             	 var ulHtml=$("<ul class=\"ztree\" ng-class=\"nodess['"+nodes.id+"'].thelast?'sdfa':'level1 line'\">                                                                                                  "+
+                			"    <li  ng-repeat=\"node in nodess['"+nodes.id+"'].children\" ng-show=\"nodess['"+nodes.id+"'].childrenShow\" id=\"root{{node.id}}\">                                                                                                "+
+                			"    <span  ng-class=\"node.children&&node.children.length>0?node.id==-1?'root_open':'root_close':node.thelast?'bottom_docu':'center_docu'\" class=\"button level switch \" ng-click=\"switchclick($event,node)\"></span>"+
+                			"      <span ng-if=\"node.checked!=true\"                                                                                                                                  "+
+                			"      ng-class=\"node.check?'checkbox_true_full':node.childCheck?'checkbox_false_part':'checkbox_false_full'\"                                                            "+
+                			"      class=\"button chk\" ng-click=\"nodeClick(node)\"></span>                                                                                                           "+
+                			"      <span ng-if=\"node.checked==true\" class=\"checkbox_true_disable button chk\"></span>                                                                               "+
+                			"		 <a href=\"javascript:void(0);\"  title=\"{{node.mc}}\" ng-click=\"node.checked==true?null:nodeClick(node)\">                                                      "+
+                			"       <span id=\"jxjg_tree_1_ico\" title=\"\" treenode_ico=\"\" class=\"button \"                                                                                        "+
+                			"			ng-class=\"node.children&&node.children.length>0?'ico_close':'ico_docu'\"></span>                                                                              "+
+                			"      	<span title=\"{{node.mc}}\">{{node.mc}}</span>                                                                                                                     "+
+                			"      </a>			                                                                                                                                                       "+
+                			"    </li>                                                                                                                                                                 "+
+                			//"	<span ng-show=\"treeData.length != ($index+1)\">&gt;</span>                                                                                                            "+
+                			" </ul>                                                                                                                                                                    ");
+             	 
+        	   if( nodes.initNode!=true ){
+        		   var newElem = $compile(ulHtml)(scope);
+        		   	//alert("#root"+nodes.id==-1?"":nodes.id);
+                   $(element).find("#root"+(nodes.id==-1?"":nodes.id)).append(ulHtml);
+                   nodes.initNode=true;   
+        	   }
+        	  
+           }      
 			var sour=null;
 			scope.getResult=function(node){
 				if(node.check){
@@ -741,6 +924,7 @@ jxpg.directive('cgCheckMapTree', ['$interval',function($interval) {
 					scope.resremov(node);
 				}
 			}
+			
 			scope.getTreeResult=function(node){
 				if(node.check){
 					var item=angular.copy(node);
@@ -864,6 +1048,7 @@ jxpg.directive('cgCheckMapTree', ['$interval',function($interval) {
 				}else{
 					$(a).removeClass("root_close");
 					$(a).addClass("root_open");
+					initNode(node);
 				};
 			};
 			
@@ -884,7 +1069,7 @@ jxpg.directive('cgCheckMapTree', ['$interval',function($interval) {
 						sour.data[sour.data[i].children[sour.data[i].children.length-1]].thelast=true;
 					}
 					if(sour.data[i].pid=='-1'){
-						childrenShow=true;
+						//childrenShow=true;
 						sour.data[i].thelast=true;
 					}
 					sour.data[i].childrenShow=childrenShow;
@@ -898,9 +1083,17 @@ jxpg.directive('cgCheckMapTree', ['$interval',function($interval) {
 					return item;
 				}
 				scope.treeData=[initData(sour.data[sour.rootId])];
+				element.find("#root").html("");
+				initNode({id:-1,children:scope.treeData,childrenShow: true});	
+				setTimeout(function(){
+					$(element).find("ul>li>span:eq(0)").click();
+					//alert($(element).find("ul>li>span:eq(0)").html())
+				},100); 
+				//initNode(scope.treeData[0]);
 				for(var i=0;i<initClicknodes.length;i++){
 					scope.nodeClick(initClicknodes[i]);
 				}
+				
 			},true);
 		}
 	}

@@ -3,6 +3,7 @@
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
 <c:set var="ctxStatic" value="${pageContext.request.contextPath}/static" />
 <c:set var="images" value="${ctx }/resource/images"/>
+<!DOCTYPE html>
 <html ng-app="app">
 <head>
 <meta charset="UTF-8">
@@ -49,7 +50,13 @@
                     	</div>
                         <div class="guizhong fr">
                             <div id="octagon">
-                                <div id="liub" ng-class="emTypeId==1?'':'cursordiv'"ng-click="emTypeClick(1);titleFB='在用贵重'"><h4>贵重设备</h4></div>
+                                <div id="liub" ng-class="emTypeId==1?'':'cursordiv'"ng-click="emTypeClick(1);titleFB='在用贵重'"><h4>贵重设备
+                                <div tool-tip placement="top">
+									<div style="width: 160px">单价在{{gzbz/10000}}万元以上的设备</div>
+								</div>	
+                                </h4>
+                                
+                                </div>
                                 <ul class="ul_1">
                                     <li>共拥有</li>
                                     <li>总价值</li>
@@ -89,7 +96,11 @@
                     	</div>
                         <div class="guizhong fr">
                             <div id="octagon">
-                                <div id="liub"ng-class="emTypeId==3?'':'cursordiv'" ng-click="emTypeClick(3);titleFB='今年在用贵重'"><h4>贵重设备</h4></div>
+                                <div id="liub"ng-class="emTypeId==3?'':'cursordiv'" ng-click="emTypeClick(3);titleFB='今年在用贵重'"><h4>贵重设备
+                                <div tool-tip placement="top">
+									<div style="width: 156px">单价在{{gzbz/10000}}万元以上的设备</div>
+								</div>	
+                                </h4></div>
                                 <ul class="ul_1">
                                     <li>共拥有</li>
                                     <li>总价值</li>
@@ -110,18 +121,27 @@
                 	</div>
                     <div class="fenbu_con gqzysb_con">
                     	<div class="col-md-4">
-                        	<h4>设备类型对比<span class="icon-time"ng-click="qushiClick(0);"></span></h4>
+                        	<h4>设备类型对比
+                        	<div tool-tip placement="right" hide-icon="true" class="icon-time" ng-click="qushiClick(0);">
+									<div>点击此处查看趋势</div>
+								</div></h4>
                         	<div stu-chart config="vm.items[1][0]" style="height:310px;"class="img-responsive img-top"> </div>
                         	<%-- <img src="${images}/shebei_21.jpg" class="img-responsive img-top"> --%>
                         </div>
                         <div class="col-md-4 fenbu_con_m">
-                        	<h4>经费组成对比<span class="icon-time"ng-click="qushiClick(1);"></span></h4>
+                        	<h4>经费组成对比
+                        	<div tool-tip placement="right" hide-icon="true" class="icon-time" ng-click="qushiClick(1);">
+									<div>点击此处查看趋势</div>
+								</div></h4>
                         	<div stu-chart config="vm.items[1][1]" style="height:310px;"class="img-responsive img-top"> </div>
                             <%-- <img src="${images}/jingfei_22.jpg" class="img-responsive img-top"> --%>
                             <!-- <p><i class="icon-info-sign"></i>经费组成中<b>教育事业费</b>共计<b>500元</b>，占总经费<b>60%</b>，以上是<b>其余经费</b>对比。</p>
                         --> </div>
                         <div class="col-md-4">
-                        	<h4>设备单价对比<span class="icon-time"ng-click="qushiClick(2);"></span></h4>
+                        	<h4>设备单价对比
+                        	<div tool-tip placement="right" hide-icon="true" class="icon-time" ng-click="qushiClick(2);">
+									<div>点击此处查看趋势</div>
+								</div></h4>
                         	<div stu-chart config="vm.items[1][2]" style="height:310px;"class="img-responsive img-top"> </div>
                         	<%-- <img src="${images}/shebeidanjia_24.gif" class="img-responsive img-top"> --%>
                         </div>

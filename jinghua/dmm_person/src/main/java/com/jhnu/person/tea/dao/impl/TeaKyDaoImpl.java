@@ -111,12 +111,12 @@ public class TeaKyDaoImpl implements TeaKyDao {
 				+ " LEFT JOIN T_RES_PROJECT TRP ON TRP.ID=TRPA.PRO_ID "
 				+ " WHERE TRPA.PEOPLE_ID='" + id+ "' "
 						+ "and TRP.START_TIME between'" + startTime + "' and '"
-				+ endTime + "'";
+				+ endTime + "' order by TRP.START_TIME";
 		
 		map.put("kyxm", baseDao.getBaseDao().getJdbcTemplate().queryForList(kyxm));
 		// 获得成果 
 		// 成果 获奖名称 获奖时间  参与人(校外作者姓名 +教职工姓名)
-		String hjcg = " SELECT TROA.TEA_NO cl01,TRP.NAME_ cl02,TRP.AWARD_NAME cl03,TRP.AWARD_TIME cl04,TROA.OUTSIDE_AUTHOR cl05, "
+		String hjcg = " SELECT TROA.TEA_NO cl01,TRP.NAME_ cl02,TRP.AWARD_NAME cl03,TRP.AWARD_TIME cl04,TROA.id cl05, "
 				+ " CASE TROA.PEOPLE_IDENTITY_CODE "
 				+ " WHEN '0' THEN (SELECT T.NAME_  FROM T_STU T WHERE T.NO_=TROA.PEOPLE_ID) "
 				+ " WHEN '1' THEN (SELECT TE.NAME_ FROM T_TEA TE WHERE TE.TEA_NO=TROA.PEOPLE_ID)  "
@@ -125,7 +125,7 @@ public class TeaKyDaoImpl implements TeaKyDao {
 				+ " LEFT JOIN T_RES_HJCG TRP ON TRP.ID=TROA.OUTCOME_AWARD_ID "
 				+ " WHERE TROA.PEOPLE_ID='" + id+ "' "
 				+ "and TRP.AWARD_TIME between'" + startTime + "' and '"
-				+ endTime + "'";
+				+ endTime + "'order by TRP.AWARD_TIME";
 		map.put("hjcg", baseDao.getBaseDao().getJdbcTemplate().queryForList(hjcg));
 		// 发表论文
 		//论文名称 发表年份  参与人(校外作者姓名 +教职工姓名)
@@ -138,7 +138,7 @@ public class TeaKyDaoImpl implements TeaKyDao {
 				+ " LEFT JOIN T_RES_THESIS TRT ON TRT.ID=TRTA.THESIS_ID "
 				+ " WHERE TRTA.PEOPLE_ID='" + id+ "' "
 				+ "and TRT.YEAR_ between'" + startTime + "' and '"
-						+ endTime + "'";
+						+ endTime + "' order by TRT.YEAR_ ";
 		map.put("lw", baseDao.getBaseDao().getJdbcTemplate().queryForList(lw));
 		//获得专利
 		//专利名称  获得专利时间  发明人   参与人(校外作者姓名 +教职工姓名)
@@ -153,7 +153,8 @@ public class TeaKyDaoImpl implements TeaKyDao {
 				    " LEFT JOIN T_RES_PATENT TRT "+
 				    " ON TRT.ID = TRTA.PATENT_ID "+
 				    " WHERE TRTA.PEOPLE_ID = '" + id+ "' "+
-				   "  and TRT.ACCREDIT_TIME between '" + startTime + "' and '"+ endTime + "' ";
+				   "  and TRT.ACCREDIT_TIME between '" + startTime + "' and '"+ endTime + "' "
+				   		+ "order by TRT.ACCREDIT_TIME ";
 		map.put("hdzl", baseDao.getBaseDao().getJdbcTemplate().queryForList(hdzl));
 		//项目经费
 		// 部门号 项目号 部门名称 项目信息 项目金额 

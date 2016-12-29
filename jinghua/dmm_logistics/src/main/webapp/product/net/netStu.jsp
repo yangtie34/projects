@@ -8,6 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
 <c:set var="ctxStatic" value="${pageContext.request.contextPath}/static" />
 <c:set var="images" value="${ctx }/resource/images"/>
+<!DOCTYPE html>
 <html ng-app="app">
   <head>
   <%--   <base href="<%=basePath%>"> --%>
@@ -64,7 +65,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 
                 <li style="border-bottom: none;">
                 	<div class="shw-pannel">
-                    	<div class="shw-pannel-head">共计上网情况<a href="" class="shw-clock" ng-click="qushiClick(key,k,'all');"title="趋势统计"></a></div>
+                    	<div class="shw-pannel-head">共计上网情况
+                    	 <div tool-tip placement="top" hide-icon="true" class="shw-clock" ng-click="qushiClick(key,k,'all');">
+									<div style="width: 160px">点击此处查看趋势</div>
+								</div> 
+                    	<!-- <a href="" class="shw-clock" ng-click="qushiClick(key,k,'all');"title="趋势统计"></a> --> </div>
                         <div class="shw-pannel-body" >
                         	<div class="wid-5">
                             	<ul class="list-unstyled">
@@ -93,7 +98,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </li>
                 <li style="border-bottom: none;">
                 	<div class="shw-pannel">
-                    	<div class="shw-pannel-head">人均单次上网情况<a href="" class="shw-clock" ng-click="qushiClick(key,k,'one');"title="趋势统计"></a></div>
+                    	<div class="shw-pannel-head">人均单次上网情况
+                    	<div tool-tip placement="top" hide-icon="true" class="shw-clock" ng-click="qushiClick(key,k,'one');">
+									<div style="width: 160px">点击此处查看趋势</div>
+						</div> 
+                    	<!-- <a href="" class="shw-clock" ng-click="qushiClick(key,k,'one');"title="趋势统计"></a> -->
+                    	</div>
                         <div class="shw-pannel-body" ng-class="key=='all'?'hei-147':''">
                         	<div class="wid-5">
                             	<ul class="list-unstyled">
@@ -122,7 +132,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </li>
                <li style="border-bottom: none;">
                 	<div class="shw-pannel">
-                    	<div class="shw-pannel-head">日均上网情况<a href="" class="shw-clock" ng-click="qushiClick(key,k,'day');"title="趋势统计"></a></div>
+                    	<div class="shw-pannel-head">日均上网情况
+                    	<div tool-tip placement="top" hide-icon="true" class="shw-clock" ng-click="qushiClick(key,k,'day');">
+									<div style="width: 160px">点击此处查看趋势</div>
+						</div> 
+                    	<!-- <a href="" class="shw-clock" ng-click="qushiClick(key,k,'day');"title="趋势统计"></a> -->
+                    	</div>
                         <div class="shw-pannel-body" ng-class="key=='all'?'hei-147':''">
                         	<div class="wid-5">
                             	<ul class="list-unstyled">

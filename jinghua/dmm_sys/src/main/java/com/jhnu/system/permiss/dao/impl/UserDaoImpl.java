@@ -107,7 +107,7 @@ public class UserDaoImpl implements UserDao {
     @SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
     public User findOne(Long userId) {
-        String sql = "select id, username, password,real_name, salt, istrue from t_sys_user where id=?";
+        String sql = "select id, username, password,real_name, salt, istrue,id_no from t_sys_user where id=?";
         List<User> userList = baseDao.getBaseDao().getJdbcTemplate().query(sql, new BeanPropertyRowMapper(User.class), userId);
         if(userList.size() == 0) {
             return null;
@@ -119,7 +119,7 @@ public class UserDaoImpl implements UserDao {
     @Override
     public User findByUsername(String username) {
     	
-        String sql = "select id, username, password,real_name, salt, istrue from t_sys_user where username=?";
+        String sql = "select id, username, password,real_name, salt, istrue,id_no from t_sys_user where username=?";
         List<User> userList = baseDao.getBaseDao().getJdbcTemplate().query(sql, new BeanPropertyRowMapper(User.class), username);
         if(userList.size() == 0) {
             return null;

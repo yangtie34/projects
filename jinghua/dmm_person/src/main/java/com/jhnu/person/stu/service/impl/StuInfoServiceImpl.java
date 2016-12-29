@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.jhnu.person.stu.dao.StuInfoDao;
 import com.jhnu.person.stu.service.StuInfoService;
+import com.jhnu.system.common.page.Page;
 
 @Repository("stuInfoService")
 public class StuInfoServiceImpl implements StuInfoService {
@@ -40,8 +41,8 @@ public class StuInfoServiceImpl implements StuInfoService {
 	}
 
 	@Override
-	public List getSsZsxx(String id) {
-		return stuInfoDao.getSsZsxx(id);
+	public Page getSsZsxx(String id, int currentPage, int numPerPage) {
+		return stuInfoDao.getSsZsxx(id,currentPage,numPerPage);
 	}
 
 	@Override

@@ -27,9 +27,15 @@
 </section> -->
 <article class="jiaozhi-content">
   <div class="container">
-    <div class="row">
+<div class="row">
+ <small class="text-danger" style="
+    float: right;
+"> <span class="glyphicon glyphicon-star" style="font-size:12px;" aria-hidden="true"></span> 信息来源：教务系统</small>
+
       <section class="col-xs-12">
-        <h4 class="jiaozhi-section-title"><a class="jiaozhi-alink-under" href="#">今日课程<span class="badge jiaozhi-section-badge">{{vm.items[0].length}}</span></a> >></h4>
+        <h4 class="jiaozhi-section-title"><span class="jiaozhi-alink-under">今日课程<span class="badge jiaozhi-section-badge" style="position: relative;
+    right: -0px;
+    top: -13px;">{{vm.items[0].length}}</span></span> >></h4>
         <div class=" " ng-repeat="item in vm.items[0]" init="i=0;">
           <dl class="jiaozhi-biaoji-dl">
             <dt>{{$index+1}}、{{item.COURSE_NAME}} </dt>
@@ -44,13 +50,13 @@
     </div>
     <div class="row">
       <section  class="col-xs-12">
-        <h4><a class="jiaozhi-alink-under" href="#">个人课表</a> >></h4>
+        <h4><span class="jiaozhi-alink-under">个人课表</span> >></h4>
         <div cg-kc-table source="vm.items[1]" class="jiaozhi-kebiao-table"></div>
       </section>
     </div>
     <div class="row">
       <section  class="col-xs-12">
-        <h4><a class="jiaozhi-alink-under" href="#">授课进度</a> >></h4>
+        <h4><span class="jiaozhi-alink-under">授课进度</span> >></h4>
         <div class="jiaozhi-jindu-list">
           <div class="row" ng-repeat="item in vm.items[2]">   
             <div class="col-xs-12 col-sm-5"><span class="jiaozhi-icon-ling"></span>{{item.COURSE_NAME}}
@@ -68,7 +74,7 @@
     </div>
     <div class="row">
       <section  class="col-xs-12">
-        <h4><a class="jiaozhi-alink-under" href="#">授课成绩</a> >></h4>
+        <h4><span class="jiaozhi-alink-under">授课成绩</span> >></h4>
         <div class="row">
  <div>
 <table  class="table table-hover  jiaozhi-common-table" width="100%" border="0" cellspacing="0" cellpadding="0">

@@ -24,6 +24,9 @@ public enum ShiroTagEnum {
 	NET_STU_DEPT("hq:net:netStuDept:*","各院系学生上网对比"),
 	NET_TEA_WARN("hq:net:netTeaWarn:*","教师上网账号异常"),
 	NET_TEA_RANK("hq:net:netTeaRank:*","教师上网排名"),
+	NET_TEA("hq:net:netTea:*","教师上网情况"),
+	
+	
 
 
 	

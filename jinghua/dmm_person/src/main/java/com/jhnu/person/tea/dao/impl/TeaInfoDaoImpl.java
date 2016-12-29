@@ -23,7 +23,7 @@ public class TeaInfoDaoImpl implements TeaInfoDao {
 				+ "tc2.name_ cl05,t.IN_DATE cl06,"
 				+ "t.BIRTHDAY cl07,t.JOIN_PARTY_DATE cl08, "
 				+ "t.IDNO cl09,tcts.name_ cl10,"
-				+ "t.PLACE_DOMICILE cl11,tc5.name_ cl12, "
+				+ "t.PLACE_DOMICILE cl11,'' cl12, "
 				+ "CASE t.MARRIED "
 				+ "WHEN 1 THEN '已婚'  "
 				+ "WHEN 0 THEN '未婚'  "
@@ -42,7 +42,7 @@ public class TeaInfoDaoImpl implements TeaInfoDao {
 				+ "left join t_code tc3 on tc3.code_ = t.BZLB_CODE  and tc3.code_type='BZLB_CODE' "
 				+ "left join t_code tc4 on tc4.code_ = t.politics_code and tc4.code_type='POLITICS_CODE' "
 				+ "left join T_CODE_TEA_SOURCE tcts on tcts.CODE_ = t.TEA_SOURCE_ID  "
-				+ "left join t_code tc5 on tc5.code_ = t.AUTHORIZED_STRENGTH_ID and tc5.code_type='AUTHORIZED_STRENGTH_CODE' "
+				//+ "left join t_code tc5 on tc5.code_ = t.AUTHORIZED_STRENGTH_ID and tc5.code_type='AUTHORIZED_STRENGTH_CODE' "
 				+ "left join T_CODE_EDUCATION tce on tce.CODE_ = t.EDU_ID  "
 				+ "left join T_CODE_DEGREE tcd on tcd.CODE_ = t.DEGREE_ID  "
 				+ "left join t_code tc6 on tc6.code_ = t.TEA_STATUS_CODE and tc6.code_type='TEA_STATE_CODE' "// --教职工状态

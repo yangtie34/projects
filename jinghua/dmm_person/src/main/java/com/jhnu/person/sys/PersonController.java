@@ -12,6 +12,7 @@ import com.jhnu.person.stu.service.StuInfoService;
 import com.jhnu.person.tea.service.TeaInfoService;
 import com.jhnu.syspermiss.GetCachePermiss;
 import com.jhnu.syspermiss.catche.PermissCache;
+import com.jhnu.syspermiss.util.UserUtil;
 
 
 
@@ -26,8 +27,9 @@ public class PersonController {
 	@RequestMapping(method=RequestMethod.GET, value="index")
 	public ModelAndView goToIndex(){
 		String url="";
-		String userName = IDStarUserUtil.getUserName();//UserUtil.getCasLoginName();
-		IDStarUserUtil.initPermiss(userName);
+		String userName = //IDStarUserUtil.getUserName();//
+		UserUtil.getCasLoginName();
+		//IDStarUserUtil.initPermiss(userName);
 		String rootRole=GetCachePermiss.getUserRootRole(userName);
 		String sex=null;
 		switch(rootRole){

@@ -36,7 +36,7 @@
                 	<div class="managers_l fl">
                         <div class="manager_l">
                             <ul>
-                                <li class="li_bold"><a href="" class="colorr" ng-click="getxq('all');">{{vm.items[0]}}</a></li>
+                                <li class="li_bold"><a href="" class="colorr" ng-click="getxq({NAME:'设备'，CODE:'all'});">{{vm.items[0]}}</a></li>
                                 <li class="li_zi">人</li>
                             </ul>
                             <div class="manager_colth">
@@ -55,7 +55,7 @@
                             <div id="octagon">
                                 <div id="liub" ng-class="DeptGroup==item.CODE?'':'cursordiv'"ng-click="cursordiv(item);"><h4>{{item.NAME}}</h4></div>
                                 <ul>
-                                    <li class="li_bold"><a href="" class="colorr" ng-click="getxq(item.CODE);">{{item.VALUE}}</a></li>
+                                    <li class="li_bold"><a href="" class="colorr" ng-click="getxq(item);">{{item.VALUE}}</a></li>
                                     <li class="li_zi">人</li>
                                 </ul>
                             </div>
@@ -101,7 +101,7 @@
                 	</div>
                     <div class="renyuan_fenbu_con">
                     	<div class="fl leixing">
-                        	<h4 class="h4_16">学历对比<span class="icon-time span_icon" ng-click="qushiClick(0);"></span></h4>
+                        	<h4 class="h4_16">学历对比<div tool-tip placement="right" hide-icon="true"  class="icon-time" ng-click="qushiClick(0);"><div style="width: 160px">点击此处查看趋势</div></div></h4>
                         	<div stu-chart config="vm.items[2][0]" style="height:310px;"
                         	class="img-responsive img_marg img-top"> </div>
                         	
@@ -109,7 +109,7 @@
                         </div>
                        
                         <div class="fl zhicheng">
-                        	<h4 class="h4_16">职称对比<span class="icon-time span_icon" ng-click="qushiClick(1);"></span></h4>
+                        	<h4 class="h4_16">职称对比<div tool-tip placement="right" hide-icon="true"  class="icon-time" ng-click="qushiClick(1);"><div style="width: 160px">点击此处查看趋势</div></div></h4>
                         	<div stu-chart config="vm.items[2][1]" style="height:310px;"
                         	class="img-responsive img_marg img-top"> </div>
                         	<%-- <img src="${images}/zhicheng.jpg" class="img-responsive img_marg img-top"> --%>

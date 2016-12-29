@@ -22,7 +22,18 @@
 	   		 <div cg-combo-Select source="q.items" code="q.queryCode" result="innerTreeResult" style="padding: 0px 80px;" >
 	    	</div> 
 	    </div>
-	   
+	      <div ng-switch-when="comboDate"  class="sub-term clearfix" style="{{$index == 0 && $parent.noborder && $parent.result.length == 0? 'border-top:0px':''}}" >
+	   		 <h4>{{q.queryName}}：</h4>
+	   		 <div cg-combo-nyrtj code="q.queryCode" result="innerTreeResult" style="padding: 0px 80px;" >
+	    	</div> 
+	    </div>
+	    <div ng-switch-when="comboInput"  class="sub-term clearfix" style="{{$index == 0 && $parent.noborder && $parent.result.length == 0? 'border-top:0px':''}}" >
+	   		 <h4>{{q.queryName}}：</h4>
+	   		 <div ng-repeat="item in q.items">
+	   		 <div cg-combo-input source="item" code="q.queryCode+item.id" result="innerTreeResult" style="padding: 0px 80px;" >
+	   		  </div>
+	    	</div> 
+	    </div>
 	    <div ng-switch-default class="sub-term clearfix" style="{{$index == 0 && $parent.noborder && $parent.result.length == 0? 'border-top:0px':''}}">
 		    <h4>{{q.queryName}}：</h4>
 		   	<div style="padding: 0px 80px;" >

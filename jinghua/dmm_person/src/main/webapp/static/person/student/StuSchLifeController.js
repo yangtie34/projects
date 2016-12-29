@@ -35,7 +35,7 @@ app.controller("StuSchLifeController", [ "$scope","dialog",'mask','$timeout','ht
 		 }
 	};
 	var get3woption=function(data,typ){
-		var option=echarswt(data,typ,{text:'111'});
+		var option=echarswt(data,typ,{text:''});
 		delete option.title;//删除图形的标题
 		delete option.toolbox;//option.toolbox保存为图片
 		delete option.legend;//
@@ -49,24 +49,28 @@ app.controller("StuSchLifeController", [ "$scope","dialog",'mask','$timeout','ht
 		htt[4].params=[userId,scope.date3.startTime,scope.date3.endTime];
 		http.callService(htt[4]).success(function(data){
 			//上网账号,开始时间,最小值,最大值,日均上网时间 
-			data=[{CL03:5,CL04:6,CL05:4}]
-			var d=[{FIELD:'最低',VALUE:data[0].CL03,NAME:'上网时间'},
+		/*	data=[{CL03:5,CL04:6,CL05:4}]*/
+			var d=[];
+			if(data.length>0)
+			 d=[{FIELD:'最低',VALUE:data[0].CL03,NAME:'上网时间'},
 			       {FIELD:'平均',VALUE:data[0].CL04,NAME:'上网时间'},
 			       {FIELD:'最高',VALUE:data[0].CL05,NAME:'上网时间'},
-			       ]
+			       ];
 			vm.items[4] =get3woption(d,'line');
 		  })
 			htt[5].params=[userId,scope.date3.startTime,scope.date3.endTime];
 			http.callService(htt[5]).success(function(data){
-				data=[{grsw:[
+			/*	data=[{grsw:[
 					            {SSUM_:15} 
 					             ],
 						xxsw:[ {MIN_:5,MAX_:20,AVG_:15,SUM_:100} 
-						      ]}]
-					var d=[{FIELD:'个人累计',VALUE:data[0].grsw[0].SSUM_,NAME:'上网时间'},
-					       {FIELD:'校平均',VALUE:data[0].xxsw[0].AVG_,NAME:'上网时间'},
-					       {FIELD:'校累计最低',VALUE:data[0].xxsw[0].MIN_,NAME:'上网时间'},
-					       ]
+						      ]}]*/
+				var d=[];
+				data[0].grsw[0]=data[0].grsw[0]||{};
+					 d=[{FIELD:'个人累计',VALUE:data[0].grsw[0].SSUM_||0,NAME:'上网时间'},
+					       {FIELD:'校平均',VALUE:data[0].xxsw[0].AVG_||0,NAME:'上网时间'},
+					       {FIELD:'校累计最低',VALUE:data[0].xxsw[0].MIN_||0,NAME:'上网时间'},
+					       ];
 			var option=get3woption(d,'bar');
 			var y=option.xAxis;
 			option.xAxis=option.yAxis;
@@ -87,14 +91,14 @@ app.controller("StuSchLifeController", [ "$scope","dialog",'mask','$timeout','ht
 					d.push(data[1][i]);
 			}
 			vm.items[0] ={
-					option:echarbzhx(d,"消费"),
+					option:echarbzhx(d,"消费"),//fomatSwtDw(getOption(d,'','xmt'),'数量','册');
 					list:d,
 					ye:ye
 				}; 
 		  });
 	};
 	//消费明细
-	scope.xfmxTitles=['序号','消费内容','消费金额','消费时间'];
+	scope.xfmxTitles=['序号','消费内容','消费金额','消费地点','消费时间'];
 	var getXfData=function(){
 		htt[3].params=[userId,scope.date2.startTime,scope.date2.endTime];
 		htt[3].params.push(scope.pageXf.currentPage || 1);
@@ -183,6 +187,6 @@ app.controller("StuSchLifeController", [ "$scope","dialog",'mask','$timeout','ht
 	  	  }
 	  },true);
 	  function Percentage(num, total) { 
-		    return (Math.round(num / total * 10000) / 100.00 + "%");// 小数点后两位百分比
-		}	
+		  return ((Math.round(num / total * 10000) / 100.00)||0 + "%");// 小数点后两位百分比
+		  }	
 }]);

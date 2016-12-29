@@ -65,7 +65,7 @@ var getVmData=function(){
 	{FIELD:'我的',VALUE:data[0].AVG_,NAME:'借阅数量'},
 	{FIELD:'最高',VALUE:data[0].MAX_,NAME:'借阅数量'}]
 		vm.items[2] ={
-		sum:data[0].SUM_,
+		sum:data[0].SUM_||0,
 		option:get3woption(dt,'line')
 	}
 	  });

@@ -25,7 +25,7 @@ public class WiseduLoginUtil {
 		if(!lrb.getIsTrue()){
     		return lrb;
 		}
-		System.out.println("单点登录用户为："+lrb.getUsername());
+		
 		lrb = CommonLoginUtil.checkUserName(lrb.getUsername(),jdbcTemplate);
 		if(!lrb.getIsTrue()){
 			return lrb;
@@ -41,9 +41,10 @@ public class WiseduLoginUtil {
 	private static LoginResultBean checkSSO(HttpServletRequest resquest){
 		LoginResultBean lrb = new LoginResultBean();
 		try {
-		//	String is_config = resquest.getSession().getServletContext().getRealPath("/client.properties");
-			String is_config=WiseduLoginUtil.class.getResource("/").getPath()+"client.properties";
-			is_config=is_config.replaceFirst("/", "");
+			String is_config = resquest.getSession().getServletContext().getRealPath("/client.properties");
+		//	String is_config=WiseduLoginUtil.class.getResource("/").getPath()+"client.properties";
+			System.out.println("===============================is_config:"+is_config+"==============================================");
+		//	is_config=is_config.replaceFirst("/", "");
 			Cookie all_cookies[] = resquest.getCookies();
 			Cookie myCookie;
 			String decodedCookieValue = null;
@@ -58,9 +59,10 @@ public class WiseduLoginUtil {
 			}
 			if(decodedCookieValue==null){
 				lrb.setTrue(false);
-				lrb.setErrorMas("认证失败");
+				lrb.setErrorMas("decodedCookieValu is null,认证失败");
 				return lrb;
 			}
+			System.out.println("===============================decodedCookieValue:"+decodedCookieValue+"========================================");
 			IdentityFactory factory = IdentityFactory.createFactory(is_config);
 			IdentityManager im = factory.getIdentityManager();
 			String curUser = im.getCurrentUser(decodedCookieValue);
@@ -69,13 +71,13 @@ public class WiseduLoginUtil {
 				return lrb;
 			}else{
 				lrb.setTrue(false);
-				lrb.setErrorMas("认证失败");
+				lrb.setErrorMas("curUser="+curUser+";认证失败");
 				return lrb;
 			}
 		}catch (Throwable e) {
 			e.printStackTrace();
 			lrb.setTrue(false);
-			lrb.setErrorMas("认证失败");
+			lrb.setErrorMas("出现错误，认证失败");
 			return lrb;
 		}
 	}

@@ -18,7 +18,7 @@ public class CommonLoginUtil {
 		String sql = "select * from t_sys_user where username=?";
         List<User> userList = jdbcTemplate.query(sql, new BeanPropertyRowMapper(User.class), username);
         if(userList.size() == 0 ) {
-        	jrb.setErrorMas("该用户不存在");
+        	jrb.setErrorMas("用户：'"+username+"'不存在");
         	jrb.setTrue(false);
         }else{
         	jrb.setObject(userList.get(0));
@@ -30,7 +30,7 @@ public class CommonLoginUtil {
 	public static LoginResultBean checkIsTrue(User user){
 		LoginResultBean jrb=new LoginResultBean(user.getUsername());
 		if(user.getIstrue()!=1){
-			jrb.setErrorMas("用户未启用！请联系管理员。");
+			jrb.setErrorMas("用户'"+user.getUsername()+"'未启用！请联系管理员。");
 			jrb.setTrue(false);
     	}
         return jrb;

@@ -114,7 +114,7 @@ public class TeaSchLifeDaoImpl implements TeaSchLifeDao {
 				+ startTime
 				+ "' and '"
 				+ endTime
-				+ "' and (TCP.CARD_DEAL_ID='G18' OR TCP.CARD_DEAL_ID='G2')) TCCP "
+				+ "' and (TCP.CARD_DEAL_ID='"+Code.getKey("ykt.rice")+"' OR TCP.CARD_DEAL_ID='"+Code.getKey("ykt.shop")+"')) TCCP "
 				+ " GROUP BY TCCP.NAME_ ";
 				//+ " UNION "
 				//+ " SELECT '余额' field,to_number(TC.CARD_BALANCE) value,0 bz FROM T_CARD TC WHERE TC.PEOPLE_ID='"
@@ -147,7 +147,7 @@ public class TeaSchLifeDaoImpl implements TeaSchLifeDao {
 				+ "' and '"
 				+ endTime
 				+ "' "
-						+ " and( tcre.card_deal_id='G19' or tcre.card_deal_id='G21' or tcre.card_deal_id='G24')  "
+						+ " and( tcre.card_deal_id='"+Code.getKey("ykt.rice")+"' or tcre.card_deal_id='"+Code.getKey("ykt.shop")+"' )  "
 						+ " order by  tcre.time_ desc";
 	           
 		return baseDao.getBaseDao().getJdbcTemplate().queryForList(sql);
@@ -188,8 +188,14 @@ public class TeaSchLifeDaoImpl implements TeaSchLifeDao {
 		List l2=baseDao.getBaseDao().getJdbcTemplate().queryForList(sql);//获取平均每天消费
 		//TODO 消费分析排名
 		   sql=" create or replace view xffxpmview as  " 
-		  +" select rownum from xffxpm where people_id = '19901023' "
-		  + "and time BETWEEN '2001-02-16' and '2016-05-16'"
+		  +" select rownum from xffxpm where people_id = '"
+				+ id
+				+ "' "
+		  + "and time BETWEEN '"
+				+ startTime
+				+ "' and '"
+				+ endTime
+				+ "'"
 		  
 		  +"  select count(rownum)from xffxpm  ";
 		//获取排名比例
@@ -283,7 +289,7 @@ public class TeaSchLifeDaoImpl implements TeaSchLifeDao {
 				+ " select c1.c1/c2.c2 bl from  "
 				+ " (SELECT COUNT(*) c1 FROM TCP_VIEW_SCXF "
 				+ " WHERE PAY_MONEY<( "
-				+ " SELECT PAY_MONEY FROM TCP_VIEW_SCXF WHERE CARD_ID='G18'AND ROWNUM=1)) c1 "
+				+ " SELECT PAY_MONEY FROM TCP_VIEW_SCXF WHERE CARD_ID='"+Code.getKey("ykt.rice")+"'AND ROWNUM=1)) c1 "
 				+ " left join "
 				+ " (SELECT COUNT(*) c2 FROM TCP_VIEW_SCXF)c2 on 1=1 "
 				+ " ) T1 ON 1=1 " + " WHERE CARD_ID='"+Code.getKey("ykt.rice")+"'AND ROWNUM=1";
@@ -296,7 +302,7 @@ public class TeaSchLifeDaoImpl implements TeaSchLifeDao {
 				+ " select c1.c1/c2.c2 bl from  "
 				+ " (SELECT COUNT(*) c1 FROM TCP_VIEW_SCXF "
 				+ " WHERE PAY_MONEY<( "
-				+ " SELECT PAY_MONEY FROM TCP_VIEW_SCXF WHERE CARD_ID='G2'AND ROWNUM=1)) c1 "
+				+ " SELECT PAY_MONEY FROM TCP_VIEW_SCXF WHERE CARD_ID='"+Code.getKey("ykt.shop")+"'AND ROWNUM=1)) c1 "
 				+ " left join "
 				+ " (SELECT COUNT(*) c2 FROM TCP_VIEW_SCXF)c2 on 1=1 "
 				+ " ) T1 ON 1=1 " + " WHERE CARD_ID='"+Code.getKey("ykt.shop")+"'AND ROWNUM=1 ";

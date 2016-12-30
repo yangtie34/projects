@@ -13,6 +13,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import cn.gilight.framework.SpringTest;
+import cn.gilight.framework.uitl.common.MapUtils;
+import cn.gilight.product.card.dao.JobCardDao;
 import cn.gilight.product.card.service.CardTrendService;
 import cn.gilight.product.card.service.CardUsedService;
 import cn.gilight.product.card.service.DiningRoomService;
@@ -168,7 +170,7 @@ public class CardTest extends SpringTest{
 		
 	}
 	
-	@Test
+	//@Test
 	public void testInit(){
 		JobResultBean jrb=null;
 		jrb=jobCardService.initCardPeople();System.out.println(jrb.getMsg());
@@ -182,6 +184,23 @@ public class CardTest extends SpringTest{
 		jrb=jobCardService.initCardHot();System.out.println(jrb.getMsg());
 		
 		//jrb=jobCardService.updateStuPay();
+		System.out.println(jrb.getMsg());
+	}
+	
+	@Resource
+	private JobCardDao jobCardDao;
+	@Test
+	public void testSHIJIE(){
+		Map<String, Integer> map;
+		JobResultBean jrb=new JobResultBean();
+		try {
+			map = jobCardDao.updateStuEat("2016-11");
+			jrb.setIsTrue(true);
+			jrb.setMsg("完成同步2016-11中学生月报,共计"+MapUtils.getIntValue(map, "addNum")+"条数据");
+		} catch (Exception e) {
+			jrb.setIsTrue(false);
+			jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+		}
 		System.out.println(jrb.getMsg());
 	}
 	

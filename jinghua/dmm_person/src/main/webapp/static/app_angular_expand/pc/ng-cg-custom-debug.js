@@ -1949,26 +1949,33 @@ jxpg.directive("datePicker",["$interval","$timeout","$compile",function($interva
 		scope:{
 			result:'=',
 			dateFmt:'@',
-			double:'@'
+			double:'@',
+			timemonths:'@'
 		},
 		link:function(scope,ele,attrs){
 			scope.dateFmt = scope.dateFmt || "yyyy-MM-dd";
 			scope.double = scope.double!=null || false;
 			var fomatDate=function(d){
 				var m=d.getMonth()+1;
-				//if(m<9)m='0'+(m+1);
+				if(m<10)m='0'+m;
 				var day=d.getDate();
-				//if(day<10)day='0'+day;
+				if(day<10)day='0'+day;
 				return d.getFullYear()+"-"+m+"-"+day;
 			};
 			scope.result={
 					startTime:function(){
 						var d=new Date();
-						d.setMonth(d.getMonth()-1);
+						d.setDate(d.getDate()-1);
+						d.setMonth(d.getMonth()-(scope.timemonths||3));
+						
 						//d.setFullYear(d.getFullYear()-1);
 						return fomatDate(d);
 					}(),
-					endTime:fomatDate(new Date())	
+					endTime:function(){
+						var d=new Date();
+						d.setDate(d.getDate()-1);
+						return fomatDate(d)	;
+					}()
 			};
 			var html="";
 				var id=scope.$id;
@@ -1980,10 +1987,21 @@ jxpg.directive("datePicker",["$interval","$timeout","$compile",function($interva
 				html+="<input type='text' value='"+scope.result.startTime+"' class='Wdate1 form-control' id='dp000"+id+"'style='width:110px;float:left;display:inline'> 至 " +
 							"<input type='text' value='"+scope.result.endTime+"' class='Wdate1 form-control'  id='dp001"+id+"' style='width:110px;float:left;display:inline'>";
 				ele.append(html);	
+				
+				function GetDateStr(AddDayCount) { 
+					var dd = new Date(); 
+					dd.setDate(dd.getDate()+AddDayCount);//获取AddDayCount天后的日期 
+					var y = dd.getFullYear(); 
+					var m = dd.getMonth()+1;//获取当前月份的日期 
+					var d = dd.getDate(); 
+					return y+"-"+m+"-"+d; 
+					} ;
+				
 				var dp001fouc=function(){
 					WdatePicker({el: 'dp001'+id,
 						dateFmt:scope.dateFmt,
 						startDate:'%y-{%M-3)-%d',
+						maxDate:GetDateStr(-1),
 						onpicked:function(){
 						scope.resul={};
 						scope.resul.startTime=angular.copy(ele.find("#dp000"+id).val());
@@ -1997,7 +2015,8 @@ jxpg.directive("datePicker",["$interval","$timeout","$compile",function($interva
 					var dp001=$dp.$('dp001'+id);
 					WdatePicker({el: 'dp000'+id,
 						dateFmt:scope.dateFmt,
-						startDate:'%y-%M-%d',
+						startDate:'%y-%M-(%d-1)',
+						maxDate:GetDateStr(-1),
 						onpicked:function(){
 						dp001fouc()}});
 				});

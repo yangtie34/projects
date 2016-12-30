@@ -81,9 +81,9 @@ public class TeaKyDaoImpl implements TeaKyDao {
 				+ " t.borrow_time cl03,t.SHOULD_RETURN_TIME cl04,t.return_time cl05, "
 
 				+ "  case "
-				+ "   when t.return_time is null and t.should_return_time < t.return_time then "
+				+ "   when t.return_time is null and to_date(t.should_return_time, 'yyyy-mm-dd HH24:mm:ss') <=sysdate then "
 				+ "    '超期' "
-				+ "    when t.return_time is null and t.should_return_time > t.return_time then "
+				+ "    when t.return_time is null and to_date(t.should_return_time,'yyyy-mm-dd HH24:mm:ss') > sysdate then "
 				+ "     '在阅' " + "    else " + "      '已还' "
 				+ "     end as cl06 " + "  from t_book_borrow t "
 				+ "  left join t_book_reader br on br.no_ = t.book_reader_id "

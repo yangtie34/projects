@@ -102,7 +102,7 @@
   <div class="container">
     <form class="form-inline">
       <h3 class="jiaozhi-page-header">科研信息</h3><small class="text-danger"> <span class="glyphicon glyphicon-star" style="font-size:12px;" aria-hidden="true"></span> 信息来源：科研系统</small>
-       <div class="input-group input-group-sm" date-picker result="date2" dateFmt="yyyy-MM-dd" double="true" ></div>
+       <div class="input-group input-group-sm" date-picker result="date2" dateFmt="yyyy-MM-dd" double="true" timemonths="36"></div>
      <!--  <small class="text-danger"> <span class="glyphicon glyphicon-star" style="font-size:12px;" aria-hidden="true"></span> 信息来源：人事部（2016-03-01）</small>
     --> </form>
   </div>

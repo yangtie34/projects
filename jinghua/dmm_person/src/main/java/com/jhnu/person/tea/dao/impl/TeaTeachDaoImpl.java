@@ -255,7 +255,7 @@ public class TeaTeachDaoImpl implements TeaTeachDao {
 	@Override
 	public Page skcj(String id, int currentPage, int numPerPage) {
 		//id = "1001000000680505";
-		String sql = "SELECT DISTINCT f.y cl01,f.z cl02,tct.name_ cl03,f.ftgl cl04,f.fzgf cl05,f.fzdf cl06 from "
+/*		String sql = "SELECT DISTINCT f.y cl01,f.z cl02,tct.name_ cl03,f.ftgl cl04,f.fzgf cl05,f.fzdf cl06 from "
 				+ " t_course_arrangement t"
 				+ " LEFT JOIN t_course tct on tct.code_=t.course_id "// '01133062'
 																		// "
@@ -272,6 +272,14 @@ public class TeaTeachDaoImpl implements TeaTeachDao {
 											// t.school_year=f.y and
 											// t.term_code=f.z
 				" where  t.tea_id='" + id + "'";// -- 教师id
+		*/
+		String[] sco=EduUtils.getSchoolYearTerm(new Date());
+		String sql="select DISTINCT t.school_year cl01,t.term_code cl02,tcs.name_ cl03, round(sum(case when t.CENTESIMAL_SCORE >=60 then 1 else 0 end)*100/(count(t.CENTESIMAL_SCORE)+1),2)||'%' cl04,max(t.CENTESIMAL_SCORE) cl05,min(t.CENTESIMAL_SCORE) cl06 from t_stu_score t "
+				+ " left join t_course tcs on tcs.code_ = t.coure_code "
+				+ " left join T_CLASS_TEACHING_STU tcts on tcts.stu_id=t.stu_id  "
+				+ " left join t_course_arrangement tca on tcts.teach_class_id=tca.teachingclass_id and tca.school_year=t.school_year and tca.term_code=t.term_code and tca.tea_id='" + id + "' "
+				+ " where t.school_year ='"+sco[0]+"' and  t.term_code='"+sco[1]+"' "
+				+ " group by t.school_year,t.term_code,tcs.name_ ";
 		return new Page(sql.toString(), currentPage, numPerPage, baseDao
 				.getBaseDao().getJdbcTemplate(), null);
 	}

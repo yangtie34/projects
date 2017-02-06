@@ -1,0 +1,68 @@
+1.在籍学生概况
+	学生详情		菜单页面	/pmsStuEnroll/getStuDetail	xg:stuEnroll:getStuDetail	学生详情
+	学生详情下载	菜单页面	/pmsStuEnroll/down	xg:stuEnroll:down	学生详情下载
+	
+2.学生工作者基本概况
+	详情			菜单页面	/pmsWorker/getTeaDetail	xg:worker:getTeaDetail	详情
+	下载			菜单页面	/pmsWorker/down	xg:worker:down	下载
+	
+3.生源地分析
+	学生详情		菜单页面	/pmsStuFrom/getStuList	xg:stuFrom:getStuList	学生详情
+	学生详情下载	菜单页面	/pmsStuFrom/down	xg:stuFrom:down	学生详情下载
+	
+4.新生报到
+	学生详情		菜单页面	/pmsNewStu/getStuDetail	xg:newStu:getStuDetail	学生详情
+	学生详情下载	菜单页面	/pmsNewStu/down	xg:newStu:down	学生详情下载	
+	
+5.学籍异动
+	学籍异动详情	菜单页面	/pmsChange/getStuDetail	xg:change:getStuDetail	学籍异动详情
+	学籍异动详情下载	菜单页面	/pmsChange/down	xg:change:down	学籍异动详情下载	
+	
+6.学籍不良异动
+	学籍不良异动详情	菜单页面	/pmsChangeBad/getStuDetail	xg:changeBad:getStuDetail	学籍不良异动详情	
+	学籍不良异动下载	菜单页面	/pmsChangeBad/down	xg:changeBad:down	学籍不良异动下载
+	
+7.违纪处分
+	学生违纪详情	菜单页面	/pmsPunish/getStuDetail	xg:punish:getStuDetail	学生违纪详情	
+	学生违纪下载	菜单页面	/pmsPunish/down	xg:punish:down	学生违纪下载
+	
+8.奖学金
+	奖学金详情		菜单页面	/pmsScholarship/getStuDetail	xg:scholarship:getStuDetail	奖学金详情
+	奖学金详情下载	菜单页面	/pmsScholarship/down	xg:scholarship:down	奖学金详情下载
+	
+9.助学金
+	助学金详情		菜单页面	/pmsSubsidy/getStuDetail	xg:subsidy:getStuDetail	助学金详情
+	助学金详情下载	菜单页面	/pmsSubsidy/down	xg:subsidy:down	助学金详情下载
+	
+10.助学贷款
+	助学贷款下钻详情分析	菜单页面	/pmsStudentLoans/getStuDetail	xg:studentLoans:getStuDetail	下钻详情分析
+	下钻详情下载	菜单页面	/pmsStudentLoans/down	xg:studentLoans:down	下钻详情下载
+	
+11.学费减免
+	学费减免下钻详情	菜单页面	/pmsFeeRemission/getStuDetail	xg:feeRemission:getStuDetail	学费减免下钻详情
+	下钻详情下载	菜单页面	/pmsFeeRemission/down	xg:feeRemission:down	下钻详情下载	
+	
+12.考勤预警
+	考勤预警详情	菜单页面	/pmsStuWarning/getDetail	xg:stuWarning:getDetail	考勤预警详情
+	考勤预警下载	菜单页面	/pmsStuWarning/gridDetailDown	xg:stuWarning:gridDetailDown	考勤预警下载
+
+13.无法毕业无学位预警
+	学位预警下钻详情	菜单页面	/pmsNotGradDegree/getStuDetail	xg:notGradDegree:getStuDetail	学位预警下钻详情
+	下钻详情下载	菜单页面	/pmsNotGradDegree/down	xg:notGradDegree:down	下钻详情下载
+	
+14.学费预警
+	学费预警下钻详情	菜单页面	/pmsFeeWarning/getStuDetail	xg:feeWarning:getStuDetail	学费预警下钻详情
+	下钻详情下载	菜单页面	/pmsFeeWarning/down	xg:feeWarning:down	下钻详情下载
+	
+15.不及格预测
+	不及格学生详情	菜单页面	/pmsFailExamPredict/getStuDetail	xg:failExamPredict:getStuDetail	不及格学生详情
+	下钻详情下载	菜单页面	/pmsFailExamPredict/down	xg:failExamPredict:down	下钻详情下载	
+	
+16.高消费分析
+	学生详情		菜单页面	/pmsStuHighCost/getStuDetail	xg:stuHighCost:getStuDetail	学生详情
+	学生详情下载	菜单页面	/pmsStuHighCost/down	xg:stuHighCost:down	学生详情下载	
+	
+17.低消费分析
+	学生详情		菜单页面	/pmsStuLowCost/getStuDetail	xg:stuLowCost:getStuDetail	学生详情
+	学生详情下载	菜单页面	/pmsStuLowCost/down	xg:stuLowCost:down	学生详情下载	
+	

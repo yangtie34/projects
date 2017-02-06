@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>home html</title>
+    <base href="./">
+    <script src="../../public/common/common.js"></script>
+    <script src="../../public/common/system.js"></script>
+    <script src="../../public/student/student.js"></script>
+</head>
+<body ng-controller="controller">
+    <a href="../home/home.html" class="btn btn-success">home</a>
+
+    <div>{{person}}</div>
+    <span class="glyphicon glyphicon-euro"></span>
+
+    <div>
+        右：
+        <div tool-tip placement="right" class="text-warning">
+            <span>这是需要提示的内容</span>
+        </div><br>
+
+        左：
+        <div tool-tip placement="left" class="text-primary">
+            <span>这是需要提示的内容</span>
+        </div><br>
+
+        上：
+        <div tool-tip placement="top" class="text-danger">
+            <span>这是需要提示的内容</span>
+        </div><br>
+
+        下：
+        <div tool-tip placement="bottom" class="text-info">
+            <span>这是需要提示的内容</span>
+        </div>
+        <br>
+        未设置：
+        <div tool-tip >
+            <span>这是需要提示的内容</span>
+        </div>
+    </div>
+</body>
+</html>

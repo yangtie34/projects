@@ -1,0 +1,369 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>论文获奖分析</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/keyan-style.css">
+<link rel="stylesheet" href="css/cg-select-dropdown.css">
+</head>
+
+<body>
+<div class="keyan-wrapper">
+	<nav class="keyan-nav">
+    	<div class="keyan-nav-user">
+        	<div class="keyan-user-img">
+        		<img src="images/user.jpg" width="73" height="73" alt="" class="img-circle">
+                <div class="user-promp">
+                	<div class="user-triangle"></div>
+                    <small>
+                    	<a href="#">修改</a>
+                    </small>
+                    <span></span>
+                    <small>
+                    	<a href="#">退出<i class="fa fa-sort-down"></i></a>
+                    </small>
+                </div>
+                <p class="text-center">宋仲基</p>
+                <small class="text-center admi">Administrator</small>
+            </div>
+        </div>
+        <ul class="list-unstyled">
+        	<li><a href="#"><span></span>科研大事记<i class="fa fa-angle-right pull-right"></i></a></li>
+            <li><a href="#"><span class="nav-icon-02"></span>不同人员科研成果对比<i class="fa fa-angle-right pull-right"></i></a></li>
+            <li><a href="#"><span class="nav-icon-03"></span>各单位科研成果对比<i class="fa fa-angle-right pull-right"></i></a></li>
+            <li><a href="#"><span class="nav-icon-04"></span>入校五年博士生科研产出<i class="fa fa-angle-right pull-right"></i></a></li>
+            <li class="active"><a href="#"><span class="nav-icon-05"></span>科研论文分析<i class="fa fa-angle-down pull-right"></i></a>
+            	<ul class="list-unstyled ul-second">
+                	<li><a href="#">科研论文发表量</a></li>
+                    <li><a href="#">各类引文库源期刊发文分析</a></li>
+                    <li><a href="#">SCL、EL、CPCI-S 收录论文分析</a></li>
+                    <li class="on"><a href="#">科研论文获奖分析（科研成果中的论文奖有设计）</a></li>
+                    <li><a href="#">科研论文作者分析</a></li>
+                </ul>
+            </li>
+            <li><a href="#"><span class="nav-icon-06"></span>科研项目分析<i class="fa fa-angle-down pull-right"></i></a>
+            	<!-- <ul class="list-unstyled ul-second">
+            	                	<li><a href="#">科研项目总量分析</a></li>
+            	                    <li><a href="#">科研项目主持人分析</a></li>
+            	                    <li><a href="#">科研项目经费分析</a></li>
+            	                    <li><a href="#">科研项目进度分析</a></li>
+            	                    <li><a href="#">科研项目超期告警</a></li>
+            	                    <li><a href="#">科研项目产出成果申报告警</a></li>
+            	                </ul> -->
+            </li>
+            <li><a href="#"><span class="nav-icon-07"></span>著作、教材分析<i class="fa fa-angle-right pull-right"></i></a></li>
+            <li><a href="#"><span class="nav-icon-08"></span>科研成果分析<i class="fa fa-angle-down pull-right"></i></a>
+            	<!-- <ul class="list-unstyled ul-second">
+            	                	<li><a href="#">科技鉴定成果分析</a></li>
+            	                    <li class="on"><a href="#">科技获奖成果分析</a></li>
+            	                    <li><a href="#">国家专利成果分析</a></li>
+            	                    <li><a href="#">发明达人</a></li>
+            	                    <li><a href="#">计算机软件著作权分析</a></li>
+            	                </ul> -->
+            </li>
+        </ul>
+    </nav>
+    <!------------------------------------------------------------以上为nav内容-------------------------------------------------------------------->
+    <div class="keyan-main">
+    	<div class="header">
+        	<div class="main-tit">
+            	<h4 class="main-tit-b">科技获奖成果分析</h4>
+                <h5 class="main-tit-s">从获奖等级、获奖人所属单位、获奖人承担角色排名、获奖名称对我校及各部门的科技获奖成果数据进行分析呈现。</h5>
+            </div>
+            <div class="keyan-condition">
+                <dl class="clearfix">
+                	<dt>学科门类：</dt>
+                    <dd>
+                    	<form action="" class="ky-form condition-radio">
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="radio-xk" value="radio-zr" id="radio-zr">
+                                <label for="radio-zr">自然科学</label>
+                            </div>
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="radio-xk" value="radio-sh" id="radio-sh" checked>
+                                <label for="radio-sh">社会哲学</label>
+                            </div>
+                        </form>
+                    </dd>
+                    <dd class="pull-right"><a href="" class="ky-advanced-filter">高级筛选<i class="fa fa-angle-double-up"></i></a></dd>
+                </dl>
+                <dl class="clearfix">
+                	<dt>完成人单位：</dt>
+                    <dd>
+                    	<form action="" class="ky-form condition-radio">
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="radio-school" value="radio-scl" id="radio-scl" checked>
+                                <label for="radio-scl">郑州轻工业学院</label>
+                            </div>
+                        </form>
+                    </dd>
+                </dl>
+                <dl class="clearfix">
+                	<dt>成果奖类别：</dt>
+                    <dd>
+                    	<form action="" class="ky-form condition-radio">
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="cgj" value="cgj-11" id="cgj-11">
+                                <label for="cgj-11">科技成果奖</label>
+                            </div>
+
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="cgj" value="cgj-12" id="cgj-12">
+                                <label for="cgj-12">音体美获奖</label>
+                            </div>
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="cgj" value="cgj-13" id="cgj-13" checked>
+                                <label for="cgj-13">论文奖</label>
+                            </div>
+                        </form>
+                    </dd>
+                </dl>
+                <dl class="clearfix">
+                	<dt>鉴定年份：</dt>
+                    <dd>
+                    	<form action="" class="ky-form condition-radio">
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="radio-year" value="radio-this" id="radio-this" checked>
+                                <label for="radio-this">今年</label>
+                            </div>
+
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="radio-year" value="radio-last" id="radio-last">
+                                <label for="radio-last">去年</label>
+                            </div>
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="radio-year" value="radio-point" id="radio-point">
+                                <label for="radio-point">指定年</label>
+                            </div>
+                        </form>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="ky-box p-top-10">
+        	<div class="dis-tab">
+            	<div class="dis-t-cell wid-2">
+                	<div class="round-section round-section-4">
+                        <div class="round-item">
+                            <p class="sec-tit">今年我校获的科技奖/项</p>
+                            <div><a href="" class="round color-ju round-70">23</a></div>
+                        </div>
+                        <div class="round-item">
+                            <p class="sec-tit">我校非第一作者单位获奖/项</p>
+                            <div><a href="" class="round color-ju-an round-70">23</a></div>
+                        </div>
+                        <div class="round-item">
+                            <p class="sec-tit">较上年增长/项</p>
+                            <div><a href="" class="round color-green-gray round-70">7</a></div>
+                        </div>
+                        <div class="round-item">
+                            <p class="sec-tit">增幅</p>
+                            <div><a href="" class="round color-green-gray round-70 text-22">12.4%</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dis-t-cell wid-8">
+                	<div class="section-tit tit-left-30">
+						获奖成果变化趋势
+						<h6 class="tit-ps">数据来源科研年报</h6>
+					</div>
+                    <div class="img-box  tit-left-30">
+                    	<img src="images/ky-lunwen-fx/hj-01.png" alt="" class="center-block">
+                    </div>
+                </div>
+            </div>
+        </div>
+		
+        <div class="ky-box">
+        	<div class="ky-box-sec">
+        		<div class="dis-tab">
+                	<div class="dis-t-cell wid-5 separate-l">
+                    	<p class="section-tit">省级、国家级、市厅级获奖成果</p>
+                        <div class="img-box">
+                        	<img src="images/ky-chengguo/kjhj-01.jpg" class="center-block" alt="">
+                        </div>
+                    </div>
+                    <div class="dis-t-cell wid-5 border-l separate-r">
+                    	<p class="section-tit">获奖人单位分布</p>
+                        <div class="img-box">
+                        	<img src="images/ky-lunwen-fx/hj-02.png" class="center-block" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+		<div class="ky-box no-bottom-border">
+        	<div class="ky-box-sec">
+        		<div class="dis-tab">
+                	<div class="dis-t-cell wid-5  separate-l">
+                    	<p class="section-tit">获奖种类及等级分布</p>
+                        <div class="img-box">
+                        	<img src="images/ky-lunwen-fx/hj-03.png" class="center-block" alt="">
+                        </div>
+                    </div>
+                    <div class="dis-t-cell wid-5 border-l  separate-r">
+                    	<p class="section-tit">完成人承担角色</p>
+                        <form action="" class="ky-form">
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="radio-person" value="radio-person01" id="radio-person01" checked>
+                                <label for="radio-person01"><small>第一完成人</small></label>
+                            </div>
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="radio-person" value="radio-person02" id="radio-person02">
+                                <label for="radio-person02"><small>第二完成人</small></label>
+                            </div>
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="radio-person" value="radio-person03" id="radio-person03">
+                                <label for="radio-person03"><small>署名完成人</small></label>
+                            </div>
+                        </form>
+                        <div class="img-box">
+                        	<img src="images/ky-lunwen-fx/hj-05.jpg" class="center-block" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <section>
+        <div class="section-head">
+        	<span class="section-head-tit">科技获奖（音体美获奖)成果列表</span>
+            <div class="input-group ky-input pull-right">
+              <input type="text" class="form-control ky-input-control" placeholder="成果名模糊匹配">
+              <span class="input-group-btn">
+              	<i class="line"></i>
+                <button class="btn btn-default ky-btn" type="button"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+        </div>
+        <div class="ky-box no-bottom-border">
+        	<div class="ky-box-sec">
+            	<table class="table ky-no-border-table">
+                	<thead>
+                    	<tr>
+                        	<td>&nbsp;</td>
+                            <td>获奖人单位</td>
+                            <td>获奖人</td>
+                            <td>成果名称</td>
+                            <td>获奖名称</td>
+                            <td>获奖等级</td>
+                            <td>授奖单位</td>
+                            <td>授奖时间</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    	<tr>
+                        	<td><span class="f-order">1</span></td>
+                            <td>物理与电子工程学院</td>
+                            <td><a href="" class="text-green name"><u>张继才dfg</u></a></td>
+                            <td>多功能单摆实验仪</td>
+                            <td>河南省科技进步奖</td>
+                            <td>受理</td>
+                            <td>河南省人民政府</td>
+                            <td>2014-08-21</td>
+                        </tr>
+                        <tr>
+                        	<td><span class="f-order">2</span></td>
+                            <td>物理与电子工程学院</td>
+                            <td><a href="" class="text-green name"><u>张继才ddfg</u></a></td>
+                            <td>多功能单摆实验仪</td>
+                            <td>河南省科技进步奖</td>
+                            <td>受理</td>
+                            <td>河南省人民政府</td>
+                            <td>2014-08-21</td>
+                        </tr>
+                        <tr>
+                        	<td><span class="f-order">3</span></td>
+                            <td>物理与电子工程学院</td>
+                            <td><a href="" class="text-green name"><u>张继才dskjfh</u></a></td>
+                            <td>多功能单摆实验仪</td>
+                            <td>河南省科技进步奖</td>
+                            <td>受理</td>
+                            <td>河南省人民政府</td>
+                            <td>2014-08-21</td>
+                        </tr>
+                        <tr>
+                        	<td><span class="f-order">4</span></td>
+                            <td>物理与电子工程学院</td>
+                            <td><a href="" class="text-green name"><u>张继才、张继才</u></a></td>
+                            <td>多功能单摆实验仪</td>
+                            <td>河南省科技进步奖</td>
+                            <td>受理</td>
+                            <td>河南省人民政府</td>
+                            <td>2014-08-21</td>
+                        </tr>
+                        <tr>
+                        	<td><span class="f-order">5</span></td>
+                            <td>物理与电子工程学院</td>
+                            <td><a href="" class="text-green name"><u>张继才</u></a></td>
+                            <td>多功能单摆实验仪</td>
+                            <td>河南省科技进步奖</td>
+                            <td>受理</td>
+                            <td>河南省人民政府</td>
+                            <td>2014-08-21</td>
+                        </tr>
+                        <tr>
+                        	<td><span class="f-order">6</span></td>
+                            <td>物理与电子工程学院</td>
+                            <td><a href="" class="text-green name"><u>张继才dskjfh</u></a></td>
+                            <td>多功能单摆实验仪</td>
+                            <td>河南省科技进步奖</td>
+                            <td>受理</td>
+                            <td>河南省人民政府</td>
+                            <td>2014-08-21</td>
+                        </tr>
+                        <tr>
+                        	<td><span class="f-order">7</span></td>
+                            <td>物理与电子工程学院</td>
+                            <td><a href="" class="text-green name"><u>张继才、张继才</u></a></td>
+                            <td>多功能单摆实验仪</td>
+                            <td>河南省科技进步奖</td>
+                            <td>受理</td>
+                            <td>河南省人民政府</td>
+                            <td>2014-08-21</td>
+                        </tr>
+                        <tr>
+                        	<td><span class="f-order">8</span></td>
+                            <td>物理与电子工程学院</td>
+                            <td><a href="" class="text-green name"><u>张继才</u></a></td>
+                            <td>多功能单摆实验仪</td>
+                            <td>河南省科技进步奖</td>
+                            <td>受理</td>
+                            <td>河南省人民政府</td>
+                            <td>2014-08-21</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="clearfix keyan-page has-pad-btm">
+                    <p class="page-result pull-left">共 1 页，数据 20233 条</p>
+                    <ul class="pagination ky-page pull-right">
+                    	<li><a href=""><<</a></li>
+                        <li><a href=""><</a></li>
+                        <li class="active"><a href="">1</a></li>
+                        <li><a href="">2</a></li>
+                        <li><a href="">3</a></li>
+                        <li><a href="">4</a></li>
+                        <li><a href="">5</a></li>
+                        <li><a href="">6</a></li>
+                        <li><a href="">7</a></li>
+                        <li><a href="">8</a></li>
+                        <li><a href="">9</a></li>
+                        <li><a href="">10</a></li>
+                        <li><a href="">></a></li>
+                        <li class="next"><a href="">>></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </section>
+
+    </div><!--keyan-main  end-->
+</div>
+</body>
+</html>

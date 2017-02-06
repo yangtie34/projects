@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<div class="p-top-10" style="margin: 0 30px;">
+	项目名称 : <div btn-dropdown source="zblist" on-change="zbChange($data)" btn-class="btn-default btn-sm" display-field="name_" style="display: inline-block"></div>
+</div>
+<div class="ky-box p-top-10">
+	<table class="table table-hover ">
+		<thead>
+			<tr class="info">
+				<th>学科名称</th>
+				<th>已完成指标数</th>
+				<th>应完成指标数</th>
+				<th>学科业绩指标完成率 </th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="it in fxzbsj.xklist">
+				<td>{{it.xkmc}}</td>
+				<td>{{it.wczbs}}</td>
+				<td>{{it.ywczbs}}</td>
+				<td>{{it.wcl}}</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr class="info">
+				<th>汇总</th>
+				<td>{{fxzbsj.total.wczbzs}}</td>
+				<td>{{fxzbsj.total.ywczbzs}}</td>
+				<td>{{fxzbsj.total.wcl}}</td>
+			</tr>
+		</tfoot>
+	</table>
+</div>

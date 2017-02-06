@@ -1,0 +1,257 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>国家专利成果分析</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/keyan-style.css">
+<link rel="stylesheet" href="css/cg-select-dropdown.css">
+</head>
+
+<body>
+<div class="keyan-wrapper">
+	<nav class="keyan-nav">
+    	<div class="keyan-nav-user">
+        	<div class="keyan-user-img">
+        		<img src="images/user.jpg" width="73" height="73" alt="" class="img-circle">
+                <div class="user-promp">
+                	<div class="user-triangle"></div>
+                    <small>
+                    	<a href="#">修改</a>
+                    </small>
+                    <span></span>
+                    <small>
+                    	<a href="#">退出<i class="fa fa-sort-down"></i></a>
+                    </small>
+                </div>
+                <p class="text-center">宋仲基</p>
+                <small class="text-center admi">Administrator</small>
+            </div>
+        </div>
+        <ul class="list-unstyled">
+        	<li><a href="#"><span></span>科研大事记<i class="fa fa-angle-right pull-right"></i></a></li>
+            <li><a href="#"><span class="nav-icon-02"></span>不同人员科研成果对比<i class="fa fa-angle-right pull-right"></i></a></li>
+            <li><a href="#"><span class="nav-icon-03"></span>各单位科研成果对比<i class="fa fa-angle-right pull-right"></i></a></li>
+            <li><a href="#"><span class="nav-icon-04"></span>入校五年博士生科研产出<i class="fa fa-angle-right pull-right"></i></a></li>
+            <li><a href="#"><span class="nav-icon-05"></span>科研论文分析<i class="fa fa-angle-right pull-right"></i></a>
+            	<!--<ul class="list-unstyled ul-second">
+                	<li><a href="#">科研论文发表量</a></li>
+                    <li><a href="#">各类引文库源期刊发文分析</a></li>
+                    <li><a href="#">SCL、EL、CPCI-S 收录论文分析</a></li>
+                    <li><a href="#">科研论文获奖分析（科研成果中的论文奖有设计）</a></li>
+                    <li><a href="#">科研论文作者分析</a></li>
+                </ul>-->
+            </li>
+            <li><a href="#"><span class="nav-icon-06"></span>科研项目分析<i class="fa fa-angle-right pull-right"></i></a>
+            	<!--<ul class="list-unstyled ul-second">
+                	<li><a href="#">科研项目总量分析</a></li>
+                    <li><a href="#">科研项目主持人分析</a></li>
+                    <li><a href="#">科研项目经费分析</a></li>
+                    <li><a href="#">科研项目进度分析</a></li>
+                    <li><a href="#">科研项目超期告警</a></li>
+                    <li><a href="#">科研项目产出成果申报告警</a></li>
+                </ul>-->
+            </li>
+            <li><a href="#"><span class="nav-icon-07"></span>著作、教材分析<i class="fa fa-angle-right pull-right"></i></a></li>
+            <li class="active"><a href="#"><span class="nav-icon-08"></span>科研成果分析<i class="fa fa-angle-down pull-right"></i></a>
+            	<ul class="list-unstyled ul-second">
+                	<li><a href="#">科技鉴定成果分析</a></li>
+                    <li><a href="#">科技获奖成果分析</a></li>
+                    <li class="on"><a href="#">国家专利成果分析</a></li>
+                    <li><a href="#">发明达人</a></li>
+                    <li><a href="#">计算机软件著作权分析</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <!------------------------------------------------------------以上为nav内容-------------------------------------------------------------------->
+    <div class="keyan-main">
+    	<div class="header">
+        	<div class="main-tit">
+            	<h4 class="main-tit-b">国家专利成果分析</h4>
+                <h5 class="main-tit-s">从专利类别、专利申请状态、受理量、授权量 、授权率、专利时间分布、部门分布等维度呈现指定单位和学科下的专利情况。</h5>
+            </div>
+            <div class="keyan-condition">
+                <dl class="clearfix">
+                	<dt>学科门类：</dt>
+                    <dd>
+                    	<form action="" class="ky-form condition-radio">
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="radio-xk" value="radio-zr" id="radio-zr">
+                                <label for="radio-zr">自然科学</label>
+                            </div>
+
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="radio-xk" value="radio-sh" id="radio-sh" checked>
+                                <label for="radio-sh">社会哲学</label>
+                            </div>
+                        </form>
+                    </dd>
+                    <dd class="pull-right"><a href="" class="ky-advanced-filter">高级筛选<i class="fa fa-angle-double-up"></i></a></dd>
+                </dl>
+                <dl class="clearfix">
+                	<dt>完成人单位：</dt>
+                    <dd>
+                    	<form action="" class="ky-form condition-radio">
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="radio-school" value="radio-scl" id="radio-scl" checked>
+                                <label for="radio-scl">郑州轻工业学院</label>
+                            </div>
+                        </form>
+                    </dd>
+                </dl>
+                <dl class="clearfix">
+                	<dt>鉴定年份：</dt>
+                    <dd>
+                    	<form action="" class="ky-form condition-radio">
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="radio-year" value="radio-this" id="radio-this" checked>
+                                <label for="radio-this">今年</label>
+                            </div>
+
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="radio-year" value="radio-last" id="radio-last">
+                                <label for="radio-last">去年</label>
+                            </div>
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="radio-year" value="radio-point" id="radio-point">
+                                <label for="radio-point">指定年</label>
+                            </div>
+                        </form>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="ky-box p-top-10">
+        	<div class="dis-tab">
+            	<div class="dis-t-cell wid-2">
+                	<div class="round-section">
+                        <div class="round-item">
+                            <p class="sec-tit">今年我校<br>获得专利授权/项</p>
+                            <div><a href="" class="round color-green round-70">23</a></div>
+                        </div>
+                        <div class="round-item">
+                            <p class="sec-tit">较上年增长/项</p>
+                            <div><a href="" class="round color-purple round-70">7</a></div>
+                        </div>
+                       <div class="round-item">
+                            <p class="sec-tit">增幅</p>
+                            <div><a href="" class="round color-purple round-70 text-22">12.4%</a></div>
+                        </div>
+                	</div>
+                </div>
+                <div class="dis-t-cell wid-8">
+                	<div class="row clearfix">
+                    	<div class="col-md-6">
+                        	<div class="img-box">
+                            	<img src="images/ky-chengguo/zhuanli-01.jpg" class="center-block" alt="">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                        	<div class="img-box">
+                            	<img src="images/ky-chengguo/zhuanli-02.jpg" class="center-block" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-right more-click"><a href="" class="text-green"><u><b>已受理未授权专利名单</b></u></a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="ky-box no-bottom">
+        	<div class="ky-box-sec">
+        		<p class="section-tit">近十年取得专利变化趋势</p>
+                <form action="" class="ky-form">
+                    <div class="radio-box radio-inline radio-no-top">
+                        <input type="radio" name="radio-01" value="radio-01" id="radio-01" checked>
+                        <label for="radio-01">专利申请状态</label>
+                    </div>
+                    <div class="radio-box radio-inline radio-no-top">
+                        <input type="radio" name="radio-01" value="radio-02" id="radio-02">
+                        <label for="radio-02">专利类别</label>
+                    </div>
+                </form>
+                <div class="img-box">
+                	<img src="images/ky-chengguo/zhuanli-03.png" class="center-block" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="ky-box">
+        	<div class="ky-box-sec">
+            	<p class="section-tit">不同审核时长下专利的授权率</p>
+                <table class="table table-bordered ky-table th-left">
+                	<thead>
+                    	<tr>
+                        	<td>&nbsp;</td>
+                            <td>2002</td>
+                            <td>2003</td>
+                            <td>2004</td>
+                            <td>2005</td>
+                            <td>2006</td>
+                            <td>2007</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    	<tr>
+                        	<th>发明专利</th>
+                            <td>2</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>3</td>
+                            <td>5</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                        	<th>实用新型专利</th>
+                            <td>2</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>3</td>
+                            <td>5</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                        	<th>外观设计专利</th>
+                            <td>2</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>3</td>
+                            <td>5</td>
+                            <td>6</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="conclusion"><b class="text-green">结论：</b><span>我校若想保持目前专利授权量的增长态势，那么今年我校应提交各类专利申请 78 项，有 80% 几率保证明年我校专利授权量增长保持不变。</span></p>
+                <p class="text-right more-click"><a href="" class="text-green"><u><b>如何得出此结论？</b></u></a></p>
+            </div>
+        </div>
+
+        <div class="ky-box no-bottom-border has-pad-btm">
+        	<div class="ky-box-sec">
+            	<p class="section-tit">专利取得总量来源单位分布</p>
+                <form action="" class="ky-form">
+                    <div class="radio-box radio-inline radio-no-top">
+                        <input type="radio" name="radio-02" value="radio-02" id="radio-04" checked>
+                        <label for="radio-04">专利申请状态</label>
+                    </div>
+                    <div class="radio-box radio-inline  radio-no-top">
+                        <input type="radio" name="radio-02" value="radio-02" id="radio-05">
+                        <label for="radio-05">专利类别</label>
+                    </div>
+                </form>
+                <div class="img-box">
+                	<img src="images/ky-chengguo/zhuanli-03.png" class="center-block" alt="">
+                </div>
+                <p class="conclusion"><b class="text-green">背包算法：</b><span>化学化工学院、物理与电子工程学院国家发明专利授权数分别为19项和5项，占本年度全校国家发明专利授权数的80%；国家发明专利受理数分别为74项和37项，占全校本年度国家发明专利受理数的77.1%，这两个学院是我校国家发明专利的重要贡献学院。</span></p>
+            </div>
+        </div>
+
+    </div><!--keyan-main  end-->
+</div>
+</body>
+</html>

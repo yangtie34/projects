@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<div class="ky-box p-top-10">
+	<table class="table table-hover table-condensed">
+		<thead>
+			<tr class="info">
+				<th>项目名称</th>
+				<th>应完成指标数</th>
+				<th>实际完成指标数</th>
+				<th>学科业绩完成率</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="it in zbjzsj">
+				<td>{{it.zbmc}}</td>
+				<td>{{it.ywczbs}}</td>
+				<td>{{it.wczbs}}</td>
+				<td>{{it.wcl}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

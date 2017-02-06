@@ -175,7 +175,7 @@ var getData1=function(){
 							scope.getxqlb(i==2?15:16);
 							 timeout();
 						 };
-					 vm.items[i]=option;
+					 vm.items[i]=option.saveAsImage(i==3?"图书借阅按月历史趋势":"图书借阅按年历史趋势");;
 					 
 					if(i==3) scope.radio3id='MONTH'; 
 			 }
@@ -200,7 +200,7 @@ var getData2=function(){
 				 for(var j=0;j<data.length;j++){
 					 d.push({field:data[j].NAME,value:data[j].VALUE,name:i==6?'人数占比(%)':'借书量(册)',fieldCode:data[j].CODE}); 
 				 }
-				 var option=getOption(d,'','bzt'); 
+				 var option=getOption(d,'','bzt').saveAsImage(i==5?"分类型统计人均借书量":"分类型统计借书人数占比 "); 
 				 option.event=function(param){
 						scope.peopleName=param.name;
 						scope.people=param.data.nameCode;
@@ -249,7 +249,7 @@ var getData2=function(){
 							 timeout();
 						 };
 						 option.series[0].itemStyle = { normal: {label : {show: true, position: 'inside'}}};
-					 vm.items[i][k]=option;
+					 vm.items[i][k]=option.saveAsImage(k==0?"分学院分析学生借书数情况":"分学院分析学生人均借书数情况");
 				 }
 					 scope.radio7id=0;
 			}else if(i==9){//线面图
@@ -265,7 +265,7 @@ var getData2=function(){
 							scope.getxqlb(14);
 							 timeout();
 						 };
-					 vm.items[i]=option;
+					 vm.items[i]=option.saveAsImage("各类人群借阅书籍时段情况");
 			}else{
 			  vm.items[i]=data;
 			 }

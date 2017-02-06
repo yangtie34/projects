@@ -326,7 +326,7 @@ public class GetCachePermiss {
 	}
 	
 	/**
-	 * 通过组织机构ID或教学组织机构ID和已有的全数据权限，获取该组织机构下的数据权限。
+	 * 通过组织机构ID或教学组织机构ID和已有的全数据权限，获取该组织机构下的数据权限(标准格式)。
 	 * @param type 值：dept,deptTeach
 	 * @param deptId 
 	 * @param datas 为已有的全数据权限List
@@ -335,6 +335,18 @@ public class GetCachePermiss {
 	public static List<String> getDataByDeptAndData(String type,String deptId,List<String> datas){
 		return dataServeService.getDataByDeptAndData(type, deptId, datas);
 	}
+	
+	/**
+	 * 通过组织机构ID或教学组织机构ID和已有的全数据权限，获取该组织机构下的数据权限SQL。
+	 * @param type 值：dept,deptTeach
+	 * @param deptId 
+	 * @param datas 为已有的全数据权限List
+	 * @return
+	 */
+	public static String getDataSqlByDeptAndData(String type,String deptId,List<String> datas){
+		return dataServeService.getDataSqlByDeptAndData(type, deptId, datas);
+	}
+	
 	/**
 	 * 通过用户名和资源 获取教学组织机构 (系统自动获取相关参数)
 	 * @param

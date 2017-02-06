@@ -21,10 +21,12 @@ app.controller("homeController",['$scope','studentService','dialog',function(sco
 		dialog.hideLoading();
 	});
 }]).controller("infoController",['$scope','studentService','dialog','toastrService','locationService',function(scope,service,dialog,toastr,location){
+	scope.changePasswdUrl = changePasswdUrl;
+	
 	scope.showUpdateTelForm = false;
 	dialog.showLoading();
 	service.queryStudentInfoDetail().then(function(data){
-		scope.person = data;
+		scope.person = data; 
 		scope.updateTel = data.tel;
 		dialog.hideLoading();
 	});
@@ -45,6 +47,11 @@ app.controller("homeController",['$scope','studentService','dialog',function(sco
 	}
 	
 	scope.logout = function(){
-		location.redirect(base + "wechat/unbind");
+		var ua = navigator.userAgent.toLowerCase(); 
+	    if(ua.match(/MicroMessenger/i)=="micromessenger") {
+	    	location.redirect(base + "wechat/unbind");
+	    } else { 
+	    	location.redirect(logoutUrl);
+	    } 
 	}
 }]);

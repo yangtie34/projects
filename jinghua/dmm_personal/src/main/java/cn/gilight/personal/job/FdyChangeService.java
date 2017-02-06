@@ -47,10 +47,11 @@ public class FdyChangeService {
 		int deleteCount = baseDao.delete(sql);
 		log.debug("清空辅导员任职表（T_CLASSES_INSTRUCTOR）数据，共计" +  deleteCount+" 条数据");
 		//查询源
-		String tsql = "SELECT T.BH,T.FDYH,TO_CHAR(T.RZKSSJ,'YYYY-MM-DD') KSSJ,TO_CHAR(T.RZJSSJ,'YYYY-MM-DD') JSSJ,"
+		String tsql = "select tt.bh,tt.fdyh,tt.kssj,tt.jssj,tt.isfulltime from ("
+				+ " SELECT T.BH,T.FDYH,TO_CHAR(T.RZKSSJ,'YYYY-MM-DD') KSSJ,TO_CHAR(T.RZJSSJ,'YYYY-MM-DD') JSSJ,"
 				+ " CASE WHEN CO.NAME_ = '专职辅导员' then 1 else 0 end isfulltime  FROM T_TEMP_FDYXXB T"
 				+ " left join t_tea_stu_worker tsw on tsw.tea_id = t.fdyh left join t_code co "
-				+ " on co.code_type = 'STU_WORKER_CODE' and co.code_ = tsw.stu_worker_code";
+				+ " on co.code_type = 'STU_WORKER_CODE' and co.code_ = tsw.stu_worker_code) tt group by tt.bh,tt.fdyh,tt.kssj,tt.jssj,tt.isfulltime";
 		List<Map<String, Object>> sourceList = baseDao.queryForList(tsql);
 		try {
 			int insertCount = 0;

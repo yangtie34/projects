@@ -98,7 +98,7 @@ var getvmData=function(i){
 				 d.push({field:data[j].NAME,fieldCode:data[j].CODE,value:data[j].USE_NUM,name:'使用人数(人)'}); 
 				 d.push({field:data[j].NAME,fieldCode:data[j].CODE,value:data[j].USE_RATE,name:'使用率(%)'});
 			 } 
-			 vm.items[i]=getOption(d,'','zxt');
+			 vm.items[i]=getOption(d,'','zxt').saveAsImage(i==3?'各民族活跃度情况':'各个'+scope.deptlname+'活跃度情况');
 		 }else if(i==5){
 			 data.title=title+'详情列表';
 			 data.titles=titles;

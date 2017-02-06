@@ -61,22 +61,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
         </div>
        <!-- 以上标题-->
-         <div ng-repeat="(key,value) in vm.items[0]" >
-            <div class="dis-tab  pad-btm-40" ng-show="key!='all'">
-                <div class="dis-tab-cell wid-15"></div>
-                <div class="dis-tab-cell ver-m show-text text-center xscz-ft-16">
-                    <a href="" class="xscz-normal"ng-click="upDownClick($index,key);">通过{{ico_title[key].name}}查看消费习惯<img ng-src="${images}/arrow-{{upDown[$index]==true?'up':'down'}}-block.png" alt="" ></a>
-                </div>
-            </div>
-            <!--查看-->
-        <div class="dis-tab mar-btm-40 text-center" ng-show="upDown[ $parent.$index]" ng-repeat="(k,v) in value">
+       <!-- -------------all--------------->
+
+               <div class="dis-tab mar-btm-40 text-center" ng-repeat="(k,v) in vm.items[0].all" ng-show="k=='all'">
         	<div class="dis-tab-cell ver-m wid-15">
-            	<div class="tit-vertical">
-                	<span><img ng-src="${images}/gender-{{ico_title[key][k].ico}}.png" alt=""></span>
-                    <span>{{ico_title[key][k].name}}</span>
-                </div>
+            	<div class="tit-vertical">            	
+            	<span><img ng-src="${images}/gender-{{ico_title.all.all.ico}}.png" alt=""></span>
+                    <span>{{ico_title.all.all.name}}</span>
+            	</div>
+                   
             </div>
-            <div class="dis-tab-cell wid-6 r-20">
+            
+            <div class="dis-tab-cell wid-6 r-20" >
             	<div class="dis-tab">
                 	<div class="dis-tab-cell wid-5 border-r-dash r-20">
                     	<p class="xscz-ft-14">分时段统计刷卡{{csjecode=='cs'?'次数':'消费'}}</p>
@@ -97,85 +93,134 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
              <div stu-chart config="v['yczc']" style="height:310px;"class="img-responsive img-top"> </div>
             	<%-- <div><img src="${images}/img-41.png" alt=""></div> --%>
             </div>
-        </div>
+       </div> 
+       <!-- -------------all--------------->
+       
+         <!-- -------------xb--------------->
+                  <div >
+            <div class="dis-tab  pad-btm-40">
+                <div class="dis-tab-cell wid-15"></div>
+                <div class="dis-tab-cell ver-m show-text text-center xscz-ft-16">
+                    <a href="" class="xscz-normal"ng-click="upDownClick('xb');">通过 <span style="font-size: 18px;font-weight: bold;color:red;"> {{ico_title.xb.name}} </span>查看消费习惯<img ng-src="${images}/arrow-{{upDown.xb==true?'up':'down'}}-block.png" alt="" ></a>
+                </div>
+            </div>
+            <!--查看-->
+        <div class="dis-tab mar-btm-40 text-center" ng-show="upDown.xb&&k!='name'&&ico_title.xb[k]&&v.fsd!=null" ng-repeat="(k,v) in vm.items[0].xb">
+        	<div class="dis-tab-cell ver-m wid-15">
+            	<div class="tit-vertical">
+            	<span><img ng-src="${images}/gender-{{ico_title.xb[k].ico}}.png" alt=""></span>
+                    <span>{{ico_title.xb[k].name}}</span>    
+                </div>
+            </div>
+
+            <div class="dis-tab-cell wid-6 r-20" >
+            	<div class="dis-tab">
+                	<div class="dis-tab-cell wid-5 border-r-dash r-20">
+                    	<p class="xscz-ft-14">分时段统计刷卡{{csjecode=='cs'?'次数':'消费'}}</p>
+                        <div>
+                         <div stu-chart config="v['fsd'][csjecode]" style="height:310px;"class="img-responsive img-top"> </div>
+                        	<%-- <img src="${images}/one-card-02.png" alt=""> --%>
+                        </div>
+                    </div>
+                    <div class="dis-tab-cell wid-5 ver-b l-20">
+                    	<div>
+                    	  <div stu-chart config="v['zzw'][csjecode]" style="height:310px;"class="img-responsive img-top"> </div>
+                        	<%-- <img src="${images}/one-card-01.jpg" alt=""> --%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dis-tab-cell wid-35 ver-b  l-20">
+             <div stu-chart config="v['yczc']" style="height:310px;"class="img-responsive img-top"> </div>
+            	<%-- <div><img src="${images}/img-41.png" alt=""></div> --%>
+            </div>
        </div>
-        <!--以上总体-->
-<%--         
-        <div>
+       </div>
+           <!-- -------------xb--------------->
+           
+             <!-- -------------xl--------------->
+               <div >
             <div class="dis-tab  pad-btm-40">
                 <div class="dis-tab-cell wid-15"></div>
                 <div class="dis-tab-cell ver-m show-text text-center xscz-ft-16">
-                    <a href="" class="xscz-normal">通过性别查看消费习惯<img src="${images}/arrow-up-black.png" alt=""></a>
+                    <a href="" class="xscz-normal"ng-click="upDownClick('xl');">通过 <span style="font-size: 18px;font-weight: bold;color:red;"> {{ico_title.xl.name}} </span>查看消费习惯<img ng-src="${images}/arrow-{{upDown.xl==true?'up':'down'}}-block.png" alt="" ></a>
                 </div>
             </div>
             <!--查看-->
-            <div class="dis-tab mar-btm-40 text-center">
-                <div class="dis-tab-cell ver-m wid-15">
-                    <div class="tit-vertical">
-                        <span><img src="${images}/gender-man.png" alt=""></span>
-                        <span>男生</span>
-                    </div>
-                </div>
-                <div class="dis-tab-cell wid-6 r-20">
-                    <div class="dis-tab">
-                        <div class="dis-tab-cell wid-5 border-r-dash r-20">
-                            <p class="xscz-ft-14">分时段统计刷卡次数</p>
-                            <div>
-                                <img src="${images}/one-card-02.png" alt="">
-                            </div>
-                        </div>
-                        <div class="dis-tab-cell wid-5 ver-b l-20">
-                            <div>
-                                <img src="${images}/one-card-01.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="dis-tab-cell wid-35 ver-b  l-20">
-                    <div><img src="${images}/img-41.png" alt=""></div>
+        <div class="dis-tab mar-btm-40 text-center" ng-show="upDown.xl&&k!='name'&&ico_title.xl[k]!=null&&v.fsd!=null" ng-repeat="(k,v) in vm.items[0].xl" >
+        	<div class="dis-tab-cell ver-m wid-15">
+            	<div class="tit-vertical">
+            	<span><img ng-src="${images}/gender-{{ico_title.xl[k].ico}}.png" alt=""></span>
+                    <span>{{ico_title.xl[k].name}}</span>    
                 </div>
             </div>
-            <!--男生-->
-            <div class="dis-tab mar-btm-40 text-center">
-                <div class="dis-tab-cell ver-m wid-15">
-                    <div class="tit-vertical">
-                        <span><img src="${images}/gender-female.png" alt=""></span>
-                        <span>女生</span>
-                    </div>
-                </div>
-                <div class="dis-tab-cell wid-6 r-20">
-                    <div class="dis-tab">
-                        <div class="dis-tab-cell wid-5 border-r-dash r-20">
-                            <p class="xscz-ft-14">分时段统计刷卡次数</p>
-                            <div>
-                                <img src="${images}/one-card-02.png" alt="">
-                            </div>
-                        </div>
-                        <div class="dis-tab-cell wid-5 ver-b l-20">
-                            <div>
-                                <img src="${images}/one-card-01.jpg" alt="">
-                            </div>
+
+            <div class="dis-tab-cell wid-6 r-20" >
+            	<div class="dis-tab">
+                	<div class="dis-tab-cell wid-5 border-r-dash r-20">
+                    	<p class="xscz-ft-14">分时段统计刷卡{{csjecode=='cs'?'次数':'消费'}}</p>
+                        <div>
+                         <div stu-chart config="v['fsd'][csjecode]" style="height:310px;"class="img-responsive img-top"> </div>
+                        	<%-- <img src="${images}/one-card-02.png" alt=""> --%>
                         </div>
                     </div>
-                </div>
-                <div class="dis-tab-cell wid-35 ver-b  l-20">
-                    <div><img src="${images}/img-41.png" alt=""></div>
+                    <div class="dis-tab-cell wid-5 ver-b l-20">
+                    	<div>
+                    	  <div stu-chart config="v['zzw'][csjecode]" style="height:310px;"class="img-responsive img-top"> </div>
+                        	<%-- <img src="${images}/one-card-01.jpg" alt=""> --%>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!--女生-->
-        </div> 
-        <!--性别查看 end-->
+            <div class="dis-tab-cell wid-35 ver-b  l-20">
+             <div stu-chart config="v['yczc']" style="height:310px;"class="img-responsive img-top"> </div>
+            	<%-- <div><img src="${images}/img-41.png" alt=""></div> --%>
+            </div>
+       </div>
+       </div>
+               <!-- -------------xl--------------->
+               
+                 <!-- -------------dqmz--------------->
+                 
         
-        <div>
-            <div class="dis-tab  pad-btm-40">
+        <div ng-repeat="key in ['dq','mz']" >
+            <div class="dis-tab  pad-btm-40" >
                 <div class="dis-tab-cell wid-15"></div>
                 <div class="dis-tab-cell ver-m show-text text-center xscz-ft-16">
-                    <a href="" class="xscz-normal">通过学历查看消费习惯<img src="${images}/arrow-down-block.png" alt=""></a>
+                    <a href="" class="xscz-normal"ng-click="upDownClick(key);">通过<span  style="font-size: 18px;font-weight: bold;color:red;"> {{ico_title[key].name}} </span>查看消费习惯<img ng-src="${images}/arrow-{{upDown[key]==true?'up':'down'}}-block.png" alt="" ></a>
                 </div>
             </div>
             <!--查看-->
-        </div>   --%>
-        <!--学历查看 end--> 
+        <div class="dis-tab mar-btm-40 text-center" ng-show="upDown[key]&&dqmz[key][i]!=null" ng-repeat="i in [0,1]" >
+        	<div class="dis-tab-cell ver-m wid-15">
+            	<div class="tit-vertical">
+                     <select autocomplete="off" class="form-control input-sm" ng-model="dqmz[key][i]"style="width: inherit;">
+          					<option  ng-repeat="(code,val) in vm.items[0][key]" value="{{code}}" >{{val.name}}</option>
+        			</select> 
+                </div>
+            </div>
+            <div class="dis-tab-cell wid-6 r-20" >
+            	<div class="dis-tab">
+                	<div class="dis-tab-cell wid-5 border-r-dash r-20">
+                    	<p class="xscz-ft-14">分时段统计刷卡{{csjecode=='cs'?'次数':'消费'}}</p>
+                        <div>
+                         <div stu-chart config="vm.items[0][key][dqmz[key][i]]['fsd'][csjecode]" style="height:310px;"class="img-responsive img-top"> </div>
+                        </div>
+                    </div>
+                    <div class="dis-tab-cell wid-5 ver-b l-20">
+                    	<div>
+                    	  <div stu-chart config="vm.items[0][key][dqmz[key][i]]['zzw'][csjecode]" style="height:310px;"class="img-responsive img-top"> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dis-tab-cell wid-35 ver-b  l-20">
+             <div stu-chart config="vm.items[0][key][dqmz[key][i]]['yczc']" style="height:310px;"class="img-responsive img-top"> </div>
+            </div>
+     
+        </div>
+       </div> 
+  <!-- -------------dqmz--------------->
       </div>
       <!-- /* 统计*/ end-->
     </div>

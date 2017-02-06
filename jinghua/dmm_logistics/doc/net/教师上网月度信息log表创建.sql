@@ -1,57 +1,116 @@
 insert into TL_NET_TEA_MONTH  
 
-select to_date('2011-12','yyyy-mm') year_month,
-    nvl(sum(nr.use_time),0) USE_TIME,
-    nvl(sum(nr.use_flow),0) USE_FLOW,
-    nvl(sum(nr.use_money),0) USE_MONEY,
-    count(nr.id) ALL_COUNTS,
-       t.tea_no,
-       t.name_ tea_name,
-       t.sex_code,
-       tc.name_ sex_name ,
-       t.dept_id,
-       cd.name_ dept_name,
-       t.edu_id,
+select to_date('2016-05', 'yyyy-mm') year_month,
+       TH.HOUR_,
+       count(case when substr(t.ON_time, 12, 2) = TH.HOUR_ then
+                '1' else null end) ON_COUNTS,
+       count(case when substr(t.off_time, 12, 2) = TH.HOUR_ then
+                '1' else null end) OUT_COUNTS, --退出次数
+       nvl(count(distinct t.net_id), 0) IN_COUNTS, --在线人次
+       nvl(sum(case when substr(t.off_time, 12, 2) = TH.HOUR_ then
+                t.use_time else  null end),0) use_time, --使用时间
+       nvl(sum(case when substr(t.off_time, 12, 2) = TH.HOUR_ then
+            t.use_flow else null end),0) use_flow, --使用流量
+       nvl(sum(case when substr(t.off_time, 12, 2) = TH.HOUR_ then 
+       t.use_money  else null end),0) use_money, --使用金额
+       s.tea_no,
+       s.name_,
+       s.dept_id,
+       cd.name_ dept_name, --学院，
+       s.sex_code,
+       tc.name_ sex_name, --性别
+       s.edu_id,
        ce.name_ edu_name, --学历
-       nr.on_type ON_TYPE_CODE,
+       s.tea_status_code status_code,
+       tc2.name_ status_name, --状态  
+       S.BZLB_CODE,
+       TC3.NAME_ BZLB_NAME, --职工类别
+       zw.zyjszw_jb_code zw_jb_code,
+       tc4.name_ zw_jb_name, --职称级别
+       t.on_type ON_TYPE_CODE,
        ntcode.name_ ON_TYPE_NAME --登陆方式
-from t_net_record nr 
-inner join t_net_user nu on nr.net_id=nu.id 
-inner join t_tea t on nu.people_id=t.tea_no
-left join t_code_dept_teach cd on t.dept_id =cd.id     
-left join t_code_education ce on t.edu_id=ce.id  
-left join t_code tc on t.sex_code=tc.code_ and tc.code_type='SEX_CODE'  
-left join t_code ntcode on nr.on_type = ntcode.code_ and ntcode.code_type = 'NET_TYPE_CODE'
-where  substr(nr.on_time, 0, 7)='2011-12' 
-group by substr(nr.on_time, 0, 7),
-       t.tea_no,
-       t.name_,
-       t.sex_code,
-       tc.name_ ,
-       t.dept_id,
-       cd.name_,
-       t.edu_id,
-       ce.name_ ,
-       nr.on_type ,
-       ntcode.name_  
+  from t_net_record t
+  left join t_net_user c
+    on t.net_id = c.id
+  left join t_tea s
+    on s.tea_no = c.people_id
+  left join t_code_dept cd
+    on s.dept_id = cd.id
+  left join t_code_education ce
+    on s.edu_id = ce.id
+  left join t_code tc
+    on s.sex_code = tc.code_
+   and tc.code_type = 'SEX_CODE'
+  left join t_code tc2
+    on tc2.code_ = s.tea_status_code
+   and tc2.code_type = 'TEA_STATUS_CODE'
+  left join t_code tc3
+    on tc3.code_ = s.bzlb_code
+   and tc3.code_type = 'BZLB_CODE'
+  left join T_CODE_ZYJSZW zw
+  on s.zyjszw_id =zw.id
+  left join t_code tc4
+  on zw.zyjszw_jb_code=tc4.code_
+  and tc4.code_type='ZYJSZW_JB_CODE'
+  left join t_code ntcode
+    on t.on_type = ntcode.code_
+   and ntcode.code_type = 'NET_TYPE_CODE'
+  LEFT JOIN T_HOUR TH
+    ON ((substr(t.on_time, 12, 2) <= TH.HOUR_ AND
+       substr(t.off_time, 12, 2) >= TH.HOUR_ AND
+       substr(t.on_time, 9, 2) = substr(t.oFF_time, 9, 2)) OR
+       (((substr(t.on_time, 12, 2) <= TH.HOUR_ AND TH.HOUR_ <= 23) OR
+       (00 <= TH.HOUR_ AND TH.HOUR_ <= substr(t.off_time, 12, 2))) AND
+       (substr(t.oFF_time, 9, 2) - substr(t.on_time, 9, 2)) = 1) OR
+       (00 <= TH.HOUR_ AND TH.HOUR_ >= 23 AND
+       (substr(t.oFF_time, 9, 2) - substr(t.on_time, 9, 2)) > 1))
+ where substr(t.on_time, 0, 7) = '2016-05' and s.tea_no is not null
+ group by TH.HOUR_,
+          s.tea_no,
+          s.name_,
+          s.sex_code,
+          tc.name_,
+          s.dept_id,
+          cd.name_,
+          s.edu_id,
+          ce.name_,
+          s.tea_status_code,
+          tc2.name_,
+          S.BZLB_CODE,
+          TC3.NAME_,
+          zw.zyjszw_jb_code,
+          tc4.name_,
+          t.on_type,
+          ntcode.name_
+
 ;
 
 drop table TL_NET_TEA_MONTH;
 create table TL_NET_TEA_MONTH
 (
   YEAR_MONTH   DATE,
+  YEAR_MONTH   VARCHAR2(100),
+  HOUR_        VARCHAR2(100),
+  ON_COUNTS    VARCHAR2(100),
+  OUT_COUNTS   VARCHAR2(100),
+  IN_COUNTS    VARCHAR2(100),
   USE_TIME     VARCHAR2(100),
   USE_FLOW     VARCHAR2(100),
   USE_MONEY    VARCHAR2(100),
-  ALL_COUNTS   VARCHAR2(100),
   TEA_NO       VARCHAR2(100),
-  TEA_NAME     VARCHAR2(100),
-  SEX_CODE     VARCHAR2(100),
-  SEX_NAME     VARCHAR2(100),
+  NAME_        VARCHAR2(100),
   DEPT_ID      VARCHAR2(100),
   DEPT_NAME    VARCHAR2(100),
+  SEX_CODE     VARCHAR2(100),
+  SEX_NAME     VARCHAR2(100),
   EDU_ID       VARCHAR2(100),
   EDU_NAME     VARCHAR2(100),
+  STATUS_CODE  VARCHAR2(100),
+  STATUS_NAME  VARCHAR2(100),
+  BZLB_CODE    VARCHAR2(100),
+  BZLB_NAME    VARCHAR2(100),
+  ZW_JB_CODE   VARCHAR2(100),
+  ZW_JB_NAME   VARCHAR2(100),
   ON_TYPE_CODE VARCHAR2(100),
   ON_TYPE_NAME VARCHAR2(100)
 ) partition by range (year_month)

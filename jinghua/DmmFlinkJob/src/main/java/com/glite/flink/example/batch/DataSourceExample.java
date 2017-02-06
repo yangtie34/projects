@@ -37,7 +37,7 @@ public class DataSourceExample {
 	public static void main(String[] args) {
 		final ExecutionEnvironment env = ExecutionEnvironment
 				.getExecutionEnvironment();
-		// 读文件
+		// 读文件，可以是具体的某个文件，也可以是目录文件
 		DataSource<String> dataSource = env.readTextFile("hdfs://ns1/cardpay");
 
 		// 读文件，设置编码格式

@@ -77,12 +77,15 @@ public class TeacherResearchDaoImpl implements TeacherResearchDao{
 
 	@Override
 	public List<Map<String, Object>> getThesises(String tea_id) {
-		String sql = "select tt.thesis_id,title_ title_,year_,wmsys.wm_concat(rta.people_name) authors ,authors first_author,periodical,periodical_type,njqy from ("
+		String sql = "select ts.thesis_id,ts.title_,ts.year_,ts.authors,ts.first_author,ts.periodical,ts.periodical_type,ts.njqy from ("
+				+ " select tt.thesis_id,title_ title_,year_,wmsys.wm_concat(rta.people_name)  "
+				+ " OVER(PARTITION BY tt.thesis_id,tt.title_,tt.year_,tt.authors,tt.periodical,tt.periodical_type,tt.njqy"
+				+ " ORDER BY rta.order_) authors, row_number() OVER(PARTITION BY tt.thesis_id,tt.title_,tt.year_,tt.authors,tt.periodical,tt.periodical_type,tt.njqy"
+				+ " ORDER BY rta.order_ desc) rs ,authors first_author,periodical,periodical_type,njqy from ("
 				+ " select ta.thesis_id,t.title_,t.year_,t.authors,t.periodical,co.name_ periodical_type ,t.njqy from t_res_thesis_author ta inner join t_res_thesis t on ta.thesis_id = t.id"
 				+ " left join t_code co on co.code_type = 'RES_PERIODICAL_TYPE_CODE' and co.code_ = t.periodical_type_code where ta.people_id = '"+tea_id+"') tt"
-				+ " left join t_res_thesis_author rta"
-				+ " on rta.thesis_id = tt.thesis_id group by "
-				+ " tt.thesis_id,tt.title_,tt.year_,tt.authors,tt.periodical,tt.periodical_type,tt.njqy order by year_ desc";
+				+ " left join t_res_thesis_author rta on rta.thesis_id = tt.thesis_id "
+				+ " order by year_ desc) ts where ts.rs = 1";
 		
 		return baseDao.queryForList(sql);
 	}
@@ -135,13 +138,15 @@ public class TeacherResearchDaoImpl implements TeacherResearchDao{
 		}else if("partake".equals(flag)){
 			sql2 = " and wa.order_ > 1";
 		}
-		String sql = "select tt.title_ title_,wmsys.wm_concat(tea.name_) authors ,tt.dept_name,tt.press_name,tt.press_time,tt.number_,tt.work_no from("
+		String sql = "select ts.title_,ts.authors,ts.dept_name,ts.press_name,ts.press_time,ts.number_,ts.work_no from ("
+				+ " select tt.title_ title_,wmsys.wm_concat(rwa.people_name) OVER(PARTITION BY tt.title_,tt.dept_name,tt.press_name,tt.press_time,tt.number_,tt.work_no"
+				+ " ORDER BY rwa.order_) authors, row_number() OVER(PARTITION BY tt.title_,tt.dept_name,tt.press_name,tt.press_time,tt.number_,tt.work_no"
+				+ " ORDER BY rwa.order_ desc) rs ,tt.dept_name,tt.press_name,tt.press_time,tt.number_,tt.work_no from("
 				+ " select t.id work_id, t.title_,cd.name_ dept_name,t.press_name,t.press_time,t.number_,t.work_no from t_res_work_author wa "
 				+ " left join t_res_work t on wa.work_id = t.id"
 				+ " left join t_code_dept cd on cd.code_ = t.dept_id "
 				+ " where wa.people_id = '"+tea_id+"' "+ sql2 +" order by t.press_time desc) tt left join t_res_work_author rwa on rwa.work_id = tt.work_id"
-				+ " left join t_tea tea on tea.tea_no = rwa.people_id  "
-				+ " group by  tt.title_,tt.dept_name,tt.press_name,tt.press_time,tt.number_,tt.work_no";
+				+ " ) ts where ts.rs = 1 ";
 		return baseDao.queryForList(sql);
 	}
 
@@ -165,14 +170,18 @@ public class TeacherResearchDaoImpl implements TeacherResearchDao{
 		}else if("accredit".equals(flag)){
 			sql2 = " and pat.patent_state_code = '02'";
 		}
-		String sql = "select tt.name_ name_,wmsys.wm_concat(tea.name_) inventors ,tt.patent_dept,tt.patent_type_name,tt.patent_state_name,tt.accept_time,tt.accredit_time,tt.patent_no from ("
-				+ " select pat.name_,pat.patent_dept,co.name_ patent_type_name,cd.name_ patent_state_name,pat.accept_time,pat.accredit_time,pat.patent_no from t_res_patent_auth t"
+		String sql = "select ts.name_,ts.inventors,ts.patent_dept,ts.patent_type_name,ts.patent_state_name,ts.accept_time,ts.accredit_time,ts.patent_no from ("
+				+ " select tt.name_ name_,wmsys.wm_concat(rpa.people_name) OVER(PARTITION BY tt.name_,tt.patent_dept,tt.patent_type_name,"
+				+ " tt.patent_state_name,tt.accept_time,tt.accredit_time,tt.patent_no"
+				+ " ORDER BY rpa.order_) inventors, row_number() OVER(PARTITION BY tt.name_,tt.patent_dept,tt.patent_type_name,"
+				+ " tt.patent_state_name,tt.accept_time,tt.accredit_time,tt.patent_no"
+				+ " ORDER BY rpa.order_ desc) rs ,tt.patent_dept,tt.patent_type_name,tt.patent_state_name,tt.accept_time,tt.accredit_time,tt.patent_no from ("
+				+ " select pat.name_,pat.patent_dept,co.name_ patent_type_name,cd.name_ patent_state_name,pat.accept_time,pat.accredit_time,pat.id as patent_no from t_res_patent_auth t"
 				+ " left join t_res_patent pat on t.patent_id = pat.id "
 				+ " left join t_code co on co.code_type = 'RES_PATENT_TYPE_CODE' and co.code_ = pat.patent_type_code"
 				+ " left join t_code cd on cd.code_type = 'RES_PATENT_STATE_CODE' and cd.code_ = pat.patent_state_code"
 				+ " where t.people_id = '"+tea_id+"' "+ sql2 +" order by pat.accept_time desc ) tt left join t_res_patent_auth rpa on rpa.patent_id = tt.patent_no"
-				+ " left join t_tea tea on tea.tea_no = rpa.people_id group by tt.name_,tt.patent_dept,tt.patent_type_name,"
-				+ " tt.patent_state_name,tt.accept_time,tt.accredit_time,tt.patent_no";
+				+ " )ts where ts.rs = 1";
 		return baseDao.queryForList(sql);
 	}
 
@@ -180,7 +189,10 @@ public class TeacherResearchDaoImpl implements TeacherResearchDao{
 	@Override
 	public List<Map<String, Object>> getAwardOutcomes(String tea_id) {
 		
-		String sql = "select tt.oa_id,tt.name_ name_,wmsys.wm_concat(tea.name_) prizewinner,tt.award_name,tt.level_name,tt.category_name,tt.rank_name,tt.award_dept,tt.award_time from("
+		String sql = "select ts.oa_id,ts.name_,ts.prizewinner,ts.award_name,ts.level_name,ts.category_name,ts.rank_name,ts.award_dept,ts.award_time from ("
+				+ " select tt.oa_id,tt.name_ name_,wmsys.wm_concat(rha.people_name) OVER(PARTITION BY tt.oa_id,tt.name_,tt.award_name,tt.level_name,tt.category_name,tt.rank_name,tt.award_dept,tt.award_time"
+				+ " ORDER BY rha.order_) prizewinner, row_number() OVER(PARTITION BY tt.oa_id,tt.name_,tt.award_name,tt.level_name,tt.category_name,tt.rank_name,tt.award_dept,tt.award_time"
+				+ " ORDER BY rha.order_ desc) rs,tt.award_name,tt.level_name,tt.category_name,tt.rank_name,tt.award_dept,tt.award_time from("
 				+ " select oa.id oa_id,oa.name_,oa.award_name,co.name_ level_name,cd.name_ category_name,ce.name_ rank_name,"
 				+ " coded.name_ award_dept,oa.award_time from t_res_hjcg_auth t left join t_res_hjcg oa on oa.id = t.outcome_award_id"
 				+ " left join t_code_dept coded on coded.code_ = oa.dept_id"
@@ -188,70 +200,79 @@ public class TeacherResearchDaoImpl implements TeacherResearchDao{
 				+ " left join t_code cd on cd.code_type = 'RES_AWARD_CATEGORY_CODE' and cd.code_ = oa.category_code"
 				+ " left join t_code ce on ce.code_type = 'RES_AWARD_RANK_CODE' and ce.code_ = oa.rank_code "
 				+ " where t.people_id = '"+tea_id+"' order by oa.award_time desc) tt left join t_res_hjcg_auth rha on rha.outcome_award_id = tt.oa_id"
-				+ " left join t_tea tea on tea.tea_no = rha.people_id "
-				+ " group by tt.oa_id,tt.name_,tt.award_name,tt.level_name,tt.category_name,tt.rank_name,tt.award_dept,tt.award_time ";
+				+ " ) ts where ts.rs = 1";
 		return baseDao.queryForList(sql);
 	}
 
 
 	@Override
 	public List<Map<String, Object>> getAppraisalOutcomes(String tea_id) {
-		String sql = "select tt.jd_id,tt.name_ name_,wmsys.wm_concat(tea.name_) authors ,tt.appraisal_dept,tt.identifymode_name,tt.identifylevel_name,tt.time_,tt.identify_regist_no from("
+		String sql = "select ts.jd_id,ts.name_,ts.authors,ts.appraisal_dept,ts.identifymode_name,ts.identifylevel_name,ts.time_,ts.identify_regist_no from ("
+				+ " select tt.jd_id,tt.name_ name_,wmsys.wm_concat(rja.people_name) OVER(PARTITION BY tt.jd_id,tt.name_,tt.appraisal_dept,tt.identifymode_name,tt.identifylevel_name,tt.time_,tt.identify_regist_no"
+				+ " ORDER BY rja.order_) authors, row_number() OVER(PARTITION BY tt.jd_id,tt.name_,tt.appraisal_dept,tt.identifymode_name,tt.identifylevel_name,tt.time_,tt.identify_regist_no"
+				+ " ORDER BY rja.order_ desc) rs ,tt.appraisal_dept,tt.identifymode_name,tt.identifylevel_name,tt.time_,tt.identify_regist_no from("
 				+ " select t.id jd_id, t.name_,t.appraisal_dept,co.name_ identifymode_name, cd.name_ identifylevel_name,t.time_,t.identify_regist_no from  t_res_jdcg_auth oaa "
-				+ " left join  t_res_jdcg t on t.id = oaa.appraisal_id "
-				+ " left join t_code co on co.code_type = 'RES_IDENTIFYMODE_CODE' and co.code_ = t.identifymode_code"
+				+ " left join  t_res_jdcg t on t.id = oaa.appraisal_id left join t_code co on co.code_type = 'RES_IDENTIFYMODE_CODE' and co.code_ = t.identifymode_code"
 				+ " left join t_code cd on cd.code_type = 'RES_IDENTIFYLEVEL_CODE' and cd.code_ = t.identifylevel_code"
-				+ " where oaa.people_id = '"+ tea_id +"' order by t.time_ desc) tt left join t_res_jdcg_auth rja on rja.appraisal_id = tt.jd_id"
-				+ " left join t_tea tea on tea.tea_no = rja.people_id"
-				+ " group by tt.jd_id,tt.name_,tt.appraisal_dept,tt.identifymode_name,tt.identifylevel_name,tt.time_,tt.identify_regist_no";
+				+ " where oaa.people_id = '"+tea_id+"' order by t.time_ desc) tt left join t_res_jdcg_auth rja on rja.appraisal_id = tt.jd_id"
+				+ " ) ts where ts.rs = 1";
 		return baseDao.queryForList(sql);
 	}
 
 	@Override
 	public List<Map<String, Object>> getAwardThesis(String tea_id) {
-		String sql = "select tt.thesis_id,title_,wmsys.wm_concat(rta.people_name) authors,award_name,award_rank,award_dept,award_time,certificate_no from ("
+		String sql = "select ts.thesis_id,ts.title_,ts.authors,ts.award_name,ts.award_rank,ts.award_dept,ts.award_time,ts.certificate_no from ("
+				+ " select tt.thesis_id,title_,wmsys.wm_concat(rta.people_name) OVER(PARTITION BY tt.thesis_id,tt.title_,award_name,award_rank,award_dept,award_time,certificate_no"
+				+ " ORDER BY rta.order_) authors, row_number() OVER(PARTITION BY tt.thesis_id,tt.title_,award_name,award_rank,award_dept,award_time,certificate_no"
+				+ " ORDER BY rta.order_ desc) rs,award_name,award_rank,award_dept,award_time,certificate_no from ("
 				+ " select t.thesis_id,thesis.title_,thesis.authors,t.award_name,co.name_ award_rank,t.award_dept,t.award_time,t.certificate_no"
-				+ " from t_res_thesis_award t"
-				+ " left join t_res_thesis_author ta on ta.thesis_id = t.thesis_id "
+				+ " from t_res_thesis_award t left join t_res_thesis_author ta on ta.thesis_id = t.thesis_id "
 				+ " left join t_res_thesis thesis on t.thesis_id = thesis.id"
 				+ " left join t_code co on co.code_type = 'RES_THESIS_RANK_CODE' and co.code_ = t.award_rank_code where ta.people_id = '"+tea_id+"') tt "
-				+ " left join t_res_thesis_author rta on rta.thesis_id = tt.thesis_id group by tt.thesis_id,tt.title_,award_name,award_rank,award_dept,award_time,certificate_no";
+				+ " left join t_res_thesis_author rta on rta.thesis_id = tt.thesis_id )ts where ts.rs = 1";
 		return baseDao.queryForList(sql);
 	}
 
 	@Override
 	public List<Map<String, Object>> getInThesis(String tea_id) {
-		String sql = "select tt.thesis_id,title_,wmsys.wm_concat(rta.people_name) authors,periodical,year_,njqy,issn,"
-				+ " impact_factor,sci_zone,periodical_type from ("
+		String sql = "select ts.thesis_id,ts.title_,ts.authors,ts.periodical,ts.year_,ts.njqy,ts.issn,ts.impact_factor,ts.sci_zone,ts.periodical_type from ("
+				+ " select tt.thesis_id,title_,wmsys.wm_concat(rta.people_name) "
+				+ " OVER(PARTITION BY tt.thesis_id,title_,periodical,year_,njqy,issn,impact_factor,sci_zone,periodical_type"
+				+ " ORDER BY rta.order_) authors, row_number() OVER(PARTITION BY tt.thesis_id,title_,periodical,year_,njqy,issn,impact_factor,sci_zone,periodical_type"
+				+ " ORDER BY rta.order_ desc) rs,periodical,year_,njqy,issn,impact_factor,sci_zone,periodical_type from ("
 				+ " select t.thesis_id,th.title_,th.authors,t.periodical,t.year_,t.njqy,t.issn,t.impact_factor,"
-				+ " cd.name_ sci_zone,cod.name_  periodical_type from t_res_thesis_in t "
-				+ " left join t_res_thesis th on t.thesis_id = th.id"
+				+ " cd.name_ sci_zone,cod.name_  periodical_type from t_res_thesis_in t left join t_res_thesis th on t.thesis_id = th.id"
 				+ " left join t_code cod on cod.code_type = 'PERIODICAL_TYPE_CODE' and cod.code_ = t.periodical_type_code"
 				+ " left join t_code cd on cd.code_type = 'THESIS_IN_SCI_CODE' and cd.code_ = t.sci_zone"
-				+ " left join t_res_thesis_author ta on ta.thesis_id = t.thesis_id where ta.people_id = '"+tea_id+"') tt left join t_res_thesis_author rta on rta.thesis_id = tt.thesis_id"
-				+ " group by  tt.thesis_id,title_,periodical,year_,njqy,issn,impact_factor,sci_zone,periodical_type";
+				+ " left join t_res_thesis_author ta on ta.thesis_id = t.thesis_id where ta.people_id = '"+tea_id+"') tt left join t_res_thesis_author rta on rta.thesis_id = tt.thesis_id) ts where ts.rs = 1";
 		return baseDao.queryForList(sql);
 	}
 
 	@Override
 	public List<Map<String, Object>> getMeetingThesis(String tea_id) {
-		String sql = "select  tt.thesis_id,tt.title_,wmsys.wm_concat(rta.people_name) authors, tt.comefrom,tt.year_,tt.conference,tt.conference_time,tt.accession_number,tt.meeting_type from("
+		String sql = "select ts.thesis_id,ts.title_,ts.authors,ts.comefrom,ts.year_,ts.conference,ts.conference_time,ts.accession_number,ts.meeting_type from ("
+				+ " select  tt.thesis_id,tt.title_,wmsys.wm_concat(rta.people_name)"
+				+ " OVER(PARTITION BY tt.thesis_id,tt.title_, tt.comefrom,tt.year_,tt.conference,tt.conference_time,tt.accession_number,tt.meeting_type"
+				+ " ORDER BY rta.order_) authors, row_number() OVER(PARTITION BY tt.thesis_id,tt.title_, tt.comefrom,tt.year_,tt.conference,tt.conference_time,tt.accession_number,tt.meeting_type"
+				+ " ORDER BY rta.order_ desc) rs , tt.comefrom,tt.year_,tt.conference,tt.conference_time,tt.accession_number,tt.meeting_type from("
 				+ " select t.thesis_id,th.title_,th.authors, t.comefrom,t.year_,t.conference,t.conference_time,t.accession_number,co.name_ meeting_type from t_res_thesis_meeting t"
-				+ " left join t_res_thesis th on t.thesis_id = th.id"
-				+ " left join t_code co on co.code_type = 'RES_MEETING_TYPE_CODE' and co.code_ = t.meeting_type_code"
-				+ " left join t_res_thesis_author ta on ta.thesis_id = t.thesis_id where ta.people_id = '"+tea_id+"') tt left join t_res_thesis_author rta on rta.thesis_id = tt.thesis_id"
-				+ " group by  tt.thesis_id,tt.title_, tt.comefrom,tt.year_,tt.conference,tt.conference_time,tt.accession_number,tt.meeting_type ";
+				+ " left join t_res_thesis th on t.thesis_id = th.id left join t_code co on co.code_type = 'RES_MEETING_TYPE_CODE' and co.code_ = t.meeting_type_code"
+				+ " left join t_res_thesis_author ta on ta.thesis_id = t.thesis_id where ta.people_id = '"+tea_id+"') tt left join t_res_thesis_author rta on rta.thesis_id = tt.thesis_id) ts where ts.rs = 1";
 		return baseDao.queryForList(sql);
 	}
 
 	@Override
 	public List<Map<String, Object>> getReshipThesis(String tea_id) {
-		String sql = "select tt.thesis_id,tt.title_,wmsys.wm_concat(rta.people_name) authors,tt.periodical,tt.njqy,tt.year_,tt.theisi_reship from ("
+		String sql = "select ts.thesis_id,ts.title_, ts.authors,ts.periodical,ts.njqy,ts.year_,ts.theisi_reship from ("
+				+ " select tt.thesis_id,tt.title_,wmsys.wm_concat(rta.people_name) "
+				+ " OVER(PARTITION BY tt.thesis_id,tt.title_,tt.periodical,tt.njqy,tt.year_,tt.theisi_reship"
+				+ " ORDER BY rta.order_) authors, row_number() OVER(PARTITION BY tt.thesis_id,tt.title_,tt.periodical,tt.njqy,tt.year_,tt.theisi_reship"
+				+ " ORDER BY rta.order_ desc) rs,tt.periodical,tt.njqy,tt.year_,tt.theisi_reship from ("
 				+ " select t.thesis_id,th.title_,th.authors,t.periodical,t.njqy,t.year_,co.name_ theisi_reship from t_res_thesis_reship t "
 				+ " left join t_res_thesis th on t.thesis_id = th.id"
 				+ " left join t_code co on co.code_type = 'RES_PERIODICAL_TYPE_CODE' and co.code_ = t.thesis_reship_code"
-				+ " left join t_res_thesis_author ta on ta.thesis_id = t.thesis_id where ta.people_id = '"+tea_id+"') tt left join t_res_thesis_author rta on rta.thesis_id = tt.thesis_id "
-				+ " group by tt.thesis_id,tt.title_,tt.periodical,tt.njqy,tt.year_,tt.theisi_reship";
+				+ " left join t_res_thesis_author ta on ta.thesis_id = t.thesis_id where ta.people_id = '"+tea_id+"') tt "
+				+ " left join t_res_thesis_author rta on rta.thesis_id = tt.thesis_id) ts where ts.rs = 1";
 		return baseDao.queryForList(sql);
 	}
 

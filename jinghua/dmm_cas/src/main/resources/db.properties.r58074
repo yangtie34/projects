@@ -1,0 +1,14 @@
+
+#################数据源=base#####################
+dataSource.driver.base=oracle.jdbc.driver.OracleDriver
+#dataSource.url.base=jdbc\:oracle\:thin\:@202.196.0.180\:1521\:DM
+dataSource.url.base=jdbc\:oracle\:thin\:@192.168.30.88\:1521\:ORCL
+#dataSource.url.base=jdbc\:oracle\:thin\:@localhost\:1521\:ORCL
+dataSource.username.base=dm
+dataSource.password.base=dm
+
+#########学校代码##############
+#school.code=ZZQY
+
+#权限系统访问地址
+sys.dmmUrl=http://localhost:8088/dmm_sys

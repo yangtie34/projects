@@ -35,7 +35,17 @@ public class PermssionDaoImpl implements PermssionDao{
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<UserPermssion> getUserPermssion(UserPermssion userPermssion) {
-		StringBuffer sql=new StringBuffer("select srp.id as id ,srp.wirldcard ,sr.id userid,sr.username userName, "
+		//动作和冗余字段wirldcard不使用   
+		/*StringBuffer sql=new StringBuffer("select srp.id as id ,srp.wirldcard ,sr.id userid,sr.username userName, "
+				+ "sr.real_name userRealName,sr.istrue userIStrue,"
+				+ "sds.id dataId,sds.name_ dataName,sds.servicename dataServiceName,"
+				+ "sre.id resId,sre.name_ resName,sre.url_ resurl,so.id soid,so.name_ soName,so.description soDesc "
+				+ "from t_sys_user_perm srp "
+				+ "inner join t_sys_user sr on srp.user_id=sr.id "+
+					" inner join t_sys_data_service sds on srp.data_service_id=sds.id "+
+					" inner join T_SYS_OPERATE so on srp.operate_id=so.id "+
+					" inner join t_sys_resources sre on srp.resource_id=sre.id where sre.istrue=1 "); */
+		StringBuffer sql=new StringBuffer("select srp.id as id ,sre.shiro_tag||':*' wirldcard ,sr.id userid,sr.username userName, "
 				+ "sr.real_name userRealName,sr.istrue userIStrue,"
 				+ "sds.id dataId,sds.name_ dataName,sds.servicename dataServiceName,"
 				+ "sre.id resId,sre.name_ resName,sre.url_ resurl,so.id soid,so.name_ soName,so.description soDesc "
@@ -95,7 +105,16 @@ public class PermssionDaoImpl implements PermssionDao{
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<RolePermssion> getRolePermssion(RolePermssion rolePermssion) {
-		StringBuffer sql=new StringBuffer("select srp.id as id ,srp.wirldcard ,sr.id roleId,sr.name_ roleName,"
+		//动作和冗余字段wirldcard不使用   
+		/*StringBuffer sql=new StringBuffer("select srp.id as id ,srp.wirldcard ,sr.id roleId,sr.name_ roleName,"
+				+ "sr.description roleN,sds.id dataId,sds.name_ dataName,sds.servicename dataServiceName,"
+				+ "sre.id resId,sre.name_ resName,sre.url_ resurl,so.id soid,so.name_ soName,so.description soDesc "
+				+ "from t_sys_role_perm srp "
+				+ "inner join t_sys_role sr on srp.role_id=sr.id "+
+					" inner join t_sys_data_service sds on srp.data_service_id=sds.id "+
+					" inner join T_SYS_OPERATE so on srp.operate_id=so.id "+
+					" inner join t_sys_resources sre on srp.resource_id=sre.id where sre.istrue=1 ");*/
+		StringBuffer sql=new StringBuffer("select srp.id as id ,sre.shiro_tag||':*' wirldcard  ,sr.id roleId,sr.name_ roleName,"
 				+ "sr.description roleN,sds.id dataId,sds.name_ dataName,sds.servicename dataServiceName,"
 				+ "sre.id resId,sre.name_ resName,sre.url_ resurl,so.id soid,so.name_ soName,so.description soDesc "
 				+ "from t_sys_role_perm srp "
@@ -159,14 +178,15 @@ public class PermssionDaoImpl implements PermssionDao{
 	@Override
 	public RolePermssion addRolePermssion(RolePermssion rolePermssion) {
 		final String SQL = "insert into t_sys_role_perm values(?,?,?,?,?,?)";
-		String wirldcard = rolePermssion.getResource().getShiro_tag()+":"+rolePermssion.getOperate().getName_();
+		//动作和冗余字段wirldcard不使用   String wirldcard = rolePermssion.getResource().getShiro_tag()+":"+rolePermssion.getOperate().getName_();
+		String wirldcard=" ";
 		List<Map<String, Object>> l=baseDao.queryForList("select * from t_sys_role_perm where role_id='"+rolePermssion.getRole().getId()+"' and resource_id='"+rolePermssion.getResource().getId()+"'and data_service_id='"+rolePermssion.getDataServe().getId()+"'");
 		long ID=0;
 		if(l.size()>0){
 			ID= ((BigDecimal)l.get(0).get("ID")).longValue();
 			rolePermssion.setId(ID);
-			updateRolePermssion(rolePermssion.getResource());
-			updateRolePermssion(rolePermssion.getOperate());
+			//动作和冗余字段wirldcard不使用   updateRolePermssion(rolePermssion.getResource());
+			//动作和冗余字段wirldcard不使用   updateRolePermssion(rolePermssion.getOperate());
 		}else{
 			 ID=baseDao.getSeq();
 			 rolePermssion.setId(ID);
@@ -180,14 +200,15 @@ public class PermssionDaoImpl implements PermssionDao{
 	@Override
 	public UserPermssion addUserPermssion(UserPermssion userPermssion) {
 		final String SQL = "insert into t_sys_user_perm values(?,?,?,?,?,?)";
-		String wirldcard = userPermssion.getResource().getShiro_tag()+":"+userPermssion.getOperate().getName_();
+		//动作和冗余字段wirldcard不使用   String wirldcard = userPermssion.getResource().getShiro_tag()+":"+userPermssion.getOperate().getName_();
+		String wirldcard = " ";
 		List<Map<String, Object>> l=baseDao.queryForList("select * from t_sys_user_perm where user_id='"+userPermssion.getUser().getId()+"' and resource_id='"+userPermssion.getResource().getId()+"'and data_service_id='"+userPermssion.getDataServe().getId()+"'");
 		long ID=0;
 		if(l.size()>0){
 			ID= ((BigDecimal)l.get(0).get("ID")).longValue();
 			 userPermssion.setId(ID);
-			updateUserPermssion(userPermssion.getResource());
-			updateUserPermssion(userPermssion.getOperate());
+			//动作和冗余字段wirldcard不使用   updateUserPermssion(userPermssion.getResource());
+			//动作和冗余字段wirldcard不使用   updateUserPermssion(userPermssion.getOperate());
 		}else{
 			 ID=baseDao.getSeq();
 			 userPermssion.setId(ID);

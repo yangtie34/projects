@@ -6,10 +6,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import test.test1.util.MapUtils;
+import cn.gilight.framework.base.dao.BaseDao;
 import cn.gilight.framework.page.Page;
 import cn.gilight.framework.uitl.common.DateUtils;
 import cn.gilight.personal.teacher.dailylife.dao.DailyLifeDao;
@@ -20,6 +23,9 @@ public class DailyLifeServiceImpl implements DailyLifeService{
 	
 	@Autowired
 	private DailyLifeDao dailyLifeDao;
+	
+	@Resource
+	private BaseDao baseDao;
 
 	@Override
 	public Map<String, Object> getMonthConsume(String tea_id) {
@@ -37,7 +43,16 @@ public class DailyLifeServiceImpl implements DailyLifeService{
 		if(list != null && list.size() > 0){
 			monthConsume = MapUtils.getString(list.get(0), "MONTH_CONSUME");
 		}
+		
+		String sql= "select t.surplus_money from t_card_pay t left join t_card c on c.no_ = t.card_id where c.people_id = '"+tea_id+"' order by t.time_ desc";
+		List<Map<String,Object>> list2 = baseDao.queryListInLowerKey(sql);
+		float money = 0f;
+		if(list2 != null && list2.size()>0){
+			money = MapUtils.getFloatValue(list2.get(0), "surplus_money");
+		}
+		
 		resultMap.put("monthConsume", monthConsume);
+		resultMap.put("money", money);
 		return resultMap;
 	}
 	

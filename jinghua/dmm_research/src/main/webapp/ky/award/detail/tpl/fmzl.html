@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+	<div modal-form config="formConfig"></div>
+	<div part-modal show-modal="vm1.showModal" class="ky-box clearfix" style="padding-top:0px">
+		<h4>发明专利奖励名单</h4>
+		<table class="table table-hover">
+			<tr>
+				<th style="text-align:center">专利范围</th>
+				<th style="text-align:center">专利类别</th>
+				<th style="text-align:center">发明人</th>
+				<th style="text-align:center">发明人单位</th>
+				<th style="text-align:center">奖励金额（万元）</th>
+			</tr>
+			<tr ng-repeat="it in vm1.items">
+				<td style="text-align:center">{{it.patent_scope}}</td>
+				<td style="text-align:center">{{it.patent_type}}</td>
+				<td style="text-align:center"><a href="../personal/index.jsp?teaId={{it.tea_id}}">{{it.tea_name}}</a></td>
+				<td style="text-align:center">{{it.dept_name}}</td>
+				<td style="text-align:center">{{it.fund}}</td>
+			</tr>
+		</table>
+		<div class="clearfix keyan-page">
+                    <p class="page-result pull-left">共 {{vm1.pagecount}} 页，数据 {{vm1.total}} 条</p>
+                     <div class="pagination ky-page pull-right" ng-show="vm1.total &gt; vm1.size" pagination total-items="vm1.total" ng-model="vm1.index"
+					max-size="10" items-per-page="vm1.size"
+					class="pull-right" boundary-links="true"></div>	
+                </div>
+	</div>
+	<div class="ky-box" style="border-bottom:0px;">
+		<div class="ky-box-sec">
+			<div class="dis-tab ">
+				<div class="dis-t-cell wid-5 separate-l">
+					<p class="section-tit">发明专利类别范围金额分布</p>
+					<div echart config="typeconfig" height="350" on-click="queryScope($params)"></div>
+				</div>
+				<div class="dis-t-cell wid-5 border-l separate-r">
+					<p class="section-tit">发明人单位分布</p>
+					<div echart config="deptchart" height="350" on-click="queryDept($params)"></div>
+				</div>
+			</div>
+		</div>
+	</div>

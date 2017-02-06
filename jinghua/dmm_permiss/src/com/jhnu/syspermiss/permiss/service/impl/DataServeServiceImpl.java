@@ -189,6 +189,31 @@ public class DataServeServiceImpl implements DataServeService{
 			}
 		return list;
 	}
+
+	@Override
+	public String getDataSqlByDeptAndData(String type, String deptId,
+			List<String> datas) {
+		String ids="";
+		for (int i = 0; i < datas.size(); i++) {
+			ids+=datas.get(i)+",";
+		}
+		ids=ids.substring(0, ids.length()-1);
+		String table="";
+		if("dept".equals(type)){
+			table="t_code_dept";
+		}else{
+			table="( select id,name_,pid from t_code_dept_teach t  "+
+					"union all "+
+					"select no_ id,name_,TEACH_DEPT_ID pid from t_classes ) ";
+		}
+		String sql=" select a.id from "+
+				" ( select id from "+table+" start with id='"+deptId+"'    connect by prior id=pid )a "+
+				" inner join  "+
+				" ( select id from "+table+" start with id in ("+ids+") connect by prior id=pid )b "+
+				" on a.id=b.id ";
+		
+		return sql;
+	}
 	
 
 }

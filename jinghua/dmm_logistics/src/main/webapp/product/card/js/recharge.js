@@ -72,13 +72,16 @@ var getDeptData=function(method){
 					 d.push({field:data[j].NAME,fieldCode:data[j].CODE,value:data[j].ALL_COUNT,name:'次数(次)'}); 
 					 d.push({field:data[j].NAME,fieldCode:data[j].CODE,value:data[j].ALL_MONEY,name:'金额(元)'});
 				 } 
-				 vm.items[i]=getOption(d,'','zxt');
+				 var option=getOption(d,'','zxt');
+				 option.toolbox.orient="horizontal";
+				 vm.items[i]=option.saveAsImage("各学院充值情况");
+				
 			 }else if(i==2||i==3){//柱状图
 				 var d=[];
 				 for(var j=0;j<data.length;j++){
 					 d.push({field:data[j].NAME,fieldCode:data[j].CODE,value:data[j].VALUE,name:i==2?'次数(次)':'次数(次)'}); 
 				 }
-				 var option=getOption(d,'',i==2?'hzztright':'hzztleft');
+				 var option=getOption(d,'',i==2?'hzztright':'hzztleft').saveAsImage(i==2?"单次充值金额次数分布":"充值前所剩余额分布");
 				 vm.items[i]=option;
 			 }else if(i==4){//饼状图
 				 var d=[[],[]];
@@ -86,21 +89,25 @@ var getDeptData=function(method){
 					 d[0].push({field:data[j].NAME,fieldCode:data[j].CODE,value:data[j].ALL_COUNT,name:'次数(次)'}); 
 					 d[1].push({field:data[j].NAME,fieldCode:data[j].CODE,value:data[j].ALL_MONEY,name:'金额(元)'}); 
 				 }
-				 vm.items[i]=[getOption(d[0],'','bzt'),getOption(d[1],'','bzt')];
+				 vm.items[i]=[getOption(d[0],'','bzt').saveAsImage("充值次数"),
+				              getOption(d[1],'','bzt').saveAsImage("充值总金额")];
 			 }else if(i==5){////趋势图
 				 var d=[[],[]];
 				 for(var j=0;j<data.length;j++){
 					 d[0].push({field:data[j].HOUR_,value:data[j].ALL_COUNT,name:data[j].NAME}); 
 					 d[1].push({field:data[j].HOUR_,value:data[j].ALL_MONEY,name:data[j].NAME}); 
 				 }
-				 vm.items[i]=[fomatSwtDw(getOption(d[0],'','xzt'),"次数","次"),fomatSwtDw(getOption(d[1],'','xzt'),"金额","元")];
+				 vm.items[i]=[fomatSwtDw(getOption(d[0],'','xzt'),"次数","次").saveAsImage("充值次数对比趋势"),
+				              fomatSwtDw(getOption(d[1],'','xzt'),"金额","元").saveAsImage("充值金额对比趋势")];
 			 }else if(i==6){//
 				 var d=[];
 				 for(var j=0;j<data.length;j++){
 					 d.push({field:data[j].YEAR,value:data[j].ALL_COUNT,name:'次数(次)'}); 
 					 d.push({field:data[j].YEAR,value:data[j].ALL_MONEY,name:'金额(元)'});
 				 } 
-				 vm.items[i]=getOption(d,'','zxt');
+				 var option=getOption(d,'','zxt');
+				 option.toolbox.orient="horizontal";
+				 vm.items[i]=option.saveAsImage("总体充值历史情况");
 				 scope.type67='all';
 			 }else if(i==7){ //时间轴三维图
 				 var d=[];
@@ -108,7 +115,7 @@ var getDeptData=function(method){
 					 d.push({time:data[j].YEAR,field:data[j].TYPE_NAME,fieldCode:data[j].TYPE_CODE,value:data[j].ALL_COUNT,name:'次数(次)'}); 
 					 d.push({time:data[j].YEAR,field:data[j].TYPE_NAME,fieldCode:data[j].TYPE_CODE,value:data[j].ALL_MONEY,name:'金额(元)'});
 				 } 
-				 vm.items[i]=getOption({data:d,type:'zxt'},'','timeSwt');
+				 vm.items[i]=getOption({data:d,type:'zxt'},'','timeSwt').saveAsImage("按类型充值历史情况");
 			 }else{
 				 vm.items[i]=data;
 			 }
@@ -124,15 +131,15 @@ var getDeptData=function(method){
 		  }).success(function(data){
 			  var d=[[],[],[],[]];
 				 for(var j=0;j<data.length;j++){
-					 d[0].push({field:data[j].YEAR_MONTH,value:data[j].ALL_COUNT,name:"总次数(次)"}); 
-					 d[1].push({field:data[j].YEAR_MONTH,value:data[j].ALL_MONEY,name:'总金额(元)'}); 
+					 d[0].push({field:data[j].YEAR_MONTH,value:data[j].ALL_MONEY,name:'总金额(元)'}); 
+					 d[1].push({field:data[j].YEAR_MONTH,value:data[j].ALL_COUNT,name:"总次数(次)"}); 
 					 d[2].push({field:data[j].YEAR_MONTH,value:data[j].USE_PEOPLE,name:"充值人数(人)"}); 
 					 d[3].push({field:data[j].YEAR_MONTH,value:data[j].PEOPLE_MONEY,name:'人均充值(元)'}); 
 				 }
-				 scope.qsdata=[getOption(d[0],'','xzt'),
-				               getOption(d[1],'','xzt'),
-				               getOption(d[2],'','xzt'),
-				               getOption(d[3],'','xzt'),
+				 scope.qsdata=[getOption(d[0],'','xzt').saveAsImage("充值总金额对比趋势"),
+				               getOption(d[1],'','xzt').saveAsImage("充值总次数对比趋势"),
+				               getOption(d[2],'','xzt').saveAsImage("充值人数对比趋势"),
+				               getOption(d[3],'','xzt').saveAsImage("人均充值对比趋势"),
 				               ];
 		  });
 		  

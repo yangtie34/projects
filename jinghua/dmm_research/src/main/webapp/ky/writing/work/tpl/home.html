@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+ <div class="keyan-main">
+	<div class="header">
+        	<div class="main-tit">
+            	<h4 class="main-tit-b">著作分析</h4>
+                <h5 class="main-tit-s">根据筛选条件过滤在所选范围内的科研著作，
+                统计科研著作的数量和环比增量、增幅，统计科研著作的作者身份分布情况，
+                统计科研著作数量的年度变化趋势和各科研单位分布情况，
+                并以列表形式展现了所选范围内的科研著作的详细信息。</h5>
+            </div>
+            <div class="keyan-condition">
+            	<dl class="clearfix">
+                	<dt>学科门类：</dt>
+                    <dd>
+                    	<form action="" class="ky-form condition-radio">
+                            <div class="radio-box radio-inline" ng-repeat ="it in queryCondition.subject" >
+								<input type="radio" ng-model="condition.subject" ng-value="it" id="{{it}}">
+                                <label for="{{it}}"> {{it.mc}}
+								</label>
+                            </div>
+                        </form>
+                    </dd>
+                </dl>
+                <dl class="clearfix">
+                	<dt>作者单位：</dt>
+                    <dd>
+                    	 <div cg-combo-tree source="queryCondition.dept" result="condition.dept" ></div> 
+                    </dd>
+                </dl>
+                <dl class="clearfix">
+                	<dt>统计时间：</dt>
+                    <dd>
+                    	<div self-defined-year source="queryCondition.definedYear" result='condition.definedYear'></div>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="ky-box p-top-10">
+        	<div class="dis-tab round-section round-section-row">
+                        <div class="round-item">
+                            <p class="sec-tit">{{condition.definedYear.mc}}{{condition.deptTeah.mc}}{{condition.subject.mc}}<br>参与著作/部</p>
+                            <div><a href="" ng-click="queryDetail()" class="round color-green round-70">{{workNums.current}}</a></div>
+                        </div>
+                        <div class="round-item">
+                            <p class="sec-tit">较上年{{condition.definedYear.start == condition.definedYear.end ? '度' : '段'}}增长/部</p>
+                            <div><a href="" class="round color-purple round-70">{{workNums.growth}}</a></div>
+                        </div>
+                        <div class="round-item">
+                            <p class="sec-tit">增幅</p>
+                            <div><a href="" class="round color-purple round-70 text-22">{{workNums.increase}}</a></div>
+                        </div>
+                    </div>
+             <table class="zhuzuo-tab">
+                    	<tbody>
+                        	<tr>
+                            	<td>
+                                	<div class="round-52 round color-ju-l"><img src="../../images/zhuan-zhu.png" alt=""></div>
+                                </td>
+                                <td>
+                                	<div class="round-52 round color-blue-l"><img src="../../images/b-zhu.png" alt=""></div>
+                                </td>
+                                <td>
+                                	<div class="round-52 round color-red"><img src="../../images/y-zhu.png" alt=""></div>
+                                </td>
+                            </tr>
+                            <tr class="numb">
+                            	<td>
+                            	<a href="" ng-show = "zb.nums == 0" class="text-ju-l" style="color:#faa54b;">{{zb.nums}}</a>
+                            	<a href="" ng-show = "zb.nums != 0" ng-click="queryRoleDetail(zb.code_,zb.name_)" class="text-ju-l" style="color:#faa54b;">{{zb.nums}}</a></td>
+                                <td>
+                                 <a href="" ng-show = "fzb.nums == 0" class="text-blue-l" style="color:#00b7ee;">{{fzb.nums}}</a>
+                                <a href="" ng-show = "fzb.nums != 0" ng-click="queryRoleDetail(fzb.code_,fzb.name_)" class="text-blue-l" style="color:#00b7ee;">{{fzb.nums}}</a></td>
+                                <td>
+                                <a href="" ng-show = "cyry.nums == 0" class="text-red" style="color:#f279bc;">{{cyry.nums}}</a>
+                                <a href="" ng-show = "cyry.nums != 0" ng-click="queryRoleDetail(cyry.code_,cyry.name_)" class="text-red" style="color:#f279bc;">{{cyry.nums}}</a></td>
+                            </tr>
+                            <tr>
+                            	<td>主编</td>
+                                <td>副主编</td>
+                                <td>参与人员</td>
+                            </tr>
+                        </tbody>
+                    </table>
+        	
+        </div>
+        
+        <div class="ky-box no-bottom-border">
+        	<div class="ky-box-sec">
+        		<div class="dis-tab">
+                	<div class="dis-t-cell wid-5 separate-l">
+                    	<p class="section-tit">著作数历年变化趋势</p>
+                        <div class="img-box" echart config="changechart" on-click = "clickChange($params)">
+                        </div>
+                    </div>
+                    <div class="dis-t-cell wid-5 border-l separate-r">
+                    	<p class="section-tit">著作单位分布</p>
+                        <div class="img-box" echart config="deptchart" on-click="clickDept($params)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section>
+        <div class="section-head">
+        	<span class="section-head-tit">著作、教材数据列表</span>
+            <div class="input-group ky-input pull-right">
+              <input type="text" ng-model="sparam" class="form-control ky-input-control" placeholder="著作名模糊匹配">
+              <span class="input-group-btn">
+              	<i class="line"></i>
+                <button class="btn btn-default ky-btn" type="button" ng-click="searchWrok(sparam)"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+        </div>
+        <div class="ky-box no-bottom-border" >
+        	<div class="ky-box-sec" part-modal show-modal="showModal2">
+            	<table class="table ky-no-border-table">
+                	<thead>
+                    	<tr>
+                        	<td>&nbsp;</td>
+                            <td>著作单位</td>
+                            <td>作者姓名</td>
+                            <td>著作名称</td>
+                            <td>出版单位</td>
+                            <td>出版字数</td>
+                            <td>出版时间</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    	<tr ng-repeat="item in items">
+                        	<td><span class="f-order">{{item.rn}}</span></td>
+                            <td>{{item.dept_name}}</td>
+                            <td>{{item.authors}}</td>
+                            <td>{{item.title_}}</td>
+                            <td>{{item.press_name}}</td>
+                            <td>{{item.number_}}</td>
+                            <td>{{item.press_time}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="clearfix keyan-page has-pad-btm">
+                    <p class="page-result pull-left">共 {{page.pagecount}} 页，数据 {{page.sumcount}} 条</p>
+                   	 <div class="pagination ky-page pull-right" ng-show="page.sumcount &gt; page.pagesize" pagination total-items="page.sumcount" ng-model="page.curpage"
+					max-size="10" items-per-page="page.pagesize"
+					class="pull-right" boundary-links="true"></div>	
+                </div>
+            </div>
+        </div>
+        </section>
+</div>
+<div modal-form config="formConfig"></div>

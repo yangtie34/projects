@@ -169,6 +169,9 @@ public class WarningScheduleService {
 			result.setMsg("放假期间，不用统计该项内容");
 			return result;
 		}
+		//为了获取当前学年的开始年份,根据该年份和学生的入学年份来去除大四以上的学生
+		String startYearOfCurrntXN = this.getStartYearOfCurrentXn();
+		
 		try {
 			String delSql="",querySql = "";
 			int delnum = 0,insertNum = 0;
@@ -189,21 +192,21 @@ public class WarningScheduleService {
 							+ " INNER JOIN T_CLASSES BJ ON BJ.NO_ = T.CLASS_ID"
 							+ " INNER JOIN T_CARD D ON T.NO_ = D.PEOPLE_ID"
 							+ " INNER JOIN T_CARD_PAY P ON D.NO_ = P.CARD_ID"
-							+ " WHERE T.STU_STATE_CODE = '1' AND T.DEPT_ID = '"+yxid+"'"
+							+ " WHERE T.STU_STATE_CODE = '1' AND T.DEPT_ID = '"+yxid+"' AND ("+startYearOfCurrntXN+"-TO_NUMBER(T.ENROLL_GRADE) < 3 )"
 							+ " GROUP BY T.NO_,T.NAME_,T.CLASS_ID,BJ.NAME_ ) "
 						+ " UNION"
 						+ "(SELECT T.NO_ SNO,T.NAME_ SNAME,T.CLASS_ID BJID,BJ.NAME_ BJMC,MAX(P.TIME_) LASTTIME FROM T_STU T"
 							+ " INNER JOIN T_CLASSES BJ ON BJ.NO_ = T.CLASS_ID"
 							+ " INNER JOIN T_DORM_PROOF D ON T.NO_ = D.PEOPLE_ID"
 							+ " INNER JOIN T_DORM_RKE P ON D.NO_ = P.DORM_PROOF_ID"
-							+ " WHERE T.STU_STATE_CODE = '1' AND T.DEPT_ID = '"+yxid+"'"
+							+ " WHERE T.STU_STATE_CODE = '1' AND T.DEPT_ID = '"+yxid+"'  AND ("+startYearOfCurrntXN+"-TO_NUMBER(T.ENROLL_GRADE) < 3 )"
 							+ " GROUP BY T.NO_,T.NAME_,T.CLASS_ID,BJ.NAME_ )"
 						+ " UNION"
 						+ "(SELECT T.NO_ SNO,T.NAME_ SNAME,T.CLASS_ID BJID,BJ.NAME_ BJMC,MAX(P.TIME_) LASTTIME FROM T_STU T "
 							+ " INNER JOIN T_CLASSES BJ ON BJ.NO_ = T.CLASS_ID "
 							+ " INNER JOIN T_BOOK_READER R ON T.NO_ = R.PEOPLE_ID "
 							+ " INNER JOIN T_BOOK_RKE P ON R.NO_ = P.BOOK_READER_ID "
-							+ " WHERE T.STU_STATE_CODE = '1' AND T.DEPT_ID = '"+yxid+"' "
+							+ " WHERE T.STU_STATE_CODE = '1' AND T.DEPT_ID = '"+yxid+"' AND ("+startYearOfCurrntXN+"-TO_NUMBER(T.ENROLL_GRADE) < 3 )"
 							+ " GROUP BY T.NO_,T.NAME_,T.CLASS_ID,BJ.NAME_ )"
 						+ " )TT GROUP BY TT.SNO,TT.SNAME,TT.BJID,TT.BJMC "
 						+ " HAVING SYSDATE - TO_DATE(MAX(TT.LASTTIME),'YYYY-MM-DD HH24:MI:SS') > 3 ";
@@ -245,5 +248,14 @@ public class WarningScheduleService {
 		int nums = baseDao.queryForIntBase(sql);
 		if(nums > 0) return true;
 		else return false;
+	}
+	
+	//获取当前学年的开始年份
+	private String getStartYearOfCurrentXn(){
+		String yestoday = DateUtils.getYesterday();
+		String sql = "select substr(t.school_year,0,4) startyear from t_school_start t where '2017-01-04' between t.start_date and t.end_date ";
+		List<Map<String, Object>> ls = baseDao.queryListInLowerKey(sql);
+		if(ls.size() > 0) return MapUtils.getString(ls.get(0), "startyear");
+		else return yestoday.substring(0,4);
 	}
 }

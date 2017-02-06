@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<div class="ky-box p-top-10" style="padding-bottom: 0px;" ng-repeat="it in khxmlist">
+   	<div class="dis-tab">
+       	<div class="dis-t-cell wid-2">
+           	<div class="round-section">
+                <div style="margin: 15px 0px">
+                	<p class="sec-tit"> <h3>{{it.khxm}}</h3> <br>目标任务</p>
+                    <div><a class="round color-green round-70 text-14">{{it.khmb}} <span ng-if="it.val_type=='persent'">%</span></a></div>
+                </div>
+                <div  >
+                    <p class="sec-tit"><span ng-if="it.val_type=='persent'">实际平均值</span> <span ng-if="it.val_type=='number'">实际完成总值</span></p>
+                    <div><a class="round color-ju round-70 text-14">{{it.total}}  <span ng-if="it.val_type=='persent'">%</span></a></div>
+                </div>
+                <div style="margin: 15px 0px">
+                    <p class="sec-tit">完成率</p>
+                    <div><a class="round color-purple round-70 text-14">{{(it.total*100/it.khmb).toFixed(2)}}%</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="dis-t-cell wid-8">
+        	<div echart config="it.chartConfig" height="450"></div>
+        </div>
+    </div>
+</div>

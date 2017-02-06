@@ -186,7 +186,8 @@ var getvmData=function(i,k){
 					 scope.getxqlb(14);
 					 timeout();
 				 };
-				 vm.items[i][k]=option;
+				 var saveAsImageName=['学历对比','职称对比'];
+				 vm.items[i][k]=option.saveAsImage(scope.alltitle+"人员"+saveAsImageName[k]);
 			 //vm.items[i][k]=getOption(d,'','bzt');; 
 		 }else if(i==3){//趋势图
 			 var d=[];
@@ -207,7 +208,7 @@ var getvmData=function(i,k){
 					scope.getxqlb(15);
 					 timeout();
 				 };
-			 vm.items[i]=option;
+			 vm.items[i]=option.saveAsImage("各单位人数对比情况");
 			 scope.radio0id='00';
 		 }else if(i==5){//柱状图
 			 var d=[[],[],[]];
@@ -227,9 +228,9 @@ var getvmData=function(i,k){
 					 };
 					 return option;
 			 }
-			 vm.items[i]=[event(getOption(d[0],'','zzt')),
-			              	event(getOption(d[1],'','zzt')),
-							 event(getOption(d[2],'','zzt'))];
+			 vm.items[i]=[event(getOption(d[0],'','zzt')).saveAsImage("各单位管理设备数对比情况"),
+			              	event(getOption(d[1],'','zzt')).saveAsImage("各单位管理设备价值对比情况"),
+							 event(getOption(d[2],'','zzt')).saveAsImage("各单位生均投入价值对比情况")];
 			 //scope.radio0id=0;
 		 }else if(i==6){
 			  vm.items[i]=data.resultList;

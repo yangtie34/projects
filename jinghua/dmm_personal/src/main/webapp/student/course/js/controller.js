@@ -23,7 +23,8 @@ var app = angular.module('app', ['ngRoute','system'])
 	    })
 	    courseService.getWeek('0','','').then(function(data){
 	    	dialog.hideLoading();
-	    	scope.year = data.year;
+	    	scope.school_year = data.school_year;
+	    	scope.school_term = data.school_term;
 	    	scope.month = data.month;
 	    	scope.zc = data.zc;
 	    	scope.sz = data.zc-1;
@@ -34,6 +35,7 @@ var app = angular.module('app', ['ngRoute','system'])
 	    	scope.zsi = data.zsi;
 	    	scope.zw = data.zw;
 	    	scope.zl = data.zl;
+	    	scope.zr = data.zr;
 	    	scope.zyrq = data.zyrq;
 	    })
 	    scope.lastWeek = function(){
@@ -51,7 +53,8 @@ var app = angular.module('app', ['ngRoute','system'])
 			    	dialog.hideLoading();
 			    })
 			    courseService.getWeek(week,zyrq,'-').then(function(data){
-			    	scope.year = data.year;
+			    	scope.school_year = data.school_year;
+			    	scope.school_term = data.school_term;
 			    	scope.month = data.month;
 			    	scope.zc = data.zc;
 			    	scope.sz = data.zc-1;
@@ -62,6 +65,7 @@ var app = angular.module('app', ['ngRoute','system'])
 			    	scope.zsi = data.zsi;
 			    	scope.zw = data.zw;
 			    	scope.zl = data.zl;
+			    	scope.zr = data.zr;
 			    	scope.zyrq = data.zyrq;
 			    })
 	    	}
@@ -83,7 +87,8 @@ var app = angular.module('app', ['ngRoute','system'])
 			    })
 			    courseService.getWeek(week,zyrq,'+').then(function(data){
 			    	dialog.hideLoading();
-			    	scope.year = data.year;
+			    	scope.school_year = data.school_year;
+			    	scope.school_term = data.school_term;
 			    	scope.month = data.month;
 			    	scope.zc = data.zc;
 			    	scope.sz = data.zc-1;
@@ -94,6 +99,7 @@ var app = angular.module('app', ['ngRoute','system'])
 			    	scope.zsi = data.zsi;
 			    	scope.zw = data.zw;
 			    	scope.zl = data.zl;
+			    	scope.zr = data.zr;
 			    	scope.zyrq = data.zyrq;
 			    })
 	    	}

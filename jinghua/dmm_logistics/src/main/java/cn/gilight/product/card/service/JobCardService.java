@@ -123,4 +123,68 @@ public interface JobCardService {
 	 */
 	public JobResultBean updateStuPayDetil();
 	
+	/**
+	 * 初始化籍贯消费情况
+	 * @param year
+	 * @param month
+	 * @return
+	 */
+	public JobResultBean initCardOriginMonth();
+	
+	/**
+	 * 更新籍贯消费情况
+	 * @param year
+	 * @param month
+	 * @return
+	 */
+	public JobResultBean updateCardOriginMonth();
+	
+	/**
+	 * 初始化消费部门地点分时间结果表
+	 * @param year
+	 * @param month
+	 * @return
+	 */
+	public JobResultBean initCardDeptHour();
+	
+	/**
+	 * 更新消费部门地点分时间结果表
+	 * @param year
+	 * @param month
+	 * @return
+	 */
+	public JobResultBean updateCardDeptHourByMonth();
+	
+	/**
+	 * 初始化学生消费分时间结果表
+	 * @param year
+	 * @param month
+	 * @return
+	 */
+	public JobResultBean initCardStuHour();
+	
+	/**
+	 * 更新学生消费分时间结果表
+	 * @param year
+	 * @param month
+	 * @return
+	 */
+	public JobResultBean updateCardStuHourByMonth();
+	
+	/**
+	 * 初始化学生消费分消费类型结果表
+	 * @param year
+	 * @param month
+	 * @return
+	 */
+	public JobResultBean initCardStuDeal();
+	
+	/**
+	 * 更新学生消费分消费类型结果表
+	 * @param year
+	 * @param month
+	 * @return
+	 */
+	public JobResultBean updateCardStuDealByMonth();
+	
 }

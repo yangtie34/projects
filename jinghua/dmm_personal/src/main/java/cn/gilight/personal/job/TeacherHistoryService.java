@@ -225,6 +225,36 @@ public class TeacherHistoryService {
 			}
 			log.debug("=========point End : " + INFO_SOURCE + "执行完毕，共插入  " + jxhdNums +"  条数据");
 			
+/*7.资产领用信息*/
+			INFO_SOURCE = "资产领用信息(T_EQUIPMENT)";
+			delSql = "DELETE FROM T_TEA_HISTORY T WHERE T.INFO_SOURCE = '"+INFO_SOURCE+"'";
+			delnum = baseDao.delete(delSql);
+			log.warn("======== delete : 清除执教历史中的资产领用信息，共" + delnum +"条数据。 ==============");
+			List<Map<String, Object>> yearList = baseDao.queryForList("SELECT DISTINCT SUBSTR(T.MANAGER_DATE,0,4) YEAR FROM T_EQUIPMENT T");
+			int zclyNums = 0;
+			for (Map<String, Object> year : yearList) {
+				String curYear = MapUtils.getString(year, "YEAR");
+				querySql = "SELECT T.NAME_,T.MANAGER,T.MANAGER_DATE,T.MODES,C.NAME_ STATUS  FROM T_EQUIPMENT T "
+						+ "INNER JOIN T_CODE C ON T.EQUI_STATUS_CODE = C.CODE_ AND C.CODE_TYPE = 'EQUI_STATUS_CODE' WHERE T.MANAGER_DATE LIKE '"+curYear+"%'";
+				resultList = baseDao.queryForList(querySql);
+				List<TTeaHistory> hls7 = new ArrayList<TTeaHistory>();
+				for (int i = 0; i < resultList.size(); i++) {
+					Map<String, Object> it = resultList.get(i);
+					TTeaHistory h7 = new TTeaHistory();
+					h7.setYear(curYear);
+					h7.setTeaNo(MapUtils.getString(it, "MANAGER"));
+					h7.setDatetime(MapUtils.getString(it, "MANAGER_DATE"));
+					h7.setInfoSource(INFO_SOURCE);
+					String content ="领用了"+MapUtils.getString(it, "NAME_")+"（"+MapUtils.getString(it, "MODES")+"）,现状为："+ MapUtils.getString(it, "STATUS");
+					h7.setContents(content);
+					hls7.add(h7);
+				}
+				hibernate.saveAllWithAutoCommit(hls7);
+				zclyNums += resultList.size();
+			}
+			log.debug("=========point End : " + INFO_SOURCE + "执行完毕，共插入  " + zclyNums +"  条数据");
+			
+			insertNum += zclyNums;
 /* 结束执行，打印日志，返回结果 */
 			result.setIsTrue(true);
 			String info = "教职工历史记录生成结束执行，共插入  " + insertNum +"  条数据,耗时 ： " +new Double(System.currentTimeMillis() - beginTime) /1000+ " 秒 ";

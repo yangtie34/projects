@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<div modal-form config="formConfig"></div>	
+<div class="keyan-wrapper">
+	<div class="keyan-main">
+    	<div class="header">
+        	<div class="main-tit">
+            	<h4 class="main-tit-b">科技获奖成果分析</h4>
+                <h5 class="main-tit-s">根据筛选条件过滤在所选范围内的获奖成果，
+                统计获奖成果的数量和环比增量、增幅，
+                统计获奖成果的年度变化趋势和各科研单位的数量和占比情况，
+                并按照获奖成果的等级、类别、承担人角色分析获奖成果的数量和占比，
+                并以列表形式展现在所选范围内的获奖成果的详细信息。</h5>
+            </div>
+            <div class="keyan-condition">
+                <dl class="clearfix">
+                	<dt>学科门类：</dt>
+                    <dd>
+                    	<form action="" class="ky-form condition-radio">
+                            <div class="radio-box radio-inline" ng-repeat ="it in queryCondition.subject" >
+								<input type="radio" ng-model="condition.subject" ng-value="it" id="{{it}}">
+                                <label for="{{it}}"> {{it.mc}}
+								</label>
+                            </div>
+                        </form>
+                    </dd>
+                </dl>
+                <dl class="clearfix">
+                	<dt>完成人单位：</dt>
+                    <dd>
+                    	 <div cg-combo-tree source="queryCondition.dept" result="condition.dept" ></div> 
+                    </dd>
+                </dl>
+                <dl class="clearfix">
+                	<dt>统计时间：</dt>
+                    <dd>
+                    	<div self-defined-year source="queryCondition.definedYear" result='condition.definedYear'></div>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="ky-box p-top-10">
+        	<div class="dis-tab">
+            	<div class="dis-t-cell wid-2">
+                	<div class="round-section">
+                        <div class="round-item">
+                            <p class="sec-tit">{{condition.definedYear.mc}}{{condition.deptTeah.mc}}{{condition.subject.mc}}<br>获得科技获奖成果/项</p>
+                            <div><a href="" class="round color-green round-70" ng-click="queryDetail();">{{awardsAchievementNums.current}}</a></div>
+                        </div>
+                        <div class="round-item">
+                            <p class="sec-tit">较上年{{condition.definedYear.start == condition.definedYear.end ? '度' : '段'}}增长/项</p>
+                            <div><a href="" class="round color-purple round-70">{{awardsAchievementNums.growth}}</a></div>
+                        </div>
+                        <div class="round-item">
+                            <p class="sec-tit">增幅</p>
+                            <div><a href="" class="round color-purple round-70 text-22">{{awardsAchievementNums.increase}}</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dis-t-cell wid-8">
+                	<p class="section-tit tit-left-30">获奖成果变化趋势</p>
+                    <div class="img-box" echart config="changeawardschart" on-click="queryChange($params)">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ky-box">
+        	<div class="ky-box-sec">
+        		<div class="dis-tab">
+                	<div class="dis-t-cell wid-5 separate-l">
+                    	<p class="section-tit">获奖成果等级</p>
+                        <div class="img-box" echart config="levelchart" on-click="queryLevel($params)">
+                        </div>
+                    </div>
+                    <div class="dis-t-cell wid-5 border-l separate-r">
+                    	<p class="section-tit">获奖人单位分布</p>
+                        <div class="img-box" echart config="deptchart" on-click="queryDept($params)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ky-box no-bottom-border">
+        	<div class="ky-box-sec">
+        		<div class="dis-tab">
+                	<div class="dis-t-cell wid-5  separate-l">
+                    	<p class="section-tit">获奖类别</p>
+                        <div class="img-box" echart config="typechart" on-click="queryType($params)">
+                        </div>
+                    </div>
+                    <div class="dis-t-cell wid-5 border-l separate-r" part-modal show-modal="showModal1">
+                    	<p class="section-tit">获奖人承担角色</p>
+                        <form action="" class="ky-form">
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="inlineRadioOptions" value="01" id="radio-person01">
+                                <label for="radio-person01"><small>第一完成人</small></label>
+                            </div>
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="inlineRadioOptions" value="02" id="radio-person02">
+                                <label for="radio-person02"><small>署名完成人</small></label>
+                            </div>
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="inlineRadioOptions" value="qb" id="radio-person03" checked>
+                                <label for="radio-person03"><small>全部</small></label>
+                            </div>
+                        </form>
+                        <div class="img-box" echart config="peoplechart" on-click="queryPeople($params)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+		<section>
+        <div class="section-head">
+        	<span class="section-head-tit">科技获奖成果列表</span>
+            <div class="input-group ky-input pull-right">
+              <input type="text" class="form-control ky-input-control" placeholder="成果名模糊匹配">
+              <span class="input-group-btn">
+              	<i class="line"></i>
+                <button class="btn btn-default ky-btn" type="button" ng-click="searchAchievement(sparam)"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+        </div>
+        <div class="ky-box no-bottom-border"  part-modal show-modal="showModal2">
+        	<div style="text-align: center;">
+				<select class="form-inline" ng-change="selectLevel(x)" ng-model = "x">
+					<option value="">--获奖级别--</option>
+					<option ng-repeat = "co in querycode.level_code" value="{{co.code_}}">{{co.name_}}</option>
+				</select>
+			</div>
+        	<div class="ky-box-sec">
+            	<table class="table ky-no-border-table">
+                	<thead>
+                    	<tr>
+                        	<td>&nbsp;</td>
+                        	<td>获奖人单位</td>
+                            <td>获奖人</td>
+							<td>成果名称</td>
+							<td>获奖名称</td>
+							<td>获奖级别</td>
+							<td>获奖类别</td>
+							<td>获奖等级</td>
+							<td>授奖单位</td>
+							<td>授奖时间</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    	<tr ng-repeat="item in items">
+                        	<td><span class="f-order">{{item.rn}}</span></td>
+                            <td>{{item.dept_name}}</td>
+                            <td>{{item.prizewinner}}</td>
+                            <td>{{item.name_}}</td>
+                            <td>{{item.award_name}}</td>
+                            <td>{{item.awards_level}}</td>
+                            <td>{{item.awards_category}}</td>
+                            <td>{{item.awards_rank}}</td>
+                            <td>{{item.award_dept}}</td>
+                            <td>{{item.award_time}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="clearfix keyan-page has-pad-btm">
+                    <p class="page-result pull-left">共 {{page.pagecount}} 页，数据 {{page.sumcount}} 条</p>
+                     <div class="pagination ky-page pull-right" ng-show="page.sumcount &gt; page.pagesize" pagination total-items="page.sumcount" ng-model="page.curpage"
+					max-size="10" items-per-page="page.pagesize"
+					class="pull-right" boundary-links="true"></div>	
+                </div>
+            </div>
+        </div>
+        </section>
+
+    </div>
+    </div>

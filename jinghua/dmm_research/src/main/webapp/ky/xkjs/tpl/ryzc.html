@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<div class="ky-box p-top-10">
+	<table class="table table-hover ">
+		<thead>
+			<tr class="info">
+				<th>序号</th>
+				<th>学科名称</th>
+				<th>总人数</th>
+				<th>博士数</th>
+				<th>博士占比</th>
+				<th>高级职称人数</th>
+				<th>高级职称占比</th>
+				<th>硕导数</th>
+				<th>硕导占比</th>
+				<th>博导数</th>
+				<th>博导占比</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="it in ryzcsj.list">
+				<td>{{$index + 1}}</td>
+				<td>{{it.xkmc}}</td>
+				<td>{{it.zrs}}</td>
+				<td>{{it.bss}}</td>
+				<td>{{it.bss_zb}}</td>
+				<td>{{it.gjzcrs}}</td>
+				<td>{{it.gjzcrs_zb}}</td>
+				<td>{{it.sds}}</td>
+				<td>{{it.sds_zb}}</td>
+				<td>{{it.bds}}</td>
+				<td>{{it.bds_zb}}</td>
+			</tr>
+		</tbody>
+		
+		<tfoot>
+			<tr class="info">
+				<th colspan="2">汇总</th>
+				<td>{{ryzcsj.total.zrs}}</td>
+				<td>{{ryzcsj.total.bss}}</td>
+				<td>{{ryzcsj.total.bss_zb}}</td>
+				<td>{{ryzcsj.total.gjzcrs}}</td>
+				<td>{{ryzcsj.total.gjzcrs_zb}}</td>
+				<td>{{ryzcsj.total.sds}}</td>
+				<td>{{ryzcsj.total.sds_zb}}</td>
+				<td>{{ryzcsj.total.bds}}</td>
+				<td>{{ryzcsj.total.bds_zb}}</td>
+			</tr>
+		</tfoot>
+	</table>
+</div>

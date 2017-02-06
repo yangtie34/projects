@@ -44,7 +44,7 @@ public class JobBookRkeServiceImpl implements JobBookRkeService {
 					jrb.setMsg("完成同步"+startYear+"-01至"+yearMonth+"中图书馆门禁信息月报,共计"+allNum+"条数据");
 				} catch (Exception e) {
 					jrb.setIsTrue(false);
-					jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+					jrb.setMsg(e.getMessage());
 					return jrb;
 				}
 			}
@@ -70,7 +70,7 @@ public class JobBookRkeServiceImpl implements JobBookRkeService {
 					jrb.setMsg("完成同步"+startYear+"-01至"+yearMonth+"中学生出入图书馆门禁信息月报,共计"+allNum+"条数据");
 				} catch (Exception e) {
 					jrb.setIsTrue(false);
-					jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+					jrb.setMsg(e.getMessage());
 					return jrb;
 				}
 			}
@@ -89,7 +89,7 @@ public class JobBookRkeServiceImpl implements JobBookRkeService {
 					+ "（新增："+(MapUtils.getIntValue(map, "addNum")-MapUtils.getIntValue(map, "delNum"))+"条）");
 		} catch (Exception e) {
 			jrb.setIsTrue(false);
-			jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+			jrb.setMsg(e.getMessage());
 		}
 		return jrb;
 	}
@@ -105,7 +105,7 @@ public class JobBookRkeServiceImpl implements JobBookRkeService {
 					+ "（新增："+(MapUtils.getIntValue(map, "addNum")-MapUtils.getIntValue(map, "delNum"))+"条）");
 		} catch (Exception e) {
 			jrb.setIsTrue(false);
-			jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+			jrb.setMsg(e.getMessage());
 		}
 		return jrb;
 	}

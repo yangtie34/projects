@@ -123,7 +123,7 @@ var getData1=function(){
 							scope.getxqlb(i==2?15:16);
 							 timeout();
 						 };
-					 vm.items[i]=option;
+					 vm.items[i]=option.saveAsImage(i==2?"按年统计图书借阅历史趋势":"按月统计图书借阅历史趋势");
 					 
 					if(i==2) scope.radio3id='year'; 
 			 }
@@ -150,7 +150,7 @@ var getData2=function(){
 						scope.getxqlb(11);
 						 timeout();
 					 };
-				 vm.items[i]=option;
+				 vm.items[i]=option.saveAsImage(i==5?"分类型统计人均借书量":"分类型统计借书人数占比 ");
 		  }else if(i==7){//柱状图
 				 var d=[[],[],[],[]];
 				 var vtil=['NUMS','NUMRATE','USERATE','RENEWRATE'];
@@ -186,7 +186,7 @@ var getData2=function(){
 							 timeout();
 						 };
 						 option.series[0].itemStyle = { normal: {label : {show: true, position: 'inside'}}};
-					 vm.items[i]=option;
+					 vm.items[i]=option.saveAsImage("分学院分析学生借阅情况");
 				 
 			}else if(i==9){//线面图
 				 var d=[];
@@ -201,7 +201,7 @@ var getData2=function(){
 							scope.getxqlb(14);
 							 timeout();
 						 };
-					 vm.items[i]=option;
+					 vm.items[i]=option.saveAsImage("各类人群借阅书籍时段情况");
 			}else{
 			  vm.items[i]=data;
 			 }

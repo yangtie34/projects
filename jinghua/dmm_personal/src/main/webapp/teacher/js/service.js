@@ -13,6 +13,13 @@ app.service("teacherService",['httpService',function(http){
             })
         	
         },
+        submitAdvice : function(advice){
+        	return http.post({
+                url : "teacher/submitAdvice",
+                data : {advice:advice}
+            })
+        	
+        },
         queryTeacherHistoryList : function(){
         	 return http.post({
                  url : "teacher/getSelfHistoryList",

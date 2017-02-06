@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<div class="keyan-main">
+    	<div class="header">
+        	<div class="main-tit">
+            	<h4 class="main-tit-b">科研项目主持人分析</h4>
+                <h5 class="main-tit-s">根据筛选条件过滤在所选范围内的科研项目，
+                统计了这些项目的主持人的总数，并按照性别统计的数量和占比，
+                按照项目级别统计项目主持人的数量和占比，
+                并从学历、年龄、职称级别、职称、人员类别、
+                教职工来源六个角度分析科研项目主持人的组成情况。</h5>
+            </div>
+            <div class="keyan-condition">
+                <dl class="clearfix">
+                	<dt>组织机构：</dt>
+                    <dd>
+                    	 <div cg-combo-tree source="queryCondition.dept" result="condition.dept" ></div> 
+                    </dd>
+                </dl>
+                <dl class="clearfix">
+                	<dt>统计时间：</dt>
+                    <dd>
+                    <div self-defined-year source="queryCondition.definedYear" result='condition.definedYear'></div>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+        <div class="school-gk zaiji-num">
+        	<table>
+            		<tbody>
+            			<tr>
+							<td width="17.5%">
+        						<div>
+                                	<table class="table">
+                                    	<tbody>
+                                        <tr>
+                                        	<td>
+                                    			<p> {{condition.dept.mc}} <br /> 科研项目主持人 <br>
+                                    				<a ng-click="allNumClick()" class="text-green">{{totalNums}}人</a></p>
+                                    		</td>
+                                    	</tr>
+                                    	</tbody>
+                                    </table>
+                                </div>
+							</td>
+							<td class="cell"></td>
+                 			<td width="32%">
+                				<div>
+                				<table class="table zaiji-tab">
+                    				<tbody>
+                                        <tr ng-repeat="it in genderNums">
+                                            <td>{{it.name}}</td>
+                                            <td><a ng-click="genderClick(it.name)" class="text-green">{{it.value}}人</a></td>
+                                            <td class="text-gray">占比{{it.value*100/(totalNums==0?1:totalNums) | number:0}}%</td>
+                                        </tr>
+                                    </tbody>
+                    			</table>
+                				</div>
+                			</td>
+                			<td class="cell"></td>
+                			<td >
+                				<div>
+                                <table class="table  zaiji-tab">
+                                    <tbody>
+                                        <tr ng-repeat="it in typeNums">
+                                            <td>{{it.name}}</td>
+                                            <td><a class="text-green">{{it.value}}人次</a></td>
+                                            <td class="text-gray">占比{{it.value*100/(typeNumsTotal==0?1:typeNumsTotal) | number:1}}%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                				</div>
+                			</td>
+                        </tr>
+                	</tbody> 
+                </table>
+        </div>
+	<div class="ky-box">
+        	<div class="ky-box-sec">
+        		<div class="dis-tab ">
+                	<div class="dis-t-cell wid-5 separate-l">
+                    	<div echart config="config1" height="350" on-click="chart1click($params)"></div>
+                    </div>
+                    <div class="dis-t-cell wid-5 border-l separate-r">
+                    	<div echart config="config2"  height="350" on-click="chart2click($params)"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	<div class="ky-box">
+        	<div class="ky-box-sec">
+        		<div class="dis-tab ">
+                	<div class="dis-t-cell wid-5 separate-l">
+                    	<div echart config="config3" height="350" on-click="chart3click($params)"></div>
+                    </div>
+                    <div class="dis-t-cell wid-5 border-l separate-r">
+                    	<div echart config="config4"  height="350" on-click="chart4click($params)"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	<div class="ky-box">
+       	<div class="ky-box-sec">
+       		<div class="dis-tab ">
+               	<div class="dis-t-cell wid-5 separate-l">
+                   	<div echart config="config5" height="350" on-click="chart5click($params)"></div>
+                   </div>
+                   <div class="dis-t-cell wid-5 border-l separate-r">
+                   	<div echart config="config6"  height="350" on-click="chart6click($params)"></div>
+                   </div>
+               </div>
+           </div>
+    </div>
+</div>
+<div modal-form config="formConfig"></div>

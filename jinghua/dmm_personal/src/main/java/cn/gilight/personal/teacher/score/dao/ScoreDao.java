@@ -20,7 +20,7 @@ public interface ScoreDao {
 	 * @param class_id
 	 * @return
 	 */
-	public List<Map<String, Object>> getStuScore(String school_year,String term_code, String class_id,String param);
+	public List<Map<String, Object>> getStuScore(String school_year,String term_code, String class_id,String param,String paramFalg);
 	
 	/**
 	 * 获取授课教师所教教学班的成绩情况
@@ -50,6 +50,6 @@ public interface ScoreDao {
 	public List<Map<String, Object>> getStuScoreDetail(String school_year,String term_code, String stu_id);
 
 	public List<Map<String, Object>> getStuScoreJxb(String school_year,
-			String term_code, String class_id,String course_id, String param);
+			String term_code, String class_id,String course_id, String param,String paramFalg);
 	
 }

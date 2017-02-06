@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+	<div modal-form config="formConfig"></div>
+	<div part-modal show-modal="vm1.showModal" class="ky-box clearfix" style="padding-top:0px;">
+		<h4>科研成果转化奖励名单</h4>
+		<table class="table table-hover">
+			<tr>
+				<th style="text-align:center">合同编号</th>
+				<th style="text-align:center">成果名称</th>
+				<th style="text-align:center">甲方名称</th>
+				<th style="text-align:center">合同金额</th>
+				<th style="text-align:center">到账经费</th>
+				<th style="text-align:center">负责人</th>
+				<th style="text-align:center">奖励金额</th>
+				<th style="text-align:center">统计年份</th>
+			</tr>
+			<tr ng-repeat="it in vm1.items">
+				<td style="text-align:center">{{it.contract_no}}</td>
+				<td style="text-align:center">{{it.name_}}</td>
+				<td style="text-align:center">{{it.owner_}}</td>
+				<td style="text-align:center">{{it.fund_}}</td>
+				<td style="text-align:center">{{it.get_fund}}</td>
+				<td style="text-align:center"><a href="../personal/index.jsp?teaId={{it.tea_id}}">{{it.tea_name}}</a></td>
+				<td style="text-align:center">{{it.award_fund}}</td>
+				<td style="text-align:center">{{it.year_}}</td>
+			</tr>
+		</table>
+		<div class="clearfix keyan-page">
+                    <p class="page-result pull-left">共 {{vm1.pagecount}} 页，数据 {{vm1.total}} 条</p>
+                     <div class="pagination ky-page pull-right" ng-show="vm1.total &gt; vm1.size" pagination total-items="vm1.total" ng-model="vm1.index"
+					max-size="10" items-per-page="vm1.size"
+					class="pull-right" boundary-links="true"></div>	
+                </div>
+	</div>
+	<div class="ky-box no-bottom">
+      	<div class="ky-box-sec">
+      		<p class="section-tit">科研成果转化奖单位分布</p>
+              <div class="img-box" echart config="deptchart" on-click="queryDept($params)">
+              
+              </div>
+          </div>
+      </div>
+	

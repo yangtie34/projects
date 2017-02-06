@@ -161,11 +161,12 @@ var getData1=function(){
 								 scope.getxqlb(17);
 								 timeout();
 							 }; 
+							 option.toolbox.orient="horizontal";
 							 return option;
 					 }
-					
+					 var saveAsImageName=['设备数量','设备增长量'];
 					for(var j=0;j<d.length;j++) {
-						vm.items[i].push(event(getOption(d[j],'','zxt')));
+						vm.items[i].push(event(getOption(d[j],'','zxt')).saveAsImage("仪器设备年度"+saveAsImageName[j]+"变化趋势"));
 					}
 					scope.radio1id=0;
 			 }
@@ -197,7 +198,8 @@ var getData2=function(){
 					 scope.getxqlb(9);
 					 timeout();
 				 };
-				 vm.items[1][i]=option;
+				 var saveAsImageName=['设备类型对比','经费组成对比','设备单价对比'];
+				 vm.items[1][i]=option.saveAsImage(scope.titleFB+saveAsImageName[i]);
 				// vm.items[1][i]=getOption(d,'','bzt'); 
 				 mask.hideLoading(); 
 		  });

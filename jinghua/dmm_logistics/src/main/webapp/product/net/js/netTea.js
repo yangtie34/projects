@@ -219,7 +219,8 @@ var getDeptData=function(method){
 						 d.flow.push({field:keyData[j].TYPENAME,fieldCode:keyData[j].TYPECODE,value:keyData[j].ALL_FLOW,name:'流量(MB)'});  
 					 }
 					 vm[type][key]=vm[type][key]||{};
-					 vm[type][key].flx={time:getOption(d.time,'','bztwz'),flow:getOption(d.flow,'','bztwz')};
+					 vm[type][key].flx={time:getOption(d.time,'','bztwz').saveAsImage(scope.ico_title[type][key].name+"分类型上网时长"),
+							 				flow:getOption(d.flow,'','bztwz').saveAsImage(scope.ico_title[type][key].name+"分类型上网流量")};
 				 }
 			 }else if(i==2){
 				 for(var key in mapData){
@@ -231,7 +232,7 @@ var getDeptData=function(method){
 						 d.push({field:keyData[j].HOUR_,fieldCode:keyData[j].HOUR_,value:keyData[j].OUT_COUNTS,name:'离线(次)'}); 
 					 }
 					 vm[type][key]=vm[type][key]||{};
-					 var option=getOption(d,'','xqs');
+					 var option=getOption(d,'','xqs').saveAsImage(scope.ico_title[type][key].name+"分时段人数情况");
 					 option.legend={
 				        data:['在线(人)','上线(次)','离线(次)']
 				    }

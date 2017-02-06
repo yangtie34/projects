@@ -170,26 +170,30 @@ public class CardTest extends SpringTest{
 		
 	}
 	
-	//@Test
+	@Test
 	public void testInit(){
 		JobResultBean jrb=null;
-		jrb=jobCardService.initCardPeople();System.out.println(jrb.getMsg());
-		jrb=jobCardService.initCardUsed();System.out.println(jrb.getMsg());
+	//	jrb=jobCardService.initCardDeptHour();System.out.println(jrb.getMsg());
+	//	jrb=jobCardService.initCardStuHour();System.out.println(jrb.getMsg());
 		//jrb=jobCardService.updateStuPay();
 
-		jrb=jobCardService.initRecharge();System.out.println(jrb.getMsg());
-		jrb=jobCardService.initStuEat();System.out.println(jrb.getMsg());
+	//	jrb=jobCardService.initCardStuDeal();System.out.println(jrb.getMsg());
+		/*jrb=jobCardService.initStuEat();System.out.println(jrb.getMsg());
 		jrb=jobCardService.initStuPay();System.out.println(jrb.getMsg());
 		jrb=jobCardService.initStuPayDetil();System.out.println(jrb.getMsg());
-		jrb=jobCardService.initCardHot();System.out.println(jrb.getMsg());
+		jrb=jobCardService.initCardHot();System.out.println(jrb.getMsg());*/
 		
 		//jrb=jobCardService.updateStuPay();
+		
+		jrb=jobCardService.updateCardTrend();
 		System.out.println(jrb.getMsg());
+		
+	//	System.out.println(jrb.getMsg());
 	}
 	
 	@Resource
 	private JobCardDao jobCardDao;
-	@Test
+//	@Test
 	public void testSHIJIE(){
 		Map<String, Integer> map;
 		JobResultBean jrb=new JobResultBean();

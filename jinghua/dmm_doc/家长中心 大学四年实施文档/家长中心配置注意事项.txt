@@ -1,0 +1,5 @@
+1 公众号管理平台上配置菜单地址为http://域名/dmm/wechat/parent/true/main，其中域名后最好不要加端口号，端口默认用80。
+2 需要在公众号管理平台中的网页授权获得用户基本信息中设置家长中心的域名，即回调页面域名。
+3 在项目的dmm\WEB-INF\classes\wechat文件夹中的配置文件wechat.properties中需要配置公众号的APP_SECRET（从公众号管理平台的公众号基本信息中获取）。
+4 需要在dmm\WEB-INF\jsp\wechat\parent文件夹中的main.jsp,band.jsp,pwd.jsp中修改工公众号的APPID（从公众号管理平台的公众号基本信息中获取）。
+

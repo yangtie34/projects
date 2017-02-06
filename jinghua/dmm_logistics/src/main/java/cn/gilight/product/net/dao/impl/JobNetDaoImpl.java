@@ -343,73 +343,87 @@ public class JobNetDaoImpl implements JobNetDao {
 //				"       nr.on_type ,                                                    "+
 //				"       ntcode.name_                                                    ";
 		String sql =" insert into tl_net_tea_month                                      "+
-				"select to_date('"+yearMonth+"', 'yyyy-mm') year_month,						"+
-				"       TH.HOUR_,                                                       "+
-				"       count(case when substr(t.ON_time, 12, 2) = TH.HOUR_ then        "+
-				"                '1' else null end) ON_COUNTS,                          "+
-				"       count(case when substr(t.off_time, 12, 2) = TH.HOUR_ then       "+
-				"                '1' else null end) OUT_COUNTS,                         "+
-				"       nvl(count(distinct t.net_id), 0) IN_COUNTS,                     "+
-				"       nvl(sum(case when substr(t.off_time, 12, 2) = TH.HOUR_ then     "+
-				"                t.use_time else  null end),0) use_time,                "+
-				"       nvl(sum(case when substr(t.off_time, 12, 2) = TH.HOUR_ then     "+
-				"            t.use_flow else null end),0) use_flow,                     "+
-				"       nvl(sum(case when substr(t.off_time, 12, 2) = TH.HOUR_ then     "+
-				"       t.use_money  else null end),0) use_money,                       "+
-				"       s.tea_no,                                                       "+
-				"       s.name_ tea_name,                                               "+
-				"       s.dept_id,                                                      "+
-				"       cd.name_ dept_name,                                             "+
-				"       s.sex_code,                                                     "+
-				"       tc.name_ sex_name,                                              "+
-				"       s.edu_id,                                                       "+
-				"       ce.name_ edu_name,                                              "+
-				"       tc2.code_ nation_code,                                          "+
-				"       tc2.name_ nation_name,                                          "+
-				"       t.on_type ON_TYPE_CODE,                                         "+
-				"       ntcode.name_ ON_TYPE_NAME                                       "+
-				"  from t_net_record t                                                  "+
-				"  left join t_net_user c                                               "+
-				"    on t.net_id = c.id                                                 "+
-				"  left join t_tea s                                                    "+
-				"    on s.tea_no = c.people_id                                          "+
-				"  left join t_code_dept cd                                             "+
-				"    on s.dept_id = cd.id                                               "+
-				"  left join t_code_education ce                                        "+
-				"    on s.edu_id = ce.id                                                "+
-				"  left join t_code tc                                                  "+
-				"    on s.sex_code = tc.code_                                           "+
-				"   and tc.code_type = 'SEX_CODE'                                       "+
-				"  left join t_code tc2                                                 "+
-				"    on tc2.code_ = s.nation_code                                       "+
-				"   and tc2.code_type = 'NATION_CODE'                                   "+
-				"  left join t_code ntcode                                              "+
-				"    on t.on_type = ntcode.code_                                        "+
-				"   and ntcode.code_type = 'NET_TYPE_CODE'                              "+
-				"  LEFT JOIN T_HOUR TH                                                  "+
-				"    ON ((substr(t.on_time, 12, 2) <= TH.HOUR_ AND                      "+
-				"       substr(t.off_time, 12, 2) >= TH.HOUR_ AND                       "+
-				"       substr(t.on_time, 9, 2) = substr(t.oFF_time, 9, 2)) OR          "+
-				"       (((substr(t.on_time, 12, 2) <= TH.HOUR_ AND TH.HOUR_ <= 23) OR  "+
-				"       (00 <= TH.HOUR_ AND TH.HOUR_ <= substr(t.off_time, 12, 2))) AND "+
-				"       (substr(t.oFF_time, 9, 2) - substr(t.on_time, 9, 2)) = 1) OR    "+
-				"       (00 <= TH.HOUR_ AND TH.HOUR_ >= 23 AND                          "+
-				"       (substr(t.oFF_time, 9, 2) - substr(t.on_time, 9, 2)) > 1))      "+
-				" where substr(t.on_time, 0, 7) = '"+yearMonth+"' and s.tea_no is not null    "+
-				" group by TH.HOUR_,                                                    "+
-				"          s.tea_no,                                                    "+
-				"          s.name_,                                                     "+
-				"          s.sex_code,                                                  "+
-				"          tc.name_,                                                    "+
-				"          s.dept_id,                                                   "+
-				"          cd.name_,                                                    "+
-				"          s.edu_id,                                                    "+
-				"          ce.name_,                                                    "+
-				"          tc2.code_,                                                   "+
-				"          tc2.name_,                                                   "+
-				"          t.on_type,                                                   "+
-				"          ntcode.name_                                                 "+
-				"                                                                       ";
+				"select to_date('"+yearMonth+"', 'yyyy-mm') year_month,TH.HOUR_,               "+
+				"       count(case when substr(t.ON_time, 12, 2) = TH.HOUR_ then         "+
+				"                '1' else null end) ON_COUNTS,                           "+
+				"       count(case when substr(t.off_time, 12, 2) = TH.HOUR_ then        "+
+				"                '1' else null end) OUT_COUNTS,                          "+
+				"       nvl(count(distinct t.net_id), 0) IN_COUNTS,                      "+
+				"       nvl(sum(case when substr(t.off_time, 12, 2) = TH.HOUR_ then      "+
+				"                t.use_time else  null end),0) use_time,                 "+
+				"       nvl(sum(case when substr(t.off_time, 12, 2) = TH.HOUR_ then      "+
+				"            t.use_flow else null end),0) use_flow,                      "+
+				"       nvl(sum(case when substr(t.off_time, 12, 2) = TH.HOUR_ then      "+
+				"       t.use_money  else null end),0) use_money,                        "+
+				"       s.tea_no,                                                        "+
+				"       s.name_,                                                         "+
+				"       s.dept_id,                                                       "+
+				"       cd.name_ dept_name,                                              "+
+				"       s.sex_code,                                                      "+
+				"       tc.name_ sex_name,                                               "+
+				"       s.edu_id,                                                        "+
+				"       ce.name_ edu_name,                                               "+
+				"       s.tea_status_code status_code,                                   "+
+				"       tc2.name_ status_name,                                           "+
+				"       S.BZLB_CODE,                                                     "+
+				"       TC3.NAME_ BZLB_NAME,                                             "+
+				"       zw.zyjszw_jb_code zw_jb_code,                                    "+
+				"       tc4.name_ zw_jb_name,                                            "+
+				"       t.on_type ON_TYPE_CODE,                                          "+
+				"       ntcode.name_ ON_TYPE_NAME                                        "+
+				"  from t_net_record t                                                   "+
+				"  left join t_net_user c                                                "+
+				"    on t.net_id = c.id                                                  "+
+				"  left join t_tea s                                                     "+
+				"    on s.tea_no = c.people_id                                           "+
+				"  left join t_code_dept cd                                              "+
+				"    on s.dept_id = cd.id                                                "+
+				"  left join t_code_education ce                                         "+
+				"    on s.edu_id = ce.id                                                 "+
+				"  left join t_code tc                                                   "+
+				"    on s.sex_code = tc.code_                                            "+
+				"   and tc.code_type = 'SEX_CODE'                                        "+
+				"  left join t_code tc2                                                  "+
+				"    on tc2.code_ = s.tea_status_code                                    "+
+				"   and tc2.code_type = 'TEA_STATUS_CODE'                                "+
+				"  left join t_code tc3                                                  "+
+				"    on tc3.code_ = s.bzlb_code                                          "+
+				"   and tc3.code_type = 'BZLB_CODE'                                      "+
+				"  left join T_CODE_ZYJSZW zw                                            "+
+				"  on s.zyjszw_id =zw.id                                                 "+
+				"  left join t_code tc4                                                  "+
+				"  on zw.zyjszw_jb_code=tc4.code_                                        "+
+				"  and tc4.code_type='ZYJSZW_JB_CODE'                                    "+
+				"  left join t_code ntcode                                               "+
+				"    on t.on_type = ntcode.code_                                         "+
+				"   and ntcode.code_type = 'NET_TYPE_CODE'                               "+
+				"  LEFT JOIN T_HOUR TH                                                   "+
+				"    ON ((substr(t.on_time, 12, 2) <= TH.HOUR_ AND                       "+
+				"       substr(t.off_time, 12, 2) >= TH.HOUR_ AND                        "+
+				"       substr(t.on_time, 9, 2) = substr(t.oFF_time, 9, 2)) OR           "+
+				"       (((substr(t.on_time, 12, 2) <= TH.HOUR_ AND TH.HOUR_ <= 23) OR   "+
+				"       (00 <= TH.HOUR_ AND TH.HOUR_ <= substr(t.off_time, 12, 2))) AND  "+
+				"       (substr(t.oFF_time, 9, 2) - substr(t.on_time, 9, 2)) = 1) OR     "+
+				"       (00 <= TH.HOUR_ AND TH.HOUR_ >= 23 AND                           "+
+				"       (substr(t.oFF_time, 9, 2) - substr(t.on_time, 9, 2)) > 1))       "+
+				" where substr(t.on_time, 0, 7) = '"+yearMonth+"' and s.tea_no is not null     "+
+				" group by TH.HOUR_,                                                     "+
+				"          s.tea_no,                                                     "+
+				"          s.name_,                                                      "+
+				"          s.sex_code,                                                   "+
+				"          tc.name_,                                                     "+
+				"          s.dept_id,                                                    "+
+				"          cd.name_,                                                     "+
+				"          s.edu_id,                                                     "+
+				"          ce.name_,                                                     "+
+				"          s.tea_status_code,                                            "+
+				"          tc2.name_,                                                    "+
+				"          S.BZLB_CODE,                                                  "+
+				"          TC3.NAME_,                                                    "+
+				"          zw.zyjszw_jb_code,                                            "+
+				"          tc4.name_,                                                    "+
+				"          t.on_type,                                                    "+
+				"          ntcode.name_                                                  ";
 		int addNum = baseDao.getJdbcTemplate().update(sql);
 		map.put("addNum", addNum);
 		return map;

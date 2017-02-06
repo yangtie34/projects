@@ -1,0 +1,1 @@
+webpackJsonp([4],[function(o,n){var e=angular.module("app",["system"]);e.controller("controller",["$scope",function(o){o.person={name:"this is student page"},console.log(14)}])}]);

@@ -23,7 +23,7 @@ public class DiningRoomDaoImpl implements DiningRoomDao{
 				"round(sum(t.pay_money)/round(to_date('"+endDate+"','yyyy-mm')-to_date('"+startDate+"','yyyy-mm'),0 ),2) day_money,    "+
 				"round(sum(t.pay_count)/round(to_date('"+endDate+"','yyyy-mm')-to_date('"+startDate+"','yyyy-mm'),0 ),0) day_count,    "+
 				"round(sum(t.pay_money)/sum(t.pay_count),2) one_money "+
-				"from tl_card_pay_stu_month t where 1=1 "+tj+
+				"from tl_card_dept_hour t where 1=1 "+tj+
 				"and t.card_dept_pname is not null "+
 				//"and t.card_deal_id='"+Code.getKey("card.ct")+"'    "+
 				"and t.card_dept_type LIKE '%RES%' "+
@@ -40,7 +40,7 @@ public class DiningRoomDaoImpl implements DiningRoomDao{
 				"round(sum(t.pay_money)/round(to_date('"+endDate+"','yyyy-mm')-to_date('"+startDate+"','yyyy-mm'),0 ),2) day_money,    "+
 				"round(sum(t.pay_count)/round(to_date('"+endDate+"','yyyy-mm')-to_date('"+startDate+"','yyyy-mm'),0 ),0) day_count,    "+
 				"round(sum(t.pay_money)/sum(t.pay_count),2) one_money "+
-				"from tl_card_pay_stu_month t where 1=1 "+tj+
+				"from tl_card_dept_hour t where 1=1 "+tj+
 				"and t.card_dept_name is not null "+
 				//"and t.card_deal_id='"+Code.getKey("card.ct")+"'    "+
 				"and t.card_dept_type LIKE '%RES%' "+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<div self-defined-year source="source" result="result">
+</div>
+<div>
+    <a class="btn btn-danger" href="#!/test2">test2</a>
+    <button class="btn btn-info" ng-click="toggle()">toggle table</button>
+    <table class="table" part-modal show-modal="showModel">
+        <thead><th>id</th><th>name</th></thead>
+        <tbody>
+        <tr ng-repeat="stu in stus">
+            <td>{{stu.id}}</td>
+            <td>{{stu.name}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div echart config="pie" on-click="clickPie($params)"></div>
+<div class="cent">
+    右：
+    <div tool-tip placement="right" class="text-warning">
+        <span>这是需要提示的内容</span>
+    </div><br>
+
+    左：
+    <div tool-tip placement="left" class="text-primary">
+        <span>这是需要提示的内容</span>
+    </div><br>
+
+    上：
+    <div tool-tip placement="top" class="text-danger">
+        <span>这是需要提示的内容</span>
+    </div><br>
+
+    下：
+    <div tool-tip placement="bottom" class="text-info">
+        <span>这是需要提示的内容</span>
+        <img alt="" src="../../src/home/css/bak.png" width="100%">
+    </div>
+    <br>
+    未设置：
+    <div tool-tip >
+        <span>这是需要提示的内容</span>
+    </div>
+ </div>

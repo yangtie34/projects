@@ -179,7 +179,7 @@ var getDeptData=function(method){
 						 d.push({field:keyData[j].HOUR_,fieldCode:keyData[j].HOUR_,value:keyData[j].OUT_COUNTS,name:'离线(人)'}); 
 					 }
 					 vm[key]=vm[key]||{};
-					 var option=getOption(d,'','xqs');
+					 var option=getOption(d,'','xqs').saveAsImage(mapData[key].NAME+"分时段情况");
 					 option.legend={
 				        data:['在线(人)','上线(人)','离线(人)']
 				    }

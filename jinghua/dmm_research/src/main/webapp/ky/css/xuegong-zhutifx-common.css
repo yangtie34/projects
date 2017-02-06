@@ -1,0 +1,1891 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	font-family:"微软雅黑"
+	}
+
+.xuegong-zhuti-wrapper a:hover{
+	text-decoration:none;
+	}
+
+
+
+
+.xuegong-zhuti-wrapper{
+	width:100%;
+	position:relative;
+	}
+.xuegong-zhuti-nav{
+	position:relative;
+	width:279px;
+	left:0;
+	top:0;
+	z-index:3;
+	background:#272e41;
+	}
+.xuegong-zhuti-nav .xuegong-zhuti-nav-user{
+	padding:13px 48px 23px 41px;
+	border-bottom:1px solid #5e7893;
+	}
+.xuegong-zhuti-nav .xuegong-zhuti-nav-user>img{
+	border:3px solid #fff;
+	}
+.xuegong-zhuti-nav .xuegong-zhuti-nav-user a{
+	margin-top:5px;
+	color:#43e7be;
+	background:url(../images/off.png) no-repeat left center;
+	padding-left:20px;
+	font-size:12px;
+	}
+.xuegong-zhuti-nav ul{
+	margin-bottom:0;
+	margin-left:0;
+	padding-left:0;
+	}
+.xuegong-zhuti-nav ul li{
+	line-height:51px;
+	background-color:#27354c;
+	border-bottom:1px solid #5e7893;
+	font-size:14px;
+	}
+.xuegong-zhuti-nav ul li a{
+	display:block;
+	color:#fff;
+	padding-left:34px;
+	border-right:12px solid transparent;
+	}
+.xuegong-zhuti-nav ul li span{
+	width:46px;
+	height:21px;
+	display:inline-block;
+	vertical-align:middle;
+	margin-top:-1px;
+	background:url(../images/nav-icon.png) no-repeat 0 -1px;
+	}
+.xuegong-zhuti-nav ul li span.nav-icon-02{
+	background-position:0 -23px;
+	}
+.xuegong-zhuti-nav ul li span.nav-icon-03{
+	background-position:0 -44px;
+	}
+.xuegong-zhuti-nav ul li span.nav-icon-04{
+	background-position:0 -67px;
+	}
+.xuegong-zhuti-nav ul li span.nav-icon-05{
+	background-position:0 -91px;
+	}
+.xuegong-zhuti-nav ul li span.nav-icon-06{
+	background-position:0 -112px;
+	}
+.xuegong-zhuti-nav ul li span.nav-icon-07{
+	background-position:0 -139px;
+	}
+.xuegong-zhuti-nav ul li span.nav-icon-08{
+	background-position:0 -164px;
+	}
+.xuegong-zhuti-nav ul li span.nav-icon-09{
+	background-position:0 -190px;
+	}
+.xuegong-zhuti-nav ul li span.nav-icon-10{
+	background-position:0 -217px;
+	}
+.xuegong-zhuti-nav ul li span.nav-icon-11{
+	background-position:0 -241px;
+	}
+.xuegong-zhuti-nav ul li span.nav-icon-12{
+	background-position:0 -265px;
+	}
+.xuegong-zhuti-nav ul li span.nav-icon-13{
+	background-position:0 -292px;
+	}
+.xuegong-zhuti-nav ul li span.nav-icon-14{
+	background-position:0 -320px;
+	}
+.xuegong-zhuti-nav ul li span.nav-icon-15{
+	background-position:0 -348px;
+	}
+.xuegong-zhuti-nav ul li span.nav-icon-16{
+	background-position:0 -376px;
+	}
+.xuegong-zhuti-nav ul li span.nav-icon-17{
+	background:url(../images/nav-icon-add.png) no-repeat 0 0;
+	height:24px;
+	}
+.xuegong-zhuti-nav ul li.active a{
+	background-color:#36445f;
+	border-right:12px solid #37b4fb;
+	}
+.xuegong-zhuti-nav ul li a:hover{
+	background-color:#36445f;
+	border-right:12px solid #37b4fb;
+	}
+
+/****************************************************以上为导航样式*******************************************/
+
+.xuegong-zhuti-content{
+	position:absolute;
+	width:100%;
+	background:#262d3f;
+	float:left;
+	display:block;
+	padding-left:279px;
+	left:0;
+	top:0;
+	z-index:2;
+	}
+
+.xuegong-zhuti-content .text-pink{
+	color:#f47766;
+	}
+.xuegong-zhuti-content a.text-pink:hover{
+	color:#f00;
+	}
+.xuegong-zhuti-content .text-blue{
+	color:#37b4fb;
+	}
+.xuegong-zhuti-content a.text-blue:hover{
+	color:#71cafc;
+	}
+.xuegong-zhuti-content .text-green{
+	color:#3ec3a6;
+	}
+.xuegong-zhuti-content a.text-green:hover{
+	color:#2DDEE1;
+	}
+.xuegong-zhuti-content .text-purple{
+	color:#bba9e0;
+	}
+.xuegong-zhuti-content a.text-purple:hover{
+	color:#916FD8;
+	}
+
+.xuegong-zhuti-content .text-black{
+	color:#474747;
+	}
+.xuegong-zhuti-content .text-gray{
+	color:#8c8c8c;
+	}
+.xuegong-zhuti-content .text-blue-purple{
+	color:#6994cd;
+	}
+.xuegong-zhuti-content a.btn-blue:hover{
+	background:#37b4fb;
+	color:#fff;
+	}
+.xuegong-zhuti-content .text-greener{
+	color:#76ef8a;
+	}
+
+.xuegong-zhuti-content .xuegong-zhuti-content-main{
+	min-height:1000px;
+	}
+.xuegong-zhuti-content>header{
+	background:#2f3341;
+	border-left:1px solid #5e7893;
+	padding-top:10px
+	}
+.xuegong-zhuti-content-main>div,
+.xuegong-zhuti-content-main>header,
+.xuegong-zhuti-content-main>section{
+	margin-bottom:12px;
+	}
+.xuegong-zhuti-content-main .no-bottom{
+	margin-bottom:0;
+	}
+.xuegong-zhuti-content>header>div>a{
+	display:inline-block;
+	width:82px;
+	color:#fff;
+	font-size:12px;
+	text-align:center;
+	}
+.xuegong-zhuti-content>header>div>a span{
+	width:32px;
+	height:32px;
+	display:inline-block;
+	background:url(../images/xuegong-zhuti-content-header-icon.png) no-repeat 0 0;
+	}
+.xuegong-zhuti-content>header>div>a.tansuo span{
+	background-position:-32px 0;
+	}
+.xuegong-zhuti-content>header>div>a:last-child span{
+	background-position:-64px 0;
+	}
+.xuegong-zhuti-content>header>div i{
+	height:38px;
+	margin:6px 0;
+	vertical-align:top;
+	display:inline-block;
+	border-left:1px solid #aaa;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main{
+	background:#eee;
+	padding:10px 10px 15px 10px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main>header{
+	border:1px solid #d2d2d2;
+	background:#fff;
+	font-size:14px;
+	margin-bottom:12px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main>header>div.xueyuan-head{
+	height:57px;
+	line-height:57px;
+	vertical-align:middle;
+	padding:0 15px;
+	border-bottom:1px solid #d2d2d2;
+	font-weight:bold;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main>header>div.xueyuan-head span{
+	margin:0 8px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main>header>div.xueyuan-head a.down{
+	color:#b9b9b9;
+	font-size:24px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main>header>div.xueyuan-head.no-bottom-border{
+	border-bottom:none;
+	}	
+	
+	
+.xuegong-zhuti-content .xuegong-zhuti-content-main .xuegong-zhuti-content-main-tit{
+	border:1px solid #d2d2d2;
+	background:#fff;
+	padding:10px 15px;
+	font-size:14px;
+	}
+.xuegong-zhuti-dropdown-box{
+	display:inline-block;
+	}
+.xuegong-zhuti-dropdown-box .btn-group>a{
+	color:#cbcbcb;
+	}
+.xuegong-zhuti-dropdown-box .btn-group .btn.btn-noradius{
+	border-radius:0;
+	line-height:35px;
+	padding:0 6px;
+	border:1px solid #d2d2d2;
+	}
+.xuegong-zhuti-dropdown-box .btn-group .btn.btn-noradius.btn-shadow,
+.xuegong-zhuti-content .xuegong-zhuti-content-main .attendance-warning .form-control{
+	box-shadow:0 5px 5px #f4f4f4 inset;
+	-moz-box-shadow:0 5px 5px #f4f4f4 inset;
+	-webkit-box-shadow:0 5px 5px #f4f4f4 inset;
+	}
+.xuegong-zhuti-dropdown-box .btn-group .btn.btn-noradius.btn-shadow{
+	text-align:left;
+	}
+.xuegong-zhuti-dropdown-box .btn-group .btn.btn-noradius.dropdown-toggle,
+.xuegong-zhuti-content .xuegong-zhuti-content-main .attendance-warning .input-group-addon{
+	background:#f6f6f6;
+	width:35px;
+	}
+.xuegong-zhuti-dropdown-box .btn-group .btn.btn-noradius.btn-default{
+	font-size:14px;
+	color:#cbcbcb;
+	}
+.xuegong-zhuti-dropdown-box .btn-group .caret.carett{
+	background:#f4f4f4;
+	border-top:8px solid #929292;
+	border-right:6px solid transparent;
+	border-left:6px solid transparent;
+	margin:0;
+	}
+.xuegong-zhuti-dropdown-box .btn-group .dropdown-menu{
+	line-height:30px;
+	}
+.xuegong-zhuti-content-main-tit p{
+	display:inline-block;
+	line-height:37px;
+	margin-bottom:0;
+	vertical-align:middle;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .xuegong-zhuti-content-main-tit .question-area p{
+	line-height:22px;
+	}
+.xuegong-zhuti-content-main-tit .p-marg-left{
+	margin-left:23px;
+	}
+.xuegong-zhuti-content-main-tit>p span a.text-pink{
+	margin:0 3px;
+	}
+.xuegong-zhuti-content-main-tit span.question-img{
+	width:21px;
+	height:22px;
+	display:block;
+	background:url(../images/content-small-icon.png) no-repeat 0 0;
+	margin-top:8px;
+	}
+
+.xuegong-zhuti-content-main-tab{
+	border:1px solid #d2d2d2;
+	margin-top:-1px;
+	background:#fff;
+	padding:15px;
+	}
+table.xuegong-zhuti-table{
+	text-align:center;
+	border-radius:6px;
+	border-collapse:separate;
+	}
+
+.xuegong-zhuti-table>thead>tr>td{
+	font-weight:bold;
+	}
+.xuegong-zhuti-table.dixiaofei-table>thead>tr>td,
+.xuegong-zhuti-table.tuition-warning-tab>thead>tr>td{
+	width:14%;
+	}
+.xuegong-zhuti-table>thead>tr>td,
+.xuegong-zhuti-table>tbody>tr>td{
+	border:0;
+	border-bottom:1px solid #d2d2d2;
+	border-right:1px solid #d2d2d2;
+	}
+.xuegong-zhuti-table.xuegong-zhuti-table.dixiaofei-table>thead>tr>td,
+.xuegong-zhuti-table.xuegong-zhuti-table.dixiaofei-table>tbody>tr>td{
+	padding:17px 0;
+	vertical-align:middle;
+	}
+.xuegong-zhuti-table>thead>tr>td:last-child,
+.xuegong-zhuti-table>tbody>tr>td:last-child{
+	border-right:0;
+	}
+.xuegong-zhuti-table>tbody>tr:last-child>td{
+	border-bottom:0;
+	}
+.xuegong-zhuti-content table tr td div.caret-icon{
+	display:inline-block;
+	line-height:0;
+	vertical-align:top;
+	}
+.xuegong-zhuti-content table.dixiaofei-table div.caret-icon,
+.xuegong-zhuti-table.tuition-warning-tab div.caret-icon{
+	margin-top:-1px;
+	margin-left:8px;
+	}
+.xuegong-zhuti-content table tr td div.caret-icon p{
+	margin:0;
+	height:8px;
+	}
+.xuegong-zhuti-table i.fa-send,
+.xuegong-zhuti-table i.fa-upload,
+.xuegong-zhuti-table i.fa-sign-out{
+	font-size:24px;
+	vertical-align:bottom;
+	}
+.xuegong-zhuti-table i.fa-send,
+.xuegong-zhuti-table i.fa-upload{
+	margin-right:10px;
+	}
+.xuegong-zhuti-table>tbody img{
+	margin-right:8px;
+	}
+.xuegong-zhuti-table i.fa-sign-out{
+	margin-right:8px;
+	}
+.xuegong-zhuti-table+p{
+	text-align:center;
+	margin-bottom:0;
+	}
+.xuegong-zhuti-table+p a span{
+	line-height:16px;
+	display:inline-block;
+	vertical-align:middle;
+	font-size:12px;
+	}	
+.xuegong-zhuti-table+p a i.fa-angle-down{
+	font-size:22px;
+	display:inline-block;
+	margin-left:4px;
+	vertical-align:middle;
+	}
+div.xuegong-zhuti-content-main-tit-alone p{
+	margin-left:0;
+	}
+div.xuegong-zhuti-content-main-tit-alone .xuegong-zhuti-dropdown-box{
+	margin:0 20px;
+	}
+div.btn-basic{
+	display:inline-block;
+	}
+div.btn-basic a{
+	min-width:60px;
+	text-align:center;
+	padding:8px 10px;
+	border:1px solid #48bdff;
+	border-radius:8px;
+	color:#474747;
+	display:inline-block;
+	vertical-align:middle;
+	margin-right:10px;
+	}
+div.btn-basic a.on{
+	background:#48bdff;
+	color:#fff;
+	}
+div.di-xiaofei-btn a{
+	margin-right:20px;
+	}	
+.xuegong-neirong{
+	border:1px solid #d2d2d2;
+	padding:0 15px;
+	background:#fff;
+	}
+.xuegong-neirong .xuegong-dixiaofei-xs,	
+.xuegong-neirong .xuegong-dixiaofei{
+	padding:15px 0;
+	border-bottom:1px solid #d2d2d2;
+	}
+.xuegong-neirong .xuegong-dixiaofei .xuegong-dixiaofei-fenbu{
+	border-right:1px dashed #d3d3d3;
+	width:40%;
+	padding:0 15px;
+	}
+.xuegong-neirong .xuegong-dixiaofei .xuegong-dixiaofei-xuesheng-fenbu{
+	width:60%;
+	padding:0 15px;
+	}
+.xuegong-neirong .img-box{
+	padding-top:25px;
+	}
+.xuegong-neirong .img-box>div{
+	width:50%;
+	}
+.xuegong-zhuti-content span.time-img{
+	width:23px;
+	height:22px;
+	display:block;
+	background:url(../images/content-small-icon.png) no-repeat left -23px;
+	}
+.xuegong-neirong .dixiaofei-xs-con{
+	padding:0 15px;
+	}
+.xuegong-neirong .dixiaofei-xs-con .img-box{
+	padding-top:10px;
+	}
+.xuegong-neirong .dixiaofei-xs-con p{
+	text-align:center;
+	margin-top:23px;
+	}
+.xuegong-neirong .xuegong-bottom-section{
+	padding-top:15px;
+	padding-bottom:35px;
+	}
+.xuegong-neirong .xuegong-bottom-section .img-box{
+	margin-top:35px;
+	}
+/***************************************************************************以上低消费分析、高消费分析样式***********************************************************/
+
+.xuegong-zhuti-content .xuegong-zhuti-content-main>header>div.xueyuan-section{
+	padding:10px 15px 0 15px;
+	}
+ .xuegong-zhuti-content-main>header>div.xueyuan-section  p{
+	 display:inline-block;
+	 margin-right:20px;
+	 margin-bottom:0;
+	 }
+.xuegong-zhuti-content-main>header>div.xueyuan-section  p.widthh{
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main>header>div.xueyuan-section  p a{
+	display:inline-block;
+	line-height:32px;
+	min-width:98px;
+	border:1px solid #48bdff;
+	text-align:center;
+	padding:0 5px;
+	color:#474747;
+	border-radius:5px;
+	margin-bottom:10px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main>header>div.xueyuan-section p.widthh a{
+	min-width:175px;
+	}
+.xuegong-zhuti-content-main>header>div.xueyuan-section  p a.on{
+	background:#48bdff;
+	color:#fff;
+	}
+.xuegong-zhuti-content-main>header>div.xueyuan-section  p a:hover{
+	background:#5ac1fb;
+	color:#fff;
+	}
+
+.xuegong-zhuti-content .zaiji-num>div a{
+	font-size:16px;
+	}
+.xuegong-zhuti-content .zaiji-num>div.xuexiao-num{
+	width:18%;
+	}
+.xuegong-zhuti-content .zaiji-num>div.xuexiao-num p{
+	width:95%;
+	height:134px;
+	border:1px solid #d2d2d2;
+	line-height:35px;
+	padding-top:30px;
+	text-align:center;
+	margin:0 auto;
+	}
+.xuegong-zhuti-content .zaiji-num>div>table{
+	width:95%;
+	max-width:95%;
+	margin:0 auto;
+	height:140px;
+	margin:0 auto;
+	border-collapse:separate;
+	border-spacing:0 3px;
+	margin-top:-3px;
+	}
+.xuegong-zhuti-content .zaiji-num>div>table tr{
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-top-overview .scholarship-top-overview-table table tr td,
+.xuegong-zhuti-content .zaiji-num>div>table tr td{
+	vertical-align:middle;
+	border-top:1px solid #d2d2d2;
+	border-bottom:1px solid #d2d2d2;
+	padding:0;
+	text-align:center;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-top-overview .scholarship-top-overview-table table tr:last-child td,
+.xuegong-zhuti-content .zaiji-num>div>table tr:last-child td{
+	border-bottom:1px solid #d2d2d2;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-top-overview .scholarship-top-overview-table table tr td:first-child,
+.xuegong-zhuti-content .zaiji-num>div>table tr td:first-child{
+	border-left:1px solid #d2d2d2;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-top-overview .scholarship-top-overview-table table tr td:last-child,
+.xuegong-zhuti-content .zaiji-num>div>table tr td:last-child{
+	border-right:1px solid #d2d2d2;
+	}	
+.xuegong-zhuti-content .zaiji-num>div.xiaoqu-num{
+	width:27.5%;
+	position:relative;
+	}
+
+.xuegong-zhuti-content .zaiji-num>div.xueli-num{
+	width:27.5%;
+	position:relative;
+	}
+.xuegong-zhuti-content .zaiji-num>div.grade-num{
+	width:27%;
+	position:relative;
+	}
+
+.xuegong-zhuti-content .zaiji-num>div.xiaoqu-num ul li{
+	line-height:58px;
+	width:95%;
+	}
+
+
+.xuegong-zhuti-content .xuegong-separate>div{
+	margin-bottom:6px;
+	}
+.xuegong-zhuti-content section.zaiji-separate .xuegong-separate>div{
+	width:50%;
+	}
+.xuegong-zhuti-content .xuegong-separate>div:first-child{
+	padding-right:6px;
+	}
+.xuegong-zhuti-content .xuegong-separate>div:nth-child(2){
+	padding-left:6px;
+	}
+.xuegong-zhuti-content .xuegong-separate .xuegong-zhuti-content-main-tit{
+	line-height:35px;
+	padding:0 15px;
+	}
+.xuegong-zhuti-content .xuegong-separate .xuegong-zhuti-content-main-tit>p{
+	margin-left:0;
+	}
+.xuegong-zhuti-content .xuegong-separate .xuegong-separate-con{
+	border:1px solid #d2d2d2;
+	margin-top:-1px;
+	background:#fff;
+	padding-left:15px;
+	padding-right:15px;
+	}
+.xuegong-zhuti-content .xuegong-separate .zaiji-xs-zt .xuegong-separate-con,
+.xuegong-zhuti-content .xuegong-separate .zaiji-syd .xuegong-separate-con{
+	height:323px;
+	}
+
+.xuegong-zhuti-content .xuegong-separate div.img-box img{
+	max-width:100%;
+	}
+.xuegong-zhuti-content .xuegong-separate .zaiji-xs-age .img-box,
+.xuegong-zhuti-content .xuegong-separate .zaiji-xs-zt .img-box,
+.xuegong-zhuti-content .xuegong-separate .zaiji-xs-sex-fenbu .img-box,
+.xuegong-zhuti-content .xuegong-separate .zaiji-zzmm-fenbu .img-box{
+	margin-top:7px;
+	}
+.xuegong-zhuti-content .xuegong-separate .xuegong-separate-con small{
+	padding-top:10px;
+	padding-bottom:10px;
+	display:block;
+	}
+.xuegong-zhuti-content .xuegong-separate span.time-img{
+	margin-top:8px;
+	}
+.xuegong-zhuti-content .xuegong-separate .zaiji-syd .img-box{
+	margin-top:10px;
+	}
+.xuegong-zhuti-content .xuegong-separate .zaiji-xs-age .xuegong-separate-con,
+.xuegong-zhuti-content .xuegong-separate .zaiji-minzu .xuegong-separate-con{
+	height:365px;
+	}
+.xuegong-zhuti-content .xuegong-separate .zaiji-xs-sex-fenbu .xuegong-separate-con,
+.xuegong-zhuti-content .xuegong-separate .zaiji-zzmm-fenbu .xuegong-separate-con{
+	height:330px;
+	}
+
+.xuegong-zhuti-content .xuegong-separate-tb{
+	margin-bottom:12px;
+	}
+.xuegong-zhuti-content .xuegong-separate-tb .xuegong-separate-con{
+	border:1px solid #d2d2d2;
+	margin-top:-1px;
+	background:#fff;
+	padding-left:15px;
+	padding-right:15px;
+	}
+.xuegong-zhuti-content .xuegong-separate-tb .xuegong-separate-con .img-box img{
+	max-width:100%;
+	}
+.xuegong-zhuti-content .xuegong-separate-tb .zaiji-geyuanxi .img-box{
+	padding:12px 0 15px 0;
+	}
+
+/****************************************************************以上为在籍学生概况样式************************************************************/
+.xuegong-zhuti-content section.xsgzz-basic{
+	margin-bottom:0;
+	}
+.xuegong-zhuti-content .xuegong-separate .xs-worker-xq{
+	width:72%;
+	}
+.xuegong-zhuti-content .xuegong-separate .zz-fudaoy-xsbi .xuegong-separate-con,
+.xuegong-zhuti-content .xuegong-separate .xs-worker-xq .xuegong-separate-con{
+	height:240px;
+	}
+.xuegong-zhuti-content .xuegong-separate .xs-worker-xq div.img-box{
+	margin-top:10px;
+	}
+.xuegong-zhuti-content .xuegong-separate .zz-fudaoy-xsbi{
+	width:28%;
+	}
+.xuegong-zhuti-content .xuegong-separate .zz-fudaoy-xsbi .xuegong-separate-con{
+	background:#fff url(../images/xues-gognzuozhe/xsgzz-fdy-xsbi.jpg) no-repeat center center;
+	}
+.xuegong-zhuti-content .xuegong-separate .zz-fudaoy-xsbi .xuegong-separate-con .img-box{
+	position:relative;
+	}
+.xuegong-zhuti-content .xuegong-separate .zz-fudaoy-xsbi .xuegong-separate-con .img-box p{
+	position:absolute;
+	left:58%;
+	}
+.xuegong-zhuti-content .xuegong-separate .zz-fudaoy-xsbi .xuegong-separate-con .img-box p:first-child{
+	top:75px;
+	}
+.xuegong-zhuti-content .xuegong-separate .zz-fudaoy-xsbi .xuegong-separate-con .img-box p:last-child{
+	top:103px;
+	}
+.xuegong-zhuti-content .xsgzz-basic .xuegong-separate-tb .xuegong-separate-con .img-box{
+	padding-bottom:35px;
+	}
+.xuegong-zhuti-content .xuegong-l-r.row{
+	border:1px solid #d2d2d2;
+	margin-top:-1px;
+	background:#fff;
+	margin-left:0;
+	margin-right:0;
+	}
+.xuegong-zhuti-content .xuegong-l-r.row div:first-child{
+	border-right:1px solid #d2d2d2;
+	}
+.xuegong-zhuti-content .xuegong-l-r>div.col-md-6{
+	padding-top:25px;
+	padding-bottom:20px;
+	}
+.xuegong-zhuti-content  div.img-box img{
+	max-width:100%;
+	}
+.xuegong-zhuti-content .xsgzz-basic .xuegong-separate-tb .xuegong-separate-con.zzfdy-guanli{
+	padding:20px 15px;
+	position:relative;
+	}
+.xuegong-zhuti-content .xsgzz-basic .xuegong-separate-tb .xuegong-separate-con.zzfdy-guanli>span{
+	position:absolute;
+	}
+.xuegong-zhuti-content .xsgzz-basic .xuegong-separate-tb .xuegong-separate-con.zzfdy-guanli .img-box{
+	padding:0;
+	}
+
+.xuegong-zhuti-content .xsgzz-basic .xuegong-separate-tb .xuegong-separate-con.zzfdy-guanli p{
+	margin-top:33px;
+	line-height:18px;
+	}
+section.student-xueji-yidong .xueji-yidong.yidong-bili .xuegong-separate-con  .img-box+p{
+	margin-top:0;
+	margin-bottom:25px;
+	}
+.xuegong-zhuti-content .xsgzz-basic .xuegong-separate-tb:last-child{
+	margin-bottom:0;
+	}
+section.student-xueji-yidong .xueji-yidong .xuegong-separate-con .img-box+p i,
+.xuegong-zhuti-content .xsgzz-basic .xuegong-separate-tb .xuegong-separate-con.zzfdy-guanli p i,
+.xuegong-zhuti-content .xuegong-zhuti-content-main .buliang-yidong-separate-tb .xuegong-separate-con p i.fa-warning,
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-cumulative-coverage .xuegong-separate-con p i.fa-warning,
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-separate .scholarship-male-female-rate p i.fa-warning,
+.xuegong-zhuti-content .xuegong-zhuti-content-main i.fa-warning-normal{
+	margin-right:10px;
+	font-size:18px;
+	vertical-align:middle;
+	}
+.xuegong-zhuti-content .xsgzz-basic .xuegong-separate-tb .xuegong-separate-con.zzfdy-guanli p a{
+	margin:4px;
+	}
+.xuegong-zhuti-content .xsgzz-basic .xuegong-separate-tb .xuegong-separate-con.zzfdy-guanli>p>span{
+	margin:0 3px;
+	}
+
+.xuegong-zhuti-content .xuegong-zhuti-content-main .xuegong-zhuti-content-main-tit{
+	position:relative;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .xuegong-zhuti-content-main-tit div.question-area{
+	position:absolute;
+	z-index:999;
+	top:4px;
+	right:55px;
+	background:#efefef;
+	width:177px;
+	border:1px solid #ddd;
+	border-radius:15px;
+	padding:10px 20px;
+	box-shadow:0px 3px 6px #A4A4A6;
+	-webkit-box-shadow:0px 3px 6px #A4A4A6;
+	-moz-box-shadow:0px 3px 6px #A4A4A6;
+	font-size:12px;
+	line-height:20px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .xuegong-zhuti-content-main-tit div.question-area p{
+	margin-bottom:0;
+	text-align:justify;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .xuegong-zhuti-content-main-tit div.question-area p span{
+	margin:0 3px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .xuegong-zhuti-content-main-tit div.question-area img{
+	position:absolute;
+	left:100%;
+	top:9px;
+	}
+/***************************************************************************以上为学生工作者基本情况************************************************************/
+
+.xuegong-zhuti-content .xuegong-zhuti-content-main .student-source .xuegong-zhuti-dropdown-box{
+	margin:0;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .student-source .xuegong-zhuti-dropdown-box+b{
+	border-top:1px solid #474747;
+	display:inline-block;
+	width:10px;
+	vertical-align:middle;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .student-source .xuegong-zhuti-dropdown-box .btn-group .btn.btn-noradius.btn-shadow{
+	padding-right:30px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .student-source div.btn-basic a{
+	margin:0 0 0 20px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main section.student-source-con{
+	padding:10px 15px 25px 15px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main section.student-source-con .student-source-con-main .student-source-con-main-top-sections span {
+	font-size:20px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main section.student-source-con .student-source-con-main .student-source-con-main-top-sections>a{
+	min-width:87px;
+	padding:0 15px;
+	text-align:center;
+	border:1px solid #d2d2d2;
+	line-height:30px;
+	display:inline-block;
+	border-radius:6px 6px 0 0;
+	color:#48bdff;
+	margin-right:20px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main section.student-source-con .student-source-con-main .student-source-con-main-top-sections>a:hover,
+.xuegong-zhuti-content .xuegong-zhuti-content-main section.student-source-con .student-source-con-main .student-source-con-main-top-sections>a.on{
+	background:#48bdff;
+	color:#fff;
+	border-color:#48bdff;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main section.student-source-con .student-source-con-main-content{
+	border:1px solid #d2d2d2;
+	margin-top:-1px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main section.student-source-con .student-source-con-main-content>div{
+	border-bottom:1px solid #d2d2d2;
+	padding:0 15px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main section.student-source-con .student-source-con-main-content>div:last-child{
+	border-bottom:0;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main section.student-source-con .student-source-con-main-content .student-source-map-main{
+	padding-top:20px;
+	padding-bottom:30px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main section.student-source-con .student-source-con-main-content .student-source-map-main .img-box{
+	padding-top:0;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main section.student-source-con .student-source-con-main-content .student-source-map-main p.p-position+div{
+	margin-top:40px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main section.student-source-con .student-source-con-main-content .student-source-map-main  .student-source-map-l{
+	width:48%;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main section.student-source-con .student-source-con-main-content .student-source-map-main  .student-source-map{
+	width:48%;
+	}
+
+.xuegong-zhuti-content .xuegong-zhuti-content-main section.student-source-con .student-source-con-main-content .student-source-paiming{
+	padding-top:10px;
+	padding-bottom:20px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main section.student-source-con .student-source-con-main-content .student-source-paiming>div{
+	width:50%;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main section.student-source-con .student-source-con-main-content .student-source-paiming .sf-renshu-paiming{
+	padding-right:25px
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main section.student-source-con    div.sf-renshu-paiming-tit{
+	line-height:38px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main section.student-source-con    div.sf-renshu-paiming-tit span i{
+	vertical-align:middle;
+	line-height:38px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main section.student-source-con .student-source-con-main-content   div.sf-renshu-paiming-tit span a,
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-separate .scholarship-ranking-list .xuegong-zhuti-content-main-tit span a{
+	margin-left:25px;
+	
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main section.student-source-con .student-source-con-main-content .student-source-paiming .paiming-tab{
+	border:1px solid #d2d2d2;
+	border-radius:6px;
+	text-align:center;
+	padding-left:15px;
+	padding-right:15px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main section.student-source-con .student-source-con-main-content .student-source-paiming .paiming-tab .table{
+	margin-bottom:0;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main section.student-source-con .student-source-con-main-content .student-source-paiming .paiming-tab .table tbody>tr:first-child>td{
+	border-top:0;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main section.student-source-con .student-source-con-main-content .student-source-paiming .paiming-tab .table tbody>tr>td{
+	width:30%;
+	padding:8px 0 3px 0;
+	border-top:1px dashed #d2d2d2;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main section.student-source-con .student-source-con-main-content .student-source-paiming .paiming-tab .table tbody>tr:last-child>td{
+	padding-bottom:8px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main section.student-source-con .student-source-con-main-content .student-source-paiming .paiming-tab .table tbody>tr>td:first-child{
+	width:10%;
+	border-top:0;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main section.student-source-con .student-source-con-main-content .student-source-paiming .zengfu-paiming{
+	padding-left:25px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main section.student-source-con .student-source-con-main-content .linian-num-change{
+	padding-top:10px;
+	padding-bottom:18px;
+	}
+	
+.xuegong-zhuti-content .xuegong-zhuti-content-main section.student-source-con .student-source-con-main-content .linian-num-change-box{
+	width:58%;
+	padding-right:15px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main section.student-source-con .student-source-con-main-content .linian-num-change .img-box{
+	position:relative;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main section.student-source-con .student-source-con-main-content .linian-num-change .linian-num-change-ps{
+	background:rgba(0,0,0,.5);
+	padding:6px;
+	position:absolute;
+	width:90px;
+	font-size:12px;
+	border-radius:8px;
+	color:#fff;
+	bottom:40px;
+	left:45%;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main section.student-source-con .student-source-con-main-content .biye-yuanxiao{
+	width:42%;
+	padding-left:25px;
+	border-left:1px dashed #d2d2d2;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main section.student-source-con .student-source-con-main-content .biye-yuanxiao table div.caret-icon{
+	margin-top:9px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main  .biye-yuanxiao .biyeyx-table.xuegong-zhuti-table{
+	margin-bottom:0;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main  .biye-yuanxiao .biyeyx-table.xuegong-zhuti-table>tbody>tr>td,
+.xuegong-zhuti-content .xuegong-zhuti-content-main  .biye-yuanxiao .biyeyx-table.xuegong-zhuti-table>thead>tr>td{
+	padding:0 15px;
+	line-height:40px;
+	}
+	
+/*****************************************************************************以上为生源地分析样式*****************************************************************/
+
+.xuegong-zhuti-content section.freshman .xuegong-separate-tb .freshman-baodao p.baodao-shifou{
+	margin-top:6px;
+	margin-bottom:0;
+	}
+.xuegong-zhuti-content section.freshman .xuegong-separate-tb .freshman-baodao p.baodao-shifou i{
+	font-size:22px;
+	margin-right:10px;
+	vertical-align:middle;
+	}
+.xuegong-zhuti-content section.freshman .xuegong-separate-tb .freshman-baodao p.baodao-shifou b{
+	display:inline-block;
+	line-height:23px;
+	}
+.xuegong-zhuti-content section.freshman .xuegong-separate-tb .freshman-baodao .xuegong-separate-con .row{
+	margin:0;
+	}
+.xuegong-zhuti-content section.freshman .xuegong-separate-tb .freshman-baodao .xuegong-separate-con .row .col-md-4{
+	padding-left:0;
+	padding-right:0;
+	}
+.xuegong-zhuti-content section.freshman .xuegong-separate-tb .freshman-baodao p.baodao-shifou+div{
+	padding-left:80px;
+	}
+.xuegong-zhuti-content section.freshman .xuegong-separate-tb .freshman-baodao.freshman-baodao-no p.baodao-shifou+div{
+	padding-right:80px;
+	padding-left:0;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-top-overview .scholarship-top-overview-table table,
+.xuegong-zhuti-content .zaiji-num.freshman-tab>div>table{
+	width:90%;
+	margin:0 auto;
+	margin:0 auto;
+	border-collapse:separate;
+	}
+.xuegong-zhuti-content .zaiji-num.freshman-tab>div>table{
+	border-spacing:0 25px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-top-overview .scholarship-top-overview-table table tr td,
+.xuegong-zhuti-content .zaiji-num.freshman-tab>div>table tr td{
+	line-height:30px;
+	}
+.xuegong-zhuti-content .zaiji-num.freshman-tab>div>table tr:first-child td{
+	border-color:#35cea8;
+	background:#eafaf6;
+	}
+.xuegong-zhuti-content .zaiji-num.freshman-tab>div>table tr:first-child td:first-child{
+	text-align:left;
+	padding-left:5%;
+	}
+.xuegong-zhuti-content .zaiji-num.freshman-tab.freshman-baodao-no-tab>div>table tr:first-child td{
+	border-color:#f97946;
+	background:#fff0e9;
+	}
+.xuegong-zhuti-content .zaiji-num.freshman-tab>div>table tr td:first-child,
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-top-overview .scholarship-top-overview-table table tr td:first-child{
+	border-radius:5px 0 0 5px;
+	text-align:center;
+	}
+.xuegong-zhuti-content .zaiji-num.freshman-tab>div>table tr td:nth-child(2){
+	text-align:left;
+	padding-left:5%;
+	}
+.xuegong-zhuti-content .zaiji-num.freshman-tab>div>table tr.benke-tr td{
+	border-color:#2ec7c9;
+	}
+.xuegong-zhuti-content .zaiji-num.freshman.freshman-baodao-no-tab-tab>div>table tr.benke-tr td:first-child,
+.xuegong-zhuti-content .zaiji-num.freshman-tab>div>table tr.benke-tr td:first-child{
+	background:#2ec7c9;
+	color:#fff;
+	width:53px;
+	}
+.xuegong-zhuti-content .zaiji-num.freshman-tab>div>table tr.zhuanke-tr td{
+	border-color:#b6a2de;
+	}
+.xuegong-zhuti-content .zaiji-num.freshman-tab>div>table tr.zhuanke-tr td:first-child{
+	background:#b6a2de;
+	color:#fff;
+	}
+.xuegong-zhuti-content .zaiji-num.freshman-tab>div>table tr.yanjius-tr td{
+	border-color:#5ab1ef;
+	}
+.xuegong-zhuti-content .zaiji-num.freshman-tab>div>table tr.yanjius-tr td:first-child{
+	background:#5ab1ef;
+	color:#fff;
+	}
+.xuegong-zhuti-content .zaiji-num.freshman-tab>div>table tr td:last-child,
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-top-overview .scholarship-top-overview-table table tr td:last-child{
+	border-radius:0 5px 5px 0;
+	text-align:right;
+	padding-right:5%;
+	}
+	
+	
+.xuegong-zhuti-content section.freshman .xuegong-separate-tb .freshman-baodao .xuegong-separate-con .row .col-md-4.baodao-text{
+	position:relative;
+	padding-left:50px;
+	}
+.xuegong-zhuti-content section.freshman .xuegong-separate-tb .freshman-baodao.freshman-baodao-no .xuegong-separate-con .row .col-md-4.baodao-text{
+	position:relative;
+	padding-left:0;
+	padding-right:50px;
+	}
+
+.xuegong-zhuti-content .freshman-baodao .baodao-text p.baodao-yes-text{
+	position:absolute;
+	top:45%;
+	left:30%;
+	}
+.xuegong-zhuti-content .freshman-baodao-no .baodao-text p.baodao-no-text{
+	position:absolute;
+	top:45%;
+	right:30%;
+	}
+.xuegong-zhuti-content .freshman-baodao .baodao-text p span{
+	width:29px;
+	height:26px;
+	background:url(../images/freshman/baodao-point.png) no-repeat top left;
+	display:inline-block;
+	vertical-align:middle;
+	margin-right:20px;
+	}
+.xuegong-zhuti-content .freshman-baodao.freshman-baodao-no .baodao-text p span{
+	background-position:0 -27px;
+	margin-right:0;
+	margin-left:20px;
+	}
+.xuegong-zhuti-content  div.xuegong-separate.freshman-separate>div.freshman-separate-r .xuegong-separate-con .img-box,
+.xuegong-zhuti-content  div.xuegong-separate.freshman-separate .xuegong-separate-con{
+	height:324px;
+	}
+
+.xuegong-zhuti-content  div.xuegong-separate.freshman-separate>div.freshman-separate-l{
+	width:67%;
+	}
+.xuegong-zhuti-content  div.xuegong-separate.freshman-separate>div.freshman-separate-r .xuegong-separate-con,
+.xuegong-zhuti-content  div.xuegong-separate.freshman-separate>div.freshman-separate-l .xuegong-separate-con{
+	position:relative;
+	}
+.xuegong-zhuti-content  div.xuegong-separate.freshman-separate>div.freshman-separate-l .xuegong-separate-con .img-box{
+	padding-top:10px;}
+.xuegong-zhuti-content  div.xuegong-separate.freshman-separate>div.freshman-separate-l .xuegong-separate-con small{
+	position:absolute;
+	z-index:999;}
+
+.xuegong-zhuti-content  div.xuegong-separate.freshman-separate>div.freshman-separate-r{
+	width:33%;
+	}
+.xuegong-zhuti-content .vertical-center{
+  	position: relative;
+  	top: 50%;
+  	transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	}
+
+/***************************************************************以上新生入学分析页面样式*********************************************/
+	
+section.student-xueji-yidong .xuegong-zhuti-content-main-tit span.question-img{
+	margin-top:0;
+	}
+section.student-xueji-yidong .student-xueji-yidong-con .xuegong-separate-con{
+	padding:0 15px;
+	}
+section.student-xueji-yidong .student-xueji-yidong-con .student-xueji-yidong-title{
+	padding-top:6px;
+	padding-bottom:6px;
+	}
+section.student-xueji-yidong .student-xueji-yidong-con .student-xueji-yidong-title small b span.text-pink{
+	margin-left:5px;
+	margin-right:5px;
+	}
+section.student-xueji-yidong .student-xueji-yidong-con .student-xueji-yidong-con-img,
+.xuegong-zhuti-content .xuegong-zhuti-content-main .not-graduate-degree-con-img{
+	padding-top:20px;
+	padding-bottom:20px;
+	}
+section.student-xueji-yidong .student-xueji-yidong-con .student-xueji-yidong-con-img .row:first-child .col-md-6,
+.xuegong-zhuti-content .xuegong-zhuti-content-main .not-graduate-degree-con-img .row:first-child .col-md-6{
+	padding:15px;
+	height:320px;
+	}
+section.student-xueji-yidong .student-xueji-yidong-con .student-xueji-yidong-con-img .row:first-child .col-md-6 .img-box{
+	height:290px;
+    position:relative;
+	}
+section.student-xueji-yidong .student-xueji-yidong-con .student-xueji-yidong-con-img.student-xueji-yidong-con-img-02 .row:first-child .col-md-6 .img-box,
+.xuegong-zhuti-content .xuegong-zhuti-content-main .not-graduate-degree-con-img .row:first-child .col-md-6 .img-box{
+	height:270px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .not-graduate-degree-con-img .row:first-child .col-md-6 .img-box,
+.xuegong-zhuti-content .xuegong-zhuti-content-main .not-graduate-degree-con-img .row:last-child .col-md-6 .img-box{
+	position:relative;
+	}
+section.student-xueji-yidong .student-xueji-yidong-con .student-xueji-yidong-con-img .row:last-child .col-md-6,
+.xuegong-zhuti-content .xuegong-zhuti-content-main .not-graduate-degree-con-img .row:last-child .col-md-6{
+	padding:15px;
+	height:290px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .not-graduate-degree-con-img .row:last-child .col-md-6 .img-box{
+	height:275px;
+	}
+section.student-xueji-yidong .student-xueji-yidong-con .student-xueji-yidong-con-img.student-xueji-yidong-con-img-02 .row:last-child .col-md-6{
+	padding-top:15px;
+	}
+section.student-xueji-yidong .student-xueji-yidong-con .student-xueji-yidong-con-img .row:last-child .col-md-6 .img-box,
+.xuegong-zhuti-content .xuegong-zhuti-content-main .not-graduate-degree-con-img.not-graduate-degree-con-img-02 .row:last-child .col-md-6 .img-box{
+	height:290px;
+    position:relative;
+	}
+section.student-xueji-yidong .student-xueji-yidong-con .student-xueji-yidong-con-img.student-xueji-yidong-con-img-02 .row:last-child .col-md-6 .img-box{
+	height:245px;
+	}
+section.student-xueji-yidong .student-xueji-yidong-con .student-xueji-yidong-con-img .row .col-md-6:first-child,
+.xuegong-zhuti-content .xuegong-zhuti-content-main .not-graduate-degree-con-img .row .col-md-6:first-child{
+	border-right:1px dashed #d2d2d2;
+	}
+section.student-xueji-yidong .student-xueji-yidong-con .student-xueji-yidong-con-img .row:first-child .col-md-6 img{
+	vertical-align:middle;
+	}
+section.student-xueji-yidong .student-xueji-yidong-con .student-xueji-yidong-con-img div.exchange,
+.xuegong-zhuti-content .xuegong-zhuti-content-main .not-graduate-degree-con-img div.exchange{
+	border-bottom:1px dashed #d2d2d2;
+	position:relative;
+	}
+section.student-xueji-yidong .student-xueji-yidong-con .student-xueji-yidong-con-img div.exchange a>span,
+.xuegong-zhuti-content .xuegong-zhuti-content-main .not-graduate-degree-con-img div.exchange a>span{
+	display:inline-block;
+	padding:8px;
+	background:#fff;
+	position:absolute;
+	z-index:999;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	-moz-transform:translate(-50%,-50%);
+	-ms-transform:translate(-50%,-50%);
+	-webkit-transform:translate(-50%,-50%);
+	-o-transform:translate(-50%,-50%);
+	}
+section.student-xueji-yidong .xueji-yidong .xuegong-separate-con .img-box{
+	padding-top:13px;
+	padding-bottom:30px;
+	}
+section.student-xueji-yidong .student-xueji-yidong-con .student-xueji-yidong-con-img .row .col-md-6 p{
+	margin-top:5px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .student-xueji-yidong .xuegong-zhuti-content-main-tit div.question-area{
+	width:180px;
+	padding-left:15px;
+	padding-right:15px;
+	}
+/***********************************************************************************以上为学生学籍异动样式*******************************************************************/
+	
+.xueji-buliang-yidong>p{
+	margin-right:20px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main section.student-source-con.student-xueji-yidong .student-source-con-main-content .student-source-map-main{
+	padding-top:15px;
+	padding-bottom:15px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main section.student-source-con .student-source-con-main-content .student-source-map-main p.p-position+div.student-xueji-yidong-con{
+	margin-top:0;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .buliang-yidong-con{
+	border:1px solid #d2d2d2;
+	margin-top:-1px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .buliang-yidong-con>div{
+	border-bottom:1px solid #d2d2d2;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .buliang-yidong-con>div:last-child{
+	border-bottom:none;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .buliang-yidong-con .student-source-map-main{
+	padding:10px 15px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .buliang-yidong-separate-tb .buliang-yidong-separate-tb-tit{
+	border-bottom:1px solid #d2d2d2;
+	height:39px;
+	line-height:39px;
+	padding:0 15px;
+	vertical-align:middle;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .buliang-yidong-separate-tb .buliang-yidong-separate-tb-tit span.time-img{
+	margin-top:9px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .buliang-yidong-separate-tb .xuegong-separate-con{
+	padding-left:15px;
+	padding-right:15px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .buliang-yidong-separate-tb .xuegong-separate-con .img-box{
+	padding-top:10px;
+	padding-bottom:20px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .buliang-yidong-con>div:last-child .xuegong-separate-con .img-box{
+	padding-bottom:30px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .buliang-yidong-separate-tb .xuegong-separate-con p{
+	margin-bottom:20px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .buliang-yidong-separate-tb.yidong-yanjiu .xuegong-separate-con{
+	border-bottom:1px solid #d2d2d2;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .buliang-yidong-separate-tb.yidong-yanjiu .xuegong-separate-con:last-child{
+	border-bottom:none;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .buliang-yidong-separate-tb.yidong-yanjiu .xuegong-separate-con p{
+	margin-bottom:0;
+	margin-top:10px;
+	}
+/********************************************************************************以上为学籍不良异动样式******************************************************/
+
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship .xuegong-zhuti-dropdown-box{
+	margin-left:0;
+	margin-right:10px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship .xuegong-zhuti-dropdown-box .btn-group .btn.btn-noradius.btn-shadow,
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-fenbu .xuegong-zhuti-dropdown-box .btn-group .btn.btn-noradius.btn-shadow,
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-cumulative-coverage .xuegong-zhuti-dropdown-box .btn-group .btn.btn-noradius.btn-shadow,
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-historical-change .xuegong-zhuti-dropdown-box .btn-group .btn.btn-noradius.btn-shadow{
+	padding-right:10px;
+	min-width:90px;
+	text-align:left;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .xuegong-border{
+	border:1px solid #d2d2d2;
+	background:#fff;
+	padding:0 15px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-top-overview{
+	padding-top:20px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-top-overview .row{
+	padding-top:10px;
+	padding-bottom:10px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-top-overview .scholarship-top-overview-table table{
+	border-spacing:0 18px;
+	width:75%;
+	height:318px;
+	margin-left:0;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-top-overview .scholarship-top-overview-table table tr td:first-child{
+	width:110px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-top-overview .scholarship-top-overview-table table tr.tab-color-green td,
+.xuegong-zhuti-content .xuegong-zhuti-content-main .student-loan-overview div.student-loan-overview-l .student-loan-overview-text ul.tab-color-green{
+	border-color:#2ec7c9;
+	color:#2ec7c9;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-top-overview .scholarship-top-overview-table table tr.tab-color-green td:first-child,
+.xuegong-zhuti-content .xuegong-zhuti-content-main .student-loan-overview div.student-loan-overview-l .student-loan-overview-text ul.tab-color-green li:first-child{
+	background:#2ec7c9;
+	color:#fff;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-top-overview .scholarship-top-overview-table table tr.tab-color-purple td,
+.xuegong-zhuti-content .xuegong-zhuti-content-main .student-loan-overview div.student-loan-overview-l .student-loan-overview-text ul.tab-color-purple{
+	border-color:#b6a2de;
+	color:#b6a2de;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-top-overview .scholarship-top-overview-table table tr.tab-color-purple td:first-child,
+.xuegong-zhuti-content .xuegong-zhuti-content-main .student-loan-overview div.student-loan-overview-l .student-loan-overview-text ul.tab-color-purple li:first-child{
+	background:#b6a2de;
+	color:#fff;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-top-overview .scholarship-top-overview-table table tr.tab-color-blue td{
+	border-color:#5ab1ef;
+	color:#5ab1ef;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-top-overview .scholarship-top-overview-table table tr.tab-color-blue td:first-child{
+	background:#5ab1ef;
+	color:#fff;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-top-overview .scholarship-top-overview-table table tr.tab-color-orange td{
+	border-color:#ffb980;
+	color:#ffb980;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-top-overview .scholarship-top-overview-table table tr.tab-color-orange td:first-child{
+	background:#ffb980;
+	color:#fff;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-top-overview .scholarship-top-overview-table table tr.tab-color-red-gray td{
+	border-color:#d2898d;
+	color:#d2898d;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-top-overview .scholarship-top-overview-table table tr.tab-color-red-gray td:first-child{
+	background:#d2898d;
+	color:#fff;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-top-overview .scholarship-top-overview-table table tr.tab-color-blue-gray td{
+	border-color:#99a2ba;
+	color:#99a2ba;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-top-overview .scholarship-top-overview-table table tr.tab-color-blue-gray td:first-child{
+	background:#99a2ba;
+	color:#fff;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-top-overview .row .img-box{
+	height:300px;
+	position:relative;
+	}
+	
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-fenbu .xuegong-zhuti-content-main-tit b,
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-cumulative-coverage .xuegong-zhuti-content-main-tit b,
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-historical-change .xuegong-zhuti-content-main-tit b{
+	vertical-align:middle;
+	margin-right:20px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-fenbu .xuegong-separate-con .img-box,
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-cumulative-coverage .xuegong-separate-con .img-box{
+	padding-top:10px;
+	padding-bottom:30px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main div.scholarship-fenbu>div{
+	margin-bottom:0;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-fenbu .xuegong-separate-con:last-child{
+	padding-top:10px;
+	padding-bottom:10px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-fenbu .xuegong-separate-con div.scholarship-sthdent-behavior{
+	width:45%;
+	border-right:1px dashed #d2d2d2;
+	padding-right:15px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-fenbu .xuegong-separate-con div.scholarship-coverage-rate{
+	width:55%;
+	padding-left:15px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-fenbu .xuegong-separate-con div.scholarship-coverage-rate table{
+	height:290px;
+	margin-top:20px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-fenbu .xuegong-separate-con div.scholarship-coverage-rate table tr td{
+	width:33%;
+	vertical-align:middle;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-cumulative-coverage .xuegong-separate-con p{
+	margin-bottom:30px;
+	}
+
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-separate .scholarship-male-female-rate{
+	width:45%;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-separate .scholarship-male-female-rate .img-box{
+	padding-top:10px;
+	padding-bottom:20px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-separate .scholarship-male-female-rate .xuegong-separate-con,
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-separate .scholarship-ranking-list .xuegong-separate-con{
+	height:405px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-separate .scholarship-male-female-rate p{
+	margin-bottom:20px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-separate .scholarship-ranking-list
+{
+	width:55%;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-separate .scholarship-ranking-list .xuegong-zhuti-content-main-tit span{
+	margin-top:3px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-separate .scholarship-ranking-list table{
+	height:325px;
+	margin-top:40px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-separate .scholarship-ranking-list table tr td a{
+	color:#d7d7d7;
+	margin-left:5px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-separate .scholarship-ranking-list table tr td a.on{
+	color:#37b4fb;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-separate .scholarship-ranking-list table tr td{
+	vertical-align:middle;
+	width:25%;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-historical-change .xuegong-separate-con .img-box{
+	padding-top:10px;
+	padding-bottom:35px;
+	}
+/*******************************************************************************以上为奖学金页面/助学金页面样式*************************************************************/
+.xuegong-zhuti-content .xuegong-zhuti-content-main .student-loan-overview{
+	padding-top:10px;
+	padding-bottom:10px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .student-loan-overview div.student-loan-overview-l{
+	width:47%;
+	border-right:1px dashed #d2d2d2;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .student-loan-overview div.student-loan-overview-l .student-loan-overview-text{
+	width:80%;
+	margin-left:auto;
+	margin-right:auto;
+	padding-top:10px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .student-loan-overview div.student-loan-overview-l .student-loan-overview-text ul{
+	border:1px solid #d2d2d2;
+	border-radius:6px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .student-loan-overview div.student-loan-overview-l .student-loan-overview-text ul li{
+	line-height:24px;
+	padding-top:6px;
+	padding-bottom:6px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .student-loan-overview div.student-loan-overview-l .student-loan-overview-text ul li:first-child{
+	line-height:20px;
+	padding-top:10px;
+	padding-bottom:10px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .student-loan-overview div.student-loan-overview-l .student-loan-overview-text .img-box{
+	margin-bottom:10px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .student-loan-overview div.student-loan-overview-l .student-loan-overview-text .student-loan-text{
+	margin-bottom:10px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .student-loan-overview div.student-loan-overview-l .student-loan-overview-text .student-loan-text:last-child{
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .student-loan-overview div.student-loan-overview-r{
+	width:53%;
+	padding-left:20px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .student-loan-overview div.student-loan-overview-r .img-box{
+	padding-top:15px;
+	}
+/*******************************************************************************以上为助学贷款页面样式*************************************************************/
+.xuegong-zhuti-content .xuegong-zhuti-content-main .weiji-chufen-top-overview{
+	padding-top:15px;
+	padding-bottom:10px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .weiji-chufen-top-overview .img-box,
+.xuegong-zhuti-content .xuegong-zhuti-content-main .weiji-chufen-top-overview div.col-md-2 div{
+	margin-top:30px;
+	margin-bottom:30px;
+	height:276px;
+	position:relative;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .weiji-chufen-top-overview div.col-md-2 div p{
+	background:url(../images/weiji-chufen/xuegong-long-arrow-right.png) no-repeat center bottom;
+	height:36px;
+	position:relative;
+	top:50%;
+	margin-top:-25%;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .weiji-chufen-top-overview div.col-md-2 div p{
+	margin-bottom:3px;
+	font-size:18px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .weiji-chufen-top-overview div.col-md-5 p b{
+	font-size:16px;
+	line-height:27px;
+	min-width:68px;
+	border:1px solid #f47766;
+	display:inline-block;
+	border-radius:6px;
+	}
+
+.xuegong-zhuti-content .xuegong-zhuti-content-main .weiji-chufen-fenbu .radio{
+	margin-top:8px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .weiji-chufen-fenbu .radio label{
+	padding-left:3px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .radio-xuegong-change{
+	line-height:16px;
+	margin-left:26px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .radio-xuegong-change label.xuegong {
+  vertical-align: middle;
+  position: relative;
+  padding-left: 5px;
+  font-weight:normal;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .radio-xuegong-change label.xuegong::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 0;
+  margin-left: -20px;
+  border: 1px solid #a0a0a0;
+  border-radius: 50%;
+  background-color: #fff;
+  -webkit-transition: border 0.15s ease-in-out;
+  -ms-transition: border 0.15s ease-in-out;
+  -moz-transition: border 0.15s ease-in-out;
+  -o-transition: border 0.15s ease-in-out;
+  transition: border 0.15s ease-in-out;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .radio-xuegong-change label.xuegong::after {
+  display: inline-block;
+  position: absolute;
+  content: " ";
+  width: 8px;
+  height: 8px;
+  left: 4px;
+  top: 4px;
+  margin-left: -20px;
+  border-radius: 50%;
+  background-color: #555555;
+  -webkit-transform: scale(0, 0);
+  -moz-transform: scale(0, 0);
+  -ms-transform: scale(0, 0);
+  -o-transform: scale(0, 0);
+  transform: scale(0, 0);
+  -webkit-transition: -webkit-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+  -moz-transition: -moz-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+  -o-transition: -o-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+  -ms-transition: -ms-transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+  transition: transform 0.1s cubic-bezier(0.8, -0.33, 0.2, 1.33);
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .radio-xuegong-change input[type="radio"] {
+  opacity: 0;
+  z-index: 1;
+  outline:none;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .radio-xuegong-change input[type="radio"]:focus + label::before {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .radio-xuegong-change input[type="radio"]:checked + label::after {
+  -webkit-transform: scale(1, 1);
+  -ms-transform: scale(1, 1);
+  -o-transform: scale(1, 1);
+  -moz-transform: scale(1, 1);
+  transform: scale(1, 1);
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .radio-xuegong-blue input[type="radio"] + label::after {
+  background-color: #4b9fdb;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .radio-xuegong-blue input[type="radio"]:checked + label::before {
+  border-color: #a0a0a0;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .radio-xuegong-blue input[type="radio"]:checked + label::after {
+  background-color: #4b9fdb;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .weiji-chufen-bili .xuegong-separate-con{
+	padding-top:10px;
+	padding-bottom:10px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .weiji-chufen-bili .xuegong-separate-con .weiji-section-tags{
+	width:40%;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .weiji-chufen-bili .xuegong-separate-con .weiji-section-tags ul li a{
+	margin-top:16px;
+	margin-bottom:30px;
+	width:85%;
+	padding-left:10px;
+	padding-right:10px;
+	border:1px solid #d2d2d2;
+	border-radius:6px;
+	line-height:43px;
+	display:block;
+	color:#474747;
+	word-break:break-all;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .weiji-chufen-bili .xuegong-separate-con .weiji-section-tags ul li.active a{
+	background:#48bdff;
+	color:#fff;
+	border-color:#48bdff;
+	transform:translateX(10%);
+	-webkit-transform:translateX(10%);
+	-moz-transform:translateX(10%);
+	-ms-transform:translateX(10%);
+	-o-transform:translateX(10%);
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .weiji-chufen-bili .xuegong-separate-con .weiji-section-con{
+	width:60%;
+	border-left:1px dashed #d2d2d2;
+	padding-left:15px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .weiji-chufen-bili .xuegong-separate-con .weiji-section-con .row{
+	padding-top:10px;
+	padding-bottom:15px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .weiji-chufen-bili .xuegong-separate-con .weiji-section-con .row div p{
+	margin-bottom:3px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .weiji-chufen-bili .xuegong-separate-con .weiji-section-con .row div .img-box{
+	height:150px;
+	position:relative;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .weiji-chufen-month-fenbu .img-box{
+	padding-top:10px;
+	padding-bottom:25px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-separate .weiji-chufen-grade-fenbu{
+	width:40%;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-separate .weiji-chufen-age-fenbu{
+	width:60%;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-separate .weiji-chufen-grade-fenbu .img-box,
+.xuegong-zhuti-content .xuegong-zhuti-content-main .scholarship-separate .weiji-chufen-age-fenbu .img-box{
+	height:385px;
+	padding-top:10px;
+	}
+/*******************************************************************************以上为违纪处分页面样式*************************************************************/
+.xuegong-zhuti-content .xuegong-zhuti-content-main .tuition-warning .xuegong-separate-con{
+	padding-top:10px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .tuition-warning .xuegong-zhuti-content-main-tit h5{
+	display:inline;
+	margin-left:30px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .tuition-warning .xuegong-separate-con .img-box{
+	padding-top:25px;
+	padding-bottom:50px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .img-box.img-center-pd{
+	padding-top:10px;
+	padding-bottom:25px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .owe-amount-proportion .xuegong-zhuti-content-main-tit-mt{
+	margin-top:-1px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .owe-amount-proportion .xuegong-zhuti-content-main-tit-mt .xuegong-zhuti-dropdown-box{
+	margin-right:23px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .owe-amount-proportion .xuegong-zhuti-content-main-tit-mt .xuegong-zhuti-dropdown-box  .btn-noradius.btn-shadow{
+	min-width:128px;
+	text-align:left;
+	}
+	
+.xuegong-zhuti-content .xuegong-zhuti-content-main .checkbox{
+  	padding-left: 20px;
+	margin-top:0;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .checkbox label{
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    padding-left: 5px; 
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .checkbox label::before {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      left: 0;
+	  top:2px;
+      margin-left: -20px;
+      border: 1px solid #c1c1c1;
+      border-radius: 3px;
+      background-color: #fff;
+	  box-shadow:inset 2px 2px 5px #dfdcdc;
+	  -webkit-box-shadow:inset 2px 2px 5px #dfdcdc;
+	  -moz-box-shadow:inset 2px 2px 5px #dfdcdc;
+      -webkit-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+	  -ms-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+      -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+	  -moz-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+      transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+	  }
+ .xuegong-zhuti-content .xuegong-zhuti-content-main .checkbox label::after {
+      display: inline-block;
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      left: 0;
+      top:2px;
+      margin-left: -21px;
+      padding-left: 3px;
+      padding-top: 1px;
+      font-size: 11px;
+      color: #4b9fdb; 
+	  }
+  .xuegong-zhuti-content .xuegong-zhuti-content-main .checkbox input[type="checkbox"]{
+      opacity: 0;
+      z-index: 1; 
+	  }
+  
+  .xuegong-zhuti-content .xuegong-zhuti-content-main .checkbox input[type="checkbox"]:checked + label::after{
+      font-family: "FontAwesome";
+      content: "\f00c"; 
+	  }
+  .xuegong-zhuti-table.tuition-warning-tab>thead>tr>td,
+  .xuegong-zhuti-table.tuition-warning-tab>tbody>tr>td{
+	  height:50px;
+	  vertical-align:middle;
+	  }
+/*****************************************************************************以上为学费预警页面样式*****************************************************/
+
+.xuegong-zhuti-content .xuegong-zhuti-content-main .attendance-warning b{
+	vertical-align:middle;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .attendance-warning .input-group{
+	margin-left:20px;
+	margin-right:20px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .attendance-warning .form-control,
+.xuegong-zhuti-content .xuegong-zhuti-content-main .attendance-warning .input-group-addon{
+	border-radius:0;
+	color:#a2a2a2;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .attendance-warning .input-group-addon{
+	padding:0;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .attendance-warning .input-group-addon i{
+	font-size:16px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .attendance-warning .input-group .form-control{
+	max-width:107px;
+	padding-left:5px;
+	padding-right:5px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .attendance-warning-tab{
+	margin-top:20px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .attendance-warning-tab>thead>tr>td,
+.xuegong-zhuti-content .xuegong-zhuti-content-main .attendance-warning-tab>tbody>tr>td{
+	vertical-align:middle;
+	padding:8px 5px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .attendance-warning-tab>tbody>tr>td{
+	border-bottom:1px dashed #d2d2d2;
+	}
+
+.xuegong-zhuti-content .xuegong-zhuti-content-main .attendance-warning-tab>tbody>tr:last-child>td{
+	border-bottom:none;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .tab-no-bold{
+	font-weight:normal;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .attendance-warning-tab div.caret-icon{
+	margin-top:-1px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main a.caret-disable{
+	color:#d7d7d7;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main td.td-has-border-r{
+	border-right:1px solid #d2d2d2;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .attendance-warning-tab i.fa-send,
+.xuegong-zhuti-content .xuegong-zhuti-content-main .attendance-warning-tab i.fa-upload,
+.xuegong-zhuti-content .xuegong-zhuti-content-main .attendance-warning-tab i.fa-sign-out,
+.xuegong-zhuti-content .xuegong-zhuti-content-main .attendance-warning-tab tbody>tr>td img{
+	margin-right:0;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .attendance-warning-tab tbody>tr>td:nth-child(3),
+.xuegong-zhuti-content .xuegong-zhuti-content-main .attendance-warning-tab tbody>tr>td:nth-child(4),
+.xuegong-zhuti-content .xuegong-zhuti-content-main .attendance-warning-tab tbody>tr>td:nth-child(6),
+.xuegong-zhuti-content .xuegong-zhuti-content-main .attendance-warning-tab tbody>tr>td:nth-child(7),
+.xuegong-zhuti-content .xuegong-zhuti-content-main .attendance-warning-tab tbody>tr>td:nth-child(9),
+.xuegong-zhuti-content .xuegong-zhuti-content-main .attendance-warning-tab tbody>tr>td:nth-child(10),
+.xuegong-zhuti-content .xuegong-zhuti-content-main .attendance-warning-tab tbody>tr>td:nth-child(12),
+.xuegong-zhuti-content .xuegong-zhuti-content-main .attendance-warning-tab tbody>tr>td:nth-child(13){
+	border-right-style:dashed;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .attendance-warning-fenbu>div{
+	padding-top:10px;
+	padding-bottom:25px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .attendance-warning-fenbu>div.attendance-warning-fenbu-one .img-box{
+	padding-top:25px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .attendance-warning-fenbu>div.attendance-warning-fenbu-bili .img-box{
+	padding-top:10px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .attendance-warning-fenbu-time .img-box{
+	padding-top:10px;
+	padding-bottom:20px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .attendance-warning-fenbu>div.attendance-warning-fenbu-bottom{
+	padding-bottom:10px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .attendance-warning-fenbu>div.attendance-warning-fenbu-bottom .img-box{
+	padding-top:20px;
+	padding-bottom:20px;
+	height:300px;
+	position:relative;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .attendance-warning-fenbu-position{
+	border-right:1px dashed #d2d2d2;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .attendance-warning-fenbu-bottom p.text-center{
+	margin-bottom:25px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .attendance-warning div.question-area,
+.xuegong-zhuti-content .xuegong-zhuti-content-main .dixiaofei-tit div.question-area{
+	top:10px;
+	}
+
+/*************************************************************************************************以上为考勤预警样式**************************************************************/
+.xuegong-zhuti-content .xuegong-zhuti-content-main .fail-situation-forecast .btn-shadow{
+	min-width:45px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .fail-situation-forecast-separate,
+.xuegong-zhuti-content .xuegong-zhuti-content-main .fail-situation-forecast-bili{
+	padding-top:10px;
+	padding-bottom:20px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .fail-situation-forecast-separate .img-box{
+	position:relative;
+	height:300px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .fail-situation-forecast-bili .img-box{
+	padding-bottom:25px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main p.more a{
+	display:inline-block;
+	line-height:26px;
+	padding-left:10px;
+	padding-right:10px;
+	border:1px solid #37b4fb;
+	border-radius:6px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main p.more a i{
+	font-size:22px;
+	margin-left:6px;
+	margin-top:-4px;
+	vertical-align:middle;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .fail-situation-forecast-table{
+	margin-top:20px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .fail-situation-forecast-table tr td{
+	width:16.5%;
+	vertical-align:middle;
+	padding-top:10px;
+	padding-bottom:10px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .fail-situation-forecast-bili p i.fa-angle-up{
+	font-size:22px;
+	margin-left:4px;
+	vertical-align:middle;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .fail-situation-forecast-bili p a{
+	margin-left:20px;
+	margin-right:20px;
+	min-width:70px;
+	display:inline-block;
+	}
+/****************************************************************************************以上为挂科预测页面样式*******************************************************/
+.xuegong-zhuti-content .xuegong-zhuti-content-main .not-graduate-degree{
+	margin-left:20px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .not-graduate-degree .btn-shadow{
+	min-width:107px;
+	}
+.xuegong-zhuti-content .xuegong-zhuti-content-main .not-graduate-degree-con{
+	padding-top:10px;
+	padding-bottom:25px;
+	}

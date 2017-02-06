@@ -198,7 +198,7 @@ public String getDeptTeachByPermsIdSql(String lb){
 					"(select distinct * from "+table+" t  start with  t.id in("+qids+")  connect by prior t.id = t.pid  ) a  "+
 					"right  join                                                                                                                  "+
 					"(select distinct * from "+table+" t start with   t.id in("+qids+") connect by prior t.pid = t.id   ) b  "+
-					"on a.id=b.id ) group by id,name_,pid,level_ "; 
+					"on a.id=b.id ) group by id,name_,pid,level_ order by level_,id"; 
 		return sql;
 	}
 

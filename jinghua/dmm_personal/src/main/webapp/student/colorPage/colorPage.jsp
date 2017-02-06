@@ -1,6 +1,8 @@
+<%@page import="cn.gilight.framework.uitl.SysConfig"%>
 <%@ page language="java" isELIgnored="true" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	String root = request.getContextPath();
+	SysConfig sys = SysConfig.instance();
 %>
 <!DOCTYPE html>
 <html lang="zh-CN"  ng-app="app">
@@ -8,7 +10,7 @@
 <meta charset="utf-8">
 <jsp:include page="../../static/base.jsp"></jsp:include>
 <base href="<%=root%>/student/colorPage/colorPage.jsp"/>
-<title>欢迎来到郑州轻工业学院</title>
+<title>欢迎来到<%=sys.getSchoolName() %></title>
 <script src="<%=root%>/static/swiper/js/swiper.jquery.umd.min.js"></script>
 <script src="<%=root%>/static/swiper/js/swiper.animate1.0.2.min.js"></script>
 <link rel="stylesheet" type="text/css" href="<%=root%>/static/swiper/css/animate.min.css" />

@@ -37,7 +37,8 @@ public class DataServeDaoImpl implements DataServeDao {
 	@SuppressWarnings({ "unchecked" })
 	@Override
 	public List<DataServe> getDataServe(String username, String shiroTag) {
-		String checkString="",checkString2="";
+		//动作和冗余字段wirldcard不使用   
+		/*String checkString="",checkString2="";
 		String star=shiroTag.substring(0,shiroTag.lastIndexOf(":")+1);
 		String lastag=shiroTag.substring(shiroTag.lastIndexOf(":")+1,shiroTag.length());
 		if(lastag.equalsIgnoreCase("*")){
@@ -48,15 +49,30 @@ public class DataServeDaoImpl implements DataServeDao {
 			checkString2=checkString;
 		}
 		String sql="select ds.id,ds.name_,ds.servicename,up.id perm_id,'user' perm_type ,'"+username+"' username from T_SYS_USER_PERM up "+
-				"inner join T_SYS_DATA_SERVICE ds on up.data_service_id=ds.id "+
-				"inner join t_sys_user u on up.user_id=u.id "+
-				"where u.username=? and up.wirldcard "+checkString+" "+
-				"union all "+
-				"select ds.id,ds.name_,ds.servicename,rp.id perm_id,'role' perm_type,'"+username+"' username from T_SYS_USER_ROLE ur  "+
-				"inner join T_SYS_Role_PERM rp on ur.role_id=rp.role_id  "+
-				"inner join T_SYS_DATA_SERVICE ds on rp.data_service_id=ds.id "+
-				"inner join t_sys_user u on ur.user_id=u.id "+
-				"where u.username=? and rp.wirldcard "+checkString2+"";
+					"inner join T_SYS_DATA_SERVICE ds on up.data_service_id=ds.id "+
+					"inner join t_sys_user u on up.user_id=u.id "+
+					"where u.username=? and up.wirldcard  "+checkString+"  "+
+					"union all "+
+					"select ds.id,ds.name_,ds.servicename,rp.id perm_id,'role' perm_type,'"+username+"' username from T_SYS_USER_ROLE ur  "+
+					"inner join T_SYS_Role_PERM rp on ur.role_id=rp.role_id  "+
+					"inner join T_SYS_DATA_SERVICE ds on rp.data_service_id=ds.id "+
+					"inner join t_sys_user u on ur.user_id=u.id "+
+					"where u.username=? and rp.wirldcard  "+checkString2+"  ";*/
+		if(!shiroTag.endsWith(":*")){
+			shiroTag+=":*";
+		}
+		String sql="select ds.id,ds.name_,ds.servicename,up.id perm_id,'user' perm_type ,'"+username+"' username from T_SYS_USER_PERM up "+
+					"inner join T_SYS_DATA_SERVICE ds on up.data_service_id=ds.id "+
+					"inner join t_sys_user u on up.user_id=u.id "+
+					"inner join t_sys_resources sr on up.resource_id=sr.id "+
+					"where u.username=? and sr.shiro_tag||':*' = '"+shiroTag+"'  "+
+					"union all "+
+					"select ds.id,ds.name_,ds.servicename,rp.id perm_id,'role' perm_type,'"+username+"' username from T_SYS_USER_ROLE ur  "+
+					"inner join T_SYS_Role_PERM rp on ur.role_id=rp.role_id  "+
+					"inner join T_SYS_DATA_SERVICE ds on rp.data_service_id=ds.id "+
+					"inner join t_sys_user u on ur.user_id=u.id "+
+					"inner join t_sys_resources sr on rp.resource_id=sr.id "+
+					"where u.username=? and sr.shiro_tag||':*' = '"+shiroTag+"'  ";
 		return baseDao.query(sql.toString(),DataServe.class,new Object[]{username,username});
 	}
 
@@ -108,7 +124,7 @@ public class DataServeDaoImpl implements DataServeDao {
 	public List<Map<String, Object>> getDeptDataByDeptAndData(String deptId,
 			String datas) {
 		String sql="select id,name_,pid,level_ from t_code_dept t where "+
-					"t.istrue =1 and t.id in("+datas+") start with t.pid='"+deptId+"' connect by prior t.id=t.pid";
+					"t.istrue =1 and t.id in("+datas+") start with t.id='"+deptId+"' connect by prior t.id=t.pid";
 		return baseDao.queryForList(sql);
 	}
 
@@ -119,8 +135,8 @@ public class DataServeDaoImpl implements DataServeDao {
 		String sql="select * from "+
 				"(select id,name_,pid,level_ from t_code_dept_teach t where t.istrue =1 "+
 				"union all "+
-				"select no_ id,name_,TEACH_DEPT_ID pid,3 level_ from t_classes where islive=1 ) t  "+
-				"where t.id in("+datas+") start with t.pid='"+deptId+"' connect by prior t.id=t.pid";
+				"select no_ id,name_,TEACH_DEPT_ID pid,4 level_ from t_classes ) t  "+
+				"where t.id in("+datas+") start with t.id='"+deptId+"' connect by prior t.id=t.pid";
 		return baseDao.queryForList(sql);
 	}
 }

@@ -264,19 +264,20 @@ var getvmData=function(i){
 			 for(var j=0;j<data.length;j++){
 				 d.push({field:data[j].NAME,fieldCode:data[j].CODE,value:data[j].VALUE,name:'人次(人)'}); 
 			 }
-			 var option=getOption(d,'','bzt'); 
+			 var option=getOption(d,'','bzt').saveAsImage((scope.type1=='stu'?'学生':scope.type1=='tea'?'教师':'书籍')+(i==1?"学历对比":"性别对比"));; 
 			 option.event=function(param){
 					scope.value=param.data.nameCode;
 					scope.getxqlb(i==1?14:i==3?15:16);
 					 timeout();
 				 };
+				 
 			 vm.items[i]=option;
 		 }else if(i==7){//柱状图
 			 var d=[];
 			 for(var j=0;j<data.length;j++){
 				 d.push({field:data[j].NAME,fieldCode:data[j].CODE,value:data[j].VALUE,name:scope.type1!='book'?'人次(人)':'数量(册)'}); 
 			 }
-			 var option=getOption(d,'','zzt'); 
+			 var option=getOption(d,'','zzt').saveAsImage(scope.type1=='stu'?'所属学院对比':scope.type1=='tea'?'所属学院对比':'所属类型对比'); 
 			 option.event=function(param){
 				 scope.oftemfa=angular.copy(scope.oftem);
 				 scope.oftemchi=angular.copy(scope.oftem);

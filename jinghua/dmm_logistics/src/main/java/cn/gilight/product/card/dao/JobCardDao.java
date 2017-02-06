@@ -61,4 +61,39 @@ public interface JobCardDao {
 	 */
 	public Map<String,Integer> updateStuPayDetil(String yearMonth);
 	
+	/**
+	 * 充值结果表
+	 * @param year
+	 * @param month
+	 * @return
+	 */
+	public Map<String,Integer> updateOriginMonth(String yearMonth);
+	
+	
+	/**
+	 * 消费部门地点分时间结果表
+	 * @param year
+	 * @param month
+	 * @return
+	 */
+	public Map<String,Integer> updateCardDeptHour(String yearMonth);
+	
+	
+	/**
+	 * 学生消费分时间结果表
+	 * @param year
+	 * @param month
+	 * @return
+	 */
+	public Map<String,Integer> updateCardStuHour(String yearMonth);
+	
+	
+	/**
+	 * 学生消费分消费类型结果表
+	 * @param year
+	 * @param month
+	 * @return
+	 */
+	public Map<String,Integer> updateCardStuDeal(String yearMonth);
+	
 }

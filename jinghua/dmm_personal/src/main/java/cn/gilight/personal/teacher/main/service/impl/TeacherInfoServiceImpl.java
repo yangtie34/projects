@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import cn.gilight.framework.base.dao.BaseDao;
 import cn.gilight.framework.base.dao.HibernateDao;
+import cn.gilight.framework.uitl.common.DateUtils;
 import cn.gilight.personal.teacher.main.service.TeacherInfoService;
 
 @Service("teacherInfoService")
@@ -85,5 +86,12 @@ public class TeacherInfoServiceImpl implements TeacherInfoService {
 		List<Map<String, Object>> result = baseDao.queryListInLowerKey(sql);
 		if (result.size() > 0) return result.get(0);
 		else return null;
+	}
+
+	@Override
+	public void submitAdvice(String username, String advice) {
+		String time = DateUtils.getCurrentTime();
+		String sql = "insert into t_sys_feedback(id,username,advice,create_time) values(ID_SEQ.NEXTVAL,'"+username+"','"+advice+"','"+time+"')";
+		baseDao.insert(sql);
 	}
 }

@@ -129,8 +129,10 @@ public class BookTest extends SpringTest{
 	
 		}
 	@Test
-	public void one(){
-		jobBookService.updateBorrowStu();
+	public void one() throws Exception{
+		//jobBookService.updateBorrowStu();
+		jobBookDao.updateBorrowDetil("2016-12");
+		
 	}
 	
 	@After

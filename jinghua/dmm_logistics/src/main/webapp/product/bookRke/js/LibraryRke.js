@@ -153,7 +153,7 @@ app.controller("LibraryRkeController", [ "$scope","dialog",'mask','$timeout','ht
 								 d[code].push({field:data[key][j].FIELDNAME,value:data[key][j].COUNT_,name:'次数(次)'}); 
 							}
 							for(var k in d){
-								vmd[k][key]=getOption(d[k],'',key=='week'?'zzt':'xqs');
+								vmd[k][key]=getOption(d[k],'',key=='week'?'zzt':'xqs').saveAsImage(vmd[k].name+(key=='week'?"分周次统计出入频次":"分时段统计出入频次"));
 							}
 							break;
 						case'csqj':
@@ -164,7 +164,7 @@ app.controller("LibraryRkeController", [ "$scope","dialog",'mask','$timeout','ht
 								 d[code].push({field:data[key][j].FIELD,value:data[key][j].COUNT_,name:'次数(次)'}); 
 							}
 							for(var k in d){
-								vmd[k][key]=getOption(d[k],'','xzt');
+								vmd[k][key]=getOption(d[k],'','xzt').saveAsImage(vmd[k].name+("入馆次数区间分布"));
 							}
 							break;
 						}
@@ -178,8 +178,9 @@ app.controller("LibraryRkeController", [ "$scope","dialog",'mask','$timeout','ht
 							 d[1].push({field:data[j].DEPT_NAME,fieldCode:data[j].DEPT_CODE,value:data[j].AVG_COUNT,name:'人均(次)'}); 
 							 d[2].push({field:data[j].DEPT_NAME,fieldCode:data[j].DEPT_CODE,value:data[j].INRATE,name:'入管率(%)'}); 
 						 }
+						 var saveAsImageName=['分学院学生总出入次数对比分析','分学院学生人均出入次数对比分析','分学院学生入馆率(%)对比分析'];
 						 for(var j=0;j<d.length;j++){
-							vm.items[i][j]=getOption(d[j],'','zzt');
+							vm.items[i][j]=getOption(d[j],'','zzt').saveAsImage(saveAsImageName[j]);
 						 }
 						 scope.radio1id=0;
 				}else if(i==2){
@@ -188,7 +189,7 @@ app.controller("LibraryRkeController", [ "$scope","dialog",'mask','$timeout','ht
 					 d.push({field:data[j].YEAR,fieldCode:data[j].YEAR,value:data[j].ALL_COUNT,name:'总次数(次)'}); 
 					 d.push({field:data[j].YEAR,fieldCode:data[j].YEAR,value:data[j].AVG_COUNT,name:'人均(次)'}); 
 				 }
-				 vm.items[i]=getOption(d,'','zxt');
+				 vm.items[i]=getOption(d,'','zxt').saveAsImage("分学年学生出入对比分析");
 				}
 				 mask.hideLoading(); 
 			  })

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+	<div class="keyan-main">
+    	<div class="header">
+        	<div class="main-tit">
+            	<h4 class="main-tit-b">个人科研奖励明细</h4>
+            </div>
+            <div class="keyan-condition">
+                <dl class="clearfix">
+                	<dt>统计时间：</dt>
+                    <dd>
+                    	 <div btn-dropdown style="display: inline-block;" source="queryCondition.year" on-change="change($data)" btn-class="btn-default" display-field="mc">
+                    </dd>
+                </dl>
+            </div>
+        </div>
+        <div class="ky-box" style="padding-top:0px;">
+        	<h4>{{condition.year}}获得高层次研究成果奖励<span style = "font-size:x-large;color:#fa8564;font-weight: bolder;">
+        	<span ng-show = "total == null || total.fund == null">0</span>
+        	{{total.fund}}</span>万元，全校排名<span style = "font-size: large;color:#fa8564;font-weight: bolder;">
+        	<span ng-show = "total == null || total.rn == null">—</span>{{total.rn}}</span></h4>
+        	<h5>所得奖金应按贡献大小合理分配，贯彻按劳取酬，多劳多得的原则。奖金分配时，应由项目负责人主持，会同项目参加单位协同确定。</h5>
+        </div>
+		<div class="background-gray">
+        	<ul class="list-unstyled background-gray-square">
+            	<li class="square-pad" ng-repeat = "award in awards" style="width:{{100/awards.length}}%">
+            		<a href="" class="square" style="text-decoration: none;" ng-class="{'active' : award.active}" ng-click="showTable(award.name)">
+	                	<div>
+	                    	<p>{{award.name}}/万元</p>
+	                        <div class="round round-70 text-24 color-ju round-t-b has-round-shadow has-round-shadow-ju">{{award.value}}</div>
+	                    </div>
+	                    <div class="has-arrow"></div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div part-modal show-modal="vm1.showModal" class="ky-box clearfix" style="padding-top:0px" ng-show = "show.xmlx == true">
+			<h4>高层次项目立项奖</h4>
+			<table class="table table-hover">
+				<tr>
+					<th style="text-align:center">项目名称</th>
+					<th style="text-align:center">项目级别</th>
+					<th style="text-align:center">项目分类</th>
+					<th style="text-align:center">项目程度</th>
+					<th style="text-align:center">项目组成员</th>
+					<th style="text-align:center">奖励金额（万元）</th>
+					<th style="text-align:center">统计年份</th>
+				</tr>
+				<tr ng-repeat="it in vm1.items">
+					<td style="text-align:center">{{it.name_}}</td>
+					<td style="text-align:center">{{it.project_level}}</td>
+					<td style="text-align:center">{{it.project_type}}</td>
+					<td style="text-align:center">{{it.project_rank}}</td>
+					<td style="text-align:center">{{it.teas}}</td>
+					<td style="text-align:center">{{it.fund}}</td>
+					<td style="text-align:center">{{it.year_}}</td>
+				</tr>
+			</table>
+			<div class="clearfix keyan-page">
+                    <p class="page-result pull-left">共 {{vm1.pagecount}} 页，数据 {{vm1.total}} 条</p>
+                     <div class="pagination ky-page pull-right" ng-show="vm1.total &gt; vm1.size" pagination total-items="vm1.total" ng-model="vm1.index"
+					max-size="10" items-per-page="vm1.size"
+					class="pull-right" boundary-links="true"></div>	
+                </div>
+		</div>
+		<div part-modal show-modal="vm2.showModal" class="ky-box clearfix" style="padding-top:0px" ng-show = "show.xmjx == true">
+			<h4>高层次项目结项奖</h4>
+			<table class="table table-hover">
+				<tr>
+					<th style="text-align:center">项目名称</th>
+					<th style="text-align:center">项目级别</th>
+					<th style="text-align:center">项目分类</th>
+					<th style="text-align:center">项目程度</th>
+					<th style="text-align:center">项目组成员</th>
+					<th style="text-align:center">奖励金额（万元）</th>
+					<th style="text-align:center">统计年份</th>
+				</tr>
+				<tr ng-repeat="it in vm2.items">
+					<td style="text-align:center">{{it.name_}}</td>
+					<td style="text-align:center">{{it.project_level}}</td>
+					<td style="text-align:center">{{it.project_type}}</td>
+					<td style="text-align:center">{{it.project_rank}}</td>
+					<td style="text-align:center">{{it.teas}}</td>
+					<td style="text-align:center">{{it.fund}}</td>
+					<td style="text-align:center">{{it.year_}}</td>
+				</tr>
+			</table>
+			<div class="clearfix keyan-page">
+                    <p class="page-result pull-left">共 {{vm2.pagecount}} 页，数据 {{vm2.total}} 条</p>
+                     <div class="pagination ky-page pull-right" ng-show="vm2.total &gt; vm2.size" pagination total-items="vm2.total" ng-model="vm2.index"
+					max-size="10" items-per-page="vm2.size"
+					class="pull-right" boundary-links="true"></div>	
+                </div>
+		</div>
+		<div part-modal show-modal="vm3.showModal" class="ky-box clearfix" style="padding-top:0px"  ng-show = "show.hjcg == true">
+			<h4>高层次研究成果奖</h4>
+			<table class="table table-hover">
+				<tr>
+					<th style="text-align:center">成果名称</th>
+					<th style="text-align:center">获奖级别</th>
+					<th style="text-align:center">获奖名称</th>
+					<th style="text-align:center">获奖等级</th>
+					<th style="text-align:center">课题组成员</th>
+					<th style="text-align:center">奖励金额（万元）</th>
+					<th style="text-align:center">统计年份</th>
+				</tr>
+				<tr ng-repeat="it in vm3.items">
+					<td style="text-align:center">{{it.name_}}</td>
+					<td style="text-align:center">{{it.level_}}</td>
+					<td style="text-align:center">{{it.award_name}}</td>
+					<td style="text-align:center">{{it.rank_}}</td>
+					<td style="text-align:center">{{it.teas}}</td>
+					<td style="text-align:center">{{it.fund}}</td>
+					<td style="text-align:center">{{it.year_}}</td>
+				</tr>
+			</table>
+			<div class="clearfix keyan-page">
+                    <p class="page-result pull-left">共 {{vm3.pagecount}} 页，数据 {{vm3.total}} 条</p>
+                     <div class="pagination ky-page pull-right" ng-show="vm3.total &gt; vm3.size" pagination total-items="vm3.total" ng-model="vm3.index"
+					max-size="10" items-per-page="vm3.size"
+					class="pull-right" boundary-links="true"></div>	
+                </div>
+		</div>
+		<div part-modal show-modal="vm4.showModal" class="ky-box clearfix" style="padding-top:0px"  ng-show = "show.xslw == true">
+			<h4>高层次学术论文奖</h4>
+			<table class="table table-hover">
+				<tr>
+					<th style="text-align:center">论文名称</th>
+					<th style="text-align:center">期刊类别</th>
+					<th style="text-align:center">课题组成员</th>
+					<th style="text-align:center">奖励金额（万元）</th>
+					<th style="text-align:center">统计年份</th>
+				</tr>
+				<tr ng-repeat="it in vm4.items">
+					<td style="text-align:center">{{it.title_}}</td>
+					<td style="text-align:center">{{it.periodical_type}}</td>
+					<td style="text-align:center">{{it.teas}}</td>
+					<td style="text-align:center">{{it.fund}}</td>
+					<td style="text-align:center">{{it.year_}}</td>
+				</tr>
+			</table>
+			<div class="clearfix keyan-page">
+                    <p class="page-result pull-left">共 {{vm4.pagecount}} 页，数据 {{vm4.total}} 条</p>
+                     <div class="pagination ky-page pull-right" ng-show="vm4.total &gt; vm4.size" pagination total-items="vm4.total" ng-model="vm4.index"
+					max-size="10" items-per-page="vm4.size"
+					class="pull-right" boundary-links="true"></div>	
+                </div>
+		</div>
+		<div part-modal show-modal="vm5.showModal" class="ky-box clearfix" style="padding-top:0px"  ng-show = "show.fmzl == true">
+			<h4>发明专利奖</h4>
+			<table class="table table-hover">
+				<tr>
+					<th style="text-align:center">专利名称</th>
+					<th style="text-align:center">专利范围</th>
+					<th style="text-align:center">专利类别</th>
+					<th style="text-align:center">发明团队成员</th>
+					<th style="text-align:center">奖励金额（万元）</th>
+					<th style="text-align:center">统计年份</th>
+				</tr>
+				<tr ng-repeat="it in vm5.items">
+					<td style="text-align:center">{{it.name_}}</td>
+					<td style="text-align:center">{{it.patent_scope}}</td>
+					<td style="text-align:center">{{it.patent_type}}</td>
+					<td style="text-align:center">{{it.teas}}</td>
+					<td style="text-align:center">{{it.fund}}</td>
+					<td style="text-align:center">{{it.year_}}</td>
+				</tr>
+			</table>
+			<div class="clearfix keyan-page">
+                    <p class="page-result pull-left">共 {{vm5.pagecount}} 页，数据 {{vm5.total}} 条</p>
+                     <div class="pagination ky-page pull-right" ng-show="vm5.total &gt; vm5.size" pagination total-items="vm5.total" ng-model="vm5.index"
+					max-size="10" items-per-page="vm5.size"
+					class="pull-right" boundary-links="true"></div>	
+                </div>
+		</div>
+		<div part-modal show-modal="vm6.showModal" class="ky-box clearfix" style="padding-top:0px" ng-show = "show.kyjf == true">
+			<h4>科研经费奖</h4>
+			<table class="table table-hover">
+				<tr>
+					<th style="text-align:center">项目名称</th>
+					<th style="text-align:center">留校经费</th>
+					<th style="text-align:center">经费到账时间</th>
+					<th style="text-align:center">项目组成员</th>
+					<th style="text-align:center">科研奖励金额（万元）</th>
+					<th style="text-align:center">统计年份</th>
+				</tr>
+				<tr ng-repeat="it in vm6.items">
+					<td style="text-align:center">{{it.name_}}</td>
+					<td style="text-align:center">{{it.fund}}</td>
+					<td style="text-align:center">{{it.time_}}</td>
+					<td style="text-align:center">{{it.teas}}</td>
+					<td style="text-align:center">{{it.award_fund}}</td>
+					<td style="text-align:center">{{it.year_}}</td>
+				</tr>
+			</table>
+			<div class="clearfix keyan-page">
+                    <p class="page-result pull-left">共 {{vm6.pagecount}} 页，数据 {{vm6.total}} 条</p>
+                     <div class="pagination ky-page pull-right" ng-show="vm6.total &gt; vm6.size" pagination total-items="vm6.total" ng-model="vm6.index"
+					max-size="10" items-per-page="vm6.size"
+					class="pull-right" boundary-links="true"></div>	
+                </div>
+		</div>
+		<div part-modal show-modal="vm7.showModal" class="ky-box clearfix" style="padding-top:0px" ng-show = "show.cgzh == true">
+			<h4>科研成果转化奖</h4>
+			<table class="table table-hover">
+				<tr>
+					<th style="text-align:center">合同编号</th>
+					<th style="text-align:center">成果名称</th>
+					<th style="text-align:center">甲方名称</th>
+					<th style="text-align:center">合同金额（万元）</th>
+					<th style="text-align:center">到账经费（万元）</th>
+					<th style="text-align:center">参与人员</th>
+					<th style="text-align:center">奖励金额（万元）</th>
+					<th style="text-align:center">统计年份</th>
+				</tr>
+				<tr ng-repeat="it in vm7.items">
+					<td style="text-align:center">{{it.contract_no}}</td>
+					<td style="text-align:center">{{it.name_}}</td>
+					<td style="text-align:center">{{it.owner_}}</td>
+					<td style="text-align:center">{{it.fund_}}</td>
+					<td style="text-align:center">{{it.get_fund}}</td>
+					<td style="text-align:center">{{it.teas}}</td>
+					<td style="text-align:center">{{it.award_fund}}</td>
+					<td style="text-align:center">{{it.year_}}</td>
+				</tr>
+			</table>
+			<div class="clearfix keyan-page">
+                    <p class="page-result pull-left">共 {{vm7.pagecount}} 页，数据 {{vm7.total}} 条</p>
+                     <div class="pagination ky-page pull-right" ng-show="vm7.total &gt; vm7.size" pagination total-items="vm7.total" ng-model="vm7.index"
+					max-size="10" items-per-page="vm7.size"
+					class="pull-right" boundary-links="true"></div>	
+                </div>
+		</div>
+    </div>

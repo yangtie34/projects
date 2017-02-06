@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<div modal-form config="formConfig"></div>	
+<div class="keyan-wrapper">
+<div class="keyan-main">
+    	<div class="header">
+        	<div class="main-tit">
+            	<h4 class="main-tit-b">科技鉴定成果分析</h4>
+                <h5 class="main-tit-s">根据筛选条件过滤在所选范围内的鉴定成果，
+                统计鉴定成果的数量和环比增量、增幅，统计鉴定成果数量的年度变化趋势，
+                根据鉴定成果的级别、类别、鉴定形式、和承担人角色分析鉴定成果数量的分布和占比，
+                并以列表形式展现在所选范围内的额鉴定成果的详细信息。</h5>
+            </div>
+            <div class="keyan-condition">
+            	<dl class="clearfix">
+                	<dt>学科门类：</dt>
+                    <dd>
+                    	<form action="" class="ky-form condition-radio">
+                            <div class="radio-box radio-inline" ng-repeat ="it in queryCondition.subject" >
+								<input type="radio" ng-model="condition.subject" ng-value="it" id="{{it}}">
+                                <label for="{{it}}"> {{it.mc}}
+								</label>
+                            </div>
+                        </form>
+                    </dd>
+                </dl>
+                <dl class="clearfix">
+                	<dt>完成人单位：</dt>
+                    <dd>
+                    	 <div cg-combo-tree source="queryCondition.dept" result="condition.dept" ></div> 
+                    </dd>
+                </dl>
+                <dl class="clearfix">
+                	<dt>统计时间 ：</dt>
+                    <dd>
+                    	<div self-defined-year source="queryCondition.definedYear" result='condition.definedYear'></div>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="ky-box p-top-10">
+        	<div class="dis-tab">
+            	<div class="dis-t-cell wid-2">
+                	<div class="round-section">
+                        <div class="round-item">
+                            <p class="sec-tit">{{condition.definedYear.mc}}{{condition.deptTeah.mc}}{{condition.subject.mc}}<br>获得科技鉴定成果/项</p>
+                            <div><a href="" class="round color-green round-70" ng-click="queryDetail();">{{appraisalAchievementNums.current}}</a></div>
+                        </div>
+                        <div class="round-item">
+                            <p class="sec-tit">较上年{{condition.definedYear.start == condition.definedYear.end ? '度' : '段'}}增长/项</p>
+                            <div><a href="" class="round color-purple round-70">{{appraisalAchievementNums.growth}}</a></div>
+                        </div>
+                        <div class="round-item">
+                            <p class="sec-tit">增幅</p>
+                            <div><a href="" class="round color-purple round-70 text-22">{{appraisalAchievementNums.increase}}</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dis-t-cell wid-8">
+                	<p class="section-tit tit-left-30">鉴定成果变化趋势</p>
+                    <div class="img-box" echart config="changechart" on-click="clickChange($params)">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ky-box">
+        	<div class="ky-box-sec">
+        		<div class="dis-tab">
+                	<div class="dis-t-cell wid-5 separate-l">
+                    	<p class="section-tit">鉴定成果级别</p>
+                        <div class="img-box" echart config="gradechart" on-click = "clickGrade($params)">
+                        </div>
+                    </div>
+                    <div class="dis-t-cell wid-5 border-l separate-r">
+                    	<p class="section-tit">鉴定成果水平</p>
+                        <div class="img-box" echart config="levelchart" on-click="clickLevel($params)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ky-box no-bottom-border">
+        	<div class="ky-box-sec">
+        		<div class="dis-tab">
+                	<div class="dis-t-cell wid-5 separate-l">
+                    	<p class="section-tit">鉴定形式</p>
+                        <div class="img-box" echart config="modechart" on-click = "clickMode($params)">
+                        </div>
+                    </div>
+                    <div class="dis-t-cell wid-5 border-l separate-r" part-modal show-modal="showModal1">
+                    	<p class="section-tit">鉴定成果完成人承担角色</p>
+                        <form action="" class="ky-form">
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="inlineRadioOptions" value="01" id="radio-person01">
+                                <label for="radio-person01"><small>第一完成人</small></label>
+                            </div>
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="inlineRadioOptions" value="02" id="radio-person02">
+                                <label for="radio-person02"><small>署名完成人</small></label>
+                            </div>
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="inlineRadioOptions" value="qb" id="radio-person03" checked>
+                                <label for="radio-person03"><small>全部</small></label>
+                            </div>
+                        </form>
+                        <div class="img-box" echart config="peoplechart" on-click="clickPeople($params)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+		<section>
+        <div class="section-head">
+        	<span class="section-head-tit">科技鉴定成果列表</span>
+            <div class="input-group ky-input pull-right">
+              <input type="text" ng-model="sparam" class="form-control ky-input-control" placeholder="成果名模糊匹配">
+              <span class="input-group-btn">
+              	<i class="line"></i>
+                <button class="btn btn-default ky-btn" type="button" ng-click="searchAchievement(sparam)"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+            
+        </div>
+        <div class="ky-box no-bottom-border" >
+        	<div style="text-align: center;">
+				<select class="form-inline" ng-change="selectGrade(x)" ng-model = "x">
+					<option value="">--鉴定级别--</option>
+					<option ng-repeat = "co in querycode.grade_code" value="{{co.code_}}">{{co.name_}}</option>
+				</select>
+				<select class="form-inline" ng-change="selectLevel(y)" ng-model = "y">
+					<option value="">--鉴定水平--</option>
+					<option ng-repeat = "co in querycode.level_code" value="{{co.code_}}">{{co.name_}}</option>
+				</select>
+				<select class="form-inline" ng-change="selectMode(z)" ng-model = "z">
+					<option value="">--鉴定形式--</option>
+					<option ng-repeat = "co in querycode.mode_code" value="{{co.code_}}">{{co.name_}}</option>
+				</select>
+			</div>
+        	<div class="ky-box-sec" part-modal show-modal="showModal2">
+            	<table class="table ky-no-border-table">
+                	<thead>
+                    	<tr>
+                        	<td>&nbsp;</td>
+                            <td>完成人单位</td>
+                            <td>完成人</td>
+                            <td>成果名称</td>
+                            <td>鉴定单位</td>
+                            <td>鉴定水平</td>
+                            <td>鉴定形式</td>
+                            <td>鉴定级别</td>
+                            <td>鉴定时间</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    	<tr ng-repeat="item in items">
+                        	<td><span class="f-order">{{item.rn}}</span></td>
+                            <td>{{item.dept_name}}</td>
+                            <td>{{item.authors}}</td>
+                            <td>{{item.name_}}</td>
+                            <td>{{item.appraisal_dept}}</td>
+                            <td>{{item.level_}}</td>
+                            <td>{{item.mode_}}</td>
+                            <td>{{item.grade_}}</td>
+                            <td>{{item.time_}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="clearfix keyan-page has-pad-btm">
+                    <p class="page-result pull-left">共 {{page.pagecount}} 页，数据 {{page.sumcount}} 条</p>
+                   	 <div class="pagination ky-page pull-right" ng-show="page.sumcount &gt; page.pagesize" pagination total-items="page.sumcount" ng-model="page.curpage"
+					max-size="10" items-per-page="page.pagesize"
+					class="pull-right" boundary-links="true"></div>	
+                   
+                </div>
+            </div>
+        </div>
+        </section>
+    </div>
+    </div>

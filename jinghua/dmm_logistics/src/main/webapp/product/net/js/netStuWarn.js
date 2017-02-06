@@ -150,7 +150,7 @@ var getvmData=function(i,type){
 					scope.getxqlb(2);
 					 timeout();
 				 };
-			 vm.items[i][type]=option;
+			 vm.items[i][type]=option.saveAsImage(type=='xb'?"性别对比":type=='allMz'?"民族对比":"学历对比");
 		 }
 		 mask.hideLoading(); 
 	  });

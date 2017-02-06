@@ -51,7 +51,7 @@ public class StuInfoDaoImpl implements StuInfoDao {
 		String sql = "select t.SCHOOL_YEAR c1,tc1.name_ c2,tc2.name_ c3,t.MONEY c4,t.DATE_ c5 "
 				+ " from T_STU_GLORY t  "
 				+ " left join t_code tc1 on tc1.code_ = t.TERM_CODE  and tc1.code_type='TERM_CODE'  "
-				+ " left join t_code tc2 on tc2.code_ = t.GLORY_CODE  and tc1.code_type='GLORY_CODE'  "
+				+ " left join t_code tc2 on tc2.code_ = t.GLORY_CODE  and tc2.code_type='GLORY_CODE'  "
 				+ " where t.stu_id='" + id + "' order by t.SCHOOL_YEAR,t.TERM_CODE,t.DATE_" ;
 		return baseDao.getBaseDao().getJdbcTemplate().queryForList(sql);
 	}

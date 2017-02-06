@@ -1,0 +1,439 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>科研项目总量分析</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/keyan-style.css">
+<link rel="stylesheet" href="css/cg-select-dropdown.css">
+</head>
+
+<body>
+<div class="keyan-wrapper">
+	<nav class="keyan-nav">
+    	<div class="keyan-nav-user">
+        	<div class="keyan-user-img">
+        		<img src="images/user.jpg" width="73" height="73" alt="" class="img-circle">
+                <div class="user-promp">
+                	<div class="user-triangle"></div>
+                    <small>
+                    	<a href="#">修改</a>
+                    </small>
+                    <span></span>
+                    <small>
+                    	<a href="#">退出<i class="fa fa-sort-down"></i></a>
+                    </small>
+                </div>
+                <p class="text-center">宋仲基</p>
+                <small class="text-center admi">Administrator</small>
+            </div>
+        </div>
+        <ul class="list-unstyled">
+        	<li><a href="#"><span></span>科研大事记<i class="fa fa-angle-right pull-right"></i></a></li>
+            <li><a href="#"><span class="nav-icon-02"></span>不同人员科研成果对比<i class="fa fa-angle-right pull-right"></i></a></li>
+            <li><a href="#"><span class="nav-icon-03"></span>各单位科研成果对比<i class="fa fa-angle-right pull-right"></i></a></li>
+            <li><a href="#"><span class="nav-icon-04"></span>入校五年博士生科研产出<i class="fa fa-angle-right pull-right"></i></a></li>
+            <li><a href="#"><span class="nav-icon-05"></span>科研论文分析<i class="fa fa-angle-down pull-right"></i></a>
+            	<!--<ul class="list-unstyled ul-second">
+                	<li><a href="#">科研论文发表量</a></li>
+                    <li><a href="#">各类引文库源期刊发文分析</a></li>
+                    <li><a href="#">SCL、EL、CPCI-S 收录论文分析</a></li>
+                    <li><a href="#">科研论文获奖分析（科研成果中的论文奖有设计）</a></li>
+                    <li><a href="#">科研论文作者分析</a></li>
+                </ul>-->
+            </li>
+            <li class="active"><a href="#"><span class="nav-icon-06"></span>科研项目分析<i class="fa fa-angle-down pull-right"></i></a>
+            	<ul class="list-unstyled ul-second">
+                	<li class="on"><a href="#">科研项目总量分析</a></li>
+                    <li><a href="#">科研项目主持人分析</a></li>
+                    <li><a href="#">科研项目经费分析</a></li>
+                    <li><a href="#">科研项目进度分析</a></li>
+                    <li><a href="#">科研项目超期告警</a></li>
+                    <li><a href="#">科研项目产出成果申报告警</a></li>
+                </ul>
+            </li>
+            <li><a href="#"><span class="nav-icon-07"></span>著作、教材分析<i class="fa fa-angle-right pull-right"></i></a></li>
+            <li><a href="#"><span class="nav-icon-08"></span>科研成果分析<i class="fa fa-angle-down pull-right"></i></a>
+            	<!-- <ul class="list-unstyled ul-second">
+            	                	<li><a href="#">科技鉴定成果分析</a></li>
+            	                    <li class="on"><a href="#">科技获奖成果分析</a></li>
+            	                    <li><a href="#">国家专利成果分析</a></li>
+            	                    <li><a href="#">发明达人</a></li>
+            	                    <li><a href="#">计算机软件著作权分析</a></li>
+            	                </ul> -->
+            </li>
+        </ul>
+    </nav>
+    <!------------------------------------------------------------以上为nav内容-------------------------------------------------------------------->
+    <div class="keyan-main">
+    	<div class="header">
+        	<div class="main-tit">
+            	<h4 class="main-tit-b">科研项目总量分析</h4>
+                <h5 class="main-tit-s">从鉴定等级、完成人所属单位、完成人承担角色排名、鉴定形式、鉴定水平对我校及各部门的科技鉴定成果数据进行分析呈现。</h5>
+            </div>
+            <div class="keyan-condition">
+                <dl class="clearfix">
+                	<dt>学科门类：</dt>
+                    <dd>
+                    	<form action="" class="ky-form condition-radio">
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="radio-xk" value="radio-zr" id="radio-zr">
+                                <label for="radio-zr">自然科学</label>
+                            </div>
+
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="radio-xk" value="radio-sh" id="radio-sh" checked>
+                                <label for="radio-sh">社会哲学</label>
+                            </div>
+                        </form>
+                    </dd>
+                    <dd class="pull-right"><a href="" class="ky-advanced-filter">高级筛选<i class="fa fa-angle-double-up"></i></a></dd>
+                </dl>
+                <dl class="clearfix">
+                	<dt>完成人单位：</dt>
+                    <dd>
+                    	<form action="" class="ky-form condition-radio">
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="radio-school" value="radio-scl" id="radio-scl" checked>
+                                <label for="radio-scl">郑州轻工业学院</label>
+                            </div>
+                        </form>
+                    </dd>
+                </dl>
+                <dl class="clearfix">
+                	<dt>鉴定年份：</dt>
+                    <dd>
+                    	<form action="" class="ky-form condition-radio">
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="radio-year" value="radio-this" id="radio-this" checked>
+                                <label for="radio-this">今年</label>
+                            </div>
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="radio-year" value="radio-last" id="radio-last">
+                                <label for="radio-last">去年</label>
+                            </div>
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="radio-year" value="radio-point" id="radio-point">
+                                <label for="radio-point">指定年</label>
+                            </div>
+                        </form>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+		
+        <div class="school-gk zaiji-num">
+        	<table>
+            		<tbody>
+            			<tr>
+							<td class="xuexiao-num">
+        						<div>
+                                	<table class="table">
+                                    	<tbody>
+                                        <tr>
+                                        	<td>
+                                    			<p>郑州轻工业学院<br><a href="#" class="text-green">22720人</a></p>
+                                    		</td>
+                                    	</tr>
+                                    	</tbody>
+                                    </table>
+                                </div>
+							</td>
+							<td class="cell"></td>
+                 			<td class="xiaoqu-num">
+                				<div>
+                				<table class="table zaiji-tab">
+                    				<tbody>
+                                        <tr>
+                                            <td>科学校区</td>
+                                            <td><a href="#" class="text-green">18720人</a></td>
+                                            <td class="text-gray">占比66%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>东风校区</td>
+                                            <td><a href="#" class="text-green">5000人</a></td>
+                                            <td class="text-gray">占比34%</td>
+                                        </tr>
+                                    </tbody>
+                    			</table>
+                				</div>
+                			</td>
+                			<td class="cell"></td>
+                			<td class="xueli-num">
+                				<div>
+                                <table class="table  zaiji-tab">
+                                    <tbody>
+                                        <tr>
+                                            <td>专科生</td>
+                                            <td><a href="#" class="text-green">1200人</a></td>
+                                            <td class="text-gray">占比18%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>本科生</td>
+                                            <td><a href="#" class="text-green">18720人</a></td>
+                                            <td class="text-gray">占比70%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>研究生</td>
+                                            <td><a href="#" class="text-green">600人</a></td>
+                                            <td class="text-gray">占比12%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                				</div>
+                			</td>
+                			<td class="cell"></td>
+                			<td class="grade-num">
+                				<div>
+                                <table class="table  zaiji-tab">
+                                    <tbody>
+                                        <tr>
+                                            <td>一年级</td>
+                                            <td><a href="#" class="text-green">5000人</a></td>
+                                            <td class="text-gray">占比22%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>二年级</td>
+                                            <td><a href="#" class="text-green">5000人</a></td>
+                                            <td class="text-gray">占比22%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>三年级</td>
+                                            <td><a href="#" class="text-green">5000人</a></td>
+                                            <td class="text-gray">占比22%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>四年级</td>
+                                            <td><a href="#" class="text-green">5000人</a></td>
+                                            <td class="text-gray">占比22%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>五年级</td>
+                                            <td><a href="#" class="text-green">5200人</a></td>
+                                            <td class="text-gray">占比23%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                				</div>
+                            </td>
+                        </tr>
+                	</tbody> 
+                </table>
+        </div>
+        
+        <div class="ky-box">
+        	<div class="dis-tab">
+            	<div class="dis-t-cell wid-2">
+                	<div class="round-section">
+                        <div class="round-item">
+                            <p class="sec-tit">全年新增各级<br>各类科研成果/项</p>
+                            <div><a href="" class="round color-green round-70">23</a></div>
+                        </div>
+                        <div class="round-item">
+                            <p class="sec-tit">较上年增长/项</p>
+                            <div><a href="" class="round color-purple round-70">7</a></div>
+                        </div>
+                        <div class="round-item">
+                            <p class="sec-tit">增幅</p>
+                            <div><a href="" class="round color-purple round-70 text-22">12.4%</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dis-t-cell wid-8">
+                	<p class="section-tit tit-left-30">科研项目增量变化趋势</p>
+                    <div class="img-box">
+                    	<img src="images/ky-chengguo/jsj-01.png" class="center-block" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ky-box">
+        	<div class="ky-box-sec">
+        		<div class="dis-tab ">
+                	<div class="dis-t-cell wid-5 separate-l">
+                    	<p class="section-tit dis-in-block pull-left">科研项目校内分布直方图
+							<form action="" class="dis-in-block">
+								<div class="ky-checkbox checkbox checkbox-inline">
+									<input type="checkbox" name="" value="" id="ky-display" checked>
+									<label for="ky-display"><small>结合项目类别展示</small></label>
+								</div>
+                        	</form>
+						</p>
+                        <div class="img-box">
+                        	<img src="images/ky-xiangmu-fx/zlfx-01.png" class="center-block" alt="">
+                        </div>
+                    </div>
+                    <div class="dis-t-cell wid-5 border-l separate-r">
+                    	<p class="section-tit">科研项目类别组成</p>
+                        <div class="img-box">
+                        	<img src="images/ky-xiangmu-fx/zlfx-02.png" class="center-block" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ky-box no-bottom-border">
+        	<div class="ky-box-sec">
+        		<div class="dis-tab">
+                	<div class="dis-t-cell wid-5  separate-l">
+                    	<p class="section-tit">各级项目下达部门分布</p>
+                        <div class="img-box">
+                        	<img src="images/ky-xiangmu-fx/zlfx-03.png" class="center-block" alt="">
+                        </div>
+                    </div>
+                    <div class="dis-t-cell wid-5 border-l  separate-r">
+                    	<p class="section-tit">各类别科研项目级别组成</p>
+                        <form action="" class="ky-form">
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="radio-person" value="radio-person01" id="radio-person01" checked>
+                                <label for="radio-person01"><small>第一完成人</small></label>
+                            </div>
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="radio-person" value="radio-person02" id="radio-person02">
+                                <label for="radio-person02"><small>第二完成人</small></label>
+                            </div>
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="radio-person" value="radio-person03" id="radio-person03">
+                                <label for="radio-person03"><small>署名完成人</small></label>
+                            </div>
+                        </form>
+                        <div class="img-box">
+                        	<img src="images/ky-xiangmu-fx/zlfx-04.png" class="center-block" width="456" height="376" border="0" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+		<section>
+        <div class="section-head">
+        	<span class="section-head-tit">科研项目列表</span>
+            <div class="input-group ky-input pull-right">
+              <input type="text" class="form-control ky-input-control" placeholder="成果名模糊匹配">
+              <span class="input-group-btn">
+              	<i class="line"></i>
+                <button class="btn btn-default ky-btn" type="button"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+        </div>
+        <div class="ky-box no-bottom-border">
+        	<div class="ky-box-sec">
+            	<table class="table ky-no-border-table">
+                	<thead>
+                    	<tr>
+                        	<td>&nbsp;</td>
+                            <td>承担单位</td>
+                            <td>主持人</td>
+                            <td>成果名称</td>
+                            <td>项目类别</td>
+                            <td>起止时间</td>
+                            <td>经费数额</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    	<tr>
+                        	<td><span class="f-order">1</span></td>
+                            <td>物理与电子工程学院</td>
+                            <td><a href="" class="text-green name"><u>张继才</u></a></td>
+                            <td>光导传像束机动车底盘检测装置</td>
+                            <td>国家社科基金项目</td>
+                            <td>2014/06-2016/12</td>
+                            <td>20万</td>
+                        </tr>
+                        <tr>
+                        	<td><span class="f-order">2</span></td>
+                            <td>物理与电子工程学院</td>
+                            <td><a href="" class="text-green name"><u>张继才</u></a></td>
+                            <td>光导传像束机动车底盘检测装置</td>
+                            <td>国家社科基金项目</td>
+                            <td>2014/06-2016/12</td>
+                            <td>20万</td>
+                        </tr>
+                        <tr>
+                        	<td><span class="f-order">3</span></td>
+                            <td>物理与电子工程学院</td>
+                            <td><a href="" class="text-green name"><u>张继才</u></a></td>
+                            <td>光导传像束机动车底盘检测装置</td>
+                            <td>国家社科基金项目</td>
+                            <td>2014/06-2016/12</td>
+                            <td>20万</td>
+                        </tr>
+                        <tr>
+                        	<td><span class="f-order">4</span></td>
+                            <td>物理与电子工程学院</td>
+                            <td><a href="" class="text-green name"><u>张继才</u></a></td>
+                            <td>光导传像束机动车底盘检测装置</td>
+                            <td>国家社科基金项目</td>
+                            <td>2014/06-2016/12</td>
+                            <td>20万</td>
+                        </tr>
+                        <tr>
+                        	<td><span class="f-order">5</span></td>
+                            <td>物理与电子工程学院</td>
+                            <td><a href="" class="text-green name"><u>张继才</u></a></td>
+                            <td>光导传像束机动车底盘检测装置</td>
+                            <td>国家社科基金项目</td>
+                            <td>2014/06-2016/12</td>
+                            <td>20万</td>
+                        </tr>
+						<tr>
+                        	<td><span class="f-order">6</span></td>
+                            <td>物理与电子工程学院</td>
+                            <td><a href="" class="text-green name"><u>张继才</u></a></td>
+                            <td>光导传像束机动车底盘检测装置</td>
+                            <td>国家社科基金项目</td>
+                            <td>2014/06-2016/12</td>
+                            <td>20万</td>
+                        </tr>
+						<tr>
+                        	<td><span class="f-order">7</span></td>
+                            <td>物理与电子工程学院</td>
+                            <td><a href="" class="text-green name"><u>张继才</u></a></td>
+                            <td>光导传像束机动车底盘检测装置</td>
+                            <td>国家社科基金项目</td>
+                            <td>2014/06-2016/12</td>
+                            <td>20万</td>
+                        </tr>
+						<tr>
+                        	<td><span class="f-order">8</span></td>
+                            <td>物理与电子工程学院</td>
+                            <td><a href="" class="text-green name"><u>张继才</u></a></td>
+                            <td>光导传像束机动车底盘检测装置</td>
+                            <td>国家社科基金项目</td>
+                            <td>2014/06-2016/12</td>
+                            <td>20万</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="clearfix keyan-page has-pad-btm">
+                    <p class="page-result pull-left">共 1 页，数据 20233 条</p>
+                    <ul class="pagination ky-page pull-right">
+                    	<li><a href=""><<</a></li>
+                        <li><a href=""><</a></li>
+                        <li class="active"><a href="">1</a></li>
+                        <li><a href="">2</a></li>
+                        <li><a href="">3</a></li>
+                        <li><a href="">4</a></li>
+                        <li><a href="">5</a></li>
+                        <li><a href="">6</a></li>
+                        <li><a href="">7</a></li>
+                        <li><a href="">8</a></li>
+                        <li><a href="">9</a></li>
+                        <li><a href="">10</a></li>
+                        <li><a href="">></a></li>
+                        <li class="next"><a href="">>></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </section>
+
+    </div><!--keyan-main  end-->
+</div>
+</body>
+</html>

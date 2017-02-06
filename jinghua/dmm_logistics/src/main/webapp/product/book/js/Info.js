@@ -62,13 +62,13 @@ var getdatas=function(){
 						scope.schoolYear=param.name;
 						//alert(param.name.indexOf('中'));
 						scope.isCN=param.data.nameCode;//param.name.indexOf('中')==0?true:false;
-						if(i==3){
+						//if(i==3){
 							scope.type=param.data.nameCode;scope.typeName=param.name; 
-						}
+						//}
 						scope.getxqlb(i==1?14:15);
 						 timeout();
 					 };
-				 vm.items[i]=option;
+					 vm.items[i]=option.saveAsImage(i==1?"书籍分状态数量对比":"现有读者类型对比");
 			 }else if(i==2||i==4){//趋势曲线
 				 var d=[];
 				 for(var j=0;j<data.length;j++){
@@ -100,9 +100,9 @@ var getdatas=function(){
 						 };
 						 return option;
 				 }
-				 vm.items[i]=[event(getOption(d[0],'','zzt')),
-						 		event(getOption(d[1],'','zzt')),
-								 event(getOption(d[2],'','zzt'))];
+				 vm.items[i]=[event(getOption(d[0],'','zzt')).saveAsImage(scope.vmitems5titles[0]),
+						 		event(getOption(d[1],'','zzt')).saveAsImage(scope.vmitems5titles[1]),
+								 event(getOption(d[2],'','zzt')).saveAsImage(scope.vmitems5titles[2])];
 				 scope.vmitems5idex(0);
 			 }else if(i==6){//柱状图加曲线
 				 var d=[[],[]];
@@ -114,7 +114,7 @@ var getdatas=function(){
 				 } 
 				 vm.items[i]=[];
 				for(var j=0;j<d.length;j++) {
-					var option=getOption(d[j],'','zxt');
+					var option=getOption(d[j],'','zxt').saveAsImage(j==0?"藏书总数年度情况":"藏书增长量年度情况");
 					option.event=function(param){
 						scope.schoolYear=param.name;
 						scope.getxqlb(vm.items[i].length==0?10:11);
@@ -175,7 +175,7 @@ scope.getxqlb=function(i){
 		titles=duzhe.name;
 	}else if(i==14){
 		params=[scope.isCN];
-		title='当前学年'+scope.isCN==true?'中'+'文图书':'英'+'文图书';
+		title=scope.typeName+'图书';
 		titlesCode=tushu.code;
 		titles=tushu.name;
 	}else if(i==15){

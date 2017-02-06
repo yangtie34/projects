@@ -198,7 +198,7 @@ app.controller("OverdueRankController", [ "$scope","dialog",'mask','$timeout','h
 	  			 for(var j=0;j<data.length;j++){
 	  				 d.push({field:data[j].NAME,fieldCode:data[j].CODE,value:data[j].VALUE,name:'人次(人)'}); 
 	  			 }
-	  			 var option=getOption(d,'','bzt'); 
+	  			 var option=getOption(d,'','bzt').saveAsImage(i==1?"学历对比":"性别对比"); 
 				 option.event=function(param){
 						scope.value=param.data.nameCode;
 						scope.getxqlb(i==1?11:i==3?12:13);
@@ -224,7 +224,7 @@ app.controller("OverdueRankController", [ "$scope","dialog",'mask','$timeout','h
 					scope.getxqlb(14);
 						 timeout();
 					 };
-					 vm.items[i]=option;
+					 vm.items[i]=option.saveAsImage(scope.type1=='book'?'所属类型对比':'所属学院对比');
 	  		 }else if(i==2||i==4||i==6||i==8){//趋势图
 	  			 var d=[];
 	  			 for(var j=0;j<data.length;j++){

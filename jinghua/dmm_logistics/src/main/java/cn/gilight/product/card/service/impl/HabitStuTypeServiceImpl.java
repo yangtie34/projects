@@ -77,5 +77,41 @@ public class HabitStuTypeServiceImpl implements HabitStuTypeService {
 		
 		return habitStuTypeDao.getHabitEatByEdu(startDate, endDate, deptTeach);
 	}
+
+	@Override
+	public List<Map<String, Object>> getHabitZaoByArea(String startDate, String endDate,
+			Map<String, String> deptTeach) {
+		return habitStuTypeDao.getHabitZaoByArea(startDate, endDate, deptTeach);
+	}
+
+	@Override
+	public List<Map<String, Object>> getHabitHourByArea(String startDate, String endDate,
+			Map<String, String> deptTeach) {
+		return habitStuTypeDao.getHabitHourByArea(startDate, endDate, deptTeach);
+	}
+
+	@Override
+	public List<Map<String, Object>> getHabitEatByArea(String startDate, String endDate,
+			Map<String, String> deptTeach) {
+		return habitStuTypeDao.getHabitEatByArea(startDate, endDate, deptTeach);
+	}
+
+	@Override
+	public List<Map<String, Object>> getHabitZaoByMZ(String startDate,
+			String endDate, Map<String, String> deptTeach) {
+		return habitStuTypeDao.getHabitZaoByMZ(startDate, endDate, deptTeach);
+	}
+
+	@Override
+	public List<Map<String, Object>> getHabitHourByMZ(String startDate,
+			String endDate, Map<String, String> deptTeach) {
+		return habitStuTypeDao.getHabitHourByMZ(startDate, endDate, deptTeach);
+	}
+
+	@Override
+	public List<Map<String, Object>> getHabitEatByMZ(String startDate,
+			String endDate, Map<String, String> deptTeach) {
+		return habitStuTypeDao.getHabitEatByMZ(startDate, endDate, deptTeach);
+	}
 	
 }

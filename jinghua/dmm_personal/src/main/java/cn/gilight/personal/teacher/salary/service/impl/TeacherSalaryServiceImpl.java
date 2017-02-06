@@ -77,7 +77,7 @@ public class TeacherSalaryServiceImpl implements TeacherSalaryService{
 		if(list != null && list.size()>0){
 			for(Map<String,Object> map : list){
 				map.put("field", MapUtils.getString(map, "YEAR_"));
-				map.put("name", "年均工资");
+				map.put("name", "月均工资");
 				map.put("value", MapUtils.getString(map, "AVG_SALARY"));
 				map.remove("YEAR_");
 				map.remove("AVG_SALARY");

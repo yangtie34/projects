@@ -88,6 +88,22 @@ public class PayPowerServiceImpl implements PayPowerService{
 	}
 
 	@Override
+	public List<Map<String, Object>> getPowerByArea(String startDate, String endDate, Map<String, String> deptTeach) {
+		return payPowerDao.getPowerByArea(startDate, endDate, deptTeach);
+	}
+
+	@Override
+	public List<Map<String, Object>> getPayTypeByArea(String startDate, String endDate, Map<String, String> deptTeach) {
+		return payPowerDao.getPayTypeByArea(startDate, endDate, deptTeach);
+	}
+
+	@Override
+	public List<Map<String, Object>> getPayRegionByArea(String startDate, String endDate,
+			Map<String, String> deptTeach) {
+		return payPowerDao.getPayRegionByArea(startDate, endDate, deptTeach);
+	}
+
+	@Override
 	public Map<String, String> getxldm() {
 		Map<String,String> map=new HashMap<String,String>();
 		map.put("yjs", Code.getKey("xl.yjs"));
@@ -98,6 +114,8 @@ public class PayPowerServiceImpl implements PayPowerService{
 		map.put("cs", Code.getKey("card.cs"));
 		map.put("gzbz",Code.getKey("em.val"));
 		map.put("hz", Code.getKey("mz.hz"));
+		map.put("dqcode", Code.getKey("area.xz.code"));
+		map.put("dqname", Code.getKey("area.xz.name"));
 		map.put("zzcode", Code.getKey("mz.zz.code"));
 		map.put("zzname", Code.getKey("mz.zz.name"));
 		map.put("tea.status.code", Code.getKey("tea.status.code").replaceAll("'", ""));
@@ -108,5 +126,24 @@ public class PayPowerServiceImpl implements PayPowerService{
 		map.put("tea.zwjb.name", Code.getKey("tea.zwjb.name").replaceAll("'", ""));
 		return map;
 	}
+
+	@Override
+	public List<Map<String, Object>> getPowerByMZ(String startDate,
+			String endDate, Map<String, String> deptTeach) {
+		return payPowerDao.getPowerByMZ(startDate, endDate, deptTeach);
+	}
+
+	@Override
+	public List<Map<String, Object>> getPayTypeByMZ(String startDate,
+			String endDate, Map<String, String> deptTeach) {
+		return payPowerDao.getPayTypeByMZ(startDate, endDate, deptTeach);
+	}
+
+	@Override
+	public List<Map<String, Object>> getPayRegionByMZ(String startDate,
+			String endDate, Map<String, String> deptTeach) {
+		return payPowerDao.getPayRegionByMZ(startDate, endDate, deptTeach);
+	}
+
 	
 }

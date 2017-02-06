@@ -64,12 +64,18 @@ public class CardTrendDaoImpl implements CardTrendDao{
 	@Override
 	public List<Map<String, Object>> getStuPayTrend(
 			Map<String, String> deptTeach, String type_code, String flag) {
-		String sql="select to_char(t.year_month,'yyyy-mm') year_month,nvl(sum(t.all_count ),0) all_count ,nvl(sum(t.all_money),0) all_money, "
-				+"round(nvl(sum(t.all_money),0)/nvl(sum(t.all_count),1),2) one_money, "
-				+"round(nvl(sum(t.all_money),0)/(add_months(trunc(t.year_month,'mm'),1) - trunc(t.year_month,'mm')),2) day_money "
-				+"from TL_CARD_TREND t where t.flag='"+flag+"' and t.type_code='"+type_code+"' "
-				+SqlUtil.getDeptTeachTj(deptTeach,ShiroTagEnum.CARD_HPT.getCode(),"t")
-				+"group by t.year_month  order by t.year_month  ";
+		String sql=null;
+		if(flag.equalsIgnoreCase("pay_area")){
+			sql="";
+			//TODO 区域趋势没有
+		}else{
+			 sql="select to_char(t.year_month,'yyyy-mm') year_month,nvl(sum(t.all_count ),0) all_count ,nvl(sum(t.all_money),0) all_money, "
+						+"round(nvl(sum(t.all_money),0)/nvl(sum(t.all_count),1),2) one_money, "
+						+"round(nvl(sum(t.all_money),0)/(add_months(trunc(t.year_month,'mm'),1) - trunc(t.year_month,'mm'))/nvl(sum(t.use_people), 1),2) day_money "
+						+"from TL_CARD_TREND t where t.flag='"+flag+"' and t.type_code='"+type_code+"' "
+						+SqlUtil.getDeptTeachTj(deptTeach,ShiroTagEnum.CARD_HPT.getCode(),"t")
+						+"group by t.year_month  order by t.year_month  ";	
+		}
 		return baseDao.getJdbcTemplate().queryForList(sql);
 	}
 	

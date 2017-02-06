@@ -1,6 +1,7 @@
 package com.glite.flink.example.batch;
 
 import org.apache.flink.api.common.functions.FlatMapFunction;
+import org.apache.flink.api.common.functions.MapPartitionFunction;
 import org.apache.flink.api.common.functions.ReduceFunction;
 import org.apache.flink.api.java.DataSet;
 import org.apache.flink.api.java.ExecutionEnvironment;
@@ -46,7 +47,17 @@ public class ReduceExample {
 				return new Tuple3<String, Float, String>(value1.f0,value1.f1+value2.f1,value1.f2) ;
 			}
 		});
-		
+		paySet1.mapPartition(new MapPartitionFunction<Tuple3<String,Float,String>, Tuple3<String,Float,String>>( ) {
+
+			@Override
+			public void mapPartition(
+					Iterable<Tuple3<String, Float, String>> values,
+					Collector<Tuple3<String, Float, String>> out)
+					throws Exception {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 
 	}
 }

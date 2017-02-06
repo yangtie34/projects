@@ -30,7 +30,7 @@ public class DormJobServiceImpl implements DormJobService{
 			jrb.setMsg("初始化学生住宿情况数据："+i+"条。");
 		} catch (Exception e) {
 			jrb.setIsTrue(false);
-			jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+			jrb.setMsg(e.getMessage());
 		}
 		return jrb;
 	}
@@ -50,7 +50,7 @@ public class DormJobServiceImpl implements DormJobService{
 					jrb.setMsg("完成同步当前住宿学生的门禁使用情况,共计"+allNum+"条数据");
 				} catch (Exception e) {
 					jrb.setIsTrue(false);
-					jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+					jrb.setMsg(e.getMessage());
 					return jrb;
 				}
 			}
@@ -67,7 +67,7 @@ public class DormJobServiceImpl implements DormJobService{
 			jrb.setMsg("完成同步当前住宿学生的门禁使用情况,共计"+i+"条数据");
 		} catch (Exception e) {
 			jrb.setIsTrue(false);
-			jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+			jrb.setMsg(e.getMessage());
 		}
 		return jrb;
 	}
@@ -88,7 +88,7 @@ public class DormJobServiceImpl implements DormJobService{
 					System.out.println("---"+yearMonth+"---");
 				} catch (Exception e) {
 					jrb.setIsTrue(false);
-					jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+					jrb.setMsg(e.getMessage());
 					return jrb;
 				}
 			}
@@ -105,7 +105,7 @@ public class DormJobServiceImpl implements DormJobService{
 			jrb.setMsg("完成同步当前住宿趋势情况,共计"+i+"条数据");
 		} catch (Exception e) {
 			jrb.setIsTrue(false);
-			jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+			jrb.setMsg(e.getMessage());
 		}
 		return jrb;
 	}

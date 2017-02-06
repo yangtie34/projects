@@ -162,7 +162,10 @@ public class WechatBindController {
 		List<TSysUser> suls = hibernate.findByExample(sysuser);
 		if(suls.size() > 0){
 			TSysUser sus = suls.get(0);
-			if(sus.getPassword().equals(PasswordHelperUtil.simpleEncryptPassword(username + sus.getSalt(), password))){
+			if(sus.getIstrue() == 0){
+				result.put("eroormsg", "用户未启用！");
+				log.debug("++教职工["+user.getUsername()+"]绑定微信号失败，用户未启用++" );
+			}else if(sus.getIstrue() == 1 && sus.getPassword().equals(PasswordHelperUtil.simpleEncryptPassword(username + sus.getSalt(), password))){
 				//删除已经绑定的用户，防止多个教职工的微信绑定到同一个职工信息
 				TWechatBind temp = new TWechatBind();
 				temp.setOpenid(openid);

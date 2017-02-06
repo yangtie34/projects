@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<div modal-form config="formConfig"></div>
+<div class="keyan-main">
+    	<div class="header">
+        	<div class="main-tit">
+            	<h4 class="main-tit-b">科研项目经费分析</h4>
+                <h5 class="main-tit-s">根据筛选条件过滤在所选范围内的科研项目，
+                统计这些项目的总经费投入和环比投入增量和增幅以及年度的经费投入变化趋势，
+                统计各单位的各级别项目的数量和对应的投入经费总额和整体各级别项目的经费投入占比，
+                并统计各单位的项目总数量和项目总经费投入以及项目均投入。</h5>
+            </div>
+            <div class="keyan-condition">
+                <dl class="clearfix">
+                	<dt>组织机构：</dt>
+                    <dd>
+                    	 <div cg-combo-tree source="queryCondition.dept" result="condition.dept" ></div> 
+                    </dd>
+                </dl>
+                <dl class="clearfix">
+                	<dt>统计时间：</dt>
+                    <dd>
+                    <div self-defined-year source="queryCondition.definedYear" result='condition.definedYear'></div>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+		<div class="ky-box p-top-10">
+		 	<div class="dis-tab">
+		     	<div class="dis-t-cell wid-2">
+		         	<div class="round-section">
+		                 <div class="round-item">
+		                     <p class="sec-tit">{{condition.dept.mc}} <br />科研经费总额/万元</p>
+		                     <div><a href="" class="round color-green round-70 text-14">{{totalNums.current}}</a></div>
+		                 </div>
+		                 <div class="round-item">
+		                     <p class="sec-tit">较上一年{{condition.definedYear.start == condition.definedYear.end ? '度' : '段'}}增长</p>
+		                     <div><a href="" class="round color-purple round-70 text-14">{{totalNums.current - totalNums.last}} </a></div>
+		                 </div>
+		                 <div class="round-item">
+		                     <p class="sec-tit">增幅</p>
+		                     <div>
+		                    	<a href="" class="round color-purple round-70 text-14" ng-if="totalNums.last != 0">{{(totalNums.current - totalNums.last)*100/ totalNums.last | number:2}}%</a>
+                            	<a href="" class="round color-purple round-70 text-14" ng-if="totalNums.last == 0">——</a>
+		                     </div>
+		                 </div>
+		             </div>
+		         </div>
+		         <div class="dis-t-cell wid-8">
+		         	<div echart config="config1" height="450"></div>
+		         </div>
+		     </div>
+		 </div>
+		 <div class="ky-box">
+	       	<div class="ky-box-sec">
+	       		<div class="dis-tab ">
+	               	<div class="dis-t-cell wid-5 separate-l">
+	                   	<div echart config="config2" height="350"></div>
+	                   </div>
+	                   <div class="dis-t-cell wid-5 border-l separate-r">
+	                   	<div echart config="config3"  height="350"></div>
+	                   </div>
+	               </div>
+	           </div>
+	       </div>
+</div>
+
+<div echart config="config4" height="400" on-click="queryDept($params)"></div>

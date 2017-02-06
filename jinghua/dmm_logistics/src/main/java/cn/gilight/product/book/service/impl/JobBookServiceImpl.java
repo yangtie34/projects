@@ -42,7 +42,7 @@ public class JobBookServiceImpl implements JobBookService{
 			jobBookDao.updateBookStateYear(nowYear+"-"+(nowYear+1));
 		}catch(Exception e){
 			jrb.setIsTrue(false);
-			jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+			jrb.setMsg(e.getMessage());
 			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 			return jrb;
 		}
@@ -61,7 +61,7 @@ public class JobBookServiceImpl implements JobBookService{
 			jrb.setMsg("执行成功");
 		} catch (Exception e) {
 			jrb.setIsTrue(false);
-			jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+			jrb.setMsg(e.getMessage());
 			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 			return jrb;
 		}
@@ -80,7 +80,7 @@ public class JobBookServiceImpl implements JobBookService{
 				jrb.setMsg("执行成功");
 			} catch (Exception e) {
 				jrb.setIsTrue(false);
-				jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+				jrb.setMsg(e.getMessage());
 				TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 				return jrb;
 			}
@@ -101,7 +101,7 @@ public class JobBookServiceImpl implements JobBookService{
 					jrb.setMsg("完成同步"+startYear+"-01至"+nowYear+"-12中图书借阅月报");
 				} catch (Exception e) {
 					jrb.setIsTrue(false);
-					jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+					jrb.setMsg(e.getMessage());
 					TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 					return jrb;
 				}
@@ -123,7 +123,7 @@ public class JobBookServiceImpl implements JobBookService{
 					jrb.setMsg("完成同步"+startYear+"-01至"+nowYear+"-12中人员借阅月报");
 				} catch (Exception e) {
 					jrb.setIsTrue(false);
-					jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+					jrb.setMsg(e.getMessage());
 					TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 					return jrb;
 				}
@@ -145,7 +145,7 @@ public class JobBookServiceImpl implements JobBookService{
 					jrb.setMsg("完成同步"+startYear+"-01至"+nowYear+"-12中图书类型超时借阅期报");
 				} catch (Exception e) {
 					jrb.setIsTrue(false);
-					jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+					jrb.setMsg(e.getMessage());
 					TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 					return jrb;
 				}
@@ -167,7 +167,7 @@ public class JobBookServiceImpl implements JobBookService{
 					jrb.setMsg("完成同步"+startYear+"-01至"+nowYear+"-12中人员超时借阅期报");
 				} catch (Exception e) {
 					jrb.setIsTrue(false);
-					jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+					jrb.setMsg(e.getMessage());
 					TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 					return jrb;
 				}
@@ -188,7 +188,7 @@ public class JobBookServiceImpl implements JobBookService{
 			jrb.setMsg("执行成功");
 		} catch (Exception e) {
 			jrb.setIsTrue(false);
-			jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+			jrb.setMsg(e.getMessage());
 			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 			return jrb;
 		}
@@ -208,7 +208,7 @@ public class JobBookServiceImpl implements JobBookService{
 			jrb.setMsg(schoolYear+"-"+month+"同步图书分类型借阅完成");
 		} catch (Exception e) {
 			jrb.setIsTrue(false);
-			jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+			jrb.setMsg(e.getMessage());
 			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 			return jrb;
 		}
@@ -228,7 +228,7 @@ public class JobBookServiceImpl implements JobBookService{
 			jrb.setMsg(schoolYear+"-"+month+"同步人员借阅完成");
 		} catch (Exception e) {
 			jrb.setIsTrue(false);
-			jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+			jrb.setMsg(e.getMessage());
 			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 			return jrb;
 		}
@@ -248,7 +248,7 @@ public class JobBookServiceImpl implements JobBookService{
 			jrb.setMsg(schoolYear+"-"+month+"同步图书分类型逾期借阅完成");
 		} catch (Exception e) {
 			jrb.setIsTrue(false);
-			jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+			jrb.setMsg(e.getMessage());
 			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 			return jrb;
 		}
@@ -268,7 +268,7 @@ public class JobBookServiceImpl implements JobBookService{
 			jrb.setMsg(schoolYear+"-"+month+"同步人员逾期借阅完成");
 		} catch (Exception e) {
 			jrb.setIsTrue(false);
-			jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+			jrb.setMsg(e.getMessage());
 			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 			return jrb;
 		}
@@ -288,7 +288,7 @@ public class JobBookServiceImpl implements JobBookService{
 				jrb.setMsg("执行成功");
 			} catch (Exception e) {
 				jrb.setIsTrue(false);
-				jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+				jrb.setMsg(e.getMessage());
 				TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 				return jrb;
 			}
@@ -308,7 +308,7 @@ public class JobBookServiceImpl implements JobBookService{
 				jrb.setMsg("执行成功");
 			} catch (Exception e) {
 				jrb.setIsTrue(false);
-				jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+				jrb.setMsg(e.getMessage());
 				TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 				return jrb;
 			}
@@ -327,7 +327,7 @@ public class JobBookServiceImpl implements JobBookService{
 			jrb.setMsg("执行成功");
 		} catch (Exception e) {
 			jrb.setIsTrue(false);
-			jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+			jrb.setMsg(e.getMessage());
 			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 			return jrb;
 		}
@@ -345,7 +345,7 @@ public class JobBookServiceImpl implements JobBookService{
 			jrb.setMsg("执行成功");
 		} catch (Exception e) {
 			jrb.setIsTrue(false);
-			jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+			jrb.setMsg(e.getMessage());
 			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 			return jrb;
 		}
@@ -369,7 +369,7 @@ public class JobBookServiceImpl implements JobBookService{
 					jrb.setMsg("完成同步"+startYear+"-01至"+nowYear+"-12中学生借阅月报,共计"+allNum+"条数据");
 				} catch (Exception e) {
 					jrb.setIsTrue(false);
-					jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+					jrb.setMsg(e.getMessage());
 					TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 					return jrb;
 				}
@@ -392,7 +392,7 @@ public class JobBookServiceImpl implements JobBookService{
 					+ "（新增："+(MapUtils.getIntValue(map, "addNum")-MapUtils.getIntValue(map, "delNum"))+"人）");
 		} catch (Exception e) {
 			jrb.setIsTrue(false);
-			jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+			jrb.setMsg(e.getMessage());
 			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 			return jrb;
 		}
@@ -416,7 +416,7 @@ public class JobBookServiceImpl implements JobBookService{
 					jrb.setMsg("完成同步"+startYear+"-01至"+nowYear+"-12中教师借阅月报,共计"+allNum+"条数据");
 				} catch (Exception e) {
 					jrb.setIsTrue(false);
-					jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+					jrb.setMsg(e.getMessage());
 					TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 					return jrb;
 				}
@@ -439,7 +439,7 @@ public class JobBookServiceImpl implements JobBookService{
 					+ "（新增："+(MapUtils.getIntValue(map, "addNum")-MapUtils.getIntValue(map, "delNum"))+"人）");
 		} catch (Exception e) {
 			jrb.setIsTrue(false);
-			jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+			jrb.setMsg(e.getMessage());
 			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 			return jrb;
 		}
@@ -463,7 +463,7 @@ public class JobBookServiceImpl implements JobBookService{
 					jrb.setMsg("完成同步"+startYear+"-01至"+nowYear+"-12中图书借阅月报,共计"+allNum+"条数据");
 				} catch (Exception e) {
 					jrb.setIsTrue(false);
-					jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+					jrb.setMsg(e.getMessage());
 					TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 					return jrb;
 				}
@@ -488,7 +488,7 @@ public class JobBookServiceImpl implements JobBookService{
 					+ "（新增："+(MapUtils.getIntValue(map, "addNum")-MapUtils.getIntValue(map, "delNum"))+"人）");
 		} catch (Exception e) {
 			jrb.setIsTrue(false);
-			jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+			jrb.setMsg(e.getMessage());
 			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 			return jrb;
 		}
@@ -512,7 +512,7 @@ public class JobBookServiceImpl implements JobBookService{
 					jrb.setMsg("完成同步"+startYear+"-01至"+nowYear+"-12中学生逾期还书月报,共计"+allNum+"条数据");
 				} catch (Exception e) {
 					jrb.setIsTrue(false);
-					jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+					jrb.setMsg(e.getMessage());
 					TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 					return jrb;
 				}
@@ -537,7 +537,7 @@ public class JobBookServiceImpl implements JobBookService{
 					jrb.setMsg("完成同步"+startYear+"-01至"+nowYear+"-12中教师逾期还书月报,共计"+allNum+"条数据");
 				} catch (Exception e) {
 					jrb.setIsTrue(false);
-					jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+					jrb.setMsg(e.getMessage());
 					TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 					return jrb;
 				}
@@ -564,7 +564,7 @@ public class JobBookServiceImpl implements JobBookService{
 					jrb.setMsg("完成同步"+startYear+"-01至"+nowYear+"-12中书籍逾期归还月报,共计"+allNum+"条数据");
 				} catch (Exception e) {
 					jrb.setIsTrue(false);
-					jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+					jrb.setMsg(e.getMessage());
 					TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 					return jrb;
 				}
@@ -588,7 +588,7 @@ public class JobBookServiceImpl implements JobBookService{
 					+ "（新增："+(MapUtils.getIntValue(map, "addNum")-MapUtils.getIntValue(map, "delNum"))+"人）");
 		} catch (Exception e) {
 			jrb.setIsTrue(false);
-			jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+			jrb.setMsg(e.getMessage());
 			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 			return jrb;
 		}
@@ -610,7 +610,7 @@ public class JobBookServiceImpl implements JobBookService{
 					+ "（新增："+(MapUtils.getIntValue(map, "addNum")-MapUtils.getIntValue(map, "delNum"))+"人）");
 		} catch (Exception e) {
 			jrb.setIsTrue(false);
-			jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+			jrb.setMsg(e.getMessage());
 			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 			return jrb;
 		}
@@ -632,7 +632,7 @@ public class JobBookServiceImpl implements JobBookService{
 					+ "（新增："+(MapUtils.getIntValue(map, "addNum")-MapUtils.getIntValue(map, "delNum"))+"本）");
 		} catch (Exception e) {
 			jrb.setIsTrue(false);
-			jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+			jrb.setMsg(e.getMessage());
 			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 			return jrb;
 		}
@@ -659,7 +659,7 @@ public class JobBookServiceImpl implements JobBookService{
 				jrb.setMsg("执行成功");
 			} catch (Exception e) {
 				jrb.setIsTrue(false);
-				jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+				jrb.setMsg(e.getMessage());
 				TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 				return jrb;
 			}
@@ -691,7 +691,7 @@ public class JobBookServiceImpl implements JobBookService{
 			jrb.setMsg("执行成功");
 		} catch (Exception e) {
 			jrb.setIsTrue(false);
-			jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+			jrb.setMsg(e.getMessage());
 			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 			return jrb;
 		}
@@ -710,7 +710,7 @@ public class JobBookServiceImpl implements JobBookService{
 			jrb.setMsg("初始化：借书详细记录共增加"+map.get("addNum")+"条数据");
 		} catch (Exception e) {
 			jrb.setIsTrue(false);
-			jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+			jrb.setMsg(e.getMessage());
 			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 			return jrb;
 		}
@@ -729,7 +729,7 @@ public class JobBookServiceImpl implements JobBookService{
 			jrb.setMsg("本年借书详细记录共增加"+map.get("addNum")+"条数据");
 		} catch (Exception e) {
 			jrb.setIsTrue(false);
-			jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+			jrb.setMsg(e.getMessage());
 			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 			return jrb;
 		}
@@ -747,7 +747,7 @@ public class JobBookServiceImpl implements JobBookService{
 			jrb.setMsg("近两月借书详细记录共增加"+map.get("addNum")+"条数据");
 		} catch (Exception e) {
 			jrb.setIsTrue(false);
-			jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+			jrb.setMsg(e.getMessage());
 			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 			return jrb;
 		}
@@ -765,7 +765,7 @@ public class JobBookServiceImpl implements JobBookService{
 			jrb.setMsg("昨日借书详细记录共增加"+map.get("addNum")+"条数据");
 		} catch (Exception e) {
 			jrb.setIsTrue(false);
-			jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+			jrb.setMsg(e.getMessage());
 			TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
 			return jrb;
 		}
@@ -791,7 +791,7 @@ public class JobBookServiceImpl implements JobBookService{
 					}
 				} catch (Exception e) {
 					jrb.setIsTrue(false);
-					jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+					jrb.setMsg(e.getMessage());
 					return jrb;
 				}
 			}
@@ -817,7 +817,7 @@ public class JobBookServiceImpl implements JobBookService{
 					}
 				} catch (Exception e) {
 					jrb.setIsTrue(false);
-					jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+					jrb.setMsg(e.getMessage());
 					return jrb;
 				}
 			}
@@ -844,7 +844,7 @@ public class JobBookServiceImpl implements JobBookService{
 					}
 				} catch (Exception e) {
 					jrb.setIsTrue(false);
-					jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+					jrb.setMsg(e.getMessage());
 					return jrb;
 				}
 			}
@@ -863,7 +863,7 @@ public class JobBookServiceImpl implements JobBookService{
 			jobBookDao.createTemp();
 		} catch (Exception e) {
 			jrb.setIsTrue(false);
-			jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+			jrb.setMsg(e.getMessage());
 		}
 		return jrb;
 	}
@@ -878,7 +878,7 @@ public class JobBookServiceImpl implements JobBookService{
 					+ "（新增："+(MapUtils.getIntValue(map, "addNum")-MapUtils.getIntValue(map, "delNum"))+"条）");
 		} catch (Exception e) {
 			jrb.setIsTrue(false);
-			jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+			jrb.setMsg(e.getMessage());
 		}
 		return jrb;
 	}
@@ -894,7 +894,7 @@ public class JobBookServiceImpl implements JobBookService{
 			jobBookDao.createTemp();
 		} catch (Exception e) {
 			jrb.setIsTrue(false);
-			jrb.setMsg(e.getCause()==null?e.getMessage():e.getCause().toString());
+			jrb.setMsg(e.getMessage());
 		}
 		return jrb;
 	}

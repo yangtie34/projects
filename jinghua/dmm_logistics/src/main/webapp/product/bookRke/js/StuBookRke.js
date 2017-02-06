@@ -117,7 +117,7 @@ app.controller("StuBookRkeController", [ "$scope","dialog",'mask','$timeout','ht
 							 d.push({field:dat[j].NAME,fieldCode:dat[j].CODE,value:dat[j].INRATE,name:'人数占比(‱)'}); 
 						 }
 						 vm.items[i][lb[k]]=function(){
-							 var option=getOption(d,'','zxt');
+							 var option=getOption(d,'','zxt').saveAsImage("按"+(k==0?"性别":k==1?"学历":"民族")+"统计人数比例");
 							 option.dataZoom.show=false;
 							 return option;
 						 }();
@@ -128,7 +128,7 @@ app.controller("StuBookRkeController", [ "$scope","dialog",'mask','$timeout','ht
 						 d.push({field:data[j].DEPT_NAME,fieldCode:data[j].DEPT_CODE,value:data[j].COUNT_,name:'总次数(次)'}); 
 						 d.push({field:data[j].DEPT_NAME,fieldCode:data[j].DEPT_CODE,value:data[j].INRATE,name:'人数占比(%)'}); 
 					 }
-					 vm.items[i]=getOption(d,'','zxt');
+					 vm.items[i]=getOption(d,'','zxt').saveAsImage((i==2?"":"非")+"活跃用户按所属"+scope.deptlname+"对比");
 				}else if(i==4){
 					var d=[];
 					 for(var j=0;j<data.length;j++){

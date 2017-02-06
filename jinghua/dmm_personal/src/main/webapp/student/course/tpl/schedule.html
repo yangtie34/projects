@@ -5,15 +5,18 @@
       <a href="" ng-click="lastWeek();"><span class="phone-common-border-bold-arrow-left pull-left"></span></a>
     </div>
     <div class="media-body media-middle text-center"><div class="row jzhi-date-text"><div class="col-xs-4">
-       {{year}}年<br>
+       {{school_year}}<br>
+       第{{school_term == '01' ? '一' : '二'}}学期<br>
        第{{sz}}周 
     </div>
     <div class="col-xs-4 jzhi-select-text">
-       {{year}}年 <br>
+       {{school_year}} <br>
+       第{{school_term == '01' ? '一' : '二'}}学期<br>
        第{{zc}}周  
     </div>
     <div class="col-xs-4">
-       {{year}}年 <br>
+        {{school_year}}<br>
+       第{{school_term == '01' ? '一' : '二'}}学期<br>
        第{{xz}}周  
     </div></div></div>
     <div class="media-right media-middle">
@@ -26,12 +29,13 @@
       <thead>
         <tr>
           <th width="2%" colspan="2">{{month}}月 </th> 
-          <th width="17%"> {{zy}}<br>周一</th>
-          <th width="17%"> {{ze}}<br>周二</th>
-          <th width="16%"> {{zs}}<br>周三</th>
-          <th width="16%"> {{zsi}}<br>周四</th>
-          <th width="16%"> {{zw}}<br>周五</th>
-          <th width="16%"> {{zl}}<br>周六</th> 
+          <th width="14%"> {{zy}}<br>周一</th>
+          <th width="14%"> {{ze}}<br>周二</th>
+          <th width="14%"> {{zs}}<br>周三</th>
+          <th width="14%"> {{zsi}}<br>周四</th>
+          <th width="14%"> {{zw}}<br>周五</th>
+          <th width="14%"> {{zl}}<br>周六</th> 
+          <th width="14%"> {{zr}}<br>周日</th> 
         </tr>
       </thead>
       <tbody>

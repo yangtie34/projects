@@ -16,8 +16,7 @@ public class TCardPay {
 
 
 	public TCardPay(String items){
-		items=items.replace("'", "");
-		String[] fields=items.split(",");
+		String[] fields=items.replace("'", "").split(",");
 		this.setId(Long.valueOf(fields[0]));
 		this.setCardId(fields[1]);
 		this.setPayMoney(Float.valueOf(fields[2]));

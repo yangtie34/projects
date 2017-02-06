@@ -124,7 +124,8 @@ var getDeptData=function(method){
 					 d[0].push({field:data[j].NAME,fieldCode:data[j].CODE,value:data[j].ALL_COUNT,name:'次数(次)'}); 
 					 d[1].push({field:data[j].NAME,fieldCode:data[j].CODE,value:data[j].ALL_MONEY,name:'金额(元)'}); 
 				 }
-				 vm.items[0].all.zzw={cs:getOption(d[0],'','bztwz'),je:getOption(d[1],'','bztwz')};
+				 vm.items[0].all.zzw={cs:getOption(d[0],'','bztwz').saveAsImage("整体早中晚刷卡次数情况"),
+						 				je:getOption(d[1],'','bztwz').saveAsImage("整体早中晚刷卡金额情况")};
 			}else if(i==3){
 				var mapData={};
 				 for(var j=0;j<data.length;j++){
@@ -139,7 +140,8 @@ var getDeptData=function(method){
 						 d[1].push({field:keyData[j].NAME,fieldCode:keyData[j].CODE,value:keyData[j].ALL_MONEY,name:'金额(元)'}); 
 					 }
 					 vm.items[0][key]=vm.items[0][key]||{};
-					 vm.items[0][key].zzw={cs:getOption(d[0],'','bztwz'),je:getOption(d[1],'','bztwz')};
+					 vm.items[0][key].zzw={cs:getOption(d[0],'','bztwz').saveAsImage(vm.items[0][key].name+"早中晚刷卡次数情况"),
+							 				je:getOption(d[1],'','bztwz').saveAsImage(vm.items[0][key].name+"早中晚刷卡金额情况")};
 				 }
 			}else if(i==4){
 				 var d=[[],[]];
@@ -147,7 +149,8 @@ var getDeptData=function(method){
 					 d[0].push({field:data[j].HOUR_,value:data[j].ALL_COUNT,name:'次数(次)'}); 
 					 d[1].push({field:data[j].HOUR_,value:data[j].ALL_MONEY,name:'金额(元)'}); 
 				 }
-				 vm.items[0].all.fsd={cs:getOption(d[0],'','xqs'),je:getOption(d[1],'','xqs')};
+				 vm.items[0].all.fsd={cs:getOption(d[0],'','xqs').saveAsImage("整体分时段统计刷卡次数"),
+						 			je:getOption(d[1],'','xqs').saveAsImage("整体分时段统计刷卡金额")};
 			}else if(i==5){
 				var mapData={};
 				 for(var j=0;j<data.length;j++){
@@ -162,7 +165,8 @@ var getDeptData=function(method){
 						 d[1].push({field:keyData[j].HOUR_,value:keyData[j].ALL_MONEY,name:'金额(元)'}); 
 					 }
 					 vm.items[0][key]=vm.items[0][key]||{};
-					 vm.items[0][key].fsd={cs:getOption(d[0],'','xqs'),je:getOption(d[1],'','xqs')};
+					 vm.items[0][key].fsd={cs:getOption(d[0],'','xqs').saveAsImage(vm.items[0][key].name+"分时段统计刷卡次数"),
+							 				je:getOption(d[1],'','xqs').saveAsImage(vm.items[0][key].name+"分时段统计刷卡金额")};
 				 }
 			}
 			 mask.hideLoading(); 

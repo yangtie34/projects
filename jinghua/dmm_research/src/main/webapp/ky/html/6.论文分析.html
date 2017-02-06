@@ -1,0 +1,391 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>论文分析</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/keyan-style.css">
+<link rel="stylesheet" href="css/cg-select-dropdown.css">
+</head>
+
+<body>
+<div class="keyan-wrapper">
+	<nav class="keyan-nav">
+    	<div class="keyan-nav-user">
+        	<div class="keyan-user-img">
+        		<img src="images/user.jpg" width="73" height="73" alt="" class="img-circle">
+                <div class="user-promp">
+                	<div class="user-triangle"></div>
+                    <small>
+                    	<a href="#">修改</a>
+                    </small>
+                    <span></span>
+                    <small>
+                    	<a href="#">退出<i class="fa fa-sort-down"></i></a>
+                    </small>
+                </div>
+                <p class="text-center">宋仲基</p>
+                <small class="text-center admi">Administrator</small>
+            </div>
+        </div>
+        <ul class="list-unstyled">
+        	<li><a href="#"><span></span>科研大事记<i class="fa fa-angle-right pull-right"></i></a></li>
+            <li><a href="#"><span class="nav-icon-02"></span>不同人员科研成果对比<i class="fa fa-angle-right pull-right"></i></a></li>
+            <li><a href="#"><span class="nav-icon-03"></span>各单位科研成果对比<i class="fa fa-angle-right pull-right"></i></a></li>
+            <li><a href="#"><span class="nav-icon-04"></span>入校五年博士生科研产出<i class="fa fa-angle-right pull-right"></i></a></li>
+            <li class="active"><a href="#"><span class="nav-icon-05"></span>科研论文分析<i class="fa fa-angle-down pull-right"></i></a>
+            	<ul class="list-unstyled ul-second">
+                	<li><a href="#">科研论文发表量</a></li>
+                    <li><a href="#">各类引文库源期刊发文分析</a></li>
+                    <li class="on"><a href="#">SCL、EL、CPCI-S 收录论文分析</a></li>
+                    <li><a href="#">科研论文获奖分析（科研成果中的论文奖有设计）</a></li>
+                    <li><a href="#">科研论文作者分析</a></li>
+                </ul>
+            </li>
+            <li><a href="#"><span class="nav-icon-06"></span>科研项目分析<i class="fa fa-angle-down pull-right"></i></a>
+            	<!--<ul class="list-unstyled ul-second">
+                	<li><a href="#">科研项目总量分析</a></li>
+                    <li><a href="#">科研项目主持人分析</a></li>
+                    <li><a href="#">科研项目经费分析</a></li>
+                    <li><a href="#">科研项目进度分析</a></li>
+                    <li><a href="#">科研项目超期告警</a></li>
+                    <li><a href="#">科研项目产出成果申报告警</a></li>
+                </ul>-->
+            </li>
+            <li><a href="#"><span class="nav-icon-07"></span>著作、教材分析<i class="fa fa-angle-right pull-right"></i></a></li>
+            <li><a href="#"><span class="nav-icon-08"></span>科研成果分析<i class="fa fa-angle-down pull-right"></i></a>
+            	<!--<ul class="list-unstyled ul-second">
+                	<li><a href="#">科技鉴定成果分析</a></li>
+                    <li class="on"><a href="#">科技获奖成果分析</a></li>
+                    <li><a href="#">国家专利成果分析</a></li>
+                    <li><a href="#">发明达人</a></li>
+                    <li><a href="#">计算机软件著作权分析</a></li>
+                </ul>-->
+            </li>
+        </ul>
+    </nav>
+    <!------------------------------------------------------------以上为nav内容-------------------------------------------------------------------->
+    <div class="keyan-main">
+    	<div class="header">
+        	<div class="main-tit">
+            	<h4 class="main-tit-b">SCI、EI、CPCI-S收录论文分析</h4>
+                <h5 class="main-tit-s">SCI（Science Citation Index，科学引文索引）、SSCI（Social Science Citation Index，社会科学引文索引）、A&HCI（Arts & Humanities
+Citation Index，艺术与人文引文索引）、CPCI-S（Conference Proceedings Citation Index–Science，科技会议录引文索引）四大索引，以及美国
+工程信息公司出版的EI（Engineering Index，工程索引），均是国际上重要的信息检索系统和科研绩效评价工具。</h5>
+            </div>
+            <div class="keyan-condition">
+                <dl class="clearfix">
+                	<dt>学科门类：</dt>
+                    <dd>
+                    	<form action="" class="ky-form condition-radio">
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="radio-xk" value="radio-zr" id="radio-zr">
+                                <label for="radio-zr">自然科学</label>
+                            </div>
+
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="radio-xk" value="radio-sh" id="radio-sh" checked>
+                                <label for="radio-sh">社会哲学</label>
+                            </div>
+                        </form>
+                    </dd>
+                    <dd class="pull-right"><a href="" class="ky-advanced-filter">高级筛选<i class="fa fa-angle-double-up"></i></a></dd>
+                </dl>
+                <dl class="clearfix">
+                	<dt>组织机构：</dt>
+                    <dd>
+                    	<form action="" class="ky-form condition-radio">
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="radio-xy" value="radio-xy" id="radio-xy" checked>
+                                <label for="radio-xy">文学院</label>
+                            </div>
+                        </form>
+                    </dd>
+                </dl>
+                <dl class="clearfix">
+                	<dt>发表年份：</dt>
+                    <dd>
+                    	<form action="" class="ky-form condition-radio">
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="radio-years" value="radio-last-y" id="radio-last-y" checked>
+                                <label for="radio-last-y">去年（2014年）</label>
+                            </div>
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="radio-years" value="radio-last-five" id="radio-last-five">
+                                <label for="radio-last-five">近五年</label>
+                            </div>
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="radio-years" value="radio-last-ten" id="radio-last-ten">
+                                <label for="radio-last-ten">近十年</label>
+                            </div>
+                        </form>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+
+		<section>
+        <div class="background-gray">
+        	<ul class="list-unstyled background-gray-square">
+            	<li class="square-pad">
+                	<a href="" class="square active">
+                        <div>
+                            <p>SCI论文收录/篇</p>
+                            <div href=""  class="round round-70 text-24 color-ju round-t-b arrow-tri-up">377</div>
+                            <small class="zengfu">
+                                较上年新增 <b class="text-14 text-ju">64</b> 篇<br>
+                                增幅 <b class="text-14 text-ju">23.4%</b>
+                            </small>
+                        </div>
+                        <div class="has-arrow"></div>
+                    </a>
+                </li>
+                <li class="square-pad">
+                	<a href="" class="square">
+                        <div>
+                            <p>SCI论文收录/篇</p>
+                            <div href=""  class="round round-70 text-24 color-blue round-t-b arrow-tri-up">377</div>
+                            <small class="zengfu">
+                                较上年新增 <b class="text-14 text-blue">64</b> 篇<br>
+                                增幅 <b class="text-14 text-blue">23.4%</b>
+                            </small>
+                        </div>
+                        <div class="has-arrow"></div>
+                    </a>
+                </li>
+                <li class="square-pad">
+                	<a href="" class="square">
+                        <div>
+                            <p>SCI论文收录/篇</p>
+                            <div href=""  class="round round-70 text-24 color-green round-t-b arrow-tri-up">377</div>
+                            <small class="zengfu">
+                                较上年新增 <b class="text-14 text-green">64</b> 篇<br>
+                                增幅 <b class="text-14 text-green">23.4%</b>
+                            </small>
+                        </div>
+                        <div class="has-arrow"></div>
+                    </a>
+                </li>
+                <li class="square-pad lunwen-more">
+                	<div class="square">
+						<a href=""><img src="images/lunwen-more.png" width="50" height="50" border="0" alt=""></a>
+                    	<!-- <p>非第一单位发表</p>
+                    	                        <a href="" class="has-round-border">
+                    	                            <span class="round round-70 text-24 color-ju-l round-t-b has-round-shadow has-round-shadow-ju-l">84</span>
+                    	                        </a>
+                    	                        <small class="zengfu">增幅32.4%</small> -->
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+		<div class="ky-box">
+        	<div class="ky-box-sec">
+        		<div class="dis-tab ">
+                	<div class="dis-t-cell wid-5 separate-l">
+                    	<p class="section-tit">SCI论文收录单位分布
+						</p>
+                        <div class="img-box">
+                        	<img src="images/ky-lunwen-fx/lwfx-01.png" width="453" height="347" border="0" alt="" class="center-block">
+                        </div>
+                    </div>
+                    <div class="dis-t-cell wid-5 border-l separate-r">
+                    	<p class="section-tit">SCI收录论文发表时间分布</p>
+                        <div class="img-box">
+                        	<img src="images/ky-lunwen-fx/lwfx-02.png" width="461" height="347" border="0" alt="" class="center-block">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+		<div class="ky-box">
+        	<div class="ky-box-sec">
+        		<div class="dis-tab ">
+                	<div class="dis-t-cell wid-5 separate-l">
+                    	<p class="section-tit">SCI论文收录期刊影响因子分布
+						</p>
+						<form action="" class="ky-form">
+							<div class="radio-box radio-inline radio-no-top">
+								<input type="radio" name="lwfx-01" value="lwfx-011" id="lwfx-011" checked>
+								<label for="lwfx-011">收录期刊影响因子</label>
+							</div>
+							<div class="radio-box radio-inline radio-no-top">
+								<input type="radio" name="lwfx-01" value="lwfx-012" id="lwfx-012">
+								<label for="lwfx-012">收录期刊载文量</label>
+							</div>
+						</form>
+                        <div class="img-box">
+							<img src="images/ky-lunwen-fx/lwfx-03.png" width="456" height="334" border="0" alt="" class="center-block">
+                        </div>
+                    </div>
+                    <div class="dis-t-cell wid-5 border-l separate-r">
+                    	<p class="section-tit">SCI收录论文学科分布<a href="" class="time-left-20"><img src="images/time-purple.png" width="14" height="14" alt=""></a></p>
+						<form action="" class="ky-form">
+							<div class="radio-box radio-inline radio-no-top">
+								<input type="radio" name="lwfx-02" value="lwfx-021" id="lwfx-021" checked>
+								<label for="lwfx-021">SCI收录论文分区</label>
+							</div>
+							<div class="radio-box radio-inline radio-no-top">
+								<input type="radio" name="lwfx-02" value="lwfx-022" id="lwfx-022">
+								<label for="lwfx-022">EI收录论文学科</label>
+							</div>
+						</form>
+                        <div class="img-box">
+                        	<img src="images/ky-lunwen-fx/lwfx-04.png" width="456" height="331" border="0" alt="" class="center-block">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<div class="ky-box no-bottom-border ky-n"><small><span class="text-org">名词解释:</span>影响因子（Impact Factor，IF）是描述期刊论文平均被引率的重要指标。某期刊在某年的影响因子是指该年引证该期刊前两年论文的总次数与前两年该期刊发表
+的论文总数之比，期刊IF值越大，相对来说其学术影响较大，载文的学术水平较高。</small></div>
+		</section>
+
+		<section>
+        <div class="section-head">
+        	<span class="section-head-tit">SCI/EI/CPCI-S论文收录全国高校排名</span>
+			<span>（数据依据：STIC检索报告）</span>
+        </div>
+        <div class="ky-box">
+        	<div class="ky-box-sec">
+				<table class="table table-bordered ky-table th-center">
+                	<thead>
+                    	<tr>
+                        	<td class="text-color-blk">时间</td>
+                            <td>2002</td>
+                            <td>2003</td>
+                            <td>2004</td>
+                            <td>2005</td>
+                            <td>2006</td>
+                            <td>2007</td>
+							<td>2008</td>
+                            <td>2009</td>
+                            <td>2010</td>
+                            <td>2011</td>
+                            <td>2012</td>
+                            <td>2013</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    	<tr>
+                        	<th>SCIE收录全国高校排名</th>
+                            <td>2</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>3</td>
+                            <td>5</td>
+                            <td>6</td>
+							<td>7</td>
+                            <td>9</td>
+                            <td>10</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                        	<th>EI收录论文全国高校排名</th>
+                            <td>2</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>3</td>
+                            <td>5</td>
+                            <td>6</td>
+							<td>7</td>
+                            <td>9</td>
+                            <td>10</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                        	<th>SSCI收录全国高校排名</th>
+                            <td>2</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>3</td>
+                            <td>5</td>
+                            <td>6</td>
+							<td>7</td>
+                            <td>9</td>
+                            <td>10</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>2</td>
+                        </tr>
+						<tr>
+                        	<th>CPCI-S收录全国高校排名</th>
+                            <td>2</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>3</td>
+                            <td>5</td>
+                            <td>6</td>
+							<td>7</td>
+                            <td>9</td>
+                            <td>10</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>2</td>
+                        </tr>
+						<tr>
+                        	<th>近十年SCI被引用指标在全国高校排名变化</th>
+                            <td>2</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>3</td>
+                            <td>5</td>
+                            <td>6</td>
+							<td>7</td>
+                            <td>9</td>
+                            <td>10</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>2</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        </section>
+
+		<div class="ky-box no-bottom">
+			<div class="ky-box-sec">
+				<p class="section-tit">2003－2013 十一年间，我校被SCI收录论文数的发展变化态势</p>
+                <form action="" class="ky-form">
+                    <div class="radio-box radio-inline radio-no-top">
+                        <input type="radio" name="lwfx-03" value="lwfx-31" id="lwfx-31" checked>
+                        <label for="lwfx-31">SCI收录篇数变化</label>
+                    </div>
+                    <div class="radio-box radio-inline  radio-no-top">
+                        <input type="radio" name="lwfx-03" value="lwfx-32" id="lwfx-32">
+                        <label for="lwfx-32">EI收录篇数变化</label>
+                    </div>
+					<div class="radio-box radio-inline radio-no-top">
+                        <input type="radio" name="lwfx-03" value="lwfx-33" id="lwfx-33">
+                        <label for="lwfx-33">SSCI收录篇数变化</label>
+                    </div>
+                    <div class="radio-box radio-inline  radio-no-top">
+                        <input type="radio" name="lwfx-03" value="lwfx-34" id="lwfx-34">
+                        <label for="lwfx-34">CPCI-S篇数变化</label>
+                    </div>
+					<div class="radio-box radio-inline  radio-no-top">
+                        <input type="radio" name="lwfx-03" value="lwfx-35" id="lwfx-35">
+                        <label for="lwfx-35">近十年SCI被引用次数变化</label>
+                    </div>
+                </form>
+                <div class="img-box">
+                	<img src="images/ky-lunwen-fx/lwfx-05.jpg" width="945" height="406" border="0" alt="" class="center-block">
+                </div>
+			</div>
+		</div>
+		<div class="ky-box no-bottom-border ky-n has-pad-btm"><small><span class="text-org">名词解释:</span>影响因子（Impact Factor，IF）是描述期刊论文平均被引率的重要指标。某期刊在某年的影响因子是指该年引证该期刊前两年论文的总次数与前两年该期刊发表
+的论文总数之比，期刊IF值越大，相对来说其学术影响较大，载文的学术水平较高。</small></div>
+
+    </div><!--keyan-main  end-->
+</div>
+</body>
+</html>

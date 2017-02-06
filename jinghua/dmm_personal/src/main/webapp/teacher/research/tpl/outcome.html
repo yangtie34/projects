@@ -21,7 +21,7 @@
  <ul class="jzhi-cglist" id="awardtable">
    <li ng-repeat="outcome in outcomes"><dl class="jzhi-list-dl"><span>{{$index+1}}</span><dt>成果名称</dt><dd>{{outcome.NAME_}}</dd></dl>
    <dl class="jzhi-list-dl"> <dt>获奖人</dt><dd>{{outcome.PRIZEWINNER}}</dd></dl>
-   <dl class="jzhi-list-dl"> <dt>获奖名称</dt><dd>{{patent.PATENT_DEPT}}</dd></dl>
+   <dl class="jzhi-list-dl"> <dt>获奖名称</dt><dd>{{outcome.AWARD_NAME}}</dd></dl>
    <dl class="jzhi-list-dl"> <dt>获奖级别</dt><dd>{{outcome.LEVEL_NAME}}</dd></dl>
    <dl class="jzhi-list-dl"> <dt>获奖类别</dt><dd>{{outcome.CATEGORY_NAME}}</dd></dl>
    <dl class="jzhi-list-dl"> <dt>获奖等级</dt><dd>{{outcome.RANK_NAME}}</dd></dl>

@@ -16,9 +16,17 @@ app.controller("payAbilityController", [ "$scope","dialog",'mask','$timeout','ht
 	        	'getPayRegionBySex',//8分性别消费区间
 	        	'getPayRegionByEdu',//9分学历消费区间
 	        	'cardTrendService?getPayYearTrend',	//10分学历消费区间
+	        	
+	        	'getPowerByArea',	//11分地区消费能力
+	        	'getPayTypeByArea',	//12分地区消费组成
+	        	'getPayRegionByArea',//13分地区消费区间
+	        	
+	        	'getPowerByMZ',	//14分民族消费能力
+	        	'getPayTypeByMZ',	//15分民族消费组成
+	        	'getPayRegionByMZ',//16分民族消费区间
 	               ];
 	  scope.qushiClick=function(type_code,flag,lx){
-		  flag=flag=='all'?'pay_all':flag=='xb'?'pay_sex':'pay_edu';
+		  flag=flag=='all'?'pay_all':flag=='xb'?'pay_sex':flag=='xl'?'pay_edu':flag=='dq'?'pay_area':'pay_mz';
 		  http.callService({
 			  service:'cardTrendService?getStuPayTrend',
 			  params:[deptTeach,type_code,flag]
@@ -56,7 +64,7 @@ http.callService({
 	xldm=data;
 	scope.xlxsids=[xldm.bk,xldm.dz];//////学历只显示大专本科
 	scope.k_xlxsids=function(k){
-		if(scope.xbxlcode=='xb'){
+		if(scope.xbxlcode=='xb'||scope.xbxlcode=='dq'){
 			return true;
 		}
 		if(k=='all')return true;
@@ -69,9 +77,13 @@ http.callService({
 	xl[xldm.yjs]={ico:'11',name:'研究生'};
 	xl[xldm.bk]={ico:'21',name:'本科'};
 	xl[xldm.dz]={ico:'31',name:'大专'};
+	var dq={name:'籍贯'};
+	dq[xldm.dqcode]={ico:'minority',name:xldm.dqname};
+	dq['other']={ico:'wwhz',name:'其他'};
 	scope.ico_title={all:{all:{ico:'all',name:'整体'},name:'整体'},
 			xb:{1:{ico:'man',name:'男生'},2:{ico:'female',name:'女生'},name:'性别'},
-			xl:xl
+			xl:xl,
+			dq:dq
 };
 });
 var getDeptData=function(method){
@@ -110,7 +122,7 @@ var getDeptData=function(method){
 	})
 	};
 	getDeptData("DeptTeach");
-	var initvm=function(){vm.items[0]={all:{all:{}},xb:{},xl:{}};vm.items[3]=null};
+	var initvm=function(){scope.dqmz={};vm.items[0]={all:{all:{}},xb:{},xl:{},dq:{},mz:{}};vm.items[3]=null};
 	scope.xbxlcode='xb';
 	scope.xbxl=function(code){
 		scope.xbxlcode=code;
@@ -122,11 +134,11 @@ var getDeptData=function(method){
 		http.callService(htt[i]).success(function(data){
 			 if(i==0){
 				 vm.items[0].all.all.xfnl=data[0];	 
-			 }else if(i==1||i==2){
+			 }else if(i==1||i==2||i==11||i==14){
 				 for(var j=0;j<data.length;j++){
-					 vm.items[0][i==1?'xb':'xl'][data[j].TYPE_CODE]=
-						 vm.items[0][i==1?'xb':'xl'][data[j].TYPE_CODE]||{};
-					 vm.items[0][i==1?'xb':'xl'][data[j].TYPE_CODE].xfnl=data[j];	 	 
+					 vm.items[0][i==1?'xb':i==2?'xl':i==11?'dq':'mz'][data[j].TYPE_CODE]=
+						 vm.items[0][i==1?'xb':i==2?'xl':i==11?'dq':'mz'][data[j].TYPE_CODE]||{name:data[j].TYPE_NAME};
+					 vm.items[0][i==1?'xb':i==2?'xl':i==11?'dq':'mz'][data[j].TYPE_CODE].xfnl=data[j];	 	 
 				 }
 			 }else if(i==3){
 				 var d=[[],[],[]];
@@ -137,8 +149,9 @@ var getDeptData=function(method){
 				 } 
 				// scope.vmitems5titles=['分类型对比藏书数量','分类型对比藏书价值','分类型对比藏书文献保障率'];
 				 vm.items[i]=[];
+				 var saveAsImageName=['分学院学生总消费金额分析','分学院学生人均日消费金额分析','分学院学生人均单笔消费金额分析'];
 				 for(var k=0;k<d.length;k++){
-					 var option=getOption(d[k],'','zzt');
+					 var option=getOption(d[k],'','zzt').saveAsImage(saveAsImageName[k]);
 					 vm.items[i][k]=option;	 
 				 }
 				 scope.radio1id=0;
@@ -147,8 +160,10 @@ var getDeptData=function(method){
 				 for(var j=0;j<data.length;j++){
 					 d.push({field:data[j].NAME,fieldCode:data[j].CODE,value:data[j].ALL_MONEY,name:'金额(元)'}); 
 				 }
-				 vm.items[0].all.all.xfzc=getOption(d,'','bztwz');
-			 }else if(i==5||i==6){
+				 var option=getOption(d,'','bztwz');
+				 option.legend.show=false;
+				 vm.items[0].all.all.xfzc=option.saveAsImage("整体消费组成");
+			 }else if(i==5||i==6||i==12||i==15){
 				 var mapData={};
 				 for(var j=0;j<data.length;j++){
 					 if(!mapData[data[j].TYPE_CODE])mapData[data[j].TYPE_CODE]=[];
@@ -160,16 +175,38 @@ var getDeptData=function(method){
 					 for(var j=0;j<keyData.length;j++){
 						 d.push({field:keyData[j].NAME,fieldCode:keyData[j].CODE,value:keyData[j].ALL_MONEY,name:'金额(元)'}); 
 					 }
-					 vm.items[0][i==5?'xb':'xl'][key]=vm.items[0][i==5?'xb':'xl'][key]||{};
-					 vm.items[0][i==5?'xb':'xl'][key].xfzc=getOption(d,'','bztwz');
+					 vm.items[0][i==5?'xb':i==6?'xl':i==12?'dq':'mz'][key]=vm.items[0][i==5?'xb':i==6?'xl':i==12?'dq':'mz'][key]||{name:keyData[0].TYPE_NAME};
+					 var option=getOption(d,'','bztwz');
+					 option.legend.show=false;
+					 vm.items[0][i==5?'xb':i==6?'xl':i==12?'dq':'mz'][key].xfzc=option.
+					 saveAsImage(vm.items[0][i==5?'xb':i==6?'xl':i==12?'dq':'mz'][key].name+"消费组成");
+				 }
+				 if(i==12){
+					 scope.dqmz.dq=[];
+					 for(var key in mapData){
+						 if(scope.dqmz.dq.length<2){
+							 scope.dqmz.dq.push(key);
+						 }else{
+							 break;
+						 }
+					 }
+				 }else if(i==15){
+					 scope.dqmz.mz=[];
+					 for(var key in mapData){
+						 if(scope.dqmz.mz.length<2){
+							 scope.dqmz.mz.push(key);
+						 }else{
+							 break;
+						 }
+					 }
 				 }
 			 }else if(i==7){
 				 var d=[];
 				 for(var j=0;j<data.length;j++){
 					 d.push({field:data[j].NAME,value:data[j].ALL_STU,name:'总人数(人)'}); 
 				 }
-				 vm.items[0].all.all.xfqj=getOption(d,'','zzt');
-			 }else if(i==8||i==9){
+				 vm.items[0].all.all.xfqj=getOption(d,'','zzt').saveAsImage("整体日均消费区间");
+			 }else if(i==8||i==9||i==13||i==16){
 				 var mapData={};
 				 for(var j=0;j<data.length;j++){
 					 if(!mapData[data[j].TYPE_CODE])mapData[data[j].TYPE_CODE]=[];
@@ -181,8 +218,9 @@ var getDeptData=function(method){
 					 for(var j=0;j<keyData.length;j++){
 						 d.push({field:keyData[j].NAME,value:keyData[j].ALL_STU,name:'总人数(人)'}); 
 					 }
-					 vm.items[0][i==8?'xb':'xl'][key]=vm.items[0][i==8?'xb':'xl'][key]||{};
-					 vm.items[0][i==8?'xb':'xl'][key].xfqj=getOption(d,'','zzt');
+					 vm.items[0][i==8?'xb':i==9?'xl':i==13?'dq':'mz'][key]=vm.items[0][i==8?'xb':i==9?'xl':i==13?'dq':'mz'][key]||{name:keyData[0].TYPE_NAME};
+					 vm.items[0][i==8?'xb':i==9?'xl':i==13?'dq':'mz'][key].xfqj=getOption(d,'','zzt').
+					 saveAsImage(vm.items[0][i==8?'xb':i==9?'xl':i==13?'dq':'mz'][key].name+"日均消费区间");
 				 }
 			 }else if(i==10){
 			 
@@ -193,7 +231,7 @@ var getDeptData=function(method){
 					//d.push({field:data[j].YEAR_MONTH,value:data[j].ALL_MONEY,name:'总金额(元)'}); 
 					 
 				 }
-				 vm.items[i]=getOption(d,'','zxt');
+				 vm.items[i]=getOption(d,'','zxt').saveAsImage("分学年学生消费能力分析");
 			 }
 			 mask.hideLoading(); 
 		  });
@@ -201,21 +239,23 @@ var getDeptData=function(method){
 	};
 	var getparams=function(i){
 			 var params=[];
-			 if(i<10){
+			 if(i<17){
 				 params=[startDate,endDate,deptTeach];
-			 }else if(i=10){
+			 }
+			 if(i==10){
 				 params=[deptTeach];
 			 }
 			 htt[i].params=params;
 			 getvmData(i);
 	};
 	var getAllData=function(m){
+		scope.radio1id=null;
 		for(var i=0;i<m.length;i++){
 			 mask.showLoading();
 			getparams(m[i]);
 		}
 	};
-	var m=[0,1,2,3,4,5,6,7,8,9,10];
+	var m=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
 	var initId=0;
 	var startDate=null;
 	var endDate=null;
@@ -225,7 +265,7 @@ var getDeptData=function(method){
 		if(val1==null)return;initvm();
 		startDate=angular.copy(val1.startTime);
 		endDate=angular.copy(val1.endTime);
-		if(initId>0)getAllData([0,1,2,3,4,5,6,7,8,9]);
+		if(initId>0)getAllData([0,1,2,3,4,5,6,7,8,9,11,12,13,14,15,16]);
 	},true);
 	/*监控dept*/
 	scope.$watch('deptResult',function(val1,val2){

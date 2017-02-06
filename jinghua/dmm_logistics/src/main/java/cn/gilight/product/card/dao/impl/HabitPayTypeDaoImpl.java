@@ -27,7 +27,7 @@ public class HabitPayTypeDaoImpl implements HabitPayTypeDao {
 			Map<String, String> deptTeach) {
 		String tj=CardTjUtil.getDateTJ(startDate, endDate)+
 				SqlUtil.getDeptTeachTj(deptTeach, ShiroTagEnum.CARD_HPT.getCode(),"t");
-		String sql="select sum(t.pay_count) all_count,sum(t.pay_money) all_money from tl_card_pay_stu_month t "+
+		String sql="select sum(t.pay_count) all_count,sum(t.pay_money) all_money from tl_card_dept_hour t "+
 				"where 1=1 "+tj+
 				" and t.card_deal_id in ("+CardTjUtil.ccx+") ";
 		return baseDao.getJdbcTemplate().queryForMap(sql);
@@ -39,7 +39,7 @@ public class HabitPayTypeDaoImpl implements HabitPayTypeDao {
 		String tj=CardTjUtil.getDateTJ(startDate, endDate)+
 				SqlUtil.getDeptTeachTj(deptTeach, ShiroTagEnum.CARD_HPT.getCode(),"t");
 		String sql="select sum(t.pay_count) all_count,sum(t.pay_money) all_money,t.card_deal_id type_code, "+
-				"t.card_deal_name type_name from tl_card_pay_stu_month t "+
+				"t.card_deal_name type_name from tl_card_dept_hour t "+
 				"where 1=1 "+tj+
 				"and t.card_deal_id in ("+CardTjUtil.ccx+") group by t.card_deal_id, t.card_deal_name order by type_code ";
 		return baseDao.getJdbcTemplate().queryForList(sql);
@@ -58,7 +58,7 @@ public class HabitPayTypeDaoImpl implements HabitPayTypeDao {
 		"case when t.hour_ <='09' then 1 "+
 		"when t.hour_ >'09' and t.hour_ <='14' then 2 "+
 		"else  3 end code "+
-		"from tl_card_pay_stu_month t where 1=1 "+tj+
+		"from tl_card_dept_hour t where 1=1 "+tj+
 		"and t.card_deal_id in ("+CardTjUtil.ccx+") "+
 		"group by t.hour_ ) group by code,name order by code ";
 		return baseDao.getJdbcTemplate().queryForList(sql);
@@ -78,7 +78,7 @@ public class HabitPayTypeDaoImpl implements HabitPayTypeDao {
 		"when t.hour_ >'09' and t.hour_ <='14' then 2  "+
 		"else  3 end code, "+
 		"t.card_deal_id type_code, t.card_deal_name type_name "+
-		"from tl_card_pay_stu_month t where 1=1 "+tj+
+		"from tl_card_dept_hour t where 1=1 "+tj+
 		"and t.card_deal_id in ("+CardTjUtil.ccx+")  "+
 		"group by t.card_deal_id, t.card_deal_name, t.hour_ )  "+
 		"group by type_code,type_name,code,name order by type_code,code ";
@@ -91,7 +91,7 @@ public class HabitPayTypeDaoImpl implements HabitPayTypeDao {
 		String tj=CardTjUtil.getDateTJ(startDate, endDate)+
 				SqlUtil.getDeptTeachTj(deptTeach, ShiroTagEnum.CARD_HPT.getCode(),"t");
 		String sql="select t.hour_,sum(pay_money) all_money,sum(pay_count) all_count "+
-				"from tl_card_pay_stu_month t "+
+				"from tl_card_dept_hour t "+
 				"where 1=1 "+tj+
 				"and t.card_deal_id in ("+CardTjUtil.ccx+") "+
 				"group by  t.hour_ order by  t.hour_ ";
@@ -105,7 +105,7 @@ public class HabitPayTypeDaoImpl implements HabitPayTypeDao {
 				SqlUtil.getDeptTeachTj(deptTeach, ShiroTagEnum.CARD_HPT.getCode(),"t");
 		String sql="select t.card_deal_id type_code,t.card_deal_name type_name, "+
 				"t.hour_,sum(pay_money) all_money,sum(pay_count) all_count "+
-				"from tl_card_pay_stu_month t "+
+				"from tl_card_dept_hour t "+
 				"where 1=1 "+tj+
 				"and t.card_deal_id in ("+CardTjUtil.ccx+") "+
 				"group by t.card_deal_id, t.card_deal_name, t.hour_ "+

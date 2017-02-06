@@ -91,7 +91,7 @@ var getvmData=function(i){
 				 d.push({field:data[j].TYPE_NAME,fieldCode:data[j].TYPE_CODE,value:data[j].USE_NUM,name:'使用人数(人)'}); 
 				 d.push({field:data[j].TYPE_NAME,fieldCode:data[j].TYPE_CODE,value:data[j].USE_RATE,name:'使用率(%)'});
 			 } 
-			 vm.items[i]=getOption(d,'','zxt');
+			 vm.items[i]=getOption(d,'','zxt').saveAsImage("各个学院使用率情况");
 		 }else if(i==4){
 			 vm.items[i]=data.resultList;
 			  scope.page.totalRows=data.totalRows;

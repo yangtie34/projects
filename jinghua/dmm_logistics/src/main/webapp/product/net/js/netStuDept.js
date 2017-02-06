@@ -64,29 +64,34 @@ app.controller("netStuDeptController", [ "$scope","dialog",'mask','$timeout','ht
 		var getvmData=function(i){
 			http.callService(htt[i]).success(function(data){	
 				var d=[];
+				var saveAsImageName='';
 				if(i==0){
 						 for(var j=0;j<data.length;j++){
 							 d.push({field:data[j].NAME,fieldCode:data[j].CODE,value:data[j].ON_STU,name:'总人数(人)'}); 
 							 d.push({field:data[j].NAME,fieldCode:data[j].CODE,value:data[j].STU_RATIO,name:'人数占比(%)'}); 
 						 }
+						 saveAsImageName='学生上网人数对比';
 				}else if(i==1){
 					 for(var j=0;j<data.length;j++){
 						 d.push({field:data[j].NAME,fieldCode:data[j].CODE,value:data[j].TIME_,name:'时长(分)'}); 
 						 d.push({field:data[j].NAME,fieldCode:data[j].CODE,value:data[j].FLOW_,name:'流量(MB)'}); 
 					 }
+					 saveAsImageName='学生上网时长流量对比';
 				}else if(i==2){
 					 for(var j=0;j<data.length;j++){
 						 d.push({field:data[j].NAME,fieldCode:data[j].CODE,value:data[j].HOUR_,name:'时段(时)'}); 
 						 d.push({field:data[j].NAME,fieldCode:data[j].CODE,value:data[j].VALUE,name:'人数(人)'}); 
 					 }
+					 saveAsImageName='学生上网时间对比';
 				}else if(i==3){
 					 for(var j=0;j<data.length;j++){
 						 d.push({field:data[j].NAME,fieldCode:data[j].CODE,value:data[j].WARN_STU,name:'人数(人)'}); 
 						 d.push({field:data[j].NAME,fieldCode:data[j].CODE,value:data[j].STU_RATIO,name:'人数占比(%)'}); 
 					 }
+					 saveAsImageName='预警学生人数对比';
 				}
 				vm.items[i]=function(){
-					 var option=getOption(d,'','zxt');
+					 var option=getOption(d,'','zxt').saveAsImage(saveAsImageName);
 					 //option.dataZoom.show=false;
 					 if(i==2){
 						 option.yAxis[0] ={

@@ -1,0 +1,50 @@
+	<div class="modal-backdrop fade"></div>
+	<div class="modal fade" style="display: block;">
+		<div class="modal-dialog  modal-lg" style="max-height: calc(100% - 60px);overflow-y: auto;">
+			<div class="popup-form popup-form-blue" style="margin:0px">
+				<div class="popup-form-head clearfix">
+			    	<h3 class="popup-form-title">
+			    		{{config.title}}
+			    	</h3>
+			        <a href="javascript:void(0);" class="popup-form-close" ng-click="hideModalForm()">
+			        	<span class="popup-form-close"></span>
+			        	<span class="popup-form-close-red"></span>
+			        </a>
+			    </div>
+			    <div class="popup-form-body clearfix" part-modal show-modal="vm.showModal">
+			    	<div class="popup-form-con clearfix" ng-if="config.exportUrl != '' && config.exportUrl != null">
+				    	<div class="pull-right">
+			            	<a href="javascript:void(0);" class="popup-form-export btn btn-default" ng-click="download()">
+			                    <span>导出</span>
+			                </a>
+			            </div>
+			    	</div>
+			    	<div class="table-box">
+				    	<table class="popup-form-table">
+				        	<thead>
+				            	<tr>
+				                    <td ng-repeat="head in config.heads" ng-click="orderByColumn(config.fields[$index])">
+				                    	{{head}}
+				                    	<i ng-show="sortColumn == config.fields[$index]" class="fa" ng-class="{'fa-arrow-up' : sortOrder == 'asc','fa-arrow-down':sortOrder == 'desc'}" ></i>
+				                    </td>
+				                </tr>
+				            </thead>
+				            <tbody>
+				            	<tr ng-repeat="obj in vm.rows">
+				                    <td ng-repeat="field in config.fields">{{obj[field]}}</td>
+				                </tr>
+			                </tbody>
+				        </table>
+			    	</div>
+			    	<div class="clearfix">
+			    		<div class="pull-left" style="line-height: 38px;margin: 5px;">
+			    			共{{vm.pageTotal}}页,{{vm.total}}条记录
+			    		</div>
+						<div ng-show="vm.total &gt; vm.pagesize" pagination total-items="vm.total" ng-model="vm.curpage"
+							max-size="10" items-per-page="vm.pagesize"
+							class="pull-right" boundary-links="true"></div>
+			    	</div>
+				</div>
+			</div>
+		</div>
+	</div>

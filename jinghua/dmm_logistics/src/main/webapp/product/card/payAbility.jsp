@@ -50,12 +50,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div class="col-md-8">
                 <div class="xscz-cit text-center">
                     <span ng-class="xbxlcode=='xb'?active:'normal'" ng-click="xbxl('xb');"><a href="">按性别</a></span>
-                    <span ng-class="xbxlcode!='xb'?active:'normal'" ng-click="xbxl('xl');"><a href="">按学历</a></span>
+                    <span ng-class="xbxlcode=='xl'?active:'normal'" ng-click="xbxl('xl');"><a href="">按学历</a></span>
+                    <span ng-class="xbxlcode=='dq'?active:'normal'" ng-click="xbxl('dq');"><a href="">按籍贯</a></span>
+                    <span ng-class="xbxlcode=='mz'?active:'normal'" ng-click="xbxl('mz');"><a href="">按民族</a></span>
                 </div>
             </div>
         </div>
         <div class="row row-20 text-center clearfix">
-        <div ng-repeat="(key,value) in vm.items[0]" ng-show="key=='all'||key==xbxlcode">
+        <div ng-repeat="(key,value) in {all:vm.items[0].all,xb:vm.items[0].xb,xl:vm.items[0].xl}" ng-show="key=='all'||key==xbxlcode">
   			<ul class="col-md-4 has-btm-border no-mar-btm" ng-class="key!='all'&&$index==0?'border-r-solid':''" ng-repeat="(k,v) in value" ng-show="k_xlxsids(k);">
             	<li class="tit-row">
                 	<span class="tit-40"><img ng-src="${images}/gender-{{ico_title[key][k].ico}}.png" alt=""></span>
@@ -106,6 +108,65 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 	<p class="xscz-ft-14">日均消费区间（单位：人数）</p>
                     <div class="text-center">
                       <div stu-chart config="v.xfqj" style="height:310px;"class="img-responsive img-top"> </div>
+                    	<%-- <img src="${images}/xf-03.png" alt=""> --%>
+                    </div>
+                </li>
+            </ul>
+            </div>
+            
+            <!-- dq mz -->
+             <div ng-repeat="(key,value) in {dq:vm.items[0].dq,mz:vm.items[0].mz}" ng-show="key==xbxlcode">
+  			<ul class="col-md-4 has-btm-border no-mar-btm" ng-class="$index==0?'border-r-solid':''" ng-repeat="i in [0,1]" ng-show="dqmz[key][i]!=null">
+            	<li class="tit-row" style="text-align: -webkit-center;">
+                	 <select autocomplete="off" class="form-control input-sm" ng-model="dqmz[key][i]"style="width: inherit;">
+          					<option  ng-repeat="(code,val) in value" value="{{code}}" >{{val.name}}</option>
+        			</select> 
+                </li>
+                <li class="text-left">
+                <!--  <div tool-tip placement="top" hide-icon="true" class="icon-time"style="float:right" ng-click="qushiClick(dqmz[key][i],key,'all');">
+									<div style="width: 60px">查看趋势</div>
+								</div> -->
+                <!--  <span class="icon-time" ng-click="qushiClick(k,key,'all');" style="float:right"title="趋势统计"></span> -->
+                	<p class="xscz-ft-14">消费金额（单位：元）</p>
+                    <p><b class="xscz-ft-22">{{value[dqmz[key][i]].xfnl.ALL_MONEY|number:2}}</b></p>
+                </li>
+                <li class="text-left">
+                 <!-- <div tool-tip placement="top" hide-icon="true" class="icon-time"style="float:right" ng-click="qushiClick(dqmz[key][i],key,'bj');">
+									<div style="width: 60px">查看趋势</div>
+								</div> -->
+                <!--  <span class="icon-time" ng-click="qushiClick(k,key,'bj');" style="float:right"title="趋势统计"></span> -->
+                	<p class="xscz-ft-14">人均单笔消费（单位：元）</p>
+                    <p><b class="xscz-ft-22"
+                      ng-class="value[dqmz[key][i]].xfnl.ONE_MONEY>vm.items[0].all.all.xfnl.ONE_MONEY?'xscz-red':value[dqmz[key][i]].xfnl.ONE_MONEY==vm.items[0].all.all.xfnl.ONE_MONEY?'':'xscz-greener'">{{value[dqmz[key][i]].xfnl.ONE_MONEY|number:2}}</b></p>
+                    <p class="height-31"ng-show="key=='all'"></p>
+                       <p class="text-right xscz-ft-14 height-31" ng-show="key!='all'">相对整体<b class="xscz-ft-22"
+                     ng-class="value[dqmz[key][i]].xfnl.ONE_MONEY>vm.items[0].all.all.xfnl.ONE_MONEY?'grow-up':value[dqmz[key][i]].xfnl.ONE_MONEY==vm.items[0].all.all.xfnl.ONE_MONEY?'':'grow-down'">
+                     {{value[dqmz[key][i]].xfnl.ONE_MONEY>vm.items[0].all.all.xfnl.ONE_MONEY?((value[dqmz[key][i]].xfnl.ONE_MONEY-vm.items[0].all.all.xfnl.ONE_MONEY)|number:2):((vm.items[0].all.all.xfnl.ONE_MONEY-value[dqmz[key][i]].xfnl.ONE_MONEY)|number:2)}}</b></p>
+                </li>
+                <li class="text-left">
+               <!--  <div tool-tip placement="top" hide-icon="true" class="icon-time"style="float:right" ng-click="qushiClick(k,key,'rj');">
+									<div style="width: 60px">查看趋势</div>
+								</div> -->
+                 <!--  <span class="icon-time" ng-click="qushiClick(k,key,'rj');" style="float:right"title="趋势统计"></span> -->
+                	<p class="xscz-ft-14">人均日消费（单位：元）</p>
+                    <p><b class="xscz-ft-22" 
+                    ng-class="value[dqmz[key][i]].xfnl.DAY_MONEY>vm.items[0].all.all.xfnl.DAY_MONEY?'xscz-red':value[dqmz[key][i]].xfnl.DAY_MONEY==vm.items[0].all.all.xfnl.DAY_MONEY?'':'xscz-greener'">{{value[dqmz[key][i]].xfnl.DAY_MONEY|number:2}}</b></p>
+                    <p class="height-31"ng-show="key=='all'"></p>
+                    <p class="text-right xscz-ft-14 height-31">相对整体<b class="xscz-ft-22"
+                     ng-class="value[dqmz[key][i]].xfnl.DAY_MONEY>vm.items[0].all.all.xfnl.DAY_MONEY?'grow-up':value[dqmz[key][i]].xfnl.DAY_MONEY==vm.items[0].all.all.xfnl.DAY_MONEY?'':'grow-down'">
+                     {{value[dqmz[key][i]].xfnl.DAY_MONEY>vm.items[0].all.all.xfnl.DAY_MONEY?((value[dqmz[key][i]].xfnl.DAY_MONEY-vm.items[0].all.all.xfnl.DAY_MONEY)|number:2):((vm.items[0].all.all.xfnl.DAY_MONEY-value[dqmz[key][i]].xfnl.DAY_MONEY)|number:2)}}</b></p>
+                </li>
+                <li class="text-left">
+                	<p class="xscz-ft-14">消费组成(单位：元)</p>
+                    <div class="text-center">
+                     <div stu-chart config="value[dqmz[key][i]].xfzc" style="height:310px;"class="img-responsive img-top"> </div>
+                		<%-- <img src="${images}/04.jpg" alt=""> --%>
+                    </div>
+                </li>
+                <li class="text-left">
+                	<p class="xscz-ft-14">日均消费区间（单位：人数）</p>
+                    <div class="text-center">
+                      <div stu-chart config="value[dqmz[key][i]].xfqj" style="height:310px;"class="img-responsive img-top"> </div>
                     	<%-- <img src="${images}/xf-03.png" alt=""> --%>
                     </div>
                 </li>

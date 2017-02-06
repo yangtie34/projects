@@ -138,6 +138,7 @@ app.controller("dormEmployController", [ "$scope","dialog",'mask','$timeout','ht
 							 }
 						 }
 							 var option=getOption(d,'',i==1?'zxt':'zzt');
+							 option.saveAsImage(i==1?'学生入住情况':'迎新可安排人数分布');
 							 option.series[0].itemStyle = { normal: {label : {show: true, position: 'inside'}}};
 							 if(i==1){
 								 option.series[0].stack= 'sum';option.series[2].stack= 'sum';
@@ -196,6 +197,7 @@ app.controller("dormEmployController", [ "$scope","dialog",'mask','$timeout','ht
 							 scope.getxqlb(5);
 							 timeout();
 						 };
+						 option.saveAsImage(stuType=='SEX'?'按性别统计分布情况':stuType=='EDU'?'按学历统计分布情况':stuType=='NJ'?'按年级统计分布情况':stuType=='MZ'?'按民族统计分布情况':stuType=='DEPT'?'学院分布情况':'');
 					 vm.items[i][stuType]=option;
 					 if(stuType=='DEPT'){
 						 scope.radio0=stuType;

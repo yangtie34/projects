@@ -36,10 +36,11 @@ public class RedisClientUtils {
 		// config.setTestOnReturn(true);
 		config.setMaxWaitMillis(Long.valueOf(p.getProperty("redis.maxWaitMillis")));
 		config.setMaxIdle(Integer.valueOf(p.getProperty("redis.maxIdle")));
+		
 		// config.setTestOnCreate(true);
 		jedisPool = new JedisPool(config, p.getProperty("redis.host"),
 				Integer.valueOf(p.getProperty("redis.port")), Integer.valueOf(p
-						.getProperty("redis.timeout")), p.getProperty("redis.password"));
+						.getProperty("redis.timeout")), p.getProperty("redis.password"),Integer.valueOf(p.getProperty("redis.database")));
 	}
 
 	private static Jedis getJedis() {
@@ -307,7 +308,7 @@ public class RedisClientUtils {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		hscan("pos_segment_index", "*2016-10-18", new RedisResultHandler() {
+		hscan("T_CARD", "*6*", new RedisResultHandler() {
 			@Override
 			public   void handle(List l) {
 				if(l.size()>0){

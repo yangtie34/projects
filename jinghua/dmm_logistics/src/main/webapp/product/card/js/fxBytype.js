@@ -14,6 +14,14 @@ app.controller("fxBytypeController", [ "$scope","dialog",'mask','$timeout','http
 	        	'getHabitEat',			//6整体刷卡用餐次数
 	        	'getHabitEatBySex',		//7分性别刷卡用餐次数
 	        	'getHabitEatByEdu',		//8分学历刷卡用餐次数
+	        	
+	        	'getHabitZaoByArea',	//9分地区早中晚
+	        	'getHabitHourByArea',	//10分地区时段情况
+	        	'getHabitEatByArea',		//11分地区刷卡用餐次数
+	        	
+	        	'getHabitZaoByMZ',	//12分地区早中晚
+	        	'getHabitHourByMZ',	//13分地区时段情况
+	        	'getHabitEatByMZ'		//14分地区刷卡用餐次数
 	               ];
 var getServiceData=function(){
 	  for(var i=0;i<methods.length;i++){
@@ -33,14 +41,20 @@ http.callService({
 	xl[xldm.yjs]={ico:'11',name:'研究生'};
 	xl[xldm.bk]={ico:'21',name:'本科'};
 	xl[xldm.dz]={ico:'31',name:'大专'};
+	var dq={name:'籍贯'};
+//	dq[xldm.dqcode]={ico:'minority',name:xldm.dqname};
+//	dq['other']={ico:'wwhz',name:'其他地区'};
+	
 	scope.ico_title={all:{all:{ico:'all',name:'总体'},name:'总体'},
 			xb:{1:{ico:'man',name:'男'},2:{ico:'female',name:'女'},name:'性别'},
-			xl:xl
+			xl:xl,
+			dq:dq,
+			mz:{name:'民族'},
 };
 });
-scope.upDownClick=function(index,key){
-	scope.upDown[index]=!scope.upDown[index];
-	if(scope.upDown[index]==true){
+scope.upDownClick=function(key){
+	scope.upDown[key]=!scope.upDown[key];
+	if(scope.upDown[key]==true){
 		var a=angular.copy(vm.items[0][key]);
 		vm.items[0][key]=null;
 		vm.items[0][key]=a;
@@ -87,8 +101,17 @@ var getDeptData=function(method){
 	scope.csje=function(code){
 		scope.csjecode=code;
 	};
-	var initvm=function(){vm.items[0]={all:{all:{}},xb:{},xl:{}};};
-	initvm();
+	var initvm=function(){
+		scope.dqmz={};
+vm.items[0]={
+		all:angular.copy(scope.ico_title.all),
+		xb:angular.copy(scope.ico_title.xb),
+		xl:angular.copy(scope.ico_title.xl),
+		dq:angular.copy(scope.ico_title.dq),
+		mz:angular.copy(scope.ico_title.mz)
+		};
+		};
+		scope.dqmz={};
 	var getvmData=function(i){
 		http.callService(htt[i]).success(function(data){
 			 if(i==0){
@@ -97,8 +120,9 @@ var getDeptData=function(method){
 					 d[0].push({field:data[j].NAME,fieldCode:data[j].CODE,value:data[j].ALL_COUNT,name:'次数(次)'}); 
 					 d[1].push({field:data[j].NAME,fieldCode:data[j].CODE,value:data[j].ALL_MONEY,name:'金额(元)'}); 
 				 }
-				 vm.items[0].all.all.zzw={cs:getOption(d[0],'','bztwz'),je:getOption(d[1],'','bztwz')};
-			 }else if(i==1||i==2){
+				 vm.items[0].all.all.zzw={cs:getOption(d[0],'','bztwz').saveAsImage("整体早中晚刷卡次数情况")
+						 	,je:getOption(d[1],'','bztwz').saveAsImage("整体早中晚刷卡金额情况")};
+			 }else if(i==1||i==2||i==9||i==12){
 				 var mapData={};
 				 for(var j=0;j<data.length;j++){
 					 if(!mapData[data[j].TYPE_CODE])mapData[data[j].TYPE_CODE]=[];
@@ -110,8 +134,32 @@ var getDeptData=function(method){
 					 for(var j=0;j<keyData.length;j++){
 						 d[0].push({field:keyData[j].NAME,fieldCode:keyData[j].CODE,value:keyData[j].ALL_COUNT,name:'次数(次)'}); 
 						 d[1].push({field:keyData[j].NAME,fieldCode:keyData[j].CODE,value:keyData[j].ALL_MONEY,name:'金额(元)'}); 
-					 }vm.items[0][i==1?'xb':'xl'][key]=vm.items[0][i==1?'xb':'xl'][key]||{};
-					 vm.items[0][i==1?'xb':'xl'][key].zzw={cs:getOption(d[0],'','bztwz'),je:getOption(d[1],'','bztwz')};
+					 }
+					 var keyvmd=vm.items[0][i==1?'xb':i==2?'xl':i==9?'dq':'mz'][key];
+					 keyvmd=keyvmd||{name:keyData[0].TYPE_NAME};
+					 keyvmd.zzw={cs:getOption(d[0],'','bztwz').saveAsImage(keyvmd.name+"早中晚刷卡金额情况"),
+								je:getOption(d[1],'','bztwz').saveAsImage(keyvmd.name+"早中晚刷卡金额情况")
+										};
+					 vm.items[0][i==1?'xb':i==2?'xl':i==9?'dq':'mz'][key]=keyvmd;
+				 }
+				 if(i==9){
+					 scope.dqmz.dq=[];
+					 for(var key in mapData){
+						 if(scope.dqmz.dq.length<2){
+							 scope.dqmz.dq.push(key);
+						 }else{
+							 break;
+						 }
+					 }
+				 }else if(i==12){
+					 scope.dqmz.mz=[];
+					 for(var key in mapData){
+						 if(scope.dqmz.mz.length<2){
+							 scope.dqmz.mz.push(key);
+						 }else{
+							 break;
+						 }
+					 }
 				 }
 			 }else if(i==3){
 				 var d=[[],[]];
@@ -119,8 +167,8 @@ var getDeptData=function(method){
 					 d[0].push({field:data[j].HOUR_,value:data[j].ALL_COUNT,name:'次数(次)'}); 
 					 d[1].push({field:data[j].HOUR_,value:data[j].ALL_MONEY,name:'金额(元)'}); 
 				 }
-				 vm.items[0].all.all.fsd={cs:getOption(d[0],'','xqs'),je:getOption(d[1],'','xqs')};
-			}else if(i==4||i==5){
+				 vm.items[0].all.all.fsd={cs:getOption(d[0],'','xqs').saveAsImage("整体分时段统计刷卡次数"),je:getOption(d[1],'','xqs').saveAsImage("整体分时段统计刷卡金额")};
+			}else if(i==4||i==5||i==10||i==13){
 				var mapData={};
 				 for(var j=0;j<data.length;j++){
 					 if(!mapData[data[j].TYPE_CODE])mapData[data[j].TYPE_CODE]=[];
@@ -132,16 +180,21 @@ var getDeptData=function(method){
 					 for(var j=0;j<keyData.length;j++){
 						 d[0].push({field:keyData[j].HOUR_,value:keyData[j].ALL_COUNT,name:'次数(次)'}); 
 						 d[1].push({field:keyData[j].HOUR_,value:keyData[j].ALL_MONEY,name:'金额(元)'}); 
-					 }vm.items[0][i==4?'xb':'xl'][key]=vm.items[0][i==4?'xb':'xl'][key]||{};
-					 vm.items[0][i==4?'xb':'xl'][key].fsd={cs:getOption(d[0],'','xqs'),je:getOption(d[1],'','xqs')};
+					 }
+					 var keyvmd= vm.items[0][i==4?'xb':i==5?'xl':i==10?'dq':'mz'][key];
+					 keyvmd=keyvmd||{name:keyData[0].TYPE_NAME};
+					 keyvmd.fsd
+					 ={cs:getOption(d[0],'','xqs').saveAsImage(keyvmd.name+"分时段统计刷卡次数"),
+						je:getOption(d[1],'','xqs').saveAsImage(keyvmd.name+"分时段统计刷卡金额")};
+					 vm.items[0][i==4?'xb':i==5?'xl':i==10?'dq':'mz'][key]=keyvmd;
 				 }
 			}else if(i==6){
 				 var d=[];
 				 for(var j=0;j<data.length;j++){
 					 d.push({field:data[j].NAME,value:data[j].VALUE,name:'人数(人)'}); 
 				 }
-				 vm.items[0].all.all.yczc=falsedataZoom(getOption(d,'','zzt'));
-			}else if(i==7||i==8){
+				 vm.items[0].all.all.yczc=falsedataZoom(getOption(d,'','zzt').saveAsImage("整体刷卡就餐人次组成"));
+			}else if(i==7||i==8||i==11||i==14){
 				var mapData={};
 				 for(var j=0;j<data.length;j++){
 					 if(!mapData[data[j].TYPE_CODE])mapData[data[j].TYPE_CODE]=[];
@@ -152,8 +205,11 @@ var getDeptData=function(method){
 					 var d=[];
 					 for(var j=0;j<keyData.length;j++){
 						 d.push({field:keyData[j].NAME,value:keyData[j].VALUE,name:'人次(次)'}); 
-					 }vm.items[0][i==7?'xb':'xl'][key]=vm.items[0][i==7?'xb':'xl'][key]||{};
-					 vm.items[0][i==7?'xb':'xl'][key].yczc=falsedataZoom(getOption(d,'','zzt'));
+					 }
+					 var keyvmd= vm.items[0][i==7?'xb':i==8?'xl':i==11?'dq':'mz'][key];
+					 keyvmd=keyvmd||{name:keyData[0].TYPE_NAME};
+					 keyvmd.yczc=falsedataZoom(getOption(d,'','zzt').saveAsImage(keyvmd.name+"刷卡就餐人次组成"));
+					 vm.items[0][i==7?'xb':i==8?'xl':i==11?'dq':'mz'][key]=keyvmd;
 				 }
 			}
 			 mask.hideLoading(); 
@@ -166,7 +222,7 @@ var getDeptData=function(method){
 	}
 	var getparams=function(i){
 			 var params=[];
-			 if(i<9){
+			 if(i<15){
 				 params=[startDate,endDate,deptTeach];
 			 }
 			 htt[i].params=params;
@@ -179,28 +235,33 @@ var getDeptData=function(method){
 		}
 		
 	};
-	var m=[0,1,2,3,4,5,6,7,8];
+	var m=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14];
 	var initId=0;
 	var startDate=null;
 	var endDate=null;
 	var deptTeach=null;
 	/*监控时间*/
 	scope.$watch('date',function(val1,val2){
-		if(val1==null)return;initvm();
+		if(val1==null)return;
 		startDate=angular.copy(val1.startTime);
 		endDate=angular.copy(val1.endTime);
-		if(initId>0)getAllData(m);
+		if(initId>0){
+			initvm();getAllData(m);
+		}
+
 	},true);
 	/*监控dept*/
 	scope.$watch('deptResult',function(val1,val2){
-		if(val1==null||val1.length==0)return;initvm();
+		if(val1==null||val1.length==0)return;
 			 deptTeach=val1[0];
-			if(initId>0)getAllData(m);
+			if(initId>0){
+				initvm();getAllData(m);
+			}
 	},true);
 	//初始化数据
 	var initData=function(){
-		if(initId==0&&startDate!=null&&deptTeach!=null){
-			getAllData(m);initId++;mask.hideLoading(); 
+		if(initId==0&&startDate!=null&&deptTeach!=null&&scope.ico_title!=null){
+			initvm();getAllData(m);initId++;mask.hideLoading(); 
 		}else{
 			setTimeout(initData,100);
 		}

@@ -42,6 +42,9 @@ public class PermissUrlFilter implements Filter  {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		final HttpServletRequest Httprequest = (HttpServletRequest) request;
 		String servletPath=Httprequest.getServletPath().toLowerCase();
+		if(servletPath.endsWith("/")){
+			servletPath=servletPath.substring(0, servletPath.length()-1);
+		}
 		if(checkUrlIsPass(this.casIgnoreUrls,servletPath)){
         	chain.doFilter(request, response);
         	return;
@@ -68,7 +71,11 @@ public class PermissUrlFilter implements Filter  {
 		List<Resources> resList=GetCachePermiss.getSysMenusByUserName(username);
 		boolean noPermiss=true;
 		for(Resources res :resList){
-			if(servletPath.indexOf(res.getUrl_().toLowerCase())==0&&res.getUrl_().length()>0){
+//			if(servletPath.indexOf(res.getUrl_().toLowerCase())==0&&res.getUrl_().length()>0){
+//				noPermiss=false;
+//				break;
+//			}
+			if(servletPath.equals(res.getUrl_().toLowerCase())&&res.getUrl_().length()>0){
 				noPermiss=false;
 				break;
 			}

@@ -1,0 +1,72 @@
+<div class="clearfix">
+  	<div class="forterm" ng-repeat="st in selectTree track by $index" style="padding-right:5px;">
+		<ul class="combotree">
+		    <li cg-tree="node in children of st">
+		      <a href="javascript:void(0);"  title="{{node.mc}}" ng-click="cgComboTreeNodeClick(node)">
+		      	<span title="{{node.mc}}">{{node.mc}}</span>
+		      </a>
+			<span ng-show="selectTree.length != ($index+1)">&gt;</span>
+	    </ul>
+	</div>
+</div>
+<div ng-if="selectTree.length > 0 && selectTree[selectTree.length-1].children.length > 0">
+	<hr style="border: 1px dashed #ddd;margin:10px 0px;"/>
+	<ul class="clearfix combotree-children">
+		<li ng-repeat="it in selectTree[selectTree.length-1].children" ng-if="$index <15">
+			<button ng-click="cgComboTreeNodeClick(it)">{{it.mc}}</button>
+		</li>
+		<li ng-repeat="it in selectTree[selectTree.length-1].children" ng-if="$index >= 15 && show_all_items">
+			<button ng-click="cgComboTreeNodeClick(it)">{{it.mc}}</button>
+		</li>
+		<li ng-if="selectTree[selectTree.length-1].children.length > 15" >
+			<a ng-if="!show_all_items" ng-click="changeShowAllItems()">展开全部</a>
+			<a ng-if="show_all_items"  ng-click="changeShowAllItems()">收起</a>
+		</li>
+	</ul>
+</div>
+<style>
+	.combotree{
+		color : #1fb5ad
+	}
+	.combotree>li{
+		float: left;
+		padding:  0px 10px 0px 10px;
+		position: relative;
+	}
+	
+	.combotree>li:hover>.tree-list2{
+		display: inline;
+	}
+	.combotree > li > a{
+		color : #1fb5ad
+	}
+	
+	.combotree-children{
+		margin:0px;
+		padding:0px;
+	}
+	.combotree-children li{
+		list-style: none;
+		float:left;
+		padding: 0px ;
+		margin :0px
+	}
+	.combotree-children li>button{
+		height: 34px;
+		line-height: 34px;
+        border: 1px solid #1fb5ad;
+	    background-color: #fff;
+	    color: #1fb5ad;
+	    margin: 0px 5px 5px 0px;
+	    border-radius: 3px
+	}
+	.combotree-children li>button:hover{
+        border: 1px solid #f28671;
+	    background-color: #FAFAFA;
+	    color: #f28671;
+	}
+	.combotree-children li a{
+		cursor: pointer;
+	}
+</style>
+

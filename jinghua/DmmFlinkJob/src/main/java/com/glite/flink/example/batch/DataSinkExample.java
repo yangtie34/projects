@@ -97,5 +97,6 @@ public class DataSinkExample {
 				.setQuery(
 						"insert into persons (name, age, height) values (?,?,?)")
 				.finish());
+		
 	}
 }

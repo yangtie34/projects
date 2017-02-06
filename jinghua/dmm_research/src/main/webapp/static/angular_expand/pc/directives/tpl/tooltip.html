@@ -1,0 +1,10 @@
+<div class="tooltip-icon" ng-hide="hideIcon"><i class="glyphicon glyphicon-question-sign"></i></div>
+<div class="popover fade in"  ng-class="{'right':placement=='right'||placement == null ||placement == '' ,
+									    'top':placement=='top',
+									    'bottom':placement=='bottom',
+									    'left':placement=='left',
+									    }">
+	<div class="arrow"></div>
+	<div class="popover-content tooltip-content" ng-transclude></div>
+</div>
+

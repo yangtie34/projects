@@ -1,0 +1,319 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>单位科研成果对比</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/keyan-style.css">
+<link rel="stylesheet" href="css/cg-select-dropdown.css">
+</head>
+
+<body>
+<div class="keyan-wrapper">
+	<nav class="keyan-nav">
+    	<div class="keyan-nav-user">
+        	<div class="keyan-user-img">
+        		<img src="images/user.jpg" width="73" height="73" alt="" class="img-circle">
+                <div class="user-promp">
+                	<div class="user-triangle"></div>
+                    <small>
+                    	<a href="#">修改</a>
+                    </small>
+                    <span></span>
+                    <small>
+                    	<a href="#">退出<i class="fa fa-sort-down"></i></a>
+                    </small>
+                </div>
+                <p class="text-center">宋仲基</p>
+                <small class="text-center admi">Administrator</small>
+            </div>
+        </div>
+        <ul class="list-unstyled">
+        	<li><a href="#"><span></span>科研大事记<i class="fa fa-angle-right pull-right"></i></a></li>
+            <li><a href="#"><span class="nav-icon-02"></span>不同人员科研成果对比<i class="fa fa-angle-right pull-right"></i></a></li>
+            <li class="active"><a href="#"><span class="nav-icon-03"></span>各单位科研成果对比<i class="fa fa-angle-right pull-right"></i></a></li>
+            <li><a href="#"><span class="nav-icon-04"></span>入校五年博士生科研产出<i class="fa fa-angle-right pull-right"></i></a></li>
+            <li><a href="#"><span class="nav-icon-05"></span>科研论文分析<i class="fa fa-angle-down pull-right"></i></a>
+            	<!--<ul class="list-unstyled ul-second">
+                	<li><a href="#">科研论文发表量</a></li>
+                    <li><a href="#">各类引文库源期刊发文分析</a></li>
+                    <li><a href="#">SCL、EL、CPCI-S 收录论文分析</a></li>
+                    <li><a href="#">科研论文获奖分析（科研成果中的论文奖有设计）</a></li>
+                    <li><a href="#">科研论文作者分析</a></li>
+                </ul>-->
+            </li>
+            <li><a href="#"><span class="nav-icon-06"></span>科研项目分析<i class="fa fa-angle-down pull-right"></i></a>
+            	<!--<ul class="list-unstyled ul-second">
+                	<li><a href="#">科研项目总量分析</a></li>
+                    <li><a href="#">科研项目主持人分析</a></li>
+                    <li><a href="#">科研项目经费分析</a></li>
+                    <li><a href="#">科研项目进度分析</a></li>
+                    <li class="on"><a href="#">科研项目超期告警</a></li>
+                    <li><a href="#">科研项目产出成果申报告警</a></li>
+                </ul>-->
+            </li>
+            <li><a href="#"><span class="nav-icon-07"></span>著作、教材分析<i class="fa fa-angle-right pull-right"></i></a></li>
+            <li><a href="#"><span class="nav-icon-08"></span>科研成果分析<i class="fa fa-angle-down pull-right"></i></a>
+            	<!-- <ul class="list-unstyled ul-second">
+            	                	<li><a href="#">科技鉴定成果分析</a></li>
+            	                    <li class="on"><a href="#">科技获奖成果分析</a></li>
+            	                    <li><a href="#">国家专利成果分析</a></li>
+            	                    <li><a href="#">发明达人</a></li>
+            	                    <li><a href="#">计算机软件著作权分析</a></li>
+            	                </ul> -->
+            </li>
+        </ul>
+    </nav>
+    <!------------------------------------------------------------以上为nav内容-------------------------------------------------------------------->
+    <div class="keyan-main">
+    	<div class="header">
+        	<div class="main-tit">
+            	<h4 class="main-tit-b">各单位科研成果对比分析</h4>
+                <h5 class="main-tit-s">从基本情况、教职工人员类别、来源、职称、年龄、政治面貌、年龄分布、性别组成维度对学校及各单位进行概况统计。</h5>
+            </div>
+            <div class="keyan-condition">
+                <dl class="clearfix">
+                	<dt>学科门类：</dt>
+                    <dd>
+                    	<form action="" class="ky-form condition-radio">
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="radio-xk" value="radio-zr" id="radio-zr">
+                                <label for="radio-zr">自然科学</label>
+                            </div>
+
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="radio-xk" value="radio-sh" id="radio-sh" checked>
+                                <label for="radio-sh">社会哲学</label>
+                            </div>
+                        </form>
+                    </dd>
+                    <dd class="pull-right"><a href="" class="ky-advanced-filter">高级筛选<i class="fa fa-angle-double-up"></i></a></dd>
+                </dl>
+                <dl class="clearfix">
+                	<dt>发表年份：</dt>
+                    <dd>
+                    	<form action="" class="ky-form condition-radio">
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="radio-years" value="radio-last-y" id="radio-last-y">
+                                <label for="radio-last-y">去年（2014年）</label>
+                            </div>
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="radio-years" value="radio-this-y" id="radio-this-y" checked>
+                                <label for="radio-this-y">今年</label>
+                            </div>
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="radio-years" value="radio-last-five" id="radio-last-five">
+                                <label for="radio-last-five">近五年</label>
+                            </div>
+                            <div class="radio-box radio-inline">
+                                <input type="radio" name="radio-years" value="radio-last-ten" id="radio-last-ten">
+                                <label for="radio-last-ten">近十年</label>
+                            </div>
+                        </form>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+
+		<section>
+        <div class="section-head">
+        	<span class="section-head-tit">院系对比</span>
+        </div>
+        <div class="ky-box no-bottom-border p-top-10 no-bottom">
+        	<div class="ky-box-sec">
+            	<div class="img-box">
+                	<img src="images/ky-chengguo/danwei-ky-db-01.png" class="center-block" alt="">
+                </div>
+                <div class="img-box">
+                	<img src="images/ky-chengguo/danwei-ky-db-02.jpg" class="center-block" alt="">
+                </div>
+            </div>
+        </div>
+        </section>
+        
+        <section>
+        <div class="section-head">
+        	<span class="section-head-tit">各院系论文数据分析</span>
+        </div>
+        <div class="ky-box p-top-20 no-bottom">
+        	<div class="ky-box-sec">
+            	<div class="section-tit">
+                	各院系论文指标分析
+                	<h6 class="tit-ps">数据来源科研年报</h6>
+                </div>
+            	<div class="img-box">
+                	<img src="images/ky-chengguo/danwei-ky-db-03.png" class="center-block" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="ky-box p-top-20 no-bottom no-bottom-border">
+        	<div class="ky-box-sec">
+            	<div class="section-tit">
+                	各院系贡献论文百分比
+                	<h6 class="tit-ps">数据来源科研年报</h6>
+                </div>
+            	<div class="img-box">
+                	<img src="images/ky-chengguo/danwei-ky-db-04.jpg" class="center-block" alt="">
+                </div>
+            </div>
+        </div>
+        </section>
+        
+        <section>
+        <div class="section-head">
+        	<span class="section-head-tit">SCI、SSCI、EI、CSSCI、核心期刊及以上的论文贡献排行榜（分理工、文科学院）</span>
+            <div class="pull-right"><a href="" class="setting-purple"><i class="fa fa-cog fa-2x"></i></a></div>
+        </div>
+        <div class="ky-box no-bottom-border">
+        	<div class="ky-box-sec">
+            	<div class="dis-tab">
+                	<div class="dis-t-cell wid-5 p-r-30">
+                    	<p class="section-tit text-center">理工学院</p>
+                        <table class="table order-circle-tab">
+                                <tbody>
+                                    <tr>
+                                        <td><span class="circle-out">1</span></td>
+                                        <td>化学化工学院</td>
+                                        <td><a href="" class="text-green"><u>102篇</u></a></td>
+                                        <td>0.35%</td>
+                                        <td><a href="" class="time-purple"><img src="images/time-purple.png" alt=""></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="circle-out">2</span></td>
+                                        <td>物理与电子信息工程</td>
+                                        <td><a href="" class="text-green"><u>77篇</u></a></td>
+                                        <td>0.27%</td>
+                                        <td><a href="" class="time-purple"><img src="images/time-purple.png" alt=""></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="circle-out">3</span></td>
+                                        <td>生命科学学院</td>
+                                        <td><a href="" class="text-green"><u>57篇</u></a></td>
+                                        <td>0.46%</td>
+                                        <td><a href="" class="time-purple"><img src="images/time-purple.png" alt=""></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="circle-out">4</span></td>
+                                        <td>数学与信息科学学院</td>
+                                        <td><a href="" class="text-green"><u>34篇</u></a></td>
+                                        <td>0.67%</td>
+                                        <td><a href="" class="time-purple"><img src="images/time-purple.png" alt=""></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="circle-out">5</span></td>
+                                        <td>环境学院</td>
+                                        <td><a href="" class="text-green"><u>34篇</u></a></td>
+                                        <td>0.67%</td>
+                                        <td><a href="" class="time-purple"><img src="images/time-purple.png" alt=""></a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                    </div>
+                    <div class="dis-t-cell wid-5">
+                    	<p class="section-tit text-center p-l-30">文科学院</p>
+                        <div class="border-l  p-l-30">
+                        	<table class="table order-circle-tab">
+                                <tbody>
+                                    <tr>
+                                        <td><span class="circle-out">1</span></td>
+                                        <td>文学院</td>
+                                        <td><a href="" class="text-green"><u>102篇</u></a></td>
+                                        <td>0.35%</td>
+                                        <td><a href="" class="time-purple"><img src="images/time-purple.png" alt=""></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="circle-out">2</span></td>
+                                        <td>政治与公共管理学院</td>
+                                        <td><a href="" class="text-green"><u>77篇</u></a></td>
+                                        <td>0.27%</td>
+                                        <td><a href="" class="time-purple"><img src="images/time-purple.png" alt=""></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="circle-out">3</span></td>
+                                        <td>商学院</td>
+                                        <td><a href="" class="text-green"><u>57篇</u></a></td>
+                                        <td>0.46%</td>
+                                        <td><a href="" class="time-purple"><img src="images/time-purple.png" alt=""></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="circle-out">4</span></td>
+                                        <td>教育与教师发展学院</td>
+                                        <td><a href="" class="text-green"><u>34篇</u></a></td>
+                                        <td>0.67%</td>
+                                        <td><a href="" class="time-purple"><img src="images/time-purple.png" alt=""></a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="circle-out">5</span></td>
+                                        <td>马克思主义学院</td>
+                                        <td><a href="" class="text-green"><u>34篇</u></a></td>
+                                        <td>0.67%</td>
+                                        <td><a href="" class="time-purple"><img src="images/time-purple.png" alt=""></a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+        
+        <section>
+        <div class="section-head">
+        	<span class="section-head-tit">各院科研力量排行榜</span>
+            <span>（加入评分数学模型，就像汽车之家对某一款车型的评分体系一样）</span>
+        </div>
+        <div class="ky-box p-top-20 no-bottom-border">
+        	<div class="ky-box-sec">
+            	<div>
+                	<p class="section-tit dis-in-block">对比指标选择：</p>
+                    <form action="" class="ky-form dis-in-block duibi-radio">
+						<div class="radio-box radio-inline">
+							<input type="radio" name="db-01" value="db-11" id="db-11" checked>
+							<label for="db-11">高产作者数</label>
+						</div>
+						<div class="radio-box radio-inline">
+							<input type="radio" name="db-01" value="db-12" id="db-12">
+							<label for="db-12">作者队伍</label>
+						</div>
+                        <div class="radio-box radio-inline">
+							<input type="radio" name="db-01" value="db-13" id="db-13">
+							<label for="db-13">论文增长率</label>
+						</div>
+                        <div class="radio-box radio-inline">
+							<input type="radio" name="db-01" value="db-14" id="db-14">
+							<label for="db-14">论文获奖率</label>
+						</div>
+                        <div class="radio-box radio-inline">
+							<input type="radio" name="db-01" value="db-15" id="db-15">
+							<label for="db-15">投入产出比</label>
+						</div>
+                        <div class="radio-box radio-inline">
+							<input type="radio" name="db-01" value="db-16" id="db-16">
+							<label for="db-16">科研项目</label>
+						</div>
+                        <div class="radio-box radio-inline">
+							<input type="radio" name="db-01" value="db-17" id="db-17">
+							<label for="db-17">著作、编著、教材</label>
+						</div>
+                        <div class="radio-box radio-inline">
+							<input type="radio" name="db-01" value="db-18" id="db-18">
+							<label for="db-18">获奖成果</label>
+						</div>
+					</form>
+                </div>
+                <div>
+                	<p class="text-center phb-tit">科研力量排行榜（前后20名）</p>
+                    <div class="img-box"><img src="images/ky-chengguo/danwei-ky-db-05.png" class="center-block" alt=""></div>
+                </div>
+            </div>
+        </div>
+        </section>
+
+    </div><!--keyan-main  end-->
+</div>
+</body>
+</html>

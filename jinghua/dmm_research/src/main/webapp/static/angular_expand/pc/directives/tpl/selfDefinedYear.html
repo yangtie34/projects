@@ -1,0 +1,14 @@
+<form class="ky-form condition-radio">
+    <div class="radio-box radio-inline"  ng-repeat="it in source">
+        <input type="radio" ng-value="it" ng-model="item.result" id="{{it}}" >
+        <label for="{{it}}">{{it.mc}}</label>
+    </div>
+    <div class="radio-box radio-inline">
+        <div btn-dropdown style="display: inline-block;" source="startDateSource" on-change="startYearChange($data)" btn-class="btn-default" display-field="mc"></div> 
+        ~
+		<div btn-dropdown style="display: inline-block;" source="endDateSource" on-change="endYearChange($data)" btn-class="btn-default" display-field="mc"></div>
+    </div>
+</form>
+
+    
+    

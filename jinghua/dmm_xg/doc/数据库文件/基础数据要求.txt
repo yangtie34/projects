@@ -1,0 +1,186 @@
+
+# 名词：说明、配置、创建索引、新增job、删除job
+
+1.说明：行政班（t_classes）中的 年级（grade）字段不能为空
+2.说明：学生基本信息表（t_stu）中的院系id（dept_id）,专业id（major_id）,班级id（class_id）不能为空。
+3.说明：行政、教学组织机构表ID相同的数据要保证完全一致（所有字段数据完全一致）
+4.说明：组织机构（教学、行政）中学校节点要求其父节点为-1，层次为0，层次类型为XX
+5.说明：T_STU_WARNING_GRADUATION是从学生成绩表中查询出挂科的学生，然后根据课程的id得到该课程学生挂科的学分，和现在还没有通过的学分，
+6.说明：T_STU_WARNING_DEGREE原理是一样的，从学生成绩表中得到挂科的学生学分
+7.说明：辅导员聘任表（T_CLASSES_INSTRUCTOR），字段：ISFULLTIME（是否专职辅导员）如果无法确定，默认初始化为1；
+
+8.无法毕业无学位证表job
+	只需要执行一次初始化表
+	 <1> job名称:学位预警表初始化                                 路径:notGradDegreeJob?warningDegreeData
+     <2> job名称:毕业预警表初始化                                 路径:notGradDegreeJob?warningGraduationData
+9.高低消费基础job
+   (1)定期执行的job
+     <1> job名称:当前学生各餐消费金额                         路径:stuMealCostJob?doNowCost
+     <2> job名称:学生本学期总消费                                 路径:stuTermCostJob?doNowCost
+     <3> job名称:学生本学年总消费                                 路径:stuYearCostJob?doNowCost
+   (2)只需要执行一次的job
+     <1> job名称:以前学生早餐消费金额                         路径:stuMealCostJob?doBeforeCostZc
+     <2> job名称:以前学生午餐消费金额                         路径:stuMealCostJob?doBeforeCostWc
+     <3> job名称:以前学生晚餐消费金额                         路径:stuMealCostJob?doBeforeCostYc
+     <4> job名称:学生每学期总消费                                 路径:stuTermCostJob?doBeforeCost 
+     <5> job名称:学生每学年总消费                                 路径:stuYearCostJob?doBeforeCost
+     
+11.学生预警-疑似逃课
+   (1)历史数据初始化（执行一次）
+	 <1> job名称：学生-疑似逃课-历史                           路径：stuWarningJob?doSkipClassesHistory
+   (2)昨日数据初始化（每日执行）
+	 <1> job名称：学生-疑似逃课                                     路径：stuWarningJob?doSkipClasses              执行规则： 0 0 2 * * ?
+12.学生预警-疑似未住宿
+   (1)历史数据初始化（执行一次）
+	 <1> job名称：学生-疑似未住宿-历史                        路径：stuWarningJob?doNotStayHistory
+   (2)昨日数据初始化（每日执行）
+	 <1> job名称：学生-疑似未住宿                                  路径：stuWarningJob?doNotStay                  执行规则： 0 0 2 * * ?
+14.学生预警每日邮件推送
+	 <1> job名称：学生预警邮件推送                                 路径：stuWarningMailJob?sendWarningMail        执行规则： 0 0 2 * * ?
+15.校区班级初始化(可以每学期执行一次)
+     <1> job名称：校区班级对应初始化                             路径：campusAndClassJob?doCampusClass
+16.挂科预测页面建模及预测(注意事项:如果手动执行，需要先执行疑似逃课job,然后必须先执行<1> 预测模型初始化，然后再执行<2> 挂科预测初始化) (执行时间每月执行一次)
+	 <1> job名称：预测模型初始化                                 路径：failExamPredict?failExamPredictMode        执行规则： 0 15 0 1 * ?
+	 <2> job名称：挂科预测初始化                              路径：failExamPredict?failExamPredictData         执行规则： 0 30 0 1 * ?
+	 
+-- 2016-10-14
+17.学生预警-晚勤晚归 
+   (1)历史数据初始化（执行一次）
+	 <1> job名称：学生-疑似晚勤晚归-历史                           路径：stuWarningJob?doStayLateHistory
+   (2)昨日数据初始化（每日执行）
+	 <1> job名称：学生-疑似晚勤晚归                                     路径：stuWarningJob?doStayLate              执行规则： 0 0 2 * * ?
+18.学生预警-疑似不在校
+   (1)历史数据初始化（执行一次）
+	 <1> job名称：学生-疑似不在校-历史                        路径：stuWarningJob?doStayNotinHistory
+   (2)昨日数据初始化（每日执行）
+	 <1> job名称：学生-疑似不在校                                  路径：stuWarningJob?doStayNotin                  执行规则： 0 0 2 * * ?	 
+
+-- 创建索引：学生预警疑似逃课表，日期字段，学年、学期字段，日期、学生字段
+	create index I_WARNING_SKIP_CLASSES_date on T_STU_WARNING_SKIP_CLASSES (date_);
+	create index I_WARNING_SKIP_CLASSES_sc_term on T_STU_WARNING_SKIP_CLASSES (school_year,Term_Code);
+	create index I_WARNING_SKIP_CLASSES_datestu on T_STU_WARNING_SKIP_CLASSES (date_,stu_id);
+	 
+-- 创建索引：学生预警疑似未住宿表，日期字段，学年、学期字段，日期、学生字段
+	create index I_WARNING_NOTSTAY_DATE on T_STU_WARNING_NOTSTAY (DATE_);
+	create index I_WARNING_NOTSTAY_SC_TERM on T_STU_WARNING_NOTSTAY (SCHOOL_YEAR, TERM_CODE);
+	create index I_WARNING_NOTSTAY_datestu on T_STU_WARNING_NOTSTAY (date_,stu_id);
+
+-- 创建索引：学生预警晚勤晚归，日期字段，学年、学期字段，日期、学生字段  （2016-10-14）
+	create index I_WARNING_STAY_LATE_date on T_STU_WARNING_STAY_LATE (date_);
+	create index I_WARNING_STAY_LATE_sc_term on T_STU_WARNING_STAY_LATE (school_year,Term_Code);
+	create index I_WARNING_STAY_LATE_datestu on T_STU_WARNING_STAY_LATE (date_,stu_id);
+
+-- 创建索引：学生预警疑似不在校，日期字段，学年、学期字段，日期、学生字段  （2016-10-14）
+	create index I_WARNING_STAY_NOTIN_date on T_STU_WARNING_STAY_NOTIN (date_);
+	create index I_WARNING_STAY_NOTIN_sc_term on T_STU_WARNING_STAY_NOTIN (school_year,Term_Code);
+	create index I_WARNING_STAY_NOTIN_datestu on T_STU_WARNING_STAY_NOTIN (date_,stu_id);
+
+-- 创建索引：宿舍门禁表，时间字段
+	create index I_T_DORM_RKE_time on T_DORM_RKE (time_);
+-- 创建索引：一卡通消费表，时间字段
+	create index I_T_CARD_PAY_TIME on T_CARD_PAY (time_);
+-- 创建索引：教学班学生表，教学班字段
+	create index I_T_CLASS_TEACHING_STU_class on T_CLASS_TEACHING_STU(teach_class_id);
+	create index I_T_CLASS_TEACHING_STUclass on T_CLASS_TEACHING_STU(teach_class_id,stu_id); --20160928
+-- 创建索引：一卡通表，卡号、学生教师号
+	create index I_T_DORM_PROOF_no_peop on T_DORM_PROOF (no_,People_Id);
+-- 创建索引：疑似不在校表
+	create index I_T_CART_STAY_NOTIN on T_CARD_STAY_NOTIN (DATETIME, LASTTIME, BJID, SNO);
+
+-- 2016-11-28
+-- 配置：疑似逃课-处理的消费类型 (默认：餐厅 210、超市 215、澡堂 211、茶水房 220、公交 223、 医疗 214)
+	T_CODE_CARD_DEAL 表中的code
+	Constant.WARNING_SKIP_CLASSES_CARD_DEAL_TYPE = "'210','215','211','220','223','214'";
+-- 配置：疑似逃课-处理的读者类型（学生）
+	t_code_reader_identity 表中的code
+	Constant.WARNING_SKIP_CLASSES_READER_IDENTITY_STU = "'04','07'";
+-- 配置：在籍生概况-学校所在省的行政区划配置
+	t_code_admini_div 表中 level_ = 1 的 id
+	Constant.code_origin_id_bensheng = '410000';
+-- 配置：高低消费-参与计算的交易类型（默认餐厅超市）
+	t_code_card_deal 表中 level_ = 2 的 id
+	Constant.code_Card_Deal_Type = "'210','215'";
+
+-- 2016-12-08 
+-- 删除job（高低消费中所有有关周统计的job）
+	学生上周总消费（stuWeekCostJob?doNowCost）（每周执行）
+	学生上周总消费（stuWeekCostJob?doBeforeCost）（每周执行）
+	上周高消费名单存储（stuAbnormalWeekResult?doNowHighCost）（每周执行）
+	上周低消费名单存储（stuAbnormalWeekResult?doNowLowCost）（每周执行）
+	历史高消费名单存储（stuAbnormalWeekResult?doLsHighCost）（执行一次）
+	历史低消费名单存储（stuAbnormalWeekResult?doLsLowCost）（执行一次）
+-- 删除job（高低消费发送邮件job）
+	上周高消费学生名单发送（sendStuAbnormalJob?sendHighCost）（每周执行）
+	上周低消费学生名单发送（sendStuAbnormalJob?sendLowCost）（每周执行）
+
+-- 2016-12-08
+-- 新增job（高低消费）
+	(1)定时执行
+	<1> job名称:当前学期高低消费标准                路径:stuCostStandardJob?doNow          table:t_stu_cost_standard	（每学期执行一次）
+	<2> job名称:高低消费月选择存储                    路径:costMonthTimeJob?getTimeList      table:t_stu_cost_time_month	（每学期执行一次）
+	<3> job名称:每个学生上月总消费                    路径:abnormalMonthJob?doNowCost        table:t_stu_abnormal_month	（每月执行一次）
+	<4> job名称:上月高消费名单                            路径:abnormalMonthResultJob?doNowHigh  table:t_stu_abnormal_month_result	（每月执行一次）
+	<5> job名称:上月低消费名单                            路径:abnormalMonthResultJob?doNowLow   table:t_stu_abnormal_month_result	（每月执行一次）
+	<6> job名称:上月高消费名单发送                     路径:sendStuAbnormalJob?sendHighCost   table:t_stu_abnormal_mail_month	（每月执行一次）
+	<7> job名称:上月低消费名单发送                     路径:sendStuAbnormalJob?sendLowCost    table:t_stu_abnormal_mail_month	（每月执行一次）
+  	说明：先执行<1>,<2>,<3>，再执行其他的job
+	(2)初始化一次
+	<1> job名称:历史学期高低消费标准               路径:stuCostStandardJob?doLs            table:t_stu_cost_standard
+	<2> job名称:每个学生每月总消费                   路径:abnormalMonthJob?doLsCost          table:t_stu_abnormal_month
+	<3> job名称:历史每月高消费名单                   路径:abnormalMonthResultJob?doLsHigh    table:t_stu_abnormal_month_result
+	<4> job名称:历史每月低消费名单                   路径:abnormalMonthResultJob?doLsLow     table:t_stu_abnormal_month_result
+	说明： 先执行<1>,再执行其他的job
+	执行顺序:((1):<1>,(2):<1>) > ((1):<2>) > ((1):<3>,(2):<3>)
+	 >((1):<4>,<5>,(2):<3>,<4>)>((1):<6>,<7>); 
+	
+-- 2016-12-12
+-- 创建索引：高低消费
+	create index IDX_RESULT_MONTH_ID on T_STU_ABNORMAL_MONTH_RESULT (SCHOOL_YEAR, TERM_CODE, MONTH, TYPE_); 
+	create index IDX_RESULT_MONTH_ID1 on T_STU_ABNORMAL_MONTH_RESULT (STU_ID, SCHOOL_YEAR, TERM_CODE, MONTH, TYPE_);
+	create index IDX_RESULT_MONTH_ID2 on T_STU_ABNORMAL_MONTH_RESULT (SCHOOL_YEAR, TERM_CODE, MONTH);
+	create index IDX_MEAL_SSS on T_STU_ABNORMAL_MEAL (STU_ID, SCHOOL_YEAR, TERM_CODE, MEAL_NAME, SUM_MONEY);
+-- 2016-12-13
+-- 配置：邮箱发送需要配置的发送邮箱信息
+	Constant.MAIL_SMTP = "smtp.163.com"; //邮箱服务器
+	Constant.MAIL_USERNAME = "18339919808@163.com";//邮箱账号
+	Constant.MAIL_PASSWORK = "lijun5618";//邮箱密码
+-- 2016-12-21
+-- 高低消费job执行顺序说明：
+   1.先执行  "学生每学期总消费" 以及 "学生当前学期总消费" 相关表:t_stu_abnormal_term;
+   2.再执行  "以前学生早餐消费金额 "、"以前学生午餐消费金额 "、
+    "以前学生晚餐消费金额 "、"当前学生各餐消费金额" 相关表:t_stu_abnormal_meal;
+   3.再执行  "历史学期高低消费标准 "、"当前学期高低消费标准" 相关表:t_stu_cost_standard;
+   4.再执行  "高低消费月选择存储 " 相关表: t_stu_cost_time_month;
+   5.再执行  "每个学生每月总消费 "、"每个学生上月总消费 " 相关表:t_stu_abnormal_month;
+   6.再执行  "上月高消费名单"、"上月低消费名单"、"每月高消费名单"、"每月低消费名单" 相关表:t_stu_abnormal_month_result;
+   7.再执行  "学生每学年总消费"、"学生当前学年总消费" 相关表: t_stu_abnoraml_year;
+
+-- 2016-12-30
+-- 创建索引：组织机构表（教学、行政），常用字段索引
+	create index I_T_CODE_DEPT_TEACH_BASE on T_CODE_DEPT_TEACH (ID, PATH_, PID, ISTRUE, ORDER_, CODE_, NAME_);
+	create index I_T_CODE_DEPT_BASE on T_CODE_DEPT (ID, PATH_, PID, ISTRUE, ORDER_, CODE_, NAME_);
+-- 创建索引：学生表，常用字段索引
+	create index I_T_STU_BASE on T_STU (NO_, ENROLL_GRADE, LENGTH_SCHOOLING, DEPT_ID, MAJOR_ID, CLASS_ID, SEX_CODE, EDU_ID, NAME_, STU_STATE_CODE, STU_ROLL_CODE, STU_ORIGIN_ID, NATION_CODE, POLITICS_CODE, STU_CATEGORY_ID, BIRTHDAY);
+
+-- 2017-01-05
+-- 创建索引：班级表，常用字段索引
+	create index I_T_CLASSES_BASE on T_CLASSES (NO_, TEACH_DEPT_ID, GRADE, NAME_);
+-- 创建索引：行政区划表，常用字段索引
+	create index I_T_CODE_ADMINI_DIV_BASE on T_CODE_ADMINI_DIV (PATH_, ID, PID, NAME_);
+	
+-- 2017-01-17
+-- 更新索引： 组织机构表（教学、行政），常用字段索引；先删除，再创建
+	DROP INDEX I_T_CODE_DEPT_TEACH_BASE;
+	DROP INDEX I_T_CODE_DEPT_BASE;
+	create index I_T_CODE_DEPT_TEACH_BASE on T_CODE_DEPT_TEACH (ID, PATH_, PID, ISTRUE, ORDER_, CODE_, NAME_, LEVEL_TYPE);
+	create index I_T_CODE_DEPT_BASE on T_CODE_DEPT (ID, PATH_, PID, ISTRUE, ORDER_, CODE_, NAME_, LEVEL_TYPE);
+
+-- 2017-01-18
+-- 创建索引：失联四张表；
+	create index I_WARNING_NOTSTAY_DATECLA on T_STU_WARNING_NOTSTAY (DATE_, STU_ID, CLASS_ID);
+	create index I_WARNING_SKIP_CLASSES_DATECLA on T_STU_WARNING_SKIP_CLASSES (DATE_, STU_ID, CLASS_ID);
+	create index I_WARNING_STAY_LATE_DATECLA on T_STU_WARNING_STAY_LATE (DATE_, STU_ID, CLASS_ID);
+	create index I_WARNING_STAY_NOTIN_DATECLA on T_STU_WARNING_STAY_NOTIN (DATE_, STU_ID, CLASS_ID);
+	
+	
+	

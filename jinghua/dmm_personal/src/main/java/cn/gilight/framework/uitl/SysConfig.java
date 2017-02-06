@@ -44,6 +44,8 @@ public class SysConfig {
 	
 	private String uploadImageSavePath;
 	
+	private String dmmUrl;
+	
 
 	private static SysConfig config = new SysConfig();
 	
@@ -69,6 +71,7 @@ public class SysConfig {
 			this.lunchTime = p.getProperty("job.smart.lunch_time").trim();
 			this.supperTime = p.getProperty("job.smart.supper_time").trim();
 			this.uploadImageSavePath = p.getProperty("sys.upload.image_save_path").trim();
+			this.dmmUrl = p.getProperty("sys.dmmUrl").trim();
 			inStream.close();
 		} catch (IOException e) {
 			logger.error("load sysConfig.properties error,class根目录下找不到sysConfig.properties文件");
@@ -132,6 +135,14 @@ public class SysConfig {
 	public String getSchoolRoad() {
 		return schoolRoad;
 	}
+	public String getDmmUrl() {
+		return dmmUrl;
+	}
+
+	public void setDmmUrl(String dmmUrl) {
+		this.dmmUrl = dmmUrl;
+	}
+
 	public String getLunchTime() {
 		return lunchTime;
 	}

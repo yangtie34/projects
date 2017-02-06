@@ -44,7 +44,9 @@ app.controller("netStuController", [ "$scope","dialog",'mask','$timeout','http',
 						 }
 					 scope.qushiDatas[type][key]=scope.qushiDatas[type][key]||{};
 					 for(var dk in lxMap){
-						 scope.qushiDatas[type][key][dk]=getOption(lxMap[dk],(dk=='all'?'共计':dk=='one'?'人均单次':'日均')+'上网信息趋势统计','xzt');
+						 var option=getOption(lxMap[dk],(dk=='all'?'共计':dk=='one'?'人均单次':'日均')+'上网信息趋势统计','zxt');
+							 option.toolbox.orient="horizontal";
+						 scope.qushiDatas[type][key][dk]=option;
 					 }
 				 }
 				 scope.qushiData=scope.qushiDatas[type][type_code][lx];
@@ -69,18 +71,29 @@ http.callService({
 	xldm=data;
 	scope.xlxsids=[xldm.bk,xldm.dz,xldm.yjs];//////学历只显示大专本科
 	scope.xbxsids=[1,2];//////
+	scope.dqxsids=['650000','other'];//////
 	var xl={};
 	xl[xldm.yjs]={ico:'11',name:'研究生'};
 	xl[xldm.bk]={ico:'21',name:'本科'};
 	xl[xldm.dz]={ico:'31',name:'大专'};
+	var dq={name:'籍贯'};
+	dq[xldm.dqcode]={ico:'minority',name:xldm.dqname};
+	dq['other']={ico:'wwhz',name:'其他地区'};
 	scope.ico_title={all:{all:{ico:'all',name:'整体'}},
 			xb:{1:{ico:'man',name:'男生'},2:{ico:'female',name:'女生'}},
-			xl:xl
+			xl:xl,
+			dq:dq
 };
 	scope.k_xlxsids=function(key,k){
 		if(key=='xb'){
 			for(var i=0;i<scope.xbxsids.length;i++){
 				if(scope.xbxsids[i]==k)return true;
+			}
+			return false;
+		}
+		if(key=='dq'){
+			for(var i=0;i<scope.dqxsids.length;i++){
+				if(scope.dqxsids[i]==k)return true;
 			}
 			return false;
 		}
@@ -212,19 +225,20 @@ var getDeptData=function(method){
 						 d.flow.push({field:keyData[j].TYPENAME,fieldCode:keyData[j].TYPECODE,value:keyData[j].ALL_FLOW,name:'流量(MB)'});  
 					 }
 					 vm[type][key]=vm[type][key]||{};
-					 vm[type][key].flx={time:getOption(d.time,'','bztwz'),flow:getOption(d.flow,'','bztwz')};
+					 vm[type][key].flx={time:getOption(d.time,'','bztwz').saveAsImage(scope.ico_title[type][key].name+"分类型上网时长"),
+							 			flow:getOption(d.flow,'','bztwz').saveAsImage(scope.ico_title[type][key].name+"分类型上网流量")};
 				 }
 			 }else if(i==2){
 				 for(var key in mapData){
 					 var keyData=mapData[key];
 					 var d=[];
 					 for(var j=0;j<keyData.length;j++){
-						 d.push({field:keyData[j].HOUR_,fieldCode:keyData[j].HOUR_,value:keyData[j].IN_COUNTS,name:'月均在线(人)'}); 
+						 d.push({field:keyData[j].HOUR_,fieldCode:keyData[j].HOUR_,value:keyData[j].IN_COUNTS,name:'在线(人)'}); 
 						 d.push({field:keyData[j].HOUR_,fieldCode:keyData[j].HOUR_,value:keyData[j].ON_COUNTS,name:'上线(次)'}); 
 						 d.push({field:keyData[j].HOUR_,fieldCode:keyData[j].HOUR_,value:keyData[j].OUT_COUNTS,name:'离线(次)'}); 
 					 }
 					 vm[type][key]=vm[type][key]||{};
-					 var option=getOption(d,'','xqs');
+					 var option=getOption(d,'','xqs').saveAsImage(scope.ico_title[type][key].name+"分时段人数情况");
 					 option.legend={
 				        data:['在线(人)','上线(次)','离线(次)']
 				    }

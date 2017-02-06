@@ -1,0 +1,5 @@
+app.constant('setting', {
+	
+	
+	
+});

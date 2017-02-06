@@ -51,7 +51,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div ng-class="ulcla[1]">
                 <div class="xscz-cit text-center">
                     <span ng-class="xbxlcode=='xb'?active:'normal'" ng-click="xbxl('xb');"><a href="">按性别</a></span>
-                    <span ng-class="xbxlcode!='xb'?active:'normal'" ng-click="xbxl('xl');"><a href="">按学历</a></span>
+                    <span ng-class="xbxlcode=='xl'?active:'normal'" ng-click="xbxl('xl');"><a href="">按学历</a></span>
+                    <span ng-class="xbxlcode=='dq'?active:'normal'" ng-click="xbxl('dq');"><a href="">按籍贯</a></span>
                 </div>
             </div>
         </div>
@@ -178,7 +179,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 		<%-- <img src="${images}/04.jpg" alt=""> --%>
                     </div>
                 </li>
-                <li class="text-left">
+                <li class="text-left"  ng-show="xbxlcode!='dq'"> 
                 	<p class="xscz-ft-14">分时段人数情况</p>
                     <div class="text-center">
                       <div stu-chart config="v.fsd" style="height:310px;"class="img-responsive img-top"> </div>

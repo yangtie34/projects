@@ -35,7 +35,8 @@ public class ResourcesDaoImpl implements ResourcesDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Resources> getAllResources(String sys) {
-		String sql = "select * from t_sys_resources  where istrue=1 and (resource_type_code='01' or resource_type_code='02') and sysGroup_ in(select id from t_sys_resources where "+"';'||lower(url_)||';'"+" like '%;"+sys.toLowerCase()+";%' or "+"';'||lower(url_)||';'"+" like '%;"+sys.toLowerCase()+"/;%' ) start with pid=-1 connect by prior id=pid order siblings by level_,order_";
+		String sql = "select * from t_sys_resources  where istrue=1 and (resource_type_code='01' or resource_type_code='02' or(resource_type_code='06' and level_='3')) "
+				+ "and sysGroup_ in(select id from t_sys_resources where "+"';'||lower(url_)||';'"+" like '%;"+sys.toLowerCase()+";%' or "+"';'||lower(url_)||';'"+" like '%;"+sys.toLowerCase()+"/;%' ) start with pid=-1 connect by prior id=pid order siblings by level_,order_";
 		return baseDao.query(sql, Resources.class);
 	}
 
@@ -113,7 +114,7 @@ public class ResourcesDaoImpl implements ResourcesDao {
 				"select up.resource_id id from t_sys_user u  "+
 				"left join t_sys_user_perm up on u.id=up.user_id where u.username=?) )t "+
 				"inner join t_sys_resources r on t.id=r.id "+
-				"where (r.resource_type_code='01' or r.resource_type_code='02') and r.istrue=1 "+
+				"where (r.resource_type_code='01' or r.resource_type_code='02' or(resource_type_code='06' and level_='3')) and r.istrue=1 "+
 				"and r.sysgroup_ = (select id from t_sys_resources where "+"';'||lower(url_)||';'"+" like '%;"+sys.toLowerCase()+";%' or "+"';'||lower(url_)||';'"+" like '%;"+sys.toLowerCase()+"/;%' ) "+
 				"order  by  r.level_ ,r.order_ ";
 	return baseDao.query(sql,Resources.class, new Object[]{username,username});
@@ -138,20 +139,29 @@ public class ResourcesDaoImpl implements ResourcesDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<String> getAllPermssionByUserName(String username) {
-		String sql="select distinct id from (  "+
-					"select rp.wirldcard id from t_sys_user u left join t_sys_user_role ur on u.id=ur.user_id "+
-					"left join t_sys_role_perm rp on ur.role_id=rp.role_id where u.username=? and rp.wirldcard is not null "+
-					"union all "+
-					"select up.wirldcard id from t_sys_user u  "+
-					"left join t_sys_user_perm up on u.id=up.user_id where u.username=? and up.wirldcard is not null) ";
-		sql="select a.id from t_sys_resources r inner join ( "+sql+" ) a on r.shiro_tag=substr(a.id,0,instr(a.id,':',-1,1)-1) where r.istrue=1 ";
+		//动作和冗余字段wirldcard不使用   
+		/*String sql = "select distinct id from (  "
+				+ "select rp.wirldcard id from t_sys_user u left join t_sys_user_role ur on u.id=ur.user_id "
+				+ "left join t_sys_role_perm rp on ur.role_id=rp.role_id where u.username=? and rp.wirldcard is not null "
+				+ "union all "
+				+ "select up.wirldcard id from t_sys_user u  "
+				+ "left join t_sys_user_perm up on u.id=up.user_id where u.username=? and up.wirldcard is not null) ";
+		sql="select a.id from t_sys_resources r inner join ( "+sql+" ) a on r.shiro_tag=substr(a.id,0,instr(a.id,':',-1,1)-1) where r.istrue=1 ";*/
+		
+		
+		String sql1= "select rp.resource_id from t_sys_user u, t_sys_role r, t_sys_user_role ur, t_sys_role_perm rp where u.username=? "
+        		+ "and u.id=ur.user_id and r.id=ur.role_id and r.id=rp.role_id and r.istrue=1 ";
+        String sql2= "select up.resource_id from t_sys_user u, t_sys_user_perm up where u.username = ? and u.id = up.user_id ";
+        String sql="select distinct resource_id from ( "+sql1+" union all "+sql2+" )";
+        sql="select r.shiro_tag||':*' id from t_sys_resources r where r.id in ( "+sql+" ) and r.istrue=1 ";
 	return baseDao.queryForList(sql,String.class, new Object[]{username,username});
 }
 
 	@SuppressWarnings({ "unchecked" })
 	@Override
 	public List<Resources> hasPermssion(String username, String shiroTag) {
-		String star=shiroTag.substring(0,shiroTag.lastIndexOf(":")+1);
+		//动作和冗余字段wirldcard不使用   
+		/*String star=shiroTag.substring(0,shiroTag.lastIndexOf(":")+1);
 		String checkString="in ('"+shiroTag+"','"+star+"*') ";
 		String sql="select r.* from "+
 				"(select distinct id from (  "+
@@ -162,7 +172,13 @@ public class ResourcesDaoImpl implements ResourcesDao {
 					"left join t_sys_user_perm up on u.id=up.user_id where u.username=? and up.wirldcard "+checkString+" ) )t "+
 					"inner join t_sys_resources r on t.id=r.id "+
 					"where  r.istrue=1 "+
-					"order  by  r.level_ ,r.order_ ";
+					"order  by  r.level_ ,r.order_ ";*/
+		
+		String sql1= "select rp.resource_id from t_sys_user u, t_sys_role r, t_sys_user_role ur, t_sys_role_perm rp where u.username=? "
+        		+ "and u.id=ur.user_id and r.id=ur.role_id and r.id=rp.role_id and r.istrue=1 ";
+        String sql2= "select up.resource_id from t_sys_user u, t_sys_user_perm up where u.username = ? and u.id = up.user_id ";
+        String sql="select distinct resource_id from ( "+sql1+" union all "+sql2+" )";
+        sql="select r.* from t_sys_resources r where r.id in ( "+sql+" ) and r.istrue=1 and r.shiro_tag||':*'= ? ";
 	return baseDao.query(sql,Resources.class, new Object[]{username,username});
 }
 

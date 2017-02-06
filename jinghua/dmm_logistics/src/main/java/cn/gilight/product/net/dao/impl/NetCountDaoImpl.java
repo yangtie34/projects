@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import cn.gilight.framework.base.dao.BaseDao;
+import cn.gilight.framework.code.Code;
 import cn.gilight.framework.enums.ShiroTagEnum;
 import cn.gilight.framework.uitl.common.SqlUtil;
 import cn.gilight.product.net.dao.NetCountDao;
@@ -29,19 +30,38 @@ public class NetCountDaoImpl implements NetCountDao{
 	public List<Map<String, Object>> getCounts(String startDate,
 			String endDate, Map<String, String> deptTeach, String type) {
 		String tj=getWhere(startDate, endDate, deptTeach);
-		String[] zdlb=getZDBylb(type);
-		String sql="SELECT "+zdlb[0]+" , "+
-					"ROUND(SUM(T.USE_TIME)) ALL_TIME, "+
-					"ROUND(SUM(T.USE_FLOW)) ALL_FLOW , "+
-					"ROUND(AVG(T.USE_TIME/T.IN_COUNTS),2) ONE_TIME, "+
-					"ROUND(AVG(T.USE_FLOW/T.IN_COUNTS),2) ONE_FLOW, "+
-					"ROUND(AVG(T.USE_TIME/(TO_DATE('"+endDate+"','YYYY-MM') - TO_DATE('"+startDate+"','YYYY-MM'))),2) DAY_TIME, "+
-					"ROUND(AVG(T.USE_FLOW/(TO_DATE('"+endDate+"','YYYY-MM') - TO_DATE('"+startDate+"','YYYY-MM'))),2) DAY_FLOW "+
-					"FROM TL_NET_STU_MONTH T WHERE T.STU_ID IS NOT NULL  "+tj+
-					"GROUP BY "+zdlb[1]+" ORDER BY code ";
-		
-		if(type.equalsIgnoreCase("mz")){
-			sql="select t.code,t.name, "+
+		String sql="";
+		if(type.equalsIgnoreCase("dq")){
+			String area_id=Code.getKey("area.xz.code");
+			String table ="select t.*, "+
+					"case when c.id='"+area_id+"' then '"+area_id+"' else 'other' end origin_id, "+
+					"case when c.id='"+area_id+"' then c.name_ else '其他' end origin_name "+
+					"from TL_NET_STU_MONTH t inner join t_stu s on t.stu_id=s.no_ "+
+					"left join t_code_admini_div c on substr(s.stu_origin_id,0,2)||'0000'=c.id where T.STU_ID IS NOT NULL "+tj;
+			
+			sql="SELECT origin_id code,origin_name name, "+
+			"ROUND(SUM(T.USE_TIME)) ALL_TIME, "+
+			"ROUND(SUM(T.USE_FLOW)) ALL_FLOW , "+
+			"ROUND(AVG(T.USE_TIME/T.IN_COUNTS),2) ONE_TIME, "+
+			"ROUND(AVG(T.USE_FLOW/T.IN_COUNTS),2) ONE_FLOW, "+
+			"ROUND(AVG(T.USE_TIME/(TO_DATE('"+endDate+"','YYYY-MM') - TO_DATE('"+startDate+"','YYYY-MM'))),2) DAY_TIME, "+
+			"ROUND(AVG(T.USE_FLOW/(TO_DATE('"+endDate+"','YYYY-MM') - TO_DATE('"+startDate+"','YYYY-MM'))),2) DAY_FLOW "+
+			"FROM ("+table+") T "+
+			"GROUP BY origin_id,origin_name ORDER BY code ";
+		}else {
+			String[] zdlb=getZDBylb(type);
+			sql="SELECT "+zdlb[0]+" , "+
+						"ROUND(SUM(T.USE_TIME)) ALL_TIME, "+
+						"ROUND(SUM(T.USE_FLOW)) ALL_FLOW , "+
+						"ROUND(AVG(T.USE_TIME/T.IN_COUNTS),2) ONE_TIME, "+
+						"ROUND(AVG(T.USE_FLOW/T.IN_COUNTS),2) ONE_FLOW, "+
+						"ROUND(AVG(T.USE_TIME/(TO_DATE('"+endDate+"','YYYY-MM') - TO_DATE('"+startDate+"','YYYY-MM'))),2) DAY_TIME, "+
+						"ROUND(AVG(T.USE_FLOW/(TO_DATE('"+endDate+"','YYYY-MM') - TO_DATE('"+startDate+"','YYYY-MM'))),2) DAY_FLOW "+
+						"FROM TL_NET_STU_MONTH T WHERE T.STU_ID IS NOT NULL  "+tj+
+						"GROUP BY "+zdlb[1]+" ORDER BY code ";
+			
+			if(type.equalsIgnoreCase("mz")){
+				sql="select t.code,t.name, "+
 					" SUM(t.ALL_TIME) ALL_TIME, "+
 					" SUM(t.ALL_FLOW) ALL_FLOW, "+
 					" ROUND(AVG(t.ONE_TIME),2) ONE_TIME, "+
@@ -51,7 +71,9 @@ public class NetCountDaoImpl implements NetCountDao{
 					" from( "+
 					sql+
 					") t group by t.code,t.name ORDER BY t.code";
+			}
 		}
+		
 		return baseDao.getJdbcTemplate().queryForList(sql);
 	}
 
@@ -59,18 +81,33 @@ public class NetCountDaoImpl implements NetCountDao{
 	public List<Map<String, Object>> getNetType(String startDate,
 			String endDate, Map<String, String> deptTeach, String type) {
 		String tj=getWhere(startDate, endDate, deptTeach);
-		String[] zdlb=getZDBylb(type);
-		String sql="SELECT T.ON_TYPE_CODE TYPECODE,T.ON_TYPE_NAME TYPENAME,"+zdlb[0]+
-					",ROUND(SUM(T.USE_TIME)) ALL_TIME,ROUND(SUM(T.USE_FLOW)) ALL_FLOW  "+
-					"FROM TL_NET_STU_MONTH T WHERE T.STU_ID IS NOT NULL  "+tj+
-					"GROUP BY T.ON_TYPE_CODE,T.ON_TYPE_NAME ,"+zdlb[1]+" ORDER BY TYPECODE ,CODE ";
-		if(type.equalsIgnoreCase("mz")){
-			sql="SELECT T.TYPECODE,T.TYPENAME,T.CODE,T.NAME, "+
+		String sql="";
+		if(type.equalsIgnoreCase("dq")){
+			String area_id=Code.getKey("area.xz.code");
+			String table ="select t.*, "+
+					"case when c.id='"+area_id+"' then '"+area_id+"' else 'other' end origin_id, "+
+					"case when c.id='"+area_id+"' then c.name_ else '其他' end origin_name "+
+					"from TL_NET_STU_MONTH t inner join t_stu s on t.stu_id=s.no_ "+
+					"left join t_code_admini_div c on substr(s.stu_origin_id,0,2)||'0000'=c.id where T.STU_ID IS NOT NULL "+tj;
+			
+			sql="SELECT T.ON_TYPE_CODE TYPECODE,T.ON_TYPE_NAME TYPENAME,origin_id code,origin_name name, "+
+			"ROUND(SUM(T.USE_TIME)) ALL_TIME,ROUND(SUM(T.USE_FLOW)) ALL_FLOW  "+
+			"FROM ("+table+") T "+
+			"GROUP BY T.ON_TYPE_CODE,T.ON_TYPE_NAME ,origin_id,origin_name ORDER BY TYPECODE ,CODE ";
+		} else{
+			String[] zdlb=getZDBylb(type);
+			sql="SELECT T.ON_TYPE_CODE TYPECODE,T.ON_TYPE_NAME TYPENAME,"+zdlb[0]+
+						",ROUND(SUM(T.USE_TIME)) ALL_TIME,ROUND(SUM(T.USE_FLOW)) ALL_FLOW  "+
+						"FROM TL_NET_STU_MONTH T WHERE T.STU_ID IS NOT NULL  "+tj+
+						"GROUP BY T.ON_TYPE_CODE,T.ON_TYPE_NAME ,"+zdlb[1]+" ORDER BY TYPECODE ,CODE ";
+			if(type.equalsIgnoreCase("mz")){
+				sql="SELECT T.TYPECODE,T.TYPENAME,T.CODE,T.NAME, "+
 					" SUM(T.ALL_TIME) ALL_TIME, "+
 					" SUM(T.ALL_FLOW) ALL_FLOW "+
 					" FROM( "+
 					sql+
 					") T GROUP BY T.TYPECODE,T.TYPENAME,T.CODE,T.NAME ORDER BY TYPECODE,CODE ";
+			}
 		}
 		return baseDao.getJdbcTemplate().queryForList(sql);
 	}
@@ -107,19 +144,38 @@ public class NetCountDaoImpl implements NetCountDao{
 	@Override
 	public List<Map<String, Object>> getNetHourStu(String startDate,
 			String endDate, Map<String, String> deptTeach, String type) {
-		String tj=getWhere(startDate, endDate, deptTeach);
-		String[] zdlb=getZDBylb(type);
-		String sql="SELECT T.HOUR_,"+zdlb[0]+", "+
+		String tj=getWhere(startDate, endDate, deptTeach); 
+		String sql="";
+		if(type.equalsIgnoreCase("dq")){
+			type="mz";
+		}
+		if(type.equalsIgnoreCase("dq")){
+			String area_id=Code.getKey("area.xz.code");
+			String table ="select t.*, "+
+					"case when c.id='"+area_id+"' then '"+area_id+"' else 'other' end origin_id, "+
+					"case when c.id='"+area_id+"' then c.name_ else '其他' end origin_name "+
+					"from TL_NET_TYPE_MONTH t inner join t_stu s on t.stu_id=s.no_ "+
+					"left join t_code_admini_div c on substr(s.stu_origin_id,0,2)||'0000'=c.id where 1=1 "+tj;
+			
+			sql="SELECT T.HOUR_,origin_id code,origin_name name, "+
 					"SUM(T.ON_COUNTS) ON_COUNTS,SUM(T.OUT_COUNTS) OUT_COUNTS, "+
 					"ROUND(SUM(T.IN_COUNTS)/months_between(to_date('"+endDate+"','yyyy-mm'),to_date('"+startDate+"','yyyy-mm'))) IN_COUNTS  "+
-					"FROM TL_NET_TYPE_MONTH T WHERE 1=1 "+tj+
-					"GROUP BY T.HOUR_,"+zdlb[1]+" ORDER BY T.HOUR_";
-		if(type.equalsIgnoreCase("mz")){
-			sql="SELECT T.HOUR_,T.CODE,T.NAME, "+
-					" SUM(T.ON_COUNTS) ON_COUNTS, "+
-					" SUM(T.OUT_COUNTS) OUT_COUNTS, "+
-					" ROUND(SUM(T.IN_COUNTS)/months_between(to_date('"+endDate+"','yyyy-mm'),to_date('"+startDate+"','yyyy-mm'))) IN_COUNTS "+
-					" FROM( "+sql+") T GROUP BY T.HOUR_,T.CODE,T.NAME ORDER BY T.HOUR_";
+					"FROM ("+table+") T "+
+					"GROUP BY T.HOUR_,origin_id,origin_name ORDER BY T.HOUR_";
+		}else{
+			String[] zdlb=getZDBylb(type);
+			sql="SELECT T.HOUR_,"+zdlb[0]+", "+
+						"SUM(T.ON_COUNTS) ON_COUNTS,SUM(T.OUT_COUNTS) OUT_COUNTS, "+
+						"ROUND(SUM(T.IN_COUNTS)/months_between(to_date('"+endDate+"','yyyy-mm'),to_date('"+startDate+"','yyyy-mm'))) IN_COUNTS  "+
+						"FROM TL_NET_TYPE_MONTH T WHERE 1=1 "+tj+
+						"GROUP BY T.HOUR_,"+zdlb[1]+" ORDER BY T.HOUR_";
+			if(type.equalsIgnoreCase("mz")){
+				sql="SELECT T.HOUR_,T.CODE,T.NAME, "+
+						" SUM(T.ON_COUNTS) ON_COUNTS, "+
+						" SUM(T.OUT_COUNTS) OUT_COUNTS, "+
+						" ROUND(SUM(T.IN_COUNTS)/months_between(to_date('"+endDate+"','yyyy-mm'),to_date('"+startDate+"','yyyy-mm'))) IN_COUNTS "+
+						" FROM( "+sql+") T GROUP BY T.HOUR_,T.CODE,T.NAME ORDER BY T.HOUR_";
+			}
 		}
 		return baseDao.getJdbcTemplate().queryForList(sql);
 	}

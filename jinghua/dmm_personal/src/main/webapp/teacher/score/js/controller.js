@@ -74,10 +74,10 @@ var app = angular.module('app', ['ngRoute','system'])
 			scoreService.getStuScore(classId,courseId,stuParam,xn,xq,flag).then(function(data){
 			   scope.xn = xn;
     		   scope.xq = xq;
-    		   if(flag == 'jxb'){
-				 scope.stuCourses = data;
+    		   if(flag == 'xzb'){
+    		   		scope.stus = data;
 			   }else{
-			   	 scope.stus = data;
+			   		scope.stuCourses = data;
 			   }
        		});
 		}
@@ -85,10 +85,10 @@ var app = angular.module('app', ['ngRoute','system'])
     		   dialog.hideLoading();
     		   scope.xn = xn;
     		   scope.xq = xq;
-    		   if(flag == 'jxb'){
-				 scope.stuCourses = data;
+    		   if(flag == 'xzb'){
+				 	scope.stus = data;
 			   }else{
-			   	 scope.stus = data;
+			   	 	scope.stuCourses = data;
 			   }
         });
         

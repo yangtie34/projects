@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<div modal-form config="formConfig"></div>	
+<div class="keyan-wrapper">
+	<div class="keyan-main">
+    	<div class="header">
+        	<div class="main-tit">
+            	<h4 class="main-tit-b">高层次研究成果奖励</h4>
+                <h5 class="main-tit-s">为适应新形势下学校科研发展的需要，营造良好的研究创新环境，鼓励我校教职工开展高水平科学研究和教学研究，推动我校科学研究的发展水平和层次，特制定本奖励办法。</h5>
+            </div>
+            <div class="keyan-condition">
+            	<dl class="clearfix">
+                	<dt>学科门类：</dt>
+                    <dd>
+                    	<form action="" class="ky-form condition-radio">
+                            <div class="radio-box radio-inline" ng-repeat ="it in queryCondition.subject" >
+								<input type="radio" ng-model="condition.subject" ng-value="it" id="{{it}}">
+                                <label for="{{it}}"> {{it.mc}}
+								</label>
+                            </div>
+                        </form>
+                    </dd>
+                </dl>
+                <dl class="clearfix">
+                	<dt>完成人单位：</dt>
+                    <dd>
+                    	 <div cg-combo-tree source="queryCondition.dept" result="condition.dept" ></div> 
+                    </dd>
+                </dl>
+                <dl class="clearfix">
+                	<dt>统计时间：</dt>
+                    <dd>
+                    	 <div btn-dropdown style="display: inline-block;" source="queryCondition.year" on-change="change($data)" btn-class="btn-default" display-field="mc">
+                    </dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="ky-box p-top-10">
+        	<div class="dis-tab">
+            	<div class="dis-t-cell wid-2">
+                	<div class="round-section">
+                        <div class="round-item">
+                            <p class="sec-tit">{{condition.year}}年<br>我校用于科研奖励经费/万元</p>
+                            <div><a href="" class="round color-green round-70" ng-click = "queryDetail();">{{fund.total_fund}}</a></div>
+                        </div>
+                        <div class="round-item">
+                            <p class="sec-tit">较上一年增长/万元</p>
+                            <div><a href="" class="round color-purple round-70">{{fund.increase}}</a></div>
+                        </div>
+                        <div class="round-item">
+                            <p class="sec-tit">增幅</p>
+                            <div><a href="" class="round color-purple round-70 text-22">{{fund.prop}}</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dis-t-cell wid-8">
+                	<p class="section-tit tit-left-30">各奖项金额分布</p>
+                    <div class="img-box" echart config="awardpie" on-click="queryPie($params);">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ky-box no-bottom">
+        	<div class="ky-box-sec">
+        		<p class="section-tit">科研奖励人员单位分布</p>
+                <div class="img-box" echart config="deptchart" on-click="querychart($params);">
+                
+                </div>
+            </div>
+        </div>
+
+		<section>
+        <div class="section-head">
+        	<span class="section-head-tit">科研人员获得奖励排行榜</span>
+            <div class="input-group ky-input pull-right">
+              <input type="text" ng-model="sparam" class="form-control ky-input-control" placeholder="姓名或职工号查询">
+              <span class="input-group-btn">
+              	<i class="line"></i>
+                <button class="btn btn-default ky-btn" type="button" ng-click="searchPeople(sparam)"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+        </div>
+        <div class="ky-box no-bottom-border"  part-modal show-modal="showModal2">
+        	<div class="ky-box-sec">
+            	<table class="table ky-no-border-table">
+                	<thead>
+                    	<tr>
+                        	<td>排名</td>
+                        	<td>科研人员</td>
+                            <td>所在单位</td>
+							<td>奖励总金额（万元）</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    	<tr ng-repeat="item in items">
+                        	<td><span class="f-order">{{item.rn}}</span></td>
+                            <td><a href="../personal/index.jsp?teaId={{item.tea_id}}">{{item.tea_name}}</a></td>
+                            <td>{{item.dept_name}}</td>
+                            <td>{{item.fund}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="clearfix keyan-page has-pad-btm">
+                    <p class="page-result pull-left">共 {{page.pagecount}} 页，数据 {{page.sumcount}} 条</p>
+                     <div class="pagination ky-page pull-right" ng-show="page.sumcount &gt; page.pagesize" pagination total-items="page.sumcount" ng-model="page.curpage"
+					max-size="10" items-per-page="page.pagesize"
+					class="pull-right" boundary-links="true"></div>	
+                </div>
+            </div>
+        </div>
+        </section>
+
+    </div>
+    </div>

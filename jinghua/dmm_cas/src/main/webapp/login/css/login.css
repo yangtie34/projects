@@ -348,3 +348,26 @@ color:#bdcff1;
 .browser-box a:hover{
 	color:#376BDD;
 	}
+.brs-icon.ie{
+	background-position:0 -142px;
+	}
+	
+.login-mh-enter{
+	color:#fc4848;
+	font-size:14px;
+	text-decoration:underline;
+	}
+.login-mh-enter:hover{
+	color:#F10C0C;
+	}
+.login-mh-icon{
+	width:28px;
+	height:32px;
+	display:inline-block;
+	margin-left:5px;
+	background:url(../img/login-mh-icon.png) no-repeat;
+	vertical-align:middle;
+	}
+.mt-20{
+	margin-top:15px;
+	}

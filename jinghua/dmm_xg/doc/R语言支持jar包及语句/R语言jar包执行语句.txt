@@ -1,0 +1,2 @@
+mvn install:install-file -DgroupId=org.rosuda.REngine -DartifactId=REngine -Dversion=2.1.0 -Dpackaging=jar -Dfile=d:\REngine-2.1.0.jar
+mvn install:install-file -DgroupId=org.rosuda.REngine -DartifactId=Rserve -Dversion=1.8.1 -Dpackaging=jar -Dfile=d:\Rserve-1.8.1.jar

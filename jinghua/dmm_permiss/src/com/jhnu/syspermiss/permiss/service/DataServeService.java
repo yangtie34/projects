@@ -73,5 +73,7 @@ public interface DataServeService {
 	 */
 	public List<Map<String,Object>> findAll();
 	
+	public String getDataSqlByDeptAndData(String type,String deptId,List<String> datas);
+	
 	
 }

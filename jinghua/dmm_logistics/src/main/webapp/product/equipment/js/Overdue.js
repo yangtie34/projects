@@ -143,7 +143,8 @@ var getvmData=function(i,k){
 					 scope.getxqlb(9);
 					 timeout();
 				 };
-				 vm.items[i][k]=option;
+				 var saveAsImageName=['设备类型对比','经费组成对比','设备单价对比'];
+				 vm.items[i][k]=option.saveAsImage("过期"+scope.alltitle+saveAsImageName[k]);
 			 //vm.items[i][k]=getOption(d,'','bzt');; 
 		 }else if(i==2){//趋势图
 			 var d=[];
@@ -166,7 +167,7 @@ var getvmData=function(i,k){
 					scope.getxqlb(11);
 					 timeout();
 				 };
-			 vm.items[i]=option;
+			 vm.items[i]=option.saveAsImage(scope.jgmc+"过期"+scope.alltitle+"设备对比");
 		 }else if(i==5){//柱状图
 			 var d=[];
 			 for(var j=0;j<data.length;j++){
@@ -183,7 +184,7 @@ var getvmData=function(i,k){
 					 scope.getxqlb(17);
 					 timeout();
 				 }; 
-				 vm.items[i]=option; 
+				 vm.items[i]=option.saveAsImage(scope.alltitle+"仪器设备超期服役年限统计"); 
 		 }else if(i==3){
 			  vm.items[i]=data;
 			 scope.DeptGroupClick(data[0]);
@@ -213,7 +214,7 @@ scope.getEmDetilByDeptGroup=function(deptGroup){
 scope.DeptGroup="all";
 scope.alltitle='在用';
 scope.emTypeClick=function(i){
-		scope.alltitle=i==0?'在用':'贵重';
+		scope.alltitle=i==0?'在用':'贵重在用';
 	scope.emType=emType[i];
 	scope.emTypeIndex=i;
 	getAllData([1,2,3,4,5]);

@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import cn.gilight.framework.uitl.common.StringUtils;
 import cn.gilight.personal.teacher.score.dao.ScoreDao;
 import cn.gilight.personal.teacher.score.service.ScoreService;
 
@@ -31,10 +32,10 @@ public class ScoreServiceImpl implements ScoreService{
 	public List<Map<String, Object>> getStuScore(String school_year,
 			String term_code, String class_id,String course_id,String param,String paramFlag) {
 		List<Map<String, Object>> list = null;
-		if("xzb".equals(paramFlag)){
-			list = scoreDao.getStuScore(school_year,term_code,class_id,param);
-		}else if("jxb".equals(paramFlag)){
-			list = scoreDao.getStuScoreJxb(school_year,term_code,class_id,course_id,param);
+		if(StringUtils.hasText(paramFlag) && paramFlag.contains("xzb")){
+			list = scoreDao.getStuScore(school_year,term_code,class_id,param,paramFlag);
+		}else{
+			list = scoreDao.getStuScoreJxb(school_year,term_code,class_id,course_id,param,paramFlag);
 		}
 		return list;
 	}

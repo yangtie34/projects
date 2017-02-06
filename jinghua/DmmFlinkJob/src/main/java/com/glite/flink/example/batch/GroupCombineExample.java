@@ -22,6 +22,8 @@ import org.apache.flink.util.Collector;
  */
 public class GroupCombineExample {
 	public static void main(String[] args) {
+		
+		
 		final ExecutionEnvironment env = ExecutionEnvironment
 				.getExecutionEnvironment();
 		DataSource<String> paySource = env.readTextFile("hdfs://ns1/cardpay");

@@ -15,12 +15,7 @@ import com.glite.flink.example.domain.TCardPay;
  *
  */
 public class FlapMapExample {
-	public static void main(String[] args) {
-		try{
-			
-		}catch(Throwable e){
-			
-		}
+	public static void main(String[] args) throws Throwable {
 		final ExecutionEnvironment env = ExecutionEnvironment
 				.getExecutionEnvironment();
 		DataSource<String> paySource = env.readTextFile("hdfs://ns1/cardpay");
@@ -35,6 +30,6 @@ public class FlapMapExample {
 				
 			}
 		});
-
+		env.execute();
 	}
 }

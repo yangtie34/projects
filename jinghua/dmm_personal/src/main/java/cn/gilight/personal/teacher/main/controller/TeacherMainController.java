@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.jhnu.syspermiss.util.ContextHolderUtils;
+
+import cn.gilight.framework.uitl.HttpResult;
+import cn.gilight.framework.uitl.SysConfig;
 import cn.gilight.personal.teacher.main.service.TeacherInfoService;
 
 /**   
@@ -54,7 +57,26 @@ public class TeacherMainController {
 		AttributePrincipal principal = (AttributePrincipal) ContextHolderUtils.getRequest().getUserPrincipal();
 		String username = principal.getName();
 		//详细信息
-		return teacherSevice.getTeacherDetailInfo(username);
+		Map<String,Object> map = teacherSevice.getTeacherDetailInfo(username);
+		String dmmUrl = SysConfig.instance().getDmmUrl();
+		map.put("dmmUrl", dmmUrl);
+		return map;
+	}
+	
+	@RequestMapping("/submitAdvice")
+	@ResponseBody
+	public HttpResult submitAdvice(String advice){
+		HttpResult result = new HttpResult();
+		AttributePrincipal principal = (AttributePrincipal) ContextHolderUtils.getRequest().getUserPrincipal();
+		String username = principal.getName();
+		try {
+			teacherSevice.submitAdvice(username,advice);
+			result.setSuccess(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+			result.setSuccess(false);
+		}
+		return result;
 	}
 	
 	@RequestMapping("/getSelfHistoryList")

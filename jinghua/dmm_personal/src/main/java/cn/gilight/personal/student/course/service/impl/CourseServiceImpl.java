@@ -77,7 +77,7 @@ public class CourseServiceImpl implements CourseService{
 		for(int i=1;i<=9;i=i+2){
 			Map<String,Object> map = new HashMap<String,Object>();
 			List<Map<String,Object>> mylist = courseDao.getSchedule(stu_id, terms[0], terms[1], zc,i);
-			for(int j=1;j<7;j++){
+			for(int j=1;j<=7;j++){
 				Map<String,Object> m = new HashMap<String,Object>();
 				boolean b = false;
 				for(Map<String,Object> mymap : mylist){
@@ -118,8 +118,8 @@ public class CourseServiceImpl implements CourseService{
 		Map<String,Object> map = new HashMap<String,Object>();
 		String year = DateUtils.getNowYear();
 		String month = "";
+		String[] terms = EduUtils.getSchoolYearTerm(new Date());
 		if(week == 0){
-			String[] terms = EduUtils.getSchoolYearTerm(new Date());
 			String start = schoolService.getStartSchool(terms[0], terms[1]);
 			if(StringUtils.hasText(start)){
 				int zc = DateUtils.getZcByDateFromBeginDate(stringToDate(start), new Date());
@@ -143,7 +143,10 @@ public class CourseServiceImpl implements CourseService{
 		String zsi = DateUtils.getNextDay(zs);
 		String zw = DateUtils.getNextDay(zsi);
 		String zl = DateUtils.getNextDay(zw);
-		map.put("year", year);
+		String zr = DateUtils.getNextDay(zl);
+//		map.put("year", year);
+		map.put("school_year", terms[0]);
+		map.put("school_term", terms[1]);
 		map.put("month", month);
 		map.put("zc", week);
 		map.put("zy", DateUtils.getNowDay(stringToDate(zy)));
@@ -152,6 +155,7 @@ public class CourseServiceImpl implements CourseService{
 		map.put("zsi", DateUtils.getNowDay(stringToDate(zsi)));
 		map.put("zw", DateUtils.getNowDay(stringToDate(zw)));
 		map.put("zl", DateUtils.getNowDay(stringToDate(zl)));
+		map.put("zr", DateUtils.getNowDay(stringToDate(zr)));
 		map.put("zyrq", zy);
 		return map;
 	}

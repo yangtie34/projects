@@ -39,7 +39,7 @@ public class EduUtils {
 		int year = Integer.parseInt(DateUtils.YEAR.format(date));
 		String[] result = new String[2];
 		String term=getTermByMonth(month);
-		if(Globals.TERM_FIRST.equals(term)){
+		if(Globals.TERM_FIRST.equals(term)&&month>=Integer.parseInt(Globals.CUT_YEAR)){
 			result[0] = year+"-"+(year+1);
 		}else{
 			result[0] = (year-1)+"-"+(year);
@@ -190,9 +190,11 @@ public class EduUtils {
 	}
 	
 	public static void main(String[] args){
-		List<Code> codes = getFourSchoolyearByEndYear(2015, 4);
+		/*List<Code> codes = getFourSchoolyearByEndYear(2015, 4);
 		for(Code code : codes){
 			System.out.println(code);
-		}
+		}*/
+		String [] d=getSchoolYearTerm(new Date());
+		System.out.println(d[0]+"---"+d[1]);
 	}
 }

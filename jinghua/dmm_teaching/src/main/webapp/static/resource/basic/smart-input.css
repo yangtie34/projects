@@ -1,0 +1,67 @@
+@charset "utf-8";
+/* CSS Document */
+/*下拉选择*/
+.smart-input {
+    border-radius:5px;
+    width:100%;
+    height:100%;
+    border:1px solid #bccccf;
+    padding-left:15px;
+    font-size:14px;
+    color:#6b6b6b;
+    position:absolute;
+    z-index:2000;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+}
+input.smart-input:focus {
+    border:1px solid #f28671;
+    outline:none;
+}
+.smart-input-block {
+    font-size:14px;
+    color:#6b6b6b;
+    font-weight:normal;
+    min-width:100%;
+    border:1px solid #bccccf;
+    position:absolute;
+    background:#fff;
+    top:39px;
+    left:0px;
+    min-height:5px;
+    max-height:450px;
+    overflow:auto;
+    z-index:1999;
+    border-radius:5px;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    white-space:nowrap;
+}
+.smart-input-block ul {
+    list-style:none;
+    margin:0;
+    padding:0
+}
+.smart-input-block li {
+    margin:0;
+    padding:9px 15px;
+    text-align:left;
+    list-style:none;
+}
+.smart-input-block-bg {
+    background:#f6f7f9;
+}
+.smart-input-block li:hover {
+    background:#f6f7f9;
+    cursor:pointer;
+}
+.smart-input-block-li{
+	background:#f6f7f9;
+    cursor:pointer;
+}
+.smart-input-block-position {
+    position:relative;
+    display:inline-block;
+    width : 100%;
+    height: 100%;
+}

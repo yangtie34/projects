@@ -24,6 +24,8 @@ public interface TeacherInfoService {
 	 */
 	public abstract Map<String, Object> getTeacherDetailInfo(String teano);
 	
+	public abstract void submitAdvice(String username,String advice);
+	
 	/** 
 	* @Title: queryTeacherHistoryList 
 	* @Description: TODO

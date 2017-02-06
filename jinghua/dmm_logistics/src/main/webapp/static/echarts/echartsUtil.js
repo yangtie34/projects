@@ -223,11 +223,12 @@ var optionid=0;
 	        feature : {
 	            dataView : {show: true, readOnly: false},
 	            restore : {show: true},
-	            saveAsImage : {show: true}
+	            saveAsImage : {show: true,name:title}
 	        }
 	    };
 	optionid++;
 	option.optionid=optionid;
+	
 	return option;
 };
 var fomatSwtDw=function(option,name,dw){
@@ -376,6 +377,13 @@ var fomatbztzx=function(option){//饼状图不显示折线
 			}
 			break;
 		}*/
+		option.saveAsImage=function(name){
+			option.toolbox=option.toolbox||{};
+			option.toolbox.feature=option.toolbox.feature||{};
+			option.toolbox.feature.saveAsImage=option.toolbox.feature.saveAsImage||{};
+			option.toolbox.feature.saveAsImage.name=name;
+			return option;
+		};
 		return option;
 	};
 	var getTimeSwtData=function(data,title,type){
@@ -393,6 +401,7 @@ var fomatbztzx=function(option){//饼状图不显示折线
 			var opt=getOption(map[key],title,type);
 			opt.grid = {'y':80,'y2':80};
 			opt.dataZoom={show:false};
+			opt.toolbox.orient="horizontal";
 			options.push(opt);
 			keyData.push(key);
 		}

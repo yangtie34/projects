@@ -81,7 +81,10 @@
                 <div class="fenbu">
                 	<div class="shuliang fl">
                     	<div class="t">
-                        	<h5>分类型统计人均借书量</h5>
+                        	<h5>分类型统计人均借书量
+                        	<div tool-tip placement="right">
+									<div style="width: 160px">按照不同人员类型，查看人均借书量情况。<br/>公式：A类型借书量/A类型总人数</div>
+							</div></h5>
                         </div>
                         <div class="shuliang_img">
                         	<span tool-tip placement="left" hide-icon="true" class="icon-time" ng-click="qushiClick(0);">
@@ -93,7 +96,11 @@
                     </div>
                     <div class="duzheleix fl">
                     	<div class="t">
-                        	<h5>分类型统计借书人数占比</h5>
+                        	<h5>分类型统计借书人数占比
+                        	<div tool-tip placement="right">
+									<div style="width: 160px">按照不同人员类型，查看借书人数占比情况。<br/>公式：A类型借书人数/A类型总人数</div>
+							</div>
+                        	</h5>
                         </div>
                         <div class="duzheleix_img">
                         	<span tool-tip placement="left" hide-icon="true" class="icon-time" ng-click="qushiClick(1);">

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<div class="ky-box p-top-10">
+	<table class="table table-hover table-condensed">
+		<thead>
+			<tr class="info">
+				<th>计划 </th>
+				<th>单位</th>
+				<th>学科</th>
+				<th>目标提升名次</th>
+				<th>实际提升名次</th>
+				<th ng-repeat="it in khnflist">{{it}}年</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="it in xkpmlist">
+				<td>{{it.jhmc}}</td>
+				<td>{{it.khdw}}</td>
+				<td>{{it.xkmc}}</td>
+				<td>{{it.khmb}}</td>
+				<td>{{it.total}}</td>
+                <td ng-repeat="field in khnflist">{{it[field]}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

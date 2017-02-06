@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+	<div modal-form config="formConfig"></div>
+	<div class="ky-box" style="padding-top : 10px;">
+		<div class="ky-box-sec">
+			<div class="dis-tab ">
+				<div class="dis-t-cell wid-5 separate-l">
+					<div part-modal show-modal="vm1.showModal"  class="clearfix">
+						<h4>高层次学术论文收录获奖名单</h4>
+						<table class="table table-hover">
+							<tr>
+								<th style="text-align:center">期刊类别</th>
+								<th style="text-align:center">第一作者</th>
+								<th style="text-align:center">奖励金额（万元）</th>
+							</tr>
+							<tr ng-repeat="it in vm1.items">
+								<td style="text-align:center">{{it.periodical_type}}</td>
+								<td style="text-align:center"><a href="../personal/index.jsp?teaId={{it.tea_id}}">{{it.tea_name}}</a></td>
+								<td style="text-align:center">{{it.fund}}</td>
+							</tr>
+						</table>
+						<div class="clearfix keyan-page">
+                    <p class="page-result pull-left">共 {{vm1.pagecount}} 页，数据 {{vm1.total}} 条</p>
+                     <div class="pagination ky-page pull-right" ng-show="vm1.total &gt; vm1.size" pagination total-items="vm1.total" ng-model="vm1.index"
+					max-size="10" items-per-page="vm1.size"
+					class="pull-right" boundary-links="true"></div>	
+                </div>
+					</div>
+				</div>
+				<div class="dis-t-cell wid-5 border-l separate-r">
+					<div part-modal show-modal="vm2.showModal" class="clearfix">
+						<h4>高层次学术论文转载获奖名单</h4>
+						<table class="table table-hover">
+							<tr>
+								<th style="text-align:center">转载类别</th>
+								<th style="text-align:center">第一作者</th>
+								<th style="text-align:center">奖励金额（万元）</th>
+							</tr>
+							<tr ng-repeat="it in vm2.items">
+								<td style="text-align:center">{{it.periodical_type}}</td>
+								<td style="text-align:center"><a href="../personal/index.jsp?teaId={{it.tea_id}}">{{it.tea_name}}</a></td>
+								<td style="text-align:center">{{it.fund}}</td>
+							</tr>
+						</table>
+						<div class="clearfix keyan-page">
+                    <p class="page-result pull-left">共 {{vm2.pagecount}} 页，数据 {{vm2.total}} 条</p>
+                     <div class="pagination ky-page pull-right" ng-show="vm2.total &gt; vm2.size" pagination total-items="vm2.total" ng-model="vm2.index"
+					max-size="10" items-per-page="vm2.size"
+					class="pull-right" boundary-links="true"></div>	
+                </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="ky-box">
+		<div class="ky-box-sec">
+			<div class="dis-tab ">
+				<div class="dis-t-cell wid-5 separate-l">
+					<p class="section-tit">论文收录期刊分布</p>
+					<div echart config="inconfig" height="350" on-click="queryIn($params)"></div>
+				</div>
+				<div class="dis-t-cell wid-5 border-l separate-r">
+					<p class="section-tit">论文转载期刊分布</p>
+					<div echart config="reshipconfig" height="350" on-click="queryReship($params)"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="ky-box no-bottom">
+      	<div class="ky-box-sec">
+      		<p class="section-tit">学术论文奖获奖人员单位分布</p>
+              <div class="img-box" echart config="deptchart" on-click="queryDept($params)">
+              
+              </div>
+          </div>
+      </div>
+

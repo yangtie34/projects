@@ -1,0 +1,26 @@
+
+<div class="clearfix" style="color: #6b6b6b; ">
+	<ul class="navbar-nav ">
+		<li class="dropdown selectComb" style="padding-right:2em;"
+			ng-repeat='st in selectObj track by $index'>
+			<a href="javascript:void(0);"
+			 class="dropdown-toggle"
+			  ng-click="cgComboSelectClick(st,selectObj)"
+			aria-haspopup="true" aria-expanded="false">{{st.mc}} <span
+				class="caret"></span></a>
+			<ul class="dropdown-menu selectCombul" >
+				<li ng-repeat='node in st.children'><a
+					href="javascript:void(0);" title="{{node.mc}}"
+					ng-class="{'tree-list-leaf-icon': !node.children,'tree-list-folder-icon':node.children.length >0}"
+					ng-click="cgComboTreeNodeClick(node);cgComboSelectClick(st,selectObj)"> <span
+						title="{{node.mc}}">{{node.mc}}</span>
+				</a></li>
+			</ul></li>
+	</ul>
+</div>
+
+
+
+
+
+

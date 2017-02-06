@@ -1,0 +1,155 @@
+
+1.说明：组织机构（教学、行政）中学校节点要求其父节点为-1，层次为0，层次类型为XX
+
+2.教学相关job配置说明(job:任务计划,涉及一卡通消费的使用了消费类型，及card_deal_id，该字段没数据，执行job
+                                               不会有结果。)
+         （1）只需要执行一次的job（定期执行的job，时间周期最少每学期一次，但也没必要每天执行，可以每周或者每月）
+          <1> job名称:当前平均绩点                                 路径:stuGpaJob?doNowGpa
+          <2> job名称:学生当前学期早起次数                  路径:stuBehaviorJob?doNowBehaviorEarly
+          <3> job名称:学生当前学期早餐次数                  路径:stuBehaviorJob?doNowBehaviorBreakfast
+          <4> job名称:当前学期进出图书馆次数              路径:stuBehaviorJob?doNowBehaviorBookRke
+          <5> job名称:学生当前学期借书次数                  路径:stuBehaviorJob?doNowBehaviorBorrowBook
+          <6> job名称:当前进出图书馆时间                      路径:stuTimeBehaviorJob?doNowBookRke
+          <7> job名称:当前进出早中晚餐时间                  路径:stuTimeBehaviorJob?doNowEat
+          <8> job名称:当前进出宿舍时间                          路径:stuTimeBehaviorJob?doNowDormRke
+          <9> job名称:近7天学生行为记录                        路径:stuDailyBehavior?doNowBhrDaily
+      <6>,<7>,<8> 要在<1>,<9>执行过之后再执行。 
+        （2）只需要执行一次的job（初始化用的job）      
+          <1> job名称:历史平均绩点                                 路径:stuGpaJob?doBeforeGpa
+          <2> job名称:学生所有学期早起次数                  路径:stuBehaviorJob?doBehaviorEarly
+          <3> job名称:学生所有学期早餐次数                  路径:stuBehaviorJob?doBehaviorBreakfast
+          <4> job名称:所有学期进出图书馆次数              路径:stuBehaviorJob?doBehaviorBookRke
+          <5> job名称:学生所有学期借书次数                  路径:stuBehaviorJob?doBehaviorBorrowBook
+          <6> job名称:历史进出图书馆时间                      路径:stuTimeBehaviorJob?doBeforeBookRke
+          <7> job名称:历史进出早中晚餐时间                  路径:stuTimeBehaviorJob?doBeforeEat
+          <8> job名称:历史进出宿舍时间                          路径:stuTimeBehaviorJob?doBeforeDormRke
+          <9> job名称:近1年学生行为记录                       路径:stuDailyBehavior?doBeforeBhrDaily
+      <6>,<7>,<8> 要在<1>,<9>执行过之后再执行。
+
+
+3.学生表培养层次必须维护
+计算生师比时，折合在校生数需要关联学生的培养层次
+折合在校生数 = 普通本、专科（高职）生数 + 硕士生数*1.5 + 博士生数*2 + 留学生数*3 + 预科生数 + 进修生数 + 成人托产班学生数 + 夜大(业余)学生数*0.3 + 函授生数*0.1
+
+4.学生成绩表创建索引
+Create index INDEX_T_STU_SCORE_ALL on t_stu_score 
+(SCHOOL_YEAR, TERM_CODE, COURE_CODE, HIERARCHICAL_SCORE_CODE, CENTESIMAL_SCORE, STU_ID);
+Create index index_t_stu_score_SCHOOL_YEAR on t_stu_score (SCHOOL_YEAR);
+Create index index_t_stu_score_TERM_CODE on t_stu_score (TERM_CODE);
+Create index index_t_stu_score_SCHOOL_TERM on t_stu_score (SCHOOL_YEAR, TERM_CODE);
+-- Create index index_t_stu_score_COURE_CODE on t_stu_score (coure_code);
+-- Create index index_t_stu_score_HIER_SCORE on t_stu_score (hierarchical_score_code);
+-- Create index index_t_stu_score_STU_ID on t_stu_score (stu_id);
+-- Create index index_t_stu_score_CENT_SCORE on t_stu_score (centesimal_score);
+
+5.挂科补考表job （每周执行一次） 
+<1> job名称:挂科补考表                     路径:failExaminationJob?doFailExamination
+
+6. 2016-09-29新增job（在job2执行之后执行）
+    （1）只需要执行一次的job
+          <1> job名称:课程历史学期成绩结果                  路径:scoreCourseResultJob?doLsCourse
+          <2> job名称:课程历史学年成绩结果                  路径:scoreCourseResultJob?doLsYearCourse
+          <3> job名称:学科历史学期成绩结果                  路径:scoreSubjectResultJob?doLsSubject
+          <4> job名称:学科历史学年成绩结果                  路径:scoreSubjectResultJob?doLsYearSubject  
+          <5> job名称:机构历史学期成绩结果                  路径:scoreDeptResultJob?doLsDept
+          <6> job名称:机构历史学年成绩结果                  路径:scoreDeptResultJob?doLsYearDept
+          <7> job名称:教师历史学期成绩结果                  路径:scoreTeaResultJob?doLsTea
+          <8> job名称:教师历史学年成绩结果                  路径:scoreTeaResultJob?doLsYearTea
+        （2）定期执行的job（学期的是每学期为周期，学年的是每学年为周期）
+          <1> job名称:课程当前学期成绩结果                  路径:scoreCourseResultJob?doNowCourse
+          <2> job名称:课程当前学年成绩结果                  路径:scoreCourseResultJob?doNowYearCourse
+          <3> job名称:学科当前学期成绩结果                  路径:scoreSubjectResultJob?doNowSubject
+          <4> job名称:学科当前学年成绩结果                  路径:scoreSubjectResultJob?doNowYearSubject  
+          <5> job名称:机构当前学期成绩结果                  路径:scoreDeptResultJob?doNowDept
+          <6> job名称:机构当前学年成绩结果                  路径:scoreDeptResultJob?doNowYearDept
+          <7> job名称:教师当前学期成绩结果                  路径:scoreTeaResultJob?doNowTea
+          <8> job名称:教师当前学年成绩结果                  路径:scoreTeaResultJob?doNowYearTea
+7. 全周期学生成绩分析job（2016-10-13 新增<1>）（2016-11-07 新增<2>,<3>）
+     （1）只需要执行一次的job
+          <1> job名称:历史学期平均成绩                          路径:bysScoreResultJob?doLsAvg
+          <2> job名称:历史学年平均成绩                          路径:bysScoreResultJob?doLsXnAvg
+          <3> job名称:毕业生平均成绩                              路径:bysScoreResultJob?doLsStuAvg
+     （2）定期执行的job  (每学期至少执行一次)
+          <1> job名称:当前学期平均成绩                          路径:bysScoreResultJob?doNowAvg 
+          <2> job名称:当前学年平均成绩                          路径:bysScoreResultJob?doNowXnAvg 
+          <3> job名称:在校生平均成绩                              路径:bysScoreResultJob?doNowStuAvg 
+8.开课计划（行政班粒度初始化）根据课程安排和教学班行政班对照表   2016-11-03   
+    （1）只需要执行一次的job
+              job名称:历史学期开课计划表                          路径:coursePlanJob?doLsPlan
+     （2）定期执行的job  (每学期至少执行一次)
+              job名称:当前学期开课计划表                         路径:coursePlanJob?doNowPlan    
+9.毕业率学位授予（表格数据初始化T_STU_GRADUATE_RESULT_DEPT,T_STU_GRADUATE_RESULT_SUBJECT） 2016-11-07   
+         （1）只需要执行一次的job
+          <1> job名称:三年前各部门毕业分析                   路径:graduateResultDeptJob?doLs
+          <2> job名称:三年前各学科毕业分析                   路径:graduateResultSubJob?doLs
+         （2）定期执行的job  (每学年至少执行一次)
+          <1> job名称:近三年各部门毕业分析                  路径:graduateResultDeptJob?doNow
+          <2> job名称:近三年各学科毕业分析                  路径:graduateResultSubJob?doNow
+10.学生平均成绩job表增加索引（2016-11-07）
+    create index PK_SCORE_AVG on T_STU_SCORE_AVG (STU_ID, SCHOOL_YEAR, TERM_CODE, WEIGHT_AVG);
+
+-- 20161107
+11.成绩历史表索引(T_STU_SCORE_HISTORY)
+	create index I_T_STU_SCORE_HISTORY_ALL on T_STU_SCORE_HISTORY 
+	(SCHOOL_YEAR, TERM_CODE, COURSE_CODE, HIERARCHICAL_SCORE_CODE, CENTESIMAL_SCORE, STU_ID, CS);
+	create index I_SCORE_HIS_TERM_CODE on T_STU_SCORE_HISTORY (TERM_CODE);
+	create index I_SCORE_HIS_SCHOOL_YEAR on T_STU_SCORE_HISTORY (SCHOOL_YEAR);
+	create index I_SCORE_HIS_SCHOOL_TERM on T_STU_SCORE_HISTORY (SCHOOL_YEAR, TERM_CODE);
+-- 20161108
+	-- 成绩GPA表索引(T_STU_SCORE_GPA)
+	create index I_T_STU_SCORE_GPA_ALL on T_STU_SCORE_GPA (SCHOOL_YEAR, TERM_CODE, GPA_CODE, GPA, STU_ID);
+-- 20161122
+12.专业开设Job
+	（1）定时执行的job
+          <1> job名称:专业成绩排名                   路径:majorStatusJob?doMajorScore
+          <2> job名称:专业挂科排名                   路径:majorStatusJob?doMajorFailClass
+13.成绩预测辅导员表job （每天执行一次） 
+	<1> job名称:成绩预测辅导员表                     路径:scorePredictJob?predictsScoreResult
+
+-- 2016-12-01
+	配置：学霸页面，学霸标准(默认3.2)
+	/dmm_teaching/src/main/java/cn/gilight/dmm/business/util/Constant.java  中的XB_GPA;
+	
+-- 2016-12-13
+-- 配置：邮箱发送需要配置的发送邮箱信息
+	Constant.MAIL_SMTP = "smtp.163.com"; //邮箱服务器
+	Constant.MAIL_USERNAME = "******@163.com";//邮箱账号
+	Constant.MAIL_PASSWORK = "******";//邮箱密码
+-- 2017-01-06
+-- 配置:学生成绩分组配置 
+       说明：{分组起始成绩,分组结束成绩,分组的等级命名,分组的分数段名,分组的排序}；
+       分组的起始成绩:不能为null;
+       分组的结束成绩:可以为null,代表大于等于起始成绩；
+       分组的排序:需设置为奇数
+	Constant.STU_SCORE_GROUP = {
+			{90,null, "优秀",">=90分",1},
+			{80,90, "良好","80-90分",3},
+			{70,80, "中等","70-80分",5},
+			{60,70, "及格","60-70分",7},
+			{0,60, "不及格","<60分",9}
+    };
+-- 2017-01-07
+-- 创建索引：教职工表；常用字段索引
+	create index I_T_TEA_BASE on T_TEA (TEA_NO, TEA_STATUS_CODE, AUTHORIZED_STRENGTH_ID, DEPT_ID, EDU_ID, DEGREE_ID, SUBJECT_ID, SEX_CODE, NATION_CODE, POLITICS_CODE, ZYJSZW_ID, BZLB_CODE, SKILL_MOVES_CODE, TEA_SOURCE_ID, BIRTHDAY, IN_DATE, TEACHING_DATE);
+
+-- 2017-01-20 
+-- 新增job
+       每学期成绩出来的时候执行:
+         job名称:成绩、成绩历史表新增字段初始化                      路径:synthesisScoreJob?doScore 
+                       相关表:t_stu_score、t_stu_score_history。
+      说明:t_code_score_hierarchy 表中存储的等级制成绩转换为百分制成绩需根据学校具体的情况进行维护.
+      所有有关成绩的job请在该job后边执行
+
+-- 2017-01-21
+-- 创建索引：开课计划表、学生选课表；常用字段索引
+	create index COURSE_CATEGORY_CODE on T_COURSE_ARRANGEMENT_PLAN (COURSE_CATEGORY_CODE);
+	create index PLAN_ATTR_INDEX on T_COURSE_ARRANGEMENT_PLAN (COURSE_ATTR_CODE);
+	create index PLAN_NATURE_INDEX on T_COURSE_ARRANGEMENT_PLAN (COURSE_NATURE_CODE);
+	create index PLAN_YC_INDEX on T_COURSE_ARRANGEMENT_PLAN (SCHOOL_YEAR, TERM_CODE, CLASS_ID, COURSE_CODE, COURSE_ATTR_CODE, COURSE_NATURE_CODE, COURSE_CATEGORY_CODE);
+	
+	create index ATTR_INDEX on T_STU_COURSE_CHOOSE (COURSE_ATTR_CODE);
+	create index CHOOSE_SCH_TER_INDEX on T_STU_COURSE_CHOOSE (SCHOOL_YEAR, TERM_CODE);
+	create index CHOOSE_SCO_INDEX on T_STU_COURSE_CHOOSE (SCOURE_CODE);
+	create index NATURE_INDEX on T_STU_COURSE_CHOOSE (COURSE_NATURE_CODE);
+	create index choose_YC_INDEX on T_COURSE_ARRANGEMENT_PLAN (SCHOOL_YEAR, TERM_CODE, STU_ID, SCOURE_CODE, COURSE_ATTR_CODE, COURSE_NATURE_CODE, COURSE_CATEGORY_CODE);
+      

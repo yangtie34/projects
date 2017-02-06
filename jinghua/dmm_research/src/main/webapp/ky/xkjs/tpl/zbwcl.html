@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<div class="ky-box p-top-10">
+	<table class="table table-hover table-condensed">
+		<thead>
+			<tr class="info">
+				<th>项目名称</th>
+				<th ng-repeat="head in zbwclsj.xklist">{{head.name_}}</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="it in zbwclsj.xkjsmx">
+				<td>{{it.zbmc}}</td>
+                <td ng-repeat="field in zbwclsj.xklist">{{it[field.id]}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

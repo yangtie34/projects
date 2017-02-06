@@ -1,0 +1,23 @@
+@charset "utf-8";
+/* CSS Document */
+
+.tooltip-container{
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	border: 0px;
+}
+
+.tooltip-icon{
+	font-size: 16px;
+	border: 0px;
+	text-align: center;
+}
+
+.tooltip-content{
+	color:#585858;
+}
+
+.tooltip-container:HOVER .popover {
+	display: inline;
+}

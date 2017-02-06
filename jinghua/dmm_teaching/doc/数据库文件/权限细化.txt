@@ -1,0 +1,19 @@
+1.师资队伍
+	教职工详情	菜单页面	/pmsTeacherGroup/getTeaDetail	teaching:teacherGroup:getTeaDetail	教职工详情
+	教职工详情-下载	菜单页面	/pmsTeacherGroup/down	teaching:teacherGroup:down	教职工详情-下载
+
+2.成绩预测（辅导员）
+	成绩预测（辅导员）详情下钻	菜单页面	/pmsScorePredict/getStuDetail	teaching:scorePredict:getStuDetail	成绩预测（辅导员）详情下钻
+
+3.成绩预测（任课教师）
+	学生详情	菜单页面	/pmsScorePredictTea/getStuList	teaching:scorePredictTea:getStuList	学生详情
+	学生详情下载	菜单页面	/pmsScorePredictTea/down	teaching:scorePredictTea:down	学生详情下载	
+
+4.学霸
+	学生详情	菜单页面	/pmsSmart/getStuList	teaching:smart:getStuList	学生详情
+	学生详情下载	菜单页面	/pmsSmart/down	teaching:smart:down	学生详情下载	
+
+5.毕业生去向
+	学生详情	菜单页面	/pmsBysQx/getStuList	teaching:bysQx:getStuList	学生详情	
+	学生详情下载	菜单页面	/pmsBysQx/down	teaching:bysQx:down	学生详情下载	
+	

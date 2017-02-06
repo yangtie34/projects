@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<div modal-form config="formConfig"></div>
+<div class="keyan-main">
+	<div class="header">
+		<div class="main-tit">
+			<h4 class="main-tit-b">科研项目进度分析</h4>
+			<h5 class="main-tit-s">根据筛选条件过滤在所选范围内的科研项目，
+			统计项目状态为在研的项目的总数量和环比增量及增幅。统计个状态的项目的数量和占比，
+			以及各单位的不同状态的项目的数量和单位完成率，统计了超期项目的超期时长分布，
+			并以列表形式展现了各单位的项目完成率排名和所有项目主持人的承担项目数、项目完成率排名。</h5>
+		</div>
+		<div class="keyan-condition">
+			<dl class="clearfix">
+				<dt>组织机构：</dt>
+				<dd>
+					<div cg-combo-tree source="queryCondition.dept"
+						result="condition.dept"></div>
+				</dd>
+			</dl>
+			<dl class="clearfix">
+				<dt>统计时间：</dt>
+				<dd>
+				<div self-defined-year source="queryCondition.definedYear" result='condition.definedYear'></div>
+				</dd>
+			</dl>
+			<dl class="clearfix">
+				<dt>项目级别：</dt>
+				<dd>
+					<form class="ky-form condition-radio">
+						<div class="radio-box radio-inline"
+							ng-repeat="it in queryCondition.level">
+							<input type="radio" ng-value="it" ng-model="condition.level"
+								id="{{it}}"> <label for="{{it}}">{{it.mc}}</label>
+						</div>
+					</form>
+				</dd>
+			</dl>
+		</div>
+	</div>
+
+
+
+	<div class="ky-box p-top-10">
+		<div class="dis-tab">
+			<div class="dis-t-cell wid-2">
+				<div class="round-section">
+					<div class="round-item">
+						<p class="sec-tit">
+							{{condition.dept.mc}} <br />当前在研科研项目/项
+						</p>
+						<div>
+							<a href="" ng-click="queryDetail();" class="round color-green round-70 text-18">{{totalNums.current}}</a>
+						</div>
+					</div>
+					<div class="round-item">
+						<p class="sec-tit">较上一年{{condition.definedYear.start ==
+							condition.definedYear.end ? '度' : '段'}}增长</p>
+						<div>
+							<a href="" class="round color-purple round-70 text-18">{{totalNums.current
+								- totalNums.last}} </a>
+						</div>
+					</div>
+					<div class="round-item">
+						<p class="sec-tit">增幅</p>
+						<div>
+	                    	<a href="" class="round color-purple round-70 text-14" ng-if="totalNums.last != 0">{{(totalNums.current - totalNums.last)*100/ totalNums.last | number:2}}%</a>
+                           	<a href="" class="round color-purple round-70 text-14" ng-if="totalNums.last == 0">——</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="dis-t-cell wid-8">
+				<div echart config="config1" height="450" on-click="queryDept($params)"></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="ky-box">
+		<div class="ky-box-sec">
+			<div class="dis-tab ">
+				<div class="dis-t-cell wid-5 separate-l">
+					<div echart config="config2" height="350" on-click="queryOverTime($params)"></div>
+				</div>
+				<div class="dis-t-cell wid-5 border-l separate-r">
+					<div echart config="config3" height="350" on-click="queryState($params)"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="ky-box">
+		<div class="ky-box-sec">
+			<div class="dis-tab ">
+				<div class="dis-t-cell wid-5 separate-l">
+					<div part-modal show-modal="vm1.showModal"  class="clearfix">
+						<h4>各单位科研项目到期完成率排名</h4>
+						<table class="table table-hover">
+							<tr>
+								<th>排名</th>
+								<th>部门</th>
+								<th>承担项目(项)</th>
+								<th>完成率</th>
+							</tr>
+							<tr ng-repeat="it in vm1.items">
+								<td>{{it.nm}}</td>
+								<td>{{it.dept}}</td>
+								<td><a href="" ng-click="queryDeptProgress(it.dept);" class="text-green name">{{it.total}}</a></td>
+								<td>{{it.complete*100 / it.total | number:2}}%</td>
+							</tr>
+						</table>
+						<div ng-show="vm1.total &gt; vm1.size" pagination
+							total-items="vm1.total" ng-model="vm1.index" max-size="0"
+							items-per-page="vm1.size" class="pull-right"
+							boundary-links="true"></div>
+					</div>
+				</div>
+				<div class="dis-t-cell wid-5 border-l separate-r">
+					<div part-modal show-modal="vm2.showModal" class="clearfix">
+						<h4>单位主持人完成率排名</h4>
+						<table class="table table-hover">
+							<tr>
+								<th>排名</th>
+								<th>姓名</th>
+								<th>承担项目(项)</th>
+								<th>完成率</th>
+							</tr>
+							<tr ng-repeat="it in vm2.items">
+								<td>{{it.nm}}</td>
+								<td>{{it.tea}}</td>
+								<td><a href="" ng-click="queryCompere(it.tea_no,it.tea)" class="text-green name">{{it.total}}</a></td>
+								<td>{{it.complete*100 / it.total | number:2}}%</td>
+							</tr>
+						</table>
+						<div ng-show="vm2.total &gt; vm2.size" pagination
+							total-items="vm2.total" ng-model="vm2.index" max-size="0"
+							items-per-page="vm2.size" class="pull-right"
+							boundary-links="true"></div>
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div part-modal show-modal="vm3.showModal" class="ky-box clearfix">
+		<h4>告警项目名单</h4>
+		<table class="table table-hover">
+			<tr>
+				<th>排名</th>
+				<th>承担单位</th>
+				<th>主持人</th>
+				<th>项目名称</th>
+				<th>项目类别</th>
+				<th>下达部门</th>
+				<th>起止时间</th>
+				<th>项目状态</th>
+			</tr>
+			<tr ng-repeat="it in vm3.items">
+				<td>{{it.nm}}</td>
+				<td>{{it.dept}}</td>
+				<td>{{it.compere}}</td>
+				<td>{{it.name}}</td>
+				<td>{{it.lb}}</td>
+				<td>{{it.issued_dept}}</td>
+				<td>{{it.start_time + '-' + it.end_time}}</td>
+				<td>超期{{it.years}}年</td>
+			</tr>
+		</table>
+		<div ng-show="vm3.total &gt; vm3.size" pagination
+			total-items="vm3.total" ng-model="vm3.index" max-size="0"
+			items-per-page="vm3.size" class="pull-right" boundary-links="true"></div>
+	</div>
+
+</div>

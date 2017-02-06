@@ -36,6 +36,20 @@ public interface HabitStuTypeService {
 	 * type_code 类型代码<br>
 	 */
 	public List<Map<String,Object>> getHabitZaoBySex(String startDate,String endDate,Map<String,String> deptTeach);
+	/**
+	 * 分地区早中晚
+	 * @param startDate
+	 * @param endDate
+	 * @param deptTeach
+	 * @return
+	 * all_count 总次数<br>
+	 * all_money 总金额<br>
+	 * name 名字<br>
+	 * code 代码<br>
+	 * type_name 类型名字<br>
+	 * type_code 类型代码<br>
+	 */
+	public List<Map<String,Object>> getHabitZaoByArea(String startDate,String endDate,Map<String,String> deptTeach);
 	
 	/**
 	 * 分学历早中晚
@@ -77,6 +91,19 @@ public interface HabitStuTypeService {
 	 * type_code 类型代码<br>
 	 */
 	public List<Map<String,Object>> getHabitHourBySex(String startDate,String endDate,Map<String,String> deptTeach);
+	/**
+	 * 分地区时段情况
+	 * @param startDate
+	 * @param endDate
+	 * @param deptTeach
+	 * @return
+	 * all_count 总次数<br>
+	 * all_money 总金额<br>
+	 * hour_ 小时<br>
+	 * type_name 类型名字<br>
+	 * type_code 类型代码<br>
+	 */
+	public List<Map<String,Object>> getHabitHourByArea(String startDate,String endDate,Map<String,String> deptTeach);
 	
 	/**
 	 * 分学历时段情况
@@ -119,6 +146,20 @@ public interface HabitStuTypeService {
 	 * type_code 类型代码<br>
 	 */
 	public List<Map<String,Object>> getHabitEatBySex(String startDate,String endDate,Map<String,String> deptTeach);
+	/**
+	 * 分地区刷卡用餐次数
+	 * @param startDate
+	 * @param endDate
+	 * @param deptTeach
+	 * @return
+	 * all_count 总次数<br>
+	 * all_money 总金额<br>
+	 * name 名字<br>
+	 * code 代码<br>
+	 * type_name 类型名字<br>
+	 * type_code 类型代码<br>
+	 */
+	public List<Map<String,Object>> getHabitEatByArea(String startDate,String endDate,Map<String,String> deptTeach);
 	
 	/**
 	 * 分学历刷卡用餐次数
@@ -135,4 +176,46 @@ public interface HabitStuTypeService {
 	 */
 	public List<Map<String,Object>> getHabitEatByEdu(String startDate,String endDate,Map<String,String> deptTeach);
 
+	/**
+	 * 分地区早中晚
+	 * @param startDate
+	 * @param endDate
+	 * @param deptTeach
+	 * @return
+	 * all_count 总次数<br>
+	 * all_money 总金额<br>
+	 * name 名字<br>
+	 * code 代码<br>
+	 * type_name 类型名字<br>
+	 * type_code 类型代码<br>
+	 */
+	public List<Map<String,Object>> getHabitZaoByMZ(String startDate,String endDate,Map<String,String> deptTeach);
+	/**
+	 * 分地区时段情况
+	 * @param startDate
+	 * @param endDate
+	 * @param deptTeach
+	 * @return
+	 * all_count 总次数<br>
+	 * all_money 总金额<br>
+	 * hour_ 小时<br>
+	 * type_name 类型名字<br>
+	 * type_code 类型代码<br>
+	 */
+	public List<Map<String,Object>> getHabitHourByMZ(String startDate,String endDate,Map<String,String> deptTeach);
+	/**
+	 * 分地区刷卡用餐次数
+	 * @param startDate
+	 * @param endDate
+	 * @param deptTeach
+	 * @return
+	 * all_count 总次数<br>
+	 * all_money 总金额<br>
+	 * name 名字<br>
+	 * code 代码<br>
+	 * type_name 类型名字<br>
+	 * type_code 类型代码<br>
+	 */
+	public List<Map<String,Object>> getHabitEatByMZ(String startDate,String endDate,Map<String,String> deptTeach);
+	
 }

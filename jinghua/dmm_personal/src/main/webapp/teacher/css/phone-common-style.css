@@ -287,6 +287,13 @@ a:focus {
 	display:inline-block;
 	margin-bottom:-2px;
 }
+.phone-common-ying-icon {
+	background:url(../images/ying-icon.png) left center no-repeat;
+	width:32px;
+	height:16px;
+	display:inline-block;
+	margin-bottom:-2px;
+}
 /*图标*/
 .phone-common-arrow-change {
 	background:url(../images/change-icon.png) center center no-repeat;

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>home html</title>
+    <base href="./">
+    <script src="../../public/common/common.js"></script>
+    <script src="../../public/common/system.js"></script>
+    <script src="../../public/home/home.js"></script>
+</head>
+<body ng-controller="controller">
+    <div>{{person}}</div>
+    <div echart config="columnChart" on-click="columnClick($params,123456)" height="300"></div>
+    <a href="../student/student.html" class="btn btn-primary">student page</a>
+    <a href="../drag/drag.html" class="btn btn-primary">drag page</a>
+    <div>
+        <div>
+            <button class="btn btn-success" ng-click="partshow = true">显示遮罩</button>
+            <button class="btn btn-danger" ng-click="partshow = false">隐藏遮罩</button>
+        </div>
+
+        <div part-modal show-modal="partshow" style="width: 300px;height: 300px;text-align: center;" class="back">
+            hello ,this is the part modal example
+        </div>
+    </div>
+
+    <span class="glyphicon glyphicon-euro"></span>
+    <ng-view></ng-view>
+</body>
+</html>

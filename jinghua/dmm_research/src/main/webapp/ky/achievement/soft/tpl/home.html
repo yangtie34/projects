@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<div modal-form config="formConfig"></div>
+<div class="keyan-main">
+    	<div class="header">
+        	<div class="main-tit">
+            	<h4 class="main-tit-b">计算机软件著作权分析</h4>
+                <h5 class="main-tit-s">根据筛选条件过滤在所选范围内的计算机软件著作权，统计计算机软件著作权的数量和环比增量、增幅，统计计算机软件著作权数量的年度变化趋势，统计计算机软件著作权的获得方式分布情况和完成人单位分布情况，并以列表形式展现软件开发者的专利的数量排名和详细的计算机软件著作权的信息。</h5>
+            </div>
+			<div class="keyan-condition">
+                <dl class="clearfix">
+                	<dt>学科门类：</dt>
+                    <dd>
+                    	<form action="" class="ky-form condition-radio">
+                            <div class="radio-box radio-inline" ng-repeat ="it in queryCondition.subject" >
+								<input type="radio" ng-model="condition.subject" ng-value="it" id="{{it}}">
+                                <label for="{{it}}"> {{it.mc}}
+								</label>
+                            </div>
+                        </form>
+                    </dd>
+                </dl>
+                <dl class="clearfix">
+                	<dt>完成人单位：</dt>
+                    <dd>
+                    	 <div cg-combo-tree source="queryCondition.dept" result="condition.dept" ></div> 
+                    </dd>
+                </dl>
+                <dl class="clearfix">
+                	<dt>统计时间：</dt>
+                    <dd>
+                    	<div self-defined-year source="queryCondition.definedYear" result='condition.definedYear'></div>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="ky-box p-top-10">
+        	<div class="dis-tab">
+            	<div class="dis-t-cell wid-2">
+                	<div class="round-section">
+                        <div class="round-item">
+                            <p class="sec-tit">{{condition.definedYear.mc}}{{condition.deptTeah.mc}}{{condition.subject.mc}}<br>获得计算机软件著作权/项</p>
+                            <div><a href="" ng-click="queryDetail();" class="round color-green round-70">{{softNums.current}}</a></div>
+                        </div>
+                        <div class="round-item">
+                            <p class="sec-tit">较上年{{condition.definedYear.start == condition.definedYear.end ? '度' : '段'}}增长/项</p>
+                            <div><a href="" class="round color-purple round-70">{{softNums.growth}}</a></div>
+                        </div>
+                        <div class="round-item">
+                            <p class="sec-tit">增幅</p>
+                            <div><a href="" class="round color-purple round-70 text-22">{{softNums.increase}}</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dis-t-cell wid-8">
+                	<p class="section-tit tit-left-30">计算机软件著作权变化趋势</p>
+                    <div class="img-box" echart config="changesoftchart" on-click="queryChange($params)">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ky-box no-bottom-border">
+        	<div class="ky-box-sec">
+        		<div class="dis-tab">
+                	<div class="dis-t-cell wid-5 separate-l">
+                    	<p class="section-tit">著作权取得方式</p>
+                        <div class="img-box" echart config="getchart" on-click="queryGet($params)">
+                        </div>
+                    </div>
+                    <div class="dis-t-cell wid-5 border-l separate-r">
+                    	<p class="section-tit">完成人单位分布</p>
+                        <div class="img-box" echart config="deptchart" on-click="queryDept($params)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ky-box no-bottom-border">
+        	<div class="ky-box-sec">
+               <div>
+               		<span class="section-head-tit">活跃软件开发者</span>
+                    <table class="table ky-no-border-table">
+						<thead>
+							<tr>
+								<td class="text-center">专利权人</td>
+								<td class="text-center">专利数</td>
+								<td class="text-center">排名</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="author in authors">
+								<td class="text-center">{{author.name_}}</td>
+								<td class="text-center"><a href="" ng-click="queryAuthorDetail(author.tea_no,author.name_)" class="text-green name">{{author.nums}}</a></td>
+								<td class="text-center">{{author.rn}}</td>
+							</tr>
+						</tbody>	
+					</table>
+               </div>
+            </div>
+        </div>
+
+		<section>
+        <div class="section-head">
+        	<span class="section-head-tit">计算机软件著作权列表</span>
+            <div class="input-group ky-input pull-right">
+              <input type="text" class="form-control ky-input-control" placeholder="著作权名模糊匹配">
+              <span class="input-group-btn">
+              	<i class="line"></i>
+                <button class="btn btn-default ky-btn" type="button" ng-click="searchAchievement(sparam)"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+        </div>
+        <div class="ky-box no-bottom-border"  part-modal show-modal="showModal">
+        	<div style="text-align: center;">
+				<select class="form-inline" ng-change="selectCopyright(x)" ng-model = "x">
+					<option value="">--版权类型--</option>
+					<option ng-repeat = "co in querycode.copyright_code" value="{{co.code_}}">{{co.name_}}</option>
+				</select>
+				<select class="form-inline" ng-change="selectGet(y)" ng-model = "y">
+					<option value="">--取得方式--</option>
+					<option ng-repeat = "co in querycode.get_code" value="{{co.code_}}">{{co.name_}}</option>
+				</select>
+			</div>
+        	<div class="ky-box-sec">
+            	<table class="table ky-no-border-table">
+                	<thead>
+                    	<tr>
+                        	<td>&nbsp;</td>
+                            <td>软件名称</td>
+							<td>完成人单位</td>
+							<td>著作权人</td>
+							<td>完成人</td>
+							<td>版权类型</td>
+							<td>权利取得方式</td>
+							<td>开发完成日期</td>
+							<td>首次发表日期</td>
+							<td>软件著作登记日期</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    	<tr ng-repeat="item in items">
+                        	<td><span class="f-order">{{item.rn}}</span></td>
+                            <td>{{item.soft_name}}</td>
+                            <td>{{item.dept_name}}</td>
+                            <td>{{item.owner}}</td>
+                            <td>{{item.complete_man}}</td>
+                            <td>{{item.copyright_}}</td>
+                            <td>{{item.get_}}</td>
+                            <td>{{item.complete_time}}</td>
+                            <td>{{item.dispatch_time}}</td>
+                            <td>{{item.regist_time}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="clearfix keyan-page has-pad-btm">
+                    <p class="page-result pull-left">共 {{page.pagecount}} 页，数据 {{page.sumcount}} 条</p>
+                    <div class="pagination ky-page pull-right" ng-show="page.sumcount &gt; page.pagesize" pagination total-items="page.sumcount" ng-model="page.curpage"
+					max-size="10" items-per-page="page.pagesize"
+					class="pull-right" boundary-links="true"></div>
+                </div>
+            </div>
+        </div>
+        </section>
+
+    </div><!--keyan-main  end-->

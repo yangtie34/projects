@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<div class="keyan-main">
+    	<div class="header">
+        	<div class="main-tit">
+            	<h4 class="main-tit-b">科研项目总量分析</h4>
+                <h5 class="main-tit-s">展现根据条件筛选范围内的各类科研项目的总数和环比增量、增幅，
+                历年的立项数量的变化趋势、各级项目在各单位的分布情况、各级别项目的占比情况
+                、各级别项目的下达部门数、各级别项目的等级组成，并提供项目列表详细查询功能。</h5>
+            </div>
+            <div class="keyan-condition">
+                <dl class="clearfix">
+                	<dt>组织机构：</dt>
+                    <dd>
+                    	 <div cg-combo-tree source="queryCondition.dept" result="condition.dept" ></div> 
+                    </dd>
+                </dl>
+                <dl class="clearfix">
+                	<dt>统计时间：</dt>
+                    <dd>
+                    <div self-defined-year source="queryCondition.definedYear" result='condition.definedYear'></div>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="ky-box p-top-10">
+        	<div class="dis-tab">
+            	<div class="dis-t-cell wid-2">
+                	<div class="round-section">
+                        <div class="round-item">
+                            <p class="sec-tit">{{condition.dept.mc}}<br>各类科研项目/项</p>
+                            <div><a ng-click="allnumClick()" style="cursor:pointer;" class="round color-green round-70 text-14">{{totalNums.current}}</a></div>
+                        </div>
+                        <div class="round-item">
+                            <p class="sec-tit">较上一年{{condition.definedYear.start == condition.definedYear.end ? '度' : '段'}}增长</p>
+                            <div><a href="" class="round color-purple round-70 text-14">{{totalNums.current - totalNums.last}} </a></div>
+                        </div>
+                        <div class="round-item">
+                            <p class="sec-tit">增幅</p>
+                            <div>
+                            	<a href="" class="round color-purple round-70 text-14" ng-if="totalNums.last != 0">{{(totalNums.current - totalNums.last)*100/ totalNums.last | number:2}}%</a>
+                            	<a href="" class="round color-purple round-70 text-14" ng-if="totalNums.last == 0">——</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dis-t-cell wid-8">
+                	<div echart config="config1" height="450" on-click="chart1click($params)"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ky-box">
+        	<div class="ky-box-sec">
+        		<div class="dis-tab ">
+                	<div class="dis-t-cell wid-5 separate-l">
+                    	 <div echart config="config2" height="400" on-click="chart2click($params)"> </div>
+                    </div>
+                    <div class="dis-t-cell wid-5 border-l separate-r">
+                    	<div echart config="config3" height="400" on-click="chart3click($params)"> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ky-box no-bottom-border">
+        	<div class="ky-box-sec">
+        		<div class="dis-tab">
+                	<div class="dis-t-cell wid-5  separate-l">
+                    	<div echart config="config4" height="400"></div>
+                    </div>
+                    <div class="dis-t-cell wid-5 border-l  separate-r">
+                    	 <div echart config="config5" height="400" on-click="chart3click($params)"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+		<!-- <section>
+        <div class="section-head">
+        	<span class="section-head-tit">科研项目列表</span>
+            <div class="input-group ky-input pull-right">
+              <input type="text" class="form-control ky-input-control"  ng-model="vm.queryString" placeholder="项目名模糊匹配">
+              <span class="input-group-btn">
+              	<i class="line"></i>
+                <button class="btn btn-default ky-btn" type="button" ng-click="queryBtnClick()"><i class="fa fa-search"></i></button>
+              </span>
+            </div>
+        </div>
+        <div class="ky-box no-bottom-border">
+        	<div class="ky-box-sec" part-modal show-modal="vm.showModal">
+            	<table class="table ky-no-border-table">
+                	<thead>
+                    	<tr>
+                        	<td>&nbsp;&nbsp;</td>
+                            <td>承担单位</td>
+							<td>主持人</td>
+							<td>项目名称</td>
+							<td>项目类别</td>
+							<td>下达部门</td>
+							<td>起止时间</td>
+							<td>经费数额(万元)</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+	                    <tr ng-repeat="it in vm.items">
+							<td><span class="f-order">{{it.nm}}</span></td>
+							<td>{{it.dept}}</td>
+							<td>{{it.compere}}</td>
+							<td>{{it.name_}}</td>
+							<td><a ng-click="levelClick(it.level_name)" style="cursor:pointer;">{{it.level_name}}</a></td>
+							<td><a ng-click="deptClick(it.issued_dept)" style="cursor:pointer;">{{it.issued_dept}}</a></td>
+							<td>{{it.start_time + '-' + it.end_time}}</td>
+							<td>{{it.fund}}</td>
+						</tr>
+                    </tbody>
+                </table>
+              <div ng-show="vm.total &gt; vm.size" pagination total-items="vm.total" ng-model="vm.index"
+					max-size="10" items-per-page="vm.size"
+					class="pull-right" boundary-links="true"></div>
+             <div class="clearfix"></div>
+             </div>
+        </div>
+        </section> -->
+    </div>
+    <div modal-form config="formConfig"></div>

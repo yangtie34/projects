@@ -105,7 +105,7 @@ var getvmData=function(i){
 			 for(var j=0;j<data.length;j++){
 				 d.push({field:data[j].NAME,value:data[j].VALUE,name:'人次(人)',fieldCode:data[j].CODE}); 
 			 }
-			 var option=getOption(d,'','bzt'); //mgt
+			 var option=getOption(d,'','bzt').saveAsImage("已还书籍人数对比 "); //mgt
 			 option.event=function(param){
 					scope.peopleName=param.name;
 					scope.people=param.data.nameCode;
@@ -118,7 +118,7 @@ var getvmData=function(i){
 			 for(var j=0;j<data.length;j++){
 				 d.push({field:data[j].NAME,value:data[j].VALUE,name:'比例(‱)'}); 
 			 }
-			 vm.items[i]=getOption(d,'','bzt'); //jzt
+			 vm.items[i]=getOption(d,'','bzt').saveAsImage("逾期率对比 "); //jzt
 		 }else if(i==7||i==8){//柱状图
 			 var d=[[],[],[]];
 			 for(var j=0;j<data.length;j++){
@@ -128,8 +128,9 @@ var getvmData=function(i){
 			 } 
 			// scope.vmitems5titles=['分类型对比藏书数量','分类型对比藏书价值','分类型对比藏书文献保障率'];
 			 vm.items[i]=[];
+			 var saveAsImageName=['数量对比情况','逾期率对比情况','平时逾期时长对比情况'];
 			 for(var k=0;k<d.length;k++){
-				 var option=getOption(d[k],'','zzt');
+				 var option=getOption(d[k],'','zzt').saveAsImage(saveAsImageName[k]);
 				 option.event=function(param){
 						scope.storeName=param.name;
 						scope.store=option.series[param.seriesIndex].dataCode[param.dataIndex]; 
@@ -158,8 +159,8 @@ var getvmData=function(i){
 					 };
 					 return option;
 			}
-			 vm.items[i]=[event(getOption(d[0],'','zzt')),
-					 event(getOption(d[1],'','xzt'))];
+			 vm.items[i]=[event(getOption(d[0],'','zzt')).saveAsImage("逾期书籍数量按学年分布情况"),
+					 event(getOption(d[1],'','xzt')).saveAsImage("逾期书籍逾期率按学年分布情况")];
 			 scope.radio3id=0;
 		 }else if(i==2||i==1){//趋势图
 			 var d=[];

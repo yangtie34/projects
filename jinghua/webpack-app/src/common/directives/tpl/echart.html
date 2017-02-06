@@ -1,0 +1,18 @@
+<div>
+	<button class="btn btn-xs" ng-click="turnUp()" ng-hide="modalShow">放大</button>
+	<div ng-class="{'modal-chart': modalShow}">
+		<div class="chartContainer"></div>
+	</div>
+	<div class="modal-backdrop fade in" ng-show="modalShow" ng-click="hideModal()"></div>
+</div>
+ <style type="text/css">
+   	.modal-chart{
+   		position: fixed;
+   		width: 100%;
+   		background-color: #fff;
+	    z-index: 1042;
+	    top: 10%;
+	    left: 0;
+   	}
+   	
+   </style>

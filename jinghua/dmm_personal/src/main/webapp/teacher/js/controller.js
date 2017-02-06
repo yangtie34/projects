@@ -14,7 +14,12 @@ app.controller("homeController",['$scope','teacherService','dialog',
 		dialog.hideLoading();
 	});
 	scope.logout = function(){
-		location.redirect(base + "wechat/unbind");
+	    var ua = navigator.userAgent.toLowerCase(); 
+	    if(ua.match(/MicroMessenger/i)=="micromessenger") {
+	    	location.redirect(base + "wechat/unbind");
+	    } else { 
+	    	location.redirect(logoutUrl);
+	    } 
 	}
 }]).controller("historyController",['$scope','$rootScope','teacherService','dialog',function(scope,root,teacherService,dialog){
 	dialog.showLoading();
@@ -25,6 +30,16 @@ app.controller("homeController",['$scope','teacherService','dialog',
 		dialog.hideLoading();
 		scope.historyInfo = dt;
 	});
+}]).controller("feedbackController",['$scope','$rootScope','teacherService','dialog','toastrService',function(scope,root,teacherService,dialog,toast){
+	scope.submit = function(){
+		var advice = $("#advice").val();
+		teacherService.submitAdvice(advice).then(function(data){
+			if(data.success){
+				toast.info("意见反馈成功！");
+				window.history.back(-1);
+			}
+		});
+	}
 }]);
 
 
@@ -42,6 +57,10 @@ app.config(['$routeProvider',function($routeProvider) {
 	.when("/history", {
 		templateUrl: "tpl/history.html",
 		controller : "historyController"
+	})
+	.when("/feedback", {
+		templateUrl: "tpl/feedback.html",
+		controller : "feedbackController"
 	})
 	.otherwise({
 		redirectTo : "/home"

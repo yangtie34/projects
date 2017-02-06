@@ -93,11 +93,19 @@ public class UserDaoImpl implements UserDao {
     @SuppressWarnings({ "unchecked", "rawtypes" })
     @Override
     public Set<String> findPermissions(String username) {
-        String sql1= "select rp.wirldcard id from t_sys_user u, t_sys_role r, t_sys_user_role ur, t_sys_role_perm rp where u.username=? "
+    	//动作和冗余字段wirldcard不使用   
+        /*String sql1= "select rp.wirldcard from t_sys_user u, t_sys_role r, t_sys_user_role ur, t_sys_role_perm rp where u.username=? "
         		+ "and u.id=ur.user_id and r.id=ur.role_id and r.id=rp.role_id and r.istrue=1 ";
-        String sql2= "select up.wirldcard id from t_sys_user u, t_sys_user_perm up where u.username = ? and u.istrue=1 and u.id = up.user_id ";
-        String sql="select distinct id from ( "+sql1+" union all "+sql2+" )";
-        sql="select a.id from t_sys_resources r inner join ( "+sql+" ) a on r.shiro_tag=substr(a.id,0,instr(a.id,':',-1,1)-1) where r.istrue=1 ";
+        String sql2= "select up.wirldcard from t_sys_user u, t_sys_user_perm up where u.username = ? and u.id = up.user_id ";
+        String sql="select distinct wirldcard from ( "+sql1+" union all "+sql2+" )";
+        sql="select a.id from t_sys_resources r inner join ( "+sql+" ) a on r.shiro_tag=substr(a.id,0,instr(a.id,':',-1,1)-1) where r.istrue=1 ";*/
+        
+        
+        String sql1= "select rp.resource_id from t_sys_user u, t_sys_role r, t_sys_user_role ur, t_sys_role_perm rp where u.username=? "
+        		+ "and u.id=ur.user_id and r.id=ur.role_id and r.id=rp.role_id and r.istrue=1 ";
+        String sql2= "select up.resource_id from t_sys_user u, t_sys_user_perm up where u.username = ? and u.id = up.user_id ";
+        String sql="select distinct resource_id from ( "+sql1+" union all "+sql2+" )";
+        sql="select r.shiro_tag||':*' id from t_sys_resources r where r.id in ( "+sql+" ) and r.istrue=1 ";
         return new HashSet(baseDao.queryForList(sql, String.class, new Object[] { username,username }));
     }
     

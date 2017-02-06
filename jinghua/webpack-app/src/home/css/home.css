@@ -1,0 +1,7 @@
+.back{
+    background: url("bak.png");
+    border:1px solid #afafaf;
+    box-shadow: 5px 5px 5px #aaa;
+    text-align: center;
+    font-size: 12px;
+}

@@ -49,7 +49,7 @@ public interface CardTrendService {
 	 * 分学生类型消费趋势统计
 	 * @param deptTeach
 	 * @param type_code 'all'
-	 * @param flag  'pay_all','pay_sex','pay_edu'
+	 * @param flag  'pay_all','pay_sex','pay_edu','pay_area'
 	 * @return
 	 * all_count 总次数<br>
 	 * all_money 总金额<br>

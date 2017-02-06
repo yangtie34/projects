@@ -1,0 +1,46 @@
+<div class="sub-term clearfix" ng-show='result.length &gt; 0' style="{{noborder?'border-top:0px;':'' }}">
+    <h4>当前条件：</h4>
+    <div style="padding: 0px 80px;" >
+        <ul style="list-style: none outside none;">
+            <li  class="forterm"  style="padding: 0px 20px 0px 0px;" ng-repeat='obj in result track by $index'>
+                <a href="javascript:void(0);" class="forterm-select">{{obj.mc}}</a><span class="term-cancel" ng-click='cancleQuery(obj)'>取消</span>
+            </li>
+        </ul>
+    </div>
+    <div class="fright"><a class="forterm-more" href="javascript:void(0)" ng-click='cancleQueryAll()'>清空条件</a></div>
+</div>
+<div style="position: relative;{{noborder?'':'border-bottom: 1px solid #d0dddf;'}}"  >
+	<div  ng-repeat=" q in queryArray track by $index" ng-show="q.isShow" >
+	<div ng-switch on="q.queryType">
+	    <div ng-switch-when="comboTree" class="sub-term clearfix" style="{{$index == 0 && $parent.noborder && $parent.result.length == 0? 'border-top:0px':''}}" >
+	    	<h4>{{q.queryName}}：</h4>
+	    	<div cg-combo-tree source="q.items" code="q.queryCode" result="innerTreeResult" style="padding: 0px 80px;" >
+			</div>
+	    </div>
+	      <div ng-switch-when="comboSelect"  class="sub-term clearfix" style="{{$index == 0 && $parent.noborder && $parent.result.length == 0? 'border-top:0px':''}}" >
+	   		 <h4>{{q.queryName}}：</h4>
+	   		 <div cg-combo-Select source="q.items" code="q.queryCode" result="innerTreeResult" style="padding: 0px 80px;" >
+	    	</div> 
+	    </div>
+	   
+	    <div ng-switch-default class="sub-term clearfix" style="{{$index == 0 && $parent.noborder && $parent.result.length == 0? 'border-top:0px':''}}">
+		    <h4>{{q.queryName}}：</h4>
+		   	<div style="padding: 0px 80px;" >
+		        <ul style="list-style: none outside none;">
+		            <li  class="forterm ng-scope" style="padding: 0px 20px 0px 0px;" ng-show='obj.show' ng-repeat='obj in q.items'>
+		                <span ng-if="obj.checked" class="forterm-select">{{obj.mc}}</span>
+		                <a href="javascript:void(0)" ng-if="!obj.checked" ng-click='change(obj,q)'>{{obj.mc}}</a>
+		            </li>
+		            <li ng-show='!q.isAll' ng-click='showAll(q)'  class="forterm"><a href="javascript:void(0)"  class="forterm-more">更多>></a></li>
+		            <li  style="clear: both;"></li>
+		        </ul>
+		    </div>
+		 </div>
+		
+	 </div>	 
+		
+    </div>
+	<div style="position: absolute;right: 10px;top: 7px;" ng-click='expandALL()' ng-show="queryArray.length &gt;= 2">
+        <a class="forterm-est" href="javascript:void(0)">高级筛选&nbsp;&nbsp;<span ng-class="{'est-bg':isExpandALL, 'est-bg2':!isExpandALL}"></span></a>
+    </div>
+</div>

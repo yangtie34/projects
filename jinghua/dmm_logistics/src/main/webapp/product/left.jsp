@@ -6,6 +6,7 @@ import="com.jhnu.syspermiss.*,com.jhnu.syspermiss.permiss.entity.User,com.alibab
 <c:set var="images" value="${ctx }/resource/images"/>
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
 <script type="text/javascript">
 	var base = "${ctx }/";
 </script>
@@ -68,7 +69,7 @@ for(var i=0;i<resList.length;i++){
 	}
 }
 for(var i=0;i<resList.length;i++){
-	if(resList[i].level_==4&&resList[i].isShow!=0){
+	if(resList[i].level_==4&&resList[i].isShow!=0&&mapr[resList[i].pid]!=null){
 		resList1[mapr[resList[i].pid]].children.push(resList[i]);
 	}
 }

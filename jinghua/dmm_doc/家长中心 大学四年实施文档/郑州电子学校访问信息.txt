@@ -1,0 +1,28 @@
+192.168.111.44 数字化校园 ODI     administrator  jhkjadmin_44   外网地址  123.15.56.84
+
+192.168.111.53  新程序 3.0  及 新数据库     administrator    jhkjadmin_93     外网地址 123.15.56.93
+
+
+数据库用户及密码
+system           oracle    192.168.111.53/orcl
+
+usr_dm       usr_dm       192.168.111.53/orcl
+
+
+一卡通
+iddbuser    idpasswd    192.168.111.28/syntong
+
+mosdc
+mosdc_dzxx   密码 dzxx   192.168.111.53/ORCL 
+
+
+老ODI
+administrator  jhkjadmin_143                   123.15.56.83
+
+家长中心
+usr_dmm      usr_dmm       192.168.111.53/orcl
+
+usr_dmm_log    usr_dmm_log       192.168.111.53/orcl
+
+ODI服务器
+administrator  jhkjadmin_46        外网地址  123.15.56.86

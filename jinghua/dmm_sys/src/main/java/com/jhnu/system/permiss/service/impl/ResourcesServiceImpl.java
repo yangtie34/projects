@@ -240,8 +240,9 @@ public class ResourcesServiceImpl implements ResourcesService {
 			logger.info("====修改资源结束====");
 			
 			//修改shiro通配符
-			permssionService.updateRolePermssion(resource);
-			permssionService.updateUserPermssion(resource);
+			//动作和冗余字段wirldcard不使用   
+			/*permssionService.updateRolePermssion(resource);
+			permssionService.updateUserPermssion(resource);*/
 		}
 		
 	}

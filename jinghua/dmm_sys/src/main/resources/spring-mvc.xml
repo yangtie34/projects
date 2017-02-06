@@ -19,9 +19,8 @@
 	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
 
     <!-- 开启controller注解支持-->
-    <context:component-scan base-package="com.jhnu" use-default-filters="false">
-        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-        <context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+    <context:component-scan base-package="com.jhnu">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service" />
     </context:component-scan> 
     
    <mvc:annotation-driven>

@@ -30,7 +30,8 @@ public class DataServeDaoImpl implements DataServeDao {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public List<DataServe> getDataServe(String username, String shiroTag) {
-		String checkString="",checkString2="";
+		//动作和冗余字段wirldcard不使用   
+		/*String checkString="",checkString2="";
 		String star=shiroTag.substring(0,shiroTag.lastIndexOf(":")+1);
 		String lastag=shiroTag.substring(shiroTag.lastIndexOf(":")+1,shiroTag.length());
 		if(lastag.equalsIgnoreCase("*")){
@@ -49,7 +50,22 @@ public class DataServeDaoImpl implements DataServeDao {
 					"inner join T_SYS_Role_PERM rp on ur.role_id=rp.role_id  "+
 					"inner join T_SYS_DATA_SERVICE ds on rp.data_service_id=ds.id "+
 					"inner join t_sys_user u on ur.user_id=u.id "+
-					"where u.username=? and rp.wirldcard  "+checkString2+"  ";
+					"where u.username=? and rp.wirldcard  "+checkString2+"  ";*/
+		if(!shiroTag.endsWith(":*")){
+			shiroTag+=":*";
+		}
+		String sql="select ds.id,ds.name_,ds.servicename,up.id perm_id,'user' perm_type ,'"+username+"' username from T_SYS_USER_PERM up "+
+					"inner join T_SYS_DATA_SERVICE ds on up.data_service_id=ds.id "+
+					"inner join t_sys_user u on up.user_id=u.id "+
+					"inner join t_sys_resources sr on up.resource_id=sr.id "+
+					"where u.username=? and sr.shiro_tag||':*' = '"+shiroTag+"'  "+
+					"union all "+
+					"select ds.id,ds.name_,ds.servicename,rp.id perm_id,'role' perm_type,'"+username+"' username from T_SYS_USER_ROLE ur  "+
+					"inner join T_SYS_Role_PERM rp on ur.role_id=rp.role_id  "+
+					"inner join T_SYS_DATA_SERVICE ds on rp.data_service_id=ds.id "+
+					"inner join t_sys_user u on ur.user_id=u.id "+
+					"inner join t_sys_resources sr on rp.resource_id=sr.id "+
+					"where u.username=? and sr.shiro_tag||':*' = '"+shiroTag+"'  ";
 		return baseDao.getBaseDao().getJdbcTemplate().query(sql.toString(), (RowMapper) new BeanPropertyRowMapper(DataServe.class),new Object[]{username,username});
 	}
 

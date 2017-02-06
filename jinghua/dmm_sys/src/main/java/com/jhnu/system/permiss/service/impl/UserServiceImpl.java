@@ -254,6 +254,7 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
+	@Transactional
 	public void resetPassword(Long userId) {
 		logger.info("====开始重置密码====");
 		User user =userDao.findOne(userId);
@@ -305,7 +306,9 @@ public class UserServiceImpl implements UserService{
 	public List<Long> getUserIdsByAddTime(String addTime){
 		return userDao.getUserIdsByAddTime(addTime);
 	}
+	
 	@Override
+	@Transactional
 	public ResultBean updateUserpwdAjax(String username, String oldpwd,
 			String newpwd) {
 		ResultBean rb = new ResultBean();

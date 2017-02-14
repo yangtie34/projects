@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/root_scroll"
+    android:background="#ffffffff"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:paddingLeft="20.0dp"
+        android:paddingRight="20.0dp"
+        android:paddingBottom="20.0dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="right">
+
+        <TextView
+            android:textSize="12.0dp"
+            android:textColor="@drawable/text_server_seclector"
+            android:padding="10.0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="版本号"/>
+
+        <TextView
+            android:textSize="12dp"
+            android:textColor="@drawable/text_server_seclector"
+            android:id="@id/vision"
+            android:padding="10.0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0.0.0" />
+    </LinearLayout>
+
+    <ScrollView
+        android:scrollbars="none"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="60dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:src="@drawable/logo_hb"
+                    android:id="@+id/imageView"
+                    android:layout_height="100dp" />
+
+                <TextView
+                    android:text="@string/app_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtAppName"
+                    android:textSize="15sp"
+                    android:padding="5dp"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:id="@id/ly_username"
+                android:layout_width="fill_parent"
+                android:layout_marginLeft="42.0dp"
+                android:layout_marginRight="42.0dp"
+                android:layout_height="50dp">
+
+                <View
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/icon_username"
+                    android:layout_width="20.0dp"
+                    android:layout_height="20.0dp" />
+
+                <EditText
+                    android:id="@id/edit_username"
+                    android:background="#ffffffff"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:hint="请输入用户名"
+                    android:maxLength="11"
+                    android:inputType="number"
+                    style="@style/single_edit" />
+            </LinearLayout>
+
+            <View
+                android:background="#ffdddddd"
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_marginLeft="40.0dp"
+                android:layout_marginRight="40.0dp" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:id="@id/ly_userpwd"
+                android:layout_width="fill_parent"
+                android:layout_marginLeft="42.0dp"
+                android:layout_marginRight="42.0dp"
+                android:layout_height="50dp">
+
+                <View
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/icon_userpwd"
+                    android:layout_width="20.0dp"
+                    android:layout_height="20.0dp" />
+
+                <EditText
+                    android:id="@id/edit_userpwd"
+                    android:background="#ffffffff"
+                    android:layout_width="0.0dp"
+                    android:layout_height="fill_parent"
+                    android:hint="请输入密码"
+                    android:layout_weight="1.0"
+                    android:inputType="textPassword"
+                    style="@style/single_edit" />
+
+                <View
+                    android:layout_gravity="center_vertical"
+                    android:id="@id/password_switch"
+                    android:background="@drawable/password_bg_selector"
+                    android:layout_width="45.0dp"
+                    android:layout_height="20.0dp" />
+            </LinearLayout>
+
+            <View
+                android:background="#ffdddddd"
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_marginLeft="40.0dp"
+                android:layout_marginRight="40.0dp" />
+
+            <Button
+                android:textSize="18dp"
+                android:textColor="#ffffffff"
+                android:id="@id/btn_login"
+                android:background="@drawable/btn_top_bg_selector"
+                android:layout_width="285.0dp"
+                android:layout_marginTop="51.0dp"
+                android:text="登录"
+                android:layout_height="46dp" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="btn_login" type="id" />
+    <item name="password_switch" type="id" />
+    <item name="edit_userpwd" type="id" />
+    <item name="ly_userpwd" type="id" />
+    <item name="edit_username" type="id" />
+    <item name="ly_username" type="id" />
+    <item name="img_logo" type="id" />
+    <item name="vision" type="id" />
+    <item name="root_scroll" type="id" />
+</resources>

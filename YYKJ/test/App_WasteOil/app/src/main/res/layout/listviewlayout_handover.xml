@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <View
+        android:layout_width="0.5dp"
+        android:layout_height="fill_parent"
+        android:background="#B8B8B8"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/txtProCategoryName"
+        android:layout_width="100dip"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"
+        android:textSize="17sp" />
+
+
+
+    <View
+        android:layout_width="0.5dp"
+        android:layout_height="fill_parent"
+        android:background="#B8B8B8"
+        android:visibility="visible" />
+
+
+
+    <TextView
+        android:id="@+id/txtProNumber"
+        android:layout_width="80dip"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"
+        android:textSize="17sp" />
+
+    <View
+        android:layout_width="0.5dp"
+        android:layout_height="fill_parent"
+        android:background="#B8B8B8"
+        android:visibility="visible" />
+
+    <EditText
+        android:layout_width="80dip"
+        android:lines="1"
+        android:maxLines="1"
+        android:layout_height="wrap_content"
+        android:id="@+id/editActualProNumber" />
+    <View
+        android:layout_width="0.5dp"
+        android:layout_height="fill_parent"
+        android:background="#B8B8B8"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/txtProMeasureUnitName"
+        android:layout_width="80dip"
+        android:layout_height="wrap_content"
+        android:textColor="#B8B8B8" />
+
+    <View
+        android:layout_width="0.5dp"
+        android:layout_height="fill_parent"
+        android:background="#B8B8B8"
+        android:visibility="visible" />
+
+
+
+</LinearLayout>

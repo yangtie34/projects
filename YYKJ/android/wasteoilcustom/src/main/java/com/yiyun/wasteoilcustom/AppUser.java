@@ -31,7 +31,7 @@ public class AppUser {
     private String userFullname="";
     //帐号
     private String userName="";
-
+    private String userNumber="";
     public String getUserPwd() {
         return userPwd;
     }
@@ -111,5 +111,12 @@ public class AppUser {
     }
 
 
+    public String getUserNumber() {
+        return userNumber;
+    }
+
+    public void setUserNumber(String userNumber) {
+        this.userNumber = userNumber;
+    }
 }
 

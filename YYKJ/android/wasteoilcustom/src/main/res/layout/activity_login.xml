@@ -3,7 +3,8 @@
     android:background="#ffffffff"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:paddingLeft="20.0dp"
@@ -125,29 +126,52 @@
                     android:layout_weight="1.0"
                     android:inputType="textPassword"
                     style="@style/single_edit" />
-
-                <View
+                <com.example.views.SwitchCheck
+                    app:Return="switchCheck"
                     android:layout_gravity="center_vertical"
-                    android:id="@id/password_switch"
-                    android:background="@drawable/password_bg_selector"
-                    android:layout_width="45.0dp"
-                    android:layout_height="20.0dp" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
             </LinearLayout>
-
             <View
                 android:background="#ffdddddd"
                 android:layout_width="fill_parent"
                 android:layout_height="1.0px"
                 android:layout_marginLeft="40.0dp"
                 android:layout_marginRight="40.0dp" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="50.0dp"
+                android:layout_marginRight="42.0dp"
+                android:layout_marginTop="10.0dp"
+                android:layout_height="wrap_content">
+
+                <com.example.views.CheckBoxText
+                    app:Return="remember"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:params="记住密码"/>
+
+                <TextView
+                    android:gravity="right"
+                    android:textSize="17sp"
+                    android:textColor="@color/base_pressed_color"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtErrMsg"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
 
             <Button
+
                 android:textSize="18dp"
                 android:textColor="#ffffffff"
                 android:id="@id/btn_login"
                 android:background="@drawable/btn_top_bg_selector"
                 android:layout_width="285.0dp"
-                android:layout_marginTop="51.0dp"
+
                 android:text="登录"
                 android:layout_height="46dp" />
         </LinearLayout>

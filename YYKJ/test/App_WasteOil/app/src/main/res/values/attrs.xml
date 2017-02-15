@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--自定义表单-->
+    <declare-styleable name="CommonFormLayout">
+        <attr name="leftImage" format="reference" />
+        <attr name="hasRightArrow" format="boolean" />
+        <attr name="titleText" format="string|reference" />
+        <attr name="contentText" format="string|reference" />
+        <attr name="titleTextColor" format="color" />
+        <attr name="contentTextColor" format="color|reference" />
+        <attr name="contentTextHintColor" format="color|reference" />
+        <attr name="contextTextHint" format="string|reference" />
+        <attr name="titleTextSize" format="integer|reference" />
+        <attr name="contentTextSize" format="integer|reference" />
+        <!--有顶部线时设置为true-->
+        <attr name="hasTopLine" format="boolean" />
+        <!--短底部线时设置为true-->
+        <attr name="isShotBottomLine" format="boolean" />
+    </declare-styleable>
+
+</resources>

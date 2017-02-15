@@ -1,1 +1,1 @@
-include ':wasteoilcustom', ':_angular', ':_views', ':_fornet'
+include ':wasteoilcustom', ':angular', ':views', ':fornet'

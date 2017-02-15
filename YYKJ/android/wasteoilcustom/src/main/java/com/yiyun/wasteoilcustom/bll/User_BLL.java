@@ -1,7 +1,5 @@
 package com.yiyun.wasteoilcustom.bll;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
 
 import com.chengyi.android.angular.core.Scope;
 import com.chengyi.android.util.Convert;
@@ -9,7 +7,6 @@ import com.chengyi.android.util.PreferenceUtils;
 import com.example.fornet.WebServiceUtils;
 import com.yiyun.wasteoilcustom.AppUser;
 import com.yiyun.wasteoilcustom.Model.CompanyUser_Model;
-import com.yiyun.wasteoilcustom.activities.Login;
 import com.yiyun.wasteoilcustom.util.WastoilWebServiceUtil;
 
 import org.json.JSONArray;
@@ -34,7 +31,7 @@ public class User_BLL {
     public static AppUser appUser= AppUser.getInstance();
     public static void Login(CompanyUser_Model model, long comID) {
         String webUrl = "http://125.46.79.254:8211/Login/Login.asmx";
-        String methodName = "SysLogin";
+        final String methodName = "SysLogin";
         appUser.setUserPwd(model.getPwd());
 
         HashMap<String, Object> properties = new HashMap<>();
@@ -50,26 +47,28 @@ public class User_BLL {
             //WebService接口返回的数据回调到这个方法中
             @Override
             public void callBack(SoapObject result) {
-                Scope.activity.scope.key(msg).val(User_BLL.init(result.toString()));
+                Scope.activity.scope.key(msg).val(result);
             }
         });
     }
-    public static Boolean init(String msg) {
+    public static Boolean init(SoapObject result) {
+        //SysLoginResponse{SysLoginResult=anyType{}; mess=登录失败,请检查登录账户和密码!; }
         boolean bool=false;
-        if (msg.contains("[anyType{}")){//登录失败
-            String errMsg = msg.replace("[anyType{},", "").replace("]", "");
-            alert(errMsg);
-        } else if (msg.contains("anyType{}]")){//登录成功
+        if (!result.getProperty("mess").toString().contains("anyType{}")){//登录失败
+            String errMsg = result.getProperty("mess").toString();
+            PreferenceUtils.clearPreference();
+           Scope.activity.scope.key("errMsg").val(errMsg);
+        } else {//登录成功
 
 
-            String jsonStr = msg.substring(1, msg.length()).replace(", anyType{}]", "");
+            String jsonStr = result.getProperty("SysLoginResult").toString();
             try {
 
                 JSONArray jsonArray = new JSONObject(jsonStr).getJSONArray("Table");
                 JSONObject jsonObject = (JSONObject) jsonArray.get(0);
 
                 String fullName = jsonObject.getString("Fullname");
-                String userName = jsonObject.getString("UserNumber");
+                String userNumber = jsonObject.getString("UserNumber");
                 String combrName = jsonObject.getString("ComBrName");
                 long userID = Convert.ToInt64(jsonObject.getString("UserID"));
                 long comBrID = Convert.ToInt64(jsonObject.getString("ComBrID"));
@@ -80,32 +79,20 @@ public class User_BLL {
 
                 if(vehDrNumber>0)
                     isVeh=true;
-                appUser.setUserName(userName);
+                appUser.setUserNumber(userNumber);
                 appUser.setCompanyUserID(userID);
                 appUser.setSysComBrID(comBrID);
                 appUser.setSysComID(comID);
                 appUser.setUserFullname(fullName);
                 appUser.setComBrName(combrName);
-
                 appUser.setVehDriverNumber(vehDrNumber);
                 appUser.setIsVehicleDriver(isVeh);
 
-
-                //记住登录状态
-                if(PreferenceUtils.getPrefBoolean(isRememberStr,false)) {
-                    PreferenceUtils.setPrefBoolean(isRememberStr,true);
-                    PreferenceUtils.setPrefString(userNameStr, userName);
-                    PreferenceUtils.setPrefString(userPwdStr, appUser.getUserPwd());
-                }else{
-                    PreferenceUtils.clearPreference();
-                }
                 bool=true;
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
 
-        } else {
-            alert("未知错误");
         }
     return bool;
     }

@@ -1,50 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.yiyun.wasteoilcustom">
-    <!-- 在SDCard中创建与删除文件权限 -->
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
-    <!-- 往SDCard写入数据权限 -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_USER_DICTIONARY" />
-    <!-- Internet访问权限 -->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!-- 蓝牙访问权限 -->
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-    <uses-permission android:name="android.permission.BLUETOOTH" />
-    <!-- 网络状态 -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <!-- 获取手机状态 -->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <!-- 手机震动 -->
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
-    <!-- 这个权限用于进行网络定位 -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <!-- 这个权限用于访问GPS定位 -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-
-    <!--
-  To retrieve OAuth 2.0 tokens or invalidate tokens to disconnect a user. This disconnect
-  option is required to comply with the Google+ Sign-In developer policies
-    -->
-    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
-
-    <!-- To retrieve the account name (email) as part of sign-in: -->
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-
-    <!-- To auto-complete the email text field in the login form with the user's emails -->
-    <uses-permission android:name="android.permission.READ_PROFILE" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.NETWORK_PROVIDER" />
-    <uses-permission android:name="android.permission.GPS_PROVIDER" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
 
     <application android:allowBackup="true" android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name" android:supportsRtl="true" android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" android:launchMode="standard">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -54,7 +15,9 @@
         <activity android:name=".activities.Login" android:launchMode="singleTask"/>
 
         <activity android:name=".activities.Menu" android:launchMode="singleTask"/>
-
+        <activity android:name=".activities.Product" android:launchMode="singleTask"/>
+        <activity android:name=".activities.Schedule" android:launchMode="singleTask"/>
+        <activity android:name=".activities.RecReport" android:launchMode="singleTask"/>
     </application>
 
 </manifest>

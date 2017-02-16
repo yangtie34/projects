@@ -9,4 +9,8 @@
     <item name="img_logo" type="id" />
     <item name="vision" type="id" />
     <item name="root_scroll" type="id" />
+    <item name="iv_app_icon" type="id">false</item>
+    <item name="tv_version_name" type="id" />
+    <item name="name" type="id" />
+    <item name="value" type="id" />
 </resources>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#FFFFFF"
+    android:paddingBottom="5dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="5dp"
+    android:layout_height="60dp"
+    android:layout_width="match_parent">
+
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignLeft="@id/title"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textColor="@color/grey" />
+    <ImageView
+        android:id="@+id/list_ico"
+        android:layout_width="50dp"
+        android:padding="10dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/icon_arrow_right"
+        />
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/list_ico"
+            android:layout_alignTop="@id/list_ico"
+            android:textColor="@color/grey" />
+    <TextView
+        android:id="@+id/info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:layout_alignLeft="@+id/list_ico"
+        android:layout_alignBottom="@id/list_ico"
+        android:textColor="@color/grey" />
+
+</RelativeLayout>

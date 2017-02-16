@@ -13,7 +13,7 @@ import com.chengyi.android.angular.core.DataListener;
 import com.chengyi.android.util.AppContext;
 import com.chengyi.android.util.PreferenceUtils;
 import com.yiyun.wasteoilcustom.AppUser;
-import com.yiyun.wasteoilcustom.Model.CompanyUser_Model;
+import com.yiyun.wasteoilcustom.model.CompanyUser_Model;
 import com.yiyun.wasteoilcustom.R;
 import com.yiyun.wasteoilcustom.bll.User_BLL;
 

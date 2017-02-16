@@ -3,28 +3,20 @@ package com.yiyun.wasteoilcustom.bll;
 import com.chengyi.android.angular.core.Scope;
 import com.chengyi.android.util.Convert;
 import com.example.fornet.WebServiceUtils;
-import com.yiyun.wasteoilcustom.Model.TransferRec_Model;
-import com.yiyun.wasteoilcustom.Model.VehicleDispathForwardedState_Model;
-import com.yiyun.wasteoilcustom.Model.VehicleDispathState_Model;
-import com.yiyun.wasteoilcustom.Model.VehicleDispath_Model;
+import com.yiyun.wasteoilcustom.model.TransferRec_Model;
+import com.yiyun.wasteoilcustom.model.VehicleDispathForwardedState_Model;
+import com.yiyun.wasteoilcustom.model.VehicleDispathState_Model;
+import com.yiyun.wasteoilcustom.model.VehicleDispath_Model;
 import com.yiyun.wasteoilcustom.util.WastoilWebServiceUtil;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.SoapObject;
-import org.ksoap2.serialization.SoapSerializationEnvelope;
-import org.ksoap2.transport.HttpTransportSE;
-import org.kxml2.kdom.Element;
-import org.kxml2.kdom.Node;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
-import static android.R.id.list;
-import static com.yiyun.wasteoilcustom.bll.User_BLL.msg;
 
 /**
  * Created by Administrator on 2016/12/27.

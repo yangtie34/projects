@@ -2,19 +2,13 @@ package com.yiyun.wasteoilcustom;
 
 import android.os.Bundle;
 
-import com.chengyi.android.angular.UI.Loadding;
 import com.chengyi.android.angular.core.AngularActivity;
-import com.chengyi.android.angular.core.DataListener;
 import com.chengyi.android.util.AppContext;
 import com.chengyi.android.util.PreferenceUtils;
-import com.yiyun.wasteoilcustom.Model.CompanyUser_Model;
 import com.yiyun.wasteoilcustom.activities.Login;
-import com.yiyun.wasteoilcustom.activities.Menu;
 import com.yiyun.wasteoilcustom.bll.User_BLL;
 
-import static com.chengyi.android.util.ActivityUtil.alert;
 import static com.chengyi.android.util.PreferenceUtils.getPrefString;
-import static com.yiyun.wasteoilcustom.bll.User_BLL.appUser;
 
 
 public class MainActivity extends AngularActivity {

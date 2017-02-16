@@ -1,4 +1,4 @@
-package com.yiyun.wasteoilcustom.Model;
+package com.yiyun.wasteoilcustom.model;
 
 
 

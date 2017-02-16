@@ -29,7 +29,7 @@
         <item name="android:singleLine">true</item>
     </style>
     <style name="content_main" parent="matchwh">
-        <item name="android:background">?android:attr/colorControlHighlight</item>
+        <item name="android:background">@color/general_grey_light</item>
         <item name="android:orientation">vertical</item>
 
 

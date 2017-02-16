@@ -45,6 +45,7 @@ public class Scope {
     }
 
     public Scope key(String key){
+        if(key==null)return new Scope();
         String[] keys=keyParse(key);
         Scope thisScope=null;
         for (int i = 0; i <keys.length ; i++) {

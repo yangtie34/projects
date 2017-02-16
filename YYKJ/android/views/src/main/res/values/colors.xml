@@ -9,4 +9,8 @@
     <color name="base_pressed_color">#ff0000</color>
     <color name="white">#ffffffff</color>
     <color name="timezone_line">#fff48502</color>
+    <color name="blur_bg">#FFFAF0</color>
+    <color name="black">#000000</color>
+    <color name="grey">#808080</color>
+    <color name="right_bg">#696969</color>
 </resources>

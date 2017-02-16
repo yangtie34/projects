@@ -6,7 +6,7 @@ import com.chengyi.android.util.Convert;
 import com.chengyi.android.util.PreferenceUtils;
 import com.example.fornet.WebServiceUtils;
 import com.yiyun.wasteoilcustom.AppUser;
-import com.yiyun.wasteoilcustom.Model.CompanyUser_Model;
+import com.yiyun.wasteoilcustom.model.CompanyUser_Model;
 import com.yiyun.wasteoilcustom.util.WastoilWebServiceUtil;
 
 import org.json.JSONArray;
@@ -14,8 +14,6 @@ import org.json.JSONObject;
 import org.ksoap2.serialization.SoapObject;
 
 import java.util.HashMap;
-
-import static com.chengyi.android.util.ActivityUtil.alert;
 
 /**
  * Created by Administrator on 2016/12/22.

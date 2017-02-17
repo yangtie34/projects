@@ -34,11 +34,11 @@ public class TableItem {
         itemView = inflater.inflate(R.layout.table_item, null);
         titleView= (TextView) itemView.findViewById(R.id.title);
         titleView.setText(title);
-        msgView= (TextView) itemView.findViewById(R.id.title);
+        msgView= (TextView) itemView.findViewById(R.id.msg);
         msgView.setText(msg);
-        timeView= (TextView) itemView.findViewById(R.id.title);
+        timeView= (TextView) itemView.findViewById(R.id.time);
         timeView.setText(time);
-        infoView= (TextView) itemView.findViewById(R.id.title);
+        infoView= (TextView) itemView.findViewById(R.id.info);
         infoView.setText(info);
     }
     public View getItemView(){

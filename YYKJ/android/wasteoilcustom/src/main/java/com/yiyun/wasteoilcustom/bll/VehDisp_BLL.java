@@ -291,7 +291,7 @@ public class VehDisp_BLL {
             @Override
             public void callBack(SoapObject result) {
                 List<HashMap<String,Object>> list=new ArrayList<HashMap<String,Object>>();
-                String jsonStr=result.toString();
+                String jsonStr=result.getProperty(methodName+"Result").toString();
                 try{
 
                     if(!jsonStr.equals("anyType{}")){

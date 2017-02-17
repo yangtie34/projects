@@ -12,32 +12,86 @@ import com.chengyi.android.angular.UI.WindowPop;
 import com.chengyi.android.angular.core.DataListener;
 import com.chengyi.android.angular.core.Scope;
 import com.chengyi.android.angular.core.ViewParent;
+import com.chengyi.android.angular.entity.TreeEntity;
 import com.example.views.DateView;
 import com.yiyun.wasteoilcustom.R;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.chengyi.android.angular.UI.FormView.code;
 import static com.chengyi.android.angular.core.Scope.activity;
-import static com.yiyun.wasteoilcustom.viewModel.Condition.Type.date;
 
 /**
  * Created by Administrator on 2017/2/16.
  */
 
 public class Condition extends ViewParent {
-    public static String type= "type";
-    public static String code= "code";
-    public static String name= "name";
-    public static String data= "data";
-    public static class Type{
-        public final static String date="date";
-        public final static String list="list";
+
+
+    public static class DataAll{
+        private String title;
+        private List<DataItem> list;
+
+        public String getTitle() {
+            return title;
+        }
+
+        public void setTitle(String title) {
+            this.title = title;
+        }
+
+        public List<DataItem> getList() {
+            return list;
+        }
+
+        public void setList(List<DataItem> list) {
+            this.list = list;
+        }
     }
-    public static class Data{
-        public final static String id="id";
-        public final static String name="name";
+    public static class DataItem{
+        private String type;
+        private String code;
+        private String name;
+        private Object data;
+
+        public class Type{
+            public final static String date="date";
+            public final static String list="list";
+        }
+
+        public DataItem(String type){
+            this.type=type;
+        }
+        public String getType() {
+            return type;
+        }
+
+        public String getCode() {
+            return code;
+        }
+
+        public void setCode(String code) {
+            this.code = code;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public Object getData() {
+            return data;
+        }
+
+        public void setData(Object data) {
+            this.data = data;
+        }
     }
     private Map<String,Object> conditionResult=new HashMap<>();
     private WindowPop windowPopOption;
@@ -60,10 +114,13 @@ public class Condition extends ViewParent {
         super(context, attr);
     }
 
+    public void initData() {
+        setReturn(conditionResult);
+    }
     public void init(){
-        Map<String,Object> dataAll= (Map<String, Object>) scope.key(getData()).val();
-        String title=dataAll.get("title").toString();
-        List<Map<String,Object>> list= (List<Map<String, Object>>) dataAll.get("list");
+        DataAll dataAll= (DataAll) scope.key(getData()).val();
+        String title=dataAll.getTitle();
+        List<DataItem> list= dataAll.getList();
         LayoutInflater inflater = LayoutInflater.from(activity);
         View conditionView = inflater.inflate(R.layout.filter, null);
         conditionView.findViewById(R.id.back).setOnClickListener(new OnClickListener() {
@@ -84,65 +141,38 @@ public class Condition extends ViewParent {
         titleView.setText(title);
         LinearLayout filter_conditions= (LinearLayout) conditionView.findViewById(R.id.filter_conditions);
         for (int i = 0; i < list.size(); i++) {
-            Map<String,Object> map=list.get(i);
+            DataItem map=list.get(i);
             View filter_condition = inflater.inflate(R.layout.filter_condition, null);
-            TextView name= (TextView) conditionView.findViewById(R.id.name);
-            name.setText(map.get(name).toString());
-            final TextView value= (TextView) conditionView.findViewById(R.id.name);
+            filter_conditions.addView(filter_condition);
+            TextView nameView= (TextView) filter_condition.findViewById(R.id.name);
+            nameView.setText(map.getName());
+            TextView value= (TextView) filter_condition.findViewById(R.id.value);
             value.setText("");
-            switch (map.get(type).toString()){
-                case date:
-                    String return_="date"+getId();
-                    final DateView dateView= new DateView(activity.scope,null,return_);
-                    activity.scope.key(return_).watch(new DataListener<String>() {
-                        @Override
-                        public void hasChange(String d) {
-                            value.setText(d);
-                            conditionResult.put(code,d);
-                        }
-                    });
-                    filter_condition.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            dateView.show();
-                        }
-                    });
+            switch (map.getType()){
+                case DataItem.Type.date:
+                    String return_="date"+Scope.getId();
+                    DateView dateView= new DateView(scope,null,return_);
+                    scope.key(return_).watch(new DateDataListner(value,map.getCode()));
+                    filter_condition.setOnClickListener(new FCDateOnClickListener(dateView));
                     break;
-                case Type.list:
+                case DataItem.Type.list:
                     View conditionItems = inflater.inflate(R.layout.filter_condition_item, null);
 
-                    final WindowPop cIWP=new WindowPop(conditionItems, Gravity.RIGHT);
-                    conditionItems.findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            cIWP.hide();
-                        }
-                    });
-                    TextView conditionItemName= (TextView) conditionView.findViewById(R.id.name);
-                    conditionItemName.setText("选择"+map.get(name));
-                    LinearLayout conditionItemsLayout= (LinearLayout) conditionView.findViewById(R.id.items);
-                    List<Map<String,String>> dataList= (List<Map<String, String>>) map.get(date);
+                     WindowPop cIWP=new WindowPop(conditionItems, Gravity.RIGHT);
+                    conditionItems.findViewById(R.id.back).setOnClickListener(new BackOnClickListener(cIWP));
+                    TextView conditionItemName= (TextView) conditionItems.findViewById(R.id.name);
+                    conditionItemName.setText("选择"+map.getName());
+                    LinearLayout conditionItemsLayout= (LinearLayout) conditionItems.findViewById(R.id.items);
+                    List<TreeEntity> dataList= (List<TreeEntity>) map.getData();
                     for (int j = 0; j < dataList.size(); j++) {
-                        final Map<String,String> itemMap=dataList.get(j);
+                         TreeEntity itemMap=dataList.get(j);
                         View item = inflater.inflate(R.layout.item, null);
                         TextView itemName= (TextView) item.findViewById(R.id.name);
-                        itemName.setText(itemMap.get(Data.name));
-                        item.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                value.setText(itemMap.get(Data.name));
-                                conditionResult.put(code,itemMap.get(Data.id));
-                                cIWP.hide();
-                            }
-                        });
+                        itemName.setText(itemMap.getName());
+                        item.setOnClickListener(new ListOnClickListener(value,itemMap,map.getCode(),cIWP));
                         conditionItemsLayout.addView(item);
                     }
-                    filter_condition.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            cIWP.showNoMask();
-                        }
-                    });
+                    filter_condition.setOnClickListener(new FCListOnClickListener(cIWP));
                     break;
 
             }
@@ -150,10 +180,70 @@ public class Condition extends ViewParent {
 
 
     }
-    public void show(){
-        windowPopOption.showNoMask();
+
+    public WindowPop getWinPopView(){
+        return windowPopOption;
+    };
+
+    class DateDataListner implements DataListener{
+        private TextView value;
+        private String codeV;
+        public DateDataListner(TextView value,String code){
+            this.value=value;
+            this.codeV=code;
+        }
+        @Override
+        public void hasChange(Object o) {
+            value.setText(o.toString());
+            conditionResult.put(codeV,o.toString());
+        }
     }
-    public void hide(){
-        windowPopOption.hide();
+    class ListOnClickListener implements View.OnClickListener{
+        private TextView value;
+        private TreeEntity itemMap;
+        private String codeV;
+        private WindowPop windowPop;
+        public ListOnClickListener(TextView value,TreeEntity itemMap,String code,WindowPop windowPop){
+            this.value=value;
+            this.itemMap=itemMap;
+            this.codeV=code;
+            this.windowPop=windowPop;
+        }
+        @Override
+        public void onClick(View v) {
+            value.setText(itemMap.getName());
+            conditionResult.put(codeV,itemMap);
+            windowPop.hide();
+        }
+    }
+    class BackOnClickListener implements View.OnClickListener{
+        private WindowPop windowPop;
+        public BackOnClickListener(WindowPop windowPop){
+            this.windowPop=windowPop;
+        }
+        @Override
+        public void onClick(View v) {
+            windowPop.hide();
+        }
+    }
+    class FCDateOnClickListener implements View.OnClickListener{
+        private DateView dateView;
+        public FCDateOnClickListener(DateView dateView){
+            this.dateView=dateView;
+        }
+        @Override
+        public void onClick(View v) {
+            dateView.show();
+        }
+    }
+    class FCListOnClickListener implements View.OnClickListener{
+        private WindowPop windowPop;
+        public FCListOnClickListener(WindowPop windowPop){
+            this.windowPop=windowPop;
+        }
+        @Override
+        public void onClick(View v) {
+            windowPop.showFullScreen();
+        }
     }
 }

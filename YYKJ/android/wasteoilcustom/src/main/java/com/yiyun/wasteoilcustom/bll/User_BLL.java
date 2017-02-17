@@ -29,13 +29,13 @@ public class User_BLL {
     public static AppUser appUser= AppUser.getInstance();
     public static void Login(CompanyUser_Model model, long comID) {
         String webUrl = "http://125.46.79.254:8211/Login/Login.asmx";
-        final String methodName = "SysLogin";
-        appUser.setUserPwd(model.getPwd());
+        final String methodName = "SysLogin_CompanyCustomer";
+        appUser.setUserPwd(model.getLoginPwd());
 
         HashMap<String, Object> properties = new HashMap<>();
         properties.put("mo", model);
         properties.put("comID", comID);
-        properties.put("frameType", "3");
+        properties.put("frameType", "-1");
         properties.put("mess", "");
 
 
@@ -66,11 +66,11 @@ public class User_BLL {
                 JSONObject jsonObject = (JSONObject) jsonArray.get(0);
 
                 String fullName = jsonObject.getString("Fullname");
-                String userNumber = jsonObject.getString("UserNumber");
+                String userNumber = jsonObject.getString("ComCusNumber");
                 String combrName = jsonObject.getString("ComBrName");
                 long userID = Convert.ToInt64(jsonObject.getString("UserID"));
                 long comBrID = Convert.ToInt64(jsonObject.getString("ComBrID"));
-                long comID = Convert.ToInt64(jsonObject.getString("ComID"));
+                long comID = Convert.ToInt64(jsonObject.getString("ComCusID"));
 
                 boolean isVeh=false;
                 long vehDrNumber=jsonObject.getLong("VehicleDriverNumber");

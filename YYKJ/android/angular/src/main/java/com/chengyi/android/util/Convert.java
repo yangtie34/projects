@@ -67,6 +67,7 @@ public class Convert {
      */
     public static String ToString(Object str)
     {
+        if(str==null)return "";
 
         System.out.println("拿到的值为："+str);
         if(TextUtils.isEmpty(str.toString()))

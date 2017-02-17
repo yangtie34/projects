@@ -171,7 +171,6 @@
                 android:id="@id/btn_login"
                 android:background="@drawable/btn_top_bg_selector"
                 android:layout_width="285.0dp"
-
                 android:text="登录"
                 android:layout_height="46dp" />
         </LinearLayout>

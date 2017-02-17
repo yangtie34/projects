@@ -72,6 +72,9 @@ public class ViewParent extends LinearLayout {
     public void setData(String data) {
         if(data==null)return;
         this.Data = data;
+        if(scope.parent.key(data).val()!=null){
+            scope.key(getData()).val(scope.parent.key(data).val());
+        }
         scope.parent.key(data).watch(new DataListener() {
             @Override
             public void hasChange(Object o) {

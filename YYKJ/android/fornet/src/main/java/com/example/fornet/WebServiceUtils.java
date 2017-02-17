@@ -93,6 +93,7 @@ public class WebServiceUtils {
             soapEnvelope.headerOut = header;
         }
         soapEnvelope.dotNet = true;
+        soapEnvelope.implicitTypes = true;
         if(addMappingKey!=null&&addMappingClass!=null){
             soapEnvelope.addMapping(getNAMESPACE(),addMappingKey, addMappingClass);
         }

@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/seller_bottom_color">
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="46546546"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        >
+        <TextView
+            android:id="@id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:paddingLeft="20dp"
+            android:layout_weight="1"
+            android:ems="40"
+            android:gravity="center_vertical"
+            android:text="联单单号" />
+        <com.example.views.InputText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:Data="form_id"
+            app:Return="form_id"
+            />
+    </LinearLayout>
+
+    <include
+        layout="@layout/view_line_horizontal"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        >
+        <TextView
+            android:id="@id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:paddingLeft="20dp"
+            android:ems="40"
+            android:gravity="center_vertical"
+            android:text="危废种类" />
+        <com.example.views.InputText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:Data="form_id"
+            app:Return="form_id"
+            />
+    </LinearLayout>
+
+    <include
+        layout="@layout/view_line_horizontal"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        >
+
+        <TextView
+            android:id="@id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:paddingLeft="20dp"
+            android:ems="40"
+            android:gravity="center_vertical"
+            android:text="危废形态" />
+
+        <com.example.views.InputText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:Data="form_id"
+            app:Return="form_id"
+            />
+    </LinearLayout>
+
+    <include
+        layout="@layout/view_line_horizontal"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        >
+        <TextView
+            android:id="@id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:paddingLeft="20dp"
+            android:ems="40"
+            android:gravity="center_vertical"
+            android:text="危害特性" />
+        <com.example.views.InputText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:Data="form_id"
+            app:Return="form_id"
+            />
+    </LinearLayout>
+
+    <include
+        layout="@layout/view_line_horizontal"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        >
+        <TextView
+            android:id="@id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:paddingLeft="20dp"
+            android:ems="40"
+            android:gravity="center_vertical"
+            android:text="转移时间" />
+        <com.example.views.InputText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:Data="form_id"
+            app:Return="form_id"
+            />
+    </LinearLayout>
+
+    <include
+        layout="@layout/view_line_horizontal"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        >
+        <TextView
+            android:id="@id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:paddingLeft="20dp"
+            android:ems="40"
+            android:gravity="center_vertical"
+            android:text="转移数量" />
+        <com.example.views.InputText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:Data="form_id"
+            app:Return="form_id"
+            />
+    </LinearLayout>
+
+    <include
+        layout="@layout/view_line_horizontal"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        >
+        <TextView
+            android:id="@id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:paddingLeft="20dp"
+            android:ems="40"
+            android:gravity="center_vertical"
+            android:text="危险成分" />
+        <com.example.views.InputText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:Data="form_id"
+            app:Return="form_id"
+            />
+    </LinearLayout>
+
+    <include
+        layout="@layout/view_line_horizontal"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        >
+        <TextView
+            android:id="@id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:paddingLeft="20dp"
+            android:ems="40"
+            android:gravity="center_vertical"
+            android:text="禁忌与应急措施" />
+        <com.example.views.InputText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:Data="form_id"
+            app:Return="form_id"
+            />
+    </LinearLayout>
+
+    <include
+        layout="@layout/view_line_horizontal"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        >
+        <TextView
+            android:id="@id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:paddingLeft="20dp"
+            android:ems="40"
+            android:gravity="center_vertical"
+            android:text="转移地址" />
+        <com.example.views.InputText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:Data="form_id"
+            app:Return="form_id"
+            />
+    </LinearLayout>
+
+    <include
+        layout="@layout/view_line_horizontal"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        >
+        <TextView
+            android:id="@id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:paddingLeft="20dp"
+            android:ems="40"
+            android:gravity="center_vertical"
+            android:text="备注" />
+        <com.example.views.InputText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:Data="form_id"
+            app:Return="form_id"
+            />
+    </LinearLayout>
+
+    <include
+        layout="@layout/view_line_horizontal"/>
+
+</LinearLayout>

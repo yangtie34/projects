@@ -51,7 +51,7 @@ public class SwipeAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent) {
 
         ViewHolder holder;
         if (convertView == null) {
@@ -64,7 +64,8 @@ public class SwipeAdapter extends BaseAdapter {
             holder.item_right_txt = (TextView)convertView.findViewById(R.id.item_right_txt);
             convertView.setTag(holder);
         } else {// 有直接获得ViewHolder
-            holder = (ViewHolder)convertView.getTag();
+
+            holder = (ViewHolder)convertView.getTag(); return convertView;
         }
 
         LinearLayout.LayoutParams lp1 = new LayoutParams(LayoutParams.MATCH_PARENT,
@@ -76,17 +77,21 @@ public class SwipeAdapter extends BaseAdapter {
         View view = data.get(position);
         holder.item_left.addView(view);
 
-        holder.item_right.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mListener != null) {
-                    mListener.onRightItemClick(v, position);
-                }
-            }
-        });
+        holder.item_right.setOnClickListener(new RightOnclick(position));
         return convertView;
     }
-
+    class RightOnclick implements View.OnClickListener{
+        private int position;
+        public  RightOnclick(int position){
+            this.position=position;
+        }
+        @Override
+        public void onClick(View v) {
+            if (mListener != null) {
+                mListener.onRightItemClick(v, position);
+            }
+        }
+    }
     static class ViewHolder {
     	RelativeLayout item_left;
     	RelativeLayout item_right;

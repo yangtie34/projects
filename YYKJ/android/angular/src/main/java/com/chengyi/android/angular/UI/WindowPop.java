@@ -1,6 +1,7 @@
 package com.chengyi.android.angular.UI;
 
 import android.graphics.drawable.BitmapDrawable;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.PopupWindow;
@@ -9,6 +10,8 @@ import android.widget.RelativeLayout;
 import com.chengyi.android.angular.core.Scope;
 import com.chengyi.android.util.ActivityUtil;
 import com.chengyi.android.util.CSS;
+
+import static android.R.attr.width;
 
 
 /**
@@ -109,6 +112,22 @@ public class WindowPop extends PopupWindow {
     }
     public void showNoMask(){
         showMode(args);
+    }
+
+    public void showFullScreen(){
+        // 设置弹出窗体的宽和高
+        DisplayMetrics metrics = new DisplayMetrics();
+        Scope.activity.getWindowManager().getDefaultDisplay().getMetrics(metrics );
+        int result = 0;
+        int resourceId = Scope.activity.getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0) {
+            result = Scope.activity.getResources().getDimensionPixelSize(resourceId);
+        }
+        int width = metrics.widthPixels;
+        int height = metrics.heightPixels-result;
+        this.setHeight(height);
+        this.setWidth(width);
+        showNoMask();
     }
 
 }

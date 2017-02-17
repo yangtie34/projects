@@ -13,4 +13,5 @@
     <item name="tv_version_name" type="id" />
     <item name="name" type="id" />
     <item name="value" type="id" />
+    <item name="nam1e" type="id" />
 </resources>

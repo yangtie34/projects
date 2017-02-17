@@ -61,7 +61,7 @@ public class Login extends AngularActivity {
                 }else{
 
                 };*/
-                login("1000","000000");
+                login("4101052-1","000000");
             }
         });
 
@@ -79,8 +79,8 @@ public class Login extends AngularActivity {
         appUser.setUserName(username);
         appUser.setUserPwd(pwd);
         final CompanyUser_Model model = new CompanyUser_Model();
-        model.setUserName(username);
-        model.setPwd(pwd);
+        model.setLoginAccount(username);
+        model.setLoginPwd(pwd);
         long comID = appUser.getSysComID();
 
 

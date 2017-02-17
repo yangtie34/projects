@@ -27,6 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:padding="10dp"
+            android:visibility="gone"
             android:id="@+id/filter"
             android:src="@drawable/selector_actionbar_filtrate_btn"
             />
@@ -35,6 +36,7 @@
             android:padding="10dp"
             android:id="@+id/add"
             android:layout_height="match_parent"
+            android:visibility="gone"
             android:src="@drawable/product_top_add_selector"
             />
 
@@ -65,7 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="Name"
+            android:text="someinfo"
             android:ems="10"
             android:id="@+id/editText"
             android:layout_weight="1" />

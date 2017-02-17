@@ -1,6 +1,8 @@
 package com.example.views;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
@@ -36,9 +38,13 @@ public class SwitchDeleteList extends ViewParent {
         @Override
         protected void init() {
             SwipeListView swipeListView=new SwipeListView(scope.activity);
+            swipeListView.setLayoutParams(CSS.LinearLayoutParams.matchAll());
+            swipeListView.setDivider(new ColorDrawable(Color.parseColor("#dddbdb")));
+            swipeListView.setDividerHeight(1);
             this.addView(swipeListView);
+            this.setBackgroundColor(getResources().getColor(R.color.black));
             mAdapter = new SwipeAdapter(scope.activity,(List<View>) scope.key(getData()).val(),swipeListView.getRightViewWidth());
-
+            swipeListView.setAdapter(mAdapter);
 
         }
 

@@ -11,6 +11,7 @@ import com.chengyi.android.angular.core.ViewParent;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * Created by Administrator on 2017/2/16.
@@ -37,12 +38,12 @@ public class DateView extends ViewParent {
             public void onDateSet(android.widget.DatePicker view, int year, int monthOfYear,
                                   int dayOfMonth) {
                 String date=new StringBuffer().append(year).append("-").append(monthOfYear + 1).append("-").append(dayOfMonth).toString();
-                DateView.this.setReturn(date);
+                DateView.this.setReturn(new StringBuffer(date));
             }
         };
         Map<Integer,Integer> inidate= (Map<Integer, Integer>) scope.key(getData()).val();
         if(inidate==null){
-            final Calendar calendar = Calendar.getInstance();
+            Calendar calendar = Calendar.getInstance();
             inidate=new HashMap<>();
             inidate.put(Calendar.YEAR,calendar.get(Calendar.YEAR));
             inidate.put(Calendar.MONTH,calendar.get(Calendar.MONTH));

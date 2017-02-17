@@ -96,6 +96,10 @@ public class Scope {
     }
 
     public void watch(DataListener listener){
+        dataListeners.clear();
+        dataListeners.add(listener);
+    }
+    public void addWatch(DataListener listener){
         dataListeners.add(listener);
     }
 

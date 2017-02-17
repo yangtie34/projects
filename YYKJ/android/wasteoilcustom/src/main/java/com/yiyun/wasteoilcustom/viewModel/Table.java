@@ -52,18 +52,27 @@ public class Table {
         filterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                filterPage.showNoMask();
+                filterPage.showFullScreen();
             }
         });
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addPage.showNoMask();
+                addPage.showFullScreen();
             }
         });
     }
     public void setTitle(String title_){
         ((TextView)title).setText(title_);
+    }
+
+    public void setFilterPage(WindowPop filterPage){
+        this.filterButton.setVisibility(View.VISIBLE);
+        this.filterPage=filterPage;
+    }
+    public void setAddPage(WindowPop addPage){
+        this.addButton.setVisibility(View.VISIBLE);
+        this.addPage=addPage;
     }
     public void setTableView(View view){
             ActivityUtil.clear(tableList);

@@ -13,9 +13,9 @@ import com.chengyi.android.angular.core.DataListener;
 import com.chengyi.android.util.AppContext;
 import com.chengyi.android.util.PreferenceUtils;
 import com.yiyun.wasteoilcustom.AppUser;
-import com.yiyun.wasteoilcustom.model.CompanyUser_Model;
 import com.yiyun.wasteoilcustom.R;
 import com.yiyun.wasteoilcustom.bll.User_BLL;
+import com.yiyun.wasteoilcustom.model.SysLogin_CompanyCustomer;
 
 import org.ksoap2.serialization.SoapObject;
 
@@ -78,7 +78,7 @@ public class Login extends AngularActivity {
         }
         appUser.setUserName(username);
         appUser.setUserPwd(pwd);
-        final CompanyUser_Model model = new CompanyUser_Model();
+        final SysLogin_CompanyCustomer model = new SysLogin_CompanyCustomer();
         model.setLoginAccount(username);
         model.setLoginPwd(pwd);
         long comID = appUser.getSysComID();

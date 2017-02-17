@@ -6,7 +6,7 @@ import com.chengyi.android.util.Convert;
 import com.chengyi.android.util.PreferenceUtils;
 import com.example.fornet.WebServiceUtils;
 import com.yiyun.wasteoilcustom.AppUser;
-import com.yiyun.wasteoilcustom.model.CompanyUser_Model;
+import com.yiyun.wasteoilcustom.model.SysLogin_CompanyCustomer;
 import com.yiyun.wasteoilcustom.util.WastoilWebServiceUtil;
 
 import org.json.JSONArray;
@@ -27,20 +27,20 @@ public class User_BLL {
 
     public static final String msg   = String.valueOf(Scope.getId());
     public static AppUser appUser= AppUser.getInstance();
-    public static void Login(CompanyUser_Model model, long comID) {
+    public static void Login(SysLogin_CompanyCustomer model, long comID) {
         String webUrl = "http://125.46.79.254:8211/Login/Login.asmx";
         final String methodName = "SysLogin_CompanyCustomer";
         appUser.setUserPwd(model.getLoginPwd());
 
         HashMap<String, Object> properties = new HashMap<>();
         properties.put("mo", model);
-        properties.put("comID", comID);
+        //properties.put("comID", comID);
         properties.put("frameType", "-1");
-        properties.put("mess", "");
+        //properties.put("mess", "");
 
 
         //通过工具类调用WebService接口
-        WastoilWebServiceUtil.callWebService(webUrl, methodName, properties, "CompanyUser_Model", CompanyUser_Model.class, new WebServiceUtils.WebServiceCallBack() {
+        WastoilWebServiceUtil.callWebService(webUrl, methodName, properties, "SysLogin_CompanyCustomer", SysLogin_CompanyCustomer.class, new WebServiceUtils.WebServiceCallBack() {
 
             //WebService接口返回的数据回调到这个方法中
             @Override

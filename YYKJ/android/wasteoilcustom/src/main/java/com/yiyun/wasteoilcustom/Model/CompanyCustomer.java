@@ -8,7 +8,7 @@ import org.ksoap2.serialization.PropertyInfo;
 
 import java.util.Hashtable;
 
-public class SysLogin_CompanyCustomer  implements KvmSerializable {
+public class CompanyCustomer  implements KvmSerializable {
 	//以下是生成的字段
 	private long ComCusID = 0;
 	private long ComCusSort = 0;

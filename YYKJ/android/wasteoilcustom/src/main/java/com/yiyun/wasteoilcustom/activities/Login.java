@@ -15,7 +15,7 @@ import com.chengyi.android.util.PreferenceUtils;
 import com.yiyun.wasteoilcustom.AppUser;
 import com.yiyun.wasteoilcustom.R;
 import com.yiyun.wasteoilcustom.bll.User_BLL;
-import com.yiyun.wasteoilcustom.model.CompanyCustomer;
+import com.yiyun.wasteoilcustom.model.CompanyCustomer_Model;
 
 import org.ksoap2.serialization.SoapObject;
 
@@ -70,7 +70,7 @@ public class Login extends AngularActivity {
     public static void login(String username,String pwd){
 
         AppUser appUser= AppUser.getInstance();
-        Object isRemeber=(Boolean)activity.scope.key("remember").val();
+        Object isRemeber=activity.scope.key("remember").val();
         if(isRemeber!=null&&(Boolean)isRemeber) {
             PreferenceUtils.setPrefBoolean(User_BLL.isRememberStr,true);
             PreferenceUtils.setPrefString(User_BLL.userNameStr,username);
@@ -78,7 +78,7 @@ public class Login extends AngularActivity {
         }
         appUser.setUserName(username);
         appUser.setUserPwd(pwd);
-        final CompanyCustomer model = new CompanyCustomer();
+        final CompanyCustomer_Model model = new CompanyCustomer_Model();
         model.setLoginAccount(username);
         model.setLoginPwd(pwd);
         long comID = appUser.getSysComID();

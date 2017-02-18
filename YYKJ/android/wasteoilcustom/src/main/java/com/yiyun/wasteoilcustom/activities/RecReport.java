@@ -8,6 +8,8 @@ import com.chengyi.android.angular.core.AngularActivity;
 import com.chengyi.android.angular.core.DataListener;
 import com.chengyi.android.angular.entity.TreeEntity;
 import com.chengyi.android.util.Convert;
+import com.chengyi.android.util.PubInterface;
+import com.example.views.FormDataEntity;
 import com.example.views.SwitchDeleteList;
 import com.yiyun.wasteoilcustom.AppUser;
 import com.yiyun.wasteoilcustom.R;
@@ -24,6 +26,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -37,8 +40,13 @@ public class RecReport extends AngularActivity {
     private Condition condition;
     private Map<String,Object> conditionResult;
     private List<HashMap<String,Object>> list=new ArrayList<>();
+    private Order order;
+    private List<FormDataEntity> thisOrderData=new LinkedList<>();
 
-
+    private  List<TreeEntity> listCategory;
+    private  List<TreeEntity> listProShape;
+    private  List<TreeEntity> listProPack;
+    private  List<TreeEntity> listProMeasureUnit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,8 +56,13 @@ public class RecReport extends AngularActivity {
         new Thread() {
             public void run() {
                 long comId=AppUser.getInstance().getSysComID();
-                final List<TreeEntity> listCategory= Category_BLL.GetProductCategory(comId);//危废种类
-                final List<TreeEntity> listProShape=  SysPublic_BLL.GetProduct_Shape();//危废形态
+                listCategory= Category_BLL.GetProductCategory(comId);//危废种类
+                listProShape=  SysPublic_BLL.GetProduct_Shape();//危废形态
+                //包装
+                listProPack=SysPublic_BLL.GetProduct_Pack();
+                //计量单位
+                listProMeasureUnit = SysPublic_BLL.GetProduct_MeasureUnit();
+
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -59,6 +72,8 @@ public class RecReport extends AngularActivity {
                 });
             }
         }.start();
+
+
 
     }
     //初始化筛选条件
@@ -84,7 +99,52 @@ public class RecReport extends AngularActivity {
             }
         });
         table.setFilterPage(condition.getWinPopView());
-        table.setAddPage(new Order(R.layout.report_add).getAddPage());
+        order=new Order();
+        getThisOrderData(null);
+        table.setOrderPage(order);
+
+        order.setAddOK(new PubInterface() {
+            @Override
+            public Object run() {
+                add(order.getList());
+                return null;
+            }
+        });
+        order.setEditOK(new PubInterface() {
+            @Override
+            public Object run() {
+                add(order.getList());
+                return null;
+            }
+        });
+    }
+    private void getThisOrderData(HashMap<String, Object> map){
+        thisOrderData.clear();
+        String key="RecNumber";
+        thisOrderData.add(new FormDataEntity(key,"联单单号",FormDataEntity.Type.input,null,map!=null?map.get(key).toString():null));
+        key="ProCategoryName";
+        thisOrderData.add(new FormDataEntity(key,"危废种类",FormDataEntity.Type.list,listCategory,map!=null?map.get(key).toString():null));
+        key="ProShapeName";
+        thisOrderData.add(new FormDataEntity(key,"危废形态",FormDataEntity.Type.list,listProShape,map!=null?map.get(key).toString():null));
+        key="ProPackName";
+        thisOrderData.add(new FormDataEntity(key,"包装方式",FormDataEntity.Type.spinner,listProPack,map!=null?map.get(key).toString():null));
+
+        key="ProHazardNature";
+        thisOrderData.add(new FormDataEntity(key,"危害特性",FormDataEntity.Type.input,null,map!=null?map.get(key).toString():null));
+        key="RecTime";
+        thisOrderData.add(new FormDataEntity(key,"转移时间",FormDataEntity.Type.date,null,map!=null?map.get(key).toString():null));
+        key="ProNumber";
+        thisOrderData.add(new FormDataEntity(key,"转移数量",FormDataEntity.Type.spinner,listProMeasureUnit,map!=null?map.get(key).toString():null));
+        //key="ProDangerComponent";
+        //thisOrderData.add(new FormDataEntity(key,"危险成分",FormDataEntity.Type.input,null,map!=null?map.get(key).toString():null));
+        //key="TransferTaboo";
+        //thisOrderData.add(new FormDataEntity(key,"禁忌与应急措施",FormDataEntity.Type.input,null,map!=null?map.get(key).toString():null));
+        //key="TransferAddress";
+        //thisOrderData.add(new FormDataEntity(key,"转移地址",FormDataEntity.Type.input,null,map!=null?map.get(key).toString():null));
+        key="Remark";
+        thisOrderData.add(new FormDataEntity(key,"备注",FormDataEntity.Type.input,null,map!=null?map.get(key).toString():null));
+
+        order.setList(thisOrderData);
     }
     //根据筛选条件加载数据
     private void getListData(){
@@ -133,18 +193,39 @@ public class RecReport extends AngularActivity {
                     map.get("ProShapeName").toString(),
                     map.get("ProNumber").toString()
             ).getItemView();
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    //查询详情
-                    alert("查询详情");
-                }
-            });
+            itemView.setOnClickListener(new ItemClick(i));
             tableList.add(itemView);
         }
 
         scope.key("tableView").val(tableList);
         SwitchDeleteList switchDeleteList=new SwitchDeleteList(scope,"tableView");
+        switchDeleteList.setOnRightItemClickListener(new SwitchDeleteList.OnRightItemClickListener() {
+            @Override
+            public void onRightItemClick(View v, int position) {
+                delete(list.get(position).get("RecNumber").toString());
+            }
+        });
         table.setTableView(switchDeleteList);
+    }
+    private void add(List<FormDataEntity> list){
+        alert(list.toString());
+    }
+    private void update(List<FormDataEntity> list){
+        alert(list.toString());
+    }
+    private void delete(String id){
+        alert(list.toString());
+    }
+
+    class ItemClick implements View.OnClickListener{
+        private int i;
+        public ItemClick(int i){
+            this.i=i;
+        }
+        @Override
+        public void onClick(View v) {
+            getThisOrderData(list.get(i));
+            order.getOrderInfo().getWindow().showFullScreen();
+        }
     }
 }

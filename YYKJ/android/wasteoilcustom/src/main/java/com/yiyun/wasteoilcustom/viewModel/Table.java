@@ -30,7 +30,7 @@ public class Table {
     private View filterButton;
     private WindowPop filterPage;
     private View addButton;
-    private WindowPop addPage;
+    private Order orderPage;
     private View tableList;
     public Table(){
         LayoutInflater inflater = LayoutInflater.from(activity);
@@ -58,7 +58,7 @@ public class Table {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addPage.showFullScreen();
+                orderPage.setTitle("新增"+((TextView)title).getText()).getAddInfo().getWindow().showFullScreen();
             }
         });
     }
@@ -70,9 +70,9 @@ public class Table {
         this.filterButton.setVisibility(View.VISIBLE);
         this.filterPage=filterPage;
     }
-    public void setAddPage(WindowPop addPage){
+    public void setOrderPage(Order orderPage){
         this.addButton.setVisibility(View.VISIBLE);
-        this.addPage=addPage;
+        this.orderPage=orderPage;
     }
     public void setTableView(View view){
             ActivityUtil.clear(tableList);

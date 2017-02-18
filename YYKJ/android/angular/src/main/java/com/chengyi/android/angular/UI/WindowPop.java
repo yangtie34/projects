@@ -1,6 +1,7 @@
 package com.chengyi.android.angular.UI;
 
 import android.graphics.drawable.BitmapDrawable;
+import android.text.method.ReplacementTransformationMethod;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +12,11 @@ import com.chengyi.android.angular.core.Scope;
 import com.chengyi.android.util.ActivityUtil;
 import com.chengyi.android.util.CSS;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static android.R.attr.width;
+import static com.chengyi.android.angular.R.attr.show;
 
 
 /**
@@ -20,7 +25,13 @@ import static android.R.attr.width;
  showAtLocation(parent, gravity, x, y);
  */
 public class WindowPop extends PopupWindow {
-
+    private static List<WindowPop> shows= new ArrayList<>();
+    public static void hideTop(){
+        shows.get(shows.size()-1).hide();
+    }
+    public static boolean hasShow(){
+    return shows.size()>0;
+    }
     private View view;
     private Object[] args;
     private int gravity= CSS.effect.Animation.byScale();
@@ -92,11 +103,17 @@ public class WindowPop extends PopupWindow {
         }else if(args.length==4){//showAtLocation(View parent, int gravity, int x, int y)：相对于父控件的位置（例如正中央Gravity.CENTER，下方Gravity.BOTTOM等），可以设置偏移或无偏移
             showAtLocation((View) args[0], (Integer) args[1], (Integer) args[2], (Integer) args[3]);
         }else{
-            showAsDropDown((View) args[0]);//showAsDropDown(View anchor)：相对某个控件的位置（正左下方），无偏移
+            View clickView=(View) args[0];
+            int[] location = new int[2];
+            clickView.getLocationOnScreen(location);
+            showAsDropDown(ActivityUtil.getRootView(), location[0],location[1]-ActivityUtil.getRootView().getHeight());// location[0],  location[1]);
+            //this.view.bringToFront();
+            //showAsDropDown((View) args[0]);//showAsDropDown(View anchor)：相对某个控件的位置（正左下方），无偏移
         }
     }
     // 取消按钮
     public void hide(){
+        if(shows.contains(this))shows.remove(this);
         // 销毁弹出框
         dismiss();
     }
@@ -112,6 +129,7 @@ public class WindowPop extends PopupWindow {
     }
     public void showNoMask(){
         showMode(args);
+        if(!shows.contains(this))shows.add(this);
     }
 
     public void showFullScreen(){

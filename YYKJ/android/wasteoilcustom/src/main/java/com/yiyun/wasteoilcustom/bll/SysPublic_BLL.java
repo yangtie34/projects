@@ -232,13 +232,13 @@ public class SysPublic_BLL {
                     TreeEntity value=new TreeEntity();
 
                     if (jsonObject.has("infoname")) {
-                        value.setId(jsonObject.get("infoname").toString());
+                        value.setName(jsonObject.get("infoname").toString());
                     } else {
                         continue;
 
                     }
                     if (jsonObject.has("infovalue")) {
-                         value.setName(jsonObject.get("infovalue").toString());
+                         value.setId(jsonObject.get("infovalue").toString());
                     } else {
                         continue;
                     }
@@ -612,13 +612,13 @@ public class SysPublic_BLL {
                     TreeEntity value=new TreeEntity();
 
                     if (jsonObject.has("infoname")) {
-                        value.setId(jsonObject.get("infoname").toString());
+                        value.setName(jsonObject.get("infoname").toString());
                     } else {
                         continue;
 
                     }
                     if (jsonObject.has("infovalue")) {
-                         value.setName(jsonObject.get("infovalue").toString());
+                         value.setId(jsonObject.get("infovalue").toString());
                     } else {
                         continue;
                     }

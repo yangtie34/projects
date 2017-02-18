@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.chengyi.android.angular.UI.WindowPop;
 import com.chengyi.android.util.ActivityUtil;
 import com.chengyi.android.util.AppContext;
 
@@ -41,7 +42,9 @@ public class AngularActivity extends Activity {
      */
     @Override
     public void onBackPressed() {
-        if(index){
+        if(WindowPop.hasShow()){
+            WindowPop.hideTop();
+        }else if(index){
             ActivityUtil.exitBy2Click(); //调用双击退出函数
         }else{
             AppContext.intentPrev();

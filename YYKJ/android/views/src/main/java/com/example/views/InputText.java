@@ -5,7 +5,6 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.chengyi.android.angular.core.DataListener;
 import com.chengyi.android.angular.core.Scope;
@@ -17,7 +16,7 @@ import com.chengyi.android.util.CSS;
  */
 
 public class InputText extends ViewParent {
-
+    private EditText editText;
         public InputText(Scope parent, String Data, String Return) {
             super(parent);
             setData(Data);
@@ -29,9 +28,14 @@ public class InputText extends ViewParent {
         }
         @Override
         protected void init() {
-            final EditText editText=new EditText(scope.activity);
-            editText.setLayoutParams(CSS.LinearLayoutParams.widthHeight(50,100));
-            editText.setText("45646464");
+            editText=new EditText(scope.activity);
+            LayoutParams lp=CSS.LinearLayoutParams.widthHeight(FormDD.width, FormDD.height);
+            lp.gravity=Gravity.CENTER_VERTICAL;
+            this.setLayoutParams(lp);
+            editText.setGravity(Gravity.CENTER_VERTICAL);
+            editText.setSingleLine();
+            editText.setBackgroundDrawable(getResources().getDrawable(R.drawable.editsharp));
+            //this.setWeightSum(1);
             scope.key(getData()).watch(new DataListener<StringBuffer>() {
                 @Override
                 public void hasChange(StringBuffer text) {
@@ -52,5 +56,9 @@ public class InputText extends ViewParent {
                 }
             });
         }
+    @Override
+     public void setEnabled(boolean bool){
+        editText.setEnabled(bool);
+    };
 
 }

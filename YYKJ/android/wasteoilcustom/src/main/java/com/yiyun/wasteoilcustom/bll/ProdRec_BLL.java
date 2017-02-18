@@ -11,6 +11,7 @@ import com.yiyun.wasteoilcustom.model.VehicleDispath_Model;
 import com.yiyun.wasteoilcustom.util.WastoilWebServiceUtil;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.SoapObject;
@@ -22,8 +23,10 @@ import org.kxml2.kdom.Node;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
+import static android.R.attr.format;
 import static android.provider.ContactsContract.CommonDataKinds.Identity.NAMESPACE;
 
 
@@ -191,76 +194,36 @@ public class ProdRec_BLL {
                     if (!jsonStr.equals("anyType{}")) {
                         JSONArray jsonArray = new JSONObject(jsonStr).getJSONArray("table1");
                         for (int i = 0; i < jsonArray.length(); i++) {
-                            JSONObject jsonObject = (JSONObject) jsonArray.get(i);
-                            HashMap<String, Object> hashMap = new HashMap<String, Object>();
+                            JSONObject jsonObject = null;
 
-                            if (jsonObject.has("RecNumber")) {
-                                hashMap.put("RecNumber", jsonObject.get("RecNumber"));
-                            } else {
-                                continue;
-
-                            }
-                            if (jsonObject.has("RecTime")) {
-                                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-                                String t = format.format(Convert.ToDate(jsonObject.get("RecTime").toString()));
-                                hashMap.put("RecTime", t);
-                            } else {
-                                hashMap.put("RecTime", "");
-                            }
-
-                            if (jsonObject.has("ProCategoryName")) {
-
-                                hashMap.put("ProCategoryName", jsonObject.get("ProCategoryName"));
-                            } else {
-                                continue;
-                            }
-
-                            if (jsonObject.has("ProShapeName")) {
-                                hashMap.put("ProShapeName", jsonObject.get("ProShapeName"));
-                            } else {
-                                hashMap.put("ProShapeName", "--");
-                            }
-
-
-                            if (jsonObject.has("ProNumber")) {
-                                hashMap.put("ProNumber", jsonObject.get("ProNumber").toString() + jsonObject.get("ProMeasureUnitName").toString());
-                            } else {
-                                hashMap.put("ProNumber", "--");
-                            }
-
-                            if (jsonObject.has("Remark")) {
-                                hashMap.put("Remark", jsonObject.get("Remark"));
-                            } else {
-                                hashMap.put("Remark", "");
-                            }
-
-                            if (jsonObject.has("CreateComBrName")) {
-                                hashMap.put("CreateComBrName", jsonObject.get("CreateComBrName"));
-                            } else {
-                                hashMap.put("CreateComBrName", "");
-                            }
-
-                            if (jsonObject.has("CreateUserFullname")) {
-                                hashMap.put("CreateUserFullname", jsonObject.get("CreateUserFullname"));
-                            } else {
-                                hashMap.put("CreateUserFullname", "");
-                            }
-
-                            if (jsonObject.has("ProHazardNature")) {
-                                hashMap.put("ProHazardNature", jsonObject.get("ProHazardNature"));
-                            } else {
-                                hashMap.put("ProHazardNature", "");
-                            }
-
-                            list.add(hashMap);
+                                jsonObject = (JSONObject) jsonArray.get(i);
+                            list.add(toHashMap(jsonObject));
                         }
                     }
-                } catch (Exception ex) {
-                    ex.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
-
                 Scope.activity.scope.key(methodName).val(list);
             }
         });
+    }
+    private static HashMap<String, Object> toHashMap(JSONObject jsonObject)
+    {
+        HashMap<String, Object> data = new HashMap<String, Object>();
+        // 将json字符串转换成jsonObject
+        Iterator it = jsonObject.keys();
+        // 遍历jsonObject数据，添加到Map对象
+        while (it.hasNext())
+        {
+            String key = String.valueOf(it.next());
+            Object value = null;
+            try {
+                value =  jsonObject.get(key);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            data.put(key, value);
+        }
+        return data;
     }
 }

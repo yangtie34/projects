@@ -5,34 +5,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/seller_bottom_color">
-    <EditText
-        android:layout_width="wrap_content"
+
+    <com.example.views.FormDD
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="46546546"/>
-    <LinearLayout
-        android:layout_width="wrap_content"
+        app:Data="form_id"
+        app:Return="form_id"
+        app:params="联单单号.input"
+        />
+    <!--<LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:background="@color/white"
         >
         <TextView
-            android:id="@id/name"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:paddingLeft="20dp"
-            android:layout_weight="1"
-            android:ems="40"
-            android:gravity="center_vertical"
+           style="@style/form_dt"
             android:text="联单单号" />
         <com.example.views.InputText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
+            android:gravity="center_vertical"
             app:Data="form_id"
             app:Return="form_id"
             />
     </LinearLayout>
-
+-->
     <include
         layout="@layout/view_line_horizontal"/>
     <LinearLayout

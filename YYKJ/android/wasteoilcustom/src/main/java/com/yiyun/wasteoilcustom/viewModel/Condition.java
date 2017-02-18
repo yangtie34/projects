@@ -16,12 +16,10 @@ import com.chengyi.android.angular.entity.TreeEntity;
 import com.example.views.DateView;
 import com.yiyun.wasteoilcustom.R;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.chengyi.android.angular.UI.FormView.code;
 import static com.chengyi.android.angular.core.Scope.activity;
 
 /**

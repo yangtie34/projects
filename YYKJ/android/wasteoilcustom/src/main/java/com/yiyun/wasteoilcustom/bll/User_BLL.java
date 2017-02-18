@@ -6,7 +6,7 @@ import com.chengyi.android.util.Convert;
 import com.chengyi.android.util.PreferenceUtils;
 import com.example.fornet.WebServiceUtils;
 import com.yiyun.wasteoilcustom.AppUser;
-import com.yiyun.wasteoilcustom.model.CompanyCustomer;
+import com.yiyun.wasteoilcustom.model.CompanyCustomer_Model;
 import com.yiyun.wasteoilcustom.util.WastoilWebServiceUtil;
 
 import org.json.JSONArray;
@@ -27,7 +27,7 @@ public class User_BLL {
 
     public static final String msg   = String.valueOf(Scope.getId());
     public static AppUser appUser= AppUser.getInstance();
-    public static void Login(CompanyCustomer model, long comID) {
+    public static void Login(CompanyCustomer_Model model, long comID) {
         String webUrl = "http://125.46.79.254:8211/Login/Login.asmx";
         final String methodName = "SysLogin_CompanyCustomer";
         appUser.setUserPwd(model.getLoginPwd());
@@ -40,7 +40,7 @@ public class User_BLL {
 
 
         //通过工具类调用WebService接口
-        WastoilWebServiceUtil.callWebService(webUrl, methodName, properties, "CompanyCustomer", CompanyCustomer.class, new WebServiceUtils.WebServiceCallBack() {
+        WastoilWebServiceUtil.callWebService(webUrl, methodName, properties, "CompanyCustomer_Model", CompanyCustomer_Model.class, new WebServiceUtils.WebServiceCallBack() {
 
             //WebService接口返回的数据回调到这个方法中
             @Override
@@ -59,7 +59,7 @@ public class User_BLL {
         } else {//登录成功
 
 
-            String jsonStr = result.getProperty("SysLoginResult").toString();
+            String jsonStr = result.getProperty("SysLogin_CompanyCustomerResult").toString();
             try {
 
                 JSONArray jsonArray = new JSONObject(jsonStr).getJSONArray("Table");
@@ -68,23 +68,16 @@ public class User_BLL {
                 String fullName = jsonObject.getString("Fullname");
                 String userNumber = jsonObject.getString("ComCusNumber");
                 String combrName = jsonObject.getString("ComBrName");
-                long userID = Convert.ToInt64(jsonObject.getString("UserID"));
+                long userID = Convert.ToInt64(jsonObject.getString("ComID"));
                 long comBrID = Convert.ToInt64(jsonObject.getString("ComBrID"));
                 long comID = Convert.ToInt64(jsonObject.getString("ComCusID"));
 
-                boolean isVeh=false;
-                long vehDrNumber=jsonObject.getLong("VehicleDriverNumber");
-
-                if(vehDrNumber>0)
-                    isVeh=true;
                 appUser.setUserNumber(userNumber);
                 appUser.setCompanyUserID(userID);
                 appUser.setSysComBrID(comBrID);
                 appUser.setSysComID(comID);
                 appUser.setUserFullname(fullName);
                 appUser.setComBrName(combrName);
-                appUser.setVehDriverNumber(vehDrNumber);
-                appUser.setIsVehicleDriver(isVeh);
 
                 bool=true;
             } catch (Exception ex) {

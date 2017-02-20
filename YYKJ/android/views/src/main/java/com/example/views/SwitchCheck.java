@@ -29,7 +29,7 @@ public class SwitchCheck extends ViewParent {
         @Override
         protected void init() {
             View check = new View(scope.activity);
-            LinearLayout.LayoutParams lp = CSS.LinearLayoutParams.widthHeight(90, 40);
+            LinearLayout.LayoutParams lp = CSS.LinearLayoutParams.widthHeight(110, 50);
             check.setLayoutParams(lp);
             check.setBackground(getResources().getDrawable(R.drawable.password_bg_selector));
             this.addView(check);

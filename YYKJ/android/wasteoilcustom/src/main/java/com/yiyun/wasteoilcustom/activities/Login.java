@@ -94,7 +94,8 @@ public class Login extends AngularActivity {
                   AppContext.intent(Menu.class);
               }else{
                   String errMsg=activity.scope.key("errMsg").val().toString();
-                  err.setText(errMsg);
+                  if(activity.isIndex())err.setText(errMsg);
+                  AppContext.intent(Login.class);
               }
             }
         });

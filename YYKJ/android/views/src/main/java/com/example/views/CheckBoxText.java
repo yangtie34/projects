@@ -33,13 +33,13 @@ public class CheckBoxText extends ViewParent {
         @Override
         protected void init() {
             final View check = new View(scope.activity);
-            LinearLayout.LayoutParams lp = CSS.LinearLayoutParams.widthHeight(35, 35);
+            LinearLayout.LayoutParams lp = CSS.LinearLayoutParams.widthHeight(40, 40);
             check.setLayoutParams(lp);
             lp.gravity=Gravity.CENTER_VERTICAL;
             check.setBackground(getResources().getDrawable(R.drawable.edit_check_selector));
             this.addView(check);
             TextView textView=new TextView(scope.activity);
-            textView.setTextSize(10);
+            textView.setTextSize(15);
             textView.setText(" "+getParams());
             textView.setTextColor(scope.activity.getResources().getColor(R.color.lightgray));
             this.addView(textView);

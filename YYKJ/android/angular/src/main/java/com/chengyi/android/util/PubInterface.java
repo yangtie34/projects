@@ -5,5 +5,5 @@ package com.chengyi.android.util;
  */
 
 public interface PubInterface {
-    public Object run();
+     Object run();
 }

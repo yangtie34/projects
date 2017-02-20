@@ -7,7 +7,7 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@android:color/holo_blue_light">
+        android:background="?android:attr/textColorLink">
 
         <ImageView
             android:layout_width="50dp"
@@ -22,7 +22,8 @@
             android:ems="40"
             android:layout_gravity="center_vertical"
             android:id="@+id/title"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textSize="18sp" />
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -42,36 +43,9 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@android:color/holo_blue_dark">
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="8"
-            android:hint="搜索单据编号客户。。。"
-            android:id="@+id/editText3" />
-        <include layout="@layout/view_line_horizontal"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="30dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="someinfo"
-            android:ems="10"
-            android:id="@+id/editText"
-            android:layout_weight="1" />
-    </LinearLayout>
+    <include layout="@layout/view_line_horizontal"
+        android:layout_weight="1"
+        android:layout_width="match_parent" />
 
     <LinearLayout
         android:orientation="vertical"

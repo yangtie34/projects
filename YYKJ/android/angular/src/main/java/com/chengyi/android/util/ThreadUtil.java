@@ -64,4 +64,4 @@ public class ThreadUtil implements Runnable{
             suspended = false;
             notify();
         }
-    };
+    }

@@ -56,18 +56,19 @@
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:src="@drawable/logo_hb"
+                    android:src="@mipmap/ic_launcher"
                     android:id="@+id/imageView"
                     android:layout_height="100dp" />
 
                 <TextView
                     android:text="@string/app_name"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:id="@+id/txtAppName"
-                    android:textSize="15sp"
+                    android:gravity="center_vertical"
+                    android:textSize="20dp"
                     android:padding="5dp"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:layout_height="80dp" />
 
             </LinearLayout>
 
@@ -141,10 +142,11 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_marginLeft="50.0dp"
+                android:layout_marginLeft="42dp"
                 android:layout_marginRight="42.0dp"
-                android:layout_marginTop="10.0dp"
-                android:layout_height="wrap_content">
+                android:layout_marginTop="20dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp">
 
                 <com.example.views.CheckBoxText
                     app:Return="remember"

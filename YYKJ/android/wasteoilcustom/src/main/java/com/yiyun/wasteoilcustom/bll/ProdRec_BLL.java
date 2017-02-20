@@ -35,7 +35,7 @@ import static android.provider.ContactsContract.CommonDataKinds.Identity.NAMESPA
  */
 
 public class ProdRec_BLL {
-    static String  webUrl = "http://125.46.79.254:8211/Offer/VehDisp.asmx";
+    static String  webUrl = "http://125.46.79.254:8211/Offer/Produce.asmx";
     static HashMap<String, Object> properties  = new HashMap<>();
 
 
@@ -46,7 +46,7 @@ public class ProdRec_BLL {
      */
     public static void ProdRec_LoadData(String recNumber)
     {
-        String methodName = "ProdRec_LoadData";
+        final String methodName = "ProdRec_LoadData";
 
         properties.clear();
         properties.put("recNumber",recNumber);
@@ -69,7 +69,7 @@ public class ProdRec_BLL {
                     }
                     mo.setExist(true);
                 }
-                Scope.activity.scope.key("ProdRec_LoadData").val(mo);
+                Scope.activity.scope.key(methodName).val(mo);
             }
         });
     }
@@ -126,7 +126,7 @@ public class ProdRec_BLL {
                         if (resatult.equals("anyType{}")) {
                             resultMsg.setTure(true);resultMsg.setMsg("修改成功");
                         } else {
-                            resultMsg.setMsg("修改失败");
+                            resultMsg.setMsg(resatult);
                         }
                         Scope.activity.scope.key(methodName).val(resultMsg);
                     }
@@ -207,7 +207,7 @@ public class ProdRec_BLL {
             }
         });
     }
-    private static HashMap<String, Object> toHashMap(JSONObject jsonObject)
+    public static HashMap<String, Object> toHashMap(JSONObject jsonObject)
     {
         HashMap<String, Object> data = new HashMap<String, Object>();
         // 将json字符串转换成jsonObject

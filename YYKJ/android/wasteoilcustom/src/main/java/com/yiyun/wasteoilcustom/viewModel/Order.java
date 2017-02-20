@@ -54,6 +54,7 @@ public class Order {
             @Override
             public void onClick(View v) {
                 ok.setVisibility(View.VISIBLE);
+                okadd=false;
                 getEditInfo().getEditInfo().getWindow().showFullScreen();
             }
         });

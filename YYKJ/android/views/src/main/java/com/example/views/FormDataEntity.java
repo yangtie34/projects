@@ -2,6 +2,7 @@ package com.example.views;
 
 import com.chengyi.android.angular.entity.TreeEntity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static android.R.id.input;
@@ -20,6 +21,7 @@ public class FormDataEntity {
     private boolean isView=false;
     private String thisData;
     private String thisData_;//单位
+    private List<TreeEntity> returnData=new ArrayList<>();
     public FormDataEntity(){}
     public FormDataEntity(String id,String name,String type,List<TreeEntity> data,String thisData){
         this.id=id;this.name=name;this.type=type;this.data=data;this.isEdit=isEdit;this.isAdd=isAdd;this.thisData=thisData;
@@ -97,11 +99,20 @@ public class FormDataEntity {
         isView = view;
     }
 
+    public List<TreeEntity> getReturnData() {
+        return returnData;
+    }
+
+    public void setReturnData(List<TreeEntity> returnData) {
+        this.returnData = returnData;
+    }
+
     public static class Type{
         public final static String input="input";
         public final static String checkTexts="checkTexts";
         public final static String list="list";
         public final static String spinner="spinner";
         public final static String date="date";
+        public final static String view="view";
     }
 }

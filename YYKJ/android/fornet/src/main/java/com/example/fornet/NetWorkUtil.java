@@ -1,5 +1,8 @@
 package com.example.fornet;
 
+import android.app.Activity;
+import android.content.ComponentName;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
@@ -13,10 +16,12 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.text.DecimalFormat;
 
+import static com.chengyi.android.angular.core.Scope.activity;
+
 public class NetWorkUtil {
 
     public static boolean isWifiAvailable() {
-        ConnectivityManager connectivityManager = (ConnectivityManager) Scope.activity.getSystemService(Scope.activity.CONNECTIVITY_SERVICE);
+        ConnectivityManager connectivityManager = (ConnectivityManager) activity.getSystemService(activity.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
         return (networkInfo != null && networkInfo.isConnected() && networkInfo
                 .getType() == ConnectivityManager.TYPE_WIFI);
@@ -29,7 +34,7 @@ public class NetWorkUtil {
      * @return
      */
     public static String getMacAddress() {
-        if (Scope.activity == null) {
+        if (activity == null) {
             return "";
         }
 
@@ -54,8 +59,8 @@ public class NetWorkUtil {
     private static String getWifiMacAddress() {
         String localMac = null;
         try {
-            WifiManager wifi = (WifiManager) Scope.activity
-                    .getSystemService(Scope.activity.WIFI_SERVICE);
+            WifiManager wifi = (WifiManager) activity
+                    .getSystemService(activity.WIFI_SERVICE);
             WifiInfo info = wifi.getConnectionInfo();
             if (wifi.isWifiEnabled()) {
                 localMac = info.getMacAddress();
@@ -120,7 +125,18 @@ public class NetWorkUtil {
         }
         return result;
     }
-
+    /**
+     * 打开网络设置界面
+     */
+    public static void openSetting()
+    {
+        Intent intent = new Intent("/");
+        ComponentName cm = new ComponentName("com.android.settings",
+                "com.android.settings.WirelessSettings");
+        intent.setComponent(cm);
+        intent.setAction("android.intent.action.VIEW");
+        activity.startActivityForResult(intent, 0);
+    }
     /**
      * 网络是否可用
      *
@@ -129,8 +145,8 @@ public class NetWorkUtil {
      */
     public static boolean IsNetWorkEnable() {
         try {
-            ConnectivityManager connectivity = (ConnectivityManager) Scope.activity
-                    .getSystemService(Scope.activity.CONNECTIVITY_SERVICE);
+            ConnectivityManager connectivity = (ConnectivityManager) activity
+                    .getSystemService(activity.CONNECTIVITY_SERVICE);
             if (connectivity == null) {
 //                ToastUtil.showMessage(Scope.activity, "无法连接网络");
                 return false;
@@ -278,7 +294,7 @@ public class NetWorkUtil {
     public static String getProvider() {
         String provider = "未知";
         try {
-            TelephonyManager telephonyManager = (TelephonyManager) Scope.activity.getSystemService(Scope.activity.TELEPHONY_SERVICE);
+            TelephonyManager telephonyManager = (TelephonyManager) activity.getSystemService(activity.TELEPHONY_SERVICE);
             String IMSI = telephonyManager.getSubscriberId();
             Log.v("tag", "getProvider.IMSI:" + IMSI);
             if (IMSI == null) {
@@ -377,8 +393,8 @@ public class NetWorkUtil {
     private static int getNetworkClass() {
         int networkType = NETWORK_TYPE_UNKNOWN;
         try {
-            final NetworkInfo network = ((ConnectivityManager) Scope.activity
-                    .getSystemService(Scope.activity.CONNECTIVITY_SERVICE))
+            final NetworkInfo network = ((ConnectivityManager) activity
+                    .getSystemService(activity.CONNECTIVITY_SERVICE))
                     .getActiveNetworkInfo();
             if (network != null && network.isAvailable()
                     && network.isConnected()) {
@@ -386,8 +402,8 @@ public class NetWorkUtil {
                 if (type == ConnectivityManager.TYPE_WIFI) {
                     networkType = NETWORK_TYPE_WIFI;
                 } else if (type == ConnectivityManager.TYPE_MOBILE) {
-                    TelephonyManager telephonyManager = (TelephonyManager)  Scope.activity.getSystemService(
-                            Scope.activity.TELEPHONY_SERVICE);
+                    TelephonyManager telephonyManager = (TelephonyManager)  activity.getSystemService(
+                            activity.TELEPHONY_SERVICE);
                     networkType = telephonyManager.getNetworkType();
                 }
             } else {
@@ -404,14 +420,14 @@ public class NetWorkUtil {
     public static String getWifiRssi() {
         int asu = 85;
         try {
-            final NetworkInfo network = ((ConnectivityManager)  Scope.activity.getSystemService(Scope.activity.CONNECTIVITY_SERVICE))
+            final NetworkInfo network = ((ConnectivityManager)  activity.getSystemService(activity.CONNECTIVITY_SERVICE))
                     .getActiveNetworkInfo();
             if (network != null && network.isAvailable()
                     && network.isConnected()) {
                 int type = network.getType();
                 if (type == ConnectivityManager.TYPE_WIFI) {
-                    WifiManager wifiManager = (WifiManager) Scope.activity
-                            .getSystemService(Scope.activity.WIFI_SERVICE);
+                    WifiManager wifiManager = (WifiManager) activity
+                            .getSystemService(activity.WIFI_SERVICE);
 
                     WifiInfo wifiInfo = wifiManager.getConnectionInfo();
                     if (wifiInfo != null) {
@@ -428,15 +444,15 @@ public class NetWorkUtil {
     public static String getWifiSsid() {
         String ssid = "";
         try {
-            final NetworkInfo network = ((ConnectivityManager)Scope.activity
-                    .getSystemService(Scope.activity.CONNECTIVITY_SERVICE))
+            final NetworkInfo network = ((ConnectivityManager) activity
+                    .getSystemService(activity.CONNECTIVITY_SERVICE))
                     .getActiveNetworkInfo();
             if (network != null && network.isAvailable()
                     && network.isConnected()) {
                 int type = network.getType();
                 if (type == ConnectivityManager.TYPE_WIFI) {
-                    WifiManager wifiManager = (WifiManager)Scope.activity
-                            .getSystemService(Scope.activity.WIFI_SERVICE);
+                    WifiManager wifiManager = (WifiManager) activity
+                            .getSystemService(activity.WIFI_SERVICE);
 
                     WifiInfo wifiInfo = wifiManager.getConnectionInfo();
                     if (wifiInfo != null) {
@@ -461,8 +477,8 @@ public class NetWorkUtil {
      * @return
      */
     public static boolean checkSimState() {
-        TelephonyManager tm = (TelephonyManager) Scope.activity
-                .getSystemService(Scope.activity.TELEPHONY_SERVICE);
+        TelephonyManager tm = (TelephonyManager) activity
+                .getSystemService(activity.TELEPHONY_SERVICE);
         if (tm.getSimState() == TelephonyManager.SIM_STATE_ABSENT
                 || tm.getSimState() == TelephonyManager.SIM_STATE_UNKNOWN) {
             return false;
@@ -475,8 +491,8 @@ public class NetWorkUtil {
      * 获取imei
      */
     public static String getImei() {
-        TelephonyManager mTelephonyMgr = (TelephonyManager) Scope.activity
-                .getSystemService(Scope.activity.TELEPHONY_SERVICE);
+        TelephonyManager mTelephonyMgr = (TelephonyManager) activity
+                .getSystemService(activity.TELEPHONY_SERVICE);
         String imei = mTelephonyMgr.getDeviceId();
         if (imei == null) {
             imei = "000000000000000";
@@ -485,7 +501,7 @@ public class NetWorkUtil {
     }
 
     public static String getPhoneImsi() {
-        TelephonyManager mTelephonyMgr = (TelephonyManager) Scope.activity.getSystemService(Scope.activity.TELEPHONY_SERVICE);
+        TelephonyManager mTelephonyMgr = (TelephonyManager) activity.getSystemService(activity.TELEPHONY_SERVICE);
         return mTelephonyMgr.getSubscriberId();
     }
 

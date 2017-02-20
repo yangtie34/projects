@@ -8,7 +8,7 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@android:color/holo_blue_light">
+        android:background="?android:attr/textColorLink">
 
         <ImageView
             android:id="@id/back"
@@ -24,7 +24,8 @@
             android:ems="40"
             android:layout_gravity="center_vertical"
             android:id="@+id/name"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:textSize="18sp" />
 
     </LinearLayout>
     <ScrollView

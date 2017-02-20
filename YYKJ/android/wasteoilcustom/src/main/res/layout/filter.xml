@@ -10,7 +10,7 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@android:color/holo_blue_light">
+        android:background="?android:attr/textColorLink">
 
         <ImageView
             android:layout_width="50dp"

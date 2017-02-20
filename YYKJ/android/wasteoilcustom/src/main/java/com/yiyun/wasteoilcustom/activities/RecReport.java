@@ -6,6 +6,7 @@ import android.view.View;
 import com.chengyi.android.angular.UI.Loadding;
 import com.chengyi.android.angular.core.AngularActivity;
 import com.chengyi.android.angular.core.DataListener;
+import com.chengyi.android.angular.entity.ResultMsg;
 import com.chengyi.android.angular.entity.TreeEntity;
 import com.chengyi.android.util.Convert;
 import com.chengyi.android.util.PubInterface;
@@ -16,6 +17,9 @@ import com.yiyun.wasteoilcustom.R;
 import com.yiyun.wasteoilcustom.bll.Category_BLL;
 import com.yiyun.wasteoilcustom.bll.ProdRec_BLL;
 import com.yiyun.wasteoilcustom.bll.SysPublic_BLL;
+import com.yiyun.wasteoilcustom.bll.TransRec_BLL;
+import com.yiyun.wasteoilcustom.model.ProduceRec_Model;
+import com.yiyun.wasteoilcustom.model.TransferRec_Model;
 import com.yiyun.wasteoilcustom.util.ConditionUtil;
 import com.yiyun.wasteoilcustom.viewModel.Condition;
 import com.yiyun.wasteoilcustom.viewModel.Order;
@@ -47,6 +51,7 @@ public class RecReport extends AngularActivity {
     private  List<TreeEntity> listProShape;
     private  List<TreeEntity> listProPack;
     private  List<TreeEntity> listProMeasureUnit;
+    private ArrayList<TreeEntity> listProHazardNature;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +67,8 @@ public class RecReport extends AngularActivity {
                 listProPack=SysPublic_BLL.GetProduct_Pack();
                 //计量单位
                 listProMeasureUnit = SysPublic_BLL.GetProduct_MeasureUnit();
-
+//危害特性
+                listProHazardNature = SysPublic_BLL.GetProduct_HazardNature();
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -113,7 +119,7 @@ public class RecReport extends AngularActivity {
         order.setEditOK(new PubInterface() {
             @Override
             public Object run() {
-                add(order.getList());
+                update(order.getList());
                 return null;
             }
         });
@@ -121,28 +127,30 @@ public class RecReport extends AngularActivity {
     private void getThisOrderData(HashMap<String, Object> map){
         thisOrderData.clear();
         String key="RecNumber";
-        thisOrderData.add(new FormDataEntity(key,"联单单号",FormDataEntity.Type.input,null,map!=null?map.get(key).toString():null));
+        thisOrderData.add(new FormDataEntity(key,"联单单号",FormDataEntity.Type.view,null,map!=null&&map.get(key)!=null?map.get(key).toString():""));
         key="ProCategoryName";
-        thisOrderData.add(new FormDataEntity(key,"危废种类",FormDataEntity.Type.list,listCategory,map!=null?map.get(key).toString():null));
+        thisOrderData.add(new FormDataEntity(key,"危废种类",FormDataEntity.Type.list,listCategory,map!=null&&map.get(key)!=null?map.get(key).toString():""));
         key="ProShapeName";
-        thisOrderData.add(new FormDataEntity(key,"危废形态",FormDataEntity.Type.list,listProShape,map!=null?map.get(key).toString():null));
+        thisOrderData.add(new FormDataEntity(key,"危废形态",FormDataEntity.Type.list,listProShape,map!=null&&map.get(key)!=null?map.get(key).toString():""));
         key="ProPackName";
-        thisOrderData.add(new FormDataEntity(key,"包装方式",FormDataEntity.Type.spinner,listProPack,map!=null?map.get(key).toString():null));
+        thisOrderData.add(new FormDataEntity(key,"包装方式",FormDataEntity.Type.list,listProPack,map!=null&&map.get(key)!=null?map.get(key).toString():""));
 
         key="ProHazardNature";
-        thisOrderData.add(new FormDataEntity(key,"危害特性",FormDataEntity.Type.input,null,map!=null?map.get(key).toString():null));
+        thisOrderData.add(new FormDataEntity(key,"危害特性",FormDataEntity.Type.checkTexts,listProHazardNature,map!=null&&map.get(key)!=null?map.get(key).toString():""));
         key="RecTime";
-        thisOrderData.add(new FormDataEntity(key,"转移时间",FormDataEntity.Type.date,null,map!=null?map.get(key).toString():null));
+        thisOrderData.add(new FormDataEntity(key,"转移时间",FormDataEntity.Type.date,null,map!=null&&map.get(key)!=null?map.get(key).toString():""));
         key="ProNumber";
-        thisOrderData.add(new FormDataEntity(key,"转移数量",FormDataEntity.Type.spinner,listProMeasureUnit,map!=null?map.get(key).toString():null));
-        //key="ProDangerComponent";
-        //thisOrderData.add(new FormDataEntity(key,"危险成分",FormDataEntity.Type.input,null,map!=null?map.get(key).toString():null));
-        //key="TransferTaboo";
-        //thisOrderData.add(new FormDataEntity(key,"禁忌与应急措施",FormDataEntity.Type.input,null,map!=null?map.get(key).toString():null));
-        //key="TransferAddress";
-        //thisOrderData.add(new FormDataEntity(key,"转移地址",FormDataEntity.Type.input,null,map!=null?map.get(key).toString():null));
+        thisOrderData.add(new FormDataEntity(key,"转移数量",FormDataEntity.Type.spinner,listProMeasureUnit,map!=null&&map.get(key)!=null?map.get(key).toString():""));
+        thisOrderData.get(thisOrderData.size()-1).setThisData_(map!=null&&map.get(key)!=null?map.get("UseProMeasureUnitName").toString():"");
+
+        key="ProDangerComponent";
+        thisOrderData.add(new FormDataEntity(key,"危险成分",FormDataEntity.Type.input,null,map!=null&&map.get(key)!=null?map.get(key).toString():""));
+        key="TransferTaboo";
+        thisOrderData.add(new FormDataEntity(key,"禁忌与应急措施",FormDataEntity.Type.input,null,map!=null&&map.get(key)!=null?map.get(key).toString():""));
+        key="TransferAddress";
+        thisOrderData.add(new FormDataEntity(key,"转移地址",FormDataEntity.Type.input,null,map!=null&&map.get(key)!=null?map.get(key).toString():""));
         key="Remark";
-        thisOrderData.add(new FormDataEntity(key,"备注",FormDataEntity.Type.input,null,map!=null?map.get(key).toString():null));
+        thisOrderData.add(new FormDataEntity(key,"备注",FormDataEntity.Type.input,null,map!=null&&map.get(key)!=null?map.get(key).toString():""));
 
         order.setList(thisOrderData);
     }
@@ -176,7 +184,7 @@ public class RecReport extends AngularActivity {
                     Loadding.hide();
                 }
             });
-            ProdRec_BLL.ProdRec_Select(jsonStr,0,20);
+            TransRec_BLL.TransRec_Select(jsonStr,0,20);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -188,10 +196,10 @@ public class RecReport extends AngularActivity {
         for (int i = 0; i <list.size(); i++) {
             HashMap<String, Object> map=list.get(i);
             View itemView=new TableItem(
-                    map.get("RecTime").toString(),
+                    map.get("RecNumber").toString(),
                     map.get("ProCategoryName").toString(),
-                    map.get("ProShapeName").toString(),
-                    map.get("ProNumber").toString()
+                    map.get("RecTime").toString(),
+                    map.get("ProNumber").toString()+map.get("ProMeasureUnitName").toString()
             ).getItemView();
             itemView.setOnClickListener(new ItemClick(i));
             tableList.add(itemView);
@@ -208,13 +216,94 @@ public class RecReport extends AngularActivity {
         table.setTableView(switchDeleteList);
     }
     private void add(List<FormDataEntity> list){
-        alert(list.toString());
+        TransferRec_Model mo=getModel(list);
+        if(mo==null)return;
+        TransRec_BLL.TransRec_Add(mo);
+        scope.key("ProdRec_Add").watch(new DataListener<ResultMsg>() {
+            @Override
+            public void hasChange(ResultMsg msg) {
+                alert(msg.getMsg());
+                if(msg.isTure()){
+                    getListData();
+                }
+            }
+        });
     }
     private void update(List<FormDataEntity> list){
-        alert(list.toString());
+        TransferRec_Model mo=getModel(list);
+        if(mo==null)return;
+        TransRec_BLL.TransRec_Update(mo);
+        scope.key("ProdRec_Add").watch(new DataListener<ResultMsg>() {
+            @Override
+            public void hasChange(ResultMsg msg) {
+                alert(msg.getMsg());
+                if(msg.isTure()){
+                    getListData();
+                }
+            }
+        });
+}
+    private TransferRec_Model getModel(List<FormDataEntity> list){
+        TransferRec_Model model=new TransferRec_Model();
+        for (int i = 0; i <list.size() ; i++) {
+            FormDataEntity formEntity=list.get(i);
+            if(formEntity.getId().equalsIgnoreCase("RecNumber")){
+                model.setRecNumber(formEntity.getThisData());
+            }
+            if(formEntity.getId().equalsIgnoreCase("ProCategoryName")){
+                if(formEntity.getThisData_()==null){
+                    alert("请选择危废种类！");
+                    return null;
+                }
+                model.setProCategoryName(formEntity.getThisData());
+                model.setProCategory(Long.parseLong(formEntity.getThisData_()));
+            }
+            if(formEntity.getId().equalsIgnoreCase("ProShapeName")){
+                if(formEntity.getThisData_()==null){
+                    alert("请选择危废形态！");
+                    return null;
+                }
+                model.setProShapeName(formEntity.getThisData());
+                model.setProShape(Long.parseLong(formEntity.getThisData_()));
+            }
+            if(formEntity.getId().equalsIgnoreCase("ProHazardNature")){
+                List<TreeEntity> returnData =formEntity.getReturnData();
+                String ProHazardNaturestr="";
+                for (int j = 0; j <returnData.size() ; j++) {
+                    ProHazardNaturestr+=returnData.get(j).getName();
+                }
+                model.setProHazardNature(ProHazardNaturestr);
+            }
+            if(formEntity.getId().equalsIgnoreCase("ProPackName")){
+                model.setProPackName(formEntity.getThisData());
+            }
+            if(formEntity.getId().equalsIgnoreCase("RecTime")){
+                model.setRecTime(formEntity.getThisData());
+            }
+            if(formEntity.getId().equalsIgnoreCase("ProDangerComponent"))model.setProDangerComponent(formEntity.getThisData());
+            if(formEntity.getId().equalsIgnoreCase("TransferTaboo"))model.setTransferTaboo(formEntity.getThisData());
+            if(formEntity.getId().equalsIgnoreCase("TransferAddress"))model.setTransferAddress(formEntity.getThisData());
+            if(formEntity.getId().equalsIgnoreCase("ProNumber")){
+                model.setProNumber(formEntity.getThisData());
+                model.setProMeasureUnitName(formEntity.getThisData_());
+            }
+            if(formEntity.getId().equalsIgnoreCase("Remark"))model.setRemark(formEntity.getThisData());
+        }
+        long comId = AppUser.getInstance().getSysComID();
+        long userId = AppUser.getInstance().getCompanyUserID();
+        long comBrId = AppUser.getInstance().getSysComBrID();
+        model.setCreateUserID(userId);
+        model.setCreateComBrID(comBrId);
+        model.setCreateComID(comId);
+        model.setCreateIp("");
+        model.setRecComID(comId);
+        model.setRecComBrID(comBrId);
+
+        model.setRecSource(3);
+        return model;
     }
     private void delete(String id){
-        alert(list.toString());
+        TransRec_BLL.TransRec_Delete(id);
     }
 
     class ItemClick implements View.OnClickListener{

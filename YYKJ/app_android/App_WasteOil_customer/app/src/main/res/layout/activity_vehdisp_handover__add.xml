@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_vehdisp_handover__add"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+
+    tools:context="com.eyunsoft.app_wasteoilCostomer.VehdispHandover_Add">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="25dp">
+
+
+        <Button
+            android:text="保存"
+            android:background="@drawable/shape"
+            android:textColor="@color/white"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnSave"
+            android:layout_weight="1" />
+
+        <Button
+            android:text="重置"
+            android:background="@drawable/shape"
+            android:textColor="@color/white"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnReset" />
+
+        <Button
+            android:text="返回"
+            android:background="@drawable/shape"
+            android:textColor="@color/white"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnBack"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="调度编号："
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView37"
+            android:layout_weight="1" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:visibility="invisible"
+            android:id="@+id/edit_NULL4" />
+        <TextView
+            android:text=""
+            android:textColor="@color/colorAccent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtDisNumber"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="调度状态："
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView35"
+            android:layout_weight="1" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:visibility="invisible"
+            android:id="@+id/edit_NULL3" />
+        <TextView
+            android:text=""
+            android:textColor="@color/colorAccent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtDisState"
+            android:layout_weight="1" />
+
+        <TextView
+            android:text="中转状态："
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView30"
+            android:layout_weight="1" />
+
+
+        <TextView
+            android:text=""
+            android:textColor="@color/colorAccent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtDisZState"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="交接客户"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView24" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:visibility="invisible"
+            android:id="@+id/edit_NULL2" />
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/dropCustomer"
+            android:layout_weight="1" />
+
+        <TextView
+            android:text="支付方式："
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView34" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/drop_PayMode"
+            android:layout_weight="1" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="交接分公司"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView28"  />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:visibility="invisible"
+            android:id="@+id/edit_NULL1" />
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/dropCompanyBranch"
+            android:layout_weight="1" />
+
+        <TextView
+            android:text="结算方式："
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView36" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/drop_SettleMode"
+            android:layout_weight="1" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="交接金额："
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView38" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:lines="1"
+            android:id="@+id/edit_Money"
+            android:layout_weight="1" />
+
+        <TextView
+            android:text="已付金额："
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView39" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:lines="1"
+            android:id="@+id/edit_PaidMoney"
+            android:layout_weight="1" />
+        </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="交接验证："
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView26" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:lines="1"
+            android:id="@+id/editValidCode"
+            android:layout_weight="1" />
+
+        <Button
+            android:text="发送验证码"
+            android:textColor="@color/white"
+            android:background="@drawable/shape"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:id="@+id/btnSend" />
+
+    </LinearLayout>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dp"
+                android:background="#B8B8B8"
+                android:visibility="visible" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="fill_parent"
+                    android:background="#B8B8B8"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/job"
+                    android:layout_width="100dip"
+                    android:layout_height="30dp"
+                    android:text="危废种类"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="20sp" />
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="fill_parent"
+                    android:background="#B8B8B8"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/txtRecState11"
+                    android:layout_width="80dip"
+                    android:layout_height="30dp"
+                    android:text="转移数量"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="20sp" />
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="fill_parent"
+                    android:background="#B8B8B8"
+                    android:visibility="visible" />
+                <TextView
+                    android:id="@+id/txtRecState13"
+                    android:layout_width="80dip"
+                    android:layout_height="30dp"
+                    android:text="交接数量"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="20sp" />
+
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="fill_parent"
+                    android:background="#B8B8B8"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/student"
+                    android:layout_width="80dip"
+                    android:layout_height="30dp"
+                    android:text="计量单位"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="20sp" />
+
+                <View
+                    android:layout_width="0.5dp"
+                    android:layout_height="fill_parent"
+                    android:background="#B8B8B8"
+                    android:visibility="visible" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="0.5dp"
+                android:background="#B8B8B8"
+                android:visibility="visible" />
+
+            <ListView
+                android:id="@+id/listResault"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" />
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+</LinearLayout>

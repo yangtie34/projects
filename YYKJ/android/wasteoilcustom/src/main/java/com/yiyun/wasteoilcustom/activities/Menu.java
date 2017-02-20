@@ -6,6 +6,7 @@ import android.widget.TextView;
 
 import com.chengyi.android.angular.core.AngularActivity;
 import com.chengyi.android.util.AppContext;
+import com.chengyi.android.util.PreferenceUtils;
 import com.yiyun.wasteoilcustom.AppUser;
 import com.yiyun.wasteoilcustom.R;
 
@@ -14,6 +15,7 @@ public class Menu extends AngularActivity {
     public TextView txtUserName;
     public TextView txtUserFullName;
     public TextView txtComBrName;
+    public TextView logout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +31,13 @@ public class Menu extends AngularActivity {
         //帐号
         txtUserName=(TextView)findViewById(R.id.txtUserName);
         txtUserName.setText(appUser.getUserName());
-
+        logout=(TextView)findViewById(R.id.logout);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                logout(v);
+            }
+        });
     }
 
     public void recReport(View view) {
@@ -42,5 +50,10 @@ public class Menu extends AngularActivity {
 
     public void schedule(View view) {
         AppContext.intent(Schedule.class);
+    }
+
+    public void logout(View view) {
+        PreferenceUtils.clearPreference();
+        AppContext.intent(Login.class);
     }
 }

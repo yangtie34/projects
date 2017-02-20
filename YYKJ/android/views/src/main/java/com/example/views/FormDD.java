@@ -22,6 +22,7 @@ import com.chengyi.android.util.CSS;
 
 import java.util.List;
 
+import static android.R.attr.fromAlpha;
 import static android.R.attr.value;
 import static com.chengyi.android.angular.core.Scope.activity;
 import static com.example.views.FormDataEntity.Type.spinner;
@@ -60,8 +61,19 @@ public class FormDD extends ViewParent {
             TextView imageView=(TextView) form_item.findViewById(R.id.img);
             nameView.setText(formDataEntity.getName());
             this.addView(form_item);
-
-            switch (formDataEntity.getType()){
+    if(formDataEntity.isView()){
+        imageView.setVisibility(INVISIBLE);
+        TextView viewText=getTextView();
+        if(!formDataEntity.isAdd())viewText.setText(formDataEntity.getThisData());
+        valueView.addView(viewText);
+    }
+           else switch (formDataEntity.getType()){
+                case FormDataEntity.Type.view:
+                    imageView.setVisibility(INVISIBLE);
+                    TextView viewText=getTextView();
+                    if(!formDataEntity.isAdd())viewText.setText(formDataEntity.getThisData());
+                    valueView.addView(viewText);
+                    break;
                 case FormDataEntity.Type.input:
                     imageView.setVisibility(INVISIBLE);
                     InputText inputText=new InputText(scope,getData(),getReturn());
@@ -94,6 +106,24 @@ public class FormDD extends ViewParent {
                         }
                     });
                     break;
+                case FormDataEntity.Type.checkTexts:
+                    if(formDataEntity.isView()){
+                        TextView viewcheckText=getTextView();
+                        viewcheckText.setText(formDataEntity.getThisData());
+                        valueView.addView(viewcheckText);
+                    }else{
+                        scope.key("checkTexts").val(formDataEntity.getData());
+                        CheckTexts checkTexts=new CheckTexts(scope,"checkTexts","checkTextsReturn");
+                        scope.key("checkTextsReturn").watch(new DataListener<List<TreeEntity>>() {
+                            @Override
+                            public void hasChange(List<TreeEntity> l) {
+                                formDataEntity.setReturnData(l);
+                            }
+                        });
+                        valueView.addView(checkTexts);
+                    }
+
+                    break;
                 case FormDataEntity.Type.list:
 
                     final TextView listTextView =getTextView();
@@ -116,14 +146,7 @@ public class FormDD extends ViewParent {
                         View item = inflater.inflate(R.layout.item, null);
                         TextView itemName= (TextView) item.findViewById(R.id.name);
                         itemName.setText(itemMap.getName());
-                        item.setOnClickListener(new OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                formDataEntity.setThisData(((TextView)ActivityUtil.getViewByIndex(v,0)).getText().toString());
-                                listTextView.setText(formDataEntity.getThisData());
-                                cIWP.hide();
-                            }
-                        });
+                        item.setOnClickListener(new ListOnclick(itemMap,listTextView,cIWP));
                         conditionItemsLayout.addView(item);
                     }
                     valueView.setOnClickListener(new OnClickListener() {
@@ -175,10 +198,10 @@ public class FormDD extends ViewParent {
                         }
                     });
                     if(formDataEntity.isView()){
-                        spinnerTextView.setText(formDataEntity.getThisData());
+                        spinnerTextView.setText("单位："+formDataEntity.getThisData_());
                         imageView.setEnabled(false);
                     }else if(formDataEntity.isEdit()){
-                        spinnerTextView.setText(formDataEntity.getThisData());
+                        spinnerTextView.setText("单位："+formDataEntity.getThisData_());
                     }
                     imageView.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -200,6 +223,23 @@ public class FormDD extends ViewParent {
         titleView.setLayoutParams(CSS.LinearLayoutParams.widthHeight(width,height));
         titleView.setPadding(50,0,0,50);
         return titleView;
+    }
+    class ListOnclick implements OnClickListener{
+        private TreeEntity treeEntity;
+        private TextView listTextView;
+        private WindowPop windowPop;
+        public ListOnclick(TreeEntity treeEntity,TextView listTextView,WindowPop windowPop){
+            this.treeEntity=treeEntity;
+            this.listTextView=listTextView;
+            this.windowPop=windowPop;
+        }
+        @Override
+        public void onClick(View v) {
+            formDataEntity.setThisData(treeEntity.getName());
+            formDataEntity.setThisData_(treeEntity.getId());
+            listTextView.setText(formDataEntity.getThisData());
+            windowPop.hide();
+        }
     }
 
 }

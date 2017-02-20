@@ -46,19 +46,19 @@ public class CheckTexts extends ViewParent {
             List<TreeEntity> list= (List<TreeEntity>) scope.key(getData()).val();
             for (int i = 0; i < list.size(); i++) {
                 final TreeEntity treeEntity=list.get(i);
-                Button button=new Button(scope.activity);
-                LayoutParams lp=CSS.LinearLayoutParams.matchAll();
+                TextView button=new TextView(scope.activity);
+                LayoutParams lp=CSS.LinearLayoutParams.wrapAll();
                 lp.setMargins(5,5,5,5);
                 button.setLayoutParams(lp);
-                button.setPadding(5,5,5,5);
-                button.setBackgroundColor(getResources().getColor(R.color.grey));
-                button.setTextSize(15);
+                button.setPadding(2,2,2,2);
+                button.setBackgroundColor(getResources().getColor(R.color.general_grey_light));
+                button.setTextSize(12);
                 button.setText(treeEntity.getName());
                 button.setOnClickListener(new OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        v.setSelected(v.isSelected());
-                        int color=getResources().getColor(R.color.grey);
+                        v.setSelected(!v.isSelected());
+                        int color=getResources().getColor(R.color.general_grey_light);
                         if(v.isSelected()){
                            resultList.add(treeEntity);
                             color=getResources().getColor(R.color.colorAccent);
@@ -71,8 +71,9 @@ public class CheckTexts extends ViewParent {
                 });
 
                 linearLayout.addView(button);
-                this.addView(linearLayout);
+
             }
+            this.addView(linearLayout);
         }
 
 }

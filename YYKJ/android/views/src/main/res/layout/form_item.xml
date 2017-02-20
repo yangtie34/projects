@@ -30,10 +30,10 @@
         android:layout_gravity="center_vertical|right|center_horizontal"
         android:id="@+id/img"
         android:background="@drawable/icon_arrow_right"
-        android:layout_width="30dp"
         android:clickable="true"
-        android:layout_height="30dp"
-        android:padding="20dp"/>
+        android:padding="20dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp" />
 </LinearLayout>
 
 

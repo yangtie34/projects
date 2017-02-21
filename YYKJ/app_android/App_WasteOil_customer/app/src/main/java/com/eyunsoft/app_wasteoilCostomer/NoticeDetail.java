@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.eyunsoft.app_wasteoilCostomer.Model.SysNotice_Model;
 import com.eyunsoft.app_wasteoilCostomer.Publics.Convert;
-import com.eyunsoft.app_wasteoil.R;
 import com.eyunsoft.app_wasteoilCostomer.bll.Notice_BLL;
 
 public class NoticeDetail extends AppCompatActivity {

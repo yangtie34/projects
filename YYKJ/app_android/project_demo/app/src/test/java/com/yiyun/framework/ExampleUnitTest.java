@@ -1,4 +1,4 @@
-package com.yiyun.framework;
+package com.eyun.framework;
 
 import org.junit.Test;
 

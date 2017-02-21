@@ -32,7 +32,6 @@ import com.eyunsoft.app_wasteoilCostomer.Publics.Convert;
 import com.eyunsoft.app_wasteoilCostomer.Publics.MsgBox;
 import com.eyunsoft.app_wasteoilCostomer.Publics.NetWork;
 import com.eyunsoft.app_wasteoilCostomer.Publics.TitleSet;
-import com.eyunsoft.app_wasteoil.R;
 import com.eyunsoft.app_wasteoilCostomer.bll.CompanyUser_BLL;
 import com.eyunsoft.app_wasteoilCostomer.bll.Notice_BLL;
 

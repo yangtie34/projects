@@ -20,7 +20,6 @@ import com.eyunsoft.app_wasteoilCostomer.Model.VehicleDispathHandover_Model;
 import com.eyunsoft.app_wasteoilCostomer.Publics.Convert;
 import com.eyunsoft.app_wasteoilCostomer.Publics.MsgBox;
 import com.eyunsoft.app_wasteoilCostomer.Publics.NetWork;
-import com.eyunsoft.app_wasteoil.R;
 import com.eyunsoft.app_wasteoilCostomer.bll.SysPublic_BLL;
 import com.eyunsoft.app_wasteoilCostomer.bll.VehDisp_BLL;
 import com.eyunsoft.app_wasteoilCostomer.bll.VehicleDispathHandover_BLL;

@@ -12,7 +12,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.eyunsoft.app_wasteoil.R;
 
 import java.util.HashMap;
 import java.util.List;

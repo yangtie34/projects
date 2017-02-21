@@ -12,7 +12,6 @@ import com.eyunsoft.app_wasteoilCostomer.Model.TransferRecState_Model;
 import com.eyunsoft.app_wasteoilCostomer.Model.TransferRec_Model;
 import com.eyunsoft.app_wasteoilCostomer.Publics.MsgBox;
 import com.eyunsoft.app_wasteoilCostomer.Publics.TitleSet;
-import com.eyunsoft.app_wasteoil.R;
 import com.eyunsoft.app_wasteoilCostomer.bll.TransRec_BLL;
 import com.eyunsoft.app_wasteoilCostomer.bll.TransferRecState_BLL;
 

@@ -22,13 +22,13 @@ import com.eyunsoft.app_wasteoilCostomer.Publics.Convert;
 import com.eyunsoft.app_wasteoilCostomer.Publics.MsgBox;
 import com.eyunsoft.app_wasteoilCostomer.Publics.NetWork;
 import com.eyunsoft.app_wasteoilCostomer.Publics.TitleSet;
-import com.eyunsoft.app_wasteoil.R;
 import com.eyunsoft.app_wasteoilCostomer.bll.Notice_BLL;
 import com.eyunsoft.app_wasteoilCostomer.utils.CircleLayOut.CircleMenuLayout;
 import com.eyunsoft.app_wasteoilCostomer.utils.PollingMsg.PollingService;
 import com.eyunsoft.app_wasteoilCostomer.utils.PollingMsg.PollingUtils;
 
 import static android.app.PendingIntent.FLAG_UPDATE_CURRENT;
+import static android.content.Context.NOTIFICATION_SERVICE;
 
 public class CircleActivity extends AppCompatActivity {
 
@@ -52,7 +52,7 @@ public class CircleActivity extends AppCompatActivity {
 
     private CircleMenuLayout mCircleMenuLayout;
 
-    private String[] mItemTexts = new String[]{"生产单", "转运联单",// "联单发布","调度配送",
+    private String[] mItemTexts = new String[]{"危企生产单", "转运联单",// "联单发布","调度配送",
             "通知管理", "系统设置"};
     private int[] mItemImgs = new int[]{R.drawable.prod,
            R.drawable.report,
@@ -127,30 +127,30 @@ public class CircleActivity extends AppCompatActivity {
                         Intent myIntentProdReport = new Intent(CircleActivity.this, ProdRecReport.class);
                         startActivity(myIntentProdReport);
                         break;
-                    case 2:
+           /*         case 2:
                         Intent myIntentTransferRecstate = new Intent(CircleActivity.this, TransferRecstate.class);
                         startActivity(myIntentTransferRecstate);
                         break;
                     case 3:
                         Intent myIntentVehDisp = new Intent(CircleActivity.this, VehDisp.class);
                         startActivity(myIntentVehDisp);
-                        break;
-                    case 4:
+                        break;*/
+                    case 2:
                         Intent myIntentNoticeList = new Intent(CircleActivity.this, NoticeList.class);
                         startActivity(myIntentNoticeList);
                         break;
-                    case 5:
-                        Intent myIntentSet = new Intent(CircleActivity.this, NoticeList.class);
-                        startActivity(myIntentSet);
+                    case 3:
+//                        Intent myIntentSet = new Intent(CircleActivity.this, NoticeList.class);
+//                        startActivity(myIntentSet);
                         break;
                 }
             }
 
             @Override
             public void itemCenterClick(View view) {
-                Toast.makeText(CircleActivity.this,
+                /*Toast.makeText(CircleActivity.this,
                         "you can do something just like ccb  ",
-                        Toast.LENGTH_SHORT).show();
+                        Toast.LENGTH_SHORT).show();*/
 
             }
         });

@@ -16,7 +16,6 @@ import com.eyunsoft.app_wasteoilCostomer.Model.VehicleDispathState_Model;
 import com.eyunsoft.app_wasteoilCostomer.Publics.MsgBox;
 import com.eyunsoft.app_wasteoilCostomer.Publics.NetWork;
 import com.eyunsoft.app_wasteoilCostomer.Publics.TitleSet;
-import com.eyunsoft.app_wasteoil.R;
 import com.eyunsoft.app_wasteoilCostomer.bll.VehDisp_BLL;
 
 import java.util.HashMap;

@@ -12,9 +12,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.eyunsoft.app_wasteoil.R;
-
-import static java.security.AccessController.getContext;
+import com.eyunsoft.app_wasteoilCostomer.R;
 
 /**
  * Created by Administrator on 2017/1/15.

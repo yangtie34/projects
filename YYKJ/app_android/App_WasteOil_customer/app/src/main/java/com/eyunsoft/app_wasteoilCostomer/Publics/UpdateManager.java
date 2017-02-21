@@ -15,7 +15,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 
 
-import com.eyunsoft.app_wasteoil.R;
+import com.eyunsoft.app_wasteoilCostomer.R;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;

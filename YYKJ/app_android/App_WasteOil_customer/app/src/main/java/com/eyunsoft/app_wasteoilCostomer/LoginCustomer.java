@@ -22,7 +22,6 @@ import com.eyunsoft.app_wasteoilCostomer.Publics.NetWork;
 import com.eyunsoft.app_wasteoilCostomer.Publics.TitleSet;
 import com.eyunsoft.app_wasteoilCostomer.Publics.UpdateManager;
 import com.eyunsoft.app_wasteoilCostomer.Publics.Version;
-import com.eyunsoft.app_wasteoil.R;
 import com.eyunsoft.app_wasteoilCostomer.bll.CompanyUser_BLL;
 
 import org.json.JSONArray;

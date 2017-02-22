@@ -14,7 +14,7 @@ import com.eyun.project_demo.R;
  * Created by Administrator on 2016/10/26.
  */
 
-public class ViewParent extends LinearLayout {
+public class ViewParent extends LinearLayout implements Cloneable {
 
     protected Scope scope;
 
@@ -247,5 +247,9 @@ public class ViewParent extends LinearLayout {
     }
     private void hide(){
         this.setVisibility(View.GONE);
+    }
+
+    public Object clone() throws CloneNotSupportedException {
+        return (Object) super.clone();
     }
 }

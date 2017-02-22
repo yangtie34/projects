@@ -12,6 +12,7 @@
         <attr name="ng_return" format="string"/>
         <attr name="ng_show" format="string"/>
 
+        <attr name="ng_repeat" format="string"/>
         <attr name="ng_model" format="string"/>
     </declare-styleable>
 </resources>

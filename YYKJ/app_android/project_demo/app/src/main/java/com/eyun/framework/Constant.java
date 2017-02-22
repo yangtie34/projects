@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
  */
 
 public final class Constant {
+
     public final static LinearLayout.LayoutParams layoutParamsMATCH =new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
     public final static LinearLayout.LayoutParams layoutParamsWRAP =new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 

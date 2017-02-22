@@ -34,6 +34,9 @@ public class AppContext extends Application {
      */
 
     public static AppContext getInstance() {
+        if(instance==null){
+            instance=new AppContext();
+        }
         return instance;
     }
 

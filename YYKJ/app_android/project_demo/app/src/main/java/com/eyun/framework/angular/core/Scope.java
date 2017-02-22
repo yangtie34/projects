@@ -1,10 +1,15 @@
 package com.eyun.framework.angular.core;
 
 import android.app.Application;
+import android.content.res.Resources;
+import android.content.res.XmlResourceParser;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.LinearLayout;
 
 
 import com.eyun.framework.angular.util.ScopeTool;
+import com.eyun.project_demo.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,6 +22,7 @@ import java.util.Map;
 
 public class Scope {
     public static AngularActivity activity;
+    public static Scope inflateScope;
     private static int staticId = 0;
     public int id;
     public Scope parent;
@@ -98,10 +104,13 @@ public class Scope {
 
     public void watch(DataListener listener){
         dataListeners.clear();
-        dataListeners.add(listener);
+        addWatch(listener);
     }
     public void addWatch(DataListener listener){
         dataListeners.add(listener);
+        if(value!=null){
+            listener.hasChange(value);
+        }
     }
 
     /**
@@ -155,9 +164,19 @@ public class Scope {
         String[] keys=key.split("\\.");
         return keys;
     }
+
+    public View inflate(int loyout) {
+        inflateScope=this;
+        View view = (LinearLayout) LayoutInflater.from(activity).inflate(loyout, null);
+        return view;
+    }
     public static int getId(){
         staticId++;
         return staticId;
+    }
+    public  void clear(){
+        this.dataListeners.clear();
+        this.scopes.clear();
     }
 }
 

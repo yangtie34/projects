@@ -3,6 +3,7 @@ package com.eyun.framework.angular.core;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.LayoutRes;
 
 import com.eyun.framework.util.ActivityUtil;
 import com.eyun.framework.angular.baseview.WindowPop;
@@ -20,7 +21,7 @@ public class AngularActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        scope = Scope.init(AppContext.getScope(), this);
+        scope = Scope.init(AppContext.getInstance().getScope(), this);
         AppContext.addActivity(this);
     }
 
@@ -58,5 +59,9 @@ public class AngularActivity extends Activity {
         activity=this;
         AppContext.getInstance().newIntentLast(activity);
          }
-
+    @Override
+    public void setContentView(@LayoutRes int layoutResID) {
+        scope.inflateScope=scope;
+       super.setContentView(layoutResID);
+    }
 }

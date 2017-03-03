@@ -305,17 +305,17 @@ public class VehdispInfo extends AppCompatActivity implements View.OnClickListen
                 public void onClick(DialogInterface dialog, int which) {
 
                     VehicleDispathForwardedState_Model moForwardedState = new VehicleDispathForwardedState_Model();
-                    moForwardedState.setProcessUpperComBrID(((App) getApplication()).getSysComBrID());
-                    moForwardedState.setProcessLowerComBrID(((App) getApplication()).getSysComBrID());
-                    moForwardedState.setCreateUserID(((App) getApplication()).getCompanyUserID());
-                    moForwardedState.setCreateComBrID(((App) getApplication()).getSysComBrID());
-                    moForwardedState.setCreateComID(((App) getApplication()).getSysComID());
+                    moForwardedState.setProcessUpperComBrID(App.getInstance().getSysComBrID());
+                    moForwardedState.setProcessLowerComBrID(App.getInstance().getSysComBrID());
+                    moForwardedState.setCreateUserID(App.getInstance().getCompanyUserID());
+                    moForwardedState.setCreateComBrID(App.getInstance().getSysComBrID());
+                    moForwardedState.setCreateComID(App.getInstance().getSysComID());
                     moForwardedState.setCreateIp("");
 
                     VehicleDispathState_Model moState = new VehicleDispathState_Model();
-                    moState.setCreateUserID(((App) getApplication()).getCompanyUserID());
-                    moState.setCreateComBrID(((App) getApplication()).getSysComBrID());
-                    moState.setCreateComID(((App) getApplication()).getSysComID());
+                    moState.setCreateUserID(App.getInstance().getCompanyUserID());
+                    moState.setCreateComBrID(App.getInstance().getSysComBrID());
+                    moState.setCreateComID(App.getInstance().getSysComID());
                     moState.setCreateIp("");
 
                     String mess = "无任何操作";
@@ -424,18 +424,18 @@ public class VehdispInfo extends AppCompatActivity implements View.OnClickListen
         {
             VehicleDispathForwardedState_Model moForwardedState = new VehicleDispathForwardedState_Model();
             moForwardedState.setProcessUpperComBrID(backComBrID);
-            moForwardedState.setProcessLowerComBrID(((App) getApplication()).getSysComBrID());
+            moForwardedState.setProcessLowerComBrID(App.getInstance().getSysComBrID());
             moForwardedState.setProcessLowerComCusID(0);
             moForwardedState.setProcessUpperComCusID(0);
-            moForwardedState.setCreateUserID(((App) getApplication()).getCompanyUserID());
-            moForwardedState.setCreateComBrID(((App) getApplication()).getSysComBrID());
-            moForwardedState.setCreateComID(((App) getApplication()).getSysComID());
+            moForwardedState.setCreateUserID(App.getInstance().getCompanyUserID());
+            moForwardedState.setCreateComBrID(App.getInstance().getSysComBrID());
+            moForwardedState.setCreateComID(App.getInstance().getSysComID());
             moForwardedState.setCreateIp("");
 
             VehicleDispathState_Model moState = new VehicleDispathState_Model();
-            moState.setCreateUserID(((App) getApplication()).getCompanyUserID());
-            moState.setCreateComBrID(((App) getApplication()).getSysComBrID());
-            moState.setCreateComID(((App) getApplication()).getSysComID());
+            moState.setCreateUserID(App.getInstance().getCompanyUserID());
+            moState.setCreateComBrID(App.getInstance().getSysComBrID());
+            moState.setCreateComID(App.getInstance().getSysComID());
             moState.setCreateIp("");
 
             String mess = "无任何操作";

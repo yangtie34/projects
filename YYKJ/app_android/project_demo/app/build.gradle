@@ -25,7 +25,9 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile files('libs/ksoap2-android-assembly-2.5.4-jar-with-dependencies.jar')
+    compile files('libs/jtds-1.2.jar')//连接sqlserver
     compile 'com.android.support:appcompat-v7:24.2.0'
+    compile 'com.android.support:design:24.2.0'
     compile 'com.alibaba:fastjson:1.2.10'
     testCompile 'junit:junit:4.12'
 }

@@ -191,7 +191,7 @@ public class VehDisp extends AppCompatActivity {
     }
     public void InitForm()
     {
-        long comId=((App)getApplication()).getSysComID();
+        long comId=App.getInstance().getSysComID();
 
         NameToValue nameAll=new NameToValue();
         nameAll.InfoValue="";
@@ -294,16 +294,16 @@ public class VehDisp extends AppCompatActivity {
                 try {
                     JSONObject jsonObject = new JSONObject();
                     jsonObject.put("err","0");
-                    jsonObject.put("VehDispComID", Convert.ToString(((App)getApplication()).getSysComID()));
+                    jsonObject.put("VehDispComID", Convert.ToString(App.getInstance().getSysComID()));
                     jsonObject.put("VehDispTimeStart", editStart.getText().toString());
                     jsonObject.put("VehDispTimeEnd", editEnd.getText().toString());
 
                     jsonObject.put("VehDispState", ((NameToValue)dropVehState.getSelectedItem()).InfoValue);
 
-                    if(((App)getApplication()).getIsVehicleDriver()) {
-                        jsonObject.put("VehDrNumber",  Convert.ToString(((App)getApplication()).getVehDriverNumber()));
+                    if(App.getInstance().getIsVehicleDriver()) {
+                        jsonObject.put("VehDrNumber",  Convert.ToString(App.getInstance().getVehDriverNumber()));
                     }
-                    jsonObject.put("CreateComBrID", Convert.ToString(((App)getApplication()).getSysComBrID()));
+                    jsonObject.put("CreateComBrID", Convert.ToString(App.getInstance().getSysComBrID()));
 
                     JSONObject jsonHeader = new JSONObject();
                     jsonHeader.put("Condition", jsonObject);

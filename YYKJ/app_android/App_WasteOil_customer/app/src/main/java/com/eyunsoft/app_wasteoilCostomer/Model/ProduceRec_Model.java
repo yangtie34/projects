@@ -5,10 +5,11 @@ import com.eyunsoft.app_wasteoilCostomer.Publics.Convert;
 import org.ksoap2.serialization.KvmSerializable;
 import org.ksoap2.serialization.PropertyInfo;
 
+import java.io.Serializable;
 import java.util.Hashtable;
 
 
-public class ProduceRec_Model  implements KvmSerializable {
+public class ProduceRec_Model  implements KvmSerializable , Serializable {
 	public ProduceRec_Model()
 	{
 	}

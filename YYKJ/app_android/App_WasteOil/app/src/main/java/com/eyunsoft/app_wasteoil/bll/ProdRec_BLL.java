@@ -4,6 +4,7 @@ import com.eyunsoft.app_wasteoil.Model.ProduceRec_Model;
 import com.eyunsoft.app_wasteoil.Publics.Convert;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.SoapObject;
@@ -16,6 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -106,7 +108,7 @@ public class ProdRec_BLL {
 
         SoapObject soapObject = new SoapObject(NAMESPACE, methodName);
         soapObject.addProperty("mo",model);
-        soapObject.addProperty("recNumber","");
+      //  soapObject.addProperty("recNumber","");
 
         //SoapHeader验证
         Element[] header = new Element[1];
@@ -150,6 +152,7 @@ public class ProdRec_BLL {
 
         } catch (Exception ex) {
             ex.printStackTrace();
+            return "未知错误";
         }
 
         return resatult;
@@ -199,7 +202,7 @@ public class ProdRec_BLL {
             resatult = object.toString();
             if(resatult.equals("anyType{}"))
             {
-                resatult="";
+                resatult="修改成功";
             }
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -322,67 +325,7 @@ public class ProdRec_BLL {
                 JSONArray jsonArray = new JSONObject(jsonStr).getJSONArray("table1");
                 for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject jsonObject = (JSONObject) jsonArray.get(i);
-                    HashMap<String, Object> hashMap = new HashMap<String, Object>();
-
-                    if (jsonObject.has("RecNumber")) {
-                        hashMap.put("RecNumber", jsonObject.get("RecNumber"));
-                    } else {
-                        continue;
-
-                    }
-                    if (jsonObject.has("RecTime")) {
-                        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-                        String t=format.format(Convert.ToDate(jsonObject.get("RecTime").toString()));
-                        hashMap.put("RecTime",t);
-                    } else {
-                        hashMap.put("RecTime", "");
-                    }
-
-                    if (jsonObject.has("ProCategoryName")) {
-
-                        hashMap.put("ProCategoryName", jsonObject.get("ProCategoryName"));
-                    } else {
-                        continue;
-                    }
-
-                    if (jsonObject.has("ProShapeName")) {
-                        hashMap.put("ProShapeName", jsonObject.get("ProShapeName"));
-                    } else {
-                        hashMap.put("ProShapeName", "--");
-                    }
-
-
-                    if (jsonObject.has("ProNumber")) {
-                        hashMap.put("ProNumber", jsonObject.get("ProNumber").toString()+jsonObject.get("ProMeasureUnitName").toString());
-                    } else {
-                        hashMap.put("ProNumber", "--");
-                    }
-
-                    if (jsonObject.has("Remark")) {
-                        hashMap.put("Remark", jsonObject.get("Remark"));
-                    } else {
-                        hashMap.put("Remark", "");
-                    }
-
-                    if (jsonObject.has("CreateComBrName")) {
-                        hashMap.put("CreateComBrName", jsonObject.get("CreateComBrName"));
-                    } else {
-                        hashMap.put("CreateComBrName", "");
-                    }
-
-                    if (jsonObject.has("CreateUserFullname")) {
-                        hashMap.put("CreateUserFullname", jsonObject.get("CreateUserFullname"));
-                    } else {
-                        hashMap.put("CreateUserFullname", "");
-                    }
-
-                    if (jsonObject.has("ProHazardNature")) {
-                        hashMap.put("ProHazardNature", jsonObject.get("ProHazardNature"));
-                    } else {
-                        hashMap.put("ProHazardNature", "");
-                    }
-
-                    list.add(hashMap);
+                    list.add(toHashMap(jsonObject));
                 }
             }
 
@@ -392,5 +335,24 @@ public class ProdRec_BLL {
         }
 
         return list;
+    }
+    public static HashMap<String, Object> toHashMap(JSONObject jsonObject)
+    {
+        HashMap<String, Object> data = new HashMap<String, Object>();
+        // 将json字符串转换成jsonObject
+        Iterator it = jsonObject.keys();
+        // 遍历jsonObject数据，添加到Map对象
+        while (it.hasNext())
+        {
+            String key = String.valueOf(it.next());
+            Object value = null;
+            try {
+                value =  jsonObject.get(key);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            data.put(key, value);
+        }
+        return data;
     }
 }

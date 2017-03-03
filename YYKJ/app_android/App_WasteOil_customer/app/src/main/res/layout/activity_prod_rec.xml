@@ -76,7 +76,8 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:paddingTop="10dp"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp">
 
         <TextView
             android:text="生产日期"
@@ -121,7 +122,31 @@
 
 
         <TextView
-            android:text="危废种类"
+            android:text="危废大类"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:visibility="invisible" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/drop_Category_dl" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:text="危废子类"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView7"/>
@@ -136,7 +161,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:id="@+id/drop_Category" />
+            android:id="@+id/drop_Category_zl" />
     </LinearLayout>
 
     <LinearLayout

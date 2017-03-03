@@ -9,6 +9,7 @@ package com.eyun.framework;
 *
  */
 public final class Globals {
+
 	/**保存用户到SESSION */
 
 	

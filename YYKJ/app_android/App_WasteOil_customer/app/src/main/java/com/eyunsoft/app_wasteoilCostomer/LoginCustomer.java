@@ -200,4 +200,9 @@ public class LoginCustomer extends AppCompatActivity {
         }
         return super.onKeyDown(keyCode, event);
     }
+
+    public void reg(View view) {
+        Intent intent=new Intent(this,Register1.class);
+        startActivity(intent);
+    }
 }

@@ -116,21 +116,33 @@
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_marginTop="20dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content">
 
             <Button
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:text="登         录"
                 android:id="@+id/btnLogin"
                 android:textColor="@color/white"
                 android:layout_weight="1"
                 android:background="@drawable/shape"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="注         册"
+                android:id="@+id/btnReg"
+                android:onClick="reg"
+                android:textColor="@color/white"
+                android:layout_weight="1"
+                android:background="@drawable/shape_reg"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp"/>
         </LinearLayout>
 
         <LinearLayout

@@ -12,6 +12,9 @@ import org.kxml2.kdom.Element;
 import org.kxml2.kdom.Node;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2016/12/26.
@@ -631,5 +634,61 @@ public class SysPublic_BLL {
         }
 
         return list;
+    }
+
+    public static Map<String,List<NameToValue>> formatCategory(ArrayList<NameToValue> listCategory){
+        Map<String,List<NameToValue>> MapCategory=new HashMap<>();
+        List<NameToValue> dl=new ArrayList<>();
+        for (int i = 0; i <listCategory.size() ; i++) {
+            NameToValue Category=listCategory.get(i);
+            if(Integer.parseInt(Category.InfoValue)<100){
+                dl.add(Category) ;
+
+                List<NameToValue> zl=new ArrayList<>();
+                for (int j = 0; j <listCategory.size() ; j++) {
+                    NameToValue Categoryzl=listCategory.get(j);
+                    if(Categoryzl!=Category&&Categoryzl.InfoValue.startsWith(Category.InfoValue)){
+                        zl.add(Categoryzl) ;
+                    }
+                }
+                MapCategory.put(Category.InfoValue,zl);
+            }
+        }
+        MapCategory.put("0",dl);
+
+        return MapCategory;
+    }
+    public static Map<String,List<NameToValue>> formatSelectCategory(ArrayList<NameToValue> listCategory){
+        Map<String,List<NameToValue>> MapCategory=new HashMap<>();
+        List<NameToValue> dl=new ArrayList<>();
+        NameToValue nameAll=new NameToValue();
+        nameAll.InfoValue="all";
+        nameAll.InfoName="==所有==";
+        dl.add(nameAll);
+        NameToValue nameAll1=new NameToValue();
+        nameAll1.InfoValue="";
+        nameAll1.InfoName="==所有==";
+        List<NameToValue> all=new ArrayList<>();
+        all.add(nameAll1);
+        MapCategory.put("all",all);
+        for (int i = 0; i <listCategory.size() ; i++) {
+            NameToValue Category=listCategory.get(i);
+            if(Integer.parseInt(Category.InfoValue)<100){
+                dl.add(Category) ;
+
+                List<NameToValue> zl=new ArrayList<>();
+                zl.add(Category);
+                for (int j = 0; j <listCategory.size() ; j++) {
+                    NameToValue Categoryzl=listCategory.get(j);
+                    if(Categoryzl!=Category&&Categoryzl.InfoValue.startsWith(Category.InfoValue)){
+                        zl.add(Categoryzl) ;
+                    }
+                }
+                MapCategory.put(Category.InfoValue,zl);
+            }
+        }
+        MapCategory.put("0",dl);
+
+        return MapCategory;
     }
 }

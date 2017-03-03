@@ -182,9 +182,9 @@ public class TransferRecstate extends AppCompatActivity {
                 }
 
                 TransferRecState_Model model=new TransferRecState_Model();
-                model.setCreateComBrID(((App)getApplication()).getSysComBrID());
-                model.setCreateComID(((App)getApplication()).getSysComID());
-                model.setCreateUserID(((App)getApplication()).getCompanyUserID());
+                model.setCreateComBrID(App.getInstance().getSysComBrID());
+                model.setCreateComID(App.getInstance().getSysComID());
+                model.setCreateUserID(App.getInstance().getCompanyUserID());
                 model.setRecNumber("");
 
 
@@ -226,7 +226,7 @@ public class TransferRecstate extends AppCompatActivity {
         try {
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("err","0");
-            jsonObject.put("RecComID", Convert.ToString(((App)getApplication()).getSysComID()));
+            jsonObject.put("RecComID", Convert.ToString(App.getInstance().getSysComID()));
             jsonObject.put("RecTimeStart", editStart.getText().toString());
             jsonObject.put("RecTimeEnd", editEnd.getText().toString());
 
@@ -242,7 +242,7 @@ public class TransferRecstate extends AppCompatActivity {
                 btnAccept.setBackground(ContextCompat.getDrawable(this,R.drawable.shape));
                 jsonObject.put("IsAccept",0);
             }
-            jsonObject.put("ComBrID", Convert.ToString(((App)getApplication()).getSysComBrID()));
+            jsonObject.put("ComBrID", Convert.ToString(App.getInstance().getSysComBrID()));
 
             JSONObject jsonHeader = new JSONObject();
             jsonHeader.put("Condition", jsonObject);

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.eyunsoft.app_wasteoil"
-    android:versionCode="170121"
-    android:versionName="1.0.170121">
+    android:versionCode="170302"
+    android:versionName="1.0.170302">
 
     <!-- 在SDCard中创建与删除文件权限 -->
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
@@ -59,7 +59,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity" />
-        <activity android:name=".Login"    android:icon="@mipmap/ic_launcher">
+        <activity android:name=".Login"    android:icon="@mipmap/ic_launcher" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -68,11 +68,11 @@
         <activity android:name=".ProdRec" />
         <activity android:name=".ProdRecReport" />
         <activity android:name=".ProdRecAdd" />
-        <activity android:name=".ProdRecReportAdd" />
+        <activity android:name=".ProdRecReportAdd" android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".VehDisp" />
         <activity android:name=".TransferRecstate" />
         <activity android:name=".VehdispDetail" />
-        <activity android:name=".VehdispHandover_Add" />
+        <activity android:name=".VehdispHandover_Add" android:windowSoftInputMode="adjustResize"/>
 
         <service android:name=".utils.PollingMsg.PollingService" />
 
@@ -81,6 +81,10 @@
         <activity android:name=".TransferrecInfo" />
         <activity android:name=".VehdispInfo" />
         <activity android:name=".CircleActivity"></activity>
+        <activity android:name=".CircleActivityCus" />
+        <activity android:name=".Register1" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".Register2" android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".Register3" android:windowSoftInputMode="adjustResize"/>
     </application>
 
 </manifest>

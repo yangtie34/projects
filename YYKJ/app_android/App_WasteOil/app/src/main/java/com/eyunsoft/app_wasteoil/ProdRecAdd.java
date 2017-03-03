@@ -1,8 +1,8 @@
 package com.eyunsoft.app_wasteoil;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
@@ -10,10 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import com.eyunsoft.app_wasteoil.Model.NameToValue;
 import com.eyunsoft.app_wasteoil.Model.ProduceRec_Model;
@@ -24,12 +21,12 @@ import com.eyunsoft.app_wasteoil.bll.Category_BLL;
 import com.eyunsoft.app_wasteoil.bll.ProdRec_BLL;
 import com.eyunsoft.app_wasteoil.bll.SysPublic_BLL;
 import com.eyunsoft.app_wasteoil.utils.CustomCheckBox.CustomCheckBox;
+import com.eyunsoft.app_wasteoil.utils.DateUtils;
+import com.eyunsoft.app_wasteoil.utils.FormCatchUtil;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ProdRecAdd extends AppCompatActivity {
 
@@ -45,18 +42,25 @@ public class ProdRecAdd extends AppCompatActivity {
     private EditText editRemark;
 
     private EditText editUseProName;
+    private Spinner spinnerUseProName;
     private EditText editUseProNumber;
     private EditText editUseProSpec;
     private EditText editUseProMode;
 
-    private Spinner dropCategory;
+    public Map<String,List<NameToValue>> MapCategory;
+    private Spinner dropCategorydl;
+    private Spinner dropCategoryzl;
+    private String  dropCategorydlid;
+
+    //private Spinner dropCategory;
     private Spinner dropProShape;
     private Spinner dropProMeasureUnit;
     private Spinner dropUseProMeasureUnit;
     private Spinner dropProPack;
 
 
-
+    private EditText editProName;
+    private Spinner spinnerProName;
     public ArrayList<NameToValue> listCategory;
     public ArrayList<NameToValue> listProShape;
     public ArrayList<NameToValue> listProMeasureUnit;
@@ -73,19 +77,23 @@ public class ProdRecAdd extends AppCompatActivity {
         setContentView(R.layout.activity_prod_rec_add);
 
         editRecNo = (EditText) findViewById(R.id.edit_RecNo);
+
         editProNumber = (EditText) findViewById(R.id.edit_ProNumber);
 
         editProDangerComponent = (EditText) findViewById(R.id.edit_ProDangerComponent);
         editRemark = (EditText) findViewById(R.id.edit_Remark);
 
-        dropCategory = (Spinner) findViewById(R.id.drop_Category);
+        dropCategorydl = (Spinner) findViewById(R.id.drop_Categorydl);
+        dropCategoryzl = (Spinner) findViewById(R.id.drop_Categoryzl);
+        spinnerUseProName=(Spinner) findViewById(R.id.spinnerUseProName);
+        spinnerProName=(Spinner) findViewById(R.id.spinnerProName);
         dropProMeasureUnit = (Spinner) findViewById(R.id.drop_ProMeasureUnit);
         dropProShape = (Spinner) findViewById(R.id.drop_ProShape);
         dropProPack = (Spinner) findViewById(R.id.dropProPack);
         dropUseProMeasureUnit=(Spinner)findViewById(R.id.dropUseProMeasureUnit);
-
+        editProName=(EditText)findViewById(R.id.editProName);
         editUseProMode=(EditText)findViewById(R.id.editProModel);
-        editUseProName=(EditText)findViewById(R.id.editProName);
+        editUseProName=(EditText)findViewById(R.id.editUseProName);
         editUseProNumber=(EditText)findViewById(R.id.editProNumber);
         editUseProSpec=(EditText)findViewById(R.id.editProSpec);
 
@@ -117,13 +125,18 @@ public class ProdRecAdd extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                long comId = ((App) getApplication()).getSysComID();
-                long userId = ((App) getApplication()).getCompanyUserID();
-                long comBrId = ((App) getApplication()).getSysComBrID();
+                long comId = App.getInstance().getSysComID();
+                long userId = App.getInstance().getCompanyUserID();
+                long comBrId = App.getInstance().getSysComBrID();
 
                 ProduceRec_Model mo = new ProduceRec_Model();
                 mo.setRecNumber(editRecNo.getText().toString());
-                mo.setCreateUserID(userId);
+                if(App.getInstance().userType==0){
+                    mo.setCreateUserID(userId);
+                }else{
+                    mo.setCreateComCusID(userId);
+                }
+
                 mo.setCreateComBrID(comBrId);
                 mo.setCreateComID(comId);
                 mo.setCreateIp("");
@@ -132,12 +145,11 @@ public class ProdRecAdd extends AppCompatActivity {
                 mo.setUseProModel(editUseProMode.getText().toString());
                 mo.setUseProName(editUseProName.getText().toString());
                 mo.setUseProNumber(editUseProNumber.getText().toString());
+                mo.setProName(editProName.getText().toString());
 
-
-                NameToValue mapProCategory = (NameToValue) dropCategory.getSelectedItem();
+                NameToValue mapProCategory = (NameToValue) dropCategoryzl.getSelectedItem();
                 mo.setProCategory(Convert.ToInt64(mapProCategory.InfoValue.toString()));
                 mo.setProCategoryName(mapProCategory.InfoName.toString().trim().replace(">>", ""));
-
                 mo.setProDangerComponent(editProDangerComponent.getText().toString().trim());
 
 
@@ -175,18 +187,61 @@ public class ProdRecAdd extends AppCompatActivity {
 
                 String mess = "";
                 String successStr = "添加成功";
+                mo.setCreateTime(DateUtils.getNowDate());
+                mo.setRecTime(DateUtils.getNowDate());
                 if (TextUtils.isEmpty(editRecNo.getText())) {
+
                     mess = ProdRec_BLL.ProdRec_Add(mo);
+                    FormCatchUtil.setObjectToShare(ProdRecAdd.this,mo,mo.getProCategory()+"");
+                   if(!TextUtils.isEmpty(mo.getUseProName())){
+                       ArrayList<NameToValue> spinnerUseProNamecatch= (ArrayList<NameToValue>) FormCatchUtil.getObjectFromShare(ProdRecAdd.this,"spinnerUseProName");
+                       if(spinnerUseProNamecatch==null){
+                           spinnerUseProNamecatch=new ArrayList<NameToValue>();
+                       }
+                       boolean bool=true;
+                       for (int i = 0; i <spinnerUseProNamecatch.size() ; i++) {
+                           if(spinnerUseProNamecatch.get(i).InfoName.equalsIgnoreCase(mo.getUseProName())){
+                               bool=false;break;
+                           };
+                       }
+
+                       if(bool) {
+                           spinnerUseProNamecatch.add(new NameToValue(mo.getUseProName(), mo.getUseProName()));
+                           FormCatchUtil.setObjectToShare(ProdRecAdd.this, spinnerUseProNamecatch, "spinnerUseProName");
+                       }
+                   }
+                    if(!TextUtils.isEmpty(mo.getProName())){
+                    ArrayList<NameToValue> spinnerProNamecatch= (ArrayList<NameToValue>) FormCatchUtil.getObjectFromShare(ProdRecAdd.this,"spinnerProName");
+                    if(spinnerProNamecatch==null){
+                        spinnerProNamecatch=new ArrayList<NameToValue>();
+                    }
+                        boolean bool=true;
+                        for (int i = 0; i <spinnerProNamecatch.size() ; i++) {
+                            if(spinnerProNamecatch.get(i).InfoName.equalsIgnoreCase(mo.getProName())){
+                                bool=false;break;
+                            };
+                        }
+
+                        if(bool){
+                            spinnerProNamecatch.add(new NameToValue(mo.getProName(),mo.getProName()));
+                            FormCatchUtil.setObjectToShare(ProdRecAdd.this,spinnerProNamecatch,"spinnerProName");
+                        }
+                    }
                 } else {
-                    successStr = "修改成功";
+                    successStr = "修改成";
                     mess = ProdRec_BLL.ProdRec_Update(mo);
+
                 }
 
                 if (TextUtils.isEmpty(mess)) {
                     MsgBox.Show(ProdRecAdd.this, successStr);
+
                     InitForm();
                 } else {
                     MsgBox.Show(ProdRecAdd.this, mess);
+                    if(mess.equalsIgnoreCase("修改成功")){
+                        ProdRecAdd.this.onBackPressed();
+                    }
                 }
 
 
@@ -201,7 +256,9 @@ public class ProdRecAdd extends AppCompatActivity {
      */
     public void InitForm() {
         TitleSet.SetTitle(this,11);
-        long comId = ((App) getApplication()).getSysComID();
+        Intent intent = getIntent();
+        final String recNo = intent.getStringExtra("RecNo");
+        long comId = App.getInstance().getSysComID();
         listProHazardNature = SysPublic_BLL.GetProduct_HazardNature();
         if (isFirstLoad) {
 
@@ -220,7 +277,38 @@ public class ProdRecAdd extends AppCompatActivity {
         } else {
             customCheckBox.UnCheck();
         }
+        ArrayList<NameToValue> arrayListUseProName=(ArrayList<NameToValue>) FormCatchUtil.getObjectFromShare(ProdRecAdd.this,"spinnerUseProName");
+        if(arrayListUseProName!=null){
+        final ArrayAdapter<NameToValue> arrayAdapterSpinnerUseProName = new ArrayAdapter<NameToValue>(this, android.R.layout.simple_spinner_item,arrayListUseProName);
+            spinnerUseProName.setAdapter(arrayAdapterSpinnerUseProName);
+            spinnerUseProName.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    editUseProName.setText(arrayAdapterSpinnerUseProName.getItem(position).InfoName);
+                }
 
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
+                }
+            });
+        }
+        ArrayList<NameToValue> arrayListProName=(ArrayList<NameToValue>) FormCatchUtil.getObjectFromShare(ProdRecAdd.this,"spinnerProName");
+        if(arrayListProName!=null){
+            final ArrayAdapter<NameToValue> arrayAdapterSpinnerProName = new ArrayAdapter<NameToValue>(this, android.R.layout.simple_spinner_item,arrayListProName);
+            spinnerProName.setAdapter(arrayAdapterSpinnerProName);
+            spinnerProName.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    editProName.setText(arrayAdapterSpinnerProName.getItem(position).InfoName);
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
+                }
+            });
+        }
         //计量单位
         listProMeasureUnit = SysPublic_BLL.GetProduct_MeasureUnit();
         ArrayAdapter<NameToValue> arrayAdapterUnit = new ArrayAdapter<NameToValue>(this, android.R.layout.simple_spinner_item, listProMeasureUnit);
@@ -242,18 +330,34 @@ public class ProdRecAdd extends AppCompatActivity {
 
         //危废种类
         listCategory = Category_BLL.GetProductCategory(comId);
-        ArrayAdapter<NameToValue> arrayAdapterCategory = new ArrayAdapter<NameToValue>(this, android.R.layout.simple_spinner_item, listCategory);
-        dropCategory.setAdapter(arrayAdapterCategory);
-        dropCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        MapCategory=SysPublic_BLL.formatCategory(listCategory);
+        final ArrayAdapter<NameToValue> arrayAdapterCategory=new ArrayAdapter<NameToValue>(this,android.R.layout.simple_spinner_item,MapCategory.get("0"));
+
+        dropCategorydl.setAdapter(arrayAdapterCategory);
+        dropCategorydl.setOnItemSelectedListener(new Spinner.OnItemSelectedListener() {//选择item的选择点击监听事件
+            public void onItemSelected(AdapterView<?> arg0, View arg1,
+                                       int arg2, long arg3) {
+                ;//文本说明
+                dropCategorydlid=arrayAdapterCategory.getItem(arg2).InfoValue;
+                ArrayAdapter<NameToValue> arrayAdapterCategoryzl=new ArrayAdapter<NameToValue>(ProdRecAdd.this,android.R.layout.simple_spinner_item,MapCategory.get(dropCategorydlid));
+                dropCategoryzl.setAdapter(arrayAdapterCategoryzl);
+            }
+
+            public void onNothingSelected(AdapterView<?> arg0) {
+            }
+        });
+        dropCategoryzl.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if(position>0)
-                {
-                    long code=Convert.ToInt64(listCategory.get(position).InfoValue);
+                    String zlid=MapCategory.get(dropCategorydlid).get(position).InfoValue;
+                    long code=Convert.ToInt64(zlid);
                     String natrueStr=Category_BLL.GetHazardNature(code);
                     if(!TextUtils.isEmpty(natrueStr)) {
                         customCheckBox.Check(natrueStr.split(","));
                     }
+                if(TextUtils.isEmpty(recNo))
+                if(formatForm((ProduceRec_Model) FormCatchUtil.getObjectFromShare(ProdRecAdd.this,zlid))){
+                    MsgBox.Show(ProdRecAdd.this, "已加载最后一次录入信息！请修改！");
                 }
             }
 
@@ -263,79 +367,95 @@ public class ProdRecAdd extends AppCompatActivity {
             }
         });
 
-        editRemark.setText("");
+       /* editRemark.setText("");
         editProDangerComponent.setText("");
 
-        editProNumber.setText("");
+        editProNumber.setText("");*/
         editRecNo.setText("");
 
         editRecNo.setEnabled(false);
 
-        Intent intent = getIntent();
-        String recNo = intent.getStringExtra("RecNo");
+
         System.out.println("RecNo");
-        System.out.println(recNo);
+        //System.out.println(recNo);
         if (!TextUtils.isEmpty(recNo)&&isFirstLoad) {
+
             TitleSet.SetTitle(this,12);
             System.out.println(recNo);
+            editRecNo.setText(recNo);
+
             ProduceRec_Model model = ProdRec_BLL.LoadData(recNo);
             if(model.IsExist()) {
-                editRecNo.setText(model.getRecNumber());
-                editProDangerComponent.setText(model.getProDangerComponent());
-                editProNumber.setText(model.getProNumber());
-
-                editUseProSpec.setText(model.getUseProSpec());
-                editUseProNumber.setText(model.getUseProNumber());
-                editUseProMode.setText(model.getUseProModel());
-                editUseProName.setText(model.getUseProName());
-
-                editRemark.setText(model.getRemark());
-
-
-                customCheckBox.Check(model.getProHazardNature().split(","));
-
-                for (int i = 0; i < listCategory.size(); i++) {
-                    if (listCategory.get(i).InfoValue.equals(Convert.ToString(model.getProCategory()))) {
-                        dropCategory.setSelection(i);
-                        break;
-                    }
-                }
-
-
-                for (int i = 0; i < listProPack.size(); i++) {
-                    if (listProPack.get(i).InfoName.equals(model.getProPackName())) {
-                        dropProPack.setSelection(i);
-                        break;
-                    }
-                }
-
-                for (int i = 0; i < listProMeasureUnit.size(); i++) {
-                    if (listProMeasureUnit.get(i).InfoName.equals(model.getProMeasureUnitName())) {
-                        dropProMeasureUnit.setSelection(i);
-                        break;
-                    }
-                }
-
-                ArrayAdapter<NameToValue> adaterUseUnit = (ArrayAdapter<NameToValue>) dropUseProMeasureUnit.getAdapter();
-                for (int i = 0; i < adaterUseUnit.getCount(); i++) {
-                    if (adaterUseUnit.getItem(i).InfoName.equals(model.getUseProMeasureUnitName())) {
-                        dropUseProMeasureUnit.setSelection(i);
-                        break;
-                    }
-                }
-
-                for (int i = 0; i < listProShape.size(); i++) {
-                    if (listProShape.get(i).InfoValue.equals(Convert.ToString(model.getProShape()))) {
-                        dropProShape.setSelection(i);
-                        break;
-                    }
-                }
-
+                formatForm(model);
             }
 
         }
 
         isFirstLoad = false;
+    }
+
+    private boolean formatForm(ProduceRec_Model model){
+        if(model==null)return false;
+        editRecNo.setText(model.getRecNumber());
+        editProDangerComponent.setText(model.getProDangerComponent());
+        editProNumber.setText(model.getProNumber());
+
+        editUseProSpec.setText(model.getUseProSpec());
+        editUseProNumber.setText(model.getUseProNumber());
+        editUseProMode.setText(model.getUseProModel());
+        editUseProName.setText(model.getUseProName());
+
+        editRemark.setText(model.getRemark());
+
+
+        customCheckBox.Check(model.getProHazardNature().split(","));
+
+
+        String dlid="";
+        for (int i = 0; i < MapCategory.get("0").size(); i++) {
+            if (Convert.ToString(model.getProCategory()).startsWith( MapCategory.get("0").get(i).InfoValue)) {
+                dlid=MapCategory.get("0").get(i).InfoValue;
+                dropCategorydl.setSelection(i);
+                break;
+            }
+        }
+        for (int i = 0; i < MapCategory.get(dlid).size(); i++) {
+            if (MapCategory.get(dlid).get(i).InfoValue.equals(Convert.ToString(model.getProCategory()))) {
+                dlid=MapCategory.get(dlid).get(i).InfoValue;
+                dropCategoryzl.setSelection(i);
+                break;
+            }
+        }
+
+        for (int i = 0; i < listProPack.size(); i++) {
+            if (listProPack.get(i).InfoName.equals(model.getProPackName())) {
+                dropProPack.setSelection(i);
+                break;
+            }
+        }
+
+        for (int i = 0; i < listProMeasureUnit.size(); i++) {
+            if (listProMeasureUnit.get(i).InfoName.equals(model.getProMeasureUnitName())) {
+                dropProMeasureUnit.setSelection(i);
+                break;
+            }
+        }
+
+        ArrayAdapter<NameToValue> adaterUseUnit = (ArrayAdapter<NameToValue>) dropUseProMeasureUnit.getAdapter();
+        for (int i = 0; i < adaterUseUnit.getCount(); i++) {
+            if (adaterUseUnit.getItem(i).InfoName.equals(model.getUseProMeasureUnitName())) {
+                dropUseProMeasureUnit.setSelection(i);
+                break;
+            }
+        }
+
+        for (int i = 0; i < listProShape.size(); i++) {
+            if (listProShape.get(i).InfoValue.equals(Convert.ToString(model.getProShape()))) {
+                dropProShape.setSelection(i);
+                break;
+            }
+        }
+        return true;
     }
 }
 

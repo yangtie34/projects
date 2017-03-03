@@ -54,9 +54,9 @@ public class PollingService extends Service {
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("err","0");
             jsonObject.put("ReadStatus","0");
-            jsonObject.put("NoticeToComBrID", Convert.ToString(((App)getApplication()).getSysComBrID()));
-            jsonObject.put("NoticeToUserID", Convert.ToString(((App)getApplication()).getCompanyUserID()));
-            jsonObject.put("NoticeToComID", Convert.ToString(((App)getApplication()).getSysComID()));
+            jsonObject.put("NoticeToComBrID", Convert.ToString(App.getInstance().getSysComBrID()));
+            jsonObject.put("NoticeToUserID", Convert.ToString(App.getInstance().getCompanyUserID()));
+            jsonObject.put("NoticeToComID", Convert.ToString(App.getInstance().getSysComID()));
 
             JSONObject jsonHeader = new JSONObject();
             jsonHeader.put("Condition", jsonObject);

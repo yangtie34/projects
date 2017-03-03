@@ -3,18 +3,18 @@ package com.eyunsoft.app_wasteoil;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -27,7 +27,6 @@ import com.eyunsoft.app_wasteoil.Publics.MsgBox;
 import com.eyunsoft.app_wasteoil.Publics.NetWork;
 import com.eyunsoft.app_wasteoil.Publics.TitleSet;
 import com.eyunsoft.app_wasteoil.bll.Category_BLL;
-import com.eyunsoft.app_wasteoil.bll.ProdRec_BLL;
 import com.eyunsoft.app_wasteoil.bll.SysPublic_BLL;
 import com.eyunsoft.app_wasteoil.bll.TransRec_BLL;
 import com.eyunsoft.app_wasteoil.utils.LoadDialog.LoadDialog;
@@ -40,6 +39,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ProdRecReport extends AppCompatActivity {
 
@@ -50,7 +50,9 @@ public class ProdRecReport extends AppCompatActivity {
     public Button btnUpdate;
 
 
-    private Spinner dropCategory;
+    public Map<String,List<NameToValue>> MapCategory;
+    private Spinner dropCategorydl;
+    private Spinner dropCategoryzl;
     private Spinner dropProShape;
 
     public ArrayList<NameToValue> listCategory;
@@ -74,7 +76,8 @@ public class ProdRecReport extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prod_rec_report);
         TitleSet.SetTitle(this,2);
-        dropCategory=(Spinner)findViewById(R.id.drop_Category);
+        dropCategorydl=(Spinner)findViewById(R.id.drop_Categorydl);
+        dropCategoryzl=(Spinner)findViewById(R.id.drop_Categoryzl);
         dropProShape=(Spinner)findViewById(R.id.drop_ProShape);
 
 
@@ -239,7 +242,8 @@ public class ProdRecReport extends AppCompatActivity {
 
                 SimpleAdapter adapter = (SimpleAdapter) listSelect.getAdapter();
                 String recNoStr = "";
-                int count=0;if(adapter!=null)
+                int count=0;
+                if(adapter!=null)
                 for (int i = 0; i < adapter.getCount(); i++) {
                     Object s = adapter.getItem(i);
                     LinearLayout linearLayout = (LinearLayout) listSelect.getChildAt(i);
@@ -305,7 +309,7 @@ public class ProdRecReport extends AppCompatActivity {
 
     public void InitForm()
     {
-        long comId=((App)getApplication()).getSysComID();
+        long comId=App.getInstance().getSysComID();
 
         //危废形态
         listProShape= SysPublic_BLL.GetProduct_Shape();
@@ -318,9 +322,22 @@ public class ProdRecReport extends AppCompatActivity {
 
         //危废种类
         listCategory= Category_BLL.GetProductCategory(comId);
+        MapCategory=SysPublic_BLL.formatSelectCategory(listCategory);
         listCategory.add(0,nameAll);
-        ArrayAdapter<NameToValue> arrayAdapterCategory=new ArrayAdapter<NameToValue>(this,android.R.layout.simple_spinner_item,listCategory);
-        dropCategory.setAdapter(arrayAdapterCategory);
+        final ArrayAdapter<NameToValue> arrayAdapterCategory=new ArrayAdapter<NameToValue>(this,android.R.layout.simple_spinner_item,MapCategory.get("0"));
+
+        dropCategorydl.setAdapter(arrayAdapterCategory);
+        dropCategorydl.setOnItemSelectedListener(new Spinner.OnItemSelectedListener() {//选择item的选择点击监听事件
+            public void onItemSelected(AdapterView<?> arg0, View arg1,
+                                       int arg2, long arg3) {
+                ;//文本说明
+                ArrayAdapter<NameToValue> arrayAdapterCategoryzl=new ArrayAdapter<NameToValue>(ProdRecReport.this,android.R.layout.simple_spinner_item,MapCategory.get(arrayAdapterCategory.getItem(arg2).InfoValue));
+                dropCategoryzl.setAdapter(arrayAdapterCategoryzl);
+            }
+
+            public void onNothingSelected(AdapterView<?> arg0) {
+            }
+        });
     }
     public void InitData()
     {
@@ -406,14 +423,14 @@ public class ProdRecReport extends AppCompatActivity {
                 try {
                     JSONObject jsonObject = new JSONObject();
                     jsonObject.put("err","0");
-                    jsonObject.put("SysComID", Convert.ToString(((App)getApplication()).getSysComID()));
+                    jsonObject.put("SysComID", Convert.ToString(App.getInstance().getSysComID()));
                     jsonObject.put("RecTimeStart", editStart.getText().toString());
                     jsonObject.put("RecTimeEnd", editEnd.getText().toString());
-                    jsonObject.put("ProCategory", ((NameToValue)dropCategory.getSelectedItem()).InfoValue);
+                    jsonObject.put("ProCategory", ((NameToValue)dropCategoryzl.getSelectedItem()).InfoValue);
 
 
                     jsonObject.put("ProShape",((NameToValue)dropProShape.getSelectedItem()).InfoValue);
-                    jsonObject.put("CreateComBrID", Convert.ToString(((App)getApplication()).getSysComBrID()));
+                    jsonObject.put("CreateComBrID", Convert.ToString(App.getInstance().getSysComBrID()));
 
                     JSONObject jsonHeader = new JSONObject();
                     jsonHeader.put("Condition", jsonObject);

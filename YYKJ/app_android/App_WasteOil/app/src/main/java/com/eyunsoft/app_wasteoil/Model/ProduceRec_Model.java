@@ -5,23 +5,24 @@ import com.eyunsoft.app_wasteoil.Publics.Convert;
 import org.ksoap2.serialization.KvmSerializable;
 import org.ksoap2.serialization.PropertyInfo;
 
+import java.io.Serializable;
 import java.util.Hashtable;
 
-
-public class ProduceRec_Model  implements KvmSerializable {
+public class ProduceRec_Model implements KvmSerializable,Serializable {
 	public ProduceRec_Model()
 	{
 	}
 	//以下是生成的字段
 	private String RecNumber="";
 	private long SysComID=0;
-	private String RecTime="2016-11-01";
+	private String RecTime="";
 	private int RecSource=0;
 	private String UseProName="";
 	private String UseProSpec="";
 	private String UseProModel="";
 	private String UseProNumber="0";
 	private String UseProMeasureUnitName="";
+	private String ProName="";
 	private long ProCategory=0;
 	private String ProCategoryName="";
 	private long ProShape=0;
@@ -37,7 +38,7 @@ public class ProduceRec_Model  implements KvmSerializable {
 	private long CreateComBrID=0;
 	private long CreateComID=0;
 	private String CreateIp="";
-	private String CreateTime="2016-11-01";
+	private String CreateTime="";
 	private boolean Exist=false;
 
 	//以下是生成的属性
@@ -59,6 +60,8 @@ public class ProduceRec_Model  implements KvmSerializable {
 	public String getUseProNumber(){ return this.UseProNumber;}
 	public  void setUseProMeasureUnitName(String useProMeasureUnitName){this.UseProMeasureUnitName=useProMeasureUnitName;}
 	public String getUseProMeasureUnitName(){ return this.UseProMeasureUnitName;}
+	public  void setProName(String proName){this.ProName=proName;}
+	public String getProName(){ return this.ProName;}
 	public  void setProCategory(long proCategory){this.ProCategory=proCategory;}
 	public long getProCategory(){ return this.ProCategory;}
 	public  void setProCategoryName(String proCategoryName){this.ProCategoryName=proCategoryName;}
@@ -91,14 +94,6 @@ public class ProduceRec_Model  implements KvmSerializable {
 	public String getCreateIp(){ return this.CreateIp;}
 	public  void setCreateTime(String createTime){this.CreateTime=createTime;}
 	public String getCreateTime(){ return this.CreateTime;}
-	public void setExist(boolean exist){this.Exist=exist;}
-
-	@Override
-	public int getPropertyCount() {
-		// TODO Auto-generated method stub
-		return 25;
-	}
-
 	@Override
 	public void getPropertyInfo(int arg0, @SuppressWarnings("rawtypes") Hashtable arg1, PropertyInfo arg2) {
 		// TODO Auto-generated method stub
@@ -149,82 +144,87 @@ public class ProduceRec_Model  implements KvmSerializable {
 				break;
 
 			case 9:
+				arg2.type=PropertyInfo.STRING_CLASS;
+				arg2.name="ProName";
+				break;
+
+			case 10:
 				arg2.type=PropertyInfo.LONG_CLASS;
 				arg2.name="ProCategory";
 				break;
 
-			case 10:
+			case 11:
 				arg2.type=PropertyInfo.STRING_CLASS;
 				arg2.name="ProCategoryName";
 				break;
 
-			case 11:
+			case 12:
 				arg2.type=PropertyInfo.LONG_CLASS;
 				arg2.name="ProShape";
 				break;
 
-			case 12:
+			case 13:
 				arg2.type=PropertyInfo.STRING_CLASS;
 				arg2.name="ProShapeName";
 				break;
 
-			case 13:
+			case 14:
 				arg2.type=PropertyInfo.STRING_CLASS;
 				arg2.name="ProHazardNature";
 				break;
 
-			case 14:
+			case 15:
 				arg2.type=PropertyInfo.STRING_CLASS;
 				arg2.name="ProPackName";
 				break;
 
-			case 15:
+			case 16:
 				arg2.type=PropertyInfo.STRING_CLASS;
 				arg2.name="ProNumber";
 				break;
 
-			case 16:
+			case 17:
 				arg2.type=PropertyInfo.STRING_CLASS;
 				arg2.name="ProMeasureUnitName";
 				break;
 
-			case 17:
+			case 18:
 				arg2.type=PropertyInfo.STRING_CLASS;
 				arg2.name="ProDangerComponent";
 				break;
 
-			case 18:
+			case 19:
 				arg2.type=PropertyInfo.STRING_CLASS;
 				arg2.name="Remark";
 				break;
 
-			case 19:
+			case 20:
 				arg2.type=PropertyInfo.LONG_CLASS;
 				arg2.name="CreateComCusID";
 				break;
 
-			case 20:
+			case 21:
 				arg2.type=PropertyInfo.LONG_CLASS;
 				arg2.name="CreateUserID";
 				break;
 
-			case 21:
+			case 22:
 				arg2.type=PropertyInfo.LONG_CLASS;
 				arg2.name="CreateComBrID";
 				break;
 
-			case 22:
+			case 23:
 				arg2.type=PropertyInfo.LONG_CLASS;
 				arg2.name="CreateComID";
 				break;
 
-			case 23:
+			case 24:
 				arg2.type=PropertyInfo.STRING_CLASS;
 				arg2.name="CreateIp";
 				break;
 
-			case 24:
-				arg2.type= PropertyInfo.STRING_CLASS;
+			case 25:
+				arg2.type=PropertyInfo.STRING_CLASS;
 				arg2.name="CreateTime";
 				break;
 
@@ -240,7 +240,7 @@ public class ProduceRec_Model  implements KvmSerializable {
 				break;
 
 			case 1:
-				SysComID=Convert.ToInt64(arg1.toString());
+				SysComID= Convert.ToInt64(arg1.toString());
 				break;
 
 			case 2:
@@ -272,66 +272,70 @@ public class ProduceRec_Model  implements KvmSerializable {
 				break;
 
 			case 9:
-				ProCategory=Convert.ToInt64(arg1.toString());
+				ProName=arg1.toString();
 				break;
 
 			case 10:
-				ProCategoryName=arg1.toString();
+				ProCategory=Convert.ToInt64(arg1.toString());
 				break;
 
 			case 11:
-				ProShape=Convert.ToInt64(arg1.toString());
+				ProCategoryName=arg1.toString();
 				break;
 
 			case 12:
-				ProShapeName=arg1.toString();
+				ProShape=Convert.ToInt64(arg1.toString());
 				break;
 
 			case 13:
-				ProHazardNature=arg1.toString();
+				ProShapeName=arg1.toString();
 				break;
 
 			case 14:
-				ProPackName=arg1.toString();
+				ProHazardNature=arg1.toString();
 				break;
 
 			case 15:
-				ProNumber=arg1.toString();
+				ProPackName=arg1.toString();
 				break;
 
 			case 16:
-				ProMeasureUnitName=arg1.toString();
+				ProNumber=arg1.toString();
 				break;
 
 			case 17:
-				ProDangerComponent=arg1.toString();
+				ProMeasureUnitName=arg1.toString();
 				break;
 
 			case 18:
-				Remark=arg1.toString();
+				ProDangerComponent=arg1.toString();
 				break;
 
 			case 19:
-				CreateComCusID=Convert.ToInt64(arg1.toString());
+				Remark=arg1.toString();
 				break;
 
 			case 20:
-				CreateUserID=Convert.ToInt64(arg1.toString());
+				CreateComCusID=Convert.ToInt64(arg1.toString());
 				break;
 
 			case 21:
-				CreateComBrID=Convert.ToInt64(arg1.toString());
+				CreateUserID=Convert.ToInt64(arg1.toString());
 				break;
 
 			case 22:
-				CreateComID= Convert.ToInt64(arg1.toString());
+				CreateComBrID=Convert.ToInt64(arg1.toString());
 				break;
 
 			case 23:
-				CreateIp=arg1.toString();
+				CreateComID=Convert.ToInt64(arg1.toString());
 				break;
 
 			case 24:
+				CreateIp=arg1.toString();
+				break;
+
+			case 25:
 				CreateTime=arg1.toString();
 				break;
 
@@ -370,60 +374,73 @@ public class ProduceRec_Model  implements KvmSerializable {
 				return UseProMeasureUnitName;
 
 			case 9:
-				return ProCategory;
+				return ProName;
 
 			case 10:
-				return ProCategoryName;
+				return ProCategory;
 
 			case 11:
-				return ProShape;
+				return ProCategoryName;
 
 			case 12:
-				return ProShapeName;
+				return ProShape;
 
 			case 13:
-				return ProHazardNature;
+				return ProShapeName;
 
 			case 14:
-				return ProPackName;
+				return ProHazardNature;
 
 			case 15:
-				return ProNumber;
+				return ProPackName;
 
 			case 16:
-				return ProMeasureUnitName;
+				return ProNumber;
 
 			case 17:
-				return ProDangerComponent;
+				return ProMeasureUnitName;
 
 			case 18:
-				return Remark;
+				return ProDangerComponent;
 
 			case 19:
-				return CreateComCusID;
+				return Remark;
 
 			case 20:
-				return CreateUserID;
+				return CreateComCusID;
 
 			case 21:
-				return CreateComBrID;
+				return CreateUserID;
 
 			case 22:
-				return CreateComID;
+				return CreateComBrID;
 
 			case 23:
-				return CreateIp;
+				return CreateComID;
 
 			case 24:
+				return CreateIp;
+
+			case 25:
 				return CreateTime;
 
 			default:
 				break;
 		}
-		return  null;
+		return null;
 	}
+
+	@Override
+	public int getPropertyCount() {
+		return 26;
+	}
+
 	public boolean IsExist()
 	{
 		return this.Exist;
+	}
+
+	public void setExist(boolean exist) {
+		this.Exist = exist;
 	}
 }

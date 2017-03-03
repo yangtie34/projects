@@ -61,7 +61,7 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="phone"
+
                 android:lines="1"
                 android:id="@+id/editUserNo"
                 android:layout_weight="1" />
@@ -90,19 +90,40 @@
                 android:lines="1"
                 android:layout_gravity="center_horizontal" />
         </LinearLayout>
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_marginTop="20dp"
+        <LinearLayout style="@style/formline"
             android:layout_height="wrap_content">
 
             <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:text="记住密码"
                 android:id="@+id/checkBox"
-                android:checked="false" />
+                android:checked="false"
+                android:layout_weight="1"
+                android:layout_width="match_parent" />
+
+            <RadioGroup
+                android:id="@+id/userType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1" >
+
+                <RadioButton
+                    android:text="员工"
+                    android:id="@+id/userType1"
+                    android:checked="true"
+                    style="@style/formdtRadioButton"/>
+
+                <RadioButton
+                    android:text="危运企业"
+                    android:id="@+id/userType2"
+                    style="@style/formdtRadioButton"/>
+            </RadioGroup>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <TextView
                 android:text=""
@@ -117,21 +138,33 @@
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_marginTop="20dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content">
 
             <Button
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:text="登         录"
                 android:id="@+id/btnLogin"
                 android:textColor="@color/white"
                 android:layout_weight="1"
                 android:background="@drawable/shape"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="企 业 注 册"
+                android:id="@+id/btnReg"
+                android:onClick="reg"
+                android:textColor="@color/white"
+                android:layout_weight="1"
+                android:background="@drawable/shape_reg"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp"/>
         </LinearLayout>
 
         <LinearLayout

@@ -39,7 +39,7 @@ public class App extends Application {
         }
         System.exit(0);
     }
-
+    public static int userType=0;//0为员工
     private long sysComID=-1;
 
     private long sysComBrID=-1;

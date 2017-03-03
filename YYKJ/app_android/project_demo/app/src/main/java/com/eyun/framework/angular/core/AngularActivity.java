@@ -1,14 +1,19 @@
 package com.eyun.framework.angular.core;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 
-import com.eyun.framework.util.ActivityUtil;
+import com.eyun.framework.util.android.ActivityUtil;
 import com.eyun.framework.angular.baseview.WindowPop;
 
 import static com.eyun.framework.angular.core.Scope.activity;
+import static com.eyun.framework.util.android.KeyBoardUtils.isShouldHideInput;
 
 
 /**
@@ -63,5 +68,24 @@ public class AngularActivity extends Activity {
     public void setContentView(@LayoutRes int layoutResID) {
         scope.inflateScope=scope;
        super.setContentView(layoutResID);
+    }
+    //点击EditText文本框之外任何地方隐藏键盘的解决办法
+    @Override
+    public boolean dispatchTouchEvent(final MotionEvent ev) {
+        if (ev.getAction() == MotionEvent.ACTION_DOWN) {
+            View v =getCurrentFocus();
+            if (isShouldHideInput(v, ev)) {
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                if (imm != null) {
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                }
+            }
+            return super.dispatchTouchEvent(ev);
+        }
+        // 必不可少，否则所有的组件都不会有TouchEvent了
+        if (getWindow().superDispatchTouchEvent(ev)) {
+            return true;
+        }
+        return onTouchEvent(ev);
     }
 }

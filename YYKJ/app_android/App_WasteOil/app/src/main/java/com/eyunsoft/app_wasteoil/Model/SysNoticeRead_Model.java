@@ -6,9 +6,10 @@ import com.eyunsoft.app_wasteoil.Publics.Convert;
 import org.ksoap2.serialization.KvmSerializable;
 import org.ksoap2.serialization.PropertyInfo;
 
+import java.io.Serializable;
 import java.util.Hashtable;
 
-public class SysNoticeRead_Model implements KvmSerializable {
+public class SysNoticeRead_Model implements KvmSerializable ,Serializable {
 	public SysNoticeRead_Model() {
 	}
 

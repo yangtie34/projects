@@ -8,8 +8,9 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 
 import com.eyun.framework.angular.core.Scope;
-import com.eyun.framework.util.ActivityUtil;
+import com.eyun.framework.util.android.ActivityUtil;
 import com.eyun.framework.util.CSS;
+import com.eyun.framework.util.android.ViewUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +50,7 @@ public class WindowPop extends PopupWindow {
     public WindowPop(View view, int gravity) {
         this.gravity=gravity;
         init(view);
-        this.args=new Object[]{ActivityUtil.getRootView(), gravity, 0, 0};
+        this.args=new Object[]{ViewUtil.getRootView(), gravity, 0, 0};
     }
 
     public WindowPop(int loyout, View clickView) {
@@ -64,7 +65,7 @@ public class WindowPop extends PopupWindow {
     public WindowPop(int loyout, int gravity) {
         this.gravity=gravity;
         init(loyout);
-        this.args=new Object[]{ActivityUtil.getRootView(), gravity, 0, 0};
+        this.args=new Object[]{ViewUtil.getRootView(), gravity, 0, 0};
     }
     private void init(int loyout){
         init(LayoutInflater.from(Scope.activity).inflate(loyout, null));
@@ -103,7 +104,7 @@ public class WindowPop extends PopupWindow {
             View clickView=(View) args[0];
             int[] location = new int[2];
             clickView.getLocationOnScreen(location);
-            showAsDropDown(ActivityUtil.getRootView(), location[0],location[1]-ActivityUtil.getRootView().getHeight());// location[0],  location[1]);
+            showAsDropDown(ViewUtil.getRootView(), location[0],location[1]-ViewUtil.getRootView().getHeight());// location[0],  location[1]);
             //this.view.bringToFront();
             //showAsDropDown((View) args[0]);//showAsDropDown(View anchor)：相对某个控件的位置（正左下方），无偏移
         }

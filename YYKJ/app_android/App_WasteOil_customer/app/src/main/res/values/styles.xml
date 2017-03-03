@@ -28,6 +28,84 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="formline">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_marginLeft">12.0dp</item>
+        <item name="android:layout_marginRight">12.0dp</item>
+        <item name="android:layout_height">40dp</item>
+    </style>
+    <style name="formdd">
+        <item name="android:layout_width">120dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <style name="formtitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">10pt</item>
+        <item name="android:background">#ffdddddd</item>
+    </style>
+    <style name="forminputinfo">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:paddingLeft">90dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">5pt</item>
+        <item name="android:textColor">#ffdddddd</item>
+    </style>
+    <style name="formlineh">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">1px</item>
+        <item name="android:background">#ffdddddd</item>
+        <item name="android:layout_margin">3.0dp</item>
+
+    </style>
+    <style name="formdt">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textSize">13dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColor">#ff444444</item>
+        <item name="android:textColorHint">#ffc8c8cd</item>
+        <item name="android:gravity">center_vertical</item>
+     <!-- <item name="android:background">@drawable/btn_dis_bgs</item>-->
+        <item name="android:paddingLeft">10.0dip</item>
+        <item name="android:paddingRight">10.0dip</item>
+        <item name="android:singleLine">true</item>
+       <!-- <item name="android:text">dd</item>-->
+    </style>
+    <style name="formdtMultiLine" parent="formdt">
+        <item name="android:minLines">8</item>
+        <item name="android:minHeight">100dp</item>
+        <item name="android:singleLine">false</item>
+        <item name="android:background">@android:drawable/edit_text</item>
+    </style>
+    <style name="formdtRadioButton" >
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">10dp</item>
+    </style>
+    <style name="formdtphoto" >
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">100dp</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+    <style name="formdtphotoAdd" >
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:textSize">32dp</item>
+        <item name="android:padding">1dp</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:src">@android:drawable/ic_input_add</item>
+    </style>
+    <style name="formdtphotoPai" parent="formdtphotoAdd">
+        <item name="android:src">@android:drawable/ic_menu_camera</item>
+    </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />

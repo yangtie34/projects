@@ -2,7 +2,6 @@ package com.eyunsoft.app_wasteoil;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
@@ -11,16 +10,17 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+
 
 import com.eyunsoft.app_wasteoil.Model.NameToValue;
 import com.eyunsoft.app_wasteoil.Publics.Convert;
@@ -40,6 +40,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ProdRec extends AppCompatActivity {
 
@@ -50,11 +51,14 @@ public class ProdRec extends AppCompatActivity {
     public Button btnBack;
     public Button btnUpdate;
 
-
-    private Spinner dropCategory;
+    public Map<String,List<NameToValue>> MapCategory;
+    private Spinner dropCategorydl;
+    private Spinner dropCategoryzl;
     private Spinner dropProShape;
 
     public ArrayList<NameToValue> listCategory;
+
+
     public ArrayList<NameToValue> listProShape;
 
 
@@ -75,7 +79,8 @@ public class ProdRec extends AppCompatActivity {
         setContentView(R.layout.activity_prod_rec);
         TitleSet.SetTitle(this,1);
 
-        dropCategory=(Spinner)findViewById(R.id.drop_Category);
+        dropCategorydl=(Spinner)findViewById(R.id.drop_Category_dl);
+        dropCategoryzl=(Spinner)findViewById(R.id.drop_Category_zl);
         dropProShape=(Spinner)findViewById(R.id.drop_ProShape);
 
 
@@ -185,33 +190,33 @@ public class ProdRec extends AppCompatActivity {
                 SimpleAdapter adapter = (SimpleAdapter) listSelect.getAdapter();
                 String recNoStr = "";
                 int count=0;if(adapter!=null)
-                for (int i = 0; i < adapter.getCount(); i++) {
-                    Object s = adapter.getItem(i);
-                    LinearLayout linearLayout = (LinearLayout) listSelect.getChildAt(i);
-                    if (linearLayout != null) {
-                        CheckBox checkBox = (CheckBox) linearLayout.getChildAt(1);
-                        if(checkBox!=null) {
-                            if (checkBox.isChecked()) {
-                                if (count != 0) {
-                                    recNoStr += ",";
+                    for (int i = 0; i < adapter.getCount(); i++) {
+                        Object s = adapter.getItem(i);
+                        LinearLayout linearLayout = (LinearLayout) listSelect.getChildAt(i);
+                        if (linearLayout != null) {
+                            CheckBox checkBox = (CheckBox) linearLayout.getChildAt(1);
+                            if(checkBox!=null) {
+                                if (checkBox.isChecked()) {
+                                    if (count != 0) {
+                                        recNoStr += ",";
+                                    }
+                                    HashMap<String,Object> map=list.get(i);
+                                    recNoStr +=map.get("RecNumber");
+                                    count++;
                                 }
-                                HashMap<String,Object> map=list.get(i);
-                                recNoStr +=map.get("RecNumber");
-                                count++;
+                            }
+                            else
+                            {
+                                System.out.println("checkBox"+i+"为空");
                             }
                         }
                         else
                         {
-                            System.out.println("checkBox"+i+"为空");
+                            System.out.println("linearLayout"+i+"为空");
                         }
                     }
-                    else
-                    {
-                        System.out.println("linearLayout"+i+"为空");
-                    }
-                }
 
-                String mess=ProdRec_BLL.ProdRec_Delete(recNoStr);
+                String mess= ProdRec_BLL.ProdRec_Delete(recNoStr);
                 if(!TextUtils.isEmpty(mess))
                 {
                     MsgBox.Show(ProdRec.this,mess);
@@ -220,7 +225,7 @@ public class ProdRec extends AppCompatActivity {
                 else
                 {
                     MsgBox.Show(ProdRec.this,"删除成功");
-                    InitData();
+                    processThread();
                 }
 
             }
@@ -240,36 +245,37 @@ public class ProdRec extends AppCompatActivity {
 
                 SimpleAdapter adapter = (SimpleAdapter) listSelect.getAdapter();
                 String recNoStr = "";
-                int count=0;if(adapter!=null)
-                for (int i = 0; i < adapter.getCount(); i++) {
-                    Object s = adapter.getItem(i);
-                    LinearLayout linearLayout = (LinearLayout) listSelect.getChildAt(i);
-                    if (linearLayout != null) {
-                        CheckBox checkBox = (CheckBox) linearLayout.getChildAt(1);
-                        if(checkBox!=null) {
-                            if (checkBox.isChecked()) {
-                                if (count != 0) {
-                                    recNoStr += ",";
+                int count=0;
+                if(adapter!=null)
+                    for (int i = 0; i < adapter.getCount(); i++) {
+                        Object s = adapter.getItem(i);
+                        LinearLayout linearLayout = (LinearLayout) listSelect.getChildAt(i);
+                        if (linearLayout != null) {
+                            CheckBox checkBox = (CheckBox) linearLayout.getChildAt(1);
+                            if(checkBox!=null) {
+                                if (checkBox.isChecked()) {
+                                    if (count != 0) {
+                                        recNoStr += ",";
+                                    }
+                                    HashMap<String,Object> map=list.get(i);
+                                    recNoStr +=map.get("RecNumber");
+                                    count++;
                                 }
-                                HashMap<String,Object> map=list.get(i);
-                                recNoStr +=map.get("RecNumber");
-                                count++;
+                            }
+                            else
+                            {
+                                System.out.println("checkBox"+i+"为空");
                             }
                         }
                         else
                         {
-                            System.out.println("checkBox"+i+"为空");
+                            System.out.println("linearLayout"+i+"为空");
                         }
                     }
-                    else
-                    {
-                        System.out.println("linearLayout"+i+"为空");
-                    }
-                }
 
 
                 if (TextUtils.isEmpty(recNoStr)) {
-                     MsgBox.Show(ProdRec.this,"请选择一项再进行修改");
+                    MsgBox.Show(ProdRec.this,"请选择一项再进行修改");
                     return;
                 }
 
@@ -300,7 +306,7 @@ public class ProdRec extends AppCompatActivity {
 
     public void InitForm()
     {
-        long comId=((App)getApplication()).getSysComID();
+        long comId=App.getInstance().getSysComID();
 
         //危废形态
         listProShape= SysPublic_BLL.GetProduct_Shape();
@@ -313,9 +319,22 @@ public class ProdRec extends AppCompatActivity {
 
         //危废种类
         listCategory= Category_BLL.GetProductCategory(comId);
+        MapCategory=SysPublic_BLL.formatSelectCategory(listCategory);
         listCategory.add(0,nameAll);
-        ArrayAdapter<NameToValue> arrayAdapterCategory=new ArrayAdapter<NameToValue>(this,android.R.layout.simple_spinner_item,listCategory);
-        dropCategory.setAdapter(arrayAdapterCategory);
+        final ArrayAdapter<NameToValue> arrayAdapterCategory=new ArrayAdapter<NameToValue>(this,android.R.layout.simple_spinner_item,MapCategory.get("0"));
+
+        dropCategorydl.setAdapter(arrayAdapterCategory);
+        dropCategorydl.setOnItemSelectedListener(new Spinner.OnItemSelectedListener() {//选择item的选择点击监听事件
+            public void onItemSelected(AdapterView<?> arg0, View arg1,
+                                       int arg2, long arg3) {
+                ;//文本说明
+                ArrayAdapter<NameToValue> arrayAdapterCategoryzl=new ArrayAdapter<NameToValue>(ProdRec.this,android.R.layout.simple_spinner_item,MapCategory.get(arrayAdapterCategory.getItem(arg2).InfoValue));
+                dropCategoryzl.setAdapter(arrayAdapterCategoryzl);
+            }
+
+            public void onNothingSelected(AdapterView<?> arg0) {
+            }
+        });
     }
     public void InitData()
     {
@@ -385,8 +404,8 @@ public class ProdRec extends AppCompatActivity {
 
             //下载完成
             if(msg.what==1) {
-             LoadDialog.dismiss(ProdRec.this);
-               InitData();
+                LoadDialog.dismiss(ProdRec.this);
+                InitData();
             }
 
         }
@@ -400,15 +419,19 @@ public class ProdRec extends AppCompatActivity {
                 try {
                     JSONObject jsonObject = new JSONObject();
                     jsonObject.put("err","0");
-                    jsonObject.put("SysComID", Convert.ToString(((App)getApplication()).getSysComID()));
+                    jsonObject.put("SysComID", Convert.ToString(App.getInstance().getSysComID()));
                     jsonObject.put("RecTimeStart", editStart.getText().toString());
                     jsonObject.put("RecTimeEnd", editEnd.getText().toString());
-                    jsonObject.put("ProCategory", ((NameToValue)dropCategory.getSelectedItem()).InfoValue);
+                    jsonObject.put("ProCategory", ((NameToValue)dropCategoryzl.getSelectedItem()).InfoValue);
 
-
+                    if(App.getInstance().userType==0){
+                        jsonObject.put("CreateUserID",App.getInstance().getCompanyUserID());
+                    }else{
+                        jsonObject.put("CreateComCusID",App.getInstance().getCompanyUserID());
+                    }
 
                     jsonObject.put("ProShape",((NameToValue)dropProShape.getSelectedItem()).InfoValue);
-                    jsonObject.put("CreateComBrID", Convert.ToString(((App)getApplication()).getSysComBrID()));
+                    //jsonObject.put("CreateComBrID", Convert.ToString(App.getInstance().getSysComBrID()));
 
                     JSONObject jsonHeader = new JSONObject();
                     jsonHeader.put("Condition", jsonObject);
@@ -417,7 +440,7 @@ public class ProdRec extends AppCompatActivity {
                     list= ProdRec_BLL.ProdRec_Select(jsonStr,0,20);
 
                 } catch (Exception ex) {
-
+                        ex.printStackTrace();
                 }
 
                 Message msg = new Message();

@@ -142,9 +142,9 @@ public class VehdispHandover_Add extends AppCompatActivity {
 
                         }
 
-                        long comId=((App)getApplication()).getSysComID();
-                        long userId=((App)getApplication()).getCompanyUserID();
-                        long comBrId=((App)getApplication()).getSysComBrID();
+                        long comId=App.getInstance().getSysComID();
+                        long userId=App.getInstance().getCompanyUserID();
+                        long comBrId=App.getInstance().getSysComBrID();
 
                         VehicleDispathHandover_Model mo = new VehicleDispathHandover_Model();
                         mo.setHandoverComID(comId);

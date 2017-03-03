@@ -81,6 +81,9 @@
         <activity android:name="com.eyunsoft.app_wasteoilCostomer.TransferrecInfo" />
         <activity android:name="com.eyunsoft.app_wasteoilCostomer.VehdispInfo" />
         <activity android:name="com.eyunsoft.app_wasteoilCostomer.CircleActivity"></activity>
+        <activity android:name="com.eyunsoft.app_wasteoilCostomer.Register1" />
+        <activity android:name="com.eyunsoft.app_wasteoilCostomer.Register2" />
+        <activity android:name="com.eyunsoft.app_wasteoilCostomer.Register3" />
     </application>
 
 </manifest>

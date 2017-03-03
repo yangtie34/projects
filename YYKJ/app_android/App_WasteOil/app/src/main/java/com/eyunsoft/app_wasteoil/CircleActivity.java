@@ -64,7 +64,7 @@ public class CircleActivity extends AppCompatActivity {
 
         TitleSet.SetTitle(this,0);
 
-        if(((App)getApplication()).getSysComID()==-1)
+        if(App.getInstance().getSysComID()==-1)
         {
             Intent login=new Intent(this,Login.class);
             startActivity(login);
@@ -78,15 +78,15 @@ public class CircleActivity extends AppCompatActivity {
 
         //网点
         txtComBrName = (TextView) findViewById(R.id.txtComBrName);
-        txtComBrName.setText(((App) getApplication()).getComBrName());
+        txtComBrName.setText(App.getInstance().getComBrName());
 
         //姓名
         txtUserFullName = (TextView) findViewById(R.id.txtUserFullname);
-        txtUserFullName.setText(((App) getApplication()).getUserFullname());
+        txtUserFullName.setText(App.getInstance().getUserFullname());
 
         //帐号
         txtUserName = (TextView) findViewById(R.id.txtUserName);
-        txtUserName.setText(((App) getApplication()).getUserName());
+        txtUserName.setText(App.getInstance().getUserName());
 
         recStatus = (Switch) findViewById(R.id.receiveStatus);
         recStatus.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -206,9 +206,9 @@ public class CircleActivity extends AppCompatActivity {
             long noticeId = bundle.getLong("NoticeID");
             System.out.println("noticeNumber:" + noticeNumber);
 
-            long comId = ((App) getApplication()).getSysComID();
-            long userId = ((App) getApplication()).getCompanyUserID();
-            long comBrId = ((App) getApplication()).getSysComBrID();
+            long comId = App.getInstance().getSysComID();
+            long userId = App.getInstance().getCompanyUserID();
+            long comBrId = App.getInstance().getSysComBrID();
 
             SysNoticeRead_Model model = new SysNoticeRead_Model();
             model.setCreateUserID(userId);

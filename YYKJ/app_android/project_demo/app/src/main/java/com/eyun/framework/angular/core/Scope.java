@@ -1,15 +1,14 @@
 package com.eyun.framework.angular.core;
 
 import android.app.Application;
-import android.content.res.Resources;
-import android.content.res.XmlResourceParser;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.LinearLayout;
 
 
-import com.eyun.framework.angular.util.ScopeTool;
-import com.eyun.project_demo.R;
+import com.eyun.framework.util.CallBack;
+import com.eyun.framework.util.FastJsonTools;
+import com.eyun.framework.util.common.StringUtils;
+import com.eyun.framework.util.common.T;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,7 +29,7 @@ public class Scope {
     private Object value;
     private static boolean syncLock=false;
     private List<DataListener> dataListeners=new ArrayList<>();
-    private Map<String,Scope> scopes=new HashMap<>();
+    protected Map<String,Scope> scopes=new HashMap<>();
     private int listSize=0;//当scope为数组使用时
 
     private Scope(){}
@@ -46,7 +45,6 @@ public class Scope {
         }else if(obj instanceof Application){
             scope.parent=scope;
         }
-
         scope.id=scope.getId();
         return scope;
     }
@@ -54,37 +52,47 @@ public class Scope {
     public Scope key(String key){
         if(key==null)return new Scope();
         String[] keys=keyParse(key);
-        Scope thisScope=null;
+        Scope thisScope=this;
         for (int i = 0; i <keys.length ; i++) {
             String k=keys[i];
-            if(this.scopes.get(k)==null){
-                this.scopes.put(k,new Scope());
+           if(thisScope.scopes.get(k)==null){
+               if(StringUtils.isNumeric(k)){
+                   thisScope.push(Integer.parseInt(k),null);
+               }else{
+                   thisScope.scopes.put(k,new Scope());
+               }
             }
-            thisScope=this.scopes.get(k);
+            thisScope=thisScope.scopes.get(k);
         }
 
         return thisScope;
     }
     public Scope key(int index){
-        return scopes.get(String.valueOf(index));
-    }
-    public List<Object> list(){
-        return ScopeTool.toList(this);
-    }
-    public Map<String,Object> map(){
-        return ScopeTool.toMap(this);
+        return this.key(String.valueOf(index));
     }
     /**
      * 更改当前value
      * @param value
      */
+    public void valInScope(Object value){
+        this.value=value;
+        if(syncLock==false&&value!=null){
+            for (int i = 0; i <dataListeners.size() ; i++) {
+                dataListeners.get(i).hasChange(value);
+            }
+            ScopeTool.valueInScope(this);
+        }
+
+    }
     public void val(Object value){
         this.value=value;
-        if(syncLock==false)
-        for (int i = 0; i <dataListeners.size() ; i++) {
-            dataListeners.get(i).hasChange(value);
+        if(syncLock==false&&value!=null){
+            for (int i = 0; i <dataListeners.size() ; i++) {
+                dataListeners.get(i).hasChange(value);
+            }
         }
     }
+
     public static void lockSync(){
         syncLock=true;
     }
@@ -99,7 +107,7 @@ public class Scope {
         return this.value;
     }
     public String[] keyArray() {
-        return (String[])scopes.keySet().toArray();
+        return scopes.keySet().toArray(new String[]{});
     }
 
     public void watch(DataListener listener){
@@ -119,13 +127,20 @@ public class Scope {
      * @param value
      */
     public void push(int index,Object value){
-        for (int i = 0; i <index+1-listSize ; i++) {
+        if(this.value==null){
+            this.value=new ArrayList<>();
+        }
+        for (int i = 0; i <index-listSize ; i=0) {
+            ((List)this.value).add(listSize,null);
             scopes.put(String.valueOf(listSize),new Scope());
             listSize++;
         }
         Scope scope=new Scope();
         scope.val(value);
         scopes.put(String.valueOf(index),scope);
+        ((List)this.value).add(index,value);
+        this.val(this.value);
+        listSize++;
     }
 
     /**
@@ -133,10 +148,7 @@ public class Scope {
      * @param value
      */
     public void push(Object value){
-        Scope scope=new Scope();
-        scope.val(value);
-        scopes.put(String.valueOf(listSize),scope);
-        listSize++;
+        push(listSize,value);
     }
 
     /**
@@ -146,13 +158,6 @@ public class Scope {
     public int size(){
         return listSize;
     }
-    //绑定view id 与 viewData 数据
-    public static void bind(int viewid, ViewData value){
-        value.setView(activity.findViewById(viewid));
-    }
-    public static void bind(View view, ViewData value){
-        value.setView(view);
-    }
 
     /**
      * 解析复杂key
@@ -160,14 +165,14 @@ public class Scope {
      */
     public static String[] keyParse(String key){
         key=key.replaceAll("\\[",".");
-        key=key.replaceAll("]",".");
+        key=key.replaceAll("]","");
         String[] keys=key.split("\\.");
         return keys;
     }
 
     public View inflate(int loyout) {
         inflateScope=this;
-        View view = (LinearLayout) LayoutInflater.from(activity).inflate(loyout, null);
+        View view = LayoutInflater.from(activity).inflate(loyout, null);
         return view;
     }
     public static int getId(){
@@ -177,6 +182,44 @@ public class Scope {
     public  void clear(){
         this.dataListeners.clear();
         this.scopes.clear();
+        listSize=0;
+    }
+    public  void clear(String key){
+        this.scopes.remove(key);
+    }
+    public  void clear(int key){
+        this.scopes.remove(key);
+    }
+    public String toJson(){
+        return FastJsonTools.createJsonString(ScopeTool.toObject(this));
+    }
+
+    public void forThread(final CallBack callBackThread, final DataListener dataListenerUI){
+        final int threadId=Scope.getId();
+        this.key(threadId).watch(new DataListener() {
+            @Override
+            public void hasChange(final Object o) {
+                Scope.activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        dataListenerUI.hasChange(o);
+                        Scope.this.clear(threadId);
+                    }
+                });
+            }
+        });
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                Scope.this.key(threadId).val(callBackThread.run());
+            }
+        }).start();
+
     }
 }
 

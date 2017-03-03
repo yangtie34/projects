@@ -72,9 +72,9 @@ public class TransferrecInfo extends AppCompatActivity {
             public void onClick(View v) {
 
                 TransferRecState_Model model=new TransferRecState_Model();
-                model.setCreateComBrID(((App)getApplication()).getSysComBrID());
-                model.setCreateComID(((App)getApplication()).getSysComID());
-                model.setCreateUserID(((App)getApplication()).getCompanyUserID());
+                model.setCreateComBrID(App.getInstance().getSysComBrID());
+                model.setCreateComID(App.getInstance().getSysComID());
+                model.setCreateUserID(App.getInstance().getCompanyUserID());
                 model.setRecNumber("");
 
                 String mess= TransferRecState_BLL.ConfirmProcess_RecState_Accept(model,recNumber);

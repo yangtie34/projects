@@ -69,21 +69,38 @@ public class BaseDaoUtil {
         PreparedStatement pstmt = null;
         ResultSet rs = null;
         PooledConnection con = null;
+        boolean bool=false;
         try {
             con = DBManager.getConnection();
             pstmt = con.getConnection().prepareStatement(sql);
-            for (int i = 0; i < param.length; i++) {
-                pstmt.setString(i + 1, param[i].toString());
-            }
-            return pstmt.execute();
+            pstmtUtils(pstmt,param);
+            pstmt.execute();
+            bool=true;
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             close(pstmt, rs, con);
         }
-        return false;
+        return bool;
     }
+private void pstmtUtils(PreparedStatement pstmt,Object[] ops) throws SQLException {
 
+    for (int j = 1; j <=ops.length; j++) {
+        Object o = ops[j];
+        Class<?> type = o.getClass();
+        if (TypeUtil.isInt(type)) {
+            pstmt.setInt(j, TypeConvert.toInteger(o));
+        } else if (TypeUtil.isString(type)) {
+            pstmt.setString(j, TypeConvert.toString(o));
+        } else if (TypeUtil.isLong(type)) {
+            pstmt.setLong(j, TypeConvert.toLong(o));
+        } else if (TypeUtil.isDouble(type)) {
+            pstmt.setDouble(j, TypeConvert.toDouble(o));
+        } else if (TypeUtil.isBoolean(type)) {
+            pstmt.setBoolean(j, TypeConvert.toBoolean(o));
+        }
+    }
+}
     /**
      * 批量更新或者插入事物控制
      *
@@ -105,20 +122,7 @@ public class BaseDaoUtil {
             long began = System.currentTimeMillis();
             pstmt = connection.prepareStatement(sql);
             for (int i = 0; i < params.size(); i++) {
-                Object[] ops = params.get(i);
-                for (int j = 0; j < ops.length; j++) {
-                    Object o = ops[j];
-                    Class<?> type = o.getClass();
-                    if (TypeUtil.isInt(type)) {
-                        pstmt.setInt(j, TypeConvert.toInteger(o));
-                    } else if (TypeUtil.isString(type)) {
-                        pstmt.setString(j, TypeConvert.toString(o));
-                    } else if (TypeUtil.isLong(type)) {
-                        pstmt.setLong(j, TypeConvert.toLong(o));
-                    } else if (TypeUtil.isDouble(type)) {
-                        pstmt.setDouble(j, TypeConvert.toDouble(o));
-                    }
-                }
+                pstmtUtils(pstmt,params.get(i));
                 // preparedStatement.executeQuery();
                 // 这儿并不马上执行,积攒到一定数量之后，刷新执行
                 pstmt.addBatch();
@@ -202,14 +206,14 @@ public class BaseDaoUtil {
         int num = md.getColumnCount();
         while (rs.next()) {
             Map<String, Object> mapOfColValues = new LinkedHashMap<String, Object>(num);
-            if (num == 1) {
+          /*  if (num == 1) {
                 //listOfRows.add(rs.getString(1));
-            } else {
+            } else {*/
                 for (int i = 1; i <= num; i++) {
                     mapOfColValues.put(md.getColumnName(i), rs.getObject(i));
                 }
                 listOfRows.add(mapOfColValues);
-            }
+//            }
         }
         return listOfRows;
     }

@@ -52,7 +52,7 @@ public class CircleActivityCus extends AppCompatActivity {
 
     private CircleMenuLayout mCircleMenuLayout;
 
-    private String[] mItemTexts = new String[]{"危企生产单", "转运联单",// "联单发布","调度配送",
+    private String[] mItemTexts = new String[]{"危企生产单", "转移联单",// "联单发布","调度配送",
             "通知管理", "系统设置"};
     private int[] mItemImgs = new int[]{R.drawable.prod,
            R.drawable.report,

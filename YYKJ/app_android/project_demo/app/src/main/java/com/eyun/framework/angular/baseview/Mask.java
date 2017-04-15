@@ -5,7 +5,6 @@ import android.widget.RelativeLayout;
 
 import com.eyun.framework.Constant;
 import com.eyun.framework.angular.core.Scope;
-import com.eyun.framework.util.android.ActivityUtil;
 import com.eyun.framework.util.CSS;
 import com.eyun.framework.util.CallBack;
 import com.eyun.framework.util.ThreadUtil;
@@ -81,7 +80,12 @@ public class Mask {
                         } else if (alpha < alphaStart) {
                             alpha = alphaStart;
                         }
-                        view.setAlpha(alpha);
+                        Scope.activity.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                view.setAlpha(alpha);
+                            }
+                        });
                         try {
                             Thread.sleep(DELYED);
                         } catch (InterruptedException e) {

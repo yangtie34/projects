@@ -155,7 +155,7 @@ public class Register3 extends Activity {
           }
           PackageManager pm = getPackageManager();
           boolean permission = (PackageManager.PERMISSION_GRANTED ==
-                  pm.checkPermission("android.permission.WRITE_EXTERNAL_STORAGE", "com.eyunsoft.app_wasteoilCostomer"));
+                  pm.checkPermission("android.permission.WRITE_EXTERNAL_STORAGE", "com.eyunsoft.app_wasteoil"));
           if (!permission) {
               MsgBox.Show(Register3.this,"请放开存储权限");
               return;

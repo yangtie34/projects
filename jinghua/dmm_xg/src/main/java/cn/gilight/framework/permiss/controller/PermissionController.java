@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.jhnu.syspermiss.GetCachePermiss;
-import com.jhnu.syspermiss.util.ContextHolderUtils;
+
+import cn.gilight.framework.uitl.common.ContextHolderUtils;
 
 @Controller
 @RequestMapping("/permiss")

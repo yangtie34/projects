@@ -437,7 +437,7 @@ public class ProdRec extends AppCompatActivity {
                     jsonHeader.put("Condition", jsonObject);
                     String jsonStr = jsonHeader.toString();
 
-                    list= ProdRec_BLL.ProdRec_Select(jsonStr,0,20);
+                    list= ProdRec_BLL.ProdRec_Select(jsonStr,0,30);
 
                 } catch (Exception ex) {
                         ex.printStackTrace();

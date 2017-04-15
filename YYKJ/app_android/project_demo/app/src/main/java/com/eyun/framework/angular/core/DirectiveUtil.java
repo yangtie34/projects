@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import com.eyun.framework.angular.baseview.CusLinearLayout;
 import com.eyun.framework.util.android.ViewUtil;
 import com.eyun.framework.util.common.StringUtils;
+import com.eyun.framework.util.common.TypeConvert;
 import com.eyun.project_demo.R;
 
 import java.util.HashMap;
@@ -106,7 +107,7 @@ public class DirectiveUtil {
         }
         for (int i = 0; i < models.size(); i++) {
             String model = models.get(i);
-            modelExpression = StringUtils.replace(modelExpression, model, directiveViewControl.getScope().key(model.replace("{", "").replace("}", "")).val().toString());
+            modelExpression = StringUtils.replace(modelExpression, model, TypeConvert.toString(directiveViewControl.getScope().key(model.replace("{", "").replace("}", "")).val()));
         }
         return modelExpression;
     }

@@ -15,7 +15,7 @@ public class TitleSet {
      */
     public static void SetTitle(Activity activity, int moduleNo)
     {
-        String title="危废环保监测系统";
+        String title="危险废物监管系统";
         switch (moduleNo)
         {
             case 0:

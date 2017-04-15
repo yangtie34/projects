@@ -29,8 +29,10 @@ public class Category_BLL {
     private static final String NAMESPACE   = "http://tempuri.org/";
     // SOAPACTION
     private static String   SOAP_ACTION = "http://tempuri.org";
-
-
+    public static void init(){
+        productCategory=null;
+    }
+    private static ArrayList<NameToValue> productCategory;
     /**
      * 返回回收类别
      * @param
@@ -38,6 +40,7 @@ public class Category_BLL {
      */
     public static ArrayList<NameToValue> GetProductCategory(long comId)
     {
+        if(productCategory!=null)return new ArrayList<>(productCategory);
         String methodName = "GetProductCategory";
         String webUrl = "http://125.46.79.254:8211/Product/Category.asmx";
         long[] parmas=new long[2];
@@ -104,6 +107,7 @@ public class Category_BLL {
                     }
                     list.add(value);
                 }
+                productCategory=list;
             }
         } catch (Exception ex) {
             ex.printStackTrace();

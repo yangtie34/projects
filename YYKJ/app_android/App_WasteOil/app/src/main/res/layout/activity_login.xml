@@ -109,13 +109,13 @@
                 android:layout_weight="1" >
 
                 <RadioButton
-                    android:text="员工"
+                    android:text="危运企业"
                     android:id="@+id/userType1"
                     android:checked="true"
                     style="@style/formdtRadioButton"/>
 
                 <RadioButton
-                    android:text="危运企业"
+                    android:text="生产企业"
                     android:id="@+id/userType2"
                     style="@style/formdtRadioButton"/>
             </RadioGroup>

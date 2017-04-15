@@ -27,14 +27,14 @@ public class SysPublic_BLL {
     private static final String NAMESPACE   = "http://tempuri.org/";
     // SOAPACTION
     private static String   SOAP_ACTION = "http://tempuri.org";
-
+    private static ArrayList<NameToValue> Product_Shape;
     /**
      * 获取危险废物形态
      * @return
      */
     public static ArrayList<NameToValue> GetProduct_Shape()
     {
-
+        if(Product_Shape!=null)return new ArrayList<>(Product_Shape);
         ArrayList<NameToValue> list=new ArrayList<NameToValue>();
 
         String methodName = "GetProduct_Shape";
@@ -93,6 +93,7 @@ public class SysPublic_BLL {
                     }
                     list.add(value);
                 }
+                 Product_Shape=list;
             }
 
 
@@ -102,14 +103,14 @@ public class SysPublic_BLL {
 
         return list;
     }
-
+    private static ArrayList<NameToValue> Product_HazardNature;
     /**
      * 获取危险废物特性
      * @return
      */
     public static ArrayList<NameToValue> GetProduct_HazardNature()
     {
-
+        if(Product_HazardNature!=null)return Product_HazardNature;
         ArrayList<NameToValue> list=new ArrayList<NameToValue>();
 
         String methodName = "GetProduct_HazardNature";
@@ -169,6 +170,7 @@ public class SysPublic_BLL {
                     }
                     list.add(value);
                 }
+                Product_HazardNature=list;
             }
 
 
@@ -178,14 +180,14 @@ public class SysPublic_BLL {
 
         return list;
     }
-
+    private static ArrayList<NameToValue> Product_MeasureUnit;
     /**
      * 获取计量单位
      * @return
      */
     public static ArrayList<NameToValue> GetProduct_MeasureUnit()
     {
-
+        if(Product_MeasureUnit!=null)return Product_MeasureUnit;
         ArrayList<NameToValue> list=new ArrayList<NameToValue>();
 
         String methodName = "GetProduct_MeasureUnit";
@@ -246,6 +248,7 @@ public class SysPublic_BLL {
                     }
                     list.add(value);
                 }
+                Product_MeasureUnit=list;
             }
 
 
@@ -560,12 +563,14 @@ public class SysPublic_BLL {
         return list;
     }
 
+    private static ArrayList<NameToValue> Product_Pack;
     /**
      * 获取危废生产单包装方式
      * @return
      */
     public static ArrayList<NameToValue> GetProduct_Pack()
     {
+        if(Product_Pack!=null)return Product_Pack;
 
         ArrayList<NameToValue> list=new ArrayList<NameToValue>();
 
@@ -626,6 +631,7 @@ public class SysPublic_BLL {
                     }
                     list.add(value);
                 }
+                Product_Pack=list;
             }
 
 
@@ -635,13 +641,14 @@ public class SysPublic_BLL {
 
         return list;
     }
-
+    private static Map<String,List<NameToValue>> formatCategory;
     public static Map<String,List<NameToValue>> formatCategory(ArrayList<NameToValue> listCategory){
+        if(formatCategory!=null)return formatCategory;
         Map<String,List<NameToValue>> MapCategory=new HashMap<>();
         List<NameToValue> dl=new ArrayList<>();
         for (int i = 0; i <listCategory.size() ; i++) {
             NameToValue Category=listCategory.get(i);
-            if(Integer.parseInt(Category.InfoValue)<100){
+            if(!Category.InfoValue.equalsIgnoreCase("")&&Integer.parseInt(Category.InfoValue)<100){
                 dl.add(Category) ;
 
                 List<NameToValue> zl=new ArrayList<>();
@@ -655,10 +662,12 @@ public class SysPublic_BLL {
             }
         }
         MapCategory.put("0",dl);
-
+        formatCategory=MapCategory;
         return MapCategory;
     }
+    private static Map<String,List<NameToValue>> formatSelectCategory;
     public static Map<String,List<NameToValue>> formatSelectCategory(ArrayList<NameToValue> listCategory){
+        if(formatSelectCategory!=null)return formatSelectCategory;
         Map<String,List<NameToValue>> MapCategory=new HashMap<>();
         List<NameToValue> dl=new ArrayList<>();
         NameToValue nameAll=new NameToValue();
@@ -688,7 +697,17 @@ public class SysPublic_BLL {
             }
         }
         MapCategory.put("0",dl);
-
+        formatSelectCategory=MapCategory;
         return MapCategory;
+    }
+    public static void init(){
+        formatSelectCategory=null;
+        formatCategory=null;
+        Product_Pack=null;
+        Product_MeasureUnit=null;
+        Product_HazardNature=null;
+        Product_Shape=null;
+
+
     }
 }

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ViewParent">
+        <attr name="ng_data" format="string"/>
+        <attr name="ng_params" format="string"/>
+        <attr name="ng_state1" format="string"/>
+        <attr name="ng_state2" format="string"/>
+        <attr name="ng_state3" format="string"/>
+        <attr name="ng_state4" format="string"/>
+        <attr name="ng_state5" format="string"/>
+        <attr name="ng_state6" format="string"/>
+        <attr name="ng_return" format="string"/>
+        <attr name="ng_show" format="string"/>
+
+        <attr name="ng_repeat" format="string"/>
+        <attr name="ng_model" format="string"/>
+        <attr name="ng_enabled" format="string"/>
+    </declare-styleable>
+
+    <declare-styleable name="drop_down_list_attr">
+        <attr name="isDropDownStyle" format="boolean" />
+        <attr name="isOnBottomStyle" format="boolean" />
+        <attr name="isAutoLoadOnBottom" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="TagFlowLayout">
+        <attr name="auto_select_effect" format="boolean"></attr>
+        <attr name="max_select" format="integer"></attr>
+        <attr name="gravity">
+            <enum name="left" value="-1" />
+            <enum name="center" value="0" />
+            <enum name="right" value="1" />
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="swipelistviewstyle">
+        <attr name="right_width" format="dimension"></attr>
+    </declare-styleable>
+</resources>

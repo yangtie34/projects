@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activitys.StorageTake"
+    android:orientation="vertical"
+    android:background="@color/gray_8f">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        >
+        <include layout="@layout/item_activity_title"/>
+        <LinearLayout
+            style="@style/formline"
+            android:layout_height="30dp"
+            android:layout_gravity="center">
+            <com.eyun.framework.angular.baseview.CusTextView
+                app:ng_model="'正在进行'+take_type_name+'操作'"
+                android:gravity="center"
+                style="@style/menu_content_item"
+                android:text="正在进行盘点操作"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/formline">
+            <TextView
+                style="@style/menu_content_item"
+                android:gravity="right"
+
+                android:text="库位扫描：" />
+
+            <com.eyun.framework.angular.baseview.CusTextView
+                app:ng_model="scanStorageLocationCounts"
+                style="@style/menu_content_item"
+                android:gravity="right"
+                android:textColor="@color/black"
+                android:text="0"/>
+            <TextView
+                style="@style/menu_content_item"
+                android:gravity="left"
+                android:text="件"/>
+            <TextView
+                style="@style/menu_content_item"
+                android:gravity="right"
+                android:text="商品总计：" />
+
+            <com.eyun.framework.angular.baseview.CusTextView
+                app:ng_model="recDetailCounts"
+                style="@style/menu_content_item"
+                android:gravity="right"
+                android:text="0" />
+            <TextView
+                style="@style/menu_content_item"
+                android:gravity="left"
+                android:text="件" />
+        </LinearLayout>
+
+        <include layout="@layout/base_view_line_horizontal" />
+        <LinearLayout
+            android:background="@drawable/f_new_order_bg"
+            android:layout_width="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="请选择库位："
+                android:layout_width="wrap_content"
+                android:textSize="12dp"
+                android:gravity="center"
+                android:layout_height="wrap_content" />
+            <com.eyun.framework.angular.baseview.CusTextView
+                app:ng_model="storageLocation"
+                style="@style/menu_content_item"/>
+      <!--  <com.eyun.jybStorageScan.cusviews.CusTreeSpinner
+            app:ng_data="storageSpinner"
+            app:ng_return="storageLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>-->
+        </LinearLayout>
+        <include layout="@layout/item_activity_thisscan_product" />
+        <include layout="@layout/base_cus_sdd_listview"/>
+    </LinearLayout>
+
+    <include layout="@layout/base_view_line_horizontal"/>
+
+    <include layout="@layout/item_activity_oksan"/>
+</LinearLayout>

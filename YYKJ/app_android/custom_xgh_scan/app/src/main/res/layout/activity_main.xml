@@ -1,0 +1,92 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/refresh_view"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<com.eyun.framework.moduleview.BorderScrollView
+    android:layout_width="wrap_content"
+    android:layout_height="100dp">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <TextView
+        android:text="TextViewsadfasdfasd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"/>
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:id="@+id/textView2"/>
+    <com.eyun.framework.angular.baseview.CusTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:ng_model="str123"/>
+    <Button
+        android:text="Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onclick"
+        android:id="@+id/button" />
+    <com.eyun.framework.angular.baseview.CusTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:ng_model="str123"/>
+    <com.eyun.framework.angular.baseview.CusTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:ng_model="str123"/>
+    <com.eyun.framework.angular.baseview.CusTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:ng_repeat="str in list"
+        android:textSize="5sp"
+        app:ng_model="str"/>
+    <com.eyun.framework.angular.baseview.CusTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:ng_model="str124"
+        app:ng_show="'44464654654564'==str124"/>
+    <com.eyun.framework.angular.baseview.CusTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:ng_model="str123"/>
+    <com.eyun.framework.angular.baseview.CusEditView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:ng_model="str[0].k"/>
+    <com.eyun.framework.angular.baseview.CusEditView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:ng_model="str[1].o"/>
+    <com.eyun.framework.angular.baseview.CusEditView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:ng_model="str[2].p"/>
+    <com.eyun.framework.angular.baseview.CusCheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:ng_model="str[2].c"/>
+
+    <!--    &lt;!&ndash;  app:ng_repeat="str in list"
+          app:ng_model="str"/>&ndash;&gt;
+      <com.eyun.framework.angular.baseview.CusTextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          app:ng_model="'&#45;&#45;&#45;&#45;'+str123+'&#45;&#45;&#45;&#45;'"/>-->
+    </LinearLayout>
+
+</com.eyun.framework.moduleview.BorderScrollView>
+    <include layout="@layout/base_view_line_horizontal"/>
+    <com.eyun.customXghScan.cusviews.CusSDDListView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@id/droplistview"/>
+    <include layout="@layout/base_view_line_horizontal"/>
+</LinearLayout>

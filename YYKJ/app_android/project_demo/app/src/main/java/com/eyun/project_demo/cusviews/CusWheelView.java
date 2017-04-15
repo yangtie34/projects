@@ -7,10 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ViewFlipper;
+
 import com.eyun.framework.angular.core.AngularViewParent;
 import com.eyun.framework.angular.core.DataListener;
 import com.eyun.framework.angular.core.Scope;
-import com.eyun.framework.entity.TreeEntity;
+import com.eyun.framework.entity.NodeEntity;
 import com.eyun.framework.moduleview.widget.OnWheelScrollListener;
 import com.eyun.framework.moduleview.widget.ViewWheelAdapter;
 import com.eyun.framework.moduleview.widget.WheelView;
@@ -21,7 +22,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2016/10/29.
  *
- * Data:TreeEntity
+ * Data:NodeEntity
  * params:visible 显示数量
  */
 
@@ -48,21 +49,21 @@ public class CusWheelView extends AngularViewParent {
 
         final LinearLayout mMenuView= new LinearLayout(scope.activity);
         this.mMenuView=mMenuView;
-        LinearLayout.LayoutParams relLayoutParams=new LinearLayout.LayoutParams
+        LayoutParams relLayoutParams=new LayoutParams
                 (ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT,1f);
         mMenuView.setLayoutParams(relLayoutParams);
         ((LinearLayout)mMenuView).setGravity(Gravity.CENTER_HORIZONTAL);
         ((LinearLayout)mMenuView).setOrientation(LinearLayout.HORIZONTAL);
         // mMenuView.setBackgroundColor(Color.parseColor("#00FF00"));
         viewfipper=new ViewFlipper(scope.activity);
-        viewfipper.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+        viewfipper.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT,1));
         viewfipper.addView(mMenuView);
         viewfipper.setFlipInterval(6000000);
         this.addView(viewfipper);
-        scope.key(this.getData()).watch( new DataListener<TreeEntity>() {
+        scope.key(this.getData()).watch( new DataListener<NodeEntity>() {
             @Override
-            public void hasChange(TreeEntity treeEntity) {
+            public void hasChange(NodeEntity treeEntity) {
                 CusWheelView.this.fillView(treeEntity,0);
             }
         });
@@ -77,8 +78,8 @@ public class CusWheelView extends AngularViewParent {
         });
 
     }
-    public void fillView(TreeEntity treeEntity, int index){
-        List<TreeEntity> treeEntities=treeEntity.getChildrenList();
+    public void fillView(NodeEntity treeEntity, int index){
+        List<NodeEntity> treeEntities=treeEntity.getChildrenList();
         if(treeEntities.size()==0){
             return;
         }
@@ -97,7 +98,7 @@ public class CusWheelView extends AngularViewParent {
         WheelView wheelView=null;
         if(mMenuView.findViewById(treeEntity.getLevel()+1)==null){
             wheelView=new WheelView(scope.activity);
-            LinearLayout.LayoutParams relLayoutParams=new LinearLayout.LayoutParams
+            LayoutParams relLayoutParams=new LayoutParams
                     (ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT,1.0f);
 
             wheelView.setId(treeEntity.getLevel()+1);
@@ -114,8 +115,8 @@ public class CusWheelView extends AngularViewParent {
     }
 
     class Listener implements OnWheelScrollListener {
-        private TreeEntity treeEntity;
-        public Listener(TreeEntity treeEntity){
+        private NodeEntity treeEntity;
+        public Listener(NodeEntity treeEntity){
             this.treeEntity=treeEntity;
         }
         @Override

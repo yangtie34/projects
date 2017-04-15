@@ -6,7 +6,7 @@ import com.eyun.framework.jdbc.jdbcUtil.ConnectionPool.PooledConnection;
 
 public class DBManager {
 
-
+    private static DBManager dbManager;
     private static PooledConnection conn;
     private static ConnectionPool connectionPool;
 
@@ -18,7 +18,6 @@ public class DBManager {
             if (conn != null) conn.close();
             if (connectionPool != null) {
                 connectionPool.closeConnectionPool();
-                connectionPool.init();
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -31,8 +30,10 @@ public class DBManager {
      * @return
      */
     public static PooledConnection getConnection() {
-
-//		synchronized (new String()) {
+        if(dbManager==null){
+            dbManager=new DBManager();
+        }
+		synchronized (dbManager) {
         if (connectionPool == null) {
             connectionPool = new ConnectionPool();
             try {
@@ -40,22 +41,45 @@ public class DBManager {
             } catch (Exception e) {
                 connectionPool = null;
                 e.printStackTrace();
+                return null;
             }
         }
         try {
             conn = connectionPool.getConnection();
         } catch (SQLException e) {
             e.printStackTrace();
+            return null;
         }
-//		}
+		}
         return conn;
     }
 
     /**
      * 重启db连接
      */
-    private static void reStart() {
-        close();
+    public static void reStart() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                close();
+                try {
+                    if(connectionPool!=null){
+                        connectionPool.init();
+                        connectionPool.createPool();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
 
+    public static boolean checkConnection(){
+        PooledConnection pooledConnection=getConnection();
+        if(pooledConnection==null){
+            return true;
+        }else{
+            return false;
+        }
+    };
 }

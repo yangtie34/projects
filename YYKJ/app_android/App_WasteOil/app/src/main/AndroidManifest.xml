@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.eyunsoft.app_wasteoil"
-    android:versionCode="170302"
-    android:versionName="1.0.170302">
+    android:versionCode="170309"
+    android:versionName="1.0.170309">
 
     <!-- 在SDCard中创建与删除文件权限 -->
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />

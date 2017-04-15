@@ -51,8 +51,9 @@ public class CircleActivity extends AppCompatActivity {
 
     private CircleMenuLayout mCircleMenuLayout;
 
-    private String[] mItemTexts = new String[]{"危运生产单", "转运联单", "联单发布","调度配送", "通知管理", "系统设置"};
-    private int[] mItemImgs = new int[]{R.drawable.prod,
+    private String[] mItemTexts = new String[]{//"危运生产单",
+            "转移联单", "联单发布","调度配送", "通知管理", "系统设置"};
+    private int[] mItemImgs = new int[]{//R.drawable.prod,
            R.drawable.report, R.drawable.qiangdan,
             R.drawable.dis, R.drawable.notice, R.drawable.set};
 
@@ -116,27 +117,27 @@ public class CircleActivity extends AppCompatActivity {
                 }
 
                 switch (pos) {
-                    case 0:
+                   /* case 0:
                         Intent myIntentProd = new Intent(CircleActivity.this, ProdRec.class);
                         startActivity(myIntentProd);
-                        break;
-                    case 1:
+                        break;*/
+                    case 0:
                         Intent myIntentProdReport = new Intent(CircleActivity.this, ProdRecReport.class);
                         startActivity(myIntentProdReport);
                         break;
-                    case 2:
+                    case 1:
                         Intent myIntentTransferRecstate = new Intent(CircleActivity.this, TransferRecstate.class);
                         startActivity(myIntentTransferRecstate);
                         break;
-                    case 3:
+                    case 2:
                         Intent myIntentVehDisp = new Intent(CircleActivity.this, VehDisp.class);
                         startActivity(myIntentVehDisp);
                         break;
-                    case 4:
+                    case 3:
                         Intent myIntentNoticeList = new Intent(CircleActivity.this, NoticeList.class);
                         startActivity(myIntentNoticeList);
                         break;
-                    case 5:
+                    case 4:
 //                        Intent myIntentSet = new Intent(CircleActivity.this, NoticeList.class);
 //                        startActivity(myIntentSet);
                         break;

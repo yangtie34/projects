@@ -312,12 +312,38 @@ public class ConnectionPool {
 	 * 
 	 * @return 返回一个新创建的数据库连接
 	 */
-
+	public class Dummy extends Thread {
+		private volatile Connection conn = null;
+		@Override
+		public void run() {
+			try {
+				this.conn = DriverManager.getConnection(dbUrl, dbUsername, dbPassword) ;
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		public Connection getConnection() {
+			Dummy d = new Dummy() ;
+			d.start() ;
+			try {
+				for (int i = 0; i <10 ; i++) {
+					if(d.conn!=null){
+						return d.conn;
+					}
+					Thread.sleep(200) ;
+				}
+			} catch (InterruptedException e) {}
+			return d.conn ;
+		}
+	}
 	private Connection newConnection() throws SQLException {
 
 		// 创建一个数据库连接
-		
-		Connection conn = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
+		Connection conn=new Dummy().getConnection();
+		if(conn==null){
+			throw new SQLException();
+		}
+		//conn = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
 
 		// 如果这是第一次创建数据库连接，即检查数据库，获得此数据库允许支持的
 

@@ -1,0 +1,86 @@
+@charset "utf-8";
+/* CSS Document */
+/*下拉选择*/
+.smart-input {
+    border-radius:5px;
+    width:100%;
+    height:32px;
+    line-height:32px;
+    border:1px solid #abcfd4;  /*颜色更改*/
+    padding-left:15px;
+    padding-right:15px;
+    font-size:14px;
+    color:#6b6b6b;
+    position:absolute;
+    left : 0px;
+    z-index:1999; 
+    box-sizing: border-box;
+    -moz-box-sizing:border-box;
+}
+input.smart-input:focus {
+    border:1px solid #f28671;
+    outline:none;
+}
+.smart-input-block {
+    font-size:14px;
+    color:#6b6b6b;
+    font-weight:normal;
+    min-width:100%;
+    border:1px solid #abcfd4; /*颜色更改*/
+    position:absolute;
+    background:#fff;
+    top:32px;
+    left:0px;
+    min-height:5px;
+    max-height:450px;
+    overflow:auto;
+    z-index:2000;
+    border-radius:5px;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    white-space:nowrap;
+}
+.smart-input-block ul {
+    list-style:none;
+    margin:0;
+    padding:0
+}
+.smart-input-block li {
+    margin:0;
+    padding:9px 15px;
+    text-align:left;
+    list-style:none; 
+}
+.smart-input-block-bg {
+    background:#f6f7f9;
+}
+.smart-input-block li:hover {
+    background:#f6f7f9;
+    cursor:pointer;
+}
+.smart-input-block-li{
+	background:#f6f7f9;
+    cursor:pointer;
+}
+.smart-input-block-position {
+    position:relative;
+    display:inline-block;
+    width : 140px;
+    height: 32px;
+}
+ .set-newform .smart-input-block-position span{
+	list-style:none ; 
+    margin:0 ; 
+    padding:0 ; 
+    text-align:inherit;  
+    width:auto ; 
+} 
+
+/******针对静态下拉框的特殊样式定制********/
+.cs-select-select {
+    background:url(images/select/select.png) right 10px center  no-repeat;
+}
+.cs-select-select:hover {
+    cursor:pointer;
+    background:url(images/select/select-hover.png) right 10px center no-repeat;
+}

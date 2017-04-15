@@ -1,0 +1,32 @@
+<div style="position: relative;">
+ <button type="button" style="outline:none;" class="quanxian-btn-default quanxian-btn-bottom-icon {{inputClass}}" ng-click="showDetail($event)">{{result.mc}}<span ng-if="!result.mc">请选择</span></button>
+<!-- <input type="text" ng-model="result.mc" readonly="readonly" ng-click="showDetail($event)" class="{{inputClass}}"/> -->
+	<div class="clearfix" style="position: absolute; top: {{height}}px;z-index: 10000;" ng-show="showBoxDetail">
+	<div class="forterm" 
+	  style="width: 180px; border: 1px solid #bccccf;height: 36px;line-height: 36px; padding-left: 10px;
+	  border-radius: 5px;box-shadow: 5px 5px 5px #C5C5C5;background-color: white;">
+		<ul class="tree-list1">
+		    <li ng-if="!source[0]" cg-tree="node in children of source"><!-- map类型 -->
+		      <a href="javascript:void(0);" ng-class="{'tree-list-leaf-icon': !node.children,'tree-list-folder-icon':node.children.length >0}" 
+		     	 ng-click="cgComboTreeNodeClick(node)">
+		      	<span title="{{node.mc}}" style="width: 168px;display: inline-block;">{{node.mc}}</span>
+		      </a>
+		      <ul class="tree-list2" ng-show="node.children.length &gt; 0">
+		      	<li cg-treecurse></li> 
+		      </ul>
+		    </li>
+		    <div  ng-if="source[0]" >
+		        <li cg-tree="node in children of sourc" ng-repeat="sourc in source" >
+		      <a href="javascript:void(0);" ng-class="{'tree-list-leaf-icon': !node.children,'tree-list-folder-icon':node.children.length >0}" 
+		     	 ng-click="cgComboTreeNodeClick(node)">
+		      	<span title="{{node.mc}}" style="width: 168px;display: inline-block;">{{node.mc}}</span>
+		      </a>
+		      <ul class="tree-list2" ng-show="node.children.length &gt; 0">
+		      	<li cg-treecurse></li> 
+		      </ul>
+		    </li>
+		    </div>
+	    </ul>
+	</div>
+</div>
+</div>

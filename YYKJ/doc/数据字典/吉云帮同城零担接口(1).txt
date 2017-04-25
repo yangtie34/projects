@@ -1,0 +1,36 @@
+
+string userName="eyunsoft_jyun_bang"
+string passWord="utyjh-luirf-576gfg-wqerw"
+
+APP公用部分：
+
+    1、地图：http://test.webservice.jyunbang.com/Map/MapAPI.asmx（125.46.79.254:8301）
+
+    2、中国地区：http://test.webservice.jyunbang.com/Sys/SysChinaArea.asmx（125.46.79.254:8301）
+
+    3、公用信息：http://test.webservice.jyunbang.com/Sys/SysPublicInfo.asmx（125.46.79.254:8301）
+
+    4、公司：http://test.webservice.jyunbang.com/Company/Company.asmx（125.46.79.254:8301）
+
+    5、公司员工：http://test.webservice.jyunbang.com/Company/CompanyUser.asmx（125.46.79.254:8301）
+
+    6、客户：http://test.webservice.jyunbang.com/Customer/Customer.asmx（125.46.79.254:8301）
+
+
+APP专属部分：
+
+
+    1、公用信息：http://125.46.79.254:8600/Sys/SysPublicInfo.asmx
+
+    2、托运单价格：http://125.46.79.254:8600/Consign/ConsignPrice.asmx
+
+    3、托运订单：http://125.46.79.254:8600/Consign/ConsignOrder.asmx
+
+    4、托运单：http://125.46.79.254:8600/Consign/Consign.asmx
+
+    5、车辆：http://125.46.79.254:8600/Vehicle/Vehicle.asmx
+
+    6、车辆司机：http://125.46.79.254:8600/Vehicle/VehicleDriver.asmx
+
+    7、车辆调度：http://125.46.79.254:8600/Distribution/VehicleDispath.asmx
+

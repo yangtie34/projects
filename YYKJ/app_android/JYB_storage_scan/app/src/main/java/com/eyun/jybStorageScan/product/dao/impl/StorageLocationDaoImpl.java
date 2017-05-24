@@ -30,7 +30,7 @@ public class StorageLocationDaoImpl implements StorageLocationDao {
 
     @Override
     public List<Map<String, Object>> getStorageLocation(long ComID, long ComBrID) {
-        String sqlSelect="Select * from StorageLocation where ComID="+ ComID;
+        String sqlSelect="Select * from storage_StorageLocation where ComID="+ ComID;
         if(ComBrID>0)
         {
             sqlSelect+=" and ComBrID="+ComBrID;
@@ -40,7 +40,7 @@ public class StorageLocationDaoImpl implements StorageLocationDao {
 
     @Override
     public StorageLocation getStorageLocatioin(String LocaBarCode) {
-        String sqlSelect="Select * from StorageLocation where LocaBarCode="+ SqlStringUtils.GetQuotedString(LocaBarCode);
+        String sqlSelect="Select * from storage_StorageLocation where LocaBarCode="+ SqlStringUtils.GetQuotedString(LocaBarCode);
         List<StorageLocation> list= BaseDao.getInstance().query(sqlSelect,StorageLocation.class);
         if(list!=null&&list.size()==1)
             return list.get(0);

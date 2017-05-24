@@ -34,7 +34,7 @@ public class StorageInRecStateDaoImpl implements StorageInRecStateDao {
     }
     @Override
     public int getStorageInRecState(String recNumber) {
-        String sqlSelect="Select RecState from StorageInRecState where RecNumber="+ SqlStringUtils.GetQuotedString(recNumber);
+        String sqlSelect="Select RecState from storage_StorageInRecState where RecNumber="+ SqlStringUtils.GetQuotedString(recNumber);
         List<Map<String,Object>> list= BaseDao.getInstance().queryForList(sqlSelect);
         if(list!=null&& list.size()>0){
             return TypeConvert.toInteger(list.get(0).get("RecState"));
@@ -53,7 +53,7 @@ public class StorageInRecStateDaoImpl implements StorageInRecStateDao {
         map.put("CreateComID",AppUser.comId);
         map.put("CreateIp",SqlStringUtils.GetQuotedString(NetWorkUtil.getHostIP()));
         map.put("CreateTime",SqlStringUtils.GetQuotedString(DateUtils.getCurrentTime()));
-        String sqlInsert=SqlStringUtils.GetConstructionInsert("StorageInRecState",map);
+        String sqlInsert=SqlStringUtils.GetConstructionInsert("storage_StorageInRecState",map);
 
         StorageInRecDaoImpl.getInstance().updateState(recNumber,recState);
         return BaseDao.getInstance().excute(sqlInsert);
@@ -65,13 +65,13 @@ public class StorageInRecStateDaoImpl implements StorageInRecStateDao {
         map.put("RecState",recState);
         map.put("ScanTime",SqlStringUtils.GetQuotedString(DateUtils.getCurrentTime()));
         String where=" where RecNumber="+SqlStringUtils.GetQuotedString(recNumber);
-        String sqlUpdate=SqlStringUtils.GetConstructionUpdate("StorageInRecState",map,where);
+        String sqlUpdate=SqlStringUtils.GetConstructionUpdate("storage_StorageInRecState",map,where);
         return BaseDao.getInstance().excute(sqlUpdate);
     }
 
     @Override
     public StorageInRec getFjNoRCRec() {
-        String sqlSelect="Select t.* from StorageInRec t where t.RecState="+ AppPublic.ScanType.FJ
+        String sqlSelect="Select t.* from storage_StorageInRec t where t.RecState="+ AppPublic.ScanType.FJ
                 +" and CreateComBrID="+AppUser.comBrId;
         List<StorageInRec> lists=BaseDao.getInstance().query(sqlSelect,StorageInRec.class);
         if(lists.size()>0){

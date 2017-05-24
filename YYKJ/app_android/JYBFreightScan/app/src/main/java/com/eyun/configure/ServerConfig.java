@@ -27,8 +27,6 @@ public final class ServerConfig {
 
         public static final String FILE_SAVE = PATH_SAVE + "com.eyun.jybfreightscan.apk";
     }
-
-
     //---------app更新相关------------
 
 
@@ -54,13 +52,24 @@ public final class ServerConfig {
 
 
     //---------数据源相关驱动------------
-    public static class JDBC {
+    public static class JDBC {//JYun_Bang_Test   jyun_bang   jyun_bang@)!*)#@*20170417
+
         public static final String driverName = "net.sourceforge.jtds.jdbc.Driver";//"com.microsoft.sqlserver.jdbc.SQLServerDriver";//"oracle.jdbc.driver.OracleDriver";
-        public static String ipAndPort="192.168.56.248:1533";
-        public static String orcl="JYun_Bang_Storage_Test";
-        public static String url = "jdbc:jtds:sqlserver://"+ipAndPort+"/"+orcl;//"jdbc:sqlserver://192.168.56.248:1533;DatabaseName=HuaChi_Test";//"jdbc:oracle:thin:@ 202.196.0.180:1521:DM";
-        public static String user = "jyun_bang_storage";
-        public static String password = "jyun_bang_storage_20170215";
+        public static String ipAndPort = "192.168.56.32:1533";
+        public static String orcl = "JYun_Bang_LingDan_WD";
+        public static String instance = "SQLEXPRESS";
+        public static String url = "jdbc:jtds:sqlserver://" + ipAndPort + "/" + orcl + ";instance=" + instance;
+        ;//"jdbc:sqlserver://192.168.56.248:1533;DatabaseName=HuaChi_Test";//"jdbc:oracle:thin:@ 202.196.0.180:1521:DM";
+        public static String user = "sa";
+        public static String password = "sa123456";
+
+        public static String ipAndPortServer = "192.168.56.248:1533";
+        public static String orclServer = "JYun_Bang_Test";
+        public static String instanceServer = "SQL2005";
+        public static String urlServer = "jdbc:jtds:sqlserver://" + ipAndPortServer + "/" + orclServer + ";instance=" + instanceServer;//"jdbc:sqlserver://192.168.56.248:1533;DatabaseName=HuaChi_Test";//"jdbc:oracle:thin:@ 202.196.0.180:1521:DM";
+        public static String userServer = "jyun_bang";
+        public static String passwordServer = "jyun_bang@)!*)#@*20170417";
+
         //验证数据库连接是否健康
         public static final String validationQuery = "select getdate()";//"select sysdate from dual";
         //最小连接数

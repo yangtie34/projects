@@ -36,7 +36,7 @@ public class StorageOutRecStateDaoImpl implements StorageOutRecStateDao {
 
     @Override
     public int getStorageOutRecState(String recNumber) {
-        String sqlSelect="Select RecState from StorageOutRecState where RecNumber="+ SqlStringUtils.GetQuotedString(recNumber);
+        String sqlSelect="Select RecState from storage_StorageOutRecState where RecNumber="+ SqlStringUtils.GetQuotedString(recNumber);
         List<Map<String,Object>> list= BaseDao.getInstance().queryForList(sqlSelect);
         if(list!=null&& list.size()>0){
             return TypeConvert.toInteger(list.get(0).get("RecState"));
@@ -55,7 +55,7 @@ public class StorageOutRecStateDaoImpl implements StorageOutRecStateDao {
         map.put("CreateComID",AppUser.comId);
         map.put("CreateIp",SqlStringUtils.GetQuotedString(NetWorkUtil.getHostIP()));
         map.put("CreateTime",SqlStringUtils.GetQuotedString(DateUtils.getCurrentTime()));
-        String sqlInsert=SqlStringUtils.GetConstructionInsert("StorageOutRecState",map);
+        String sqlInsert=SqlStringUtils.GetConstructionInsert("storage_StorageOutRecState",map);
         StorageOutRecDaoImpl.getInstance().updateState(recNumber,recState);
         return BaseDao.getInstance().excute(sqlInsert);
     }
@@ -66,13 +66,13 @@ public class StorageOutRecStateDaoImpl implements StorageOutRecStateDao {
         map.put("RecState",recState);
         map.put("ScanTime",SqlStringUtils.GetQuotedString(DateUtils.getCurrentTime()));
         String where=" where RecNumber="+SqlStringUtils.GetQuotedString(recNumber);
-        String sqlUpdate=SqlStringUtils.GetConstructionUpdate("StorageOutRecState",map,where);
+        String sqlUpdate=SqlStringUtils.GetConstructionUpdate("storage_StorageOutRecState",map,where);
         return BaseDao.getInstance().excute(sqlUpdate);
     }
 
     @Override
     public StorageOutRec getCCNoFJRec() {
-        String sqlSelect="Select t.* from StorageOutRec t where t.RecState="+ AppPublic.ScanType.CRC
+        String sqlSelect="Select t.* from storage_StorageOutRec t where t.RecState="+ AppPublic.ScanType.CRC
                 +" and CreateComBrID="+AppUser.comBrId;
         List<StorageOutRec> lists=BaseDao.getInstance().query(sqlSelect,StorageOutRec.class);
         if(lists.size()>0){

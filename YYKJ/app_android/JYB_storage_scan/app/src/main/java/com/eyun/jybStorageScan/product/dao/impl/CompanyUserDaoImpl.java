@@ -17,7 +17,7 @@ import java.util.Map;
  * Created by Administrator on 2017/3/7.
  */
 
-public class CompanyUserDaoImpl implements CompanyUserDao{
+public class CompanyUserDaoImpl implements CompanyUserDao {
 
     private static CompanyUserDaoImpl companyUserDao = null;
 
@@ -55,21 +55,22 @@ public class CompanyUserDaoImpl implements CompanyUserDao{
 
     @Override
     public CompanyUser getUserInfo(String userName) {
-        String sqlQuery="Select * from CompanyUser where UserName="+SqlStringUtils.GetQuotedString(userName);
-        List<CompanyUser> list=BaseDao.getInstance().query(sqlQuery,CompanyUser.class);
-        if(list!=null&&list.size()>0)
+        String sqlQuery = "Select * from CompanyUser where UserName=" + SqlStringUtils.GetQuotedString(userName);
+        List<CompanyUser> list = BaseDao.getInstance().query(sqlQuery, CompanyUser.class);
+        if (list != null && list.size() > 0)
             return list.get(0);
-        return  null;
+        return null;
     }
 
-    public String getReceiptSignStr(long ComBrID){
-        String sqlSelect="Select ReceiptSign from CompanyBranch where ComBrID="+ComBrID;
+    public String getReceiptSignStr(long ComBrID) {
+        String sqlSelect = "Select ReceiptSign from CompanyBranch where ComBrID=" + ComBrID;
 
-        List<Map<String,Object>> list= BaseDao.getInstance().queryForList(sqlSelect);
-        if(list!=null&& list.size()==1)
-        {
+        List<Map<String, Object>> list = BaseDao.getInstance().queryForList(sqlSelect);
+        if (list != null && list.size() == 1) {
             return TypeConvert.toString(list.get(0).get("ReceiptSign"));
         }
         return "";
-    };
+    }
+
+    ;
 }

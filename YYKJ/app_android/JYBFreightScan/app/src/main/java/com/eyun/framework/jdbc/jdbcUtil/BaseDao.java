@@ -67,4 +67,8 @@ public class BaseDao extends BaseDaoUtil {
         return excute(sql, new Object[]{});
     }
 
+    public boolean excuteTransaction(List<String> list){
+        return excuteForTransaction(list);
+    }
+
 }

@@ -9,5 +9,24 @@ public interface VehicleDao {
      * @return
      */
     Vehicle getVehicle(String vehicleCode);
+
+    /**
+     * 更改车辆状态
+     * @param vehNumber
+     * @param state
+     * @param stateStr
+     * @return
+     */
+    String GetSqlUpdate(long vehNumber,int state,String stateStr);
+
+
+    /**
+     * 更改司机状态
+     * @param vehDrNumber
+     * @param state
+     * @param stateStr
+     * @return
+     */
+    String GetSqlUpdate_Driver(long vehDrNumber,int state,String stateStr);
     
 }

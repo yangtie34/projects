@@ -9,12 +9,20 @@ import com.eyun.jybfreightscan.product.entity.Vehicle;
  */
 
 public interface VehicleDispathService {
+
     /**
-     * 更改车辆调度
-     * @param vehicle
-     * @param consign
-     * @param dispathType
+     * 获取调度编号
+     * @param vehNumber
+     * @param state
      * @return
      */
-    ResultMsg okVehicleDisp(Vehicle vehicle, Consign consign, int dispathType);
+    String GetVehDispNumber(long vehNumber,int state);
+
+    /**
+     * 获取司机编号
+     * @param recNumber
+     * @return
+     */
+    Long GetVehDrNumber(String recNumber);
+
 }

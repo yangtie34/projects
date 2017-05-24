@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activitys.VehicleDispathA"
+    android:orientation="vertical"
+    android:background="@color/gray_8f">
+
+    <include layout="@layout/base_view_line_horizontal"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        >
+        <include layout="@layout/item_activity_title"/>
+
+        <LinearLayout
+            android:background="@drawable/f_new_order_bg"
+            android:layout_width="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:orientation="horizontal">
+            <com.eyun.framework.angular.baseview.CusTextView
+                app:ng_model="'1.当前扫描车辆：'+VehNumber"
+                android:layout_gravity="center"
+                style="@style/menu_content_item"
+                android:text="1.当前扫描车辆："
+                />
+            <com.eyun.framework.angular.baseview.CusTextView
+                app:ng_model="'车辆联系人：'+VehContactName"
+                android:layout_gravity="center"
+                style="@style/menu_content_item"
+                android:text="车辆联系人："
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:background="@drawable/f_new_order_bg"
+            android:layout_width="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:orientation="horizontal">
+            <com.eyun.framework.angular.baseview.CusTextView
+                app:ng_model="'2.当前扫描托运单：'+RecNumber"
+                android:layout_gravity="center"
+                style="@style/menu_content_item"
+                android:text="2.当前扫描托运单："
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:background="@drawable/f_new_order_bg"
+            android:layout_width="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_gravity="center"
+                style="@style/menu_content_item"
+                android:text="3.请选择调度状态："
+                />
+           <LinearLayout
+               android:onClick="windowShow"
+               style="@style/menu_content_item"
+               android:orientation="horizontal">
+               <com.eyun.framework.angular.baseview.CusTextView
+                   app:ng_model="DispathName"
+                   android:layout_gravity="center"
+                   style="@style/menu_content_item"
+                   android:hint="选择状态"
+                   />
+               <ImageView
+                   android:layout_width="20dp"
+                   android:layout_height="40dp"
+                   android:src="@drawable/next"/>
+           </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <com.eyun.eyunstorage.cusviews.CusWindowPop
+        app:ng_data="windowShow"
+        android:layout_width="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/gray_8f"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:background="@drawable/f_new_order_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="选择扫描类型："
+                android:padding="10dp"
+                android:layout_gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <include layout="@layout/base_view_line_horizontal"/>
+            <com.eyun.framework.angular.baseview.CusTextView
+                app:ng_model="DispathType[0]"
+                android:clickable="true"
+                android:onClick="checkScanType"
+                android:text="TextView"
+                style="@style/list_check_item" />
+            <include layout="@layout/base_view_line_horizontal"/>
+            <com.eyun.framework.angular.baseview.CusTextView
+                app:ng_model="DispathType[1]"
+                android:clickable="true"
+                android:onClick="checkScanType"
+                android:text="TextView"
+                style="@style/list_check_item" />
+            <include layout="@layout/base_view_line_horizontal"/>
+            <com.eyun.framework.angular.baseview.CusTextView
+                app:ng_model="DispathType[2]"
+                android:clickable="true"
+                android:onClick="checkScanType"
+                android:text="TextView"
+                style="@style/list_check_item" />
+            <include layout="@layout/base_view_line_horizontal"/>
+            <com.eyun.framework.angular.baseview.CusTextView
+                app:ng_model="DispathType[3]"
+                android:clickable="true"
+                android:onClick="checkScanType"
+                android:text="TextView"
+                style="@style/list_check_item" />
+            <include layout="@layout/base_view_line_horizontal"/>
+            <com.eyun.framework.angular.baseview.CusTextView
+                app:ng_model="DispathType[4]"
+                android:clickable="true"
+                android:onClick="checkScanType"
+                android:text="TextView"
+                style="@style/list_check_item" />
+            <include layout="@layout/base_view_line_horizontal"/>
+            <com.eyun.framework.angular.baseview.CusTextView
+                app:ng_model="DispathType[5]"
+                android:clickable="true"
+                android:onClick="checkScanType"
+                android:text="TextView"
+                style="@style/list_check_item" />
+            <include layout="@layout/base_view_line_horizontal"/>
+            <com.eyun.framework.angular.baseview.CusTextView
+                app:ng_model="DispathType[6]"
+                android:clickable="true"
+                android:onClick="checkScanType"
+                android:text="TextView"
+                style="@style/list_check_item" />
+        </LinearLayout>
+    </com.eyun.eyunstorage.cusviews.CusWindowPop>
+    <include layout="@layout/item_activity_oksan"/>
+</LinearLayout>

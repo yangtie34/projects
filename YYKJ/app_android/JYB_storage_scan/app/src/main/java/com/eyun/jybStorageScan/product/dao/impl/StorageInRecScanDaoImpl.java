@@ -42,15 +42,15 @@ public class StorageInRecScanDaoImpl implements StorageInRecScanDao {
 
     @Override
     public boolean initScansByStorageInRecDetails(String RecNumber,int ScanType){
-        String sql="select * from StorageInRecScan where RecNumber="+SqlStringUtils.GetQuotedString(RecNumber) +" and ScanType="+ScanType ;
+        String sql="select * from storage_StorageInRecScan where RecNumber="+SqlStringUtils.GetQuotedString(RecNumber) +" and ScanType="+ScanType ;
         List<Map<String, Object>> list= BaseDao.getInstance().queryForList(sql);
         if(list.size()==0){
-            sql="insert into storageInRecScan(scanType,scanErrorType,scanNumber,recNumber,proId,proNumber," +
+            sql="insert into storage_storageInRecScan(scanType,scanErrorType,scanNumber,recNumber,proId,proNumber," +
                     " createUserID,createComBrId,createComId,createIp,createTime) " +
                     " select "+ScanType+" scanType,0 scanErrorType,0 scanNumber,recNumber,proId,proNumber," +
                     " "+ AppUser.userId+" createUserID,"+AppUser.comBrId+" createComBrId,"+AppUser.comId+" createComId,'"
                     + NetWorkUtil.getHostIP()+"' createIp,'"+ DateUtils.getCurrentTime()+"' createTime " +
-                    " from storageInRecDetail where recNumber="+SqlStringUtils.GetQuotedString(RecNumber);
+                    " from storage_storageInRecDetail where recNumber="+SqlStringUtils.GetQuotedString(RecNumber);
             return BaseDao.getInstance().excute(sql);
         }else{
             return true;
@@ -58,7 +58,7 @@ public class StorageInRecScanDaoImpl implements StorageInRecScanDao {
     }
     @Override
     public boolean addScanInfo(String RecNumber,String ProID,int ScanType, StorageLocation storageLocation,int number){
-        String sql="insert into storageInRecScan(scanType,scanErrorType,scanNumber," ;
+        String sql="insert into storage_storageInRecScan(scanType,scanErrorType,scanNumber," ;
         if(storageLocation!=null){
             sql+= "StorLocaCode," +
                 "StorLocaComBrID," +
@@ -75,13 +75,13 @@ public class StorageInRecScanDaoImpl implements StorageInRecScanDao {
         sql+= " recNumber,proId,proNumber," +
                 " "+ AppUser.userId+" createUserID,"+AppUser.comBrId+" createComBrId,"+AppUser.comId+" createComId,'"
                 + NetWorkUtil.getHostIP()+"' createIp,'"+ DateUtils.getCurrentTime()+"' createTime " +
-                " from storageInRecDetail where recNumber="+SqlStringUtils.GetQuotedString(RecNumber)+" and  proId="+ProID;
+                " from storage_storageInRecDetail where recNumber="+SqlStringUtils.GetQuotedString(RecNumber)+" and  proId="+ProID;
         return BaseDao.getInstance().excute(sql);
     };
 
     @Override
     public StorageInRecScan getScanbyRecNumberAndProID(String RecNumber, String ProID, int ScanType, StorageLocation storageLocation) {
-        String sqlSelect="Select t.* ,pro.proName from  StorageInRecScan t " +
+        String sqlSelect="Select t.* ,pro.proName from  storage_StorageInRecScan t " +
                 "left join product pro on pro.proId=t.ProID " +
                 " where t.RecNumber="+SqlStringUtils.GetQuotedString(RecNumber)
                 +" and t.ProID="+ProID+" and t.ScanType="+ScanType;
@@ -114,7 +114,7 @@ public class StorageInRecScanDaoImpl implements StorageInRecScanDao {
             map.put("StorLocaComBrID",mo.getStorLocaComBrID());
             map.put("StorStorLocaComID",mo.getStorLocaComID());
         }
-        String sqlInsert=SqlStringUtils.GetConstructionInsert("StorageInRecScan",map);
+        String sqlInsert=SqlStringUtils.GetConstructionInsert("storage_StorageInRecScan",map);
         return BaseDao.getInstance().excute(sqlInsert);
     }
 
@@ -125,13 +125,13 @@ public class StorageInRecScanDaoImpl implements StorageInRecScanDao {
         map.put("ScanNumber","ScanNumber+"+mo.getScanNumber());
         String where=" where RecNumber="+SqlStringUtils.GetQuotedString(mo.getRecNumber())
                 +" and ProID="+mo.getProId()+" and ScanType="+mo.getScanType();
-        String sqlUpdate=SqlStringUtils.GetConstructionUpdate("StorageInRecScan",map,where);
+        String sqlUpdate=SqlStringUtils.GetConstructionUpdate("storage_StorageInRecScan",map,where);
         return BaseDao.getInstance().excute(sqlUpdate);
     }
 
     @Override
     public boolean addScanNumber(String RecNumber, String ProID, int ScanType, StorageLocation storageLocation,int number) {
-        String sql="update StorageInRecScan set ScanNumber=ScanNumber+ "+number ;
+        String sql="update storage_StorageInRecScan set ScanNumber=ScanNumber+ "+number ;
         if(storageLocation!=null){
             sql+= ",StorLocaCode=" +storageLocation.getCode()+
                     ",StorLocaComBrID=" +storageLocation.getComBrId()+
@@ -146,7 +146,7 @@ public class StorageInRecScanDaoImpl implements StorageInRecScanDao {
 
     @Override
     public boolean isFullNumber(String RecNumber, String ProID, int ScanType,int number) {
-        String sqlSelect="Select avg(proNumber)-sum(ScanNumber)-"+number+" number from StorageInRecScan where RecNumber="+ SqlStringUtils.GetQuotedString(RecNumber)
+        String sqlSelect="Select avg(proNumber)-sum(ScanNumber)-"+number+" number from storage_StorageInRecScan where RecNumber="+ SqlStringUtils.GetQuotedString(RecNumber)
                 +" and ProID="+ProID+" and ScanType="+ScanType;
         List<Map<String,Object>> list=BaseDao.getInstance().queryForList(sqlSelect);
         if(list.size()==0){
@@ -161,7 +161,7 @@ public class StorageInRecScanDaoImpl implements StorageInRecScanDao {
     @Override
     public int getCount(String RecNumber, long ProID, int ScanType) {
 
-        String sqlSelect="Select ScanNumber from StorageInRecScan where RecNumber="+ SqlStringUtils.GetQuotedString(RecNumber)
+        String sqlSelect="Select ScanNumber from storage_StorageInRecScan where RecNumber="+ SqlStringUtils.GetQuotedString(RecNumber)
                 +" and ProID="+ProID+" and ScanType="+ScanType;
 
         List<Map<String,Object>> list=BaseDao.getInstance().queryForList(sqlSelect);
@@ -174,7 +174,7 @@ public class StorageInRecScanDaoImpl implements StorageInRecScanDao {
 
     @Override
     public boolean isExist(StorageInRecScan mo) {
-        String sqlSelect="Select ScanNumber from StorageInRecScan where RecNumber="+ SqlStringUtils.GetQuotedString(mo.getRecNumber())
+        String sqlSelect="Select ScanNumber from storage_StorageInRecScan where RecNumber="+ SqlStringUtils.GetQuotedString(mo.getRecNumber())
                 +" and ProID="+mo.getProId()+" and ScanType="+mo.getScanType();
         if(mo.getStorLocaCode()!=null){
             sqlSelect+=" and StorLocaCode="+mo.getStorLocaCode();
@@ -188,7 +188,7 @@ public class StorageInRecScanDaoImpl implements StorageInRecScanDao {
 
     @Override
     public int getRecInStorageNumber(String RecNumber) {
-        String sqlSelect="Select sum(ScanNumber) number from StorageInRecScan where RecNumber="+ SqlStringUtils.GetQuotedString(RecNumber)
+        String sqlSelect="Select sum(ScanNumber) number from storage_StorageInRecScan where RecNumber="+ SqlStringUtils.GetQuotedString(RecNumber)
                 +" and ScanType="+ AppPublic.ScanType.CRC;
         List<Map<String,Object>> list=BaseDao.getInstance().queryForList(sqlSelect);
         if(list.size()>0){
@@ -199,7 +199,7 @@ public class StorageInRecScanDaoImpl implements StorageInRecScanDao {
 
     @Override
     public int getRecInStorageLocalNumber(String RecNumber,Long localCode) {
-        String sqlSelect="Select sum(ScanNumber) number from StorageInRecScan where RecNumber="+ SqlStringUtils.GetQuotedString(RecNumber)
+        String sqlSelect="Select sum(ScanNumber) number from storage_StorageInRecScan where RecNumber="+ SqlStringUtils.GetQuotedString(RecNumber)
                 +" and StorLocaCode="+localCode+" and ScanType="+ AppPublic.ScanType.CRC;
         List<Map<String,Object>> list=BaseDao.getInstance().queryForList(sqlSelect);
         if(list.size()>0){
@@ -210,7 +210,7 @@ public class StorageInRecScanDaoImpl implements StorageInRecScanDao {
 
     @Override
     public int getInRecScanNumber(String recNumber) {
-        String sqlSelect="Select sum(ScanNumber) number from StorageInRecScan where RecNumber="+ SqlStringUtils.GetQuotedString(recNumber)
+        String sqlSelect="Select sum(ScanNumber) number from storage_StorageInRecScan where RecNumber="+ SqlStringUtils.GetQuotedString(recNumber)
                 +" and ScanType="+ AppPublic.ScanType.FJ;
         List<Map<String,Object>> list=BaseDao.getInstance().queryForList(sqlSelect);
         if(list.size()>0){
@@ -220,14 +220,14 @@ public class StorageInRecScanDaoImpl implements StorageInRecScanDao {
     }
 
     public List<Map<String,Object>> getScanbyRecNumberAndScanType(String recNumber, int scanType) {
-        String sql="select t.ProID ProID,pro.ProName,t.ScanNumber ProNumber,pro.ProMeasureUnitName,pro.ProCategory ProCategoryName from StorageInRecScan t " +
+        String sql="select t.ProID ProID,pro.ProName,t.ScanNumber ProNumber,pro.ProMeasureUnitName,pro.ProCategory ProCategoryName from storage_StorageInRecScan t " +
                 " left join product pro on pro.proId=t.ProID " +
                 "where t.RecNumber="+SqlStringUtils.GetQuotedString(recNumber) +" and t.ScanType="+scanType ;
         List<Map<String, Object>> list= BaseDao.getInstance().queryForList(sql);
         return list;
     }
     public List<StorageInRecScan> getStorageInRecScan(String recNumber, int scanType) {
-        String sql="select * from StorageInRecScan t " +
+        String sql="select * from storage_StorageInRecScan t " +
                 "where t.RecNumber="+SqlStringUtils.GetQuotedString(recNumber) +" and t.ScanType="+scanType ;
         List<StorageInRecScan> list= BaseDao.getInstance().query(sql,StorageInRecScan.class);
         return list;

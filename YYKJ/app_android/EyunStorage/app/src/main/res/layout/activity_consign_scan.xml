@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activitys.ConsignScanA"
+    android:orientation="vertical"
+    android:background="@color/gray_8f">
+
+
+    <com.eyun.eyunstorage.cusviews.CusWindowPop
+        app:ng_data="windowShow"
+        android:layout_width="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/gray_8f"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:background="@drawable/f_new_order_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="选择扫描类型："
+                android:padding="10dp"
+                android:layout_gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <include layout="@layout/base_view_line_horizontal"/>
+            <com.eyun.framework.angular.baseview.CusTextView
+                app:ng_model="scanType[0]"
+                android:clickable="true"
+                android:onClick="checkScanType"
+                android:text="TextView"
+                style="@style/list_check_item" />
+            <include layout="@layout/base_view_line_horizontal"/>
+            <com.eyun.framework.angular.baseview.CusTextView
+                app:ng_model="scanType[1]"
+                android:clickable="true"
+                android:onClick="checkScanType"
+                android:text="TextView"
+                style="@style/list_check_item" />
+            <include layout="@layout/base_view_line_horizontal"/>
+            <com.eyun.framework.angular.baseview.CusTextView
+                app:ng_model="scanType[2]"
+                android:clickable="true"
+                android:onClick="checkScanType"
+                android:text="TextView"
+                style="@style/list_check_item" />
+            <include layout="@layout/base_view_line_horizontal"/>
+            <com.eyun.framework.angular.baseview.CusTextView
+                app:ng_model="scanType[3]"
+                android:clickable="true"
+                android:onClick="checkScanType"
+                android:text="TextView"
+                style="@style/list_check_item" />
+        </LinearLayout>
+    </com.eyun.eyunstorage.cusviews.CusWindowPop>
+
+    <include layout="@layout/base_view_line_horizontal"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        >
+        <include layout="@layout/item_activity_title"/>
+        <LinearLayout
+            style="@style/formline"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+            <com.eyun.framework.angular.baseview.CusTextView
+                app:ng_model="'当前扫描托运单：'+RecNumber"
+                android:layout_gravity="center"
+                style="@style/menu_content_item"
+                android:text="当前扫描托运单："
+                />
+            <com.eyun.framework.angular.baseview.CusTextView
+                app:ng_model="'当前扫描类型：'+scanTypeName"
+                android:layout_gravity="center"
+                style="@style/menu_content_item"
+                android:text="当前扫描类型："
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/formline">
+            <TextView
+                style="@style/menu_content_item"
+
+                android:text="本车辆扫描：" />
+
+            <com.eyun.framework.angular.baseview.CusTextView
+                app:ng_model="scanVehicleCounts"
+                style="@style/menu_content_item"
+                android:gravity="right"
+                android:textColor="@color/black"
+                android:text="0"/>
+            <TextView
+                style="@style/menu_content_item"
+                android:gravity="left"
+                android:text="件"/>
+            <TextView
+                style="@style/menu_content_item"
+                android:gravity="right"
+
+                android:text="共扫描：" />
+
+            <com.eyun.framework.angular.baseview.CusTextView
+                app:ng_model="scanCounts"
+                style="@style/menu_content_item"
+                android:gravity="right"
+                android:textColor="@color/black"
+                android:text="0"/>
+            <TextView
+                style="@style/menu_content_item"
+                android:gravity="left"
+                android:text="件"/>
+            <TextView
+                style="@style/menu_content_item"
+                android:gravity="right"
+                android:text="共计：" />
+
+            <com.eyun.framework.angular.baseview.CusTextView
+                app:ng_model="allCounts"
+                style="@style/menu_content_item"
+                android:gravity="right"
+                android:text="0" />
+            <TextView
+                style="@style/menu_content_item"
+                android:gravity="left"
+                android:text="件" />
+        </LinearLayout>
+
+        <include layout="@layout/base_view_line_horizontal" />
+        <LinearLayout
+            android:background="@drawable/f_new_order_bg"
+            android:layout_width="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                style="@style/menu_content_item"
+                android:gravity="right"
+                android:text="车辆编号：" />
+
+            <com.eyun.framework.angular.baseview.CusTextView
+                app:ng_model="VehNumber"
+                style="@style/menu_content_item"
+                android:gravity="right"
+                android:text="0" />
+            <TextView
+                android:text="车辆联系人："
+                style="@style/menu_content_item"
+                android:gravity="right" />
+            <com.eyun.framework.angular.baseview.CusTextView
+                app:ng_model="VehContactName"
+                style="@style/menu_content_item"
+                android:gravity="right"
+                android:text="无" />
+      <!--  <com.eyun.jybStorageScan.cusviews.CusTreeSpinner
+            app:ng_data="storageSpinner"
+            app:ng_return="storageLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>-->
+
+        </LinearLayout>
+        <include layout="@layout/item_activity_thisscan_product" />
+        <include layout="@layout/base_cus_sdd_listview"/>
+    </LinearLayout>
+    <include layout="@layout/item_activity_oksan"/>
+</LinearLayout>

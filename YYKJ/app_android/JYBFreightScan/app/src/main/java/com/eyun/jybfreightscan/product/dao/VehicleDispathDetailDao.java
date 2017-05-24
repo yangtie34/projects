@@ -8,7 +8,15 @@ import com.eyun.jybfreightscan.product.entity.VehicleDispathDetail;
 
 public interface VehicleDispathDetailDao {
     /**
-     * 根据托运单查询VehicleDispathDetail
+     * 判断单据是否已在调度明细中存在
      */
-    VehicleDispathDetail getVehicleDispathDetailByConsignRecNumber(String RecNumber);
+    boolean IsExists(String recNumber,String vehDispNumber);
+
+    /**
+     * 获取添加调度明细语句
+     * @param mo
+     * @return
+     */
+    String GetSqlAdd(VehicleDispathDetail mo);
+
 }

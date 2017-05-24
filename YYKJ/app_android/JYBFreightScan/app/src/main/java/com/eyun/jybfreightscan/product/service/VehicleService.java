@@ -9,9 +9,10 @@ import com.eyun.jybfreightscan.product.entity.Vehicle;
 public interface VehicleService {
 
     /**
-     * 根据条码获取车辆信息
+     * 根据车辆条码获取车辆信息
+     * @param vehicleCode
      * @return
      */
-    Vehicle getVehicle(String vehicleCode);
+    Vehicle LoadInfo(String vehicleCode);
 
 }

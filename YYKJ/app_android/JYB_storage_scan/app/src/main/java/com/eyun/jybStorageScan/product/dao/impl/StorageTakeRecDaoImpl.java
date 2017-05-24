@@ -37,7 +37,7 @@ public class StorageTakeRecDaoImpl implements StorageTakeRecDao {
 
     @Override
     public StorageTakeRec getStorageTakeRecByStorLocaCode(long StorLocaCode) {
-        String sql=" select * from StorageTakeRec where StorLocaCode="+StorLocaCode+
+        String sql=" select * from storage_StorageTakeRec where StorLocaCode="+StorLocaCode+
                 " and RecState<3 and CreateTime between '"+ DateUtils.getDateBefore(2) +"' and '"+DateUtils.getCurrentTime()+"'";
         List<StorageTakeRec> storageTakeRecs= BaseDao.getInstance().query(sql,StorageTakeRec.class);
         if(storageTakeRecs!=null&&storageTakeRecs.size()>0){
@@ -60,7 +60,7 @@ public class StorageTakeRecDaoImpl implements StorageTakeRecDao {
         map.put("CreateComID",AppUser.comId);
         map.put("CreateIp",SqlStringUtils.GetQuotedString(NetWorkUtil.getHostIP()));
         map.put("CreateTime",SqlStringUtils.GetQuotedString(DateUtils.getCurrentTime()));
-        String sqlInsert=SqlStringUtils.GetConstructionInsert("StorageTakeRec",map);
+        String sqlInsert=SqlStringUtils.GetConstructionInsert("storage_StorageTakeRec",map);
         return BaseDao.getInstance().excute(sqlInsert);
     }
 
@@ -69,12 +69,12 @@ public class StorageTakeRecDaoImpl implements StorageTakeRecDao {
         HashMap<String,Object> map=new HashMap<String,Object>();
         map.put("RecState",storageTakeRec.getRecState());
         String where = " where RecNumber=" + SqlStringUtils.GetQuotedString(storageTakeRec.getRecNumber());
-        String sql = SqlStringUtils.GetConstructionUpdate("StorageTakeRec", map, where);
+        String sql = SqlStringUtils.GetConstructionUpdate("storage_StorageTakeRec", map, where);
         return BaseDao.getInstance().excute(sql);
     }
     @Override
     public boolean clearByStorageTakeRec(String RecNumber,int RecState) {
-        String sql=" delete StorageTakeRec where RecNumber="+SqlStringUtils.GetQuotedString(RecNumber)+
+        String sql=" delete storage_StorageTakeRec where RecNumber="+SqlStringUtils.GetQuotedString(RecNumber)+
                 " and RecState="+ RecState;
         return BaseDao.getInstance().excute(sql);
     }

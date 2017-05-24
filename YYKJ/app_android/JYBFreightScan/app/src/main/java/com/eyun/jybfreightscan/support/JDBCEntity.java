@@ -9,7 +9,7 @@ import java.io.Serializable;
 public class JDBCEntity implements Serializable{
     private Config localConfig;
     private Config netConfig;
-    private boolean net=true;
+    private boolean net=false;
     private String modelName="网络";
     public Config getLocalConfig() {
         return localConfig;
@@ -50,9 +50,10 @@ public class JDBCEntity implements Serializable{
 
     public class Config{
         private   String ipAndPort="192.168.56.248:1533";
-        private  String orcl="JYun_Bang_Storage_Test";
-        private  String userName = "jyun_bang_storage";
-        private  String passWord = "jyun_bang_storage_20170215";
+        private  String orcl="JYun_Bang_LingDan_Test";
+        private  String userName = "jyun_bang_lingdan";
+        private  String passWord = "jyun_bang_lingdan_20170327";
+        private String instatnce="SQL2005";
 
         public String getIpAndPort() {
             return ipAndPort;
@@ -60,6 +61,14 @@ public class JDBCEntity implements Serializable{
 
         public void setIpAndPort(String ipAndPort) {
             this.ipAndPort = ipAndPort;
+        }
+
+        public String getInstatnce() {
+            return instatnce;
+        }
+
+        public void setInstatnce(String instatnce) {
+            this.instatnce = instatnce;
         }
 
         public String getOrcl() {

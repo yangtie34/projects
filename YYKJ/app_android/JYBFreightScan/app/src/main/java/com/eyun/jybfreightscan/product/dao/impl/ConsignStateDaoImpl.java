@@ -2,43 +2,59 @@ package com.eyun.jybfreightscan.product.dao.impl;
 
 import com.eyun.framework.common.util.SqlStringUtils;
 import com.eyun.framework.jdbc.jdbcUtil.BaseDao;
-import com.eyun.framework.util.common.DateUtils;
-import com.eyun.framework.util.common.NetWorkUtil;
-import com.eyun.jybfreightscan.AppUser;
 import com.eyun.jybfreightscan.product.dao.ConsignStateDao;
+import com.eyun.jybfreightscan.product.entity.ConsignState;
 
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
- * Created by Administrator on 2017/3/20.
+ * Created by Administrator on 2017/4/6.
  */
 
 public class ConsignStateDaoImpl implements ConsignStateDao {
-    private static ConsignStateDaoImpl ConsignStateDao = null;
+
+    private static ConsignStateDaoImpl consignStateDao = null;
 
     public static ConsignStateDaoImpl getInstance() {
-        if (ConsignStateDao == null) {
+        if (consignStateDao == null) {
             synchronized (new ConsignStateDaoImpl()) {
-                if (ConsignStateDao == null) {
-                    ConsignStateDao = new ConsignStateDaoImpl();
+                if (consignStateDao == null) {
+                    consignStateDao = new ConsignStateDaoImpl();
                 }
             }
         }
-        return ConsignStateDao;
+        return consignStateDao;
     }
 
     @Override
-    public boolean add(String RecNumber, int recState) {
-        HashMap<String, Object> map = new HashMap<String, Object>();
-        map.put("RecNumber", SqlStringUtils.GetQuotedString(RecNumber));
-        map.put("RecState", recState);
-        map.put("ScanTime", SqlStringUtils.GetQuotedString(DateUtils.getCurrentTime()));
-        map.put("CreateUserID", AppUser.userId);
-        map.put("CreateComID", AppUser.comId);
-        map.put("CreateComBrID", AppUser.comBrId);
-        map.put("CreateIp", SqlStringUtils.GetQuotedString(NetWorkUtil.getHostIP()));
-        map.put("CreateTime", SqlStringUtils.GetQuotedString(DateUtils.getCurrentTime()));
-        String sql = SqlStringUtils.GetConstructionInsert("ConsignState", map);
-        return BaseDao.getInstance().excute(sql);
+    public String GetSqlAdd(ConsignState mo) {
+
+        HashMap<String,Object> map=new HashMap<String,Object>();
+        map.put("RecNumber",SqlStringUtils.GetQuotedString(mo.getRecNumber()));
+        map.put("CreateComBrId",mo.getCreateComBrId());
+        map.put("CreateComId",mo.getCreateComId());
+        map.put("CreateIp",SqlStringUtils.GetQuotedString(mo.getCreateIp()));
+        map.put("CreateUserId",mo.getCreateUserId());
+        map.put("LocationLat",mo.getLocationLat());
+        map.put("LocationLng",mo.getLocationLng());
+        map.put("RecState",mo.getRecState());
+        map.put("RecType",mo.getRecType());
+        map.put("Remark",SqlStringUtils.GetQuotedString(mo.getRemark()));
+        map.put("ScanTime",SqlStringUtils.GetQuotedString(mo.getScanTime()));
+
+        return SqlStringUtils.GetConstructionInsert("ConsignState",map);
+    }
+
+    @Override
+    public boolean IsExists(String recNumber, int state, long comBrID) {
+
+        String sql="Select  1 from ConsignState where RecNumber="+SqlStringUtils.GetQuotedString(recNumber)
+                +" and RecState="+state+" and CreateComBrId="+comBrID;
+        List<Map<String,Object>> list= BaseDao.getInstance().queryForList(sql);
+        if(list!=null&&list.size()==1)
+            return true;
+        return  false;
     }
 }

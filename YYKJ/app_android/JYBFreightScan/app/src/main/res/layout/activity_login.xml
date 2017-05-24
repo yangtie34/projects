@@ -41,18 +41,57 @@
             android:layout_height="wrap_content"
             >
 
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:paddingTop="55dp">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/font_small"
+                    android:text="设备编号："/>
+
+                <com.eyun.framework.angular.baseview.CusTextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    app:ng_model="sn"
+                    />
+             </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    style="@style/font_small"
+                    android:text="当前站点："/>
+                <com.eyun.framework.angular.baseview.CusTextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    app:ng_model="comBranchName"
+                    />
+            </LinearLayout>
+
+
+            </LinearLayout>
+
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:gravity="center_horizontal"
                 android:layout_height="wrap_content"
-                android:paddingTop="65dp">
+                >
 
               <ImageView
                     style="@style/login_img"
                   android:padding="5dp"
                     android:src="@drawable/title_img"
-                  android:layout_height="80dp" />
+                  android:layout_height="60dp" />
 
                 <TextView
                     style="@style/login_title"
@@ -89,6 +128,7 @@
                     android:id="@+id/edit_userpwd"
                     android:inputType="textPassword"
                     android:hint="请输入密码"/>
+
                 <com.eyun.framework.angular.baseview.CusSwitchCheck
                     android:layout_gravity="center_vertical"
                     android:layout_width="42dp"

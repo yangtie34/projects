@@ -1,3 +1,0 @@
-include ':wasteoilcustom', ':angular', ':views', ':fornet', ':myapplication'
-include ':deviceManager'
-include ':urovoscan'

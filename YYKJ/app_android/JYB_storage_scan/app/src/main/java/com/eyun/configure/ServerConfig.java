@@ -57,10 +57,10 @@ public final class ServerConfig {
     public static class JDBC {
         public static final String driverName = "net.sourceforge.jtds.jdbc.Driver";//"com.microsoft.sqlserver.jdbc.SQLServerDriver";//"oracle.jdbc.driver.OracleDriver";
         public static  String ipAndPort="192.168.56.248:1533";
-        public static  String orcl="JYun_Bang_Storage_Test";
+        public static  String orcl="JYun_Bang_Test";
         public static  String url = "jdbc:jtds:sqlserver://"+ipAndPort+"/"+orcl;//"jdbc:sqlserver://192.168.56.248:1533;DatabaseName=HuaChi_Test";//"jdbc:oracle:thin:@ 202.196.0.180:1521:DM";
-        public static  String user = "jyun_bang_storage";
-        public static  String password = "jyun_bang_storage_20170215";
+        public static  String user = "jyun_bang";
+        public static  String password = "jyun_bang@)!*)#@*20170417";
         //验证数据库连接是否健康
         public static final String validationQuery = "select getdate()";//"select sysdate from dual";
         //最小连接数

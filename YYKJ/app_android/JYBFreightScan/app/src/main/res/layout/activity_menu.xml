@@ -11,12 +11,13 @@
         style="@style/layout_bottom"
         android:background="@android:color/background_light"
         android:layout_height="30dp">
-      <!--  <TextView
+      <TextView
             android:text="当前站点:"
             style="@style/menu_user_info_key"/>
 
-        <TextView
-            style="@style/menu_user_info_value"/>-->
+        <com.eyun.framework.angular.baseview.CusTextView
+            app:ng_model="comBranchName"
+            style="@style/menu_user_info_value"/>
 
         <TextView
             android:text="员工姓名:"
@@ -36,7 +37,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
@@ -93,7 +94,7 @@
                     app:ng_model="'网络连接状态：'+netConnection"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15.0dip"
+                    android:layout_marginTop="10.0dip"
                     android:layout_gravity="center_horizontal"
                     android:textSize="15sp" />
                 <com.eyun.framework.angular.baseview.CusTextView
@@ -119,7 +120,8 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:onClick="inRecScan"
+                    android:onClick="LoadScan"
+                    android:tag="1"
                     style="@style/menu_content_item">
 
                     <ImageView
@@ -128,28 +130,30 @@
 
                     <TextView
                         style="@style/menu_content_item_text"
-                        android:text="入库分拣" />
+                        android:text="始发装车" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:onClick="scanInRec"
+                    android:onClick="LoadScan"
+                    android:tag="2"
                     style="@style/menu_content_item">
                     <ImageView
                         style="@style/menu_content_item_ico"
                         android:src="@drawable/ico_fjrk" />
                     <TextView
                         style="@style/menu_content_item_text"
-                        android:text="分拣入库"/>
+                        android:text="中转卸车"/>
                 </LinearLayout>
                 <LinearLayout
-                    android:onClick="inStorageScan"
+                    android:onClick="LoadScan"
+                    android:tag="3"
                     style="@style/menu_content_item">
                     <ImageView
                         style="@style/menu_content_item_ico"
                         android:src="@drawable/ico_rc" />
                     <TextView
                         style="@style/menu_content_item_text"
-                        android:text="  入仓  "/>
+                        android:text="中转装车"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -159,7 +163,8 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:onClick="outStorageScan"
+                    android:onClick="LoadScan"
+                    android:tag="4"
                     style="@style/menu_content_item">
 
                     <ImageView
@@ -168,76 +173,23 @@
 
                     <TextView
                         style="@style/menu_content_item_text"
-                        android:text="出库单出仓" />
+                        android:text="终点卸车" />
                 </LinearLayout>
                 <LinearLayout
-                    android:visibility="visible"
-                    android:onClick="scanOutRec"
+                    android:onClick="SignScan"
                     style="@style/menu_content_item">
+
                     <ImageView
                         style="@style/menu_content_item_ico"
-                        android:src="@drawable/ico_fjck" />
+                        android:src="@drawable/ico_ckfj" />
+
                     <TextView
                         style="@style/menu_content_item_text"
-                        android:text="扫描出仓"/>
-                </LinearLayout>
-              <!--  <LinearLayout
-                    android:onClick="outRecScan"
-                    style="@style/menu_content_item">
-                    <ImageView
-                        style="@style/menu_content_item_ico"
-                        android:src="@mipmap/ic_launcher" />
-                    <TextView
-                        style="@style/menu_content_item_text"
-                        android:text="出库分拣"/>
-                </LinearLayout>-->
-                <LinearLayout
-                    android:onClick="consignScan"
-                    style="@style/menu_content_item">
-                    <ImageView
-                        style="@style/menu_content_item_ico"
-                        android:src="@drawable/ico_tyd" />
-                    <TextView
-                        style="@style/menu_content_item_text"
-                        android:text="托运单扫描"/>
+                        android:text="客户签收" />
                 </LinearLayout>
 
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <LinearLayout
-                    android:onClick="vehicleDispath"
-                    style="@style/menu_content_item">
-                    <ImageView
-                        style="@style/menu_content_item_ico"
-                        android:src="@drawable/ico_cldu" />
-                    <TextView
-                        style="@style/menu_content_item_text"
-                        android:text="车辆调度"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:onClick="storageTake"
-                    style="@style/menu_content_item">
-                    <ImageView
-                        style="@style/menu_content_item_ico"
-                        android:src="@drawable/ico_pd" />
-                    <TextView
-                        style="@style/menu_content_item_text"
-                        android:text="仓库盘点"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:visibility="invisible"
-                    style="@style/menu_content_item">
-                    <ImageView
-                        style="@style/menu_content_item_ico"
-                        android:src="@drawable/ico_cldu" />
-                    <TextView
-                        style="@style/menu_content_item_text"
-                        android:text="仓库盘点"/>
-                </LinearLayout>
-            </LinearLayout>
+
             </LinearLayout>
 
     </LinearLayout>

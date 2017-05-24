@@ -27,6 +27,21 @@
       <scope>test</scope>
     </dependency>
     <dependency>
+			<groupId>com.jhnu</groupId>
+			<artifactId>permiss</artifactId>
+			<version>1.0</version>
+		</dependency>
+     <dependency>
+            <groupId>org.sword.wechat4j</groupId>
+            <artifactId>wechat4j</artifactId>
+            <version>1.3.1</version>
+        </dependency>
+     <dependency>
+            <groupId>org.sword</groupId>
+            <artifactId>sword-lang</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+    <dependency>
 	    <groupId>log4j</groupId>
 	    <artifactId>log4j</artifactId>
 	    <version>1.2.16</version>
@@ -128,6 +143,12 @@
         <artifactId>cas-client-core</artifactId>  
         <version>3.2.1</version>  
     </dependency>  
+    <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-collections4 -->
+<dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-collections4</artifactId>
+    <version>4.0</version>
+</dependency>
     
     <dependency>
 		<groupId>com.alibaba</groupId>

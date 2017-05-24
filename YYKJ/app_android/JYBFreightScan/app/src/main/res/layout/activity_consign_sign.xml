@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.eyun.jybfreightscan.activitys.ConsignSign">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="10dp"
+        android:background="@color/sandybrown">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:src="@mipmap/ic_launcher"
+            />
+
+        <com.eyun.framework.angular.baseview.CusTextView
+            app:ng_model="title"
+            style="@style/activity_title"
+            android:text="客户签收" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_marginTop="50dp"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                style="@style/font_big"
+                android:layout_gravity="center_vertical"
+                android:text="条码"/>
+
+            <com.eyun.framework.angular.baseview.CusEditView
+                app:ng_model="scanCode"
+                android:id="@+id/txtBarCode"
+                android:layout_weight="1"
+                android:textSize="18dp"
+                android:background="@android:drawable/edit_text"
+                android:layout_margin="5dp"
+                android:layout_height="40dp"
+                android:maxLines="1"
+                android:lines="1"
+                android:layout_width="match_parent" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_height="20dp">
+
+            <com.eyun.framework.angular.baseview.CusTextView
+                style="@style/scan_errtip"
+                app:ng_model="scanErrTip"
+                android:gravity="center_vertical|center_horizontal"
+                android:layout_width="match_parent"
+                android:text="123121321"
+                />
+
+
+        </LinearLayout>
+        <View
+            style="@style/login_line_line"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                style="@style/font_big"
+                android:layout_marginLeft="25dp"
+                android:text="订单编号"/>
+
+            <com.eyun.framework.angular.baseview.CusEditView
+                app:ng_model="recNumber"
+                android:layout_weight="1"
+
+                android:textSize="18dp"
+                android:background="@android:drawable/edit_text"
+                android:layout_gravity="center_vertical"
+                android:layout_height="40dp"
+                android:maxLines="1"
+                android:lines="1"
+                android:enabled="false"
+                android:layout_width="match_parent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                style="@style/font_big"
+                android:layout_marginLeft="25dp"
+                android:text="发  货  人"/>
+
+            <com.eyun.framework.angular.baseview.CusEditView
+                app:ng_model="deliveryName"
+                android:layout_weight="1"
+
+                android:textSize="18dp"
+                android:background="@android:drawable/edit_text"
+                android:layout_gravity="center_vertical"
+                android:layout_height="40dp"
+                android:maxLines="1"
+                android:lines="1"
+                android:enabled="false"
+                android:layout_width="match_parent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                style="@style/font_big"
+                android:layout_marginLeft="25dp"
+                android:text="收  货  人"/>
+
+            <com.eyun.framework.angular.baseview.CusEditView
+                app:ng_model="receiveName"
+                android:layout_weight="1"
+                android:textSize="18dp"
+                android:background="@android:drawable/edit_text"
+                android:layout_gravity="center_vertical"
+                android:layout_height="40dp"
+                android:maxLines="1"
+                android:lines="1"
+                android:enabled="false"
+                android:layout_width="match_parent" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                style="@style/font_big"
+                android:layout_marginLeft="25dp"
+                android:text="收货电话"/>
+
+            <com.eyun.framework.angular.baseview.CusEditView
+                app:ng_model="receiveMobile"
+                android:layout_weight="1"
+                android:textSize="18dp"
+                android:background="@android:drawable/edit_text"
+                android:layout_gravity="center_vertical"
+                android:layout_height="40dp"
+                android:maxLines="1"
+                android:lines="1"
+                android:enabled="false"
+                android:layout_width="match_parent" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/font_big"
+                android:layout_marginLeft="25dp"
+                android:text="费用合计"/>
+
+            <com.eyun.framework.angular.baseview.CusEditView
+                app:ng_model="totalMoney"
+                android:layout_weight="1"
+                android:textSize="18dp"
+                android:background="@android:drawable/edit_text"
+                android:layout_height="40dp"
+                android:maxLines="1"
+                android:lines="1"
+                android:enabled="false"
+                android:layout_width="match_parent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/font_big"
+                android:layout_marginLeft="25dp"
+                android:text="签收验证"/>
+
+            <com.eyun.framework.angular.baseview.CusEditView
+                app:ng_model="validCode"
+                android:id="@+id/txtValidCode"
+                android:layout_weight="1"
+                android:textSize="18dp"
+                android:background="@android:drawable/edit_text"
+                android:layout_height="40dp"
+                android:maxLines="1"
+                android:lines="1"
+                android:layout_width="match_parent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <Button
+                android:background="@drawable/btn_top_bg"
+                android:id="@+id/btnSign"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"
+                android:textSize="15dp"
+                android:text="确认签收" />
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/layout_bottom"
+        android:background="@android:color/background_light"
+        android:layout_height="30dp">
+        <TextView
+            android:text="当前站点:"
+            style="@style/menu_user_info_key"/>
+
+        <com.eyun.framework.angular.baseview.CusTextView
+            app:ng_model="comBranchName"
+            style="@style/menu_user_info_value"/>
+
+        <TextView
+            android:text="员工姓名:"
+            style="@style/menu_user_info_key"/>
+        <com.eyun.framework.angular.baseview.CusTextView
+            app:ng_model="fullname"
+            style="@style/menu_user_info_value"/>
+        <TextView
+            android:text="登录帐号:"
+            style="@style/menu_user_info_key"/>
+
+        <com.eyun.framework.angular.baseview.CusTextView
+            app:ng_model="username"
+            style="@style/menu_user_info_value" />
+    </LinearLayout>
+</RelativeLayout>

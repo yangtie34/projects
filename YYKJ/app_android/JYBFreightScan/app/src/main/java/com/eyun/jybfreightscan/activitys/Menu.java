@@ -10,13 +10,15 @@ import com.eyun.framework.util.CallBack;
 import com.eyun.framework.util.ThreadUtil;
 import com.eyun.framework.util.android.ViewUtil;
 import com.eyun.framework.util.common.NetWorkUtil;
+import com.eyun.framework.util.common.TypeConvert;
 import com.eyun.jybfreightscan.AppUser;
 import com.eyun.jybfreightscan.R;
 import com.eyun.jybfreightscan.support.SoundSupport;
 
 
 public class Menu extends AngularActivity {
-    ThreadUtil threadUtil=null;
+    ThreadUtil threadUtil = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,15 +26,15 @@ public class Menu extends AngularActivity {
         setContentView(R.layout.activity_menu);
         scope.key("fullname").val(AppUser.fullName);
         scope.key("username").val(AppUser.username);
-        threadUtil= ThreadUtil.getLoopThread(new CallBack() {
+        threadUtil = ThreadUtil.getLoopThread(new CallBack() {
             @Override
             public Object run() {
-                final boolean net= NetWorkUtil.IsNetWorkEnable();
-                final boolean db= DBManager.checkConnection();
+                final boolean net = NetWorkUtil.IsNetWorkEnable();
+                final boolean db = DBManager.checkConnection();
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        reflushNetAndDB(net,db);
+                        reflushNetAndDB(net, db);
                     }
                 });
                 try {
@@ -46,7 +48,8 @@ public class Menu extends AngularActivity {
         threadUtil.start();
         scope.key("modelName").val(ServerInfo.jdbcEntity.getModelName());
     }
-    private void reflushNetAndDB(boolean net,boolean db){
+
+    private void reflushNetAndDB(boolean net, boolean db) {
         if (!net) {
             scope.key("netConnection").val("断开");
             SoundSupport.play(R.raw.net_close);
@@ -58,7 +61,7 @@ public class Menu extends AngularActivity {
                 }
             }, null);
             threadUtil.suspend();
-        }else{
+        } else {
             scope.key("netConnection").val("通畅");
         }
         if (!db) {
@@ -72,51 +75,27 @@ public class Menu extends AngularActivity {
                 }
             }, null);
             threadUtil.suspend();
-        }else{
+        } else {
             scope.key("dbConnection").val("正常");
         }
     }
-    //入库分拣
-    public void inRecScan(View view) {
-        AppContext.intent(InRecScan.class);
+
+    //装车点击事件
+    public void LoadScan(View view) {
+
+        if (view.getTag() != null) {
+            ConsignScan.recType= TypeConvert.toInteger(view.getTag().toString());
+            AppContext.intent(ConsignScan.class);
+        }
     }
-    //分拣入库
-    public void scanInRec(View view) {
-        AppContext.intent(ScanInRec.class);
-    }
-    //入库单入仓
-    public void inStorageScan(View view) {
-        AppContext.intent(InStorageScan.class);
-    }
-    //扫描出仓生成出库单
-    public void scanOutRec(View view) {
-        AppContext.intent(ScanOutRec.class);
+    //客户签收点击事件
+    public void SignScan(View view) {
+            AppContext.intent(ConsignSign.class);
     }
 
-    //出库单出仓
-    public void outStorageScan(View view) {
-        AppContext.intent(OutStorageScan.class);
-    }
-
-    //托运单扫描
-    public void consignScan(View view) {
-        AppContext.intent(ConsignScanA.class);
-    }
-/*    //出仓后出库单分拣
-    public void outRecScan(View view) {
-        AppContext.intent(OutRecScan.class);
-    }*/
-
-    //仓库盘点
-    public void storageTake(View view) {
-        AppContext.intent(StorageTake.class);
-    }
-
+    //注销
     public void logout(View view) {
         AppContext.intent(Login.class);
     }
-    //车辆调度
-    public void vehicleDispath(View view) {
-        AppContext.intent(VehicleDispathA.class);
-    }
+
 }

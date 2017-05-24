@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/f_new_order_bg"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_margin="5dp"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content">
+
+        <TextView
+            android:text="当前扫描商品："
+            android:layout_width="wrap_content"
+            android:textSize="12dp"
+            android:gravity="center"
+            android:layout_height="match_parent" />
+
+        <RelativeLayout
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp"
+            android:layout_height="55dp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content">
+
+            <com.eyun.framework.angular.baseview.CusTextView
+                app:ng_model="ProName"
+                android:text="无"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <com.eyun.framework.angular.baseview.CusTextView
+                app:ng_model="'编号'+ProID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignLeft="@id/title"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:textSize="12dp"
+                android:textColor="@color/gray" />
+
+            <com.eyun.framework.angular.baseview.CusTextView
+                app:ng_model="'已扫描：'+ScanNumber+'件'"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:textSize="12dp"
+                android:layout_alignParentTop="true"
+                android:textColor="@color/gray" />
+
+            <com.eyun.framework.angular.baseview.CusTextView
+                app:ng_model="'共'+ProNumber+'件'"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:textColor="@color/gray" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</LinearLayout>

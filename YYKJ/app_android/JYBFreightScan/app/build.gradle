@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 24
-    buildToolsVersion "24.0.2"
+    buildToolsVersion '24.0.3'
     defaultConfig {
         applicationId "com.eyun.jybfreightscan"
         minSdkVersion 16
@@ -17,15 +17,23 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+    dexOptions {
+        incremental true
+    }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile files('libs/ksoap2-android-assembly-2.5.4-jar-with-dependencies.jar')
-    compile files('libs/jtds-1.2.jar')//连接sqlserver
+    compile files('libs/jtds-1.2.jar')
+    //连接sqlserver
     compile files('libs/platform_sdk_v1.0.1.jar')
     compile 'com.android.support:appcompat-v7:24.2.0'
     compile 'com.android.support:design:24.2.0'

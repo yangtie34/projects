@@ -9,6 +9,7 @@ import com.eyun.jybfreightscan.product.service.VehicleService;
  */
 
 public class VehicleServiceImpl implements VehicleService {
+
     private static VehicleServiceImpl vehicleService = null;
 
     public static VehicleServiceImpl getInstance() {
@@ -21,8 +22,11 @@ public class VehicleServiceImpl implements VehicleService {
         }
         return vehicleService;
     }
+
     @Override
-    public Vehicle getVehicle(String vehicleCode) {
-        return VehicleDaoImpl.getInstance().getVehicle(vehicleCode);
+    public Vehicle LoadInfo(String vehicleCode) {
+       return   VehicleDaoImpl.getInstance().getVehicle(vehicleCode);
     }
+
+
 }

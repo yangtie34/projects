@@ -1,50 +1,60 @@
 <resources>
     /*透明度进入退出*/
+
     <style name="animByAlpha" parent="android:Animation">
         <item name="android:windowEnterAnimation">@anim/in_from_alpha</item>
         <item name="android:windowExitAnimation">@anim/out_to_alpha</item>
     </style>
     /*缩放进入退出*/
+
     <style name="animByScale" parent="android:Animation">
         <item name="android:windowEnterAnimation">@anim/in_from_scale</item>
         <item name="android:windowExitAnimation">@anim/out_to_scale</item>
     </style>
     /*从底部进入退出*/
+
     <style name="animByBottom" parent="android:Animation">
         <item name="android:windowEnterAnimation">@anim/in_from_bottom</item>
         <item name="android:windowExitAnimation">@anim/out_to_bottom</item>
     </style>
     /*从顶部进入退出*/
+
     <style name="animByTop" parent="android:Animation">
         <item name="android:windowEnterAnimation">@anim/in_from_top</item>
         <item name="android:windowExitAnimation">@anim/out_to_top</item>
     </style>
     /*从左侧进入退出*/
+
     <style name="animByLeft" parent="android:Animation">
         <item name="android:windowEnterAnimation">@anim/in_from_left</item>
         <item name="android:windowExitAnimation">@anim/out_to_left</item>
     </style>
     /*从右侧进入退出*/
+
     <style name="animByRight" parent="android:Animation">
         <item name="android:windowEnterAnimation">@anim/in_from_right</item>
         <item name="android:windowExitAnimation">@anim/out_to_right</item>
     </style>
     /*从底部half进入退出*/
+
     <style name="animByBottomHalf" parent="android:Animation">
         <item name="android:windowEnterAnimation">@anim/in_from_bottom_half</item>
         <item name="android:windowExitAnimation">@anim/out_to_bottom_half</item>
     </style>
     /*从顶部half进入退出*/
+
     <style name="animByTopHalf" parent="android:Animation">
         <item name="android:windowEnterAnimation">@anim/in_from_top_half</item>
         <item name="android:windowExitAnimation">@anim/out_to_top_half</item>
     </style>
     /*从左侧half进入退出*/
+
     <style name="animByLeftHalf" parent="android:Animation">
         <item name="android:windowEnterAnimation">@anim/in_from_left_half</item>
         <item name="android:windowExitAnimation">@anim/out_to_left_half</item>
     </style>
     /*从右侧half进入退出*/
+
     <style name="animByRightHalf" parent="android:Animation">
         <item name="android:windowEnterAnimation">@anim/in_from_right_half</item>
         <item name="android:windowExitAnimation">@anim/out_to_right_half</item>
@@ -85,20 +95,25 @@
 
     <!-- layout-->
 
-            <!-- layout固定底部-->
+    <!-- layout固定底部-->
     <style name="layout_bottom">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_alignParentBottom">true</item>
         <item name="android:gravity">center_vertical</item>
     </style>
-            <!-- layout固定底部-->
-            <!-- layout固定顶部-->
-            <style name="layout_top">
-                <item name="android:layout_width">match_parent</item>
-                <item name="android:layout_alignParentTop">true</item>
-                <item name="android:gravity">center_vertical</item>
-            </style>
-            <!-- layout固定顶部-->
+    <style name="layout_bottom_left">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+    <!-- layout固定底部-->
+    <!-- layout固定顶部-->
+    <style name="layout_top">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+    <!-- layout固定顶部-->
     <!-- layout-->
     <style name="activity_title">
         <item name="android:layout_width">wrap_content</item>
@@ -117,11 +132,13 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_gravity">center_vertical</item>
     </style>
+
     <style name="formdd">
         <item name="android:layout_width">120dp</item>
         <item name="android:layout_height">40dp</item>
         <item name="android:gravity">center</item>
     </style>
+
     <style name="formtitle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">50dp</item>
@@ -129,6 +146,7 @@
         <item name="android:textSize">10pt</item>
         <item name="android:background">#ffdddddd</item>
     </style>
+
     <style name="forminputinfo">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -138,6 +156,7 @@
         <item name="android:textSize">5pt</item>
         <item name="android:textColor">#ffdddddd</item>
     </style>
+
     <style name="formlineh">
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">1px</item>
@@ -145,6 +164,7 @@
         <item name="android:layout_margin">3.0dp</item>
 
     </style>
+
     <style name="formdt">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
@@ -159,26 +179,30 @@
         <item name="android:singleLine">true</item>
         <!-- <item name="android:text">dd</item>-->
     </style>
+
     <style name="formdtMultiLine" parent="formdt">
         <item name="android:minLines">8</item>
-        <item name="android:gravity"> start</item>
+        <item name="android:gravity">start</item>
         <item name="android:minHeight">100dp</item>
         <item name="android:background">@android:drawable/edit_text</item>
         <item name="android:singleLine">false</item>
         <item name="android:layout_height">100dp</item>
     </style>
-    <style name="formdtRadioButton" >
+
+    <style name="formdtRadioButton">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">1</item>
         <item name="android:textSize">10dp</item>
     </style>
-    <style name="formdtphoto" >
+
+    <style name="formdtphoto">
         <item name="android:layout_width">100dp</item>
         <item name="android:layout_height">100dp</item>
         <item name="android:layout_weight">1</item>
     </style>
-    <style name="formdtphotoAdd" >
+
+    <style name="formdtphotoAdd">
         <item name="android:layout_width">50dp</item>
         <item name="android:layout_height">50dp</item>
         <item name="android:textSize">32dp</item>
@@ -186,6 +210,7 @@
         <item name="android:layout_alignParentBottom">true</item>
         <item name="android:src">@android:drawable/ic_input_add</item>
     </style>
+
     <style name="formdtphotoPai" parent="formdtphotoAdd">
         <item name="android:src">@android:drawable/ic_menu_camera</item>
     </style>
@@ -197,11 +222,34 @@
         <item name="android:textSize">12dp</item>
         <item name="android:textColor">@color/gray_cc</item>
     </style>
+    <style name="font_small">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="font_medium">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="font_big">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
     <style name="login_img">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center_vertical</item>
-        </style>
+    </style>
+
     <style name="login_title">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:gravity">center_vertical</item>
@@ -209,20 +257,23 @@
         <item name="android:textStyle">normal</item>
         <item name="android:padding">5dp</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:layout_height">80dp</item>
+        <item name="android:layout_height">60dp</item>
     </style>
+
     <style name="login_form_line">
         <item name="android:orientation">horizontal</item>
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_height">45dp</item>
         <item name="android:layout_marginLeft">42dp</item>
         <item name="android:layout_marginRight">42dp</item>
     </style>
+
     <style name="login_line_ico">
         <item name="android:layout_width">20dp</item>
         <item name="android:layout_gravity">center_vertical</item>
         <item name="android:layout_height">20dp</item>
     </style>
+
     <style name="login_line_line">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1px</item>
@@ -230,6 +281,7 @@
         <item name="android:layout_marginLeft">40dp</item>
         <item name="android:layout_marginRight">40dp</item>
     </style>
+
     <style name="login_error_msg">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -238,10 +290,11 @@
         <item name="android:textSize">17sp</item>
         <item name="android:textColor">@color/red</item>
     </style>
+
     <style name="login_btn">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">40dp</item>
-        <item name="android:text">登         录</item>
+        <item name="android:text">登 录</item>
         <item name="android:layout_weight">1</item>
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">@color/white</item>
@@ -253,20 +306,23 @@
     </style>
 
 
-    <style name="menu_user_info" >
+    <style name="menu_user_info">
         <item name="android:layout_weight">1</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">12dp</item>
     </style>
+
     <style name="menu_user_info_key" parent="menu_user_info">
         <item name="android:textColor">@color/black</item>
         <item name="android:gravity">right</item>
     </style>
+
     <style name="menu_user_info_value" parent="menu_user_info">
         <item name="android:gravity">left</item>
     </style>
-    <style name="menu_content_item" >
+
+    <style name="menu_content_item">
         <item name="android:layout_weight">1</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -275,7 +331,8 @@
         <item name="android:paddingTop">5dp</item>
         <item name="android:textSize">12dp</item>
     </style>
-    <style name="menu_content_item_text" >
+
+    <style name="menu_content_item_text">
         <item name="android:textColor">#ff444444</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -283,16 +340,36 @@
         <item name="android:layout_margin">10dp</item>
         <item name="android:textSize">15dp</item>
     </style>
-    <style name="menu_content_item_ico" >
+
+    <style name="menu_content_item_ico">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">50dp</item>
         <item name="android:layout_gravity">center</item>
     </style>
-    <style name="list_check_item" >
+
+
+    <style name="scan_errtip">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+
+        <item name="android:textSize">15dp</item>
+        <item name="android:textColor">@color/red</item>
+    </style>
+
+    <style name="list_check_item">
         <item name="android:layout_width">200dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:padding">10dp</item>
         <item name="android:gravity">center</item>
     </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

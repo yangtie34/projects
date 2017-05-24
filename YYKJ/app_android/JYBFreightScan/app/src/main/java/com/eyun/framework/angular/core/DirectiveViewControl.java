@@ -4,6 +4,7 @@ package com.eyun.framework.angular.core;
  * Created by Administrator on 2017/2/27.
  */
 
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
@@ -139,6 +140,8 @@ public class DirectiveViewControl {
                     }
                 }
             });
+
+
         }else if (view instanceof CusSwitchCheck) {
             view.setOnClickListener(new View.OnClickListener() {
                 @Override

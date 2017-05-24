@@ -29,7 +29,7 @@ public class StorageInRecDetailDaoImpl implements StorageInRecDetailDao {
 
     @Override
     public List<Map<String, Object>> getStorageInRecDetailByRecNumber(String RecNumber) {
-        String sqlSelect="Select * from StorageInRecDetail where RecNumber="
+        String sqlSelect="Select * from storage_StorageInRecDetail where RecNumber="
                 + SqlStringUtils.GetQuotedString(RecNumber);
         return BaseDao.getInstance().queryForList(sqlSelect);
     }
@@ -38,7 +38,7 @@ public class StorageInRecDetailDaoImpl implements StorageInRecDetailDao {
     @Override
     public boolean isThisDetailProBarCode(String RecNumber, long ProID) {
 
-        String sqlSelect="Select 1 from StorageInRecDetail where RecNumber="
+        String sqlSelect="Select 1 from storage_StorageInRecDetail where RecNumber="
                 + SqlStringUtils.GetQuotedString(RecNumber)
                 +" and ProID="+ProID;
 
@@ -52,7 +52,7 @@ public class StorageInRecDetailDaoImpl implements StorageInRecDetailDao {
 
     @Override
     public int getCount(String RecNumber, long ProID) {
-        String sqlSelect="Select ProNumber from StorageInRecDetail where RecNumber="
+        String sqlSelect="Select ProNumber from storage_StorageInRecDetail where RecNumber="
                 + SqlStringUtils.GetQuotedString(RecNumber)
                 +" and ProID="+ProID;
 
@@ -66,7 +66,7 @@ public class StorageInRecDetailDaoImpl implements StorageInRecDetailDao {
 
     @Override
     public int getSumCount(String RecNumber) {
-        String sqlSelect="Select Sum(ProNumber) ProNumber from StorageInRecDetail where RecNumber="
+        String sqlSelect="Select Sum(ProNumber) ProNumber from storage_StorageInRecDetail where RecNumber="
                 +SqlStringUtils.GetQuotedString(RecNumber);
 
         List<Map<String,Object>> list= BaseDao.getInstance().queryForList(sqlSelect);
@@ -79,7 +79,7 @@ public class StorageInRecDetailDaoImpl implements StorageInRecDetailDao {
 
     @Override
     public boolean hasThisProduct(String RecNumber, String ProID) {
-        String sqlSelect="Select * from StorageInRecDetail where RecNumber="+SqlStringUtils.GetQuotedString(RecNumber)+
+        String sqlSelect="Select * from storage_StorageInRecDetail where RecNumber="+SqlStringUtils.GetQuotedString(RecNumber)+
                 " and proId="+ProID;
         List<Map<String,Object>> list= BaseDao.getInstance().queryForList(sqlSelect);
         if(list.size()>0){
@@ -90,7 +90,7 @@ public class StorageInRecDetailDaoImpl implements StorageInRecDetailDao {
 
     @Override
     public boolean initStorageInRecDetail(String RecNumber) {
-        String sql="insert into StorageInRecDetail(" +
+        String sql="insert into storage_StorageInRecDetail(" +
                 "RecNumber," +
                 "ProID," +
                 "ProBarCode," +
@@ -104,7 +104,7 @@ public class StorageInRecDetailDaoImpl implements StorageInRecDetailDao {
                 "select '"+RecNumber+"' RecNumber," +
                 "t.proId,pro.ProBarCode,pro.proName,pro.ProCategory,pc.name ProCategoryName," +
                 "pro.ProSpec,ps.name ProSpecName,pro.ProMeasureUnitName,t.ProNumber" +
-                " from StorageInRecScan t " +
+                " from storage_StorageInRecScan t " +
                 "left join product pro on pro.proId=t.proId " +
                 "left join ProductCategory pc on pro.ProCategory=pc.code " +
                 "left join ProductSpec ps on pro.ProSpec=ps.code " +

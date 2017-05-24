@@ -28,7 +28,7 @@ public class ConsignDaoImpl implements ConsignDao {
     }
     @Override
     public Consign getConsign(String ConsignCode) {
-        String sqlSelect="Select * from Consign where recNumber="+ SqlStringUtils.GetQuotedString(ConsignCode);
+        String sqlSelect="Select * from storage_Consign where recNumber="+ SqlStringUtils.GetQuotedString(ConsignCode);
         List<Consign> list= BaseDao.getInstance().query(sqlSelect,Consign.class);
         if(list!=null&&list.size()==1)
             return list.get(0);
@@ -41,7 +41,7 @@ public class ConsignDaoImpl implements ConsignDao {
         map.put("RecState",RecState);
         map.put("RecForwardedState",RecForwardedState);
         String where=" where RecNumber="+SqlStringUtils.GetQuotedString(recNumber);
-        String sqlUpdate=SqlStringUtils.GetConstructionUpdate("Consign",map,where);
+        String sqlUpdate=SqlStringUtils.GetConstructionUpdate("storage_Consign",map,where);
         return BaseDao.getInstance().excute(sqlUpdate);
     }
 }

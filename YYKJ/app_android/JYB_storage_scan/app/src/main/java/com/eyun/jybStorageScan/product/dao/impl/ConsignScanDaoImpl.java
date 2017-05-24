@@ -36,7 +36,7 @@ public class ConsignScanDaoImpl implements ConsignScanDao {
 
     @Override
     public boolean initConsignScan(String recNumber,int proNumber, int scanType,Long vehNumber) {
-        String sql="Select *  from ConsignScan where RecNumber="+ SqlStringUtils.GetQuotedString(recNumber)
+        String sql="Select *  from storage_ConsignScan where RecNumber="+ SqlStringUtils.GetQuotedString(recNumber)
                 +" and ScanType="+scanType+" and VehNumber="+vehNumber;
         List<Map<String,Object>> list= BaseDao.getInstance().queryForList(sql);
         if(list.size()==0) {
@@ -60,7 +60,7 @@ public class ConsignScanDaoImpl implements ConsignScanDao {
 
     @Override
     public int getConsignScanCounts(String recNumber, int scanType, Long vehNumber) {
-        String sqlSelect="Select sum(ScanNumber) ScanNumber from ConsignScan where RecNumber="+ SqlStringUtils.GetQuotedString(recNumber)
+        String sqlSelect="Select sum(ScanNumber) ScanNumber from storage_ConsignScan where RecNumber="+ SqlStringUtils.GetQuotedString(recNumber)
                 +" and ScanType="+scanType;
         if(vehNumber!=null){
 
@@ -80,7 +80,7 @@ public class ConsignScanDaoImpl implements ConsignScanDao {
         map.put("ScanNumber","ScanNumber+"+number);
         String where=" where RecNumber="+SqlStringUtils.GetQuotedString(recNumber)
                 +" and scanType="+scanType+" and vehNumber="+vehNumber;
-        String sqlUpdate=SqlStringUtils.GetConstructionUpdate("ConsignScan",map,where);
+        String sqlUpdate=SqlStringUtils.GetConstructionUpdate("storage_ConsignScan",map,where);
         return BaseDao.getInstance().excute(sqlUpdate);
     }
 

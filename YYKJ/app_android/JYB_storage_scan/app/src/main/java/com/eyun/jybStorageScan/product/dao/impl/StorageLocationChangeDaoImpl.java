@@ -41,7 +41,7 @@ public class StorageLocationChangeDaoImpl implements StorageLocationChangeDao {
         map.put("CreateComBrID", AppUser.comBrId);
         map.put("CreateIp", SqlStringUtils.GetQuotedString(NetWorkUtil.getHostIP()));
         map.put("CreateTime",SqlStringUtils.GetQuotedString(DateUtils.getCurrentTime()));
-        String sql=SqlStringUtils.GetConstructionInsert("StorageLocationChange",map);
+        String sql=SqlStringUtils.GetConstructionInsert("storage_StorageLocationChange",map);
         return BaseDao.getInstance().excute(sql);
     }
 }

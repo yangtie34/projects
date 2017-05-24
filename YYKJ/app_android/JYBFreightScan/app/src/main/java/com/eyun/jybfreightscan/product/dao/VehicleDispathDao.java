@@ -5,14 +5,22 @@ package com.eyun.jybfreightscan.product.dao;
  */
 
 public interface VehicleDispathDao {
+
     /**
-     * 更新车辆单状态
+     * 更新车辆状态
      * @param recNumber
-     * @param RecState
-     * @param RecForwardedState
+     * @param recState
      * @return
      */
-    boolean updateVehicleDispath(String recNumber, int RecState, int RecForwardedState);
+    String GetSqlUpdateState(String recNumber, int recState);
+
+    /**
+     * 更新车辆中转状态
+     * @param recNumber
+     * @param recStateForward
+     * @return
+     */
+    String GetSqlUpdateStateForard(String recNumber, int recStateForward);
 
     /**
      * 判断是否存在此车辆调度
@@ -20,5 +28,35 @@ public interface VehicleDispathDao {
      * @param VehNumber
      * @return
      */
-    boolean hasThisDispath(String recNumber, long VehNumber);
+    boolean IsExists(String recNumber, long VehNumber);
+
+    /**
+     * 返回状态
+     * @param recNumber
+     * @return
+     */
+    int GetState(String recNumber);
+
+    /**
+     * 返回中转状态
+     * @param recNumber
+     * @return
+     */
+    int GetStateForward(String recNumber);
+
+    /**
+     * 获取调度编号
+     * @param VehNumber
+     * @param StateStr
+     * @return
+     */
+    String GetVehDispNumber(long VehNumber,String StateStr);
+
+    /**
+     * 获取司机编号
+     * @param recNumber
+     * @return
+     */
+    long GetVehDrNumber(String recNumber);
+
 }

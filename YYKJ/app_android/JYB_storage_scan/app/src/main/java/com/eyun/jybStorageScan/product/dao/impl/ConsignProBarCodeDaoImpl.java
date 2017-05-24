@@ -26,7 +26,7 @@ public class ConsignProBarCodeDaoImpl implements ConsignProBarCodeDao {
     }
     @Override
     public boolean hasThisProduct(String recNumber, String barCode) {
-        String sql="Select *  from ConsignProBarCode where RecNumber="+ SqlStringUtils.GetQuotedString(recNumber)
+        String sql="Select *  from storage_ConsignProBarCode where RecNumber="+ SqlStringUtils.GetQuotedString(recNumber)
                 +" and barCode="+ SqlStringUtils.GetQuotedString(barCode);
         List<Map<String,Object>> list= BaseDao.getInstance().queryForList(sql);
         if(list.size()>0) {
@@ -37,7 +37,7 @@ public class ConsignProBarCodeDaoImpl implements ConsignProBarCodeDao {
 
     @Override
     public List<Map<String, Object>> getProducts(String recNumber) {
-        String sql=" select * from ConsignProBarCode where RecNumber="+ SqlStringUtils.GetQuotedString(recNumber);
+        String sql=" select * from storage_ConsignProBarCode where RecNumber="+ SqlStringUtils.GetQuotedString(recNumber);
         List<Map<String,Object>> list= BaseDao.getInstance().queryForList(sql);
         return list;
     }

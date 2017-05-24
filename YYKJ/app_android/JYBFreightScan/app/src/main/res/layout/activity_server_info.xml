@@ -101,8 +101,26 @@
                 style="@style/formlineh" />
 
             <LinearLayout
+                android:visibility="gone"
                 style="@style/formline">
 
+                <TextView
+                    style="@style/formdd"
+                    android:text="实例名：" />
+
+                <com.eyun.framework.angular.baseview.CusEditView
+                    app:ng_model="instance"
+                    style="@style/formdt"
+                    android:hint="数据库实例"
+                    android:id="@+id/Instance"/>
+
+            </LinearLayout>
+
+            <View
+                style="@style/formlineh" />
+
+            <LinearLayout
+                style="@style/formline">
                 <TextView
                     style="@style/formdd"
                     android:text="数据库：" />

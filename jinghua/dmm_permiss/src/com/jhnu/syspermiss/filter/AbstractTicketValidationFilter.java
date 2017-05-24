@@ -13,6 +13,8 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.jasig.cas.client.util.AbstractCasFilter;
 import org.jasig.cas.client.util.CommonUtils;
 import org.jasig.cas.client.util.ReflectUtils;
@@ -41,7 +43,7 @@ public abstract class AbstractTicketValidationFilter extends AbstractCasFilter {
 
    /** The TicketValidator we will use to validate tickets. */
    private TicketValidator ticketValidator;
-
+   public static Logger log = LogManager.getLogger(AbstractCasFilter.class.getName());
    /**
     * Specify whether the filter should redirect the user agent after a
     * successful validation to remove the ticket parameter from the query
@@ -72,7 +74,7 @@ public abstract class AbstractTicketValidationFilter extends AbstractCasFilter {
     */
    protected HostnameVerifier getHostnameVerifier(final FilterConfig filterConfig) {
        final String className = getPropertyFromInitParams(filterConfig, "hostnameVerifier", null);
-       log.trace("Using hostnameVerifier parameter: " + className);
+      log.trace("Using hostnameVerifier parameter: " + className);
        final String config = getPropertyFromInitParams(filterConfig, "hostnameVerifierConfig", null);
        log.trace("Using hostnameVerifierConfig parameter: " + config);
        if (className != null) {

@@ -1,5 +1,6 @@
 package com.eyun.jybfreightscan.activitys;
 
+import android.device.DeviceManager;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
@@ -31,7 +32,11 @@ public class Login extends AngularActivity {
         super.onCreate(savedInstanceState);
         this.setIndex();
         setContentView(R.layout.activity_login);
+
         edit_userpwd = (EditText) findViewById(R.id.edit_userpwd);
+
+        DeviceManager deviceManager=new DeviceManager();
+        scope.key("sn").val(deviceManager.getDeviceId());
         scope.key("versionCode").val(AppUtils.getVersionName());
         scope.key("showPwd").watch(new DataListener<Boolean>() {
             @Override
@@ -78,7 +83,6 @@ public void onResume(){
         } else if (pwd == null || pwd.length() == 0) {
             alert("请输入密码！");
         } else {
-
             Loadding.show("正在登录");
             scope.forThread(new CallBack<ResultMsg>() {
                 @Override

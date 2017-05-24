@@ -31,13 +31,13 @@ public class StorageLocationProductDaoImpl implements StorageLocationProductDao 
 
     @Override
     public boolean addStorageLocationProduct(StorageLocation storageLocation, long ProID, int ProNumber) {
-        String sql = "Select * from StorageLocationProduct where ProID=" + ProID + " and StorLocaCode=" + storageLocation.getCode();
+        String sql = "Select * from storage_StorageLocationProduct where ProID=" + ProID + " and StorLocaCode=" + storageLocation.getCode();
         List<Map<String, Object>> list = BaseDao.getInstance().queryForList(sql);
         HashMap<String, Object> map = new HashMap<String, Object>();
         if (list.size() > 0) {
             map.put("ProNumber", "ProNumber+"+ProNumber);
             String where = " where ProID=" + ProID + " and StorLocaCode=" + storageLocation.getCode();
-            sql = SqlStringUtils.GetConstructionUpdate("StorageLocationProduct", map, where);
+            sql = SqlStringUtils.GetConstructionUpdate("storage_StorageLocationProduct", map, where);
 
         } else {
             map.put("StorLocaCode", storageLocation.getCode());
@@ -45,22 +45,22 @@ public class StorageLocationProductDaoImpl implements StorageLocationProductDao 
             map.put("StorLocaComID", storageLocation.getComId());
             map.put("ProID", ProID);
             map.put("ProNumber", ProNumber);
-            sql = SqlStringUtils.GetConstructionInsert("StorageLocationProduct", map);
+            sql = SqlStringUtils.GetConstructionInsert("storage_StorageLocationProduct", map);
         }
         return BaseDao.getInstance().excute(sql);
     }
     @Override
     public boolean updateStorageLocationProduct(StorageLocation storageLocation, long ProID, int ProNumber) {
         if(ProNumber==0){
-            return BaseDao.getInstance().excute("delete StorageLocationProduct where ProID=" + ProID + " and StorLocaCode=" + storageLocation.getCode());
+            return BaseDao.getInstance().excute("delete storage_StorageLocationProduct where ProID=" + ProID + " and StorLocaCode=" + storageLocation.getCode());
         }
-        String sql = "Select * from StorageLocationProduct where ProID=" + ProID + " and StorLocaCode=" + storageLocation.getCode();
+        String sql = "Select * from storage_StorageLocationProduct where ProID=" + ProID + " and StorLocaCode=" + storageLocation.getCode();
         List<Map<String, Object>> list = BaseDao.getInstance().queryForList(sql);
         HashMap<String, Object> map = new HashMap<String, Object>();
         if (list.size() > 0) {
             map.put("ProNumber", ProNumber);
             String where = " where ProID=" + ProID + " and StorLocaCode=" + storageLocation.getCode();
-            sql = SqlStringUtils.GetConstructionUpdate("StorageLocationProduct", map, where);
+            sql = SqlStringUtils.GetConstructionUpdate("storage_StorageLocationProduct", map, where);
 
         } else {
             map.put("StorLocaCode", storageLocation.getCode());
@@ -68,13 +68,13 @@ public class StorageLocationProductDaoImpl implements StorageLocationProductDao 
             map.put("StorLocaComID", storageLocation.getComId());
             map.put("ProID", ProID);
             map.put("ProNumber", ProNumber);
-            sql = SqlStringUtils.GetConstructionInsert("StorageLocationProduct", map);
+            sql = SqlStringUtils.GetConstructionInsert("storage_StorageLocationProduct", map);
         }
         return BaseDao.getInstance().excute(sql);
     }
     @Override
     public int getLocationProNumber(long StorLocaCode) {
-        String sql = "Select sum(ProNumber) number from StorageLocationProduct where StorLocaCode=" + StorLocaCode;
+        String sql = "Select sum(ProNumber) number from storage_StorageLocationProduct where StorLocaCode=" + StorLocaCode;
         List<Map<String, Object>> list = BaseDao.getInstance().queryForList(sql);
         if(list!=null&&list.size()>0){
             return TypeConvert.toInteger(list.get(0).get("number"));
@@ -84,7 +84,7 @@ public class StorageLocationProductDaoImpl implements StorageLocationProductDao 
 
     @Override
     public List<Map<String, Object>> getStorageLocationProducts(long StorLocaCode) {
-        String sql = "Select t.*,pro.proName,pro.ProMeasureUnitName,pc.name ProCategoryName from StorageLocationProduct t " +
+        String sql = "Select t.*,pro.proName,pro.ProMeasureUnitName,pc.name ProCategoryName from storage_StorageLocationProduct t " +
                 " left join product pro on pro.proId=t.proId " +
                 "left join ProductCategory pc on pro.ProCategory=pc.code " +
                 " where t.StorLocaCode=" + StorLocaCode;

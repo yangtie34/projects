@@ -43,7 +43,7 @@ public class StorageTakeRecStateDaoImpl implements StorageTakeRecStateDao {
         map.put("CreateComID",AppUser.comId);
         map.put("CreateIp",SqlStringUtils.GetQuotedString(NetWorkUtil.getHostIP()));
         map.put("CreateTime",SqlStringUtils.GetQuotedString(DateUtils.getCurrentTime()));
-        String sqlInsert=SqlStringUtils.GetConstructionInsert("StorageTakeRecState",map);
+        String sqlInsert=SqlStringUtils.GetConstructionInsert("storage_StorageTakeRecState",map);
         return BaseDao.getInstance().excute(sqlInsert);
     }
 

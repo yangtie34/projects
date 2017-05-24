@@ -9,6 +9,7 @@ public class ConsignScan {
 	private Integer scanType;
 	private Integer scanErrorType;
 	private Integer scanNumber;
+	private String scanProBarCode;
 	private String vehDispNumber;
 	private Long vehNumber;
 	private String recNumber;
@@ -109,5 +110,11 @@ public class ConsignScan {
 	}
 	public void setCreateTime(String createTime) {
 		this.createTime = createTime;
+	}
+	public String getScanProBarCode() {
+		return scanProBarCode;
+	}
+	public void setScanProBarCode(String scanProBarCode) {
+		this.scanProBarCode = scanProBarCode;
 	}
 }

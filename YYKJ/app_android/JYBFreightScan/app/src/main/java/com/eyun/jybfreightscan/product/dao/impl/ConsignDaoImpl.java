@@ -2,46 +2,40 @@ package com.eyun.jybfreightscan.product.dao.impl;
 
 import com.eyun.framework.common.util.SqlStringUtils;
 import com.eyun.framework.jdbc.jdbcUtil.BaseDao;
+import com.eyun.framework.util.common.TypeConvert;
 import com.eyun.jybfreightscan.product.dao.ConsignDao;
-import com.eyun.jybfreightscan.product.entity.Consign;
 
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
- * Created by Administrator on 2017/3/20.
+ * Created by Administrator on 2017/4/6.
  */
 
 public class ConsignDaoImpl implements ConsignDao {
 
-    private static ConsignDaoImpl ConsignDao = null;
+    private static ConsignDaoImpl consignDao = null;
 
     public static ConsignDaoImpl getInstance() {
-        if (ConsignDao == null) {
+        if (consignDao == null) {
             synchronized (new ConsignDaoImpl()) {
-                if (ConsignDao == null) {
-                    ConsignDao = new ConsignDaoImpl();
+                if (consignDao == null) {
+                    consignDao = new ConsignDaoImpl();
                 }
             }
         }
-        return ConsignDao;
-    }
-    @Override
-    public Consign getConsign(String ConsignCode) {
-        String sqlSelect="Select * from Consign where recNumber="+ SqlStringUtils.GetQuotedString(ConsignCode);
-        List<Consign> list= BaseDao.getInstance().query(sqlSelect,Consign.class);
-        if(list!=null&&list.size()==1)
-            return list.get(0);
-        return  null;
+        return consignDao;
     }
 
+
     @Override
-    public boolean updateConsign(String recNumber,int RecState,int RecForwardedState) {
-        HashMap<String,Object> map=new HashMap<String,Object>();
-        map.put("RecState",RecState);
-        map.put("RecForwardedState",RecForwardedState);
-        String where=" where RecNumber="+ SqlStringUtils.GetQuotedString(recNumber);
-        String sqlUpdate= SqlStringUtils.GetConstructionUpdate("Consign",map,where);
-        return BaseDao.getInstance().excute(sqlUpdate);
+    public int GetProQuantity(String recNumber) {
+        String sql="Select ProNumber from Consign where RecNumber="+ SqlStringUtils.GetQuotedString(recNumber);
+        List<Map<String,Object>> list= BaseDao.getInstance().queryForList(sql);
+        if(list!=null&& list.size()==1)
+        {
+            return TypeConvert.toInteger(list.get(0).get("ProNumber"));
+        }
+        return 0;
     }
 }

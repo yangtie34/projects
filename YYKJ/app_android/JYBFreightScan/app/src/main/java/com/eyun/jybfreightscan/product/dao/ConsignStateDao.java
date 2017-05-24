@@ -1,11 +1,26 @@
 package com.eyun.jybfreightscan.product.dao;
 
+import com.eyun.jybfreightscan.product.entity.ConsignState;
+
+/**
+ * Created by Administrator on 2017/4/6.
+ */
+
 public interface ConsignStateDao {
 
     /**
-     * 根据托运单创建状态
+     * 状态添加
+     * @param mo
+     */
+    public String GetSqlAdd(ConsignState mo);
+
+
+    /**
+     * 判断单据状态是否存在
+     * @param recNumber
+     * @param state
+     * @param comBrID
      * @return
      */
-    boolean add(String RecNumber, int recState);
-    
+    public boolean IsExists(String recNumber,int state,long comBrID);
 }

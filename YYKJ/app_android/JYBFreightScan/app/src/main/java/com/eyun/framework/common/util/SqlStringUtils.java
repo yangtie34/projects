@@ -15,6 +15,8 @@ public class SqlStringUtils {
      */
     public static String GetQuotedString(String pStr)
     {
+        if(pStr==null)
+            return ("''");
         return ("'" + pStr.replace("'", "''") + "'");
     }
 

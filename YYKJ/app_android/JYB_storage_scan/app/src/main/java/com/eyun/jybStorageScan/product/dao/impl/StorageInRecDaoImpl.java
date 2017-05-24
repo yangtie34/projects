@@ -34,7 +34,7 @@ public class StorageInRecDaoImpl implements StorageInRecDao {
 
     @Override
     public StorageInRec getStorageInRecByRecNumber(String recBarrCode) {
-        String sqlSelect="Select * from StorageInRec where RecNumber="+SqlStringUtils.GetQuotedString(recBarrCode);
+        String sqlSelect="Select * from storage_StorageInRec where RecNumber="+SqlStringUtils.GetQuotedString(recBarrCode);
         List<StorageInRec> list= BaseDao.getInstance().query(sqlSelect,StorageInRec.class);
         if(list!=null&&list.size()>0)
             return list.get(0);
@@ -44,7 +44,7 @@ public class StorageInRecDaoImpl implements StorageInRecDao {
     @Override
     public  boolean IsExist(String recNumber)
     {
-        String sqlExists="Select 1 from StorageInRec where RecNumber="+ SqlStringUtils.GetQuotedString(recNumber);
+        String sqlExists="Select 1 from storage_StorageInRec where RecNumber="+ SqlStringUtils.GetQuotedString(recNumber);
         List<Map<String,Object>> list=BaseDao.getInstance().queryForList(sqlExists);
         if(list!=null&&list.size()==1)
             return  true;
@@ -62,7 +62,7 @@ public class StorageInRecDaoImpl implements StorageInRecDao {
         map.put("CreateComBrID",AppUser.comBrId);
         map.put("CreateComID",AppUser.comId);
 
-        String sqlInsert=SqlStringUtils.GetConstructionInsert("StorageInRec",map);
+        String sqlInsert=SqlStringUtils.GetConstructionInsert("storage_StorageInRec",map);
         BaseDao.getInstance().excute(sqlInsert);
         return mo.getRecNumber();
     }
@@ -72,7 +72,7 @@ public class StorageInRecDaoImpl implements StorageInRecDao {
         HashMap<String,Object> map=new HashMap<String,Object>();
         map.put("RecState",state);
         String where=" where RecNumber="+SqlStringUtils.GetQuotedString(RecNumber);
-        String sqlUpdate=SqlStringUtils.GetConstructionUpdate("StorageInRec",map,where);
+        String sqlUpdate=SqlStringUtils.GetConstructionUpdate("storage_StorageInRec",map,where);
         return BaseDao.getInstance().excute(sqlUpdate);
     }
 }

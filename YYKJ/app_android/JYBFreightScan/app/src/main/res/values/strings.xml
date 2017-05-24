@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">吉云邦仓储扫描系统</string>
+    <string name="app_name">吉云邦零担扫描系统</string>
 
     <string name="drop_down_list_header_default_text">点击可以刷新</string>
     <string name="drop_down_list_header_pull_text">下拉可以刷新</string>
@@ -12,7 +12,6 @@
     <string name="image_content">Image</string>
 
     <string name="scan_text">将二维码放入框内, 即可自动扫描</string>
-
 
 
     <string name="menu_settings">Settings</string>
@@ -43,6 +42,7 @@
     <string name="scanner_reset_def_summary">扫描头出厂设置</string>
     <string name="scanner_toast">扫描头重置完成!</string>
     <string name="scanner_hint">对准条码，按设备上扫描键获取条码</string>
+    <string name="title_activity_consign_sign">ConsignSign</string>
 
 
 </resources>

@@ -30,7 +30,7 @@ public class StorageOutRecDetailDaoImpl implements StorageOutRecDetailDao {
     @Override
     public int getCount(String RecNumber, long PorID) {
 
-        String sqlSelect="Select ProNumber from StorageOutRecDetail where RecNumber="
+        String sqlSelect="Select ProNumber from storage_StorageOutRecDetail where RecNumber="
                 + SqlStringUtils.GetQuotedString(RecNumber)
                 +" and ProID="+PorID;
 
@@ -44,7 +44,7 @@ public class StorageOutRecDetailDaoImpl implements StorageOutRecDetailDao {
 
     @Override
     public boolean isThisDetailProBarCode(String RecNumber, long ProID) {
-        String sqlSelect="Select 1 from StorageOutRecDetail where RecNumber="
+        String sqlSelect="Select 1 from storage_StorageOutRecDetail where RecNumber="
                 + SqlStringUtils.GetQuotedString(RecNumber)
                 +" and ProID="+ProID;
 
@@ -58,14 +58,14 @@ public class StorageOutRecDetailDaoImpl implements StorageOutRecDetailDao {
 
     @Override
     public List<Map<String, Object>> getStorageOutRecDetailByRecNumber(String RecNumber) {
-        String sqlSelect="Select * from StorageOutRecDetail where RecNumber="
+        String sqlSelect="Select * from storage_StorageOutRecDetail where RecNumber="
                 + SqlStringUtils.GetQuotedString(RecNumber);
         return BaseDao.getInstance().queryForList(sqlSelect);
     }
 
     @Override
     public int getSumCount(String RecNumber) {
-        String sqlSelect="Select Sum(ProNumber) ProNumber from StorageOutRecDetail where RecNumber="
+        String sqlSelect="Select Sum(ProNumber) ProNumber from storage_StorageOutRecDetail where RecNumber="
                 + SqlStringUtils.GetQuotedString(RecNumber);
 
         List<Map<String,Object>> list= BaseDao.getInstance().queryForList(sqlSelect);
@@ -78,7 +78,7 @@ public class StorageOutRecDetailDaoImpl implements StorageOutRecDetailDao {
 
     @Override
     public boolean initStorageOutRecDetail(String RecNumber) {
-            String sql="insert into StorageOutRecDetail(" +
+            String sql="insert into storage_StorageOutRecDetail(" +
                     "RecNumber," +
                     "ProID," +
                     "ProBarCode," +
@@ -92,7 +92,7 @@ public class StorageOutRecDetailDaoImpl implements StorageOutRecDetailDao {
                     "select '"+RecNumber+"' RecNumber," +
                     "t.proId,pro.ProBarCode,pro.proName,pro.ProCategory,pc.name ProCategoryName," +
                     " pro.ProSpec,ps.name ProSpecName,pro.ProMeasureUnitName,sum(t.ProNumber) ProNumber" +
-                    " from StorageOutRecScan t" +
+                    " from storage_StorageOutRecScan t" +
                     " left join product pro on pro.proId=t.proId" +
                     " left join ProductCategory pc on pro.ProCategory=pc.code" +
                     " left join ProductSpec ps on pro.ProSpec=ps.code" +
@@ -104,7 +104,7 @@ public class StorageOutRecDetailDaoImpl implements StorageOutRecDetailDao {
 
     @Override
     public int getProNumber(String RecNumber, long proId) {
-        String sqlSelect="Select Sum(ProNumber) ProNumber from StorageOutRecDetail where RecNumber="
+        String sqlSelect="Select Sum(ProNumber) ProNumber from storage_StorageOutRecDetail where RecNumber="
                 + SqlStringUtils.GetQuotedString(RecNumber) +" and proId="+proId;
 
         List<Map<String,Object>> list= BaseDao.getInstance().queryForList(sqlSelect);

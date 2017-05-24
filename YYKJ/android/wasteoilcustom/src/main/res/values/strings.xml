@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">危废环保监测系统客户版</string>
-    <string name="product">危废生产单</string>
-    <string name="schedule">调度配送</string>
-    <string name="recReport">危废转运联单</string>
-    <string name="user_logout_account">退出当前账号</string>
-</resources>

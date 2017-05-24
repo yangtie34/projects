@@ -55,7 +55,7 @@ public class StorageTakeRecScanDaoImpl implements StorageTakeRecScanDao {
         map.put("ScanNumber",mo.getScanNumber());
         map.put("ScanType",mo.getScanType());
 
-        String sqlInsert=SqlStringUtils.GetConstructionInsert("StorageTakeRecScan",map);
+        String sqlInsert=SqlStringUtils.GetConstructionInsert("storage_StorageTakeRecScan",map);
         return BaseDao.getInstance().excute(sqlInsert);
     }
 
@@ -71,14 +71,14 @@ public class StorageTakeRecScanDaoImpl implements StorageTakeRecScanDao {
         map.put("ScanNumber","ScanNumber+"+mo.getScanNumber());
         String where=" where RecNumber="+SqlStringUtils.GetQuotedString(mo.getRecNumber())
                 +" and ProID="+mo.getProId()+" and ScanType="+mo.getScanType();
-        String sqlUpdate=SqlStringUtils.GetConstructionUpdate("StorageTakeRecScan",map,where);
+        String sqlUpdate=SqlStringUtils.GetConstructionUpdate("storage_StorageTakeRecScan",map,where);
         return BaseDao.getInstance().excute(sqlUpdate);
     }
 
     @Override
     public StorageTakeRecScan getScanbyRecNumberAndProID(String RecNumber, String ProID, int ScanType) {
 
-        String sqlSelect="Select t.*,pro.proName from StorageTakeRecScan t " +
+        String sqlSelect="Select t.*,pro.proName from storage_StorageTakeRecScan t " +
         " left join product pro on pro.proId=t.ProID " +
                 "where t.RecNumber="+SqlStringUtils.GetQuotedString(RecNumber) +" and t.ProID="+ProID+" and t.ScanType="+ScanType ;
         List<StorageTakeRecScan> list= BaseDao.getInstance().query(sqlSelect,StorageTakeRecScan.class);

@@ -1,41 +1,58 @@
 package com.eyun.jybfreightscan.product.service;
 
-import com.eyun.framework.entity.ResultMsg;
-import com.eyun.jybfreightscan.product.entity.Consign;
-import com.eyun.jybfreightscan.product.entity.Vehicle;
+import com.eyun.jybfreightscan.product.entity.ConsignScan;
+
+import java.util.List;
+import java.util.Map;
 
 /**
- * Created by Administrator on 2017/3/20.
+ * Created by Administrator on 2017/4/6.
  */
 
 public interface ConsignScanService {
-    /**
-     * 获取已经扫描多少件
-     * @param scanType
-     * @return
-     */
-    int getConsignScanCounts(Consign consign, int scanType);
-    /**
-     * 获取已经扫描多少件
-     * @param scanType
-     * @return
-     */
-    int getConsignScanCounts(Consign consign, int scanType, Vehicle vehicle);
 
     /**
-     * 扫描商品
-     * @param consign
+     * 获取扫描件数
+     * @param recNumber
      * @param scanType
-     * @param vehicle
-     * @param code
      * @return
      */
-    ResultMsg getScanProduct(Consign consign, int scanType, Vehicle vehicle, String code, int number);
+    int GetScanNumber(String recNumber,int scanType);
 
     /**
-     * 提交扫描数据
+     * 获取扫描件数
+     * @param recNumber
+     * @param scanType
+     * @param barCode
+     * @return
+     */
+    int GetScanNumber(String barCode, String recNumber,int scanType);
+
+    /**
+     * 添加扫描记录
+     * @param mo
+     * @return
+     */
+    String Add(ConsignScan mo);
+
+
+    /**
+     * 获取未上传记录
+     * @param comBrID
+     * @param comID
+     * @param userId
+     * @return
+     */
+    List<Map<String,Object>> GetNoUpLoad(long comBrID, long comID, long userId);
+
+
+    /**
+     * 上传扫描记录
      * @param recNumber
      * @return
      */
-    ResultMsg consignScanOk(String recNumber, int scanType);
+    String UpLoad(String recNumber);
+
 }
+
+

@@ -34,7 +34,7 @@ public class StorageTakeRecDetailDaoImpl implements StorageTakeRecDetailDao {
 
     @Override
     public boolean initStorageTakeRecDetail(StorageTakeRec storageTakeRec) {
-        String sql="insert into StorageTakeRecDetail(" +
+        String sql="insert into storage_StorageTakeRecDetail(" +
                 "RecNumber," +
                 "ProID," +
                 "ProName," +
@@ -49,7 +49,7 @@ public class StorageTakeRecDetailDaoImpl implements StorageTakeRecDetailDao {
                 "t.proId,pro.proName,pro.ProCategory,pc.name ProCategoryName," +
                 "pro.ProSpec,ps.name ProSpecName,pro.ProMeasureUnitName,t.ProNumber," +
                 "t.ProNumber" +
-                " from StorageLocationProduct t " +
+                " from storage_StorageLocationProduct t " +
                 "left join product pro on pro.proId=t.proId " +
                 "left join ProductCategory pc on pro.ProCategory=pc.code " +
                 "left join ProductSpec ps on pro.ProSpec=ps.code " +
@@ -65,19 +65,19 @@ public class StorageTakeRecDetailDaoImpl implements StorageTakeRecDetailDao {
         map.put("ProDifferNumber","ProNumber-ProBookNumber");
         String where=" where RecNumber="+SqlStringUtils.GetQuotedString(mo.getRecNumber())
                 +" and ProID="+mo.getProId();
-        String sqlUpdate=SqlStringUtils.GetConstructionUpdate("StorageTakeRecDetail",map,where);
+        String sqlUpdate=SqlStringUtils.GetConstructionUpdate("storage_StorageTakeRecDetail",map,where);
         return BaseDao.getInstance().excute(sqlUpdate);
     }
     @Override
     public List<Map<String, Object>> getStorageTakeRecDetailByRecNumber(String RecNumber) {
-        String sqlSelect="Select * from StorageTakeRecDetail where RecNumber="
+        String sqlSelect="Select * from storage_StorageTakeRecDetail where RecNumber="
                 + SqlStringUtils.GetQuotedString(RecNumber);
         return BaseDao.getInstance().queryForList(sqlSelect);
     }
 
     @Override
     public int getSumCount(String RecNumber) {
-        String sqlSelect="Select Sum(ProNumber) ProNumber from StorageTakeRecDetail where RecNumber="
+        String sqlSelect="Select Sum(ProNumber) ProNumber from storage_StorageTakeRecDetail where RecNumber="
                 + SqlStringUtils.GetQuotedString(RecNumber);
         List<Map<String,Object>> list= BaseDao.getInstance().queryForList(sqlSelect);
         if(list!=null&& list.size()==1)

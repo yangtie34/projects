@@ -38,7 +38,7 @@ public class ConsignStateDaoImpl implements ConsignStateDao {
         map.put("CreateComBrID", AppUser.comBrId);
         map.put("CreateIp", SqlStringUtils.GetQuotedString(NetWorkUtil.getHostIP()));
         map.put("CreateTime", SqlStringUtils.GetQuotedString(DateUtils.getCurrentTime()));
-        String sql = SqlStringUtils.GetConstructionInsert("ConsignState", map);
+        String sql = SqlStringUtils.GetConstructionInsert("storage_ConsignState", map);
         return BaseDao.getInstance().excute(sql);
     }
 }

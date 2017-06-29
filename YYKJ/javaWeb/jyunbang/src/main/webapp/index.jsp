@@ -16,9 +16,9 @@ String ip = request.getServerName();
 String projectPath = "http://"+ip+":"+port+basePath;
 /* String username=request.getUserPrincipal().getName();
 GetCachePermiss.init(username,projectPath); */
-response.sendRedirect(projectPath+"/main");  
+//response.sendRedirect(projectPath+"/main");  
 %>  
-
+123456
 
 </body>
 </html>

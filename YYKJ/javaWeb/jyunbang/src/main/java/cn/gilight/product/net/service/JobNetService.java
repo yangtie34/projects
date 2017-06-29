@@ -1,9 +1,12 @@
 package cn.gilight.product.net.service;
 
+
+import javax.jws.WebService;
+
 import com.jhnu.syspermiss.permiss.entity.JobResultBean;
 
 
-
+@WebService 
 public interface JobNetService {
 	/**
 	 * 初始化学生网络信息log

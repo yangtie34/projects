@@ -3,12 +3,14 @@ package cn.gilight.product.net.dao.impl;
 import java.util.HashMap;
 import java.util.Map;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import cn.gilight.framework.base.dao.BaseDao;
 import cn.gilight.framework.code.Code;
 import cn.gilight.product.net.dao.JobNetDao;
+
 
 @Repository("jobNetDao")
 public class JobNetDaoImpl implements JobNetDao {

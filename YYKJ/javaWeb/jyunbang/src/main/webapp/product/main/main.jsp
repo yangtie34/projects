@@ -7,7 +7,7 @@ import="com.jhnu.syspermiss.*,com.alibaba.fastjson.JSON"%>
 <head>
 <jsp:include page="../../static/base.jsp"></jsp:include>
 <meta charset="UTF-8">
-<title>后勤系统</title>
+<title>后勤系统1</title>
 <script type="text/javascript" src="${ctx }/static/echarts/echartsUtil.js"></script>
 <script type="text/javascript" src="${ctx }/static/index.js"></script>
 <link href="${ctx }/resource/css/font-awesome.min.css" rel="stylesheet">

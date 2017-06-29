@@ -28,7 +28,11 @@ public class MainController {
 		mv.addObject("username", username);
 		return mv;
 	}
-	
+	@RequestMapping(value="/MyJsp",method=RequestMethod.GET)
+	public ModelAndView MyJsp(){
+		ModelAndView mv=new ModelAndView("/main/MyJsp");
+		return mv;
+	}
 	@ResponseBody
 	@RequestMapping(value="/getphoto",method=RequestMethod.GET)
 	public void getUserPhoto(HttpServletRequest request,HttpServletResponse response) {

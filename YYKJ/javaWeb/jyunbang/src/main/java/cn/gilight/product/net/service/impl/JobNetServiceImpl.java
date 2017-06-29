@@ -4,6 +4,8 @@ package cn.gilight.product.net.service.impl;
 import java.util.Date;
 import java.util.Map;
 
+import javax.jws.WebService;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +17,8 @@ import cn.gilight.product.net.dao.JobNetDao;
 import cn.gilight.product.net.service.JobNetService;
 
 import com.jhnu.syspermiss.permiss.entity.JobResultBean;
+
+@WebService
 @Service("jobNetService")
 public class JobNetServiceImpl implements JobNetService {
 	@Autowired

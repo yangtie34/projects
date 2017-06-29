@@ -13,14 +13,33 @@
   <properties>
   	<spring.version>4.1.5.RELEASE</spring.version>
   	<jackson.version>2.2.1</jackson.version>
+  	 <cxf.version>2.7.7</cxf.version>  
   	<finalName>jyunbang</finalName>
   	<project.build.sourceEncoding>
             UTF-8
     </project.build.sourceEncoding>
   </properties>
 
-
   <dependencies>
+          <!-- CXF Dependencies -->  
+       <dependency>  
+            <groupId>org.apache.cxf</groupId>  
+            <artifactId>cxf-rt-frontend-jaxws</artifactId>  
+            <version>${cxf.version}</version>  
+        </dependency>  
+         <!-- <dependency>   
+            <groupId>org.apache.cxf</groupId>  
+            <artifactId>cxf-rt-transports-http</artifactId>  
+            <version>${cxf.version}</version>  
+        </dependency>  --> 
+        <!-- Jetty is needed if you're are not using the CXFServlet -->  
+        <!-- <dependency>   
+            <groupId>org.apache.cxf</groupId>  
+            <artifactId>cxf-rt-transports-http-jetty</artifactId>  
+            <version>${cxf.version}</version>  
+        </dependency>   -->
+        <!-- End of CXF Dependencies -->  
+  
   <dependency>
     <groupId>org.apache.ant</groupId>
     <artifactId>ant</artifactId>

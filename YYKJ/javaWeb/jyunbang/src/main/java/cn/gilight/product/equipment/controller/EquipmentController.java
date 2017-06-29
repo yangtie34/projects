@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class EquipmentController {
 	@RequestMapping(value="/Info",method=RequestMethod.GET)
 	public ModelAndView Info(){
+		//ModelAndView mv=new ModelAndView("/main/main");
 		ModelAndView mv=new ModelAndView("/equipment/Info");
 		return mv;
 	}

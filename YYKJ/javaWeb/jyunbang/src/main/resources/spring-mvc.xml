@@ -6,14 +6,17 @@
     xmlns:task="http://www.springframework.org/schema/task"
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:p="http://www.springframework.org/schema/p" 
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:jaxws="http://cxf.apache.org/jaxws" 
 	xsi:schemaLocation="
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
        http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd
-		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd ">
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd  
+    http://cxf.apache.org/jaxws   
+    http://cxf.apache.org/schemas/jaxws.xsd">
         
    <!--******** 把标记了@Controller注解的类转换为bean ********-->
 	<context:annotation-config />
@@ -118,4 +121,10 @@
 	
 	
 	<bean id="componentStaticRetriever" class="cn.gilight.framework.uitl.ApplicationComponentStaticRetriever"/>
+ <!-- 要暴露给外部调用的接口，address:请求路径 -->  
+  <import resource="classpath:META-INF/cxf/cxf.xml" />   
+    <!-- <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />  
+    <import resource="classpath:META-INF/cxf/cxf-servlet.xml" />   -->
+    
+    <jaxws:endpoint  implementor="cn.gilight.product.net.service.impl.JobNetServiceImpl" address="/JobNetServiceImpl"></jaxws:endpoint>  
 </beans>

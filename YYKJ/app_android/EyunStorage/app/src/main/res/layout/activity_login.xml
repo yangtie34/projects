@@ -104,6 +104,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:ng_model="remember"
+                    android:visibility="gone"
                     android:text="记住密码"/>
 
                 <com.eyun.framework.angular.baseview.CusTextView

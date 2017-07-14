@@ -45,7 +45,7 @@ public class Login extends AngularActivity {
                 edit_userpwd.setInputType(type);
             }
         });
-        boolean isRemeber = PreferenceUtils.getPrefBoolean("remember", false);
+        boolean isRemeber = PreferenceUtils.getPrefBoolean("remember", true);
         if (isRemeber) {
             PreferenceUtils.setPrefBoolean("remember", true);
             scope.key("remember").val(isRemeber);

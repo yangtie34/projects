@@ -209,7 +209,7 @@
         <item name="android:textStyle">normal</item>
         <item name="android:padding">5dp</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:layout_height">80dp</item>
+        <item name="android:layout_height">50dp</item>
     </style>
     <style name="login_form_line">
         <item name="android:orientation">horizontal</item>

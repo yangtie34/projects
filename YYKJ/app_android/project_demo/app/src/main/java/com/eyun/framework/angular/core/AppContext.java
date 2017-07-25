@@ -45,15 +45,16 @@ public class AppContext extends Application {
         if (activitys == null){
             new AppContext();
         }
-        if (activitys.size() > 0) {
             if(!activitys.contains(activity)){
                 activitys.add(activity);
-                activityList.add(activity);
             }
-        }else{
-            activitys.add(activity);
+            for (int i = 0; i <activityList.size() ; i++) {
+                if(activityList.get(i).getClass()==activity.getClass()){
+                    activityList.remove(i);
+                    i--;
+                }
+            }
             activityList.add(activity);
-        }
     }
     // 添加Activity到容器中
     public static void newIntentLast(Activity activity) {

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/f_new_order_bg"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_weight="1">
+    <com.eyun.eyunstorage.cusviews.CusSDDListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@id/droplistview"/>
+</LinearLayout>

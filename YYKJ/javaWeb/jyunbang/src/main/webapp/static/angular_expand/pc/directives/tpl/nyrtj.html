@@ -1,0 +1,16 @@
+	<div class="top_date">
+						<div id="liub" class="fl"></div>
+                    	<div class="fl date_line"></div>
+                        <div id="liub_r" class="fr"></div>
+                <div class="date_con">
+				<a href="" ng-show="yid!=1" ng-class="clickId==0?'date_active':''"ng-click="cliclickId(0);">当月</a>
+				<a href=""  ng-class="clickId==1?'date_active':''"ng-click="cliclickId(1);">上月</a>
+					<a href=""  ng-class="clickId==3?'date_active':''"ng-click="cliclickId(3);">近3月</a>
+					<a href=""  ng-class="clickId==6?'date_active':''"ng-click="cliclickId(6);">近半年</a>
+					  <b><input type='text'  ng-model="startTime" class='Wdate1 ' id="dp000"style='width:80px;display: inline;border: none;'>
+                            <span>-</span>
+                            <input type='text'  ng-model="endTime" class='Wdate1 ' id="dp001"style='width:80px;display: inline;border: none;'>
+                            </b>
+			</div>
+		<div  class="x-clear"></div>
+	</div>

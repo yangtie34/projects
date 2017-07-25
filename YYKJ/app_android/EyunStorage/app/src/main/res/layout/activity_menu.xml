@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".activitys.Menu">
+
+
+    <LinearLayout
+        style="@style/layout_bottom"
+        android:background="@android:color/background_light"
+        android:layout_height="30dp">
+      <!--  <TextView
+            android:text="当前站点:"
+            style="@style/menu_user_info_key"/>
+
+        <TextView
+            style="@style/menu_user_info_value"/>-->
+
+        <TextView
+            android:text="员工姓名:"
+            style="@style/menu_user_info_key"/>
+        <com.eyun.framework.angular.baseview.CusTextView
+            app:ng_model="fullname"
+            style="@style/menu_user_info_value"/>
+        <TextView
+            android:text="登录帐号:"
+            style="@style/menu_user_info_key"/>
+
+        <com.eyun.framework.angular.baseview.CusTextView
+            app:ng_model="username"
+            style="@style/menu_user_info_value" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@color/general_grey_light">
+
+            <LinearLayout
+            android:orientation="horizontal"
+                android:layout_height="50dp"
+                android:background="@color/sandybrown"
+                android:layout_width="match_parent">
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/ic_launcher"
+                    android:layout_alignParentLeft="true"
+                    android:padding="5dp"
+                     />
+                <TextView
+                android:textSize="18dp"
+                android:textColor="#ff444444"
+                android:layout_height="match_parent"
+                android:text="@string/app_name"
+                android:layout_width="wrap_content"
+                android:gravity="center_vertical"
+                    android:layout_weight="1"
+                android:elevation="0dp" />
+
+                <TextView
+                    android:text="注销"
+                  android:padding="10dp"
+                    android:onClick="logout"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
+
+
+            </LinearLayout>
+
+            <include
+                layout="@layout/base_view_line_horizontal" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.eyun.framework.angular.baseview.CusTextView
+                    app:ng_model="'网络连接状态：'+netConnection"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15.0dip"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="15sp" />
+                <com.eyun.framework.angular.baseview.CusTextView
+                    app:ng_model="modelName+'数据库连接状态：'+dbConnection"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5.0dip"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:background="@drawable/f_new_order_bg"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:onClick="inRecScan"
+                    style="@style/menu_content_item">
+
+                    <ImageView
+                        style="@style/menu_content_item_ico"
+                        android:src="@drawable/ico_rkfj" />
+
+                    <TextView
+                        style="@style/menu_content_item_text"
+                        android:text="入库分拣" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:onClick="scanInRec"
+                    style="@style/menu_content_item">
+                    <ImageView
+                        style="@style/menu_content_item_ico"
+                        android:src="@drawable/ico_fjrk" />
+                    <TextView
+                        style="@style/menu_content_item_text"
+                        android:text="分拣入库"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:onClick="inStorageScan"
+                    style="@style/menu_content_item">
+                    <ImageView
+                        style="@style/menu_content_item_ico"
+                        android:src="@drawable/ico_rc" />
+                    <TextView
+                        style="@style/menu_content_item_text"
+                        android:text="  入仓  "/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:onClick="outStorageScan"
+                    style="@style/menu_content_item">
+
+                    <ImageView
+                        style="@style/menu_content_item_ico"
+                        android:src="@drawable/ico_ckfj" />
+
+                    <TextView
+                        style="@style/menu_content_item_text"
+                        android:text="出库单出仓" />
+                </LinearLayout>
+                <LinearLayout
+                    android:visibility="visible"
+                    android:onClick="scanOutRec"
+                    style="@style/menu_content_item">
+                    <ImageView
+                        style="@style/menu_content_item_ico"
+                        android:src="@drawable/ico_fjck" />
+                    <TextView
+                        style="@style/menu_content_item_text"
+                        android:text="扫描出仓"/>
+                </LinearLayout>
+              <!--  <LinearLayout
+                    android:onClick="outRecScan"
+                    style="@style/menu_content_item">
+                    <ImageView
+                        style="@style/menu_content_item_ico"
+                        android:src="@mipmap/ic_launcher" />
+                    <TextView
+                        style="@style/menu_content_item_text"
+                        android:text="出库分拣"/>
+                </LinearLayout>-->
+                <LinearLayout
+                    android:onClick="consignScan"
+                    android:visibility="invisible"
+                    style="@style/menu_content_item">
+                    <ImageView
+                        style="@style/menu_content_item_ico"
+                        android:src="@drawable/ico_tyd" />
+                    <TextView
+                        style="@style/menu_content_item_text"
+                        android:text="托运单扫描"/>
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:onClick="storageTake"
+                    style="@style/menu_content_item">
+                    <ImageView
+                        style="@style/menu_content_item_ico"
+                        android:src="@drawable/ico_pd" />
+                    <TextView
+                        style="@style/menu_content_item_text"
+                        android:text="仓库盘点"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:visibility="invisible"
+                    style="@style/menu_content_item">
+                    <ImageView
+                        style="@style/menu_content_item_ico"
+                        android:src="@drawable/ico_cldu" />
+                    <TextView
+                        style="@style/menu_content_item_text"
+                        android:text="仓库盘点"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:onClick="vehicleDispath"
+                    android:visibility="invisible"
+                    style="@style/menu_content_item">
+                    <ImageView
+                        style="@style/menu_content_item_ico"
+                        android:src="@drawable/ico_cldu" />
+                    <TextView
+                        style="@style/menu_content_item_text"
+                        android:text="车辆调度"/>
+                </LinearLayout>
+            </LinearLayout>
+            </LinearLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

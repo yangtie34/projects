@@ -1,0 +1,20 @@
+网络连接失败 net_close
+数据库连接失败 db_close
+请扫描入库单 in_rec_scan
+
+请扫描出库单	out_rec_scan
+请扫描库位	storage_scan
+请扫描商品	product_scan
+已分拣	hasfj
+已入仓	hasrc
+已出仓	hascc
+无此信息 wcxx
+此商品数量已满 pro_number_ok
+供应商不同 gysbt
+完成	ok
+失败	fail
+装车  zc
+下车  xc
+请扫描车辆 vehicle_scan
+请扫描托运单 consign_scan
+扫描数量大于单据商品数 cosign_number_full

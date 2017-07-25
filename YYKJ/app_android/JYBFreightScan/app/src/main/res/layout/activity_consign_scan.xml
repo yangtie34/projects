@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_consign_scan"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context=".activitys.ConsignScan">
+
+    <com.eyun.jybfreightscan.cusviews.CusWindowPop
+        app:ng_data="carSelectWindows"
+        android:background="@color/gray_8f"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:background="@drawable/f_new_order_bg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+                <TextView
+                    style="@style/font_big"
+                    android:layout_gravity="center_vertical"
+                    android:text="车辆条码"/>
+
+                <com.eyun.framework.angular.baseview.CusEditView
+                    app:ng_model="carBarCode"
+                    android:id="@+id/txtCarBarCode"
+                    android:layout_weight="1"
+                    android:textSize="18dp"
+                    android:background="@android:drawable/edit_text"
+                    android:layout_margin="5dp"
+                    android:layout_height="40dp"
+                    android:maxLines="1"
+                    android:lines="1"
+                    android:layout_width="200dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <com.eyun.framework.angular.baseview.CusTextView
+                    style="@style/font_medium"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    app:ng_model="carErrTip"
+                    android:textColor="@color/red"
+                    android:text=""/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.eyun.jybfreightscan.cusviews.CusWindowPop>
+
+    <com.eyun.jybfreightscan.cusviews.CusWindowPop
+        app:ng_data="upLoadWindows"
+        android:background="@color/gray_8f"
+        android:layout_width="match_parent"
+        android:layout_height="500dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:background="@drawable/f_new_order_bg"
+            android:layout_width="match_parent"
+            android:layout_height="500dp">
+
+
+            <ListView
+                android:id="@+id/listResault"
+                android:layout_width="match_parent"
+                android:layout_height="500dp" >
+
+            </ListView>
+        </LinearLayout>
+
+    </com.eyun.jybfreightscan.cusviews.CusWindowPop>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="10dp"
+        android:background="@color/sandybrown">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:onClick="back"
+            android:src="@drawable/selector_actionbar_back_btn"
+            />
+
+        <com.eyun.framework.angular.baseview.CusTextView
+            app:ng_model="title"
+            style="@style/activity_title"
+            android:text="扫描操作" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_marginTop="50dp"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                style="@style/font_big"
+                android:layout_gravity="center_vertical"
+                android:text="条码"/>
+
+            <com.eyun.framework.angular.baseview.CusEditView
+                app:ng_model="scanCode"
+                android:id="@+id/txtBarCode"
+                android:layout_weight="1"
+                android:textSize="18dp"
+                android:background="@android:drawable/edit_text"
+                android:layout_margin="5dp"
+                android:layout_height="40dp"
+                android:maxLines="1"
+                android:lines="1"
+                android:layout_width="match_parent" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_height="20dp">
+
+            <com.eyun.framework.angular.baseview.CusTextView
+                style="@style/scan_errtip"
+                app:ng_model="scanErrTip"
+                android:gravity="center_vertical|center_horizontal"
+                android:layout_width="match_parent"
+                android:text=""
+                 />
+
+
+        </LinearLayout>
+        <View
+            style="@style/login_line_line"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                style="@style/font_big"
+                android:layout_marginLeft="25dp"
+                android:text="订单编号"/>
+
+            <com.eyun.framework.angular.baseview.CusEditView
+                app:ng_model="recNumber"
+                android:layout_weight="1"
+
+                android:textSize="18dp"
+                android:background="@android:drawable/edit_text"
+                android:layout_gravity="center_vertical"
+                android:layout_height="40dp"
+                android:maxLines="1"
+                android:lines="1"
+                android:enabled="false"
+                android:layout_width="match_parent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                style="@style/font_big"
+                android:layout_marginLeft="25dp"
+                android:text="发货站点"/>
+
+            <com.eyun.framework.angular.baseview.CusEditView
+                app:ng_model="comBrDelivery"
+                android:layout_weight="1"
+
+                android:textSize="18dp"
+                android:background="@android:drawable/edit_text"
+                android:layout_gravity="center_vertical"
+                android:layout_height="40dp"
+                android:maxLines="1"
+                android:lines="1"
+                android:enabled="false"
+                android:layout_width="match_parent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                style="@style/font_big"
+                android:layout_marginLeft="25dp"
+                android:text="收  货  人"/>
+
+            <com.eyun.framework.angular.baseview.CusEditView
+                app:ng_model="receiveName"
+                android:layout_weight="1"
+                android:textSize="18dp"
+                android:background="@android:drawable/edit_text"
+                android:layout_gravity="center_vertical"
+                android:layout_height="40dp"
+                android:maxLines="1"
+                android:lines="1"
+                android:enabled="false"
+                android:layout_width="match_parent" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                style="@style/font_big"
+                android:layout_marginLeft="25dp"
+                android:text="发  货  人"/>
+
+            <com.eyun.framework.angular.baseview.CusEditView
+                app:ng_model="deliveryName"
+                android:layout_weight="1"
+                android:textSize="18dp"
+                android:background="@android:drawable/edit_text"
+                android:layout_gravity="center_vertical"
+                android:layout_height="40dp"
+                android:maxLines="1"
+                android:lines="1"
+                android:enabled="false"
+                android:layout_width="match_parent" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/font_big"
+                android:layout_marginLeft="25dp"
+                android:text="扫描件数"/>
+
+            <com.eyun.framework.angular.baseview.CusEditView
+                app:ng_model="scanNumber"
+                android:layout_weight="1"
+                android:textSize="18dp"
+                android:background="@android:drawable/edit_text"
+                android:layout_height="40dp"
+                android:maxLines="1"
+                android:lines="1"
+                android:enabled="false"
+                android:layout_width="match_parent" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:background="@drawable/btn_top_bg"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"
+                android:textSize="15dp"
+                android:text="切换车辆"
+                android:onClick="changeCar" />
+
+            <Button
+                android:background="@drawable/btn_top_bg"
+                android:id="@+id/btnUpload"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"
+                android:textSize="15dp"
+                android:text="开始上传" />
+
+            <Button
+                android:background="@drawable/btn_top_bg"
+                android:id="@+id/btnConfirm"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"
+                android:textSize="15dp"
+                android:text="发车确认" />
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/layout_bottom"
+
+        android:background="@android:color/background_light"
+        android:layout_height="30dp">
+        <TextView
+            android:text="当前车辆:"
+            style="@style/menu_user_info_key"/>
+
+        <com.eyun.framework.angular.baseview.CusTextView
+            app:ng_model="carNo"
+            style="@style/menu_user_info_value"/>
+
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#FFFFFF">
+
+    <RelativeLayout
+
+        android:paddingBottom="1dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="1dp"
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp">
+
+        <!--<com.eyun.framework.angular.baseview.CusTextView
+            app:ng_model="'编号:'+LItitle"-->
+            <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:textColor="@color/gray"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignLeft="@id/title"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textSize="12dp"
+            android:textColor="@color/black" />
+
+       <!-- <com.eyun.framework.angular.baseview.CusTextView
+            app:ng_model="'数量:'+LItime"-->
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textSize="12dp"
+            android:layout_alignParentTop="true"
+            android:textColor="@color/gray" />
+        <!--<com.eyun.framework.angular.baseview.CusTextView
+            app:ng_model="'类别:'+LIinfo"-->
+        <TextView
+            android:id="@+id/info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12dp"
+           android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:textColor="@color/gray" />
+
+</RelativeLayout>
+    <include layout="@layout/base_view_line_horizontal"
+        />
+</LinearLayout>

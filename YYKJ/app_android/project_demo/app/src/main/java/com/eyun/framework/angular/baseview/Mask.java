@@ -5,10 +5,10 @@ import android.widget.RelativeLayout;
 
 import com.eyun.framework.Constant;
 import com.eyun.framework.angular.core.Scope;
-import com.eyun.framework.util.ActivityUtil;
 import com.eyun.framework.util.CSS;
 import com.eyun.framework.util.CallBack;
 import com.eyun.framework.util.ThreadUtil;
+import com.eyun.framework.util.android.ViewUtil;
 import com.eyun.project_demo.R;
 
 import java.util.HashMap;
@@ -39,7 +39,7 @@ public class Mask {
         view.setLayoutParams(Constant.layoutParamsMATCH);
         view.setBackgroundColor(Scope.activity.getResources().getColor(R.color.black));
         view.setAlpha(alphaStart);
-        ActivityUtil.getRootView().addView(view);
+        ViewUtil.getRootView().addView(view);
     }
 
     //静态工厂方法
@@ -80,7 +80,12 @@ public class Mask {
                         } else if (alpha < alphaStart) {
                             alpha = alphaStart;
                         }
-                        view.setAlpha(alpha);
+                        Scope.activity.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                view.setAlpha(alpha);
+                            }
+                        });
                         try {
                             Thread.sleep(DELYED);
                         } catch (InterruptedException e) {
